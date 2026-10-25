@@ -37,6 +37,11 @@
     ],
     "oci-apps": [
       {
+        "container": "embeddings-api",
+        "service": "embeddings-api",
+        "log_level": "info"
+      },
+      {
         "container": "jev-sidecar",
         "service": "jev-sidecar",
         "log_level": "info"

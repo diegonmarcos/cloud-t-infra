@@ -180,6 +180,7 @@
         {
           "label": "AGI",
           "containers": [
+            "embeddings-api",
             "db-agent",
             "cloud-agi-hermes",
             "kg-store",
@@ -249,6 +250,27 @@
       "protocol": "",
       "db_engine": "",
       "legacy_category": "tools",
+      "public_url": "",
+      "auth": "",
+      "auth_type": "mesh"
+    },
+    {
+      "name": "embeddings-api",
+      "kind": "container",
+      "service": "embeddings-api",
+      "role": "app",
+      "dir": "infra-ai_embeddings-api",
+      "group": "Cloud Apps",
+      "category": "AGI",
+      "description": "Fleet embeddings + rerank + PDF text server, CPU, mesh-only on oci-apps. OpenAI-compatible POST /embeddings (BAAI/bge-m3) and POST /rerank (BAAI/bge-reranker-v2-m3) served by Infinity, plus POST /pdf (raw application/pdf body to plain text, pypdf), GET /models and GET /health. Consumers: Cloud SuperIntel Notebook retrieval and Cloud Tools Retrieval steps. Mesh address http://embeddings-api.mesh.diegonmarcos.com:7997 (direct, plain HTTP inside WireGuard); no public route.",
+      "image": "ghcr.io/diegonmarcos/embeddings-api-binaries:latest",
+      "host": "oci-apps",
+      "dns": "embeddings-api.mesh.diegonmarcos.com",
+      "port": 7997,
+      "public": false,
+      "protocol": "http",
+      "db_engine": "",
+      "legacy_category": "agi",
       "public_url": "",
       "auth": "",
       "auth_type": "mesh"

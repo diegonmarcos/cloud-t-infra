@@ -79,6 +79,7 @@
         "min_free_gb": 12
       },
       "containers": [
+        "embeddings-api",
         "jev-sidecar",
         "languagetool",
         "c3-infra-api",
@@ -611,6 +612,12 @@
         "service": "alerts-api"
       },
       {
+        "name": "embeddings-api.mesh.diegonmarcos.com",
+        "type": "A",
+        "value": "10.0.0.6",
+        "service": "embeddings-api"
+      },
+      {
         "name": "jev-sidecar.mesh.diegonmarcos.com",
         "type": "A",
         "value": "10.0.0.6",
@@ -1067,6 +1074,62 @@
         "ports": [],
         "networks": []
       }
+    },
+    "embeddings-api": {
+      "category": "agi",
+      "vm": "oci-A1-f_0",
+      "folder": "infra-ai_embeddings-api",
+      "description": "Fleet embeddings + rerank + PDF text server, CPU, mesh-only on oci-apps. OpenAI-compatible POST /embeddings (BAAI/bge-m3) and POST /rerank (BAAI/bge-reranker-v2-m3) served by Infinity, plus POST /pdf (raw application/pdf body to plain text, pypdf), GET /models and GET /health. Consumers: Cloud SuperIntel Notebook retrieval and Cloud Tools Retrieval steps. Mesh address http://embeddings-api.mesh.diegonmarcos.com:7997 (direct, plain HTTP inside WireGuard); no public route.",
+      "port": 7997,
+      "dns": "embeddings-api.mesh.diegonmarcos.com",
+      "upstream": "10.0.0.6:7997",
+      "containers": {
+        "app": {
+          "container_name": "embeddings-api",
+          "image": "ghcr.io/diegonmarcos/embeddings-api-binaries:latest",
+          "port": 7997,
+          "port_env": null,
+          "dns": "embeddings-api.mesh.diegonmarcos.com",
+          "public": false,
+          "healthcheck": "/health",
+          "monitoring": null,
+          "volumes": [
+            "embeddings_api_hf:/root/.cache/huggingface"
+          ],
+          "env_file": false,
+          "depends_on": [],
+          "resources": null,
+          "read_only": false,
+          "protocol": "http"
+        }
+      },
+      "container_names": [
+        "embeddings-api"
+      ],
+      "all_ports": [
+        "7997"
+      ],
+      "all_dns": [
+        "embeddings-api.mesh.diegonmarcos.com"
+      ],
+      "compose": {
+        "containers": [],
+        "ports": [],
+        "networks": []
+      },
+      "declared_ports": {
+        "app": 7997
+      },
+      "health": {
+        "path": "/health"
+      },
+      "monitoring": {
+        "tls_check": false,
+        "dns_check": true,
+        "endpoint_check": false,
+        "_doc": "Mesh-only plain HTTP on a direct-dial port, like c3-infra-api: no TLS and no hub route to probe."
+      },
+      "flake": "infra-ai_embeddings-api"
     },
     "jev-sidecar": {
       "category": "tools",

@@ -33,15 +33,15 @@
   "_generated": "",
   "_source": "_cloud-data-consolidated.json via cloud-data-config-derive.ts/kg-delta",
   "counts": {
-    "nodes": 344,
-    "edges": 472,
+    "nodes": 347,
+    "edges": 476,
     "by_table": {
       "vm": 4,
-      "service": 82,
-      "container": 101,
+      "service": 83,
+      "container": 102,
       "domain": 44,
       "repo": 3,
-      "module": 82,
+      "module": 83,
       "package": 28
     }
   },
@@ -141,6 +141,32 @@
         "image": "",
         "role": "app",
         "port": 5050,
+        "public": false
+      }
+    },
+    {
+      "table": "service",
+      "id": "embeddings_api",
+      "key": "service:embeddings_api",
+      "properties": {
+        "name": "embeddings-api",
+        "category": "agi",
+        "description": "Fleet embeddings + rerank + PDF text server, CPU, mesh-only on oci-apps. OpenAI-compatible POST /embeddings (BAAI/bge-m3) and POST /rerank (BAAI/bge-reranker-v2-m3) served by Infinity, plus POST /pdf (raw application/pdf body to plain text, pypdf), GET /models and GET /health. Consumers: Cloud SuperIntel Notebook retrieval and Cloud Tools Retrieval steps. Mesh address http://embeddings-api.mesh.diegonmarcos.com:7997 (direct, plain HTTP inside WireGuard); no public route.",
+        "domain": null,
+        "port": 7997,
+        "vm": "oci-apps",
+        "folder": "infra-ai_embeddings-api"
+      }
+    },
+    {
+      "table": "container",
+      "id": "embeddings_api",
+      "key": "container:embeddings_api",
+      "properties": {
+        "name": "embeddings-api",
+        "image": "ghcr.io/diegonmarcos/embeddings-api-binaries:latest",
+        "role": "app",
+        "port": 7997,
         "public": false
       }
     },
@@ -2852,6 +2878,17 @@
     },
     {
       "table": "module",
+      "id": "infra_ai_embeddings_api",
+      "key": "module:infra_ai_embeddings_api",
+      "properties": {
+        "name": "infra-ai_embeddings-api",
+        "repo": "cloud",
+        "category": "agi",
+        "service": "embeddings-api"
+      }
+    },
+    {
+      "table": "module",
       "id": "infra_ai_jev_sidecar",
       "key": "module:infra_ai_jev_sidecar",
       "properties": {
@@ -4107,6 +4144,22 @@
       "from": "service:alerts_api",
       "to": "container:alerts_api",
       "key": "service:alerts_api->runs_container->container:alerts_api",
+      "properties": {
+        "role": "app"
+      }
+    },
+    {
+      "table": "hosted_on",
+      "from": "service:embeddings_api",
+      "to": "vm:oci_apps",
+      "key": "service:embeddings_api->hosted_on->vm:oci_apps",
+      "properties": {}
+    },
+    {
+      "table": "runs_container",
+      "from": "service:embeddings_api",
+      "to": "container:embeddings_api",
+      "key": "service:embeddings_api->runs_container->container:embeddings_api",
       "properties": {
         "role": "app"
       }
@@ -6343,6 +6396,20 @@
       "from": "module:bc_obs_alerts_api",
       "to": "service:alerts_api",
       "key": "module:bc_obs_alerts_api->implements->service:alerts_api",
+      "properties": {}
+    },
+    {
+      "table": "belongs_to_repo",
+      "from": "module:infra_ai_embeddings_api",
+      "to": "repo:cloud",
+      "key": "module:infra_ai_embeddings_api->belongs_to_repo->repo:cloud",
+      "properties": {}
+    },
+    {
+      "table": "implements",
+      "from": "module:infra_ai_embeddings_api",
+      "to": "service:embeddings_api",
+      "key": "module:infra_ai_embeddings_api->implements->service:embeddings_api",
       "properties": {}
     },
     {

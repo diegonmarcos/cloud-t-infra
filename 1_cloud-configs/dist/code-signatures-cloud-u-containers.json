@@ -6,25 +6,25 @@
   },
   "repo": "cloud-u-containers",
   "counts": {
-    "files": 2494,
+    "files": 2500,
     "by_lang": {
-      "sh": 167,
-      "nix": 181,
+      "sh": 168,
+      "nix": 183,
       "js": 92,
-      "py": 502,
+      "py": 505,
       "ts": 1190,
       "rust": 362
     },
     "by_role": {
-      "shell": 157,
+      "shell": 158,
       "nix-module": 19,
       "file": 339,
-      "python": 489,
+      "python": 491,
       "module": 733,
       "script": 9,
-      "flake": 82,
-      "compose": 80,
-      "entrypoint": 49,
+      "flake": 83,
+      "entrypoint": 50,
+      "compose": 81,
       "mcp-tool": 121,
       "workflow-dag": 5,
       "rust-module": 358,
@@ -1272,6 +1272,168 @@
         "defaultPkg",
         "default",
         "docs"
+      ]
+    },
+    {
+      "path": "infra-ai_embeddings-api/build.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "get_config()",
+        "get_config_array()",
+        "get_lifecycle()",
+        "detect_layout()",
+        "rewrite_compose_image_refs()",
+        "log()",
+        "log_warn()",
+        "log_error()",
+        "declared_container_names()",
+        "ssh_with_retry()",
+        "ssh_run_detached()",
+        "rsync_with_retry()",
+        "_ship_build_phase()"
+      ],
+      "imports": [],
+      "symbols": [
+        "get_config()",
+        "get_config_array()",
+        "get_lifecycle()",
+        "detect_layout()",
+        "rewrite_compose_image_refs()",
+        "log()",
+        "log_warn()",
+        "log_error()",
+        "declared_container_names()",
+        "ssh_with_retry()",
+        "ssh_run_detached()",
+        "rsync_with_retry()",
+        "_ship_build_phase()"
+      ]
+    },
+    {
+      "path": "infra-ai_embeddings-api/src/code/main.py",
+      "lang": "py",
+      "role": "entrypoint",
+      "exports": [],
+      "imports": [
+        "fastapi",
+        "fastapi.concurrency",
+        "infinity_emb",
+        "infinity_emb.args",
+        "os",
+        "pdftext"
+      ],
+      "symbols": [
+        "_args(model: str)"
+      ]
+    },
+    {
+      "path": "infra-ai_embeddings-api/src/code/pdftext.py",
+      "lang": "py",
+      "role": "python",
+      "exports": [
+        "extract(data: bytes)"
+      ],
+      "imports": [
+        "pypdf",
+        "io"
+      ],
+      "symbols": [
+        "extract(data: bytes)"
+      ]
+    },
+    {
+      "path": "infra-ai_embeddings-api/src/code/test/test_pdftext.py",
+      "lang": "py",
+      "role": "python",
+      "exports": [
+        "class PdfText"
+      ],
+      "imports": [
+        "os",
+        "sys",
+        "unittest",
+        "pdftext"
+      ],
+      "symbols": [
+        "_pdf(text: bytes)",
+        "class PdfText"
+      ]
+    },
+    {
+      "path": "infra-ai_embeddings-api/src/compose.nix",
+      "lang": "nix",
+      "role": "compose",
+      "exports": [
+        "buildJson",
+        "container"
+      ],
+      "imports": [],
+      "symbols": [
+        "app",
+        "port",
+        "bind",
+        "m",
+        "binariesImage",
+        "services",
+        "embeddings-api",
+        "image",
+        "container_name",
+        "restart",
+        "env_file",
+        "environment",
+        "EMBED_MODEL",
+        "RERANK_MODEL",
+        "BATCH_SIZE",
+        "INFINITY_ANONYMOUS_USAGE_STATS",
+        "HF_HUB_DISABLE_TELEMETRY",
+        "OMP_NUM_THREADS",
+        "ports",
+        "volumes",
+        "healthcheck",
+        "test",
+        "interval",
+        "timeout",
+        "retries",
+        "start_period",
+        "embeddings_api_hf"
+      ]
+    },
+    {
+      "path": "infra-ai_embeddings-api/src/flake.nix",
+      "lang": "nix",
+      "role": "flake",
+      "exports": [
+        "description",
+        "Type",
+        "nixpkgs"
+      ],
+      "imports": [
+        "../../_shared/engine.nix",
+        "./compose.nix",
+        "../_shared/engine.nix",
+        "compose.nix"
+      ],
+      "symbols": [
+        "description",
+        "outputs",
+        "forAllSystems",
+        "buildJson",
+        "container",
+        "engine",
+        "nb",
+        "packages",
+        "pkgs",
+        "default",
+        "srcDir",
+        "templates",
+        "composeSpec",
+        "nativeBuild",
+        "cmd",
+        "binary",
+        "baseImage",
+        "apt",
+        "title"
       ]
     },
     {

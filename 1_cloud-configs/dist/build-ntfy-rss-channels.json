@@ -6,9 +6,9 @@
   "base": "https://rss.diegonmarcos.com/feed",
   "counts": {
     "declared": 22,
-    "logs": 101,
-    "apps": 36,
-    "total": 159
+    "logs": 102,
+    "apps": 37,
+    "total": 161
   },
   "channels": [
     {
@@ -218,6 +218,17 @@
       "source": "logs",
       "vm": "oci-analytics",
       "feed": "/feed/c/logs_alerts-api.atom",
+      "quiet": true
+    },
+    {
+      "id": "logs_embeddings-api",
+      "topic": "logs_embeddings-api",
+      "title": "embeddings-api",
+      "path": "Cloud-Infra/Logs/oci-apps/embeddings-api",
+      "category": "logs",
+      "source": "logs",
+      "vm": "oci-apps",
+      "feed": "/feed/c/logs_embeddings-api.atom",
       "quiet": true
     },
     {
@@ -1318,6 +1329,16 @@
       "source": "logs",
       "vm": "local",
       "feed": "/feed/c/logs_front-end.atom",
+      "quiet": true
+    },
+    {
+      "id": "app_embeddings-api",
+      "topic": "app_embeddings-api",
+      "title": "Fleet embeddings + rerank + PDF text server, CPU, mesh-only on oci-apps. OpenAI-compatible POST /embeddings (BAAI/bge-m3) and POST /rerank (BAAI/bge-reranker-v2-m3) served by Infinity, plus POST /pdf (raw application/pdf body to plain text, pypdf), GET /models and GET /health. Consumers: Cloud SuperIntel Notebook retrieval and Cloud Tools Retrieval steps. Mesh address http://embeddings-api.mesh.diegonmarcos.com:7997 (direct, plain HTTP inside WireGuard); no public route.",
+      "path": "Cloud-Apps/agi/embeddings-api",
+      "category": "apps",
+      "source": "apps",
+      "feed": "/feed/c/app_embeddings-api.atom",
       "quiet": true
     },
     {

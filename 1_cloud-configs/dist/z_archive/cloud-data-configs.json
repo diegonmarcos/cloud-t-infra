@@ -491,6 +491,18 @@
       ]
     },
     {
+      "name": "embeddings-api",
+      "category": "agi",
+      "vm": "oci-A1-f_0",
+      "description": "Fleet embeddings + rerank + PDF text server, CPU, mesh-only on oci-apps. OpenAI-compatible POST /embeddings (BAAI/bge-m3) and POST /rerank (BAAI/bge-reranker-v2-m3) served by Infinity, plus POST /pdf (raw application/pdf body to plain text, pypdf), GET /models and GET /health. Consumers: Cloud SuperIntel Notebook retrieval and Cloud Tools Retrieval steps. Mesh address http://embeddings-api.mesh.diegonmarcos.com:7997 (direct, plain HTTP inside WireGuard); no public route.",
+      "domain": "—",
+      "ports": [],
+      "networks": [],
+      "containers": [
+        "embeddings-api"
+      ]
+    },
+    {
       "name": "etherpad",
       "category": "app",
       "vm": "oci-A1-f_0",
@@ -1767,6 +1779,18 @@
       "networks": [],
       "containers": [
         "contacts-radicale"
+      ]
+    },
+    {
+      "name": "embeddings-api",
+      "category": "agi",
+      "vm": "oci-A1-f_0",
+      "description": "Fleet embeddings + rerank + PDF text server, CPU, mesh-only on oci-apps. OpenAI-compatible POST /embeddings (BAAI/bge-m3) and POST /rerank (BAAI/bge-reranker-v2-m3) served by Infinity, plus POST /pdf (raw application/pdf body to plain text, pypdf), GET /models and GET /health. Consumers: Cloud SuperIntel Notebook retrieval and Cloud Tools Retrieval steps. Mesh address http://embeddings-api.mesh.diegonmarcos.com:7997 (direct, plain HTTP inside WireGuard); no public route.",
+      "domain": "—",
+      "ports": [],
+      "networks": [],
+      "containers": [
+        "embeddings-api"
       ]
     },
     {

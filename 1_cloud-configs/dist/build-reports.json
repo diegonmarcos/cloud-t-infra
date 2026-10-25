@@ -462,6 +462,19 @@
       "ports": null,
       "health": null
     },
+    "embeddings-api": {
+      "name": "embeddings-api",
+      "vm": "oci-A1-f_0",
+      "domain": null,
+      "enabled": true,
+      "category": "agi",
+      "ports": {
+        "app": 7997
+      },
+      "health": {
+        "path": "/health"
+      }
+    },
     "jev-sidecar": {
       "name": "jev-sidecar",
       "vm": "oci-A1-f_0",
@@ -1529,6 +1542,15 @@
       "dns": "alerts-api.mesh.diegonmarcos.com"
     },
     {
+      "service": "embeddings-api",
+      "dns": "embeddings-api.mesh.diegonmarcos.com"
+    },
+    {
+      "service": "embeddings-api",
+      "container": "app",
+      "dns": "embeddings-api.mesh.diegonmarcos.com"
+    },
+    {
       "service": "jev-sidecar",
       "dns": "jev-sidecar.mesh.diegonmarcos.com"
     },
@@ -2281,6 +2303,7 @@
         "user": "ubuntu",
         "provider": null,
         "services": [
+          "embeddings-api",
           "jev-sidecar",
           "languagetool",
           "c3-infra-api",
@@ -2389,6 +2412,19 @@
         "category": "tools",
         "ports": null,
         "health": null
+      },
+      "embeddings-api": {
+        "name": "embeddings-api",
+        "vm": "oci-A1-f_0",
+        "domain": null,
+        "enabled": true,
+        "category": "agi",
+        "ports": {
+          "app": 7997
+        },
+        "health": {
+          "path": "/health"
+        }
       },
       "jev-sidecar": {
         "name": "jev-sidecar",

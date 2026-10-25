@@ -12,6 +12,15 @@
       ],
       "resources": null
     },
+    "embeddings-api": {
+      "vm": "oci-apps",
+      "vm_ram_gb": 24,
+      "vm_cpu": 4,
+      "containers": [
+        "embeddings-api"
+      ],
+      "resources": null
+    },
     "jev-sidecar": {
       "vm": "oci-apps",
       "vm_ram_gb": 24,

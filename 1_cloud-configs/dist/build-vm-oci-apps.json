@@ -4,6 +4,15 @@
   "vm_id": "oci-A1-f_0",
   "services": [
     {
+      "name": "embeddings-api",
+      "dir": "infra-ai_embeddings-api",
+      "compose_path": "/opt/containers/embeddings-api",
+      "images": [
+        "ghcr.io/diegonmarcos/embeddings-api-binaries:latest"
+      ],
+      "has_docker_build": true
+    },
+    {
       "name": "jev-sidecar",
       "dir": "infra-ai_jev-sidecar",
       "compose_path": "/opt/containers/jev-sidecar",
