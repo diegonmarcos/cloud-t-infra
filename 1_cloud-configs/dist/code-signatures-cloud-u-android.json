@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22289,
+    "files": 22321,
     "by_lang": {
       "js": 491,
       "sh": 557,
-      "py": 165,
-      "kotlin": 11847,
+      "py": 167,
+      "kotlin": 11877,
       "java": 647,
       "nix": 30,
       "rust": 111,
@@ -20,9 +20,9 @@
     "by_role": {
       "file": 2280,
       "shell": 441,
-      "script": 258,
+      "script": 260,
       "java": 646,
-      "kotlin": 11844,
+      "kotlin": 11874,
       "module": 6419,
       "flake": 26,
       "python": 54,
@@ -1223,6 +1223,51 @@
         "check_second_rows(app, sections, bad)",
         "check_backgrounds(app, sections, spec, code, rel, bad)",
         "main(argv)"
+      ]
+    },
+    {
+      "path": ".github/workflows/scripts/cloud-android-nav-walk.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "adb(*a, timeout=90)",
+        "shell(cmd, timeout=90)",
+        "dump(tries=8)",
+        "find(nodes, rid)",
+        "findall(nodes, prefix)",
+        "texts_in(nodes, box)",
+        "tap(n)",
+        "swipe(x, y1, y2, ms=350)",
+        "settle(s=0.9)",
+        "screen_size()",
+        "pages_of(section)",
+        "class Node",
+        "class Walk"
+      ],
+      "imports": [
+        "argparse",
+        "json",
+        "os",
+        "re",
+        "subprocess",
+        "sys",
+        "time",
+        "xml.etree.ElementTree"
+      ],
+      "symbols": [
+        "adb(*a, timeout=90)",
+        "shell(cmd, timeout=90)",
+        "dump(tries=8)",
+        "find(nodes, rid)",
+        "findall(nodes, prefix)",
+        "texts_in(nodes, box)",
+        "tap(n)",
+        "swipe(x, y1, y2, ms=350)",
+        "settle(s=0.9)",
+        "screen_size()",
+        "pages_of(section)",
+        "class Node",
+        "class Walk"
       ]
     },
     {
@@ -3700,6 +3745,51 @@
         "check_second_rows(app, sections, bad)",
         "check_backgrounds(app, sections, spec, code, rel, bad)",
         "main(argv)"
+      ]
+    },
+    {
+      "path": "1_cicd/src/scripts/cloud-android-nav-walk.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "adb(*a, timeout=90)",
+        "shell(cmd, timeout=90)",
+        "dump(tries=8)",
+        "find(nodes, rid)",
+        "findall(nodes, prefix)",
+        "texts_in(nodes, box)",
+        "tap(n)",
+        "swipe(x, y1, y2, ms=350)",
+        "settle(s=0.9)",
+        "screen_size()",
+        "pages_of(section)",
+        "class Node",
+        "class Walk"
+      ],
+      "imports": [
+        "argparse",
+        "json",
+        "os",
+        "re",
+        "subprocess",
+        "sys",
+        "time",
+        "xml.etree.ElementTree"
+      ],
+      "symbols": [
+        "adb(*a, timeout=90)",
+        "shell(cmd, timeout=90)",
+        "dump(tries=8)",
+        "find(nodes, rid)",
+        "findall(nodes, prefix)",
+        "texts_in(nodes, box)",
+        "tap(n)",
+        "swipe(x, y1, y2, ms=350)",
+        "settle(s=0.9)",
+        "screen_size()",
+        "pages_of(section)",
+        "class Node",
+        "class Walk"
       ]
     },
     {
@@ -77877,7 +77967,7 @@
         "profileSummary(p: AutofillProfile)",
         "ruleSummary(r: SiteRule)",
         "Page(title: String, subtitle: String, content: @Composable ()",
-        "Field(label: String, value: String, tag: String, keyboard: KeyboardType = KeyboardType.Text, single: Boolean = true, onChange: (String)",
+        "AutofillField(label: String, value: String, tag: String, keyboard: KeyboardType = KeyboardType.Text, single: Boolean = true, onChange: (String)",
         "Small(text: String, tag: String, onClick: ()",
         "AutofillProfilesPage()",
         "ProfileEditor(start: AutofillProfile, onSave: (AutofillProfile)",
@@ -87282,13 +87372,10 @@
         "com.diegonmarcos.cloudcalc.sheetui.SheetHub"
       ],
       "symbols": [
-        "CalcDrawer(state: CalcState, close: ()",
-        "NavDrawer(state: CalcState, close: ()",
+        "CalcDrawer(close: ()",
         "SheetDrawer(close: ()",
         "Item(label: String, selected: Boolean, tag: String, onClick: ()",
         "Eyebrow(text: String)",
-        "section(id: String)",
-        "page(id: String)",
         "sheet(name: String)",
         "workbook(name: String)",
         "class DrawerTags"
@@ -87307,7 +87394,11 @@
         "androidx.compose.foundation.clickable",
         "androidx.compose.foundation.layout.Arrangement",
         "androidx.compose.foundation.layout.Box",
-        "androidx.compose.foundation.layout.statusBarsPadding",
+        "androidx.compose.foundation.layout.WindowInsets",
+        "androidx.compose.foundation.layout.displayCutout",
+        "androidx.compose.foundation.layout.statusBars",
+        "androidx.compose.foundation.layout.union",
+        "androidx.compose.foundation.layout.windowInsetsPadding",
         "androidx.compose.foundation.layout.PaddingValues",
         "androidx.compose.foundation.layout.size",
         "androidx.compose.foundation.lazy.LazyRow",
@@ -87333,15 +87424,12 @@
         "com.diegonmarcos.cloudcalc.Declarations",
         "com.diegonmarcos.cloudcalc.R",
         "com.diegonmarcos.cloudcalc.engine.CalcApi",
-        "com.diegonmarcos.cloudcalc.BuildConfig",
-        "com.diegonmarcos.superapp.ai.AiFleetChatPanel",
-        "com.diegonmarcos.superapp.bottomnav.AppTopBarScaffold",
-        "com.diegonmarcos.superapp.bottomnav.BottomNavHost",
-        "com.diegonmarcos.superapp.bottomnav.PageTabs",
-        "com.diegonmarcos.superapp.bottomnav.TopBarDrawer",
-        "com.diegonmarcos.superapp.bottomnav.islandEntries",
-        "com.diegonmarcos.superapp.bottomnav.rememberAccountLauncher",
-        "androidx.activity.compose.BackHandler"
+        "com.diegonmarcos.superapp.navbarbottom.NavBarBottomHost",
+        "com.diegonmarcos.superapp.navbartop1.NavBarTopFirstRowScaffold",
+        "com.diegonmarcos.superapp.navbartop1.titleHierarchy",
+        "com.diegonmarcos.superapp.navbartop2.NavBarTopSecondRow",
+        "com.diegonmarcos.superapp.themebg.themeBackground",
+        "com.diegonmarcos.superapp.bottomnav.TopBarDrawer"
       ],
       "symbols": [
         "CalcShell(api: CalcApi, state: CalcState)",
@@ -88511,10 +88599,8 @@
         "com.diegonmarcos.cloudcalc.ui.CalcState",
         "com.diegonmarcos.cloudcalc.ui.CalcTags",
         "com.diegonmarcos.cloudcalc.ui.CalcTheme",
-        "com.diegonmarcos.cloudcalc.ui.DrawerTags",
         "com.diegonmarcos.cloudcalc.ui.SheetTags",
         "com.diegonmarcos.superapp.bottomnav.BottomNavTags",
-        "com.diegonmarcos.superapp.bottomnav.TopBarTags",
         "org.junit.Assert.assertEquals",
         "org.junit.Assert.assertTrue",
         "org.junit.Rule",
@@ -88577,7 +88663,7 @@
         "com.diegonmarcos.cloudcalc.ui.DrawerTags",
         "com.diegonmarcos.cloudcalc.ui.SheetTags",
         "com.diegonmarcos.superapp.bottomnav.BottomNavTags",
-        "com.diegonmarcos.superapp.bottomnav.TopBarTags",
+        "com.diegonmarcos.superapp.navbartop1.TopFirstRowTags",
         "org.junit.Assert.assertEquals",
         "org.junit.Assert.assertTrue",
         "org.junit.Rule",
@@ -349828,6 +349914,632 @@
       ]
     },
     {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/health/HealthContent.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Cluster",
+        "HomeDecl",
+        "Level",
+        "Band",
+        "Formulas",
+        "CurveSeries",
+        "Pack",
+        "PlanItem",
+        "PlanEvent",
+        "Objective",
+        "Biomarker",
+        "Culinary",
+        "ClashSource",
+        "ClashRule",
+        "ClashDecl",
+        "Plan",
+        "Exercise",
+        "WorkoutDay",
+        "HealthContent"
+      ],
+      "imports": [
+        "android.content.Context",
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "load(ctx: Context)",
+        "read(ctx: Context, name: String)",
+        "parse(home: String, formulas: String, plan: String, workout: String)",
+        "pair()",
+        "optDoubleOrNull(k: String)",
+        "parseHome(o: JSONObject)",
+        "parseFormulas(o: JSONObject)",
+        "parseItem(o: JSONObject)",
+        "parsePlan(o: JSONObject)",
+        "src(a: JSONArray)",
+        "parseWorkout(o: JSONObject)",
+        "class Cluster",
+        "class HomeDecl",
+        "class Level",
+        "class Band",
+        "class Formulas",
+        "class CurveSeries",
+        "class Pack",
+        "class PlanItem",
+        "class PlanEvent",
+        "class Objective",
+        "class Biomarker",
+        "class Culinary",
+        "class ClashSource",
+        "class ClashRule",
+        "class ClashDecl",
+        "class Plan",
+        "class Exercise",
+        "class WorkoutDay",
+        "class HealthContent"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/health/HealthDossier.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "DossierSection",
+        "HealthDossier"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.content.Intent",
+        "android.graphics.Paint",
+        "android.graphics.Typeface",
+        "android.graphics.pdf.PdfDocument",
+        "androidx.core.content.FileProvider",
+        "java.io.File",
+        "java.text.SimpleDateFormat",
+        "java.util.Date",
+        "java.util.Locale"
+      ],
+      "symbols": [
+        "build(c: HealthContent, u: HealthUserData, include: Set<String>, trackerLines: List<String>)",
+        "date(t: Long)",
+        "wrap(line: String, maxChars: Int)",
+        "writePdf(file: File, heading: String, sections: List<DossierSection>)",
+        "newPage()",
+        "line(text: String, p: Paint, step: Float)",
+        "export(ctx: Context, heading: String, sections: List<DossierSection>)",
+        "class DossierSection",
+        "class HealthDossier"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/health/HealthFileProvider.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HealthFileProvider"
+      ],
+      "imports": [
+        "androidx.core.content.FileProvider"
+      ],
+      "symbols": [
+        "class HealthFileProvider"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/health/HealthFormulas.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HealthFormulas"
+      ],
+      "imports": [
+        "kotlin.math.ceil",
+        "kotlin.math.roundToInt"
+      ],
+      "symbols": [
+        "anthro(f: Formulas, massKg: Double?, heightCm: Double?, bfPct: Double?, activityId: String?)",
+        "sauna(f: Formulas, minutes: Int)",
+        "fluidToReplaceMl(f: Formulas, preKg: Double?, postKg: Double?)",
+        "interpolate(curve: List<Pair<Double, Double>>, x: Double)",
+        "circadianAt(points: List<Pair<Double, Double>>, minute: Double)",
+        "gutFlowPercent(f: Formulas, exertionPctVo2: Double)",
+        "mealGaps(f: Formulas, plan: Plan)",
+        "clash(decl: ClashDecl, proteinTags: Set<String>, cofactorTags: Set<String>)",
+        "clashForWindow(decl: ClashDecl, e: PlanEvent)",
+        "shopping(plan: Plan)",
+        "biomarkerStatus(b: Biomarker, value: Double)",
+        "rangeText(b: Biomarker)",
+        "num(v: Double)",
+        "nextEvent(plan: Plan, minuteOfDay: Int)",
+        "class HealthFormulas",
+        "class Anthro",
+        "class Sauna",
+        "class Gap",
+        "class Verdict",
+        "class Need",
+        "class Status"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/health/HealthHc.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Reading",
+        "DayValue",
+        "SleepNight",
+        "Workout",
+        "HealthSeries",
+        "HcState",
+        "HealthHc"
+      ],
+      "imports": [
+        "android.content.Context",
+        "androidx.health.connect.client.HealthConnectClient",
+        "androidx.health.connect.client.permission.HealthPermission",
+        "androidx.health.connect.client.records.BodyFatRecord",
+        "androidx.health.connect.client.records.ExerciseSessionRecord",
+        "androidx.health.connect.client.records.HeartRateVariabilityRmssdRecord",
+        "androidx.health.connect.client.records.HeightRecord",
+        "androidx.health.connect.client.records.Record",
+        "androidx.health.connect.client.records.RestingHeartRateRecord",
+        "androidx.health.connect.client.records.SleepSessionRecord",
+        "androidx.health.connect.client.records.StepsRecord",
+        "androidx.health.connect.client.records.WeightRecord",
+        "androidx.health.connect.client.request.ReadRecordsRequest",
+        "androidx.health.connect.client.time.TimeRangeFilter",
+        "com.diegonmarcos.superapp.health.HealthConnectGateway",
+        "java.time.Duration",
+        "java.time.Instant",
+        "java.time.LocalDate",
+        "java.time.ZoneId",
+        "kotlin.reflect.KClass"
+      ],
+      "symbols": [
+        "dailyMean(r: List<Reading>, zone: ZoneId)",
+        "dailySum(r: List<Reading>, zone: ZoneId)",
+        "stageKey(stage: Int)",
+        "night(start: Instant, end: Instant, stages: List<Triple<Instant, Instant, Int>>, zone: ZoneId)",
+        "sleepDebtH(nights: List<SleepNight>, targetH: Double)",
+        "perm(type: KClass<out Record>)",
+        "guarded(ctx: Context, needed: Set<String>, read: suspend (HealthConnectClient)",
+        "records(c: HealthConnectClient, type: KClass<R>, days: Long)",
+        "weight(c: HealthConnectClient, days: Long)",
+        "bodyFat(c: HealthConnectClient, days: Long)",
+        "height(c: HealthConnectClient)",
+        "restingHr(c: HealthConnectClient, days: Long)",
+        "hrv(c: HealthConnectClient, days: Long)",
+        "steps(c: HealthConnectClient, days: Long)",
+        "workouts(c: HealthConnectClient, days: Long)",
+        "sleep(c: HealthConnectClient, days: Long, zone: ZoneId)",
+        "class Reading",
+        "class DayValue",
+        "class SleepNight",
+        "class Workout",
+        "class HealthSeries",
+        "class HcState",
+        "class Loading",
+        "class Unavailable",
+        "class NeedPermission",
+        "class Ready",
+        "class HealthHc"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/health/HealthPage.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HealthPage"
+      ],
+      "imports": [
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.cloudme.LocalMeTarget",
+        "com.diegonmarcos.cloudme.Sections"
+      ],
+      "symbols": [
+        "HealthPage(pageId: String, modifier: Modifier = Modifier)"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/health/HealthPlanPages.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HealthEnv",
+        "HomePage",
+        "BioPage",
+        "CircadianPage",
+        "BiomarkersPage",
+        "TimelinePage",
+        "ObjectivesPage",
+        "MatrixPage",
+        "CulinaryPage",
+        "ClashPage",
+        "ThermalPage",
+        "HemoPage",
+        "ShopPage"
+      ],
+      "imports": [
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableFloatStateOf",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.produceState",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.res.colorResource",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "com.diegonmarcos.cloudme.R",
+        "com.diegonmarcos.superapp.uiicons.UiIcons",
+        "java.text.SimpleDateFormat",
+        "java.time.LocalDate",
+        "java.time.LocalTime",
+        "java.time.temporal.IsoFields",
+        "java.util.Date",
+        "java.util.Locale"
+      ],
+      "symbols": [
+        "today()",
+        "fmtDate(t: Long)",
+        "nowMinutes()",
+        "dec()",
+        "dstr(v: Double?)",
+        "HomePage(e: HealthEnv)",
+        "BioPage(e: HealthEnv)",
+        "CircadianPage(e: HealthEnv)",
+        "BiomarkersPage(e: HealthEnv)",
+        "TimelinePage(e: HealthEnv)",
+        "ObjectivesPage(e: HealthEnv)",
+        "MatrixPage(e: HealthEnv)",
+        "CulinaryPage(e: HealthEnv)",
+        "ClashPage(e: HealthEnv)",
+        "levelColor(level: String)",
+        "VerdictCard(v: HealthFormulas.Verdict)",
+        "ThermalPage(e: HealthEnv)",
+        "HemoPage(e: HealthEnv)",
+        "ShopPage(e: HealthEnv)",
+        "class HealthEnv"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/health/HealthTrackerPages.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "WorkoutPage",
+        "ActivitiesPage",
+        "BodyCompPage",
+        "HrPage",
+        "SleepPage",
+        "trackerSummary",
+        "DossierPage"
+      ],
+      "imports": [
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableLongStateOf",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.produceState",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.rememberCoroutineScope",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "java.time.Duration",
+        "java.time.LocalDate",
+        "java.time.ZoneId",
+        "java.time.format.DateTimeFormatter",
+        "java.util.Locale",
+        "kotlinx.coroutines.launch"
+      ],
+      "symbols": [
+        "dayX(d: LocalDate)",
+        "WorkoutPage(e: HealthEnv)",
+        "ActivitiesPage(e: HealthEnv)",
+        "BodyCompPage(e: HealthEnv)",
+        "HrPage(e: HealthEnv)",
+        "SleepPage(e: HealthEnv)",
+        "trackerSummary(ctx: android.content.Context)",
+        "line(name: String, s: HcState<T>, ok: (T)",
+        "DossierPage(e: HealthEnv)"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/health/HealthUi.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ChartSeries"
+      ],
+      "imports": [
+        "androidx.activity.compose.rememberLauncherForActivityResult",
+        "androidx.compose.foundation.Canvas",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.Checkbox",
+        "androidx.compose.material3.CheckboxDefaults",
+        "androidx.compose.material3.ExperimentalMaterial3Api",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.OutlinedTextFieldDefaults",
+        "androidx.compose.material3.Slider",
+        "androidx.compose.material3.SliderDefaults",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableIntStateOf",
+        "androidx.compose.runtime.produceState",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.geometry.Offset",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.graphics.Path",
+        "androidx.compose.ui.graphics.StrokeCap",
+        "androidx.compose.ui.graphics.drawscope.Stroke",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.res.colorResource",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.text.input.KeyboardType",
+        "androidx.compose.ui.unit.dp"
+      ],
+      "symbols": [
+        "ink()",
+        "dim()",
+        "accent()",
+        "HCard(modifier: Modifier = Modifier, onClick: (()",
+        "HTitle(text: String, sub: String = \"\")",
+        "HHead(text: String)",
+        "HText(text: String, color: Color = dim()",
+        "HRow(label: String, value: String, valueColor: Color = ink()",
+        "HEmpty(text: String)",
+        "Pill(text: String, selected: Boolean = false, color: Color? = null, onClick: ()",
+        "Choice(options: List<Pair<String, String>>, selected: String?, onPick: (String)",
+        "NumField(label: String, value: String, onChange: (String)",
+        "TextBox(label: String, value: String, onChange: (String)",
+        "fieldColors()",
+        "Tick(label: String, checked: Boolean, onChange: (Boolean)",
+        "Slide(value: Float, range: ClosedFloatingPointRange<Float>, steps: Int, onChange: (Float)",
+        "LineChart(series: List<ChartSeries>, markers: List<Double> = emptyList()",
+        "px(x: Double)",
+        "py(y: Double)",
+        "BarChart(values: List<Double>, color: Color, height: Int = 120)",
+        "HcPanel(needed: Set<String>, load: suspend (HealthConnectClient)",
+        "class ChartSeries"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/health/HealthUserData.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Measurement",
+        "LabResult",
+        "WorkoutEntry",
+        "HealthUserData",
+        "HealthUserStore"
+      ],
+      "imports": [
+        "android.content.Context",
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "latestMeasure()",
+        "withMeasurement(m: Measurement)",
+        "withLab(l: LabResult)",
+        "labsFor(marker: String)",
+        "toggled(set: Set<String>, key: String)",
+        "withWorkout(e: WorkoutEntry)",
+        "toJson()",
+        "dbl(k: String)",
+        "fromJson(text: String?)",
+        "load(ctx: Context)",
+        "save(ctx: Context, d: HealthUserData)",
+        "class Measurement",
+        "class LabResult",
+        "class WorkoutEntry",
+        "class HealthUserData",
+        "class HealthUserStore"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/LedgerModel.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Rec",
+        "LedgerField",
+        "LedgerDef",
+        "LedgerData",
+        "LedgerModel"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "java.math.BigDecimal",
+        "java.math.RoundingMode"
+      ],
+      "symbols": [
+        "parse(o: JSONObject)",
+        "rows(collection: String)",
+        "collections()",
+        "added(collection: String, values: Rec)",
+        "removed(collection: String, id: String)",
+        "toJson()",
+        "fromJson(text: String?)",
+        "money(s: String?)",
+        "isDate(s: String?)",
+        "validate(def: LedgerDef, values: Rec)",
+        "clean(def: LedgerDef, values: Rec)",
+        "fmt(v: BigDecimal, currency: String)",
+        "class LedgerField",
+        "class LedgerDef",
+        "class LedgerData",
+        "class LedgerModel"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/LedgerReports.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ReportTable",
+        "LedgerReports"
+      ],
+      "imports": [
+        "java.math.BigDecimal",
+        "java.math.RoundingMode"
+      ],
+      "symbols": [
+        "build(id: String, d: LedgerData, today: String, currency: String)",
+        "key(s: String?)",
+        "sum(xs: Iterable<BigDecimal>)",
+        "m(r: Rec, k: String)",
+        "f(v: BigDecimal, c: String)",
+        "pct(part: BigDecimal, whole: BigDecimal)",
+        "budgetVsActual(d: LedgerData, today: String, c: String)",
+        "accountsVsCashflow(d: LedgerData, today: String, c: String)",
+        "row(name: String, opening: BigDecimal, asOf: String, mine: List<Rec>)",
+        "portfolio(d: LedgerData, c: String)",
+        "income(d: LedgerData, today: String, c: String)",
+        "class ReportTable",
+        "class LedgerReports"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/LedgerScreen.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LedgerTags",
+        "LedgerBlock"
+      ],
+      "imports": [
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.text.KeyboardOptions",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.OutlinedTextFieldDefaults",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.colorResource",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.text.input.KeyboardType",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "com.diegonmarcos.cloudme.health.Choice",
+        "com.diegonmarcos.cloudme.health.HCard",
+        "com.diegonmarcos.cloudme.health.HHead",
+        "com.diegonmarcos.cloudme.health.HRow",
+        "com.diegonmarcos.cloudme.health.HText",
+        "com.diegonmarcos.cloudme.health.Pill",
+        "com.diegonmarcos.cloudme.health.accent",
+        "com.diegonmarcos.cloudme.health.dim",
+        "com.diegonmarcos.cloudme.health.ink",
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "java.text.SimpleDateFormat",
+        "java.util.Date",
+        "java.util.Locale"
+      ],
+      "symbols": [
+        "add(collection: String)",
+        "save(collection: String)",
+        "field(collection: String, id: String)",
+        "row(collection: String, id: String)",
+        "remove(collection: String, id: String)",
+        "empty(collection: String)",
+        "LedgerBlock(o: JSONObject)",
+        "commit(d: LedgerData)",
+        "ReportCard(t: ReportTable)",
+        "ReportRow(columns: List<String>, cells: List<String>, bold: Boolean = false)",
+        "CollectionCard(def: LedgerDef, rows: List<Rec>, currency: String, onAdd: (Rec)",
+        "AddForm(def: LedgerDef, onCancel: ()",
+        "class LedgerTags"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/LedgerStore.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LedgerStore"
+      ],
+      "imports": [
+        "android.content.Context"
+      ],
+      "symbols": [
+        "load(ctx: Context, store: String)",
+        "save(ctx: Context, store: String, d: LedgerData)",
+        "class LedgerStore"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/LegacyRoutes.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LegacyRoutes"
+      ],
+      "imports": [],
+      "symbols": [
+        "resolve(section: String, page: String?)",
+        "class LegacyRoutes"
+      ]
+    },
+    {
       "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/MainActivity.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -350206,6 +350918,7 @@
       ],
       "symbols": [
         "items(events: JSONArray, todos: JSONArray)",
+        "forSubject(items: List<TaskItem>, subject: String)",
         "due(t: JSONObject)",
         "startOfDay(ms: Long)",
         "addDays(ms: Long, days: Int)",
@@ -350272,7 +350985,7 @@
       "symbols": [
         "view(v: TasksView)",
         "row(title: String)",
-        "TasksScreen(modifier: Modifier = Modifier)",
+        "TasksScreen(modifier: Modifier = Modifier, subject: String = \"\", openTarget: String = \"\")",
         "TasksContent(items: List<TaskItem>, notice: String?, modifier: Modifier = Modifier, today: Long = System.currentTimeMillis()",
         "DayView(items: List<TaskItem>, day: Long, today: Long, onDay: (Long)",
         "SubjectView(items: List<TaskItem>)",
@@ -350312,6 +351025,179 @@
         "WebPage(block: JSONObject, modifier: Modifier = Modifier)",
         "onPageFinished(view: WebView?, url: String?)",
         "doUpdateVisitedHistory(view: WebView?, url: String?, isReload: Boolean)"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/BuroLlcDeclTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "BuroLlcDeclTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "ids(a: JSONArray)",
+        "groups(s: String)",
+        "page(s: String, p: String)",
+        "collections(s: String)",
+        "class BuroLlcDeclTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/BuroLlcTestData.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "BuroLlcTestData"
+      ],
+      "imports": [
+        "java.io.File"
+      ],
+      "symbols": [
+        "text(rel: String)",
+        "class BuroLlcTestData"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/health/HealthContentTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HealthContentTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config",
+        "java.io.File"
+      ],
+      "symbols": [
+        "healthSection()",
+        "groupPages()",
+        "class HealthContentTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/health/HealthFormulasTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HealthFormulasTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "class HealthFormulasTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/health/HealthPlanRulesTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HealthPlanRulesTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "need(id: String)",
+        "verdict(p: String, k: String)",
+        "lvl(id: String)",
+        "class HealthPlanRulesTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/health/HealthScrollGuardTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HealthScrollGuardTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "java.io.File"
+      ],
+      "symbols": [
+        "dir()",
+        "class HealthScrollGuardTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/health/HealthTestData.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HealthTestData"
+      ],
+      "imports": [
+        "java.io.File"
+      ],
+      "symbols": [
+        "file(rel: String)",
+        "text(rel: String)",
+        "content()",
+        "class HealthTestData"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/health/HealthUserDataTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HealthUserDataTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.robolectric.RuntimeEnvironment",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config",
+        "java.time.Instant",
+        "java.time.LocalDate",
+        "java.time.ZoneId"
+      ],
+      "symbols": [
+        "at(day: Int, h: Int)",
+        "class HealthUserDataTest"
       ]
     },
     {
@@ -350357,6 +351243,91 @@
         "switchingPagesKeepsOneFragmentAndSmallSavedState()",
         "class LeakProbeFragment",
         "class HostedFragmentLeakTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/LedgerModelTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LedgerModelTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config",
+        "java.math.BigDecimal"
+      ],
+      "symbols": [
+        "class LedgerModelTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/LedgerReportsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LedgerReportsTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "data(vararg entries: Pair<String, List<Rec>>)",
+        "cash(date: String, account: String, category: String, amount: String)",
+        "class LedgerReportsTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/LedgerScrollGuardTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LedgerScrollGuardTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "java.io.File"
+      ],
+      "symbols": [
+        "src(n: String)",
+        "class LedgerScrollGuardTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/LegacyRoutesTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LegacyRoutesTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "class LegacyRoutesTest"
       ]
     },
     {
@@ -482524,6 +483495,32 @@
       ]
     },
     {
+      "path": "ac_cloud-superintel/app/src/main/java/com/diegonmarcos/cloudsuperintel/FleetRank.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FleetPost",
+        "FleetRank"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "java.net.HttpURLConnection",
+        "java.net.URL"
+      ],
+      "symbols": [
+        "send(path: String, contentType: String, body: ByteArray, readMs: Int)",
+        "json(path: String, body: JSONObject, readMs: Int)",
+        "embed(texts: List<String>)",
+        "rerank(query: String, docs: List<String>)",
+        "pdfText(pdf: ByteArray)",
+        "http(base: String, probeMs: Int)",
+        "shared(cfg: NotebookConfig, base: String = BuildConfig.EMBED_API_URL)",
+        "class FleetPost",
+        "class FleetRank"
+      ]
+    },
+    {
       "path": "ac_cloud-superintel/app/src/main/java/com/diegonmarcos/cloudsuperintel/MainActivity.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -482585,6 +483582,7 @@
         "Passage",
         "NotebookConfig",
         "Grounded",
+        "Ranker",
         "Notebook",
         "NotebookDoc",
         "ChatTurn",
@@ -482597,13 +483595,18 @@
       ],
       "symbols": [
         "parse(text: String)",
+        "embed(texts: List<String>)",
+        "rerank(query: String, docs: List<String>)",
         "tokens(s: String)",
         "chunks(s: String, chars: Int, overlap: Int)",
         "passages(sources: List<Source>, cfg: NotebookConfig)",
         "retrieve(question: String, all: List<Passage>, cfg: NotebookConfig)",
+        "cosine(a: DoubleArray, b: DoubleArray)",
+        "retrieveHybrid(question: String, all: List<Passage>, cfg: NotebookConfig, ranker: Ranker?)",
         "prompt(question: String, found: List<Passage>, cfg: NotebookConfig)",
         "check(reply: String, found: List<Passage>, cfg: NotebookConfig)",
         "answer(question: String, sources: List<Source>, cfg: NotebookConfig, ask: (String, String)",
+        "answerWith(question: String, sources: List<Source>, cfg: NotebookConfig, ranker: Ranker?, ask: (String, String)",
         "generatorPrompt(g: NotebookConfig.Generator, sources: List<Source>, cfg: NotebookConfig)",
         "htmlText(html: String)",
         "title(html: String, fallback: String)",
@@ -482618,7 +483621,9 @@
         "class Passage",
         "class NotebookConfig",
         "class Generator",
+        "class Semantic",
         "class Grounded",
+        "class Ranker",
         "class Notebook",
         "class NotebookDoc",
         "class ChatTurn",
@@ -482804,13 +483809,13 @@
         "androidx.compose.ui.text.style.TextOverflow",
         "androidx.compose.ui.unit.dp",
         "com.diegonmarcos.cloudsuperintel.ChatTurn",
+        "com.diegonmarcos.cloudsuperintel.FleetRank",
         "com.diegonmarcos.cloudsuperintel.Notebook",
         "com.diegonmarcos.cloudsuperintel.NotebookConfig",
         "com.diegonmarcos.cloudsuperintel.NotebookDoc",
         "com.diegonmarcos.cloudsuperintel.NotebookStore",
         "com.diegonmarcos.cloudsuperintel.R",
-        "com.diegonmarcos.cloudsuperintel.SiAi",
-        "com.diegonmarcos.cloudsuperintel.Source"
+        "com.diegonmarcos.cloudsuperintel.SiAi"
       ],
       "symbols": [
         "open(id: String)",
@@ -482956,6 +483961,45 @@
         "forYouMergesTheTopicsItMixes()",
         "summaryPromptsCarryTheHeadlinesAndForbidAddingFacts()",
         "class NewsTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-superintel/app/src/test/java/com/diegonmarcos/cloudsuperintel/NotebookHybridTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NotebookHybridTest",
+        "FleetRankTest"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "sleepy(t: String)",
+        "embed(texts: List<String>)",
+        "rerank(query: String, docs: List<String>)",
+        "aParaphraseBm25MissesIsFoundWithTheService()",
+        "anOutOfScopeQuestionStillFindsNothingAndTheModelIsNotCalled()",
+        "withEmbeddingsOnlyTheCosineFloorDecides()",
+        "whenTheServiceIsDownBm25StillAnswers()",
+        "noRankerIsPlainBm25()",
+        "theServiceIsDeclaredWithItsFloors()",
+        "send(path: String, contentType: String, body: ByteArray, readMs: Int)",
+        "embedReply(body: String)",
+        "embeddingsAreKeptPerText()",
+        "rerankScoresComeBackInDocumentOrder()",
+        "aMalformedReplyIsNull()",
+        "aFailedServiceIsLeftAloneUntilTheRetryWindowPasses()",
+        "pdfTextIsReadFromTheReply()",
+        "class NotebookHybridTest",
+        "class Fake",
+        "class FleetRankTest",
+        "class Http"
       ]
     },
     {
@@ -492547,6 +493591,37 @@
       ]
     },
     {
+      "path": "ac_cloud-tools-small-llms/app/src/main/java/com/diegonmarcos/cloudtoolssmallllms/data/FleetRetrieval.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RetrievalPost",
+        "FleetRetrieval",
+        "Retrieval"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "java.net.HttpURLConnection",
+        "java.net.URL"
+      ],
+      "symbols": [
+        "send(path: String, body: String, readMs: Int)",
+        "call(path: String, body: JSONObject)",
+        "embed(texts: List<String>)",
+        "cosine(a: DoubleArray, b: DoubleArray)",
+        "rankByEmbedding(question: String, passages: List<String>)",
+        "rerank(question: String, passages: List<String>)",
+        "http(base: String, probeMs: Int)",
+        "create(cfg: RetrievalService?, base: String)",
+        "split(text: String)",
+        "join(question: String, passages: List<String>)",
+        "class RetrievalPost",
+        "class FleetRetrieval",
+        "class Retrieval"
+      ]
+    },
+    {
       "path": "ac_cloud-tools-small-llms/app/src/main/java/com/diegonmarcos/cloudtoolssmallllms/data/LocalChatBackend.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -492616,6 +493691,7 @@
         "Macro",
         "Step",
         "Location",
+        "RetrievalService",
         "AppCategory",
         "AppDef",
         "AppUi",
@@ -492650,6 +493726,7 @@
         "class Macro",
         "class Step",
         "class Location",
+        "class RetrievalService",
         "class AppCategory",
         "class AppDef",
         "class AppUi",
@@ -493076,12 +494153,15 @@
         "com.diegonmarcos.cloudtoolssmallllms.data.Catalogue",
         "com.diegonmarcos.cloudtoolssmallllms.data.AppDef",
         "com.diegonmarcos.cloudtoolssmallllms.data.LocalCall",
+        "com.diegonmarcos.cloudtoolssmallllms.data.FleetRetrieval",
         "com.diegonmarcos.cloudtoolssmallllms.data.LocalChatBackend",
+        "com.diegonmarcos.cloudtoolssmallllms.data.Location",
         "com.diegonmarcos.cloudtoolssmallllms.data.ModelRow",
         "com.diegonmarcos.cloudtoolssmallllms.data.ModelRuntime",
         "com.diegonmarcos.cloudtoolssmallllms.data.ModelsData",
         "com.diegonmarcos.cloudtoolssmallllms.data.OllamaRuntime",
         "com.diegonmarcos.cloudtoolssmallllms.data.PhoneRuntime",
+        "com.diegonmarcos.cloudtoolssmallllms.data.Retrieval",
         "com.diegonmarcos.cloudtoolssmallllms.data.RuntimeState",
         "com.diegonmarcos.cloudtoolssmallllms.data.Step",
         "com.diegonmarcos.cloudtoolssmallllms.data.SecretPrefs",
@@ -493098,14 +494178,12 @@
         "com.diegonmarcos.superapp.ai.AiMsg",
         "com.diegonmarcos.superapp.ai.AiReply",
         "com.diegonmarcos.superapp.ai.AiRequest",
-        "com.diegonmarcos.superapp.ai.AiStandardHost",
-        "com.diegonmarcos.superapp.decisions.UrlHttp",
-        "java.io.File",
-        "kotlinx.coroutines.CoroutineScope"
+        "com.diegonmarcos.superapp.ai.AiStandardHost"
       ],
       "symbols": [
         "registry()",
         "pin(model: String)",
+        "urlOf(l: Location)",
         "loadedNames()",
         "chooseBackend(b: String)",
         "refreshStore()",
@@ -493124,6 +494202,7 @@
         "local()",
         "cloud()",
         "runApp(a: AppDef, input: String)",
+        "runRetrieval(s: Step, input: String)",
         "closeApp()",
         "recordLocal(c: LocalCall)",
         "tryInAi(model: String)",

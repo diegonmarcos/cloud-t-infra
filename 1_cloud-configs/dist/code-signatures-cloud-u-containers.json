@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-containers",
   "counts": {
-    "files": 2500,
+    "files": 2502,
     "by_lang": {
       "sh": 168,
       "nix": 183,
       "js": 92,
-      "py": 505,
+      "py": 507,
       "ts": 1190,
       "rust": 362
     },
@@ -19,7 +19,7 @@
       "shell": 158,
       "nix-module": 19,
       "file": 339,
-      "python": 491,
+      "python": 493,
       "module": 733,
       "script": 9,
       "flake": 83,
@@ -1311,17 +1311,36 @@
       ]
     },
     {
+      "path": "infra-ai_embeddings-api/src/code/gate.py",
+      "lang": "py",
+      "role": "python",
+      "exports": [
+        "build(state: State, inner, load)",
+        "class State"
+      ],
+      "imports": [
+        "fastapi",
+        "fastapi.concurrency",
+        "asyncio",
+        "pdftext"
+      ],
+      "symbols": [
+        "build(state: State, inner, load)",
+        "class State"
+      ]
+    },
+    {
       "path": "infra-ai_embeddings-api/src/code/main.py",
       "lang": "py",
       "role": "entrypoint",
       "exports": [],
       "imports": [
-        "fastapi",
-        "fastapi.concurrency",
+        "huggingface_hub",
         "infinity_emb",
         "infinity_emb.args",
+        "asyncio",
         "os",
-        "pdftext"
+        "gate"
       ],
       "symbols": [
         "_args(model: str)"
@@ -1340,6 +1359,25 @@
       ],
       "symbols": [
         "extract(data: bytes)"
+      ]
+    },
+    {
+      "path": "infra-ai_embeddings-api/src/code/test/test_gate.py",
+      "lang": "py",
+      "role": "python",
+      "exports": [
+        "class Gate"
+      ],
+      "imports": [
+        "test_pdftext",
+        "asyncio",
+        "os",
+        "sys",
+        "unittest",
+        "gate"
+      ],
+      "symbols": [
+        "class Gate"
       ]
     },
     {
@@ -1380,6 +1418,8 @@
         "image",
         "container_name",
         "restart",
+        "network_mode",
+        "command",
         "env_file",
         "environment",
         "EMBED_MODEL",
@@ -1388,7 +1428,6 @@
         "INFINITY_ANONYMOUS_USAGE_STATS",
         "HF_HUB_DISABLE_TELEMETRY",
         "OMP_NUM_THREADS",
-        "ports",
         "volumes",
         "healthcheck",
         "test",
