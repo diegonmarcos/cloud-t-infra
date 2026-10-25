@@ -27,7 +27,9 @@
     { "name": "git-repos-master", "reason": "this index itself (see _self_doc)" },
     { "name": "cloud-me", "reason": "on GitHub but not indexed here as of 2026-10-21 (#1073); owner to decide: register or archive" },
     { "name": "cloud-me_data-private", "reason": "on GitHub but not indexed here as of 2026-10-21 (#1073); owner to decide: register or archive" },
-    { "name": "z-archived_My-ai-memory", "reason": "on GitHub but not indexed here as of 2026-10-21 (#1073); owner to decide: register or archive" }
+    { "name": "z-archived_My-ai-memory", "reason": "on GitHub but not indexed here as of 2026-10-21 (#1073); owner to decide: register or archive" },
+    { "name": "z-archived_c3-infra-plugin", "reason": "archived; the c3-infra plugin source of truth moved to cloud-u-linux da_my-ai/data/claude/cloud-marketplace/c3-infra" },
+    { "name": "cloud_db_infra-ops-obsv_configs-sync", "reason": "on GitHub but not indexed here as of 2026-10-25; owner to decide: register or archive" }
   ],
   "_unregistered_doc": "GitHub repos (by GitHub name) that exist but deliberately have no entry. cloud-infra's repos-sot tester fails when the fetched GitHub inventory holds a repo that is neither registered above nor listed here, and when a pending_creation repo already shows up in the inventory (flip its status).",
   "_consumers_doc": "Every symlink farmer / list reader of this account and where it takes its list from. THIS FILE is the only editable source; each consumer holds either a byte copy (fleet_files, refreshed by `./clone.sh --sync`) or a subset it must keep consistent with this file (`node repos-sot.js check-subset <file>`). A consumer's own drift guard fails when its copy differs from this file or names a repo this file does not know.",

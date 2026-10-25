@@ -1,0 +1,96 @@
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║                                                                  ║
+# ║   GENERATED FILE — DO NOT EDIT                                   ║
+# ║                                                                  ║
+# ║   Source : 1_cicd/src/cicd/sops-set.yml
+# ║   Engine : 1_cicd/src/scripts/cloud-ship-repo-workflow-engine.sh
+# ║   Rebuild: ./9_others/build.sh
+# ║                                                                  ║
+# ║   Manual edits will be overwritten on next build.                ║
+# ║                                                                  ║
+# ╚══════════════════════════════════════════════════════════════════╝
+
+name: "Sops set (re-encrypted file as artifact)"
+
+# Adds or replaces ONE key in a sops-encrypted file of a public sibling repo, using the fleet age key that only CI
+# holds, and hands back the re-encrypted FILE as a one-day artifact. The plaintext value comes from a GitHub
+# age file `cipher_file` of this repo (encrypted to the PUBLIC fleet recipient, so the file is safe to commit; delete
+# it after the run); it is decrypted in the job, passed to sops on stdin and never printed. The artifact holds the
+# encrypted file only, so the caller commits it to the target repo (this workflow never pushes anywhere).
+on:
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: "owner/repo of the target (diegonmarcos/* only)"
+        required: true
+        type: string
+      file:
+        description: "path of the sops yaml/json file inside the repo"
+        required: true
+        type: string
+      ops:
+        description: 'JSON list of {"idx": sops index like ["a"]["b"], "from": "cipher"|"literal", "v": literal value}'
+        required: true
+        type: string
+      cipher_file:
+        description: "path in this repo of the age-encrypted value (armored)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  set:
+    runs-on: ubuntu-latest
+    if: ${{ startsWith(inputs.repo, 'diegonmarcos/') }}
+    env:
+      SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ inputs.repo }}
+          path: target
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
+        with:
+          path: self
+          sparse-checkout: tmp-sops-set
+      - name: Install sops
+        run: |
+          set -eu
+          sudo apt-get install -y -qq age >/dev/null
+          curl -fsSL -o /tmp/sops https://github.com/getsops/sops/releases/download/v3.11.0/sops-v3.11.0.linux.amd64
+          sudo install -m 0755 /tmp/sops /usr/local/bin/sops
+          sops --version; sops set --help 2>&1 | grep -q value-stdin
+      - name: Set the key
+        env:
+          T_FILE: ${{ inputs.file }}
+          T_OPS: ${{ inputs.ops }}
+          T_CIPHER: ${{ inputs.cipher_file }}
+        run: |
+          set -eu
+          case "$T_FILE$T_CIPHER" in *..*|*'"'*|*"'"*|*' '*) echo "::error::refusing odd file/key"; exit 1;; esac
+          mkdir -p ~/.config/sops/age && umask 077 && printf '%s\n' "$SOPS_AGE_KEY" > ~/.config/sops/age/keys.txt
+          export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
+          SET_VALUE="$(age -d -i ~/.config/sops/age/keys.txt "self/$T_CIPHER")"
+          [ -n "$SET_VALUE" ] || { echo "::error::the decrypted value is empty"; exit 1; }
+          echo "::add-mask::$SET_VALUE"
+          export SET_VALUE
+          export T_PATH="target/$T_FILE"
+          python3 - <<'PY'
+          import json, os, subprocess, sys
+          v, path = os.environ["SET_VALUE"], os.environ["T_PATH"]
+          for o in json.loads(os.environ["T_OPS"]):
+              val = v if o.get("from") == "cipher" else o["v"]
+              subprocess.run(["sops", "set", "--value-stdin", path, o["idx"]], input=json.dumps(val).encode(), check=True)
+          t = open(path).read()
+          print("sops metadata present: %s, plaintext in file: %s" % ("sops:" in t, v in t))
+          sys.exit(0 if "sops:" in t and v not in t else 1)
+          PY
+          mkdir -p out && cp "target/$T_FILE" out/result.enc
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sops-set-result
+          path: out/result.enc
+          retention-days: 1

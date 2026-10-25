@@ -1,6 +1,6 @@
 #!/bin/sh
 # Thin wrapper. The implementation moved to cloud-u-linux (my-ai engine
-# `dotfiles`): da_my-ai/engines/dotfiles/deploy-dotfiles.sh. my-ai is the single
+# `dotfiles`): deploy-dotfiles.sh under da_my-ai/engines. my-ai is the single
 # deployer of Claude config; this path stays so build.sh, CI and the generated
 # file banners ("Engine : 9_others/src/deploy-dotfiles.sh") keep working.
 #
@@ -19,7 +19,7 @@ REL=da_my-ai/engines/dotfiles/deploy-dotfiles.sh
 
 S=""
 for c in "${MY_AI_DOTFILES_SCRIPT:-}" \
-         "${CLAUDE_SOT_DIR:+$CLAUDE_SOT_DIR/../../engines/dotfiles/deploy-dotfiles.sh}" \
+         "${CLAUDE_SOT_DIR:+$CLAUDE_SOT_DIR/../../${REL#da_my-ai/}}" \
          "$HOME/git/cloud-u-linux/$REL" \
          "$HERE/../../../cloud-u-linux/$REL"; do
     [ -n "$c" ] && [ -f "$c" ] && { S="$c"; break; }
