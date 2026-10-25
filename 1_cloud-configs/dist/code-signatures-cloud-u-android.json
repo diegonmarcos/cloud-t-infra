@@ -174809,6 +174809,7 @@
         "com.diegonmarcos.clouddrive.DrivePrefs",
         "com.diegonmarcos.clouddrive.backups.MirrorRunner",
         "com.diegonmarcos.clouddrive.configs.ConfigsScreen",
+        "com.diegonmarcos.clouddrive.sync.GitSyncCoordinator",
         "com.diegonmarcos.superapp.bottomnav.TopBarTags",
         "java.io.File",
         "kotlinx.coroutines.CoroutineScope",
@@ -174825,8 +174826,7 @@
         "org.robolectric.RobolectricTestRunner",
         "org.robolectric.RuntimeEnvironment",
         "org.robolectric.Shadows.shadowOf",
-        "org.robolectric.annotation.Config",
-        "org.robolectric.annotation.GraphicsMode"
+        "org.robolectric.annotation.Config"
       ],
       "symbols": [
         "evaluate()",
@@ -482783,6 +482783,8 @@
         "android.content.ComponentName",
         "androidx.activity.ComponentActivity",
         "androidx.compose.ui.semantics.getOrNull",
+        "androidx.compose.ui.layout.positionInParent",
+        "androidx.compose.ui.test.performScrollTo",
         "androidx.compose.ui.test.SemanticsMatcher",
         "androidx.compose.ui.test.assertIsEnabled",
         "androidx.compose.ui.test.assertIsNotEnabled",
@@ -482796,7 +482798,6 @@
         "androidx.compose.ui.test.onNodeWithTag",
         "androidx.compose.ui.test.performClick",
         "androidx.compose.ui.test.performImeAction",
-        "androidx.compose.ui.test.performScrollTo",
         "androidx.compose.ui.test.performScrollToNode",
         "androidx.compose.ui.test.performSemanticsAction",
         "androidx.compose.ui.test.performTextInput",
@@ -482818,8 +482819,7 @@
         "org.junit.Test",
         "org.junit.rules.RuleChain",
         "org.junit.rules.TestRule",
-        "org.junit.runner.RunWith",
-        "org.junit.runners.model.Statement"
+        "org.junit.runner.RunWith"
       ],
       "symbols": [
         "evaluate()",
