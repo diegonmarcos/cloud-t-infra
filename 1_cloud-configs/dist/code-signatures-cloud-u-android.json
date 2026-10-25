@@ -6,24 +6,24 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22367,
+    "files": 22382,
     "by_lang": {
-      "js": 491,
+      "js": 493,
       "sh": 558,
       "py": 167,
-      "kotlin": 11922,
+      "kotlin": 11935,
       "java": 647,
       "nix": 30,
       "rust": 111,
       "ts": 8441
     },
     "by_role": {
-      "file": 2280,
+      "file": 2281,
       "shell": 442,
       "script": 260,
       "java": 646,
-      "kotlin": 11919,
-      "module": 6419,
+      "kotlin": 11932,
+      "module": 6420,
       "flake": 26,
       "python": 54,
       "rust-module": 111,
@@ -1233,6 +1233,7 @@
         "adb(*a, timeout=90)",
         "shell(cmd, timeout=90)",
         "dump(tries=8, _depth=0)",
+        "anr_evidence(pkg=\"\")",
         "dismiss_emulator_prompt(nodes)",
         "find(nodes, rid)",
         "findall(nodes, prefix)",
@@ -1240,6 +1241,7 @@
         "clear_blockers(nodes)",
         "tap(n)",
         "swipe(x, y1, y2, ms=350)",
+        "motion(action, x, y)",
         "settle(s=0.9)",
         "screen_size()",
         "pages_of(section)",
@@ -1260,6 +1262,7 @@
         "adb(*a, timeout=90)",
         "shell(cmd, timeout=90)",
         "dump(tries=8, _depth=0)",
+        "anr_evidence(pkg=\"\")",
         "dismiss_emulator_prompt(nodes)",
         "find(nodes, rid)",
         "findall(nodes, prefix)",
@@ -1267,6 +1270,7 @@
         "clear_blockers(nodes)",
         "tap(n)",
         "swipe(x, y1, y2, ms=350)",
+        "motion(action, x, y)",
         "settle(s=0.9)",
         "screen_size()",
         "pages_of(section)",
@@ -3759,6 +3763,7 @@
         "adb(*a, timeout=90)",
         "shell(cmd, timeout=90)",
         "dump(tries=8, _depth=0)",
+        "anr_evidence(pkg=\"\")",
         "dismiss_emulator_prompt(nodes)",
         "find(nodes, rid)",
         "findall(nodes, prefix)",
@@ -3766,6 +3771,7 @@
         "clear_blockers(nodes)",
         "tap(n)",
         "swipe(x, y1, y2, ms=350)",
+        "motion(action, x, y)",
         "settle(s=0.9)",
         "screen_size()",
         "pages_of(section)",
@@ -3786,6 +3792,7 @@
         "adb(*a, timeout=90)",
         "shell(cmd, timeout=90)",
         "dump(tries=8, _depth=0)",
+        "anr_evidence(pkg=\"\")",
         "dismiss_emulator_prompt(nodes)",
         "find(nodes, rid)",
         "findall(nodes, prefix)",
@@ -3793,6 +3800,7 @@
         "clear_blockers(nodes)",
         "tap(n)",
         "swipe(x, y1, y2, ms=350)",
+        "motion(action, x, y)",
         "settle(s=0.9)",
         "screen_size()",
         "pages_of(section)",
@@ -6633,6 +6641,43 @@
       ]
     },
     {
+      "path": "aa_cloud-superapp/app/src/androidTest/java/com/diegonmarcos/superapp/HomeSwipeGestureTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HomeSwipeGestureTest"
+      ],
+      "imports": [
+        "android.app.Instrumentation",
+        "android.content.Intent",
+        "android.os.SystemClock",
+        "android.view.InputDevice",
+        "android.view.MotionEvent",
+        "androidx.test.ext.junit.runners.AndroidJUnit4",
+        "androidx.test.platform.app.InstrumentationRegistry",
+        "androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry",
+        "androidx.test.runner.lifecycle.Stage",
+        "com.diegonmarcos.superapp.launcher.GroupedTilesFragment",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith"
+      ],
+      "symbols": [
+        "launchHome()",
+        "onMain(f: ()",
+        "until(ms: Long, cond: ()",
+        "fling(xFrac: Float, fromFrac: Float, toFrac: Float)",
+        "send(action: Int, y: Float, t: Long)",
+        "swipeUntil(shell: ShellActivity, up: Boolean, arrived: ()",
+        "evidence(shell: ShellActivity, name: String)",
+        "declared(target: String)",
+        "swipeUpOpensCloudApps()",
+        "swipeDownOpensNotify()",
+        "class HomeSwipeGestureTest"
+      ]
+    },
+    {
       "path": "aa_cloud-superapp/app/src/androidTest/java/com/diegonmarcos/superapp/KdeConfigsPageTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -7293,63 +7338,6 @@
       ]
     },
     {
-      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/apps/RecentAppsFragment.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "RecentAppsFragment"
-      ],
-      "imports": [
-        "com.diegonmarcos.superapp.datamanager.AppUsageProvider",
-        "com.diegonmarcos.superapp.launcher.AppLongPressMenu",
-        "com.diegonmarcos.superapp.ui.LauncherPalette",
-        "android.content.Context",
-        "android.content.pm.LauncherApps",
-        "android.graphics.drawable.Drawable",
-        "android.os.Process",
-        "androidx.compose.foundation.ExperimentalFoundationApi",
-        "androidx.compose.foundation.Image",
-        "androidx.compose.foundation.combinedClickable",
-        "androidx.compose.foundation.layout.Arrangement",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.PaddingValues",
-        "androidx.compose.foundation.layout.fillMaxSize",
-        "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.layout.padding",
-        "androidx.compose.foundation.layout.size",
-        "androidx.compose.foundation.lazy.grid.GridCells",
-        "androidx.compose.foundation.lazy.grid.LazyVerticalGrid",
-        "androidx.compose.foundation.lazy.grid.items",
-        "androidx.compose.material3.Text",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.remember",
-        "androidx.compose.ui.Alignment",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.graphics.asImageBitmap",
-        "androidx.compose.ui.platform.LocalContext",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.text.style.TextAlign",
-        "androidx.compose.ui.text.style.TextOverflow",
-        "androidx.compose.ui.unit.dp",
-        "androidx.compose.ui.unit.sp",
-        "androidx.core.graphics.drawable.toBitmap",
-        "com.diegonmarcos.superapp.uikit.KitComposeFragment",
-        "com.diegonmarcos.superapp.uikit.KitEmptyState",
-        "com.diegonmarcos.superapp.uikit.LocalKitPalette"
-      ],
-      "symbols": [
-        "palette()",
-        "Content()",
-        "AppTile(ctx: Context, a: AppInfo)",
-        "newInstance()",
-        "tileTag(pkg: String)",
-        "recentApps(ctx: Context)",
-        "resolve(pkg: String)",
-        "class RecentAppsFragment",
-        "class AppInfo"
-      ]
-    },
-    {
       "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/apps/SuitePhoneAppsFragment.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -7666,7 +7654,61 @@
       ]
     },
     {
-      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cloud/C3HealthFragment.kt",
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/boards/TasksFragment.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "TasksFragment"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.launcher.AggregatorStackFragment",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.semantics.Role",
+        "androidx.compose.ui.semantics.selected",
+        "androidx.compose.ui.semantics.semantics",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.text.style.TextAlign",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.superapp.ui.LauncherPalette",
+        "com.diegonmarcos.superapp.uikit.KitComposeFragment",
+        "com.diegonmarcos.superapp.uikit.LocalKitPalette",
+        "java.text.SimpleDateFormat",
+        "java.util.Calendar",
+        "java.util.Locale"
+      ],
+      "symbols": [
+        "palette()",
+        "Content()",
+        "Agenda()",
+        "Day()",
+        "ToDo()",
+        "SimpleRow(title: String, body: String, highlight: Boolean)",
+        "Caption(text: String)",
+        "chipTag(t: Tab)",
+        "agendaDays()",
+        "newInstance()",
+        "class TasksFragment",
+        "class Tab"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/c3/C3HealthFragment.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -7720,43 +7762,7 @@
       ]
     },
     {
-      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cloud/C3MeshFragment.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "C3MeshFragment"
-      ],
-      "imports": [
-        "com.diegonmarcos.superapp.R",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.fillMaxSize",
-        "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.layout.padding",
-        "androidx.compose.foundation.rememberScrollState",
-        "androidx.compose.foundation.verticalScroll",
-        "androidx.compose.material3.MaterialTheme",
-        "androidx.compose.material3.Text",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.draw.alpha",
-        "androidx.compose.ui.platform.LocalContext",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.res.stringResource",
-        "androidx.compose.ui.unit.dp",
-        "com.diegonmarcos.superapp.ui.LauncherPalette",
-        "com.diegonmarcos.superapp.uikit.KitComposeFragment",
-        "com.diegonmarcos.superapp.uikit.LocalKitPalette"
-      ],
-      "symbols": [
-        "palette()",
-        "Content()",
-        "pageModifier()",
-        "newInstance()",
-        "class C3MeshFragment"
-      ]
-    },
-    {
-      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cloud/CalendarAgendaFragment.kt",
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cal/CalendarAgendaFragment.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -7793,7 +7799,7 @@
       ]
     },
     {
-      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cloud/CalendarAgendaPopup.kt",
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cal/CalendarAgendaPopup.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -7856,7 +7862,7 @@
       ]
     },
     {
-      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cloud/CalendarMonthFragment.kt",
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cal/CalendarMonthFragment.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -7910,6 +7916,42 @@
         "monthGrid(year: Int, month: Int)",
         "newInstance()",
         "class CalendarMonthFragment"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cloud/C3MeshFragment.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "C3MeshFragment"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.R",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.alpha",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.superapp.ui.LauncherPalette",
+        "com.diegonmarcos.superapp.uikit.KitComposeFragment",
+        "com.diegonmarcos.superapp.uikit.LocalKitPalette"
+      ],
+      "symbols": [
+        "palette()",
+        "Content()",
+        "pageModifier()",
+        "newInstance()",
+        "class C3MeshFragment"
       ]
     },
     {
@@ -8233,73 +8275,6 @@
       ]
     },
     {
-      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cloud/NewsFeedFragment.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "NewsFeedFragment"
-      ],
-      "imports": [
-        "com.diegonmarcos.superapp.launcher.TileGridFragment",
-        "com.diegonmarcos.superapp.launcher.Sections",
-        "com.diegonmarcos.superapp.R",
-        "androidx.compose.animation.core.animateFloatAsState",
-        "androidx.compose.foundation.background",
-        "androidx.compose.foundation.clickable",
-        "androidx.compose.foundation.layout.Arrangement",
-        "androidx.compose.foundation.layout.Box",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.Row",
-        "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.layout.padding",
-        "androidx.compose.foundation.layout.size",
-        "androidx.compose.foundation.shape.RoundedCornerShape",
-        "androidx.compose.material3.CircularProgressIndicator",
-        "androidx.compose.material3.Icon",
-        "androidx.compose.material3.MaterialTheme",
-        "androidx.compose.material3.Text",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.LaunchedEffect",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableStateOf",
-        "androidx.compose.runtime.remember",
-        "androidx.compose.runtime.saveable.rememberSaveable",
-        "androidx.compose.runtime.setValue",
-        "androidx.compose.ui.Alignment",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.draw.alpha",
-        "androidx.compose.ui.draw.clip",
-        "androidx.compose.ui.draw.rotate",
-        "androidx.compose.ui.platform.LocalContext",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.res.painterResource",
-        "androidx.compose.ui.res.stringResource",
-        "androidx.compose.ui.text.font.FontFamily",
-        "androidx.compose.ui.text.font.FontWeight",
-        "androidx.compose.ui.unit.dp",
-        "androidx.fragment.app.FragmentActivity",
-        "com.diegonmarcos.superapp.rss.FeedItem",
-        "com.diegonmarcos.superapp.rss.RemoteFeed"
-      ],
-      "symbols": [
-        "palette()",
-        "Content()",
-        "ChannelCard(feed: Sections.NewsFeed)",
-        "Hint(text: String, modifier: Modifier = Modifier)",
-        "hostOf(url: String)",
-        "catTag(cat: String)",
-        "headerTag(id: String)",
-        "bodyTag(id: String)",
-        "failTag(id: String)",
-        "newInstance()",
-        "class NewsFeedFragment",
-        "class Load",
-        "class Busy",
-        "class Done",
-        "class Failed"
-      ]
-    },
-    {
       "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cloud/OpsClient.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -8324,60 +8299,6 @@
         "class Outcome",
         "class Ok",
         "class Failed"
-      ]
-    },
-    {
-      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cloud/TasksFragment.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "TasksFragment"
-      ],
-      "imports": [
-        "com.diegonmarcos.superapp.launcher.AggregatorStackFragment",
-        "androidx.compose.foundation.background",
-        "androidx.compose.foundation.clickable",
-        "androidx.compose.foundation.layout.Arrangement",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.Row",
-        "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.layout.padding",
-        "androidx.compose.material3.MaterialTheme",
-        "androidx.compose.material3.Text",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableStateOf",
-        "androidx.compose.runtime.saveable.rememberSaveable",
-        "androidx.compose.runtime.setValue",
-        "androidx.compose.ui.Alignment",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.semantics.Role",
-        "androidx.compose.ui.semantics.selected",
-        "androidx.compose.ui.semantics.semantics",
-        "androidx.compose.ui.text.font.FontWeight",
-        "androidx.compose.ui.text.style.TextAlign",
-        "androidx.compose.ui.unit.dp",
-        "com.diegonmarcos.superapp.ui.LauncherPalette",
-        "com.diegonmarcos.superapp.uikit.KitComposeFragment",
-        "com.diegonmarcos.superapp.uikit.LocalKitPalette",
-        "java.text.SimpleDateFormat",
-        "java.util.Calendar",
-        "java.util.Locale"
-      ],
-      "symbols": [
-        "palette()",
-        "Content()",
-        "Agenda()",
-        "Day()",
-        "ToDo()",
-        "SimpleRow(title: String, body: String, highlight: Boolean)",
-        "Caption(text: String)",
-        "chipTag(t: Tab)",
-        "agendaDays()",
-        "newInstance()",
-        "class TasksFragment",
-        "class Tab"
       ]
     },
     {
@@ -10384,47 +10305,6 @@
       ]
     },
     {
-      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/launcher/AppDrawerSheetFragment.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "AppDrawerSheetFragment"
-      ],
-      "imports": [
-        "com.diegonmarcos.superapp.apps.SuitePhoneAppsBody",
-        "com.diegonmarcos.superapp.bottomnav.NavPage",
-        "com.diegonmarcos.superapp.bottomnav.PageTabs",
-        "com.diegonmarcos.superapp.search.SearchEntry",
-        "com.diegonmarcos.superapp.search.SearchFrame",
-        "com.diegonmarcos.superapp.search.SearchSession",
-        "com.diegonmarcos.superapp.ui.Haptics",
-        "com.diegonmarcos.superapp.ui.LauncherPalette",
-        "com.diegonmarcos.superapp.uikit.KitComposeFragment",
-        "com.diegonmarcos.superapp.uikit.LocalKitPalette",
-        "android.os.Bundle",
-        "androidx.compose.foundation.background",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.fillMaxSize",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableStateOf",
-        "androidx.compose.runtime.remember",
-        "androidx.compose.runtime.saveable.rememberSaveable",
-        "androidx.compose.runtime.setValue",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.platform.LocalView",
-        "androidx.compose.ui.platform.testTag"
-      ],
-      "symbols": [
-        "tryHandleBack()",
-        "onDestroyView()",
-        "palette()",
-        "Content()",
-        "newInstance(initialTab: String = \"\")",
-        "class AppDrawerSheetFragment"
-      ]
-    },
-    {
       "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/launcher/AppInstall.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -10919,24 +10799,6 @@
       ]
     },
     {
-      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/launcher/HomeAppsTabs.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "HomeAppsTabs"
-      ],
-      "imports": [
-        "com.diegonmarcos.superapp.BuildConfig",
-        "android.util.Base64",
-        "org.json.JSONArray"
-      ],
-      "symbols": [
-        "loadFromBuildConfig()",
-        "class HomeAppsTabs",
-        "class Tab"
-      ]
-    },
-    {
       "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/launcher/HomeDrawerFragment.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -11071,39 +10933,6 @@
       ]
     },
     {
-      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/launcher/HomeGroupedFragment.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "HomeGroupedFragment"
-      ],
-      "imports": [
-        "com.diegonmarcos.superapp.R",
-        "com.diegonmarcos.superapp.system.ModePrefs",
-        "com.diegonmarcos.superapp.ui.LauncherPalette",
-        "com.diegonmarcos.superapp.uikit.KitComposeFragment",
-        "android.content.Context",
-        "android.os.Bundle",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.PaddingValues",
-        "androidx.compose.foundation.layout.fillMaxSize",
-        "androidx.compose.foundation.lazy.LazyColumn",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.remember",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.platform.LocalContext"
-      ],
-      "symbols": [
-        "palette()",
-        "Content()",
-        "newInstance()",
-        "buckets(ctx: Context)",
-        "resolveTileIcon(tile: Sections.HomeTile)",
-        "class HomeGroupedFragment",
-        "class Bucket"
-      ]
-    },
-    {
       "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/launcher/IndexTiles.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -11192,8 +11021,6 @@
         "syncBottomNav(sectionId: String)",
         "syncDrawerTab(index: Int)",
         "invalidateMenu()",
-        "openAppDrawerSheet(initialTab: String = \"\")",
-        "closeAppDrawerSheetIfOpen()",
         "closeDrawerIfOpen()",
         "dispatchTarget(target: String)",
         "routeTarget(target: String)",
@@ -11642,11 +11469,11 @@
         "com.diegonmarcos.superapp.rss.RssFeedFragment",
         "com.diegonmarcos.superapp.settings.LauncherConfigFragment",
         "com.diegonmarcos.superapp.settings.LauncherPresetsFragment",
-        "com.diegonmarcos.superapp.cloud.C3HealthFragment",
-        "com.diegonmarcos.superapp.cloud.CalendarMonthFragment",
-        "com.diegonmarcos.superapp.cloud.CalendarAgendaFragment",
+        "com.diegonmarcos.superapp.c3.C3HealthFragment",
+        "com.diegonmarcos.superapp.cal.CalendarMonthFragment",
+        "com.diegonmarcos.superapp.cal.CalendarAgendaFragment",
         "com.diegonmarcos.superapp.network.WireGuardFragment",
-        "com.diegonmarcos.superapp.apps.RecentAppsFragment",
+        "com.diegonmarcos.superapp.recentapps.RecentAppsFragment",
         "androidx.fragment.app.Fragment",
         "com.diegonmarcos.superapp.R",
         "com.diegonmarcos.superapp.chat.ChatPages",
@@ -11675,7 +11502,6 @@
         "com.diegonmarcos.superapp.MainActivity",
         "com.diegonmarcos.superapp.system.ModePrefs",
         "com.diegonmarcos.superapp.rss.RssFeedFragment",
-        "com.diegonmarcos.superapp.cloud.NewsFeedFragment",
         "android.content.Context",
         "android.util.Base64",
         "org.json.JSONArray"
@@ -15543,6 +15369,63 @@
       ]
     },
     {
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/recentapps/RecentAppsFragment.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RecentAppsFragment"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.datamanager.AppUsageProvider",
+        "com.diegonmarcos.superapp.launcher.AppLongPressMenu",
+        "com.diegonmarcos.superapp.ui.LauncherPalette",
+        "android.content.Context",
+        "android.content.pm.LauncherApps",
+        "android.graphics.drawable.Drawable",
+        "android.os.Process",
+        "androidx.compose.foundation.ExperimentalFoundationApi",
+        "androidx.compose.foundation.Image",
+        "androidx.compose.foundation.combinedClickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.PaddingValues",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.lazy.grid.GridCells",
+        "androidx.compose.foundation.lazy.grid.LazyVerticalGrid",
+        "androidx.compose.foundation.lazy.grid.items",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.graphics.asImageBitmap",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.style.TextAlign",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "androidx.core.graphics.drawable.toBitmap",
+        "com.diegonmarcos.superapp.uikit.KitComposeFragment",
+        "com.diegonmarcos.superapp.uikit.KitEmptyState",
+        "com.diegonmarcos.superapp.uikit.LocalKitPalette"
+      ],
+      "symbols": [
+        "palette()",
+        "Content()",
+        "AppTile(ctx: Context, a: AppInfo)",
+        "newInstance()",
+        "tileTag(pkg: String)",
+        "recentApps(ctx: Context)",
+        "resolve(pkg: String)",
+        "class RecentAppsFragment",
+        "class AppInfo"
+      ]
+    },
+    {
       "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/recovery/AdvisoryFeed.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -16697,7 +16580,6 @@
         "com.diegonmarcos.superapp.launcher.HomeDrawerFragment",
         "com.diegonmarcos.superapp.launcher.themes.cloud.Home3DFragment",
         "com.diegonmarcos.superapp.launcher.DetailPlaceholderFragment",
-        "com.diegonmarcos.superapp.launcher.AppDrawerSheetFragment",
         "com.diegonmarcos.superapp.devtools.DevControlBridge",
         "com.diegonmarcos.superapp.settings.LauncherProfiles",
         "com.diegonmarcos.superapp.settings.LauncherTheme",
@@ -16713,7 +16595,8 @@
         "com.diegonmarcos.superapp.battery.BatterySessionWorker",
         "com.diegonmarcos.superapp.search.SearchOpener",
         "com.diegonmarcos.superapp.network.WgState",
-        "com.diegonmarcos.superapp.shell.SuppressVerticalSwipe"
+        "com.diegonmarcos.superapp.shell.SuppressVerticalSwipe",
+        "com.diegonmarcos.superapp.launcher.LauncherToolbarFx"
       ],
       "symbols": [
         "onAppTabPicked(entry: com.diegonmarcos.superapp.apptabs.AppTabPrefs.Entry)",
@@ -16736,9 +16619,7 @@
         "onFling( e1: android.view.MotionEvent?, e2: android.view.MotionEvent, vX: Float, vY: Float, )",
         "handleVerticalFling(dy: Float)",
         "handleHomeSwipeAction(action: String)",
-        "openAppDrawerSheet(initialTab: String)",
         "walkStep(direction: Int)",
-        "closeAppDrawerSheetIfOpen()",
         "dispatchTouchEvent(ev: android.view.MotionEvent)",
         "onBottomNavPicked(id: String)",
         "fireGeminiPattern()",
@@ -16755,7 +16636,9 @@
         "statusBarHeightPx()",
         "isDefaultLauncher()",
         "goSection(id: String, label: String, initialPage: String = \"\")",
-        "openSection(id: String)"
+        "openSection(id: String)",
+        "syncBottomNav(sectionId: String)",
+        "syncDrawerTab(index: Int)"
       ]
     },
     {
@@ -17939,9 +17822,7 @@
         "com.diegonmarcos.superapp.bottomnav.PageTabsTags",
         "androidx.compose.ui.test.performClick",
         "androidx.test.core.app.ApplicationProvider",
-        "com.diegonmarcos.superapp.launcher.AppDrawerSheetFragment",
         "com.diegonmarcos.superapp.launcher.GroupedTilesFragment",
-        "com.diegonmarcos.superapp.launcher.HomeAppsTabs",
         "com.diegonmarcos.superapp.launcher.Sections",
         "com.diegonmarcos.superapp.ui.KitPageHarness",
         "org.junit.Assert.assertEquals",
@@ -18011,6 +17892,7 @@
         "RecentAppsComposeTest"
       ],
       "imports": [
+        "com.diegonmarcos.superapp.recentapps.RecentAppsFragment",
         "android.app.Application",
         "androidx.compose.ui.test.onNodeWithText",
         "com.diegonmarcos.superapp.ui.KitPageHarness",
@@ -18947,6 +18829,7 @@
         "C3PagesComposeTest"
       ],
       "imports": [
+        "com.diegonmarcos.superapp.c3.C3HealthFragment",
         "android.app.Application",
         "androidx.compose.ui.test.assertCountEquals",
         "androidx.compose.ui.test.onAllNodesWithTag",
@@ -18980,6 +18863,7 @@
         "CalendarAgendaComposeTest"
       ],
       "imports": [
+        "com.diegonmarcos.superapp.cal.CalendarAgendaFragment",
         "android.app.Application",
         "androidx.compose.ui.test.assert",
         "androidx.compose.ui.test.hasText",
@@ -19004,6 +18888,7 @@
         "CalendarAgendaPopupComposeTest"
       ],
       "imports": [
+        "com.diegonmarcos.superapp.cal.CalendarAgendaPopup",
         "android.app.Application",
         "androidx.compose.ui.test.onNodeWithTag",
         "androidx.compose.ui.test.onNodeWithText",
@@ -19030,6 +18915,8 @@
         "CloudInfosPagesComposeTest"
       ],
       "imports": [
+        "com.diegonmarcos.superapp.boards.TasksFragment",
+        "com.diegonmarcos.superapp.cal.CalendarMonthFragment",
         "android.app.Application",
         "androidx.compose.ui.test.assert",
         "androidx.compose.ui.test.assertCountEquals",
@@ -20167,6 +20054,32 @@
       ]
     },
     {
+      "path": "aa_cloud-superapp/app/src/test/java/com/diegonmarcos/superapp/launcher/HomeSwipeDeclaredTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HomeSwipeDeclaredTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "com.diegonmarcos.superapp.BuildConfig",
+        "com.diegonmarcos.superapp.settings.HomeSwipePrefs",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.RuntimeEnvironment",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "resolves(target: String)",
+        "assertNotNull_(v: T?, what: String)",
+        "class HomeSwipeDeclaredTest"
+      ]
+    },
+    {
       "path": "aa_cloud-superapp/app/src/test/java/com/diegonmarcos/superapp/launcher/IndexTileGridComposeTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -20671,6 +20584,38 @@
       "symbols": [
         "anyKeyWithSamples()",
         "class PageContentComposeTest"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/app/src/test/java/com/diegonmarcos/superapp/launcher/PageImplementationsGuardTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PageImplementationsGuardTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config",
+        "java.io.File"
+      ],
+      "symbols": [
+        "declared()",
+        "routed()",
+        "hasData(d: Decl)",
+        "packagesOf(section: String)",
+        "fileFor(simple: String)",
+        "packageOfFile(f: File)",
+        "class that",
+        "class PageImplementationsGuardTest",
+        "class Decl",
+        "class named",
+        "class sits"
       ]
     },
     {
@@ -29035,6 +28980,8 @@
         "token()",
         "models()",
         "chat(req: AiRequest, onDelta: (String)",
+        "plugins()",
+        "mcpServers()",
         "url(req: AiRequest)",
         "headers(req: AiRequest)",
         "why()",
@@ -29068,6 +29015,13 @@
         "java.util.concurrent.CompletableFuture"
       ],
       "symbols": [
+        "chooseTask(id: String)",
+        "chooseEffort(level: AiEffort)",
+        "setPlugin(item: AiMoreItem, on: Boolean)",
+        "undoLast()",
+        "chooseMode(id: String)",
+        "toggleMcp(name: String)",
+        "chooseMcps(names: Set<String>)",
         "chooseAgent(id: String)",
         "pick(id: String)",
         "toggleWeb()",
@@ -29080,6 +29034,16 @@
         "consent(request: AiConsentRequest)",
         "send(ask: String)",
         "host()",
+        "attach(id: String)",
+        "effort(id: String)",
+        "more(id: String)",
+        "morePlugin(id: String)",
+        "ctl(id: String)",
+        "task(id: String)",
+        "modelTab(id: String)",
+        "modelItem(id: String)",
+        "mode(id: String)",
+        "mcp(name: String)",
         "rename(id: String)",
         "delete(id: String)",
         "agent(id: String)",
@@ -29088,6 +29052,72 @@
         "suggestion(text: String)",
         "class AiChatState",
         "class AiTags"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ai/src/main/kotlin/com/diegonmarcos/superapp/ai/AiComposerBar.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AiComposerBar"
+      ],
+      "imports": [
+        "android.content.Context",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.ColumnScope",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.widthIn",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material3.AlertDialog",
+        "androidx.compose.material3.DropdownMenu",
+        "androidx.compose.material3.DropdownMenuItem",
+        "androidx.compose.material3.Switch",
+        "androidx.compose.material3.SwitchDefaults",
+        "androidx.compose.material3.Text",
+        "androidx.compose.material3.TextButton",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.rememberCoroutineScope",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.alpha",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.dp"
+      ],
+      "symbols": [
+        "controlGlyph(id: String)",
+        "loadCollapsed(ctx: Context, design: AiDesign, app: String)",
+        "AiComposerBar( chat: AiChatState, theme: AiTheme, design: AiDesign, decl: AiComposerDecl, modifier: Modifier = Modifier, onCatalogue: (()",
+        "toggle()",
+        "CompactChip(chat: AiChatState, theme: AiTheme, design: AiDesign, onClick: ()",
+        "Ctl( ctl: AiControl, theme: AiTheme, design: AiDesign, label: String, enabled: Boolean = true, menu: @Composable ColumnScope.(close: ()",
+        "PlusControl(chat: AiChatState, theme: AiTheme, design: AiDesign, ctl: AiControl, onAttach: ((String)",
+        "TaskControl(chat: AiChatState, theme: AiTheme, design: AiDesign, decl: AiComposerDecl, ctl: AiControl)",
+        "AgentControl(chat: AiChatState, theme: AiTheme, design: AiDesign, ctl: AiControl)",
+        "ModelControl(chat: AiChatState, theme: AiTheme, design: AiDesign, ctl: AiControl, onCatalogue: (()",
+        "EffortControl(chat: AiChatState, theme: AiTheme, design: AiDesign, ctl: AiControl)",
+        "ModeControl(chat: AiChatState, theme: AiTheme, design: AiDesign, ctl: AiControl)",
+        "McpControl(chat: AiChatState, theme: AiTheme, design: AiDesign, ctl: AiControl)",
+        "MoreControl(chat: AiChatState, theme: AiTheme, design: AiDesign, ctl: AiControl)"
       ]
     },
     {
@@ -29106,6 +29136,64 @@
         "load(ctx: Context)",
         "class and",
         "class AiConfig"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ai/src/main/kotlin/com/diegonmarcos/superapp/ai/AiDesign.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AiControl",
+        "AiModelTab",
+        "AiPermissionMode",
+        "AiEffort",
+        "AiMoreItem",
+        "AiMoreGroup",
+        "AiPlugin",
+        "AiUsageLine",
+        "AiMcpServer",
+        "AiTask",
+        "AiDesign",
+        "AiComposerDecl",
+        "AiExport"
+      ],
+      "imports": [
+        "android.content.Context",
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "metric(key: String)",
+        "collapseKey(app: String)",
+        "effort(id: String)",
+        "tabOf(m: AiModel)",
+        "hit(r: Rule?, m: AiModel)",
+        "byTab(models: List<AiModel>)",
+        "mode(id: String)",
+        "mcpSentence(servers: Collection<String>)",
+        "ordered(enabled: Collection<String>)",
+        "parse(text: String)",
+        "load(ctx: Context)",
+        "parseTasks(text: String)",
+        "loadTasks(ctx: Context)",
+        "objs()",
+        "strings()",
+        "parse(text: String, design: AiDesign)",
+        "markdown(s: AiSession)",
+        "class AiControl",
+        "class AiModelTab",
+        "class AiPermissionMode",
+        "class AiEffort",
+        "class AiMoreItem",
+        "class AiMoreGroup",
+        "class AiPlugin",
+        "class AiUsageLine",
+        "class AiMcpServer",
+        "class AiTask",
+        "class AiDesign",
+        "class Rule",
+        "class AiComposerDecl",
+        "class AiExport"
       ]
     },
     {
@@ -29160,15 +29248,26 @@
         "sessions()",
         "renameSession(id: String, title: String)",
         "deleteSession(id: String)",
+        "pickMode(id: String)",
+        "pickMcps(names: Set<String>)",
+        "pickEffort(value: String)",
+        "pickPlugins(headers: Map<String, String>)",
+        "plugins()",
+        "usage(sessionId: String)",
+        "systemPrompt()",
+        "mcpServers()",
         "from(cat: AgentCatalogue.Catalogue)",
         "load(ctx: android.content.Context)",
+        "line(label: String, us: List<AiUsage>)",
+        "standing()",
         "converse(backend: AiBackend, req: AiRequest, sink: AiSink)",
         "runTool(c: AiToolCall, sink: AiSink)",
         "class AiHost",
         "class AiPrefs",
         "class AiMemoryPrefs",
         "class AiAgents",
-        "class AiStandardHost"
+        "class AiStandardHost",
+        "class Used"
       ]
     },
     {
@@ -29208,6 +29307,7 @@
         "androidx.compose.ui.text.font.FontWeight",
         "androidx.compose.ui.text.withStyle",
         "androidx.compose.ui.text.style.TextDecoration",
+        "androidx.compose.ui.unit.TextUnit",
         "androidx.compose.ui.unit.dp",
         "androidx.compose.ui.unit.sp"
       ],
@@ -29217,7 +29317,7 @@
         "inline(text: String)",
         "closing(marker: String, from: Int)",
         "aiMarkdownInline(text: String, codeBg: Color, link: Color)",
-        "AiMarkdownText(text: String, theme: AiTheme, modifier: Modifier = Modifier)",
+        "AiMarkdownText(text: String, theme: AiTheme, modifier: Modifier = Modifier, size: TextUnit = theme.type.chat, lineHeight: Float = 1.4f)",
         "class AiMdBlock",
         "class Heading",
         "class Paragraph",
@@ -29291,6 +29391,7 @@
         "androidx.compose.foundation.layout.Spacer",
         "androidx.compose.foundation.layout.fillMaxSize",
         "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.heightIn",
         "androidx.compose.foundation.layout.padding",
         "androidx.compose.foundation.layout.size",
         "androidx.compose.foundation.layout.widthIn",
@@ -29315,8 +29416,7 @@
         "androidx.compose.material3.SwitchDefaults",
         "androidx.compose.material3.Text",
         "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.Immutable",
-        "androidx.compose.runtime.LaunchedEffect"
+        "androidx.compose.runtime.Immutable"
       ],
       "symbols": [
         "style(size: TextUnit, weight: FontWeight = FontWeight.Normal)",
@@ -29326,14 +29426,11 @@
         "AiConsentCard( request: AiConsentRequest, onAllow: ()",
         "AiConsentCard( sentence: String, onAllow: ()",
         "Welcome(engines: List<AiEngine>, query: (AiEngine, String)",
-        "Conversation(chat: AiChatState, theme: AiTheme)",
-        "Bubble(msg: AiMsg, max: Dp, theme: AiTheme)",
-        "AiAvatar(theme: AiTheme)",
-        "Thinking(label: String, theme: AiTheme)",
-        "AgentSelect(chat: AiChatState, theme: AiTheme)",
+        "Conversation(chat: AiChatState, theme: AiTheme, design: AiDesign)",
+        "Bubble(msg: AiMsg, max: Dp, theme: AiTheme, design: AiDesign)",
+        "Thinking(label: String, theme: AiTheme, design: AiDesign)",
         "SessionsSelect(chat: AiChatState, theme: AiTheme)",
-        "ModelSelect(chat: AiChatState, theme: AiTheme, onModel: (()",
-        "ChatBar(text: String, onText: (String)",
+        "Composer(chat: AiChatState, theme: AiTheme, design: AiDesign, decl: AiComposerDecl, onCatalogue: (()",
         "class AiColors",
         "class AiMetrics",
         "class AiType",
@@ -29396,6 +29493,7 @@
       "role": "kotlin",
       "exports": [
         "AiRequest",
+        "AiUsage",
         "AiToolCall",
         "AiReply",
         "AiProtocol"
@@ -29410,13 +29508,18 @@
         "body(cfg: AiConfig, req: AiRequest, model: String?, stream: Boolean, openRouter: Boolean)",
         "str(k: String)",
         "urlCitations(notes: JSONArray?)",
+        "usage(j: JSONObject?)",
         "push(chunk: String)",
         "parseWhole(status: Int, body: String)",
+        "parsePlugins(json: String)",
+        "parseMcp(json: String)",
         "parseModels(json: String, nativeWebParam: String)",
         "class AiRequest",
+        "class AiUsage",
         "class AiToolCall",
         "class AiReply",
         "class AiProtocol",
+        "class of",
         "class Sse"
       ]
     },
@@ -29515,6 +29618,59 @@
         "sentence(args: JSONObject)",
         "run(args: JSONObject)",
         "class AiTool"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ai/src/test/kotlin/com/diegonmarcos/superapp/ai/AiComposerTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AiComposerTest"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Assert.fail",
+        "org.junit.Test",
+        "java.io.File"
+      ],
+      "symbols": [
+        "theBarIsPlusTaskAgentModelEffortPermsMcpMoreInThatOrderWhateverSubsetAnAppEnables()",
+        "everyMetricTheCodeReadsIsDeclared()",
+        "theModelPickerHasTheFiveTabsInOrder()",
+        "modelsLandInTheirTabsByDeclaredRules()",
+        "tab(id: String, nativeWeb: Boolean = false, section: String = \"\", tier: String = \"\")",
+        "permissionModesAreAskAutoEditReadOnlyPlanAndAskAddsNothing()",
+        "mcpSentenceNamesTheChosenServersOrNothing()",
+        "anAppDeclarationNamesOnlyKnownControlsOnce()",
+        "effortHasAnAutoDefaultThatSendsNothingAndFourLevelsThatDo()",
+        "theMoreSheetIsGroupedUnderHeadersAndCoversUsagePluginsSkillsAndTheRest()",
+        "theBarCollapsesToOneChipAndRemembersItPerApp()",
+        "thePlusMenuOffersTheFourAttachKindsAndNewChat()",
+        "exportRendersTheSessionAsMarkdown()",
+        "undoDropsTheLastExchangeAndReturnsTheAsk()",
+        "usageAndPluginsParseFromTheBackendsOwnWords()",
+        "reportedUsageIsTalliedPerSessionAndNothingIsInventedWhenNoneIsReported()",
+        "models()",
+        "chat(req: AiRequest, onDelta: (String)",
+        "pluginTogglesRideTheGatewayRequestAsHeadersAndEffortAsReasoning()",
+        "theSharedTaskMappingRunsEveryTaskOnAnOpenRouterModel()",
+        "newSession(model: String, now: Long)",
+        "send(session: AiSession, text: String, model: String, web: Boolean, now: Long, sink: AiSink)",
+        "agent()",
+        "pickAgent(id: String)",
+        "pickMode(id: String)",
+        "pickMcps(names: Set<String>)",
+        "aSelectedTaskGreysAgentAndModelAndSetsThemAndClearingRestoresThePicks()",
+        "anUnknownTaskIsNotATask()",
+        "modeAndMcpChoicesReachTheHost()",
+        "theGatewayMcpListParses()",
+        "theChosenModeAndMcpServersRideTheRequestAsTheStandingSystemMessage()",
+        "class AiComposerTest",
+        "class FakeHost"
       ]
     },
     {
@@ -33506,6 +33662,9 @@
         "bottomNavInsets",
         "BottomNavIsland",
         "BottomNavCollapse",
+        "ChromeScrollState",
+        "chromeScrollOnDelta",
+        "chromeScrollOnRelease",
         "rememberBottomNavCollapse",
         "BottomNavHost"
       ],
@@ -33525,6 +33684,7 @@
         "androidx.compose.ui.semantics.collectionItemInfo",
         "androidx.compose.ui.semantics.semantics",
         "androidx.compose.ui.unit.Dp",
+        "androidx.compose.ui.unit.Velocity",
         "androidx.compose.ui.unit.TextUnit",
         "androidx.compose.ui.unit.dp",
         "androidx.compose.ui.unit.sp",
@@ -33548,8 +33708,7 @@
         "androidx.compose.foundation.selection.selectable",
         "androidx.compose.foundation.shape.RoundedCornerShape",
         "androidx.compose.material3.Icon",
-        "androidx.compose.material3.LocalTextStyle",
-        "androidx.compose.material3.MaterialTheme"
+        "androidx.compose.material3.LocalTextStyle"
       ],
       "symbols": [
         "navHiddenByIme()",
@@ -33568,12 +33727,20 @@
         "barMotionEnabled(animatorDurationScale: Float, powerSaveMode: Boolean)",
         "collapseFor(collapsed: Boolean, delta: Float)",
         "onScrollDelta(delta: Float)",
+        "onDragDelta(delta: Float)",
+        "onRelease()",
+        "onFinger(down: Boolean)",
+        "restore()",
         "onPreScroll(available: Offset, source: NestedScrollSource)",
+        "onPreFling(available: Velocity)",
+        "chromeScrollOnDelta(state: ChromeScrollState, delta: Float, dragging: Boolean)",
+        "chromeScrollOnRelease(state: ChromeScrollState)",
         "rememberBottomNavCollapse()",
         "BottomNavHost( entries: List<BottomNavEntry>, selectedId: String?, onSelect: (BottomNavEntry)",
         "class BottomNavEntry",
         "class IslandPlan",
-        "class BottomNavCollapse"
+        "class BottomNavCollapse",
+        "class ChromeScrollState"
       ]
     },
     {
@@ -33733,6 +33900,42 @@
         "class NavDecl",
         "class whose",
         "class BottomNavViewItem"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bottomnav/src/commonMain/kotlin/com/diegonmarcos/superapp/bottomnav/NavModes.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavModeStore",
+        "MemoryNavModeStore",
+        "effective",
+        "SideMenuPresence",
+        "sideMenuPresence",
+        "railLabel",
+        "SideMenuItem",
+        "sideMenuItems"
+      ],
+      "imports": [
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.setValue"
+      ],
+      "symbols": [
+        "mode(sectionId: String)",
+        "setMode(sectionId: String, mode: SecondRowMode?)",
+        "sideExpanded()",
+        "setSideExpanded(expanded: Boolean)",
+        "effective(store: NavModeStore?)",
+        "sideMenuPresence(expandedPref: Boolean, scroll: ChromeScrollState)",
+        "railLabel(label: String, n: Int = 3)",
+        "cpLen(cp: Int)",
+        "codePointAtCompat(i: Int)",
+        "sideMenuItems(section: NavSection)",
+        "walk(pages: List<NavPage>, depth: Int)",
+        "class NavModeStore",
+        "class MemoryNavModeStore",
+        "class SideMenuPresence",
+        "class SideMenuItem"
       ]
     },
     {
@@ -34129,6 +34332,7 @@
       "imports": [
         "android.os.Handler",
         "android.os.Looper",
+        "android.view.MotionEvent",
         "android.view.View",
         "android.webkit.JavascriptInterface",
         "android.webkit.WebView",
@@ -34136,8 +34340,10 @@
         "java.util.WeakHashMap"
       ],
       "symbols": [
+        "scrolled(delta: Float)",
         "onScroll(delta: Double)",
         "onScrollChange(v: View, x: Int, y: Int, oldX: Int, oldY: Int)",
+        "onTouch(v: View, e: MotionEvent)",
         "attach(webView: WebView, collapse: BottomNavCollapse?)",
         "inject(webView: WebView)",
         "class ChromeWebScroll",
@@ -34202,7 +34408,10 @@
       "role": "kotlin",
       "exports": [
         "LocalNavChromeCollapse",
-        "NavChromeScroll"
+        "CHROME_SINK_TAG",
+        "NavChromeScroll",
+        "ChromeBarVisibility",
+        "chromeScroll"
       ],
       "imports": [
         "androidx.compose.foundation.layout.Box",
@@ -34212,10 +34421,45 @@
         "androidx.compose.runtime.ProvidableCompositionLocal",
         "androidx.compose.runtime.staticCompositionLocalOf",
         "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.input.nestedscroll.nestedScroll"
+        "androidx.compose.ui.input.nestedscroll.nestedScroll",
+        "androidx.compose.ui.input.pointer.PointerEventPass",
+        "androidx.compose.ui.input.pointer.pointerInput"
       ],
       "symbols": [
-        "NavChromeScroll(modifier: Modifier = Modifier, content: @Composable (BottomNavCollapse)"
+        "NavChromeScroll(modifier: Modifier = Modifier, content: @Composable (BottomNavCollapse)",
+        "ChromeBarVisibility( modifier: Modifier = Modifier, hidden: Boolean = LocalNavChromeCollapse.current?.hidden ?: false, content: @Composable ()",
+        "chromeScroll(collapse: BottomNavCollapse)"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bottomnav/src/main/kotlin/com/diegonmarcos/superapp/bottomnav/NavModePrefs.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavModePrefs",
+        "LocalNavModeStore",
+        "rememberNavModePrefs"
+      ],
+      "imports": [
+        "android.content.Context",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateMapOf",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.runtime.staticCompositionLocalOf",
+        "androidx.compose.ui.platform.LocalContext"
+      ],
+      "symbols": [
+        "mode(sectionId: String)",
+        "setMode(sectionId: String, mode: SecondRowMode?)",
+        "sideExpanded()",
+        "setSideExpanded(expanded: Boolean)",
+        "of(context: Context)",
+        "rememberNavModePrefs()",
+        "class config",
+        "class NavModePrefs"
       ]
     },
     {
@@ -34428,6 +34672,23 @@
         "assertScreenAboveIsland(why: String)",
         "BottomNavIsland(\")",
         "class BottomNavIslandTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bottomnav/src/test/kotlin/com/diegonmarcos/superapp/bottomnav/ChromeScrollStateTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ChromeScrollStateTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "class ChromeScrollStateTest"
       ]
     },
     {
@@ -34739,6 +35000,25 @@
         "assertIslandContrast(name: String, t: NavTokens)",
         "assertLightStripContrast(name: String, t: NavTokens)",
         "class NavAccessibilityTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bottomnav/src/test/kotlin/com/diegonmarcos/superapp/bottomnav/NavModesTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavModesTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertSame",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "p(id: String, label: String = \"Page $id\")",
+        "class NavModesTest"
       ]
     },
     {
@@ -68124,665 +68404,6 @@
       ]
     },
     {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-bottom/src/main/kotlin/com/diegonmarcos/superapp/navbarbottom/NavBarBottom.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "BottomSpec",
-        "BottomTags",
-        "NavBarBottom",
-        "NAV_BAR_BOTTOM_CONTENT_TAG",
-        "NavBarBottomHost"
-      ],
-      "imports": [
-        "androidx.compose.animation.core.animateDpAsState",
-        "androidx.compose.animation.core.animateFloatAsState",
-        "androidx.compose.foundation.background",
-        "androidx.compose.foundation.border",
-        "androidx.compose.foundation.layout.Arrangement",
-        "androidx.compose.foundation.layout.Box",
-        "androidx.compose.foundation.layout.BoxWithConstraints",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.consumeWindowInsets",
-        "androidx.compose.foundation.layout.Row",
-        "androidx.compose.foundation.layout.WindowInsetsSides",
-        "androidx.compose.foundation.layout.fillMaxSize",
-        "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.layout.height",
-        "androidx.compose.foundation.layout.offset",
-        "androidx.compose.foundation.layout.only",
-        "androidx.compose.foundation.layout.padding",
-        "androidx.compose.foundation.layout.size",
-        "androidx.compose.foundation.layout.widthIn",
-        "androidx.compose.foundation.layout.windowInsetsPadding",
-        "androidx.compose.foundation.selection.selectable",
-        "androidx.compose.foundation.selection.selectableGroup",
-        "androidx.compose.foundation.shape.CircleShape",
-        "androidx.compose.foundation.shape.RoundedCornerShape",
-        "androidx.compose.material3.Icon",
-        "androidx.compose.material3.Text",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.ui.Alignment",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.draw.clip",
-        "androidx.compose.ui.graphics.Color",
-        "androidx.compose.ui.graphics.graphicsLayer",
-        "androidx.compose.ui.input.nestedscroll.nestedScroll",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.semantics.CollectionInfo",
-        "androidx.compose.ui.semantics.CollectionItemInfo",
-        "androidx.compose.ui.semantics.Role",
-        "androidx.compose.ui.semantics.collectionInfo",
-        "androidx.compose.ui.semantics.collectionItemInfo"
-      ],
-      "symbols": [
-        "cellWidth(barWidth: Dp, count: Int)",
-        "selectedInk(dark: Boolean)",
-        "idleInk(dark: Boolean)",
-        "fill(dark: Boolean)",
-        "border(dark: Boolean)",
-        "item(id: String)",
-        "icon(id: String)",
-        "label(id: String)",
-        "NavBarBottom( entries: List<BottomNavEntry>, selectedId: String?, onSelect: (BottomNavEntry)",
-        "NavBarBottomHost( entries: List<BottomNavEntry>, selectedId: String?, onSelect: (BottomNavEntry)",
-        "class BottomSpec",
-        "class BottomTags"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-bottom/src/test/kotlin/com/diegonmarcos/superapp/navbarbottom/NavBarBottomTest.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "NavBarBottomTest"
-      ],
-      "imports": [
-        "android.content.ComponentName",
-        "androidx.activity.ComponentActivity",
-        "androidx.compose.material.icons.Icons",
-        "androidx.compose.material.icons.filled.Home",
-        "androidx.compose.material.icons.filled.Mail",
-        "androidx.compose.material.icons.filled.Settings",
-        "androidx.compose.ui.graphics.Color",
-        "androidx.compose.ui.test.swipeDown",
-        "androidx.compose.ui.test.swipeUp",
-        "androidx.compose.ui.test.performTouchInput",
-        "androidx.compose.ui.test.onAllNodesWithTag",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.foundation.verticalScroll",
-        "androidx.compose.foundation.rememberScrollState",
-        "androidx.compose.foundation.layout.height",
-        "androidx.compose.foundation.layout.fillMaxSize",
-        "androidx.compose.foundation.layout.Spacer",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.ui.graphics.vector.rememberVectorPainter",
-        "androidx.compose.ui.test.junit4.createAndroidComposeRule",
-        "androidx.compose.ui.test.onNodeWithTag",
-        "androidx.compose.foundation.layout.Box",
-        "androidx.compose.runtime.CompositionLocalProvider",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableStateOf",
-        "androidx.compose.runtime.setValue",
-        "com.diegonmarcos.superapp.bottomnav.LocalNavImeVisible",
-        "androidx.compose.ui.test.performClick",
-        "androidx.compose.ui.unit.dp",
-        "com.diegonmarcos.superapp.bottomnav.BottomNavEntry",
-        "org.junit.Assert.assertEquals",
-        "org.junit.Assert.assertNotEquals",
-        "org.junit.Assert.assertTrue",
-        "org.junit.Rule",
-        "org.junit.Test",
-        "org.junit.rules.RuleChain",
-        "org.junit.rules.TestRule",
-        "org.junit.runner.RunWith",
-        "org.junit.runners.model.Statement"
-      ],
-      "symbols": [
-        "evaluate()",
-        "spread(c: Color)",
-        "class NavBarBottomTest"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-top-first-row/src/main/kotlin/com/diegonmarcos/superapp/navbartop1/Breadcrumb.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "Crumb",
-        "TitleNav",
-        "titleNav",
-        "fitCrumbs"
-      ],
-      "imports": [
-        "com.diegonmarcos.superapp.bottomnav.NavSection"
-      ],
-      "symbols": [
-        "titleNav( appName: String, title: String, hierarchy: List<HierarchyEntry>, sections: List<NavSection> = emptyList()",
-        "fitCrumbs(labels: List<String>, fits: (String)",
-        "class Crumb",
-        "class TitleNav"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-top-first-row/src/main/kotlin/com/diegonmarcos/superapp/navbartop1/NavBarTopFirstRow.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "TopFirstRowSpec",
-        "TopFirstRowTags",
-        "HierarchyEntry",
-        "titleHierarchy",
-        "NavBarTopFirstRow",
-        "defaultAppName",
-        "NavBarTopFirstRowScaffold",
-        "BreadcrumbLeafState",
-        "LocalBreadcrumbLeaf",
-        "BreadcrumbLeaf"
-      ],
-      "imports": [
-        "androidx.compose.foundation.background",
-        "androidx.compose.foundation.border",
-        "androidx.compose.foundation.clickable",
-        "androidx.compose.foundation.horizontalScroll",
-        "androidx.compose.foundation.verticalScroll",
-        "androidx.compose.foundation.layout.Arrangement",
-        "androidx.compose.foundation.layout.BoxWithConstraints",
-        "androidx.compose.foundation.layout.ColumnScope",
-        "androidx.compose.foundation.rememberScrollState",
-        "androidx.compose.foundation.layout.Box",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.heightIn",
-        "androidx.compose.foundation.layout.Row",
-        "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.layout.height",
-        "androidx.compose.foundation.layout.padding",
-        "androidx.compose.foundation.layout.size",
-        "androidx.compose.foundation.layout.width",
-        "androidx.compose.foundation.shape.RoundedCornerShape",
-        "androidx.compose.material.icons.Icons",
-        "androidx.compose.material.icons.filled.AccountCircle",
-        "androidx.compose.material.icons.filled.AutoAwesome",
-        "androidx.compose.material.icons.filled.ArrowDropDown",
-        "androidx.compose.material.icons.filled.MoreVert",
-        "androidx.compose.material3.Surface",
-        "androidx.compose.ui.unit.IntOffset",
-        "androidx.compose.ui.unit.IntRect",
-        "androidx.compose.ui.unit.IntSize",
-        "androidx.compose.ui.unit.LayoutDirection",
-        "androidx.compose.ui.window.Popup",
-        "androidx.compose.ui.window.PopupPositionProvider",
-        "androidx.compose.ui.window.PopupProperties",
-        "androidx.compose.material3.HorizontalDivider",
-        "androidx.compose.material3.DropdownMenuItem",
-        "androidx.compose.material3.Icon",
-        "androidx.compose.material3.Text",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.CompositionLocalProvider",
-        "androidx.compose.runtime.DisposableEffect",
-        "androidx.compose.runtime.ProvidableCompositionLocal"
-      ],
-      "symbols": [
-        "islandMaxWidth(rowWidth: Dp)",
-        "crumb(index: Int)",
-        "entry(id: String)",
-        "titleHierarchy(section: NavSection, currentPageId: String?)",
-        "walk(pages: List<NavPage>, depth: Int)",
-        "NavBarTopFirstRow( title: String, colors: ThemeColors, labels: AppTopBarLabels, hierarchy: List<HierarchyEntry>, onNavigate: (HierarchyEntry)",
-        "defaultAppName()",
-        "BreadcrumbText(labels: List<String>, color: androidx.compose.ui.graphics.Color)",
-        "PlainIcon(icon: ImageVector, label: String, tag: String, colors: ThemeColors, onClick: ()",
-        "NavBarTopFirstRowScaffold( title: String, hierarchy: List<HierarchyEntry>, onNavigate: (HierarchyEntry)",
-        "BreadcrumbLeaf(text: String?)",
-        "calculatePosition(anchorBounds: IntRect, windowSize: IntSize, layoutDirection: LayoutDirection, popupContentSize: IntSize)",
-        "class TopFirstRowSpec",
-        "class TopFirstRowTags",
-        "class HierarchyEntry",
-        "class BreadcrumbLeafState",
-        "class BelowAnchor"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-top-first-row/src/main/kotlin/com/diegonmarcos/superapp/navbartop1/SuperAppAi.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "SuperAppAi",
-        "rememberSuperAppAiLauncher"
-      ],
-      "imports": [
-        "android.content.Context",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.remember",
-        "androidx.compose.ui.platform.LocalContext"
-      ],
-      "symbols": [
-        "open(ctx: Context)",
-        "rememberSuperAppAiLauncher()",
-        "class SuperAppAi"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-top-first-row/src/test/kotlin/com/diegonmarcos/superapp/navbartop1/BreadcrumbTest.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "BreadcrumbTest"
-      ],
-      "imports": [
-        "com.diegonmarcos.superapp.bottomnav.NavPage",
-        "com.diegonmarcos.superapp.bottomnav.NavSection",
-        "org.junit.Assert.assertEquals",
-        "org.junit.Assert.assertNull",
-        "org.junit.Assert.assertTrue",
-        "org.junit.Test"
-      ],
-      "symbols": [
-        "nav(page: String?, leaf: String? = null, secs: List<NavSection> = sections)",
-        "class BreadcrumbTest"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-top-first-row/src/test/kotlin/com/diegonmarcos/superapp/navbartop1/ChromeScrollGuardTest.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "ChromeScrollGuardTest"
-      ],
-      "imports": [
-        "java.io.File",
-        "org.junit.Assert.assertEquals",
-        "org.junit.Assert.assertTrue",
-        "org.junit.Test"
-      ],
-      "symbols": [
-        "sources(app: String)",
-        "driveFiles()",
-        "body(text: String, name: String)",
-        "class ChromeScrollGuardTest"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-top-first-row/src/test/kotlin/com/diegonmarcos/superapp/navbartop1/NavBarTopFirstRowTest.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "NavBarTopFirstRowTest"
-      ],
-      "imports": [
-        "android.content.ComponentName",
-        "androidx.activity.ComponentActivity",
-        "androidx.compose.foundation.clickable",
-        "androidx.compose.foundation.lazy.items",
-        "androidx.compose.foundation.verticalScroll",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.test.assertIsDisplayed",
-        "androidx.compose.ui.test.junit4.createAndroidComposeRule",
-        "androidx.compose.ui.test.onNodeWithTag",
-        "androidx.compose.ui.test.performClick",
-        "androidx.compose.ui.unit.dp",
-        "com.diegonmarcos.superapp.bottomnav.AppTopBarLabels",
-        "com.diegonmarcos.superapp.bottomnav.NavPage",
-        "com.diegonmarcos.superapp.bottomnav.NavSection",
-        "com.diegonmarcos.superapp.themebg.ThemeBackground",
-        "org.junit.Assert.assertEquals",
-        "org.junit.Assert.assertTrue",
-        "org.junit.Rule",
-        "org.junit.Test",
-        "org.junit.rules.RuleChain",
-        "org.junit.rules.TestRule",
-        "org.junit.runner.RunWith",
-        "org.junit.runners.model.Statement",
-        "org.robolectric.RobolectricTestRunner",
-        "org.robolectric.RuntimeEnvironment",
-        "org.robolectric.Shadows.shadowOf",
-        "org.robolectric.annotation.Config",
-        "org.robolectric.annotation.GraphicsMode"
-      ],
-      "symbols": [
-        "evaluate()",
-        "show( onNavigate: (HierarchyEntry)",
-        "class NavBarTopFirstRowTest"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-top-first-row/src/test/kotlin/com/diegonmarcos/superapp/navbartop1/NavChromeScrollTest.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "NavChromeScrollTest"
-      ],
-      "imports": [
-        "android.content.ComponentName",
-        "androidx.activity.ComponentActivity",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.Spacer",
-        "androidx.compose.foundation.layout.fillMaxSize",
-        "androidx.compose.foundation.layout.height",
-        "androidx.compose.foundation.rememberScrollState",
-        "androidx.compose.foundation.verticalScroll",
-        "androidx.compose.material.icons.Icons",
-        "androidx.compose.material.icons.outlined.Home",
-        "androidx.compose.material.icons.outlined.Mail",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.graphics.vector.rememberVectorPainter",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.test.junit4.createAndroidComposeRule",
-        "androidx.compose.ui.test.onAllNodesWithTag",
-        "androidx.compose.ui.test.onNodeWithTag",
-        "androidx.compose.ui.test.performTouchInput",
-        "androidx.compose.ui.test.swipeDown",
-        "androidx.compose.ui.test.swipeUp",
-        "androidx.compose.ui.unit.dp",
-        "com.diegonmarcos.superapp.bottomnav.BottomNavEntry",
-        "com.diegonmarcos.superapp.bottomnav.NavPage",
-        "com.diegonmarcos.superapp.bottomnav.TopBarTags",
-        "com.diegonmarcos.superapp.navbarbottom.BottomTags",
-        "com.diegonmarcos.superapp.navbarbottom.NavBarBottomHost",
-        "com.diegonmarcos.superapp.navbartop2.NavBarTopSecondRow",
-        "com.diegonmarcos.superapp.navbartop2.SecondRowTags",
-        "org.junit.Assert.assertEquals",
-        "org.junit.Assert.assertTrue",
-        "org.junit.Rule",
-        "org.junit.Test",
-        "org.junit.rules.RuleChain",
-        "org.junit.rules.TestRule",
-        "org.junit.runner.RunWith",
-        "org.junit.runners.model.Statement",
-        "org.robolectric.RobolectricTestRunner",
-        "org.robolectric.RuntimeEnvironment",
-        "org.robolectric.Shadows.shadowOf",
-        "org.robolectric.annotation.Config"
-      ],
-      "symbols": [
-        "evaluate()",
-        "show()",
-        "count(tag: String)",
-        "h(tag: String)",
-        "class NavChromeScrollTest"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-top-second-row/src/main/kotlin/com/diegonmarcos/superapp/navbartop2/NavBarTopSecondRow.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "SecondRowSpec",
-        "SecondRowTags",
-        "SubPageRequests",
-        "LocalSubPageRequests",
-        "NavBarTopSecondRow"
-      ],
-      "imports": [
-        "androidx.compose.animation.AnimatedVisibility",
-        "androidx.compose.animation.core.animateDpAsState",
-        "androidx.compose.animation.expandHorizontally",
-        "androidx.compose.animation.fadeIn",
-        "androidx.compose.animation.fadeOut",
-        "androidx.compose.animation.shrinkHorizontally",
-        "androidx.compose.foundation.background",
-        "androidx.compose.foundation.border",
-        "androidx.compose.foundation.clickable",
-        "androidx.compose.foundation.layout.Arrangement",
-        "androidx.compose.foundation.layout.BoxWithConstraints",
-        "androidx.compose.foundation.layout.Row",
-        "androidx.compose.foundation.layout.widthIn",
-        "androidx.compose.foundation.horizontalScroll",
-        "androidx.compose.foundation.rememberScrollState",
-        "androidx.compose.foundation.layout.WindowInsets",
-        "androidx.compose.foundation.layout.displayCutout",
-        "androidx.compose.foundation.layout.statusBars",
-        "androidx.compose.foundation.layout.union",
-        "androidx.compose.foundation.layout.defaultMinSize",
-        "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.layout.height",
-        "androidx.compose.foundation.layout.padding",
-        "androidx.compose.foundation.layout.size",
-        "androidx.compose.foundation.selection.selectableGroup",
-        "androidx.compose.foundation.shape.RoundedCornerShape",
-        "androidx.compose.material3.Icon",
-        "androidx.compose.material3.Text",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.LaunchedEffect",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableStateOf",
-        "androidx.compose.runtime.setValue",
-        "androidx.compose.runtime.staticCompositionLocalOf",
-        "androidx.compose.ui.Alignment",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.draw.clip",
-        "androidx.compose.ui.graphics.painter.Painter",
-        "androidx.compose.ui.platform.LocalDensity",
-        "androidx.compose.ui.platform.testTag"
-      ],
-      "symbols": [
-        "tab(id: String)",
-        "icon(id: String)",
-        "label(id: String)",
-        "request(pageId: String)",
-        "consume()",
-        "holds(id: String)",
-        "NavBarTopSecondRow( pages: List<NavPage>, selectedId: String?, onSelect: (NavPage)",
-        "SecondRowTab( page: NavPage, index: Int, count: Int, on: Boolean, named: Boolean, palette: ThemeColors, tabHeight: Dp, tab: androidx.compose.ui.graphics.Shape, iconFor: @Composable (NavPage)",
-        "class SecondRowSpec",
-        "class SecondRowTags",
-        "class SubPageRequests"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-top-second-row/src/main/kotlin/com/diegonmarcos/superapp/navbartop2/NavBarTopSecondRows.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "SecondRowGroupTags",
-        "SecondRowGroupDropdownMax",
-        "NavBarTopSecondRows"
-      ],
-      "imports": [
-        "androidx.compose.animation.core.animateDpAsState",
-        "androidx.compose.foundation.background",
-        "androidx.compose.foundation.border",
-        "androidx.compose.foundation.clickable",
-        "androidx.compose.foundation.horizontalScroll",
-        "androidx.compose.foundation.layout.Box",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.Row",
-        "androidx.compose.foundation.layout.WindowInsets",
-        "androidx.compose.foundation.layout.displayCutout",
-        "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.layout.heightIn",
-        "androidx.compose.foundation.layout.height",
-        "androidx.compose.foundation.layout.padding",
-        "androidx.compose.foundation.layout.statusBars",
-        "androidx.compose.foundation.layout.union",
-        "androidx.compose.foundation.layout.width",
-        "androidx.compose.foundation.rememberScrollState",
-        "androidx.compose.foundation.selection.selectableGroup",
-        "androidx.compose.foundation.shape.RoundedCornerShape",
-        "androidx.compose.foundation.verticalScroll",
-        "androidx.compose.material3.Surface",
-        "androidx.compose.material3.Text",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.LaunchedEffect",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableStateOf",
-        "androidx.compose.runtime.remember",
-        "androidx.compose.runtime.setValue",
-        "androidx.compose.ui.Alignment",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.draw.clip",
-        "androidx.compose.ui.graphics.painter.Painter",
-        "androidx.compose.ui.platform.LocalDensity",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.semantics.Role",
-        "androidx.compose.ui.text.font.FontWeight",
-        "androidx.compose.ui.unit.Dp",
-        "androidx.compose.ui.unit.IntOffset",
-        "androidx.compose.ui.unit.IntRect"
-      ],
-      "symbols": [
-        "row(groupId: String)",
-        "index(groupId: String)",
-        "divider(groupId: String)",
-        "item(pageId: String)",
-        "NavBarTopSecondRows( section: NavSection, selectedId: String?, onSelect: (NavPage)",
-        "GroupIndex( group: NavGroup, selectedId: String?, onSelect: (NavPage)",
-        "calculatePosition(anchorBounds: IntRect, windowSize: IntSize, layoutDirection: LayoutDirection, popupContentSize: IntSize)",
-        "class SecondRowGroupTags",
-        "class BelowAnchor"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-top-second-row/src/main/kotlin/com/diegonmarcos/superapp/navbartop2/NavBarTopSecondRowView.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "NavBarTopSecondRowView"
-      ],
-      "imports": [
-        "android.content.Context",
-        "android.util.AttributeSet",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableStateOf",
-        "androidx.compose.runtime.setValue",
-        "androidx.compose.ui.platform.AbstractComposeView",
-        "com.diegonmarcos.superapp.bottomnav.NavPage",
-        "com.diegonmarcos.superapp.bottomnav.TabSurface"
-      ],
-      "symbols": [
-        "Content()",
-        "class NavBarTopSecondRowView"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-top-second-row/src/main/kotlin/com/diegonmarcos/superapp/navbartop2/SecondRowIcons.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "SecondRowIcons"
-      ],
-      "imports": [
-        "androidx.compose.ui.graphics.vector.ImageVector",
-        "com.diegonmarcos.superapp.uiicons.UiIcons"
-      ],
-      "symbols": [
-        "has(name: String)",
-        "vector(name: String)",
-        "names()",
-        "class SecondRowIcons"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-top-second-row/src/test/kotlin/com/diegonmarcos/superapp/navbartop2/NavBarTopSecondRowsTest.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "NavBarTopSecondRowsTest"
-      ],
-      "imports": [
-        "android.content.ComponentName",
-        "androidx.activity.ComponentActivity",
-        "androidx.compose.ui.graphics.Color",
-        "androidx.compose.ui.test.junit4.createAndroidComposeRule",
-        "androidx.compose.ui.test.onNodeWithTag",
-        "androidx.compose.ui.test.assertIsDisplayed",
-        "androidx.compose.ui.test.assertIsSelected",
-        "androidx.compose.ui.test.performClick",
-        "androidx.compose.ui.test.performScrollTo",
-        "com.diegonmarcos.superapp.bottomnav.NavDecl",
-        "com.diegonmarcos.superapp.bottomnav.NavGroup",
-        "com.diegonmarcos.superapp.bottomnav.NavPage",
-        "com.diegonmarcos.superapp.bottomnav.NavSection",
-        "com.diegonmarcos.superapp.bottomnav.SecondRowMode",
-        "com.diegonmarcos.superapp.navbarbottom.BottomSpec",
-        "com.diegonmarcos.superapp.themebg.ThemeBackground",
-        "org.junit.Assert.assertEquals",
-        "org.junit.Assert.assertTrue",
-        "org.junit.Rule",
-        "org.junit.Test",
-        "org.junit.rules.RuleChain",
-        "org.junit.rules.TestRule",
-        "org.junit.runner.RunWith",
-        "org.junit.runners.model.Statement",
-        "org.robolectric.RobolectricTestRunner",
-        "org.robolectric.RuntimeEnvironment",
-        "org.robolectric.Shadows.shadowOf",
-        "org.robolectric.annotation.Config",
-        "org.robolectric.annotation.GraphicsMode"
-      ],
-      "symbols": [
-        "evaluate()",
-        "p(id: String)",
-        "class NavBarTopSecondRowsTest"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-top-second-row/src/test/kotlin/com/diegonmarcos/superapp/navbartop2/NavBarTopSecondRowTest.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "NavBarTopSecondRowTest"
-      ],
-      "imports": [
-        "android.content.ComponentName",
-        "androidx.activity.ComponentActivity",
-        "androidx.compose.ui.graphics.Color",
-        "androidx.compose.ui.test.junit4.createAndroidComposeRule",
-        "androidx.compose.ui.test.onNodeWithTag",
-        "androidx.compose.ui.test.performClick",
-        "com.diegonmarcos.superapp.bottomnav.NavPage",
-        "com.diegonmarcos.superapp.navbarbottom.BottomSpec",
-        "com.diegonmarcos.superapp.themebg.ThemeBackground",
-        "org.junit.Assert.assertEquals",
-        "org.junit.Assert.assertTrue",
-        "org.junit.Rule",
-        "org.junit.Test",
-        "org.junit.rules.RuleChain",
-        "org.junit.rules.TestRule",
-        "org.junit.runner.RunWith",
-        "org.junit.runners.model.Statement",
-        "org.robolectric.RobolectricTestRunner",
-        "org.robolectric.RuntimeEnvironment",
-        "org.robolectric.Shadows.shadowOf",
-        "org.robolectric.annotation.Config",
-        "org.robolectric.annotation.GraphicsMode"
-      ],
-      "symbols": [
-        "evaluate()",
-        "pages(n: Int)",
-        "show(n: Int, selected: String = \"p1\", onSelect: (NavPage)",
-        "class NavBarTopSecondRowTest"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/nav-bar-top-second-row/src/test/kotlin/com/diegonmarcos/superapp/navbartop2/SubPageIconGuardTest.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "SubPageIconGuardTest"
-      ],
-      "imports": [
-        "com.diegonmarcos.superapp.bottomnav.NavDecl",
-        "java.io.File",
-        "org.json.JSONObject",
-        "org.junit.Assert.assertEquals",
-        "org.junit.Assert.assertTrue",
-        "org.junit.Test",
-        "org.junit.runner.RunWith",
-        "org.robolectric.RobolectricTestRunner",
-        "org.robolectric.annotation.Config"
-      ],
-      "symbols": [
-        "buildJson(app: String)",
-        "decl(app: String)",
-        "class SubPageIconGuardTest"
-      ]
-    },
-    {
       "path": "ab_cloud-libs-shared/libs/net-wg/src/main/java/com/diegonmarcos/superapp/netwg/MeshRelay.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -74858,8 +74479,867 @@
         "onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)",
         "kitComposeView(palette: KitPalette, content: @Composable ()",
         "KitPage(content: @Composable ()",
+        "target()",
+        "onPreScroll(available: androidx.compose.ui.geometry.Offset, source: androidx.compose.ui.input.nestedscroll.NestedScrollSource)",
+        "onPreFling(available: androidx.compose.ui.unit.Velocity)",
         "class KitComposeFragment",
-        "class KitScroll"
+        "class KitScroll",
+        "class ChromeTagSink"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbarbottom/NavBarBottom.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "BottomSpec",
+        "BottomTags",
+        "NavBarBottom",
+        "NAV_BAR_BOTTOM_CONTENT_TAG",
+        "NavBarBottomHost"
+      ],
+      "imports": [
+        "androidx.compose.animation.core.animateDpAsState",
+        "androidx.compose.animation.core.animateFloatAsState",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.BoxWithConstraints",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.consumeWindowInsets",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.WindowInsetsSides",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.offset",
+        "androidx.compose.foundation.layout.only",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.widthIn",
+        "androidx.compose.foundation.layout.windowInsetsPadding",
+        "androidx.compose.foundation.selection.selectable",
+        "androidx.compose.foundation.selection.selectableGroup",
+        "androidx.compose.foundation.shape.CircleShape",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.graphics.graphicsLayer",
+        "androidx.compose.ui.input.nestedscroll.nestedScroll",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.semantics.CollectionInfo",
+        "androidx.compose.ui.semantics.CollectionItemInfo",
+        "androidx.compose.ui.semantics.Role",
+        "androidx.compose.ui.semantics.collectionInfo",
+        "androidx.compose.ui.semantics.collectionItemInfo"
+      ],
+      "symbols": [
+        "cellWidth(barWidth: Dp, count: Int)",
+        "selectedInk(dark: Boolean)",
+        "idleInk(dark: Boolean)",
+        "fill(dark: Boolean)",
+        "border(dark: Boolean)",
+        "item(id: String)",
+        "icon(id: String)",
+        "label(id: String)",
+        "NavBarBottom( entries: List<BottomNavEntry>, selectedId: String?, onSelect: (BottomNavEntry)",
+        "NavBarBottomHost( entries: List<BottomNavEntry>, selectedId: String?, onSelect: (BottomNavEntry)",
+        "class BottomSpec",
+        "class BottomTags"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop1/Breadcrumb.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Crumb",
+        "TitleNav",
+        "titleNav",
+        "fitCrumbs"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.bottomnav.NavSection"
+      ],
+      "symbols": [
+        "titleNav( appName: String, title: String, hierarchy: List<HierarchyEntry>, sections: List<NavSection> = emptyList()",
+        "fitCrumbs(labels: List<String>, fits: (String)",
+        "class Crumb",
+        "class TitleNav"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop1/NavBarTopFirstRow.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "TopFirstRowSpec",
+        "TopFirstRowTags",
+        "HierarchyEntry",
+        "titleHierarchy",
+        "hierarchyWithShown",
+        "NavBarTopFirstRow",
+        "defaultAppName",
+        "NavBarTopFirstRowScaffold",
+        "BreadcrumbLeafState",
+        "LocalBreadcrumbLeaf",
+        "BreadcrumbLeaf"
+      ],
+      "imports": [
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.BoxWithConstraints",
+        "androidx.compose.foundation.layout.ColumnScope",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.heightIn",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.filled.AccountCircle",
+        "androidx.compose.material.icons.filled.AutoAwesome",
+        "androidx.compose.material.icons.filled.ArrowDropDown",
+        "androidx.compose.material.icons.filled.MoreVert",
+        "androidx.compose.material3.Surface",
+        "androidx.compose.ui.unit.IntOffset",
+        "androidx.compose.ui.unit.IntRect",
+        "androidx.compose.ui.unit.IntSize",
+        "androidx.compose.ui.unit.LayoutDirection",
+        "androidx.compose.ui.window.Popup",
+        "androidx.compose.ui.window.PopupPositionProvider",
+        "androidx.compose.ui.window.PopupProperties",
+        "androidx.compose.material3.HorizontalDivider",
+        "androidx.compose.material3.DropdownMenuItem",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.CompositionLocalProvider",
+        "androidx.compose.runtime.DisposableEffect",
+        "androidx.compose.runtime.ProvidableCompositionLocal"
+      ],
+      "symbols": [
+        "islandMaxWidth(rowWidth: Dp)",
+        "crumb(index: Int)",
+        "entry(id: String)",
+        "titleHierarchy(section: NavSection, currentPageId: String?)",
+        "walk(pages: List<NavPage>, depth: Int)",
+        "hierarchyWithShown(hierarchy: List<HierarchyEntry>, shown: Collection<String>)",
+        "NavBarTopFirstRow( title: String, colors: ThemeColors, labels: AppTopBarLabels, hierarchy: List<HierarchyEntry>, onNavigate: (HierarchyEntry)",
+        "defaultAppName()",
+        "BreadcrumbText(labels: List<String>, color: androidx.compose.ui.graphics.Color)",
+        "PlainIcon(icon: ImageVector, label: String, tag: String, colors: ThemeColors, onClick: ()",
+        "NavBarTopFirstRowScaffold( title: String, hierarchy: List<HierarchyEntry>, onNavigate: (HierarchyEntry)",
+        "BreadcrumbLeaf(text: String?)",
+        "calculatePosition(anchorBounds: IntRect, windowSize: IntSize, layoutDirection: LayoutDirection, popupContentSize: IntSize)",
+        "class TopFirstRowSpec",
+        "class TopFirstRowTags",
+        "class HierarchyEntry",
+        "class BreadcrumbLeafState",
+        "class BelowAnchor"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop1/SuperAppAi.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "SuperAppAi",
+        "rememberSuperAppAiLauncher"
+      ],
+      "imports": [
+        "android.content.Context",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.ui.platform.LocalContext"
+      ],
+      "symbols": [
+        "open(ctx: Context)",
+        "rememberSuperAppAiLauncher()",
+        "class SuperAppAi"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop2/NavBarTopSecondRow.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "SecondRowSpec",
+        "SecondRowTags",
+        "SubPageRequests",
+        "LocalSubPageRequests",
+        "NavBarTopSecondRow"
+      ],
+      "imports": [
+        "androidx.compose.animation.AnimatedVisibility",
+        "androidx.compose.animation.core.animateDpAsState",
+        "androidx.compose.animation.expandHorizontally",
+        "androidx.compose.animation.fadeIn",
+        "androidx.compose.animation.fadeOut",
+        "androidx.compose.animation.shrinkHorizontally",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.BoxWithConstraints",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.widthIn",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.layout.WindowInsets",
+        "androidx.compose.foundation.layout.displayCutout",
+        "androidx.compose.foundation.layout.statusBars",
+        "androidx.compose.foundation.layout.union",
+        "androidx.compose.foundation.layout.defaultMinSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.selection.selectableGroup",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.runtime.staticCompositionLocalOf",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.graphics.painter.Painter",
+        "androidx.compose.ui.platform.LocalDensity",
+        "androidx.compose.ui.platform.testTag"
+      ],
+      "symbols": [
+        "tab(id: String)",
+        "icon(id: String)",
+        "label(id: String)",
+        "request(pageId: String)",
+        "consume()",
+        "reportShown(strip: Any, pageId: String?)",
+        "clearShown(strip: Any)",
+        "shownIds()",
+        "ReportShownPage(selectedId: String?)",
+        "holds(id: String)",
+        "NavBarTopSecondRow( pages: List<NavPage>, selectedId: String?, onSelect: (NavPage)",
+        "SecondRowTab( page: NavPage, index: Int, count: Int, on: Boolean, named: Boolean, palette: ThemeColors, tabHeight: Dp, tab: androidx.compose.ui.graphics.Shape, iconFor: @Composable (NavPage)",
+        "class SecondRowSpec",
+        "class SecondRowTags",
+        "class SubPageRequests"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop2/NavBarTopSecondRows.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "SecondRowGroupTags",
+        "SecondRowGroupDropdownMax",
+        "NavBarTopSecondRows",
+        "groupLabelColumnWidth"
+      ],
+      "imports": [
+        "androidx.compose.animation.core.animateDpAsState",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.WindowInsets",
+        "androidx.compose.foundation.layout.displayCutout",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.heightIn",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.statusBars",
+        "androidx.compose.foundation.layout.union",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.selection.selectableGroup",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material3.Surface",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.graphics.painter.Painter",
+        "androidx.compose.ui.platform.LocalDensity",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.semantics.Role",
+        "androidx.compose.ui.text.TextStyle",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.text.rememberTextMeasurer",
+        "androidx.compose.ui.unit.sp"
+      ],
+      "symbols": [
+        "row(groupId: String)",
+        "index(groupId: String)",
+        "divider(groupId: String)",
+        "item(pageId: String)",
+        "NavBarTopSecondRows( section: NavSection, selectedId: String?, onSelect: (NavPage)",
+        "groupIndexText(group: NavGroup)",
+        "groupLabelColumnWidth(labelWidthsPx: List<Int>)",
+        "GroupIndex( group: NavGroup, selectedId: String?, onSelect: (NavPage)",
+        "calculatePosition(anchorBounds: IntRect, windowSize: IntSize, layoutDirection: LayoutDirection, popupContentSize: IntSize)",
+        "class SecondRowGroupTags",
+        "class BelowAnchor"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop2/NavBarTopSecondRowView.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavBarTopSecondRowView"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.util.AttributeSet",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.platform.AbstractComposeView",
+        "com.diegonmarcos.superapp.bottomnav.NavPage",
+        "com.diegonmarcos.superapp.bottomnav.TabSurface"
+      ],
+      "symbols": [
+        "Content()",
+        "class NavBarTopSecondRowView"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop2/NavModeConfigCard.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavModeConfigTags",
+        "navModeLabel",
+        "NavModeConfigCard"
+      ],
+      "imports": [
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.FlowRow",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.semantics.Role",
+        "androidx.compose.ui.semantics.contentDescription",
+        "androidx.compose.ui.semantics.role",
+        "androidx.compose.ui.semantics.selected",
+        "androidx.compose.ui.semantics.semantics",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "com.diegonmarcos.superapp.bottomnav.LocalNavModeStore",
+        "com.diegonmarcos.superapp.bottomnav.NavModeStore",
+        "com.diegonmarcos.superapp.bottomnav.NavSection",
+        "com.diegonmarcos.superapp.bottomnav.SecondRowMode",
+        "com.diegonmarcos.superapp.bottomnav.rememberNavModePrefs",
+        "com.diegonmarcos.superapp.themebg.ThemeBackground"
+      ],
+      "symbols": [
+        "section(id: String)",
+        "choice(sectionId: String, mode: SecondRowMode)",
+        "reset(sectionId: String)",
+        "navModeLabel(mode: SecondRowMode)",
+        "NavModeConfigCard( sections: List<NavSection>, modifier: Modifier = Modifier, dark: Boolean = true, store: NavModeStore = LocalNavModeStore.current ?: rememberNavModePrefs()",
+        "class NavModeConfigTags"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop2/NavSideMenu.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "SideMenuSpec",
+        "SideMenuTags",
+        "NavSideMenu",
+        "NavSectionLayout"
+      ],
+      "imports": [
+        "androidx.compose.animation.AnimatedVisibility",
+        "androidx.compose.animation.core.animateDpAsState",
+        "androidx.compose.animation.expandHorizontally",
+        "androidx.compose.animation.fadeIn",
+        "androidx.compose.animation.fadeOut",
+        "androidx.compose.animation.shrinkHorizontally",
+        "androidx.compose.animation.slideInHorizontally",
+        "androidx.compose.animation.slideOutHorizontally",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.BoxWithConstraints",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxHeight",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.selection.selectableGroup",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.ExperimentalComposeUiApi",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.graphics.Color"
+      ],
+      "symbols": [
+        "item(id: String)",
+        "icon(id: String)",
+        "label(id: String)",
+        "rail(id: String)",
+        "heading(id: String)",
+        "NavSideMenu( section: NavSection, selectedId: String?, onSelect: (NavPage)",
+        "SideHeading(item: SideMenuItem, rail: Boolean, palette: ThemeColors)",
+        "SideRow(item: SideMenuItem, rail: Boolean, on: Boolean, palette: ThemeColors, iconFor: @Composable (NavPage)",
+        "NavSectionLayout( section: NavSection, selectedId: String?, onSelect: (NavPage)",
+        "SideMenuLayout( section: NavSection, selectedId: String?, onSelect: (NavPage)",
+        "toggleAndSelect(page: NavPage, onSelect: (NavPage)",
+        "class SideMenuSpec",
+        "class SideMenuTags"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop2/SecondRowIcons.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "SecondRowIcons"
+      ],
+      "imports": [
+        "androidx.compose.ui.graphics.vector.ImageVector",
+        "com.diegonmarcos.superapp.uiicons.UiIcons"
+      ],
+      "symbols": [
+        "has(name: String)",
+        "vector(name: String)",
+        "names()",
+        "class SecondRowIcons"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/test/kotlin/com/diegonmarcos/superapp/navbarbottom/NavBarBottomTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavBarBottomTest"
+      ],
+      "imports": [
+        "android.content.ComponentName",
+        "androidx.activity.ComponentActivity",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.filled.Home",
+        "androidx.compose.material.icons.filled.Mail",
+        "androidx.compose.material.icons.filled.Settings",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.test.swipeDown",
+        "androidx.compose.ui.test.swipeUp",
+        "androidx.compose.ui.test.performTouchInput",
+        "androidx.compose.ui.test.onAllNodesWithTag",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.ui.graphics.vector.rememberVectorPainter",
+        "androidx.compose.ui.test.junit4.createAndroidComposeRule",
+        "androidx.compose.ui.test.onNodeWithTag",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.runtime.CompositionLocalProvider",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.setValue",
+        "com.diegonmarcos.superapp.bottomnav.LocalNavImeVisible",
+        "androidx.compose.ui.test.performClick",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.superapp.bottomnav.BottomNavEntry",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNotEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Rule",
+        "org.junit.Test",
+        "org.junit.rules.RuleChain",
+        "org.junit.rules.TestRule",
+        "org.junit.runner.RunWith",
+        "org.junit.runners.model.Statement"
+      ],
+      "symbols": [
+        "evaluate()",
+        "spread(c: Color)",
+        "class NavBarBottomTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/test/kotlin/com/diegonmarcos/superapp/navbartop1/BreadcrumbTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "BreadcrumbTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.bottomnav.NavPage",
+        "com.diegonmarcos.superapp.bottomnav.NavSection",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "nav(page: String?, leaf: String? = null, secs: List<NavSection> = sections)",
+        "class BreadcrumbTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/test/kotlin/com/diegonmarcos/superapp/navbartop1/ChromeScrollGuardTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ChromeScrollGuardTest"
+      ],
+      "imports": [
+        "java.io.File",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "sources(app: String)",
+        "driveFiles()",
+        "body(text: String, name: String)",
+        "class ChromeScrollGuardTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/test/kotlin/com/diegonmarcos/superapp/navbartop1/HierarchyFollowsStripsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HierarchyFollowsStripsTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "e(id: String, depth: Int, sel: Boolean = false)",
+        "class HierarchyFollowsStripsTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/test/kotlin/com/diegonmarcos/superapp/navbartop1/NavBarTopFirstRowTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavBarTopFirstRowTest"
+      ],
+      "imports": [
+        "android.content.ComponentName",
+        "androidx.activity.ComponentActivity",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.test.assertIsDisplayed",
+        "androidx.compose.ui.test.junit4.createAndroidComposeRule",
+        "androidx.compose.ui.test.onNodeWithTag",
+        "androidx.compose.ui.test.performClick",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.superapp.bottomnav.AppTopBarLabels",
+        "com.diegonmarcos.superapp.bottomnav.NavPage",
+        "com.diegonmarcos.superapp.bottomnav.NavSection",
+        "com.diegonmarcos.superapp.themebg.ThemeBackground",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Rule",
+        "org.junit.Test",
+        "org.junit.rules.RuleChain",
+        "org.junit.rules.TestRule",
+        "org.junit.runner.RunWith",
+        "org.junit.runners.model.Statement",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.RuntimeEnvironment",
+        "org.robolectric.Shadows.shadowOf",
+        "org.robolectric.annotation.Config",
+        "org.robolectric.annotation.GraphicsMode"
+      ],
+      "symbols": [
+        "evaluate()",
+        "show( onNavigate: (HierarchyEntry)",
+        "class NavBarTopFirstRowTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/test/kotlin/com/diegonmarcos/superapp/navbartop1/NavChromeScrollTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavChromeScrollTest"
+      ],
+      "imports": [
+        "android.content.ComponentName",
+        "androidx.activity.ComponentActivity",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.outlined.Home",
+        "androidx.compose.material.icons.outlined.Mail",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.graphics.vector.rememberVectorPainter",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.test.junit4.createAndroidComposeRule",
+        "androidx.compose.ui.test.onAllNodesWithTag",
+        "androidx.compose.ui.test.onNodeWithTag",
+        "androidx.compose.ui.test.performTouchInput",
+        "androidx.compose.ui.test.swipeDown",
+        "androidx.compose.ui.test.swipeUp",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.superapp.bottomnav.BottomNavEntry",
+        "com.diegonmarcos.superapp.bottomnav.NavPage",
+        "com.diegonmarcos.superapp.bottomnav.TopBarTags",
+        "com.diegonmarcos.superapp.navbarbottom.BottomTags",
+        "com.diegonmarcos.superapp.navbarbottom.NavBarBottomHost",
+        "com.diegonmarcos.superapp.navbartop2.NavBarTopSecondRow",
+        "com.diegonmarcos.superapp.navbartop2.SecondRowTags",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Rule",
+        "org.junit.Test",
+        "org.junit.rules.RuleChain",
+        "org.junit.rules.TestRule",
+        "org.junit.runner.RunWith",
+        "org.junit.runners.model.Statement",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.RuntimeEnvironment",
+        "org.robolectric.Shadows.shadowOf",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "evaluate()",
+        "show()",
+        "count(tag: String)",
+        "h(tag: String)",
+        "class NavChromeScrollTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/test/kotlin/com/diegonmarcos/superapp/navbartop2/NavBarTopSecondRowsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavBarTopSecondRowsTest"
+      ],
+      "imports": [
+        "android.content.ComponentName",
+        "androidx.activity.ComponentActivity",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.test.junit4.createAndroidComposeRule",
+        "androidx.compose.ui.test.onNodeWithTag",
+        "androidx.compose.ui.test.assertIsDisplayed",
+        "androidx.compose.ui.test.assertIsSelected",
+        "androidx.compose.ui.test.assertCountEquals",
+        "androidx.compose.ui.test.onAllNodesWithTag",
+        "androidx.compose.ui.test.performClick",
+        "androidx.compose.ui.test.performScrollTo",
+        "com.diegonmarcos.superapp.bottomnav.NavDecl",
+        "com.diegonmarcos.superapp.bottomnav.NavGroup",
+        "com.diegonmarcos.superapp.bottomnav.NavPage",
+        "com.diegonmarcos.superapp.bottomnav.NavSection",
+        "com.diegonmarcos.superapp.bottomnav.SecondRowMode",
+        "com.diegonmarcos.superapp.navbarbottom.BottomSpec",
+        "com.diegonmarcos.superapp.themebg.ThemeBackground",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Rule",
+        "org.junit.Test",
+        "org.junit.rules.RuleChain",
+        "org.junit.rules.TestRule",
+        "org.junit.runner.RunWith",
+        "org.junit.runners.model.Statement",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.RuntimeEnvironment",
+        "org.robolectric.Shadows.shadowOf",
+        "org.robolectric.annotation.Config",
+        "org.robolectric.annotation.GraphicsMode"
+      ],
+      "symbols": [
+        "evaluate()",
+        "p(id: String)",
+        "class NavBarTopSecondRowsTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/test/kotlin/com/diegonmarcos/superapp/navbartop2/NavBarTopSecondRowTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavBarTopSecondRowTest"
+      ],
+      "imports": [
+        "android.content.ComponentName",
+        "androidx.activity.ComponentActivity",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.test.junit4.createAndroidComposeRule",
+        "androidx.compose.ui.test.onNodeWithTag",
+        "androidx.compose.ui.test.performClick",
+        "com.diegonmarcos.superapp.bottomnav.NavPage",
+        "com.diegonmarcos.superapp.navbarbottom.BottomSpec",
+        "com.diegonmarcos.superapp.themebg.ThemeBackground",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Rule",
+        "org.junit.Test",
+        "org.junit.rules.RuleChain",
+        "org.junit.rules.TestRule",
+        "org.junit.runner.RunWith",
+        "org.junit.runners.model.Statement",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.RuntimeEnvironment",
+        "org.robolectric.Shadows.shadowOf",
+        "org.robolectric.annotation.Config",
+        "org.robolectric.annotation.GraphicsMode"
+      ],
+      "symbols": [
+        "evaluate()",
+        "pages(n: Int)",
+        "show(n: Int, selected: String = \"p1\", onSelect: (NavPage)",
+        "class NavBarTopSecondRowTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/test/kotlin/com/diegonmarcos/superapp/navbartop2/NavSideMenuTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavSideMenuTest"
+      ],
+      "imports": [
+        "android.content.ComponentName",
+        "androidx.activity.ComponentActivity",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.CompositionLocalProvider",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.test.assertIsDisplayed",
+        "androidx.compose.ui.test.assertIsSelected",
+        "androidx.compose.ui.test.assertTextEquals",
+        "androidx.compose.ui.test.junit4.createAndroidComposeRule",
+        "androidx.compose.ui.test.onNodeWithTag",
+        "androidx.compose.ui.test.click",
+        "androidx.compose.ui.test.performClick",
+        "androidx.compose.ui.test.performTouchInput",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.superapp.bottomnav.BottomNavCollapse",
+        "com.diegonmarcos.superapp.bottomnav.LocalNavChromeCollapse",
+        "com.diegonmarcos.superapp.bottomnav.MemoryNavModeStore",
+        "com.diegonmarcos.superapp.bottomnav.NavGroup",
+        "com.diegonmarcos.superapp.bottomnav.NavPage",
+        "com.diegonmarcos.superapp.bottomnav.NavSection",
+        "com.diegonmarcos.superapp.bottomnav.SecondRowMode",
+        "com.diegonmarcos.superapp.bottomnav.SideMenuPresence",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Rule",
+        "org.junit.Test",
+        "org.junit.rules.RuleChain",
+        "org.junit.rules.TestRule",
+        "org.junit.runner.RunWith",
+        "org.junit.runners.model.Statement",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.RuntimeEnvironment",
+        "org.robolectric.Shadows.shadowOf",
+        "org.robolectric.annotation.Config",
+        "org.robolectric.annotation.GraphicsMode"
+      ],
+      "symbols": [
+        "evaluate()",
+        "p(id: String, label: String)",
+        "tags(id: String)",
+        "class NavSideMenuTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/test/kotlin/com/diegonmarcos/superapp/navbartop2/SubPageIconGuardTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "SubPageIconGuardTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.bottomnav.NavDecl",
+        "java.io.File",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "buildJson(app: String)",
+        "decl(app: String)",
+        "class SubPageIconGuardTest"
       ]
     },
     {
@@ -148454,6 +148934,11 @@
         "setAgentModel",
         "checkedRow",
         "controlOrder",
+        "taskLock",
+        "lockedAgent",
+        "modelTabOf",
+        "modelTabs",
+        "usageLines",
         "requestModel",
         "effortControl",
         "effortField",
@@ -148467,12 +148952,7 @@
         "setToggle",
         "toggles",
         "toContent",
-        "toMessages",
-        "buildRequest",
-        "sseParser",
-        "parseWhole",
-        "newSession",
-        "title"
+        "toMessages"
       ],
       "imports": [],
       "symbols": [
@@ -148486,7 +148966,12 @@
         "agentModel(storage, chat, agentId)",
         "setAgentModel(storage, agentId, modelId)",
         "checkedRow(sections, chosen)",
-        "controlOrder(agent, { effort, permission } = {})",
+        "controlOrder(agent, { effort, permission } = {}, design = null, enabled = null)",
+        "taskLock(tasks, taskId)",
+        "lockedAgent(agents, lock, picked)",
+        "modelTabOf(design, row)",
+        "modelTabs(design, rows)",
+        "usageLines(sessions, sessionId, now = Date.now()",
         "requestModel(agent, modelId)",
         "effortControl(agent, modelId, reasoning)",
         "effortField(chat, agent, levelId, modelId, reasoning)",
@@ -148506,16 +148991,11 @@
         "toMessages(session, instruction)",
         "buildRequest({ chat, fleet, storage, agent, model, effort, mode, session, reasoning, health })",
         "sseParser()",
+        "usageOf(u)",
         "parseWhole(status, body)",
         "newSession(now, agentId)",
         "title(session)",
-        "groupSessions(sessions, now)",
-        "searchSessions(sessions, q)",
-        "exportMarkdown(session, agentLabel)",
-        "loadSessions(storage)",
-        "saveSessions(storage, sessions)",
-        "loadSettings(storage, chat)",
-        "saveSettings(storage, settings)"
+        "groupSessions(sessions, now)"
       ]
     },
     {
@@ -148546,6 +149026,7 @@
         "current()",
         "fresh(settings = M.loadSettings(localStorage, chat)",
         "agents()",
+        "lock()",
         "agent()",
         "modelOf(a)",
         "getJson(url, auth)",
@@ -148558,28 +149039,27 @@
         "chipIcon(mime = \"\")",
         "chip(label, iconName, onclick, { disabled, title, role } = {})",
         "drawControls()",
+        "toggleBar()",
+        "taskSheet()",
+        "plusSheet()",
         "shortModel(label)",
         "agentSheet()",
         "effortSheet()",
         "modeSheet()",
         "mcpSheet()",
         "moreSheet()",
+        "moreItem(a, it)",
         "selectValue(a, f)",
         "invoke(a, f)",
         "nativeFunction(a, f)",
         "gatewaySessions(url)",
         "claudeLogin()",
-        "attachSheet()",
         "pick(kind)",
         "startRecording()",
         "stopRecording()",
         "modelPage(refresh = false, onPick = null)",
         "section(sec, checked)",
-        "send()",
-        "retry()",
-        "stream(s, a)",
-        "stop()",
-        "sessionRow(s, after)"
+        "send()"
       ]
     },
     {
@@ -148606,7 +149086,7 @@
         "drawer(title, items, ...extra)",
         "sheet(title, rows, note)",
         "option(label, { checked, disabled, sub, run, iconName } = {})",
-        "toggleRow(label, on, onChange, sub)",
+        "toggleRow(label, on, onChange, sub, disabled = false)",
         "closeOverlay()",
         "page(title, onBack, ...children)"
       ]
@@ -161485,6 +161965,18 @@
       "symbols": []
     },
     {
+      "path": "ac_cloud-code/test/cloud_bleed.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "node:fs",
+        "node:path",
+        "node:module"
+      ],
+      "symbols": []
+    },
+    {
       "path": "ac_cloud-code/test/cloud_nav.mjs",
       "lang": "js",
       "role": "file",
@@ -162901,6 +163393,7 @@
         "shared_agents(app_root, c)",
         "merged_agents(app_root, c)",
         "shared_ai(app_root, c)",
+        "shared_design(app_root, c)",
         "chat(app_root, nav)",
         "main(argv)"
       ],
@@ -162922,6 +163415,7 @@
         "shared_agents(app_root, c)",
         "merged_agents(app_root, c)",
         "shared_ai(app_root, c)",
+        "shared_design(app_root, c)",
         "chat(app_root, nav)",
         "main(argv)"
       ]
@@ -167891,6 +168385,11 @@
         "com.diegonmarcos.superapp.navbartop2.NavBarTopSecondRow",
         "com.diegonmarcos.clouddrive.backups.BackupsScreen",
         "com.diegonmarcos.clouddrive.backups.MirrorRunner",
+        "com.diegonmarcos.clouddrive.sync.GitPart",
+        "com.diegonmarcos.clouddrive.sync.GitReposScreen",
+        "com.diegonmarcos.clouddrive.sync.GitSyncCoordinator",
+        "com.diegonmarcos.clouddrive.sync.GitView",
+        "com.diegonmarcos.clouddrive.sync.rememberGitNextRun",
         "com.diegonmarcos.clouddrive.ui.DriveMetrics",
         "com.diegonmarcos.clouddrive.ui.DriveTags",
         "com.diegonmarcos.clouddrive.ui.EmptyState",
@@ -167899,7 +168398,7 @@
         "com.diegonmarcos.clouddrive.ui.ToolbarIsland"
       ],
       "symbols": [
-        "ConfigsScreen( mirrors: MirrorRunner, prefs: DrivePrefs, actions: DriveActions, hasAccess: Boolean, rcloneVersion: String?, page: String? = null, onPageConsumed: ()"
+        "ConfigsScreen( mirrors: MirrorRunner, prefs: DrivePrefs, actions: DriveActions, hasAccess: Boolean, rcloneVersion: String?, git: GitSyncCoordinator, page: String? = null, onPageConsumed: ()"
       ]
     },
     {
@@ -170861,9 +171360,12 @@
         "sync(text: String)",
         "parseCloud(syncText: String)",
         "parseHosts(syncText: String)",
+        "parseProviders(syncText: String)",
+        "map(k: String)",
         "class GitHostsDecl",
         "class CloudListDecl",
-        "class GitHostDecl"
+        "class GitHostDecl",
+        "class ProvidersDecl"
       ]
     },
     {
@@ -170960,6 +171462,35 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/GitPageFrame.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GitPageFrame"
+      ],
+      "imports": [
+        "androidx.compose.foundation.layout.PaddingValues",
+        "androidx.compose.foundation.layout.WindowInsets",
+        "androidx.compose.foundation.layout.WindowInsetsSides",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.only",
+        "androidx.compose.foundation.layout.safeDrawing",
+        "androidx.compose.foundation.layout.windowInsetsPadding",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.LazyListScope",
+        "androidx.compose.material3.ExperimentalMaterial3Api",
+        "androidx.compose.material3.pulltorefresh.PullToRefreshBox",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "com.diegonmarcos.clouddrive.ui.DriveMetrics",
+        "com.diegonmarcos.clouddrive.ui.DriveTags"
+      ],
+      "symbols": [
+        "GitPageFrame(refreshing: Boolean, onRefresh: ()"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/GitRepoScan.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -170984,6 +171515,7 @@
       "role": "kotlin",
       "exports": [
         "GitView",
+        "GitPart",
         "GitReposScreen"
       ],
       "imports": [
@@ -171029,10 +171561,10 @@
         "androidx.compose.material3.ModalBottomSheet"
       ],
       "symbols": [
-        "GitReposScreen(coordinator: GitSyncCoordinator, actions: DriveActions, nextRunMinutes: Long?, modifier: Modifier = Modifier, view: GitView = GitView.ME, prefs: DrivePrefs? = null)",
+        "GitReposScreen(coordinator: GitSyncCoordinator, actions: DriveActions, nextRunMinutes: Long?, modifier: Modifier = Modifier, view: GitView = GitView.ME, prefs: DrivePrefs? = null, part: GitPart = GitPart.TABLE)",
         "onSignedIn(result: SignInResult)",
         "onWebSession(cookie: String)",
-        "tableRow(name: String, owner: String, declaredPrivate: Boolean?)",
+        "tableRow(name: String, owner: String, declaredPrivate: Boolean?, listedUrl: String = \"\")",
         "refreshTargets()",
         "cloneViaTerminal(name: String, url: String)",
         "clone(name: String, listedUrl: String = \"\", listedSshUrl: String = \"\")",
@@ -171058,6 +171590,9 @@
         "GitWayCard( way: Declarations.GitWayDecl, isCloud: Boolean, page: Declarations.GitPageDecl, login: GitLogin, listing: GitListing, chain: GitChainState, ghAuth: GhAuth, signingIn: Boolean, rungDeclared: Boolean, cloudFallback: Boolean, fleetHost: SignInHost, onSignIn: ()",
         "GitRepoRow( name: String, repoName: String, cells: RepoTableRow, scroll: ScrollState, fork: Boolean, source: String = \"\", repo: ManagedRepo?, glance: GitSyncCoordinator.Glance?, running: GitSyncCoordinator.Running?, cloning: Boolean, expanded: Boolean, onToggle: ()",
         "lightOf(repo: ManagedRepo?, glance: GitSyncCoordinator.Glance?)",
+        "statusErrorText(kind: RepoStatus.ErrorKind?, detail: String?)",
+        "RepoStatusLegend()",
+        "RepoStatusBlock(b: RepoStatus.Block, fmt: DateFormat)",
         "GitRepoOpsBox( repo: ManagedRepo, page: Declarations.GitPageDecl, details: GitSyncCoordinator.Details?, result: com.diegonmarcos.cloudlib.gitsync.GitOpResult?, running: GitSyncCoordinator.Running?, glance: GitSyncCoordinator.Glance?, fmt: DateFormat, coordinator: GitSyncCoordinator, actions: DriveActions, repoName: String, owner: String, remote: RepoRemoteStats.Stats?, cloneDepth: Int, cloneSsh: Boolean, onSettings: ()",
         "declared(op: Declarations.GitOpDecl)",
         "act(id: String)",
@@ -171065,10 +171600,7 @@
         "stepLabel(step: GitSyncCoordinator.Step)",
         "HistoryRow(e: SyncEvent, fmt: DateFormat, compact: Boolean = false)",
         "RepoSettingsSheet(repo: ManagedRepo, coordinator: GitSyncCoordinator, onDismiss: ()",
-        "class GitView",
-        "class TableEntry",
-        "class CloudPublic",
-        "class GhAuth"
+        "class GitView"
       ]
     },
     {
@@ -171155,6 +171687,7 @@
         "setSecret(repo: ManagedRepo, secret: String)",
         "hasSecret(repo: ManagedRepo)",
         "syncNow(repo: ManagedRepo)",
+        "unpushedCommits(repo: ManagedRepo, ahead: Int)",
         "loadDetails(repo: ManagedRepo, historyMax: Int)",
         "runOp(repo: ManagedRepo, opId: String, message: String = \"\")",
         "perform(repo: ManagedRepo, opId: String, message: String, token: ()",
@@ -171561,6 +172094,22 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/RepoProvider.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoProvider"
+      ],
+      "imports": [],
+      "symbols": [
+        "hostOf(url: String)",
+        "idOf(url: String, hosts: Map<String, String>)",
+        "label(id: String?, labels: Map<String, String>)",
+        "labelOf(url: String, decl: GitHostsDecl.ProvidersDecl)",
+        "class RepoProvider"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/RepoRemoteStats.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -171609,6 +172158,29 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/RepoStatus.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoStatus"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.ui.StatusLight",
+        "com.diegonmarcos.cloudlib.gitsync.GitCommitInfo"
+      ],
+      "symbols": [
+        "kindOf(cloned: Boolean, g: GitSyncCoordinator.Glance?)",
+        "light(kind: Kind)",
+        "errorKind(reason: String?)",
+        "block(cloned: Boolean, g: GitSyncCoordinator.Glance?)",
+        "unpushed(log: List<GitCommitInfo>, ahead: Int?)",
+        "class RepoStatus",
+        "class Kind",
+        "class ErrorKind",
+        "class Block"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/RepoTable.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -171629,7 +172201,7 @@
         "visibility(isPrivate: Boolean?, pvt: String, pub: String)",
         "dirty(files: Int?, yes: String, no: String)",
         "aheadBehind(ahead: Int?, behind: Int?)",
-        "rowOf(name: String, declaredPrivate: Boolean?, cloned: Boolean, glance: GitSyncCoordinator.Glance?, remote: RepoRemoteStats.Stats?)",
+        "rowOf(name: String, declaredPrivate: Boolean?, cloned: Boolean, glance: GitSyncCoordinator.Glance?, remote: RepoRemoteStats.Stats?, provider: String? = null)",
         "class RepoColumn",
         "class RepoTableRow",
         "class RepoTable",
@@ -171828,6 +172400,7 @@
       "role": "kotlin",
       "exports": [
         "GitPageScreen",
+        "rememberGitNextRun",
         "TerminalIslandAction"
       ],
       "imports": [
@@ -171875,6 +172448,7 @@
       "symbols": [
         "GitPageScreen( git: GitSyncCoordinator, prefs: DrivePrefs, actions: DriveActions, page: String? = null, onPageConsumed: ()",
         "say(msg: String)",
+        "rememberGitNextRun()",
         "TerminalIslandAction(actions: DriveActions, say: (String)"
       ]
     },
@@ -173915,6 +174489,28 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/RepoProviderTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoProviderTest"
+      ],
+      "imports": [
+        "java.io.File",
+        "kotlinx.serialization.json.Json",
+        "kotlinx.serialization.json.JsonObject",
+        "kotlinx.serialization.json.jsonObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "of(url: String)",
+        "row(n: String, p: String?)",
+        "class RepoProviderTest"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/RepoRemoteStatsTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -173928,6 +174524,29 @@
       ],
       "symbols": [
         "class RepoRemoteStatsTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/RepoStatusTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoStatusTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.sync.RepoStatus.ErrorKind",
+        "com.diegonmarcos.clouddrive.sync.RepoStatus.Kind",
+        "com.diegonmarcos.clouddrive.ui.StatusLight",
+        "com.diegonmarcos.cloudlib.gitsync.GitCommitInfo",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "g( branch: String? = \"main\", upstream: String? = \"origin/main\", ahead: Int = 0, behind: Int = 0, changed: Int = 0, conflicts: Int = 0, untracked: Int = 0, error: String? = null, gone: Boolean = false, read: Boolean = true, fetched: Long = 0, )",
+        "commit(n: Int)",
+        "class RepoStatusTest"
       ]
     },
     {
@@ -174291,6 +174910,52 @@
         "launchApp(packageName: String, fallbackUrl: String)",
         "openAuthProfile(pkg: String, target: String, extra: String)",
         "class DriveShellTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/ui/GitPageFrameTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GitPageFrameTest"
+      ],
+      "imports": [
+        "android.content.ComponentName",
+        "androidx.activity.ComponentActivity",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.heightIn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.material3.Text",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.test.junit4.createAndroidComposeRule",
+        "androidx.compose.ui.test.onNodeWithTag",
+        "androidx.compose.ui.test.performScrollToIndex",
+        "androidx.compose.ui.test.performTouchInput",
+        "androidx.compose.ui.test.swipeDown",
+        "androidx.compose.ui.test.swipeUp",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.clouddrive.sync.GitPageFrame",
+        "com.diegonmarcos.superapp.bottomnav.BottomNavTags",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Rule",
+        "org.junit.Test",
+        "org.junit.rules.RuleChain",
+        "org.junit.rules.TestRule",
+        "org.junit.runner.RunWith",
+        "org.junit.runners.model.Statement",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.RuntimeEnvironment",
+        "org.robolectric.Shadows.shadowOf",
+        "org.robolectric.annotation.Config",
+        "org.robolectric.annotation.GraphicsMode"
+      ],
+      "symbols": [
+        "evaluate()",
+        "open(rowCount: Int)",
+        "assertLastAboveBar(state: String)",
+        "scrollToEnd(rowCount: Int)",
+        "class GitPageFrameTest"
       ]
     },
     {
@@ -207386,6 +208051,7 @@
       "imports": [
         "kotlinx.coroutines.CancellationException",
         "kotlinx.coroutines.CompletableDeferred",
+        "kotlinx.coroutines.flow.flowOf",
         "kotlinx.coroutines.launch",
         "kotlinx.coroutines.runBlocking",
         "org.junit.Assert.assertEquals",
@@ -207399,6 +208065,8 @@
         "byMediaId(mediaId: Long)",
         "forAlbum(albumId: Long)",
         "countForAlbum(albumId: Long)",
+        "countFlow()",
+        "withTextFlow()",
         "upsert(entity: MediaContentIndexEntity)",
         "deleteForAlbum(albumId: Long)",
         "scan(item: IndexableMedia)",
@@ -213515,6 +214183,33 @@
         "questions(offered: List<Pair<String, String>>)",
         "suggest(ctx: Context, from: String, subject: String, offered: List<Pair<String, String>>)",
         "class MailJev"
+      ]
+    },
+    {
+      "path": "ac_cloud-mail/app/src/main/kotlin/app/sterna/ui/inbox/MailSideMenu.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [],
+      "imports": [
+        "android.content.Context",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.ui.platform.LocalContext",
+        "app.sterna.core.jmap.model.Mailbox",
+        "app.sterna.R",
+        "app.sterna.ui.mailNav",
+        "com.diegonmarcos.superapp.bottomnav.NavGroup",
+        "com.diegonmarcos.superapp.bottomnav.NavPage",
+        "com.diegonmarcos.superapp.bottomnav.NavSection",
+        "com.diegonmarcos.superapp.bottomnav.SecondRowMode",
+        "com.diegonmarcos.superapp.navbartop2.NavSectionLayout"
+      ],
+      "symbols": [
+        "mailFolderIcon(role: String?)",
+        "mailFolderSection( mailboxes: List<Mailbox>, displayName: (Mailbox)",
+        "build(from: Int, depth: Int)",
+        "MailFolderNav(ui: MailUi, onSelect: (Mailbox)"
       ]
     },
     {
@@ -223103,6 +223798,27 @@
         "theStateIsHeadersOnly()",
         "theQuestionOffersExactlyThePickersFolders()",
         "class MailJevTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-mail/app/src/test/kotlin/app/sterna/ui/inbox/MailSideMenuTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "MailSideMenuTest"
+      ],
+      "imports": [
+        "app.sterna.core.jmap.model.Mailbox",
+        "com.diegonmarcos.superapp.bottomnav.SecondRowMode",
+        "com.diegonmarcos.superapp.bottomnav.sideMenuItems",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "mb(id: String, role: String? = null, name: String = id, parentId: String? = null)",
+        "section(boxes: List<Mailbox>)",
+        "class MailSideMenuTest"
       ]
     },
     {
@@ -352081,6 +352797,7 @@
         "android.content.Context",
         "android.content.ContextWrapper",
         "android.view.View",
+        "androidx.compose.foundation.layout.Box",
         "androidx.compose.foundation.layout.Column",
         "androidx.compose.foundation.layout.fillMaxSize",
         "androidx.compose.foundation.layout.fillMaxWidth",
@@ -352098,7 +352815,11 @@
         "androidx.fragment.app.FragmentActivity",
         "androidx.fragment.app.commit",
         "com.diegonmarcos.superapp.bottomnav.SecondRowMode",
+        "com.diegonmarcos.superapp.bottomnav.LocalNavModeStore",
+        "com.diegonmarcos.superapp.bottomnav.effective",
+        "com.diegonmarcos.superapp.bottomnav.rememberNavModePrefs",
         "com.diegonmarcos.superapp.navbartop2.NavBarTopSecondRow",
+        "com.diegonmarcos.superapp.navbartop2.NavSectionLayout",
         "com.diegonmarcos.superapp.navbartop2.NavBarTopSecondRows",
         "com.diegonmarcos.superapp.health.HealthFragment",
         "com.diegonmarcos.superapp.uikit.KitFragmentHost",
@@ -352295,9 +353016,12 @@
       ],
       "imports": [
         "android.os.Bundle",
+        "android.webkit.JavascriptInterface",
         "android.webkit.WebView",
         "android.webkit.WebViewClient",
         "androidx.activity.compose.BackHandler",
+        "androidx.activity.compose.rememberLauncherForActivityResult",
+        "androidx.activity.result.contract.ActivityResultContracts",
         "androidx.compose.foundation.layout.fillMaxSize",
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.getValue",
@@ -352306,13 +353030,16 @@
         "androidx.compose.runtime.saveable.rememberSaveable",
         "androidx.compose.runtime.setValue",
         "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
         "androidx.compose.ui.viewinterop.AndroidView",
         "org.json.JSONObject"
       ],
       "symbols": [
         "WebPage(block: JSONObject, modifier: Modifier = Modifier)",
         "onPageFinished(view: WebView?, url: String?)",
-        "doUpdateVisitedHistory(view: WebView?, url: String?, isReload: Boolean)"
+        "doUpdateVisitedHistory(view: WebView?, url: String?, isReload: Boolean)",
+        "importData()",
+        "pushProfile(view: WebView, ctx: android.content.Context, id: String)"
       ]
     },
     {
@@ -353010,6 +353737,19 @@
         "L()",
         "O()",
         "A(e,o=0)"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/data/web/mysocials/profile-record.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [],
+      "imports": [],
+      "symbols": [
+        "el(t, c, x)",
+        "entry(fid)",
+        "statusOf(e)",
+        "render()"
       ]
     },
     {
@@ -480823,6 +481563,7 @@
         "com.diegonmarcos.cloudsearch.BuildConfig",
         "com.diegonmarcos.superapp.ai.AiAgents",
         "com.diegonmarcos.superapp.ai.AiConfig",
+        "com.diegonmarcos.superapp.ai.AiDesign",
         "com.diegonmarcos.superapp.ai.AiGatewayBackend",
         "com.diegonmarcos.superapp.ai.AiHost",
         "com.diegonmarcos.superapp.ai.AiHttp",
@@ -481184,8 +481925,7 @@
       "exports": [
         "AssistantPage",
         "aiTheme",
-        "SessionsMenu",
-        "bucketLabel"
+        "SessionsMenu"
       ],
       "imports": [
         "androidx.compose.foundation.background",
@@ -481211,24 +481951,21 @@
         "com.diegonmarcos.cloudsearch.core.SearchConfig",
         "com.diegonmarcos.cloudsearch.core.Templates",
         "com.diegonmarcos.cloudsearch.models.ModelCataloguePage",
-        "com.diegonmarcos.superapp.ai.AiBucket",
         "com.diegonmarcos.superapp.ai.AiChatPage",
         "com.diegonmarcos.superapp.ai.AiColors",
         "com.diegonmarcos.superapp.ai.AiEngine",
         "com.diegonmarcos.superapp.ai.AiIcons",
         "com.diegonmarcos.superapp.ai.AiMetrics",
-        "com.diegonmarcos.superapp.ai.AiSessions",
+        "com.diegonmarcos.superapp.ai.AiSessionsPanel",
         "com.diegonmarcos.superapp.ai.AiStrings",
         "com.diegonmarcos.superapp.ai.AiTheme",
-        "com.diegonmarcos.superapp.ai.AiType",
-        "java.time.ZoneId"
+        "com.diegonmarcos.superapp.ai.AiType"
       ],
       "symbols": [
         "AssistantPage(v: SearchConfig.Vertical)",
         "aiTheme()",
         "phosphor(name: String)",
-        "SessionsMenu(state: SearchState)",
-        "bucketLabel(b: AiBucket)"
+        "SessionsMenu(state: SearchState)"
       ]
     },
     {
@@ -481845,6 +482582,25 @@
       ]
     },
     {
+      "path": "ac_cloud-search/app/src/test/java/com/diegonmarcos/cloudsearch/ComposerDeclTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ComposerDeclTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.ai.AiComposerDecl",
+        "com.diegonmarcos.superapp.ai.AiDesign",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Test",
+        "java.io.File"
+      ],
+      "symbols": [
+        "researchEnablesTheWholeSharedBar()",
+        "class ComposerDeclTest"
+      ]
+    },
+    {
       "path": "ac_cloud-search/app/src/test/java/com/diegonmarcos/cloudsearch/ModelCatalogueShellTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -482028,6 +482784,8 @@
         "androidx.activity.ComponentActivity",
         "androidx.compose.ui.semantics.getOrNull",
         "androidx.compose.ui.test.SemanticsMatcher",
+        "androidx.compose.ui.test.assertIsEnabled",
+        "androidx.compose.ui.test.assertIsNotEnabled",
         "androidx.compose.ui.test.assertTextContains",
         "androidx.compose.ui.test.hasAnyAncestor",
         "androidx.compose.ui.test.hasTestTag",
@@ -482061,9 +482819,7 @@
         "org.junit.rules.RuleChain",
         "org.junit.rules.TestRule",
         "org.junit.runner.RunWith",
-        "org.junit.runners.model.Statement",
-        "org.robolectric.RobolectricTestRunner",
-        "org.robolectric.RuntimeEnvironment"
+        "org.junit.runners.model.Statement"
       ],
       "symbols": [
         "evaluate()",
@@ -482078,6 +482834,9 @@
         "jobsListingShowsWhatTheSourceReturnedAndWhyTheOthersDidNot()",
         "payslipComputesOnScreen()",
         "chatWithoutATokenSaysWhyAndSendsNothing()",
+        "theComposerRowIsTheSharedOneAndATaskGreysAgentAndModel()",
+        "theConfigBarCollapsesToOneChipAndRemembersIt()",
+        "plusEffortAndMoreOpenTheirDeclaredContents()",
         "deepSeekHarnessIsPickedFromTheSharedDescriptorAndRoutesThroughTheGateway()",
         "theSharedNavPatternRendersWithTheSearchFieldInside()",
         "theFiveDestinationsRouteAndKeepTheirTopTabs()",
@@ -482102,10 +482861,7 @@
         "scrollTo(list: String, tag: String)",
         "messages(from: String, subject: String, sinceMs: Long, limit: Int)",
         "body(accountId: String, id: String)",
-        "text(url: String, maxChars: Int)",
-        "installAgents()",
-        "complete(req: com.diegonmarcos.cloudsearch.core.agents.LlmRequest)",
-        "anAgentRunDraftsForReviewAndNothingIsSent()"
+        "text(url: String, maxChars: Int)"
       ]
     },
     {
@@ -484199,7 +484955,7 @@
         "com.diegonmarcos.superapp.navbarbottom.NavBarBottomHost",
         "com.diegonmarcos.superapp.navbartop1.NavBarTopFirstRowScaffold",
         "com.diegonmarcos.superapp.navbartop1.titleHierarchy",
-        "com.diegonmarcos.superapp.navbartop2.NavBarTopSecondRow",
+        "com.diegonmarcos.superapp.navbartop2.NavSectionLayout",
         "com.diegonmarcos.superapp.uikit.KitDenseMaterial",
         "androidx.appcompat.app.AppCompatActivity",
         "androidx.fragment.compose.AndroidFragment",
@@ -485208,27 +485964,6 @@
       ]
     },
     {
-      "path": "ac_cloud-superintel/app/src/main/java/com/diegonmarcos/cloudsuperintel/FleetNews.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "FleetNews"
-      ],
-      "imports": [
-        "android.content.Context",
-        "android.net.Uri",
-        "com.diegonmarcos.superapp.ai.AiHttp",
-        "java.net.URLEncoder"
-      ],
-      "symbols": [
-        "routes(mesh: String, public: String, bearer: String?)",
-        "get(ctx: Context, cfg: NewsConfig, query: String, call: (Pair<String, Map<String, String>>)",
-        "first(routes: List<Pair<String, Map<String, String>>>, call: (String, Map<String, String>)",
-        "read(ctx: Context)",
-        "class FleetNews"
-      ]
-    },
-    {
       "path": "ac_cloud-superintel/app/src/main/java/com/diegonmarcos/cloudsuperintel/FleetRank.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -485275,36 +486010,6 @@
         "onNewIntent(intent: Intent)",
         "shared(i: Intent?)",
         "class MainActivity"
-      ]
-    },
-    {
-      "path": "ac_cloud-superintel/app/src/main/java/com/diegonmarcos/cloudsuperintel/News.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "Article",
-        "Story",
-        "NewsTopic",
-        "NewsConfig",
-        "News"
-      ],
-      "imports": [
-        "org.json.JSONObject"
-      ],
-      "symbols": [
-        "parse(text: String)",
-        "list(o: JSONObject, k: String)",
-        "parseArticles(body: String)",
-        "words(s: String)",
-        "stories(articles: List<Article>, similarity: Double)",
-        "url(base: String, cfg: NewsConfig, query: String, enc: (String)",
-        "headlines(s: Story, max: Int)",
-        "queries(t: NewsTopic, all: List<NewsTopic>)",
-        "class Article",
-        "class Story",
-        "class NewsTopic",
-        "class NewsConfig",
-        "class News"
       ]
     },
     {
@@ -485396,6 +486101,7 @@
         "com.diegonmarcos.superapp.ai.AiAgents",
         "com.diegonmarcos.superapp.ai.AiChatState",
         "com.diegonmarcos.superapp.ai.AiConfig",
+        "com.diegonmarcos.superapp.ai.AiDesign",
         "com.diegonmarcos.superapp.ai.AiFileSessions",
         "com.diegonmarcos.superapp.ai.AiGatewayBackend",
         "com.diegonmarcos.superapp.ai.AiMemoryPrefs",
@@ -485413,89 +486119,6 @@
         "tune(ctx: Context, p: Persona, chat: AiChatState)",
         "complete(ctx: Context, system: String, user: String)",
         "class SiAi"
-      ]
-    },
-    {
-      "path": "ac_cloud-superintel/app/src/main/java/com/diegonmarcos/cloudsuperintel/SiNews.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "Feed",
-        "SiNews"
-      ],
-      "imports": [
-        "android.content.Context",
-        "com.diegonmarcos.superapp.ai.AiUrlHttp",
-        "kotlinx.coroutines.Dispatchers",
-        "kotlinx.coroutines.sync.Mutex",
-        "kotlinx.coroutines.sync.withLock",
-        "kotlinx.coroutines.withContext"
-      ],
-      "symbols": [
-        "config(ctx: Context)",
-        "feed(ctx: Context, topic: NewsTopic, refresh: Boolean = false)",
-        "summary(ctx: Context, s: Story, story: Boolean)",
-        "class Feed",
-        "class SiNews"
-      ]
-    },
-    {
-      "path": "ac_cloud-superintel/app/src/main/java/com/diegonmarcos/cloudsuperintel/ui/NewsScreens.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "NewsTags",
-        "NewsTopicPage"
-      ],
-      "imports": [
-        "android.graphics.BitmapFactory",
-        "androidx.activity.compose.BackHandler",
-        "androidx.compose.foundation.Image",
-        "androidx.compose.foundation.clickable",
-        "androidx.compose.foundation.layout.Arrangement",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.PaddingValues",
-        "androidx.compose.foundation.layout.Row",
-        "androidx.compose.foundation.layout.fillMaxSize",
-        "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.layout.height",
-        "androidx.compose.foundation.layout.padding",
-        "androidx.compose.foundation.lazy.LazyColumn",
-        "androidx.compose.foundation.lazy.items",
-        "androidx.compose.foundation.shape.RoundedCornerShape",
-        "androidx.compose.material3.Button",
-        "androidx.compose.material3.CircularProgressIndicator",
-        "androidx.compose.material3.MaterialTheme",
-        "androidx.compose.material3.OutlinedTextField",
-        "androidx.compose.material3.Text",
-        "androidx.compose.material3.TextButton",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableIntStateOf",
-        "androidx.compose.runtime.mutableStateOf",
-        "androidx.compose.runtime.produceState",
-        "androidx.compose.runtime.remember",
-        "androidx.compose.runtime.setValue",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.draw.clip",
-        "androidx.compose.ui.graphics.ImageBitmap",
-        "androidx.compose.ui.graphics.asImageBitmap",
-        "androidx.compose.ui.layout.ContentScale",
-        "androidx.compose.ui.platform.LocalContext",
-        "androidx.compose.ui.platform.LocalUriHandler",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.res.stringResource",
-        "androidx.compose.ui.text.style.TextOverflow",
-        "androidx.compose.ui.unit.dp",
-        "com.diegonmarcos.cloudsuperintel.Feed"
-      ],
-      "symbols": [
-        "card(key: String)",
-        "RemoteImage(url: String, modifier: Modifier)",
-        "NewsTopicPage(topic: NewsTopic, onAsk: (String)",
-        "StoryCard(s: Story, onOpen: ()",
-        "StoryPage(s: Story, onAsk: (String)",
-        "class NewsTags"
       ]
     },
     {
@@ -485610,7 +486233,6 @@
         "com.diegonmarcos.cloudsuperintel.Decl",
         "com.diegonmarcos.cloudsuperintel.R",
         "com.diegonmarcos.cloudsuperintel.SiAi",
-        "com.diegonmarcos.cloudsuperintel.SiNews",
         "kotlinx.coroutines.Dispatchers",
         "kotlinx.coroutines.withContext",
         "com.diegonmarcos.superapp.ai.AiChatPage",
@@ -485618,7 +486240,8 @@
         "com.diegonmarcos.superapp.ai.AiSettingsPickers",
         "com.diegonmarcos.superapp.ai.AiStrings",
         "com.diegonmarcos.superapp.ai.AiTheme",
-        "com.diegonmarcos.superapp.ai.materialAiTheme"
+        "com.diegonmarcos.superapp.ai.materialAiTheme",
+        "com.diegonmarcos.superapp.bottomnav.TopBarDrawer"
       ],
       "symbols": [
         "siAiTheme()",
@@ -485669,52 +486292,11 @@
         "asset(name: String)",
         "buildJson()",
         "pages(section: String)",
+        "bottomNav()",
+        "section(id: String)",
+        "navMode(section: String)",
+        "groups(section: String)",
         "class Data"
-      ]
-    },
-    {
-      "path": "ac_cloud-superintel/app/src/test/java/com/diegonmarcos/cloudsuperintel/FleetNewsTest.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "FleetNewsTest"
-      ],
-      "imports": [
-        "com.diegonmarcos.superapp.ai.AiHttp",
-        "org.junit.Assert.assertEquals",
-        "org.junit.Assert.assertTrue",
-        "org.junit.Test"
-      ],
-      "symbols": [
-        "meshFirstThenPublicWithTheBearer()",
-        "noSignInSkipsThePublicRouteAndNoBlankBaseIsTried()",
-        "fallsBackToPublicWhenTheMeshThrowsOrRefuses()",
-        "noRouteIsAnHonestError()",
-        "class FleetNewsTest"
-      ]
-    },
-    {
-      "path": "ac_cloud-superintel/app/src/test/java/com/diegonmarcos/cloudsuperintel/NewsTest.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "NewsTest"
-      ],
-      "imports": [
-        "org.junit.Assert.assertEquals",
-        "org.junit.Assert.assertTrue",
-        "org.junit.Test"
-      ],
-      "symbols": [
-        "parsesTheServiceShapeAndDropsIncompleteEntries()",
-        "emptyOrMissingArticlesGiveNoStoriesNotInventedOnes()",
-        "sameEventArticlesBecomeOneStoryWithItsSourceCount()",
-        "duplicateUrlsCountOnce()",
-        "requestUrlUsesTheDeclaredPathAndLimit()",
-        "topicsComeFromDataAndMatchTheUiPages()",
-        "forYouMergesTheTopicsItMixes()",
-        "summaryPromptsCarryTheHeadlinesAndForbidAddingFacts()",
-        "class NewsTest"
       ]
     },
     {
@@ -485803,6 +486385,9 @@
       "symbols": [
         "personaListComesFromData()",
         "uiPagesAreExactlyThePersonas()",
+        "cgcGroupsAreTheOwnersSixWithTheirExperts()",
+        "everyCgcExpertDeclaresItsPreferredAgentModelsAndMcps()",
+        "theComposerDeclarationHoldsToTheSharedDesign()",
         "everyPersonaIsFullyDeclared()",
         "routerListsTheOtherPersonasAndNoPlaceholderSurvives()",
         "specialistPromptsAreTheirOwn()",
@@ -495925,14 +496510,14 @@
         "com.diegonmarcos.superapp.ai.AiBackend",
         "com.diegonmarcos.superapp.ai.AiChatState",
         "com.diegonmarcos.superapp.ai.AiConfig",
+        "com.diegonmarcos.superapp.ai.AiDesign",
+        "com.diegonmarcos.superapp.ai.AiTask",
+        "com.diegonmarcos.superapp.ai.AiUsageLine",
         "com.diegonmarcos.superapp.ai.AiFileSessions",
         "com.diegonmarcos.superapp.ai.AiGatewayBackend",
         "com.diegonmarcos.superapp.ai.AiMemoryPrefs",
         "com.diegonmarcos.superapp.ai.AiModel",
-        "com.diegonmarcos.superapp.ai.AiMsg",
-        "com.diegonmarcos.superapp.ai.AiReply",
-        "com.diegonmarcos.superapp.ai.AiRequest",
-        "com.diegonmarcos.superapp.ai.AiStandardHost"
+        "com.diegonmarcos.superapp.ai.AiMsg"
       ],
       "symbols": [
         "registry()",
