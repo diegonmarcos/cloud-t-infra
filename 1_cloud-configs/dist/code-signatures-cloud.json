@@ -6,16 +6,16 @@
   },
   "repo": "cloud",
   "counts": {
-    "files": 741,
+    "files": 743,
     "by_lang": {
-      "sh": 396,
+      "sh": 398,
       "js": 4,
       "nix": 304,
       "py": 7,
       "ts": 30
     },
     "by_role": {
-      "hook": 4,
+      "hook": 6,
       "file": 3,
       "flake": 6,
       "script": 143,
@@ -37,6 +37,24 @@
       "imports": [],
       "symbols": [
         "block()"
+      ]
+    },
+    {
+      "path": ".claude/hooks/c3/ai-usage-post.sh",
+      "lang": "sh",
+      "role": "hook",
+      "exports": [
+        "num()",
+        "int()",
+        "safe()",
+        "send()"
+      ],
+      "imports": [],
+      "symbols": [
+        "num()",
+        "int()",
+        "safe()",
+        "send()"
       ]
     },
     {
@@ -169,6 +187,7 @@
         "chunk_rework_clear()",
         "chunk_rework_apply()",
         "chunk_rework_restore()",
+        "chunk_suspect()",
         "chunk_glob_escape()",
         "chunk_plan()",
         "chunk_commit()",
@@ -193,6 +212,7 @@
         "chunk_rework_clear()",
         "chunk_rework_apply()",
         "chunk_rework_restore()",
+        "chunk_suspect()",
         "chunk_glob_escape()",
         "chunk_plan()",
         "chunk_commit()",
@@ -1630,6 +1650,24 @@
       "imports": [],
       "symbols": [
         "block()"
+      ]
+    },
+    {
+      "path": "0_apps/src/claude/hooks/c3/ai-usage-post.sh",
+      "lang": "sh",
+      "role": "hook",
+      "exports": [
+        "num()",
+        "int()",
+        "safe()",
+        "send()"
+      ],
+      "imports": [],
+      "symbols": [
+        "num()",
+        "int()",
+        "safe()",
+        "send()"
       ]
     },
     {

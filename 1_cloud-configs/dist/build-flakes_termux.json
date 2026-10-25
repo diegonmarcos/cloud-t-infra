@@ -3719,28 +3719,43 @@
           "_doc": "Gitea honours its reverse-proxy user header from ANY peer: REVERSE_PROXY_TRUSTED_PROXIES only feeds the X-Forwarded-For rewrite (gitea v28.0.0 routers/common/middleware.go:33); services/auth/reverseproxy.go never checks the source. With 0.0.0.0:3002 reachable from every wg0/wg-public peer and ~40 host-network containers on oci-apps, enabling reverse-proxy auth on that listener would let any of them become `diego` with one header. So gitea listens only on a unix socket in a tmpfs volume that no other container mounts, and this caddy owns :3002: it forwards `identity.header` (and X-Real-IP) only when the peer is in trusted_proxies AND the Host is this service's domain — the .app catalog routes the hub also serves from 10.0.0.1 carry Host gitea.mesh.diegonmarcos.com, so they cannot mint an identity either. Everything else reaches gitea exactly as before, anonymous."
         },
         "mirrors": {
-          "cloud-u-android": {
-            "upstream": "https://github.com/diegonmarcos/cloud-u-android.git"
-          },
-          "cloud-t-infra": {
-            "upstream": "https://github.com/diegonmarcos/cloud-t-infra.git"
-          },
-          "diegonmarcos.github.io": {
-            "upstream": "https://github.com/diegonmarcos/diegonmarcos.github.io.git"
-          },
-          "git-repos-master": {
-            "upstream": "https://github.com/diegonmarcos/git-repos-master.git"
-          },
           "cloud-me-my-ai": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-my-ai.git",
             "private": true
+          },
+          "cloud-u-android": {
+            "upstream": "https://github.com/diegonmarcos/cloud-u-android.git"
           },
           "cloud-me-data-pvt": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-data-pvt.git",
             "private": true
           },
-          "front-media": {
-            "upstream": "https://github.com/diegonmarcos/front-media.git"
+          "cloud-t-infra": {
+            "upstream": "https://github.com/diegonmarcos/cloud-t-infra.git"
+          },
+          "git-repos-master": {
+            "upstream": "https://github.com/diegonmarcos/git-repos-master.git"
+          },
+          "front-endeavours": {
+            "upstream": "https://github.com/diegonmarcos/front-endeavours.git"
+          },
+          "front-circus": {
+            "upstream": "https://github.com/diegonmarcos/front-circus.git"
+          },
+          "cloud-me-profiles": {
+            "upstream": "https://github.com/diegonmarcos/cloud-me-profiles.git"
+          },
+          "cloud-webapps-2": {
+            "upstream": "https://github.com/diegonmarcos/cloud-webapps-2.git"
+          },
+          "cloud-me-others": {
+            "upstream": "https://github.com/diegonmarcos/cloud-me-others.git"
+          },
+          "diegonmarcos.github.io": {
+            "upstream": "https://github.com/diegonmarcos/diegonmarcos.github.io.git"
+          },
+          "z-archived_front-media": {
+            "upstream": "https://github.com/diegonmarcos/z-archived_front-media.git"
           },
           "front-unity": {
             "upstream": "https://github.com/diegonmarcos/front-unity.git",
@@ -3753,38 +3768,23 @@
           "front-assets-cdn": {
             "upstream": "https://github.com/diegonmarcos/front-assets-cdn.git"
           },
-          "front-others": {
-            "upstream": "https://github.com/diegonmarcos/front-others.git"
-          },
-          "cloud-webapps-2": {
-            "upstream": "https://github.com/diegonmarcos/cloud-webapps-2.git"
+          "z-archived_front-others": {
+            "upstream": "https://github.com/diegonmarcos/z-archived_front-others.git"
           },
           "front-labtools": {
             "upstream": "https://github.com/diegonmarcos/front-labtools.git"
           },
-          "front-circus": {
-            "upstream": "https://github.com/diegonmarcos/front-circus.git"
-          },
           "front-galaxy": {
             "upstream": "https://github.com/diegonmarcos/front-galaxy.git"
           },
-          "cloud-me-profiles": {
-            "upstream": "https://github.com/diegonmarcos/cloud-me-profiles.git"
+          "z-archived_front-feeds": {
+            "upstream": "https://github.com/diegonmarcos/z-archived_front-feeds.git"
           },
-          "cloud-me-others": {
-            "upstream": "https://github.com/diegonmarcos/cloud-me-others.git"
+          "z-archived_front-warehouse": {
+            "upstream": "https://github.com/diegonmarcos/z-archived_front-warehouse.git"
           },
-          "front-feeds": {
-            "upstream": "https://github.com/diegonmarcos/front-feeds.git"
-          },
-          "front-warehouse": {
-            "upstream": "https://github.com/diegonmarcos/front-warehouse.git"
-          },
-          "front-individual": {
-            "upstream": "https://github.com/diegonmarcos/front-individual.git"
-          },
-          "front-companies": {
-            "upstream": "https://github.com/diegonmarcos/front-companies.git"
+          "z-archived_front-individual": {
+            "upstream": "https://github.com/diegonmarcos/z-archived_front-individual.git"
           },
           "front-linktree": {
             "upstream": "https://github.com/diegonmarcos/front-linktree.git"

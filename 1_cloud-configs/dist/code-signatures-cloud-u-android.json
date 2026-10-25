@@ -6671,6 +6671,7 @@
         "send(action: Int, y: Float, t: Long)",
         "swipeUntil(shell: ShellActivity, up: Boolean, arrived: ()",
         "evidence(shell: ShellActivity, name: String)",
+        "sh(cmd: String)",
         "declared(target: String)",
         "swipeUpOpensCloudApps()",
         "swipeDownOpensNotify()",
@@ -163717,27 +163718,19 @@
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
-        "ChromeScrollFeed",
         "ChromeWebView"
       ],
       "imports": [
-        "android.os.Handler",
-        "android.os.Looper",
-        "android.webkit.JavascriptInterface",
         "android.webkit.WebView",
         "androidx.compose.foundation.layout.fillMaxSize",
         "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.SideEffect",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.viewinterop.AndroidView",
-        "com.diegonmarcos.superapp.bottomnav.BottomNavCollapse",
+        "com.diegonmarcos.superapp.bottomnav.ChromeWebScroll",
         "com.diegonmarcos.superapp.bottomnav.LocalNavChromeCollapse"
       ],
       "symbols": [
-        "onDelta(delta: Float)",
-        "onScroll(delta: Double)",
-        "ChromeWebView(webView: WebView, feed: ChromeScrollFeed, modifier: Modifier = Modifier)",
-        "class ChromeScrollFeed"
+        "ChromeWebView(webView: WebView, modifier: Modifier = Modifier)"
       ]
     },
     {
@@ -359942,27 +359935,19 @@
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
-        "ChromeScrollFeed",
         "ChromeWebView"
       ],
       "imports": [
-        "android.os.Handler",
-        "android.os.Looper",
-        "android.webkit.JavascriptInterface",
         "android.webkit.WebView",
         "androidx.compose.foundation.layout.fillMaxSize",
         "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.SideEffect",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.viewinterop.AndroidView",
-        "com.diegonmarcos.superapp.bottomnav.BottomNavCollapse",
+        "com.diegonmarcos.superapp.bottomnav.ChromeWebScroll",
         "com.diegonmarcos.superapp.bottomnav.LocalNavChromeCollapse"
       ],
       "symbols": [
-        "onDelta(delta: Float)",
-        "onScroll(delta: Double)",
-        "ChromeWebView(webView: WebView, feed: ChromeScrollFeed, modifier: Modifier = Modifier)",
-        "class ChromeScrollFeed"
+        "ChromeWebView(webView: WebView, modifier: Modifier = Modifier)"
       ]
     },
     {
