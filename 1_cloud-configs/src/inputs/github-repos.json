@@ -2,38 +2,176 @@
   "_warning": "FETCHED DATA — do not hand-edit. Refreshed by .github/workflows/fetch-github-repos.yml.",
   "_doc": "Source of truth for WHICH REPOS EXIST — all repos, public and private. Repo NAMES are not sensitive; the token used to fetch them is, and never leaves the vault / GH secrets. Declarations (gitea.mirrors / octocode.repo_map) are a policy selection over this, never a substitute.",
   "_source": "GitHub API",
-  "fetched_at": "2026-10-23T21:23:36Z",
+  "fetched_at": "2026-10-25T22:54:08Z",
   "owner": "diegonmarcos",
   "repos": [
+    {
+      "name": "cloud-u-android",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T22:49:55Z"
+    },
     {
       "name": "cloud-t-infra",
       "visibility": "public",
       "fork": false,
-      "pushed_at": "2026-10-23T21:19:02Z"
+      "pushed_at": "2026-10-25T22:48:41Z"
+    },
+    {
+      "name": "diegonmarcos.github.io",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T22:46:04Z"
+    },
+    {
+      "name": "git-repos-master",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T22:45:31Z"
     },
     {
       "name": "cloud-me-my-ai",
       "visibility": "private",
       "fork": false,
-      "pushed_at": "2026-10-23T21:10:50Z"
-    },
-    {
-      "name": "cloud-u-containers_cgc",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-23T21:04:39Z"
+      "pushed_at": "2026-10-25T22:43:55Z"
     },
     {
       "name": "cloud-me-data-pvt",
       "visibility": "private",
       "fork": false,
-      "pushed_at": "2026-10-23T21:04:20Z"
+      "pushed_at": "2026-10-25T21:01:44Z"
     },
     {
-      "name": "cloud-u-android",
+      "name": "front-media",
       "visibility": "public",
       "fork": false,
-      "pushed_at": "2026-10-23T20:18:36Z"
+      "pushed_at": "2026-10-25T19:03:20Z"
+    },
+    {
+      "name": "front-unity",
+      "visibility": "private",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:01:18Z"
+    },
+    {
+      "name": "front-galaxy-gaia",
+      "visibility": "private",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:01:13Z"
+    },
+    {
+      "name": "front-assets-cdn",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:00:59Z"
+    },
+    {
+      "name": "front-others",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:00:57Z"
+    },
+    {
+      "name": "cloud-webapps-2",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:00:54Z"
+    },
+    {
+      "name": "front-labtools",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:00:41Z"
+    },
+    {
+      "name": "front-circus",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:00:38Z"
+    },
+    {
+      "name": "front-galaxy",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:00:33Z"
+    },
+    {
+      "name": "cloud-me-profiles",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:00:30Z"
+    },
+    {
+      "name": "cloud-me-others",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:00:28Z"
+    },
+    {
+      "name": "front-feeds",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:00:21Z"
+    },
+    {
+      "name": "front-warehouse",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:00:18Z"
+    },
+    {
+      "name": "front-individual",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:00:16Z"
+    },
+    {
+      "name": "front-companies",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:00:12Z"
+    },
+    {
+      "name": "front-linktree",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T19:00:09Z"
+    },
+    {
+      "name": "cloud-u-containers",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T17:50:43Z"
+    },
+    {
+      "name": "diegonmarcos",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T11:45:16Z"
+    },
+    {
+      "name": "cloud-me_cgc",
+      "visibility": "private",
+      "fork": false,
+      "pushed_at": "2026-10-25T10:27:53Z"
+    },
+    {
+      "name": "cloud-u-containers_cgc",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T10:27:39Z"
+    },
+    {
+      "name": "cloud-u-linux",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-24T12:33:05Z"
+    },
+    {
+      "name": "cloud_db_infra-ops-obsv_configs-sync",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-24T11:27:01Z"
     },
     {
       "name": "cloud-me_vault",
@@ -42,28 +180,10 @@
       "pushed_at": "2026-10-23T16:40:15Z"
     },
     {
-      "name": "cloud-u-containers",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-23T16:27:54Z"
-    },
-    {
       "name": "cloud-me_configs",
       "visibility": "private",
       "fork": false,
       "pushed_at": "2026-10-23T13:13:07Z"
-    },
-    {
-      "name": "git-repos-master",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-23T13:13:02Z"
-    },
-    {
-      "name": "cloud-u-linux",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-23T13:12:46Z"
     },
     {
       "name": "cloud-u-desktop",
@@ -72,34 +192,16 @@
       "pushed_at": "2026-10-23T12:46:48Z"
     },
     {
-      "name": "cloud-me_cgc",
-      "visibility": "private",
-      "fork": false,
-      "pushed_at": "2026-10-23T12:16:40Z"
-    },
-    {
       "name": "cloud",
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-23T12:16:21Z"
     },
     {
-      "name": "diegonmarcos.github.io",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-23T12:15:52Z"
-    },
-    {
-      "name": "front-projects",
+      "name": "z-archived_front-projects",
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-23T12:12:40Z"
-    },
-    {
-      "name": "front-linktree",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-23T12:12:38Z"
     },
     {
       "name": "front",
@@ -112,12 +214,6 @@
       "visibility": "private",
       "fork": false,
       "pushed_at": "2026-10-23T12:11:27Z"
-    },
-    {
-      "name": "diegonmarcos",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-23T11:51:56Z"
     },
     {
       "name": "cloud-me",
@@ -144,28 +240,10 @@
       "pushed_at": "2026-10-22T11:53:18Z"
     },
     {
-      "name": "front-unity",
-      "visibility": "private",
-      "fork": false,
-      "pushed_at": "2026-10-21T22:03:29Z"
-    },
-    {
-      "name": "front-galaxy-gaia",
-      "visibility": "private",
-      "fork": false,
-      "pushed_at": "2026-10-21T22:03:25Z"
-    },
-    {
       "name": "cloud-data-lfs",
       "visibility": "private",
       "fork": false,
       "pushed_at": "2026-10-21T21:50:18Z"
-    },
-    {
-      "name": "front-assets-cdn",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-21T21:50:14Z"
     },
     {
       "name": "cloud-me-containers",
