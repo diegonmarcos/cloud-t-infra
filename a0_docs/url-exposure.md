@@ -42,7 +42,7 @@ Owner rule (2026-10-16): **PUBLIC URL = fleet Bearer OR Authelia session cookie.
 | matrix.diegonmarcos.com | b | Bearer (fleet token, introspect-proxy; `Authorization` or `X-Fleet-Authorization`) OR Authelia session | `/_matrix/federation/*` `/_matrix/key/*` `/.well-known/matrix/*` `/_matrix/client/*` |
 | mcp.diegonmarcos.com | b | Bearer (fleet token, introspect-proxy; `Authorization` or `X-Fleet-Authorization`) OR Authelia session -- enforced for non-mesh sources; mesh peers keep WG trust | `/.well-known/oauth-protected-resource*` `/.well-known/oauth-authorization-server*` `/.well-known/openid-configuration*` `/register` `/authorize` `/token` `/callback` `/oauth/*` `/*/.well-known/oauth-protected-resource*` `/*/.well-known/oauth-authorization-server*` `/*/register` `/*/authorize` `/*/token` `/*/callback` |
 | vpn.diegonmarcos.com | b | Bearer (fleet token, introspect-proxy; `Authorization` or `X-Fleet-Authorization`) OR Authelia session -- except `Upgrade: websocket` | - |
-| auth.diegonmarcos.com, account.diegonmarcos.com | c | none (anonymous) | `whole host` |
+| auth.diegonmarcos.com, account.diegonmarcos.com, sso.diegonmarcos.com | c | none (anonymous) | `whole host` |
 | diegonmarcos.com, www.diegonmarcos.com | c | none (anonymous) | `whole host` |
 | linktree.diegonmarcos.com | c | none (anonymous) | `whole host` |
 | maps.diegonmarcos.com | c | none (anonymous) | `whole host` |
@@ -420,7 +420,7 @@ Owner rule (2026-10-16): **PUBLIC URL = fleet Bearer OR Authelia session cookie.
 | playlist.diegonmarcos.com | b | Bearer (fleet token, introspect-proxy; `Authorization` or `X-Fleet-Authorization`) OR Authelia session -- enforced for non-mesh sources; mesh peers keep WG trust; plus mesh guard on the rest | - |
 | vpn.diegonmarcos.com | b | Bearer (fleet token, introspect-proxy; `Authorization` or `X-Fleet-Authorization`) OR Authelia session -- except `Upgrade: websocket` | - |
 | *.diegonmarcos.com | c | none (anonymous) | `whole host` |
-| auth.diegonmarcos.com, account.diegonmarcos.com | c | none (anonymous) | `whole host` |
+| auth.diegonmarcos.com, account.diegonmarcos.com, sso.diegonmarcos.com | c | none (anonymous) | `whole host` |
 | c3-pub.diegonmarcos.com | c | none (anonymous) | `whole host` |
 | diegonmarcos.com, www.diegonmarcos.com | c | none (anonymous) | `whole host` |
 | linktree.diegonmarcos.com | c | none (anonymous) | `whole host` |
