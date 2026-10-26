@@ -6660,10 +6660,14 @@
         "com.diegonmarcos.superapp.launcher.GroupedTilesFragment",
         "org.junit.Assert.assertEquals",
         "org.junit.Assert.assertTrue",
+        "org.junit.After",
+        "org.junit.Before",
         "org.junit.Test",
         "org.junit.runner.RunWith"
       ],
       "symbols": [
+        "screensaverOff()",
+        "screensaverRestore()",
         "launchHome()",
         "onMain(f: ()",
         "until(ms: Long, cond: ()",
@@ -16617,6 +16621,7 @@
         "onCreate(savedInstanceState: Bundle?)",
         "installNavSwipeGesture()",
         "onDown(e: android.view.MotionEvent)",
+        "onLongPress(e: android.view.MotionEvent)",
         "onFling( e1: android.view.MotionEvent?, e2: android.view.MotionEvent, vX: Float, vY: Float, )",
         "handleVerticalFling(dy: Float)",
         "handleHomeSwipeAction(action: String)",
@@ -16638,8 +16643,7 @@
         "isDefaultLauncher()",
         "goSection(id: String, label: String, initialPage: String = \"\")",
         "openSection(id: String)",
-        "syncBottomNav(sectionId: String)",
-        "syncDrawerTab(index: Int)"
+        "syncBottomNav(sectionId: String)"
       ]
     },
     {
@@ -163866,7 +163870,8 @@
       "symbols": [
         "onCreate(savedInstanceState: Bundle?)",
         "ContactsShell()",
-        "class MainActivity"
+        "class MainActivity",
+        "class added"
       ]
     },
     {
@@ -353032,7 +353037,8 @@
         "onPageFinished(view: WebView?, url: String?)",
         "doUpdateVisitedHistory(view: WebView?, url: String?, isReload: Boolean)",
         "importData()",
-        "pushProfile(view: WebView, ctx: android.content.Context, id: String)"
+        "pushProfile(view: WebView, ctx: android.content.Context, id: String)",
+        "class added"
       ]
     },
     {
@@ -359995,7 +360001,8 @@
         "onCreate(savedInstanceState: Bundle?)",
         "onConsoleMessage(m: ConsoleMessage)",
         "NewsShell()",
-        "class MainActivity"
+        "class MainActivity",
+        "class added"
       ]
     },
     {
@@ -487299,7 +487306,8 @@
       "symbols": [
         "LegacyWeb(tab: String, modifier: Modifier = Modifier)",
         "onPageFinished(view: WebView, url: String)",
-        "show(view: WebView, tab: String)"
+        "show(view: WebView, tab: String)",
+        "class added"
       ]
     },
     {
