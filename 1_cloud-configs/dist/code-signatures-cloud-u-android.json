@@ -29341,9 +29341,9 @@
         "java.net.URL"
       ],
       "symbols": [
-        "AiModelCatalogue(chat: AiChatState, theme: AiTheme, fetch: CatalogueFetch = AiPublicFetch, modifier: Modifier = Modifier)",
-        "CorePage(chat: AiChatState, theme: AiTheme, core: CoreSource?)",
-        "ModelGroup(chat: AiChatState, theme: AiTheme, g: AiCatalogueGroup)",
+        "AiModelCatalogue(chat: AiChatState, theme: AiTheme, fetch: CatalogueFetch = AiPublicFetch, modifier: Modifier = Modifier, onClose: (()",
+        "CorePage(chat: AiChatState, theme: AiTheme, core: CoreSource?, done: ()",
+        "ModelGroup(chat: AiChatState, theme: AiTheme, g: AiCatalogueGroup, done: ()",
         "AiTaskCatalogue(chat: AiChatState, theme: AiTheme, decl: AiComposerDecl, modifier: Modifier = Modifier)",
         "TaskRow(chat: AiChatState, theme: AiTheme, id: String, label: String, task: AiTask?, offered: Boolean, note: String?)",
         "Header(theme: AiTheme, title: String, closeTag: String, onClose: ()",
@@ -483364,6 +483364,7 @@
         "openCatalogue()",
         "theChipOpensTheCatalogueAndARowPicksTheModelForTheChat()",
         "aModelThatIsNotAChatModelCannotBePicked()",
+        "closingTheCatalogueInResearchReturnsToResearchReports()",
         "theCatalogueHasTheFiveSubpagesAndEachListsItsModels()",
         "theTaskButtonOpensTheTaskCatalogueAndATaskGreysAgentAndModel()",
         "class ModelCatalogueShellTest",
@@ -483561,6 +483562,7 @@
         "theSearchTabIsOnePageWithTheEnginesAndTheChat()",
         "debugRoutesAnswerFromTheSameEngine()",
         "openThings(item: String)",
+        "waitThingsRowText(osm: String, part: String)",
         "thingsComparesStoresWithTheirRealPriceOrWhyNone()",
         "thingsWithoutTheFleetSignInShowsNoStorePriceAndSaysSo()",
         "thingsCentresOnTheCoarseFixWhenAllowed()",
@@ -483574,8 +483576,7 @@
         "click(tag: String)",
         "waitRuns(a: com.diegonmarcos.cloudsearch.data.AgentService, n: Int)",
         "scrollTo(list: String, tag: String)",
-        "messages(from: String, subject: String, sinceMs: Long, limit: Int)",
-        "body(accountId: String, id: String)"
+        "messages(from: String, subject: String, sinceMs: Long, limit: Int)"
       ]
     },
     {

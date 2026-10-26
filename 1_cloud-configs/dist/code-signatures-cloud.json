@@ -6,16 +6,16 @@
   },
   "repo": "cloud",
   "counts": {
-    "files": 743,
+    "files": 745,
     "by_lang": {
-      "sh": 398,
+      "sh": 400,
       "js": 4,
       "nix": 304,
       "py": 7,
       "ts": 30
     },
     "by_role": {
-      "hook": 6,
+      "hook": 8,
       "file": 3,
       "flake": 6,
       "script": 143,
@@ -55,6 +55,20 @@
         "int()",
         "safe()",
         "send()"
+      ]
+    },
+    {
+      "path": ".claude/hooks/c3/no-mass-delete.sh",
+      "lang": "sh",
+      "role": "hook",
+      "exports": [
+        "wipe()",
+        "msg()"
+      ],
+      "imports": [],
+      "symbols": [
+        "wipe()",
+        "msg()"
       ]
     },
     {
@@ -1668,6 +1682,20 @@
         "int()",
         "safe()",
         "send()"
+      ]
+    },
+    {
+      "path": "0_apps/src/claude/hooks/c3/no-mass-delete.sh",
+      "lang": "sh",
+      "role": "hook",
+      "exports": [
+        "wipe()",
+        "msg()"
+      ],
+      "imports": [],
+      "symbols": [
+        "wipe()",
+        "msg()"
       ]
     },
     {
