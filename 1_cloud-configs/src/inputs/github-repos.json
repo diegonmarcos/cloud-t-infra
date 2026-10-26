@@ -2,38 +2,50 @@
   "_warning": "FETCHED DATA — do not hand-edit. Refreshed by .github/workflows/fetch-github-repos.yml.",
   "_doc": "Source of truth for WHICH REPOS EXIST — all repos, public and private. Repo NAMES are not sensitive; the token used to fetch them is, and never leaves the vault / GH secrets. Declarations (gitea.mirrors / octocode.repo_map) are a policy selection over this, never a substitute.",
   "_source": "GitHub API",
-  "fetched_at": "2026-10-25T23:29:31Z",
+  "fetched_at": "2026-10-26T12:09:09Z",
   "owner": "diegonmarcos",
   "repos": [
-    {
-      "name": "cloud-me-my-ai",
-      "visibility": "private",
-      "fork": false,
-      "pushed_at": "2026-10-25T23:28:13Z"
-    },
     {
       "name": "cloud-u-android",
       "visibility": "public",
       "fork": false,
-      "pushed_at": "2026-10-25T23:25:38Z"
+      "pushed_at": "2026-10-26T11:45:10Z"
+    },
+    {
+      "name": "cloud-me-my-ai",
+      "visibility": "private",
+      "fork": false,
+      "pushed_at": "2026-10-26T07:58:19Z"
     },
     {
       "name": "cloud-me-data-pvt",
       "visibility": "private",
       "fork": false,
-      "pushed_at": "2026-10-25T23:25:34Z"
+      "pushed_at": "2026-10-26T05:44:40Z"
     },
     {
       "name": "cloud-t-infra",
       "visibility": "public",
       "fork": false,
-      "pushed_at": "2026-10-25T23:11:00Z"
+      "pushed_at": "2026-10-26T00:27:28Z"
+    },
+    {
+      "name": "cloud-u-containers",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-26T00:05:56Z"
     },
     {
       "name": "git-repos-master",
       "visibility": "public",
       "fork": false,
-      "pushed_at": "2026-10-25T23:10:57Z"
+      "pushed_at": "2026-10-25T23:55:30Z"
+    },
+    {
+      "name": "cloud-u-linux",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-25T23:43:16Z"
     },
     {
       "name": "front-endeavours",
@@ -138,12 +150,6 @@
       "pushed_at": "2026-10-25T19:00:09Z"
     },
     {
-      "name": "cloud-u-containers",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T17:50:43Z"
-    },
-    {
       "name": "diegonmarcos",
       "visibility": "public",
       "fork": false,
@@ -160,12 +166,6 @@
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-25T10:27:39Z"
-    },
-    {
-      "name": "cloud-u-linux",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-24T12:33:05Z"
     },
     {
       "name": "cloud_db_infra-ops-obsv_configs-sync",
