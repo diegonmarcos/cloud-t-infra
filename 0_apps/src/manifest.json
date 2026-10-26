@@ -100,6 +100,11 @@
         "private": false
       },
       {
+        "dir": "CG",
+        "github": "CG",
+        "private": false
+      },
+      {
         "dir": "front-assets-cdn",
         "github": "front-assets-cdn",
         "private": false
@@ -115,13 +120,13 @@
         "private": false
       },
       {
-        "dir": "front-galaxy-gaia",
-        "github": "front-galaxy-gaia",
+        "dir": "CG-galaxy-gaia",
+        "github": "CG-galaxy-gaia",
         "private": true
       },
       {
-        "dir": "front-unity",
-        "github": "front-unity",
+        "dir": "CG-unity",
+        "github": "CG-unity",
         "private": true
       }
     ],
@@ -154,6 +159,6 @@
         "to": "0_apps/dist/dotfiles/claude"
       }
     ],
-    "_module_mirrors_doc": "Some repos (front-assets-cdn, front-unity) carry their OWN copy of this module, whose `build.sh dotfiles` re-deploys its src/ over the repo root. Left stale it silently undoes the emit on the next build there — a second declaration of the same file. So the fleet files are also written into those copies, but ONLY where the destination directory already exists: a repo without the module never gets one. `from` is a subdirectory of dist/dotfiles/, `to` is repo-relative. `only` limits a mirror to named files: dist/dotfiles/root also holds sops.yaml, which is per-repo (see root_files) and must never be mirrored."
+    "_module_mirrors_doc": "Some repos (front-assets-cdn, CG-unity) carry their OWN copy of this module, whose `build.sh dotfiles` re-deploys its src/ over the repo root. Left stale it silently undoes the emit on the next build there — a second declaration of the same file. So the fleet files are also written into those copies, but ONLY where the destination directory already exists: a repo without the module never gets one. `from` is a subdirectory of dist/dotfiles/, `to` is repo-relative. `only` limits a mirror to named files: dist/dotfiles/root also holds sops.yaml, which is per-repo (see root_files) and must never be mirrored."
   }
 }
