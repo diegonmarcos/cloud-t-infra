@@ -123,7 +123,20 @@ n=$(jq '.fleet.repos|length' "$M"); u=$(jq '[.fleet.repos[].dir]|unique|length' 
 missing=$(jq -r --slurpfile g "$ROOT/1_cloud-configs/src/inputs/github-repos.json" '[.fleet.repos[].github] - [$g[0].repos[].name] | join(",")' "$M")
 [ -z "$missing" ] && ok "R2 every fleet repo exists on GitHub" || bad "R2 not on GitHub: $missing"
 cmp -s "$ROOT/1_cloud-configs/dist/mcp.project.json" "$ROOT/0_apps/dist/dotfiles/root/mcp.json" && ok "R3 shipped .mcp.json IS the deriver's output" || bad "R3 0_apps/dist/dotfiles/root/mcp.json differs from 1_cloud-configs/dist/mcp.project.json — run build.sh dotfiles"
-jq -e '.mcpServers|has("cloud-infra-mcp") and has("cloud-services-mcp") and (length>=11)' "$ROOT/0_apps/dist/dotfiles/root/mcp.json" >/dev/null && ok "R4 shipped .mcp.json has the full list incl. cloud-infra-mcp" || bad "R4 shipped .mcp.json lacks cloud-infra-mcp/cloud-services-mcp or has <11 servers"
+# R4 (owner decision, #1197): the shipped default MCP tier is deliberately cut to the DECLARED default
+# (mcp-policy.json .tiers.default in the claude config SoT, cloud-u-linux) so the default context stays
+# <= 20k tokens; every other server is an opt-in tier. Assert shipped == declared, so drift in EITHER direction fails.
+POL=""
+for c in "${CLAUDE_SOT_DIR:-/nonexistent}" "$ROOT/../cloud-u-linux/da_my-ai/data/claude" "$HOME/git/cloud-u-linux/da_my-ai/data/claude"; do
+    [ -f "$c/mcp-policy.json" ] && { POL="$c/mcp-policy.json"; break; }
+done
+if [ -z "$POL" ] && git clone -q --depth 1 https://github.com/diegonmarcos/cloud-u-linux.git "$T/cul" 2>/dev/null; then POL="$T/cul/da_my-ai/data/claude/mcp-policy.json"; fi
+if [ -n "$POL" ] && [ -f "$POL" ]; then
+    want=$(jq -r '.tiers.default|sort|join(",")' "$POL"); have=$(jq -r '.mcpServers|keys|sort|join(",")' "$ROOT/0_apps/dist/dotfiles/root/mcp.json")
+    [ -n "$want" ] && [ "$want" = "$have" ] && ok "R4 shipped .mcp.json == declared default tier ($want)" || bad "R4 shipped .mcp.json servers [$have] != declared default tier [$want] (mcp-policy.json .tiers.default)"
+else
+    bad "R4 cannot read the claude config SoT mcp-policy.json (set CLAUDE_SOT_DIR or provide a cloud-u-linux sibling)"
+fi
 [ -x "$ROOT/0_apps/dist/dotfiles/claude/mcp-auth-headers.sh" ] && ok "R5 the headersHelper ships with the dotfiles" || bad "R5 mcp-auth-headers.sh missing/not executable in dist"
 
 # ── part 3: the real fleet ─────────────────────────────────────────────────
