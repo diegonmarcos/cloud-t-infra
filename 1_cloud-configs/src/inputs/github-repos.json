@@ -2,32 +2,110 @@
   "_warning": "FETCHED DATA — do not hand-edit. Refreshed by .github/workflows/fetch-github-repos.yml.",
   "_doc": "Source of truth for WHICH REPOS EXIST — all repos, public and private. Repo NAMES are not sensitive; the token used to fetch them is, and never leaves the vault / GH secrets. Declarations (gitea.mirrors / octocode.repo_map) are a policy selection over this, never a substitute.",
   "_source": "GitHub API",
-  "fetched_at": "2026-10-26T12:09:09Z",
+  "fetched_at": "2026-10-26T14:02:30Z",
   "owner": "diegonmarcos",
   "repos": [
     {
-      "name": "cloud-u-android",
+      "name": "diegonmarcos.github.io",
       "visibility": "public",
       "fork": false,
-      "pushed_at": "2026-10-26T11:45:10Z"
+      "pushed_at": "2026-10-26T14:01:12Z"
     },
     {
       "name": "cloud-me-my-ai",
       "visibility": "private",
       "fork": false,
-      "pushed_at": "2026-10-26T07:58:19Z"
+      "pushed_at": "2026-10-26T13:56:06Z"
     },
     {
-      "name": "cloud-me-data-pvt",
+      "name": "git-repos-master",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-26T13:55:24Z"
+    },
+    {
+      "name": "cloud-u-linux",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-26T13:55:11Z"
+    },
+    {
+      "name": "cloud-u-android",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-26T13:54:18Z"
+    },
+    {
+      "name": "CG-galaxy-gaia",
       "visibility": "private",
       "fork": false,
-      "pushed_at": "2026-10-26T05:44:40Z"
+      "pushed_at": "2026-10-26T13:44:28Z"
+    },
+    {
+      "name": "CG-unity",
+      "visibility": "private",
+      "fork": false,
+      "pushed_at": "2026-10-26T13:44:19Z"
+    },
+    {
+      "name": "CG-galaxy",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-26T13:44:15Z"
     },
     {
       "name": "cloud-t-infra",
       "visibility": "public",
       "fork": false,
-      "pushed_at": "2026-10-26T00:27:28Z"
+      "pushed_at": "2026-10-26T13:42:43Z"
+    },
+    {
+      "name": "CG",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-26T13:42:26Z"
+    },
+    {
+      "name": "front",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-26T13:42:06Z"
+    },
+    {
+      "name": "cloud",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-26T13:42:03Z"
+    },
+    {
+      "name": "CG-voxel-rust",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-26T13:33:00Z"
+    },
+    {
+      "name": "diegonmarcos",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-26T13:30:04Z"
+    },
+    {
+      "name": "cloud-webapps-2",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-26T13:29:16Z"
+    },
+    {
+      "name": "CG-circus",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-26T13:29:13Z"
+    },
+    {
+      "name": "cloud-me-data-pvt",
+      "visibility": "private",
+      "fork": false,
+      "pushed_at": "2026-10-26T13:19:12Z"
     },
     {
       "name": "cloud-u-containers",
@@ -36,28 +114,10 @@
       "pushed_at": "2026-10-26T00:05:56Z"
     },
     {
-      "name": "git-repos-master",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T23:55:30Z"
-    },
-    {
-      "name": "cloud-u-linux",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T23:43:16Z"
-    },
-    {
       "name": "front-endeavours",
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-25T23:10:38Z"
-    },
-    {
-      "name": "front-circus",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T23:10:36Z"
     },
     {
       "name": "cloud-me-profiles",
@@ -66,40 +126,16 @@
       "pushed_at": "2026-10-25T23:10:34Z"
     },
     {
-      "name": "cloud-webapps-2",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T23:10:31Z"
-    },
-    {
       "name": "cloud-me-others",
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-25T23:10:29Z"
     },
     {
-      "name": "diegonmarcos.github.io",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T23:05:29Z"
-    },
-    {
       "name": "z-archived_front-media",
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-25T19:03:20Z"
-    },
-    {
-      "name": "front-unity",
-      "visibility": "private",
-      "fork": false,
-      "pushed_at": "2026-10-25T19:01:18Z"
-    },
-    {
-      "name": "front-galaxy-gaia",
-      "visibility": "private",
-      "fork": false,
-      "pushed_at": "2026-10-25T19:01:13Z"
     },
     {
       "name": "front-assets-cdn",
@@ -118,12 +154,6 @@
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-25T19:00:41Z"
-    },
-    {
-      "name": "front-galaxy",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T19:00:33Z"
     },
     {
       "name": "z-archived_front-feeds",
@@ -148,12 +178,6 @@
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-25T19:00:09Z"
-    },
-    {
-      "name": "diegonmarcos",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T11:45:16Z"
     },
     {
       "name": "cloud-me_cgc",
@@ -192,22 +216,10 @@
       "pushed_at": "2026-10-23T12:46:48Z"
     },
     {
-      "name": "cloud",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-23T12:16:21Z"
-    },
-    {
       "name": "z-archived_front-projects",
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-23T12:12:40Z"
-    },
-    {
-      "name": "front",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-23T12:11:46Z"
     },
     {
       "name": "lecole-42",
