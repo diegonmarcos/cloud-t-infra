@@ -105,8 +105,23 @@
         "private": false
       },
       {
-        "dir": "front-assets-cdn",
-        "github": "front-assets-cdn",
+        "dir": "Fin-CM",
+        "github": "Fin-CM",
+        "private": false
+      },
+      {
+        "dir": "DeepSc",
+        "github": "DeepSc",
+        "private": false
+      },
+      {
+        "dir": "DuckPeng",
+        "github": "DuckPeng",
+        "private": false
+      },
+      {
+        "dir": "cloud_db_assets-cdn",
+        "github": "cloud_db_assets-cdn",
         "private": false
       },
       {
