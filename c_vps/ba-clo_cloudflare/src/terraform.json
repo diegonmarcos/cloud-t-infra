@@ -55,10 +55,11 @@
       },
       {
         "key": "spf",
+        "_doc": "SPF (#1214): ip4:130.110.251.193 = oci-mail public IP (VM oci-E2-f_0, Stalwart + Maddy; b_infra/nixhm-sudo-oci-mail/build.json). Includes: CF Email Routing, Google Workspace, AWS SES, OCI Email Delivery relay = 4 DNS lookups (limit 10), all flat. -all kept because every real sender is listed. MX stays CF Email Routing only. DNS comments are capped at 100 chars, so the long note lives here.",
         "name": "diegonmarcos.com",
         "content": "v=spf1 ip4:130.110.251.193 include:_spf.mx.cloudflare.net include:_spf.google.com include:amazonses.com include:eu.rp.oracleemaildelivery.com -all",
         "ttl": 300,
-        "comment": "SPF (#1214): ip4:130.110.251.193 = oci-mail public IP (VM oci-E2-f_0, Stalwart + Maddy; b_infra/nixhm-sudo-oci-mail/build.json) + CF Email Routing + Google Workspace + AWS SES + OCI relay. 4 DNS lookups (limit 10), all includes flat. -all kept: every real sender is listed. MX stays CF Email Routing only."
+        "comment": "ip4 = oci-mail VM (Stalwart/Maddy) + CF routing + Google + SES + OCI relay; 4 lookups; -all"
       },
       {
         "key": "dmarc",
