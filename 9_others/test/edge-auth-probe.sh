@@ -98,5 +98,21 @@ if [ "$(jq -r '.edge_auth.multi_sso.enabled // false' "$MS_JSON")" = true ]; the
 else
   echo "info	sso	multi_sso OFF in the derived policy: sign-in probes not run	-	-"
 fi
+# ── HSTS (#1215) ── every public hostname must send Strict-Transport-Security (max-age >= 1 year) on a
+# plain HEAD, whatever it answers (login redirect, 401, 403 included). Hosts = every non-mesh host in the
+# route list + the Cloudflare-proxied Zero Trust names (served by Access, not Caddy; HSTS set at the CF edge
+# by c_vps/ba-clo_cloudflare/src/hsts-edge.tf). A host that does not answer at all is not served: skipped.
+CF_JSON="$ROOT/c_vps/ba-clo_cloudflare/src/terraform.json"
+HSTS_HOSTS="$( { printf '%s\n' "$LIST" | awk -F'\t' 'NF>=3 {print $2}'
+  [ -f "$CF_JSON" ] && jq -r '.zero_trust | [.pilot_app.hostname, .broker_app.hostname] | .[]' "$CF_JSON"
+  } | grep -Ev '\.(app|db)$|\.mesh\.' | sort -u)"
+for h in $HSTS_HOSTS; do
+  sleep "${PROBE_PACE:-0.9}"
+  hdr=$(curl -sS -I -m 12 "https://$h/" 2>/dev/null) || hdr=""
+  [ -n "$hdr" ] || { echo "info	hsts	$h	-	- (no answer: not served)"; continue; }
+  ma=$(printf '%s' "$hdr" | tr -d '\r' | awk -F'[=;]' 'tolower($1) ~ /^strict-transport-security:/ {gsub(/[ \t]/,"",$2); print $2; exit}')
+  if [ -n "$ma" ] && [ "$ma" -ge 31536000 ] 2>/dev/null; then echo "ok	hsts	$h	-	max-age=$ma"
+  else echo "FAIL	hsts	$h	-	- (Strict-Transport-Security missing or max-age < 31536000)"; fails=$((fails+1)); fi
+done
 echo "-- $total probes, $fails FAIL"
 [ "$fails" -eq 0 ]

@@ -10,6 +10,11 @@
   "proxy_ip6": "2603:c026:c104:8f00:0:c704:63b:6eee",
   "account_id": "e5cb0a0c6f448e54f217de484259f0ae",
 
+  "edge_hsts": {
+    "_doc": "HSTS (#1215) for every Cloudflare-proxied hostname (c3-pub, mta-sts, the two Zero Trust names). Access answers those requests itself and the tunnel origin never adds a header, so the header is set at the Cloudflare edge by hsts-edge.tf (response header transform rule). max_age 1 year; NO includeSubDomains (the proxied names have no subdomains and the zone wildcard also covers grey hosts that are not all HTTPS-only), NO preload.",
+    "max_age": 31536000
+  },
+
   "dns_records": {
     "_a_records_doc": "SPLIT-HORIZON: PUBLIC Cloudflare wildcard '*' resolves to proxy_ip (public edge) ONLY — NO RFC1918 mesh IPs in public DNS (avoids topology leak + blackholing public clients that pick an unroutable internal IP). Internal wg0 mesh resolution is handled by Hickory (10.0.0.1:53, separate engine) which returns the mesh IP for wg clients. PER-RECORD OVERRIDES: 'ip' field on any record overrides the global proxy_ip for that single name. 'extra_ips' (if ever needed) adds public-routable IPs only to the multi-value set; the engine emits one cloudflare_record per (name, ip). NEVER put mesh/RFC1918 IPs in extra_ips — they belong in Hickory, not public CF.",
     "a_records": [
@@ -53,7 +58,7 @@
         "name": "diegonmarcos.com",
         "content": "v=spf1 ip4:130.110.251.193 include:_spf.mx.cloudflare.net include:_spf.google.com include:amazonses.com include:eu.rp.oracleemaildelivery.com -all",
         "ttl": 300,
-        "comment": "SPF: Stalwart VM IP + CF Email Routing + Google Workspace + AWS SES + OCI relay — hardfail"
+        "comment": "SPF (#1214): ip4:130.110.251.193 = oci-mail public IP (VM oci-E2-f_0, Stalwart + Maddy; b_infra/nixhm-sudo-oci-mail/build.json) + CF Email Routing + Google Workspace + AWS SES + OCI relay. 4 DNS lookups (limit 10), all includes flat. -all kept: every real sender is listed. MX stays CF Email Routing only."
       },
       {
         "key": "dmarc",
