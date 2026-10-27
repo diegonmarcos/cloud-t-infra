@@ -6,26 +6,26 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22403,
+    "files": 22455,
     "by_lang": {
-      "js": 493,
-      "sh": 559,
-      "py": 167,
-      "kotlin": 11955,
+      "js": 495,
+      "sh": 564,
+      "py": 168,
+      "kotlin": 11998,
       "java": 647,
-      "nix": 30,
+      "nix": 31,
       "rust": 111,
       "ts": 8441
     },
     "by_role": {
       "file": 2281,
-      "shell": 443,
+      "shell": 448,
       "script": 260,
       "java": 646,
-      "kotlin": 11952,
-      "module": 6420,
-      "flake": 26,
-      "python": 54,
+      "kotlin": 11995,
+      "module": 6422,
+      "flake": 27,
+      "python": 55,
       "rust-module": 111,
       "hook": 150,
       "nix-module": 4,
@@ -1181,6 +1181,7 @@
         "walk(top, exts)",
         "line_of(text, idx)",
         "page_ids(pages)",
+        "duplicate_page_ids(sections)",
         "needs_strip(sections)",
         "top_level(text, open_idx)",
         "check_parity(root, app, spec, code, bad)",
@@ -1207,6 +1208,7 @@
         "walk(top, exts)",
         "line_of(text, idx)",
         "page_ids(pages)",
+        "duplicate_page_ids(sections)",
         "needs_strip(sections)",
         "top_level(text, open_idx)",
         "check_parity(root, app, spec, code, bad)",
@@ -3711,6 +3713,7 @@
         "walk(top, exts)",
         "line_of(text, idx)",
         "page_ids(pages)",
+        "duplicate_page_ids(sections)",
         "needs_strip(sections)",
         "top_level(text, open_idx)",
         "check_parity(root, app, spec, code, bad)",
@@ -3737,6 +3740,7 @@
         "walk(top, exts)",
         "line_of(text, idx)",
         "page_ids(pages)",
+        "duplicate_page_ids(sections)",
         "needs_strip(sections)",
         "top_level(text, open_idx)",
         "check_parity(root, app, spec, code, bad)",
@@ -6667,6 +6671,8 @@
       ],
       "symbols": [
         "screensaverOff()",
+        "shell(cmd: String)",
+        "closeInstaller()",
         "screensaverRestore()",
         "launchHome()",
         "onMain(f: ()",
@@ -6683,6 +6689,9 @@
         "lastAction(shell: ShellActivity)",
         "onCloudApps(shell: ShellActivity)",
         "swipeUpOpensCloudApps()",
+        "storeLegacyOverrides()",
+        "legacyStoredOverridesDoNotBeatTheDeclaredSwipeDown()",
+        "legacyStoredOverridesDoNotBeatTheDeclaredSwipeUp()",
         "swipeDownLeftHalfOpensNotify()",
         "swipeDownRightHalfOpensQuickActions()",
         "swipeLeftOpensLastCloudApp()",
@@ -6690,8 +6699,8 @@
         "drawingACircleTogglesTheLight()",
         "drawingACOpensCloudCalc()",
         "aLongStraightStrokeStaysASwipeNotAShape()",
-        "shows(text: String)",
-        "tapTab(label: String)",
+        "boardsStrip(shell: ShellActivity)",
+        "paneFragments(shell: ShellActivity)",
         "boardsResourcesPageShowsTheLivePhone()",
         "boardsQuickActionsIsTheConfigsPage()",
         "class HomeSwipeGestureTest"
@@ -8455,6 +8464,31 @@
         "LabelSwitch( label: String, checked: Boolean, sizeSp: Int, tag: String, modifier: Modifier = Modifier, onChange: (Boolean)",
         "PaneButton(label: String, description: String? = null, onClick: ()",
         "class BadgePanes"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/configs/BluetoothFragment.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "BluetoothFragment"
+      ],
+      "imports": [
+        "android.os.Bundle",
+        "androidx.compose.runtime.Composable",
+        "com.diegonmarcos.superapp.ShellActivity",
+        "com.diegonmarcos.superapp.bluetooth.BluetoothHub",
+        "com.diegonmarcos.superapp.bluetooth.BluetoothPanel",
+        "com.diegonmarcos.superapp.bluetooth.BtTab",
+        "com.diegonmarcos.superapp.ui.LauncherPalette",
+        "com.diegonmarcos.superapp.uikit.KitComposeFragment"
+      ],
+      "symbols": [
+        "newInstance(tab: BtTab)",
+        "pageId(tab: BtTab)",
+        "palette()",
+        "Content()",
+        "class BluetoothFragment"
       ]
     },
     {
@@ -10806,24 +10840,36 @@
       ]
     },
     {
-      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/launcher/GestureTrailView.kt",
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/launcher/GestureTrail.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
-        "GestureTrailView"
+        "GestureTrailState",
+        "GestureTrail"
       ],
       "imports": [
-        "android.content.Context",
-        "android.graphics.Canvas",
-        "android.graphics.Paint",
-        "android.graphics.Path",
-        "android.view.View"
+        "androidx.compose.animation.core.animateFloatAsState",
+        "androidx.compose.foundation.Canvas",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateListOf",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.geometry.Offset",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.graphics.Path",
+        "androidx.compose.ui.graphics.StrokeCap",
+        "androidx.compose.ui.graphics.StrokeJoin",
+        "androidx.compose.ui.graphics.drawscope.Stroke"
       ],
       "symbols": [
         "add(x: Float, y: Float)",
         "end()",
-        "onDraw(c: Canvas)",
-        "class GestureTrailView"
+        "begin()",
+        "GestureTrail(state: GestureTrailState, strokeWidthPx: Float)",
+        "class GestureTrailState"
       ]
     },
     {
@@ -18951,6 +18997,48 @@
       ]
     },
     {
+      "path": "aa_cloud-superapp/app/src/test/java/com/diegonmarcos/superapp/bluetooth/BluetoothLibTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FakeAdapter",
+        "BluetoothLibTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "java.io.File"
+      ],
+      "symbols": [
+        "startScan(onResult: (BleDevice)",
+        "stopScan()",
+        "bonded()",
+        "connect(address: String)",
+        "disconnect(address: String)",
+        "discover(address: String)",
+        "read(address: String, service: String, char: String)",
+        "write(address: String, service: String, char: String, value: ByteArray, withResponse: Boolean)",
+        "setNotify(address: String, service: String, char: String, mode: NotifyMode)",
+        "readDescriptor(address: String, service: String, char: String, desc: String)",
+        "writeDescriptor(address: String, service: String, char: String, desc: String, value: ByteArray)",
+        "requestMtu(address: String, mtu: Int)",
+        "readRssi(address: String)",
+        "bond(address: String)",
+        "dev(name: String?, rssi: Int, vararg services: String, connectable: Boolean = true)",
+        "abs(i: Int)",
+        "session(a: FakeAdapter = FakeAdapter()",
+        "connected(s: GattSession, a: FakeAdapter, address: String = \"AA:01\")",
+        "controller(a: FakeAdapter = FakeAdapter()",
+        "class FakeAdapter",
+        "class BluetoothLibTest",
+        "class Clock"
+      ]
+    },
+    {
       "path": "aa_cloud-superapp/app/src/test/java/com/diegonmarcos/superapp/boards/HealthAggTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -24638,6 +24726,22 @@
       "symbols": [
         "ok()",
         "bad()"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/test/test-bluetooth-page.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "bad()",
+        "check()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "bad()",
+        "check()"
       ]
     },
     {
@@ -34027,6 +34131,527 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/bluetooth/src/main/java/com/diegonmarcos/superapp/bluetooth/AndroidBleAdapter.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AndroidBleAdapter"
+      ],
+      "imports": [
+        "android.annotation.SuppressLint",
+        "android.bluetooth.BluetoothAdapter",
+        "android.bluetooth.BluetoothDevice",
+        "android.bluetooth.BluetoothGatt",
+        "android.bluetooth.BluetoothGattCallback",
+        "android.bluetooth.BluetoothGattCharacteristic",
+        "android.bluetooth.BluetoothGattDescriptor",
+        "android.bluetooth.BluetoothManager",
+        "android.bluetooth.BluetoothProfile",
+        "android.bluetooth.le.ScanCallback",
+        "android.bluetooth.le.ScanResult",
+        "android.bluetooth.le.ScanSettings",
+        "android.content.BroadcastReceiver",
+        "android.content.Context",
+        "android.content.Intent",
+        "android.content.IntentFilter",
+        "android.os.Build",
+        "java.util.UUID"
+      ],
+      "symbols": [
+        "onReceive(c: Context?, i: Intent?)",
+        "deviceOf(i: Intent)",
+        "ensureBondReceiver()",
+        "startScan(onResult: (BleDevice)",
+        "onScanResult(callbackType: Int, result: ScanResult)",
+        "onBatchScanResults(results: MutableList<ScanResult>)",
+        "onScanFailed(errorCode: Int)",
+        "stopScan()",
+        "toDevice(r: ScanResult)",
+        "bonded()",
+        "onConnectionStateChange(gatt: BluetoothGatt, status: Int, newState: Int)",
+        "onServicesDiscovered(gatt: BluetoothGatt, status: Int)",
+        "onCharacteristicRead(gatt: BluetoothGatt, c: BluetoothGattCharacteristic, status: Int)",
+        "onCharacteristicRead(gatt: BluetoothGatt, c: BluetoothGattCharacteristic, value: ByteArray, status: Int)",
+        "read(g: BluetoothGatt, c: BluetoothGattCharacteristic, v: ByteArray, status: Int)",
+        "onCharacteristicWrite(gatt: BluetoothGatt, c: BluetoothGattCharacteristic, status: Int)",
+        "onCharacteristicChanged(gatt: BluetoothGatt, c: BluetoothGattCharacteristic)",
+        "onCharacteristicChanged(gatt: BluetoothGatt, c: BluetoothGattCharacteristic, value: ByteArray)",
+        "changed(g: BluetoothGatt, c: BluetoothGattCharacteristic, v: ByteArray)",
+        "onDescriptorRead(gatt: BluetoothGatt, d: BluetoothGattDescriptor, status: Int)",
+        "onDescriptorRead(gatt: BluetoothGatt, d: BluetoothGattDescriptor, status: Int, value: ByteArray)",
+        "descRead(g: BluetoothGatt, d: BluetoothGattDescriptor, v: ByteArray, status: Int)",
+        "onDescriptorWrite(gatt: BluetoothGatt, d: BluetoothGattDescriptor, status: Int)",
+        "onMtuChanged(gatt: BluetoothGatt, mtu: Int, status: Int)",
+        "onReadRemoteRssi(gatt: BluetoothGatt, rssi: Int, status: Int)",
+        "norm(u: UUID)",
+        "gatt(a: String)",
+        "characteristicOf(a: String, service: String, char: String)",
+        "connect(address: String)",
+        "disconnect(address: String)",
+        "discover(address: String)",
+        "read(address: String, service: String, char: String)",
+        "write(address: String, service: String, char: String, value: ByteArray, withResponse: Boolean)",
+        "setNotify(address: String, service: String, char: String, mode: NotifyMode)",
+        "readDescriptor(address: String, service: String, char: String, desc: String)",
+        "writeDescriptor(address: String, service: String, char: String, desc: String, value: ByteArray)",
+        "requestMtu(address: String, mtu: Int)",
+        "readRssi(address: String)",
+        "bond(address: String)",
+        "close()"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bluetooth/src/main/java/com/diegonmarcos/superapp/bluetooth/BleController.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "CharValue",
+        "BleState",
+        "BleController"
+      ],
+      "imports": [
+        "kotlinx.coroutines.flow.MutableStateFlow",
+        "kotlinx.coroutines.flow.StateFlow",
+        "kotlinx.coroutines.flow.update"
+      ],
+      "symbols": [
+        "edit(f: (BleState)",
+        "refreshAdapter()",
+        "refreshBonded()",
+        "setQuery(q: ScanQuery)",
+        "startScan()",
+        "stopScan()",
+        "visible(s: BleState = state.value)",
+        "select(address: String)",
+        "connect()",
+        "disconnect()",
+        "bond()",
+        "discover()",
+        "requestMtu(mtu: Int)",
+        "readRssi()",
+        "read(c: GattCharacteristic)",
+        "write(c: GattCharacteristic, bytes: ByteArray, withResponse: Boolean = !c.canWriteNoResponse || c.properties and GattProps.WRITE != 0)",
+        "writeHex(c: GattCharacteristic, hex: String, withResponse: Boolean)",
+        "setNotify(c: GattCharacteristic, mode: NotifyMode)",
+        "readDescriptor(c: GattCharacteristic, desc: String)",
+        "readAll()",
+        "describeDescriptor(desc: String, bytes: ByteArray)",
+        "clearTelemetry()",
+        "record(service: String, char: String, bytes: ByteArray, notified: Boolean)",
+        "onConnectionState(address: String, state: ConnState, status: Int)",
+        "onServices(address: String, services: List<GattService>, status: Int)",
+        "onRead(address: String, service: String, char: String, value: ByteArray, status: Int)",
+        "onChanged(address: String, service: String, char: String, value: ByteArray)",
+        "onBond(address: String, state: Int)",
+        "close()",
+        "class CharValue",
+        "class BleState",
+        "class BleController"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bluetooth/src/main/java/com/diegonmarcos/superapp/bluetooth/BleFilters.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ScanQuery",
+        "WebFilter",
+        "BleFilters"
+      ],
+      "imports": [],
+      "symbols": [
+        "matches(d: BleDevice, q: ScanQuery, catalog: GattCatalog)",
+        "apply(list: Collection<BleDevice>, q: ScanQuery, catalog: GattCatalog)",
+        "matchesWeb(d: BleDevice, filters: List<WebFilter>)",
+        "bars(rssi: Int)",
+        "class ScanQuery",
+        "class WebFilter",
+        "class BleFilters"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bluetooth/src/main/java/com/diegonmarcos/superapp/bluetooth/BleLog.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LogKind",
+        "LogEntry",
+        "BleLog"
+      ],
+      "imports": [],
+      "symbols": [
+        "add(kind: LogKind, text: String)",
+        "snapshot()",
+        "clear()",
+        "onChange(l: ()",
+        "removeOnChange(l: ()",
+        "export(kinds: Set<LogKind>? = null)",
+        "line(e: LogEntry)",
+        "class LogKind",
+        "class LogEntry",
+        "class BleLog"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bluetooth/src/main/java/com/diegonmarcos/superapp/bluetooth/BleModel.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "BleDevice",
+        "ConnState",
+        "NotifyMode",
+        "GattProps",
+        "GattDescriptor",
+        "GattCharacteristic",
+        "GattService",
+        "OpResult",
+        "GattListener",
+        "BleAdapter"
+      ],
+      "imports": [],
+      "symbols": [
+        "merge(newer: BleDevice)",
+        "names(p: Int)",
+        "failed(error: String, status: Int = -1)",
+        "onConnectionState(address: String, state: ConnState, status: Int)",
+        "onServices(address: String, services: List<GattService>, status: Int)",
+        "onRead(address: String, service: String, char: String, value: ByteArray, status: Int)",
+        "onWrite(address: String, service: String, char: String, status: Int)",
+        "onChanged(address: String, service: String, char: String, value: ByteArray)",
+        "onNotifySet(address: String, service: String, char: String, mode: NotifyMode, status: Int)",
+        "onDescriptorRead(address: String, service: String, char: String, desc: String, value: ByteArray, status: Int)",
+        "onDescriptorWrite(address: String, service: String, char: String, desc: String, status: Int)",
+        "onMtu(address: String, mtu: Int, status: Int)",
+        "onRssi(address: String, rssi: Int, status: Int)",
+        "onBond(address: String, state: Int)",
+        "startScan(onResult: (BleDevice)",
+        "stopScan()",
+        "bonded()",
+        "connect(address: String)",
+        "disconnect(address: String)",
+        "discover(address: String)",
+        "read(address: String, service: String, char: String)",
+        "write(address: String, service: String, char: String, value: ByteArray, withResponse: Boolean)",
+        "setNotify(address: String, service: String, char: String, mode: NotifyMode)",
+        "readDescriptor(address: String, service: String, char: String, desc: String)",
+        "writeDescriptor(address: String, service: String, char: String, desc: String, value: ByteArray)",
+        "requestMtu(address: String, mtu: Int)",
+        "readRssi(address: String)",
+        "bond(address: String)",
+        "class BleDevice",
+        "class ConnState",
+        "class NotifyMode",
+        "class GattProps",
+        "class GattDescriptor",
+        "class GattCharacteristic",
+        "class GattService",
+        "class OpResult",
+        "class GattListener",
+        "class BleAdapter"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bluetooth/src/main/java/com/diegonmarcos/superapp/bluetooth/BlePermissions.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "BlePermissions"
+      ],
+      "imports": [
+        "android.Manifest",
+        "android.content.Context",
+        "android.content.pm.PackageManager",
+        "android.os.Build"
+      ],
+      "symbols": [
+        "required(sdk: Int = Build.VERSION.SDK_INT)",
+        "missing(ctx: Context, sdk: Int = Build.VERSION.SDK_INT)",
+        "granted(ctx: Context)",
+        "describe(perms: List<String>)",
+        "class BlePermissions"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bluetooth/src/main/java/com/diegonmarcos/superapp/bluetooth/BluetoothHub.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "BluetoothHub"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.os.Handler",
+        "android.os.Looper"
+      ],
+      "symbols": [
+        "catalog(ctx: Context)",
+        "session(ctx: Context)",
+        "controller(ctx: Context)",
+        "class BluetoothHub"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bluetooth/src/main/java/com/diegonmarcos/superapp/bluetooth/BluetoothInteract.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [],
+      "imports": [
+        "androidx.compose.foundation.Canvas",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.lazy.LazyListScope",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Switch",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateMapOf",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.geometry.Offset",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.graphics.Path",
+        "androidx.compose.ui.graphics.drawscope.Stroke",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.font.FontFamily",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp"
+      ],
+      "symbols": [
+        "interactTab(c: BleController, s: BleState)",
+        "ServiceCard(c: BleController, s: BleState, sv: GattService)",
+        "CharacteristicRow(c: BleController, s: BleState, ch: GattCharacteristic, open: MutableMap<String, Boolean>)",
+        "profileOf(family: String)",
+        "valueText(s: BleState, assigned: Int)",
+        "Dashboard(c: BleController, s: BleState)",
+        "Metric(label: String, value: String)",
+        "Waveform(samples: List<Double>, label: String, onClear: ()",
+        "fmt(d: Double)",
+        "class Profile"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bluetooth/src/main/java/com/diegonmarcos/superapp/bluetooth/BluetoothUi.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "BtTab",
+        "BluetoothPanel"
+      ],
+      "imports": [
+        "android.bluetooth.BluetoothAdapter",
+        "android.content.Intent",
+        "androidx.activity.compose.rememberLauncherForActivityResult",
+        "androidx.activity.result.contract.ActivityResultContracts",
+        "androidx.compose.foundation.BorderStroke",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.Button",
+        "androidx.compose.material3.HorizontalDivider",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.OutlinedButton",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Slider",
+        "androidx.compose.material3.Switch",
+        "androidx.compose.material3.Text",
+        "androidx.compose.material3.TextButton",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.DisposableEffect",
+        "androidx.compose.runtime.collectAsState",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue"
+      ],
+      "symbols": [
+        "of(id: String?)",
+        "BluetoothPanel(controller: BleController, tab: BtTab, modifier: Modifier = Modifier, onOpenTab: (BtTab)",
+        "BtCard(modifier: Modifier = Modifier, content: @Composable ()",
+        "BtTitle(text: String)",
+        "BtMuted(text: String, modifier: Modifier = Modifier, mono: Boolean = false)",
+        "BtPill(text: String, color: Color, modifier: Modifier = Modifier, onClick: (()",
+        "BtChoice(label: String, selected: Boolean, onClick: ()",
+        "BtButton(label: String, enabled: Boolean = true, primary: Boolean = false, tag: String = label, onClick: ()",
+        "BtIcon(name: String, tint: Color = MaterialTheme.colorScheme.onSurfaceVariant, size: Int = 18)",
+        "BtRow(content: @Composable ()",
+        "PermissionGate(controller: BleController, s: BleState)",
+        "findTab(c: BleController, s: BleState, open: (BtTab)",
+        "DeviceRow(c: BleController, d: BleDevice, selected: Boolean, onPick: ()",
+        "connectTab(c: BleController, s: BleState, open: (BtTab)",
+        "KeyValue(k: String, v: String)",
+        "rememberLog(log: BleLog)",
+        "debugTab(c: BleController, s: BleState)",
+        "LogConsole(log: BleLog)",
+        "devTab(c: BleController, s: BleState)",
+        "RawWrite(c: BleController, s: BleState)",
+        "preferredWrite(catalog: GattCatalog, writable: List<GattCharacteristic>)",
+        "PermissionMatrix()",
+        "class BtTab"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bluetooth/src/main/java/com/diegonmarcos/superapp/bluetooth/GattCatalog.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "CatalogService",
+        "CatalogChar",
+        "CatalogFilter",
+        "CatalogProbe",
+        "GattCatalog"
+      ],
+      "imports": [
+        "android.content.Context",
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "service(uuid: String)",
+        "characteristic(uuid: String)",
+        "serviceName(uuid: String)",
+        "characteristicName(uuid: String)",
+        "descriptorName(uuid: String)",
+        "categoryOf(uuid: String)",
+        "categoryLabel(id: String)",
+        "decoderFor(charUuid: String)",
+        "filter(id: String)",
+        "resolveService(nameOrUuid: String)",
+        "resolveCharacteristic(nameOrUuid: String)",
+        "deviceCategory(uuids: List<String>)",
+        "load(ctx: Context)",
+        "parse(text: String)",
+        "strs(a: JSONArray?)",
+        "rows(key: String)",
+        "class CatalogService",
+        "class CatalogChar",
+        "class CatalogFilter",
+        "class CatalogProbe",
+        "class GattCatalog"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bluetooth/src/main/java/com/diegonmarcos/superapp/bluetooth/GattDecoders.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Decoded",
+        "GattDecoders"
+      ],
+      "imports": [],
+      "symbols": [
+        "u8(b: ByteArray, i: Int)",
+        "u16(b: ByteArray, i: Int)",
+        "u32(b: ByteArray, i: Int)",
+        "s16(b: ByteArray, i: Int)",
+        "float32(b: ByteArray, i: Int)",
+        "decode(decoder: String, b: ByteArray)",
+        "littleEndian(b: ByteArray)",
+        "fmt(d: Double)",
+        "heartRate(b: ByteArray)",
+        "temperature(b: ByteArray)",
+        "csc(b: ByteArray)",
+        "describe(catalog: GattCatalog, charUuid: String, b: ByteArray)",
+        "class Decoded",
+        "class GattDecoders"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bluetooth/src/main/java/com/diegonmarcos/superapp/bluetooth/GattSession.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GattSession"
+      ],
+      "imports": [],
+      "symbols": [
+        "observe(l: GattListener)",
+        "unobserve(l: GattListener)",
+        "state(address: String)",
+        "services(address: String)",
+        "characteristic(address: String, service: String, char: String)",
+        "connect(address: String, done: (OpResult)",
+        "disconnect(address: String)",
+        "failConnect(address: String, error: String)",
+        "discover(address: String, done: (OpResult)",
+        "read(address: String, service: String, char: String, done: (OpResult)",
+        "write(address: String, service: String, char: String, value: ByteArray, withResponse: Boolean, done: (OpResult)",
+        "setNotify(address: String, service: String, char: String, mode: NotifyMode, done: (OpResult)",
+        "readDescriptor(address: String, service: String, char: String, desc: String, done: (OpResult)",
+        "writeDescriptor(address: String, service: String, char: String, desc: String, value: ByteArray, done: (OpResult)",
+        "requestMtu(address: String, mtu: Int, done: (OpResult)",
+        "readRssi(address: String, done: (OpResult)",
+        "enqueue(address: String, label: String, start: ()",
+        "pump(address: String)",
+        "finish(address: String, r: OpResult)",
+        "onConnectionState(address: String, state: ConnState, status: Int)",
+        "onServices(address: String, services: List<GattService>, status: Int)",
+        "onRead(address: String, service: String, char: String, value: ByteArray, status: Int)",
+        "onWrite(address: String, service: String, char: String, status: Int)",
+        "onChanged(address: String, service: String, char: String, value: ByteArray)",
+        "onNotifySet(address: String, service: String, char: String, mode: NotifyMode, status: Int)",
+        "onDescriptorRead(address: String, service: String, char: String, desc: String, value: ByteArray, status: Int)",
+        "onDescriptorWrite(address: String, service: String, char: String, desc: String, status: Int)",
+        "onMtu(address: String, mtu: Int, status: Int)",
+        "onRssi(address: String, rssi: Int, status: Int)",
+        "onBond(address: String, state: Int)",
+        "nowMs()",
+        "bondName(s: Int)",
+        "class GattSession",
+        "class Op"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bluetooth/src/main/java/com/diegonmarcos/superapp/bluetooth/Uuids.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Uuids",
+        "Hex"
+      ],
+      "imports": [],
+      "symbols": [
+        "normalize(text: String?)",
+        "short(uuid: String)",
+        "assigned(uuid: String)",
+        "format(b: ByteArray, sep: String = \" \")",
+        "parse(text: String)",
+        "class Uuids",
+        "class Hex"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/bottomnav/src/commonMain/kotlin/com/diegonmarcos/superapp/bottomnav/BottomNavBar.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -35623,6 +36248,36 @@
       "symbols": [
         "path(e)",
         "h(ev)"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/browser/src/main/assets/browser/web_bluetooth.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [],
+      "imports": [],
+      "symbols": [
+        "err(name, message)",
+        "hasGesture()",
+        "canonical(u)",
+        "resolve(kind, name)",
+        "toHex(buf)",
+        "fromHex(h)",
+        "call(op, args, gesture)",
+        "emit(target, type)",
+        "recv(text)",
+        "wire(proto, events)",
+        "BluetoothCharacteristicProperties(p)",
+        "charArgs(c)",
+        "needConnected(c)",
+        "write(c, value, response)",
+        "makeChar(service, info)",
+        "BluetoothRemoteGATTServer(device)",
+        "makeDevice(info)",
+        "class BluetoothRemoteGATTCharacteristic",
+        "class BluetoothRemoteGATTService",
+        "class BluetoothDevice",
+        "class Bluetooth"
       ]
     },
     {
@@ -38914,6 +39569,165 @@
         "setAsService(ctx: Context, pkg: String?)",
         "class only",
         "class VaultAutofill"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/browser/src/main/java/com/diegonmarcos/superapp/browser/WebBluetooth.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "WebBluetooth"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.os.Handler",
+        "android.os.Looper",
+        "android.webkit.JavascriptInterface",
+        "android.webkit.WebView",
+        "androidx.webkit.WebViewCompat",
+        "androidx.webkit.WebViewFeature",
+        "com.diegonmarcos.superapp.bluetooth.BlePermissions",
+        "com.diegonmarcos.superapp.bluetooth.BluetoothHub",
+        "com.diegonmarcos.superapp.bluetooth.GattCatalog",
+        "org.json.JSONObject",
+        "java.util.WeakHashMap"
+      ],
+      "symbols": [
+        "missing()",
+        "request(perms: List<String>, done: (Boolean)",
+        "attach(w: WebView, privateTab: Boolean)",
+        "onPageStarted(w: WebView)",
+        "detach(w: WebView)",
+        "script()",
+        "deliver(w: WebView, json: String)",
+        "post(json: String?)",
+        "get(key: String)",
+        "put(key: String, value: String?)",
+        "keys()",
+        "scriptWith(template: String, catalog: GattCatalog)",
+        "class it",
+        "class WebBluetooth",
+        "class Bridge",
+        "class PrefsKv",
+        "class MemoryKv"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/browser/src/main/java/com/diegonmarcos/superapp/browser/WebBluetoothChooser.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [],
+      "imports": [
+        "android.app.Activity",
+        "android.content.ContextWrapper",
+        "android.os.Handler",
+        "android.os.Looper",
+        "android.view.ViewGroup",
+        "android.webkit.WebView",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.heightIn",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Surface",
+        "androidx.compose.material3.Text",
+        "androidx.compose.material3.TextButton",
+        "androidx.compose.material3.darkColorScheme",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.ComposeView",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "androidx.compose.ui.window.Dialog",
+        "com.diegonmarcos.superapp.bluetooth.BleDevice"
+      ],
+      "symbols": [
+        "show(request: ChooserRequest, onPick: (BleDevice)",
+        "finish(pick: BleDevice?)",
+        "WebBleChooserDialog(origin: String, devices: List<BleDevice>, onPick: (BleDevice)",
+        "class ComposeChooser"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/browser/src/main/java/com/diegonmarcos/superapp/browser/WebBluetoothCore.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "WebBleGrant",
+        "WebBleGrants",
+        "ChooserRequest",
+        "WebBleChooser",
+        "WebBlePermissions",
+        "WebBluetoothCore"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.bluetooth.BleDevice",
+        "com.diegonmarcos.superapp.bluetooth.BleFilters",
+        "com.diegonmarcos.superapp.bluetooth.ConnState",
+        "com.diegonmarcos.superapp.bluetooth.GattCatalog",
+        "com.diegonmarcos.superapp.bluetooth.GattCharacteristic",
+        "com.diegonmarcos.superapp.bluetooth.GattListener",
+        "com.diegonmarcos.superapp.bluetooth.GattProps",
+        "com.diegonmarcos.superapp.bluetooth.GattSession",
+        "com.diegonmarcos.superapp.bluetooth.Hex",
+        "com.diegonmarcos.superapp.bluetooth.LogKind",
+        "com.diegonmarcos.superapp.bluetooth.NotifyMode",
+        "com.diegonmarcos.superapp.bluetooth.Uuids",
+        "com.diegonmarcos.superapp.bluetooth.WebFilter",
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "java.security.MessageDigest",
+        "java.util.concurrent.CopyOnWriteArrayList"
+      ],
+      "symbols": [
+        "get(key: String)",
+        "put(key: String, value: String?)",
+        "keys()",
+        "forOrigin(origin: String)",
+        "grant(origin: String, g: WebBleGrant)",
+        "find(origin: String, deviceId: String)",
+        "revoke(origin: String, address: String)",
+        "clear(origin: String)",
+        "origins()",
+        "write(origin: String, list: List<WebBleGrant>)",
+        "see(d: BleDevice)",
+        "show(request: ChooserRequest, onPick: (BleDevice)",
+        "missing()",
+        "request(perms: List<String>, done: (Boolean)",
+        "close()",
+        "handle(origin: String, text: String)",
+        "reset()",
+        "requestDevice(origin: String, id: Int, args: JSONObject, gesture: Boolean)",
+        "ensurePermissions(id: Int, then: ()",
+        "gattConnect(origin: String, id: Int, g: WebBleGrant)",
+        "dropConnection(address: String, disconnect: Boolean)",
+        "forget(origin: String, g: WebBleGrant)",
+        "allowedService(g: WebBleGrant, service: String)",
+        "primaryServices(id: Int, g: WebBleGrant, service: String?)",
+        "characteristics(id: Int, g: WebBleGrant, args: JSONObject)",
+        "read(id: Int, g: WebBleGrant, c: GattCharacteristic)",
+        "write(id: Int, g: WebBleGrant, c: GattCharacteristic, args: JSONObject)",
+        "notifications(id: Int, g: WebBleGrant, c: GattCharacteristic, on: Boolean)",
+        "withGrant(origin: String, id: Int, args: JSONObject, block: (WebBleGrant)",
+        "withLink(origin: String, id: Int, args: JSONObject, block: (WebBleGrant)",
+        "withChar(origin: String, id: Int, args: JSONObject, block: (WebBleGrant, GattCharacteristic)",
+        "notAllowed(id: Int)",
+        "onChanged(address: String, service: String, char: String, value: ByteArray)",
+        "onConnectionState(address: String, state: ConnState, status: Int)",
+        "reply(id: Int, result: JSONObject)",
+        "fail(id: Int, name: String, message: String)",
+        "info(origin: String, address: String, name: String?)",
+        "props(c: GattCharacteristic)",
+        "hex(b: ByteArray)",
+        "isSecure(origin: String)"
       ]
     },
     {
@@ -82917,6 +83731,75 @@
       ]
     },
     {
+      "path": "ac_cloud-browser/app/src/test/java/com/diegonmarcos/cloudbrowser/WebBluetoothCoreTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "WebBluetoothCoreTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.bluetooth.BleAdapter",
+        "com.diegonmarcos.superapp.bluetooth.BleDevice",
+        "com.diegonmarcos.superapp.bluetooth.BleLog",
+        "com.diegonmarcos.superapp.bluetooth.ConnState",
+        "com.diegonmarcos.superapp.bluetooth.GattCatalog",
+        "com.diegonmarcos.superapp.bluetooth.GattCharacteristic",
+        "com.diegonmarcos.superapp.bluetooth.GattListener",
+        "com.diegonmarcos.superapp.bluetooth.GattProps",
+        "com.diegonmarcos.superapp.bluetooth.GattService",
+        "com.diegonmarcos.superapp.bluetooth.GattSession",
+        "com.diegonmarcos.superapp.bluetooth.NotifyMode",
+        "com.diegonmarcos.superapp.browser.ChooserRequest",
+        "com.diegonmarcos.superapp.browser.WebBleChooser",
+        "com.diegonmarcos.superapp.browser.WebBleGrants",
+        "com.diegonmarcos.superapp.browser.WebBluetoothCore",
+        "com.diegonmarcos.superapp.browser.WebBlePermissions",
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Before",
+        "org.junit.Test",
+        "java.io.File"
+      ],
+      "symbols": [
+        "startScan(onResult: (BleDevice)",
+        "stopScan()",
+        "bonded()",
+        "connect(address: String)",
+        "disconnect(address: String)",
+        "discover(address: String)",
+        "read(address: String, service: String, char: String)",
+        "write(address: String, service: String, char: String, value: ByteArray, withResponse: Boolean)",
+        "setNotify(address: String, service: String, char: String, mode: NotifyMode)",
+        "readDescriptor(address: String, service: String, char: String, desc: String)",
+        "writeDescriptor(address: String, service: String, char: String, desc: String, value: ByteArray)",
+        "requestMtu(address: String, mtu: Int)",
+        "readRssi(address: String)",
+        "bond(address: String)",
+        "get(key: String)",
+        "put(key: String, value: String?)",
+        "keys()",
+        "show(request: ChooserRequest, onPick: (BleDevice)",
+        "missing()",
+        "request(perms: List<String>, done: (Boolean)",
+        "setUp()",
+        "call(op: String, args: JSONObject = JSONObject()",
+        "ok(r: JSONObject?)",
+        "errName(r: JSONObject?)",
+        "requestStrap(optional: List<String> = listOf(BATT)",
+        "connect(dev: String, origin: String = ORIGIN)",
+        "charArgs(dev: String, s: String, c: String)",
+        "assertContract(op: String, result: JSONObject)",
+        "write(c: String, s: String, hex: String, mode: String)",
+        "class WebBluetoothCoreTest",
+        "class FakeRadio",
+        "class MemKv"
+      ]
+    },
+    {
       "path": "ac_cloud-browser/build.sh",
       "lang": "sh",
       "role": "shell",
@@ -83061,6 +83944,22 @@
         "class HTMLInputElement",
         "class HTMLSelectElement",
         "class HTMLTextAreaElement"
+      ]
+    },
+    {
+      "path": "ac_cloud-browser/test/ble_polyfill_harness.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [],
+      "imports": [
+        "fs",
+        "vm"
+      ],
+      "symbols": [
+        "typeOk(t, v)",
+        "shapeOk(shape, obj)",
+        "makeWindow({ secure = true, topIsSelf = true, existing = false, userActivation } = {})",
+        "load(win, aliases = ALIASES)"
       ]
     },
     {
@@ -83228,6 +84127,22 @@
         "has()",
         "check()",
         "mutate()"
+      ]
+    },
+    {
+      "path": "ac_cloud-browser/test/test-browser-web-bluetooth.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "bad()",
+        "run_mut()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "bad()",
+        "run_mut()"
       ]
     },
     {
@@ -87645,6 +88560,25 @@
       ]
     },
     {
+      "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/ConvertSearch.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ConvertSearch"
+      ],
+      "imports": [
+        "java.text.Normalizer"
+      ],
+      "symbols": [
+        "fold(s: String)",
+        "index(modes: List<Declarations.Mode>, food: Nutrition.Data? = null)",
+        "search(entries: List<Entry>, query: String, limit: Int = 8)",
+        "class ConvertSearch",
+        "class Entry",
+        "class Hit"
+      ]
+    },
+    {
       "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/DataUnits.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -88168,6 +89102,43 @@
       ]
     },
     {
+      "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/Nutrition.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Nutrition"
+      ],
+      "imports": [
+        "java.math.BigDecimal",
+        "java.math.MathContext",
+        "java.math.RoundingMode",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "food(id: String)",
+        "quantityUnit(name: String)",
+        "parse(json: String)",
+        "units(key: String, field: String)",
+        "grams(d: Data, food: Food, x: BigDecimal, unit: Qty)",
+        "convert(d: Data, food: Food, x: BigDecimal, from: Qty, to: Qty)",
+        "macros(d: Data, food: Food, x: BigDecimal, unit: Qty)",
+        "per(v: BigDecimal)",
+        "energy(x: BigDecimal, from: Qty, to: Qty)",
+        "cToF(c: BigDecimal)",
+        "fToC(f: BigDecimal)",
+        "gasRow(d: Data, text: String)",
+        "nearestGas(d: Data, c: BigDecimal)",
+        "show(x: BigDecimal)",
+        "show1(x: BigDecimal)",
+        "class Nutrition",
+        "class Qty",
+        "class Food",
+        "class Oven",
+        "class Data",
+        "class Macros"
+      ]
+    },
+    {
       "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/RatesWorker.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -88529,6 +89500,8 @@
         "androidx.compose.foundation.layout.size",
         "androidx.compose.foundation.lazy.LazyRow",
         "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.lazy.rememberLazyListState",
+        "androidx.compose.runtime.LaunchedEffect",
         "androidx.compose.foundation.shape.RoundedCornerShape",
         "androidx.compose.material3.Icon",
         "androidx.compose.material3.MaterialTheme",
@@ -88547,21 +89520,20 @@
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.platform.testTag",
         "androidx.compose.ui.res.stringResource",
+        "com.diegonmarcos.cloudcalc.ConvertSearch",
         "com.diegonmarcos.cloudcalc.Declarations",
         "com.diegonmarcos.cloudcalc.R",
         "com.diegonmarcos.cloudcalc.engine.CalcApi",
         "com.diegonmarcos.superapp.navbarbottom.NavBarBottomHost",
         "com.diegonmarcos.superapp.navbartop1.NavBarTopFirstRowScaffold",
-        "com.diegonmarcos.superapp.navbartop1.titleHierarchy",
-        "com.diegonmarcos.superapp.navbartop2.NavBarTopSecondRow",
-        "com.diegonmarcos.superapp.themebg.themeBackground",
-        "com.diegonmarcos.superapp.bottomnav.TopBarDrawer"
+        "com.diegonmarcos.superapp.navbartop1.titleHierarchy"
       ],
       "symbols": [
         "CalcShell(api: CalcApi, state: CalcState)",
         "TopRow(state: CalcState)",
         "TabContent(tabId: String)",
         "ModeIcons(modes: List<Declarations.Mode>, selectedId: String, pageIcon: String, onSelect: (String)",
+        "searchHit(i: Int)",
         "matrixCell(row: String, col: String)",
         "pickerItem(name: String)",
         "historyExpr(i: Int)",
@@ -88595,6 +89567,7 @@
         "androidx.compose.runtime.mutableStateOf",
         "androidx.compose.runtime.setValue",
         "androidx.compose.runtime.staticCompositionLocalOf",
+        "com.diegonmarcos.cloudcalc.ConvertSearch",
         "com.diegonmarcos.cloudcalc.Declarations",
         "com.diegonmarcos.cloudcalc.Logic",
         "com.diegonmarcos.cloudcalc.engine.CalcApi"
@@ -88607,9 +89580,11 @@
         "deleteHistory(index: Int)",
         "save(next: List<Logic.Entry>)",
         "clearHistory()",
+        "open(e: ConvertSearch.Entry)",
         "send(modeId: String, text: String)",
         "show(modeId: String?)",
-        "class CalcState"
+        "class CalcState",
+        "class Jump"
       ]
     },
     {
@@ -88802,6 +89777,37 @@
       ]
     },
     {
+      "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/ui/ConvertSearchBox.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [],
+      "imports": [
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.text.KeyboardOptions",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.input.ImeAction",
+        "com.diegonmarcos.cloudcalc.ConvertSearch",
+        "com.diegonmarcos.cloudcalc.Declarations",
+        "com.diegonmarcos.cloudcalc.Nutrition"
+      ],
+      "symbols": [
+        "ConvertSearchBox(modes: List<Declarations.Mode>)"
+      ]
+    },
+    {
       "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/ui/DataScreens.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -88884,6 +89890,7 @@
         "androidx.compose.material.icons.filled.Memory",
         "androidx.compose.material.icons.filled.NetworkCheck",
         "androidx.compose.material.icons.filled.Payments",
+        "androidx.compose.material.icons.filled.Restaurant",
         "androidx.compose.material.icons.filled.Science",
         "androidx.compose.material.icons.filled.Straighten",
         "androidx.compose.material.icons.filled.AccessTime",
@@ -89163,6 +90170,67 @@
         "sx(x: Double)",
         "sy(y: Double)",
         "HistoryMode(mode: Declarations.Mode)"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/ui/NutritionScreens.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [],
+      "imports": [
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.PaddingValues",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.lazy.LazyRow",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.text.KeyboardActions",
+        "androidx.compose.foundation.text.KeyboardOptions",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material3.FilledTonalButton",
+        "androidx.compose.material3.FilterChip",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Text",
+        "androidx.compose.material3.TextButton",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.MutableState",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.input.ImeAction",
+        "androidx.compose.ui.text.input.KeyboardType",
+        "com.diegonmarcos.cloudcalc.DataUnits",
+        "com.diegonmarcos.cloudcalc.Declarations",
+        "com.diegonmarcos.cloudcalc.Logic",
+        "com.diegonmarcos.cloudcalc.Nutrition"
+      ],
+      "symbols": [
+        "NutritionMode(mode: Declarations.Mode)",
+        "foodItems(d: Nutrition.Data)",
+        "qtyItems(units: List<Nutrition.Qty>)",
+        "nameOf(item: Logic.Item?, name: String)",
+        "AmountField(value: MutableState<String>, keep: ()",
+        "FoodPicker(d: Nutrition.Data, food: MutableState<String>)",
+        "Keep(result: Logic.Result?, keep: ()",
+        "parsed(v: String, notNumber: String)",
+        "QuantityBody(mode: Declarations.Mode, d: Nutrition.Data, food: MutableState<String>, value: MutableState<String>, from: MutableState<String>, to: MutableState<String>)",
+        "MacrosBody(mode: Declarations.Mode, d: Nutrition.Data, food: MutableState<String>, value: MutableState<String>, from: MutableState<String>)",
+        "EnergyBody(mode: Declarations.Mode, d: Nutrition.Data, value: MutableState<String>, from: MutableState<String>, to: MutableState<String>)",
+        "OvenBody(mode: Declarations.Mode, d: Nutrition.Data, value: MutableState<String>, from: MutableState<String>)",
+        "ovenResult(d: Nutrition.Data, text: String, unit: String)",
+        "bad()"
       ]
     },
     {
@@ -89515,6 +90583,7 @@
         "androidx.compose.ui.test.assertTextContains",
         "androidx.compose.ui.test.assertIsFocused",
         "androidx.compose.ui.test.performSemanticsAction",
+        "androidx.compose.ui.test.performTextInput",
         "androidx.compose.ui.test.performTextReplacement",
         "androidx.compose.ui.test.getBoundsInRoot",
         "androidx.compose.ui.test.isToggleable",
@@ -89680,6 +90749,26 @@
         "deliver(a: ShadowAlarmManager.ScheduledAlarm)",
         "startedServices()",
         "class ClockEngineTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/app/src/test/java/com/diegonmarcos/cloudcalc/ConvertSearchTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ConvertSearchTest"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "java.io.File"
+      ],
+      "symbols": [
+        "hits(q: String, limit: Int = 8)",
+        "top(q: String)",
+        "class ConvertSearchTest"
       ]
     },
     {
@@ -89856,6 +90945,30 @@
       ],
       "symbols": [
         "class LogicTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/app/src/test/java/com/diegonmarcos/cloudcalc/NutritionTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NutritionTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.cloudcalc.ui.ovenResult",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "java.math.BigDecimal"
+      ],
+      "symbols": [
+        "food(id: String)",
+        "conv(id: String, x: String, from: String, to: String)",
+        "ml(n: String)",
+        "e(x: String, a: String, b: String)",
+        "class NutritionTest"
       ]
     },
     {
@@ -90359,6 +91472,16 @@
         "at(zone: ZoneId, y: Int, mo: Int, d: Int, h: Int, mi: Int, s: Int = 0)",
         "class ClockLogicTest"
       ]
+    },
+    {
+      "path": "ac_cloud-calc/data/usda-extract.py",
+      "lang": "py",
+      "role": "python",
+      "exports": [],
+      "imports": [
+        "csv"
+      ],
+      "symbols": []
     },
     {
       "path": "ac_cloud-calc/flake.nix",
@@ -210376,6 +211499,773 @@
       "imports": [],
       "symbols": [
         "mutate()"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/main/java/com/diegonmarcos/cloudkgstore/Decl.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Decl"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.bottomnav.NavDecl"
+      ],
+      "symbols": [
+        "class Decl"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/main/java/com/diegonmarcos/cloudkgstore/KgAi.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "KgAi"
+      ],
+      "imports": [
+        "android.content.Context",
+        "com.diegonmarcos.superapp.ai.AiAgents",
+        "com.diegonmarcos.superapp.ai.AiChatState",
+        "com.diegonmarcos.superapp.ai.AiConfig",
+        "com.diegonmarcos.superapp.ai.AiDesign",
+        "com.diegonmarcos.superapp.ai.AiFileSessions",
+        "com.diegonmarcos.superapp.ai.AiGatewayBackend",
+        "com.diegonmarcos.superapp.ai.AiMemoryPrefs",
+        "com.diegonmarcos.superapp.ai.AiStandardHost",
+        "java.io.File"
+      ],
+      "symbols": [
+        "chat(ctx: Context)",
+        "build(app: Context)",
+        "class KgAi"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/main/java/com/diegonmarcos/cloudkgstore/KgConfig.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "KgPage",
+        "KgConfig"
+      ],
+      "imports": [
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "strings(o: JSONObject, k: String)",
+        "page(id: String)",
+        "parse(text: String)",
+        "class KgPage",
+        "class Rerank",
+        "class KgConfig",
+        "class Ask"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/main/java/com/diegonmarcos/cloudkgstore/KgFleet.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "KgService",
+        "KgApp",
+        "KgApps",
+        "KgCalls"
+      ],
+      "imports": [
+        "com.diegonmarcos.cloudsearch.core.Cgc",
+        "com.diegonmarcos.cloudsearch.core.CgcAnswer",
+        "com.diegonmarcos.cloudsearch.core.CgcConfig",
+        "com.diegonmarcos.cloudsearch.core.CgcEdge",
+        "com.diegonmarcos.cloudsearch.core.CgcHit",
+        "com.diegonmarcos.cloudsearch.core.CgcNode",
+        "com.diegonmarcos.cloudsearch.core.FleetEndpoint",
+        "com.diegonmarcos.cloudsearch.core.Http",
+        "com.diegonmarcos.cloudsearch.core.McpClient",
+        "com.diegonmarcos.cloudsearch.core.Outcome",
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "consolePaths()",
+        "parse(json: String)",
+        "filter(all: List<KgApp>, q: String)",
+        "ports(json: String)",
+        "debugRows(all: List<KgApp>, ports: Map<String, Int>, q: String)",
+        "gatewayRoute(pattern: String, app: KgApp)",
+        "unknown(id: String)",
+        "request(service: String, method: String, path: String, body: String)",
+        "tools(service: String)",
+        "listTools(service: String, url: String, headers: Map<String, String>)",
+        "post(url: String, h: Map<String, String>, body: String)",
+        "rpc(id: Int, method: String, params: JSONObject)",
+        "health(ix: CgcConfig.Index)",
+        "semantic(ix: CgcConfig.Index, repo: String, q: String)",
+        "graph(ix: CgcConfig.Index, repo: String, q: String)",
+        "related(ix: CgcConfig.Index, repo: String, node: String)",
+        "ask(ix: CgcConfig.Index, tool: String, args: JSONObject, read: (String)",
+        "rerank(r: KgPage.Rerank, query: String, docs: List<String>)",
+        "scores(body: String, count: Int)",
+        "class KgService",
+        "class KgApp",
+        "class KgApps",
+        "class DebugRow",
+        "class KgCalls",
+        "class Kind",
+        "class Result",
+        "class Reply",
+        "class Tool"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/main/java/com/diegonmarcos/cloudkgstore/KgServices.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "KgBearer",
+        "KgServices"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.content.Intent",
+        "android.net.Uri",
+        "android.util.Base64",
+        "com.diegonmarcos.cloudsearch.core.Cache",
+        "com.diegonmarcos.cloudsearch.core.Http",
+        "com.diegonmarcos.cloudsearch.core.SearchConfig",
+        "com.diegonmarcos.cloudsearch.core.SearchEngine",
+        "com.diegonmarcos.cloudsearch.core.UrlHttp",
+        "java.io.File"
+      ],
+      "symbols": [
+        "token(ctx: Context)",
+        "read(ctx: Context)",
+        "open(url: String)",
+        "get(ctx: Context)",
+        "text(b64: String)",
+        "class KgBearer",
+        "class KgServices"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/main/java/com/diegonmarcos/cloudkgstore/MainActivity.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "MainActivity"
+      ],
+      "imports": [
+        "android.content.Intent",
+        "android.os.Bundle",
+        "androidx.activity.ComponentActivity",
+        "androidx.activity.compose.setContent",
+        "com.diegonmarcos.cloudkgstore.ui.KgShell",
+        "com.diegonmarcos.cloudkgstore.ui.KgTheme",
+        "com.diegonmarcos.superapp.bottomnav.FleetChrome"
+      ],
+      "symbols": [
+        "onCreate(savedInstanceState: Bundle?)",
+        "onNewIntent(intent: Intent)",
+        "shared(i: Intent?)",
+        "class MainActivity"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/main/java/com/diegonmarcos/cloudkgstore/PhoneApps.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PhoneApp",
+        "PhoneDetail",
+        "PhoneApps"
+      ],
+      "imports": [
+        "android.content.pm.ApplicationInfo",
+        "android.content.pm.PackageInfo",
+        "android.content.pm.PackageManager",
+        "android.os.Build"
+      ],
+      "symbols": [
+        "filter(all: List<PhoneApp>, q: String, system: Boolean)",
+        "shortName(permission: String)",
+        "orderedPermissions(p: List<PhoneDetail.Permission>)",
+        "load(pm: PackageManager)",
+        "detail(pm: PackageManager, pkg: String)",
+        "app(pm: PackageManager, info: PackageInfo)",
+        "class PhoneApp",
+        "class PhoneDetail",
+        "class Permission",
+        "class PhoneApps"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/main/java/com/diegonmarcos/cloudkgstore/ui/CloudPages.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "CloudPage"
+      ],
+      "imports": [
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.material3.Button",
+        "androidx.compose.material3.Text",
+        "androidx.compose.material3.TextButton",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.rememberCoroutineScope",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.cloudkgstore.KgApps",
+        "com.diegonmarcos.cloudkgstore.KgCalls",
+        "com.diegonmarcos.cloudkgstore.KgConfig",
+        "com.diegonmarcos.cloudkgstore.KgPage",
+        "com.diegonmarcos.cloudkgstore.KgServices",
+        "com.diegonmarcos.cloudkgstore.R",
+        "com.diegonmarcos.cloudsearch.core.CgcConfig",
+        "com.diegonmarcos.cloudsearch.core.CgcEdge",
+        "com.diegonmarcos.cloudsearch.core.CgcHit",
+        "com.diegonmarcos.cloudsearch.core.CgcNode",
+        "com.diegonmarcos.cloudsearch.core.Cgc",
+        "kotlinx.coroutines.CoroutineScope",
+        "kotlinx.coroutines.Dispatchers",
+        "kotlinx.coroutines.launch",
+        "kotlinx.coroutines.withContext"
+      ],
+      "symbols": [
+        "CloudPage(page: KgPage, svc: KgServices)",
+        "io(block: ()",
+        "BinaryPage(page: KgPage, svc: KgServices)",
+        "DebugPage(page: KgPage, svc: KgServices)",
+        "McpPage(page: KgPage, svc: KgServices)",
+        "ConsolePage(page: KgPage, svc: KgServices)",
+        "send()",
+        "CodePage(svc: KgServices)",
+        "CgcPage(svc: KgServices)",
+        "CgcQueryPage(page: KgPage, svc: KgServices, graph: Boolean)",
+        "go()"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/main/java/com/diegonmarcos/cloudkgstore/ui/KgShell.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "kgAiTheme",
+        "KgShell"
+      ],
+      "imports": [
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.WindowInsets",
+        "androidx.compose.foundation.layout.displayCutout",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.imePadding",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.statusBars",
+        "androidx.compose.foundation.layout.union",
+        "androidx.compose.foundation.layout.windowInsetsPadding",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.cloudkgstore.BuildConfig",
+        "com.diegonmarcos.cloudkgstore.Decl",
+        "com.diegonmarcos.cloudkgstore.KgAi",
+        "com.diegonmarcos.cloudkgstore.KgConfig",
+        "com.diegonmarcos.cloudkgstore.KgServices",
+        "com.diegonmarcos.cloudkgstore.R",
+        "com.diegonmarcos.superapp.ai.AiChatPage",
+        "com.diegonmarcos.superapp.ai.AiSessionsPanel",
+        "com.diegonmarcos.superapp.ai.AiSettingsPickers",
+        "com.diegonmarcos.superapp.ai.AiStrings",
+        "com.diegonmarcos.superapp.ai.AiTheme",
+        "com.diegonmarcos.superapp.ai.materialAiTheme",
+        "com.diegonmarcos.superapp.bottomnav.TopBarDrawer",
+        "com.diegonmarcos.superapp.bottomnav.islandEntries",
+        "com.diegonmarcos.superapp.bottomnav.rememberAccountLauncher"
+      ],
+      "symbols": [
+        "kgAiTheme()",
+        "KgShell()",
+        "open(sectionId: String, pageId: String?)",
+        "TextPage(title: Int, body: String, extra: @Composable ()"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/main/java/com/diegonmarcos/cloudkgstore/ui/KgTheme.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "KgTheme"
+      ],
+      "imports": [
+        "androidx.compose.material3.LocalMinimumInteractiveComponentSize",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Typography",
+        "androidx.compose.material3.darkColorScheme",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.CompositionLocalProvider",
+        "androidx.compose.ui.text.TextStyle",
+        "androidx.compose.ui.unit.TextUnit",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.res.colorResource",
+        "com.diegonmarcos.cloudkgstore.R"
+      ],
+      "symbols": [
+        "KgTheme(content: @Composable ()",
+        "noFixedLine()",
+        "dense()"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/main/java/com/diegonmarcos/cloudkgstore/ui/KgUi.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "KgTags",
+        "KgQueryBar",
+        "KgChips",
+        "KgNote",
+        "KgHeading",
+        "KgRow",
+        "statusText",
+        "isError"
+      ],
+      "imports": [
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.text.KeyboardActions",
+        "androidx.compose.foundation.text.KeyboardOptions",
+        "androidx.compose.material3.Button",
+        "androidx.compose.material3.FilterChip",
+        "androidx.compose.material3.HorizontalDivider",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.font.FontFamily",
+        "androidx.compose.ui.text.input.ImeAction",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.cloudkgstore.KgCalls",
+        "com.diegonmarcos.cloudkgstore.R"
+      ],
+      "symbols": [
+        "KgQueryBar(query: String, onQuery: (String)",
+        "KgChips(options: List<Pair<String, String>>, selected: String, onSelect: (String)",
+        "KgNote(text: String, error: Boolean = false, mono: Boolean = false)",
+        "KgHeading(text: String)",
+        "KgRow(title: String, line1: String = \"\", line2: String = \"\", onClick: (()",
+        "statusText(r: KgCalls.Result<*>?, busy: Boolean, empty: Int = R.string.status_empty)",
+        "isError(r: KgCalls.Result<*>?)",
+        "class KgTags"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/main/java/com/diegonmarcos/cloudkgstore/ui/PhonePages.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PhoneAppsPage"
+      ],
+      "imports": [
+        "androidx.activity.compose.BackHandler",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.res.stringResource",
+        "com.diegonmarcos.cloudkgstore.PhoneApp",
+        "com.diegonmarcos.cloudkgstore.PhoneApps",
+        "com.diegonmarcos.cloudkgstore.PhoneDetail",
+        "com.diegonmarcos.cloudkgstore.R",
+        "kotlinx.coroutines.Dispatchers",
+        "kotlinx.coroutines.withContext"
+      ],
+      "symbols": [
+        "PhoneAppsPage()",
+        "AppDetail(d: PhoneDetail)"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/main/java/com/diegonmarcos/cloudkgstore/ui/WebPages.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "WebPage"
+      ],
+      "imports": [
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.rememberCoroutineScope",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.res.stringResource",
+        "com.diegonmarcos.cloudkgstore.KgConfig",
+        "com.diegonmarcos.cloudkgstore.KgPage",
+        "com.diegonmarcos.cloudkgstore.KgServices",
+        "com.diegonmarcos.cloudkgstore.R",
+        "com.diegonmarcos.cloudsearch.core.FeedItem",
+        "com.diegonmarcos.cloudsearch.core.Listing",
+        "com.diegonmarcos.cloudsearch.core.SearchEngine",
+        "kotlinx.coroutines.launch",
+        "kotlinx.coroutines.Dispatchers",
+        "kotlinx.coroutines.withContext",
+        "java.time.Instant",
+        "java.time.ZoneOffset"
+      ],
+      "symbols": [
+        "WebPage(page: KgPage, svc: KgServices)",
+        "day(ms: Long?)",
+        "money(l: Listing)",
+        "statusLines(statuses: List<SearchEngine.SourceStatus>, svc: KgServices)",
+        "VerticalsPage(page: KgPage, svc: KgServices)",
+        "go()",
+        "NewsPage(svc: KgServices)",
+        "load()"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/test/java/com/diegonmarcos/cloudkgstore/Data.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Data"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "java.io.File"
+      ],
+      "symbols": [
+        "json(f: File)",
+        "searchFixture(name: String)",
+        "arr(key: String, read: (JSONObject)",
+        "class Data"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/test/java/com/diegonmarcos/cloudkgstore/KgConfigTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "KgConfigTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.cloudkgstore.Data.arr",
+        "com.diegonmarcos.cloudsearch.core.SearchConfig",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "section(id: String)",
+        "pageIds(id: String)",
+        "theBottomNavIsCloudPhoneWeb()",
+        "everyDataPageIsDeclaredByTheNavAndEveryDeclaredPageHasItsData()",
+        "cloudIsTwoRowsOfTwoGroups()",
+        "labels(g: JSONObject)",
+        "webIsSixPagesAndPhoneIsTheAppsIndex()",
+        "everyIconIsNamedAndTheIdsAreUniqueAcrossTheApp()",
+        "theWebPagesReadVerticalsCloudSearchDeclares()",
+        "theRepoPagesReadTheCodeIndexesCloudSearchDeclares()",
+        "everyFleetServiceAPageNamesIsInTheFleetDeclaration()",
+        "anEmptyServiceListCarriesTheHonestSentence()",
+        "theConsolesAreGetAndPost()",
+        "anUnknownKindIsRefused()",
+        "theComposerDeclarationEnablesTheSharedControls()",
+        "theAssistantIsDeclaredData()",
+        "class KgConfigTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/test/java/com/diegonmarcos/cloudkgstore/KgFleetTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "KgFleetTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.cloudsearch.core.CgcConfig",
+        "com.diegonmarcos.cloudsearch.core.FleetEndpoint",
+        "com.diegonmarcos.cloudsearch.core.Http",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "get(url: String, headers: Map<String, String>, timeoutMs: Int)",
+        "post(url: String, headers: Map<String, String>, body: String, timeoutMs: Int)",
+        "svc(id: String, mesh: String, public: String, policy: String = \"mesh_first\", health: String = \"/health\", paths: List<String> = emptyList()",
+        "calls(net: Http, bearer: String? = null, vararg more: KgService, cgc: CgcConfig? = null)",
+        "aGetGoesToTheMeshRouteWithoutTheBearer()",
+        "aPostCarriesItsBodyAndANon2xxIsRefusedWithTheReplyKept()",
+        "whenTheMeshIsDownThePublicRouteNeedsTheSignInAndThenCarriesIt()",
+        "aServiceTheBuildDidNotBakeIsSaidToBeMissing()",
+        "theConsolePathsAreTheHealthPathThenTheDeclaredRoutesOnce()",
+        "sse(id: Int, result: String)",
+        "mcpNet(list: String)",
+        "theToolsAreListedFromTheMcpServiceWithTheSession()",
+        "aServerWithNoToolsIsEmptyNotAnError()",
+        "aRefusingMcpServerCarriesItsStatus()",
+        "thePrivateIndexWaitsForTheAccountSignIn()",
+        "aNoServiceListIsReportedAsMissingNotAsEmpty()",
+        "aSemanticSearchReadsTheRealCodeIndexAnswer()",
+        "aToolThatCallsItselfAnErrorIsRefusedWithItsWords()",
+        "rerankScoresComeBackInDocumentOrder()",
+        "theRerankerIsAskedOnTheMeshAndItsAbsenceIsSaid()",
+        "theBakedServicesCarryTheirAddressesAndRoutes()",
+        "theFleetAppsFilterAndTheirDebugPortsComeFromTheGeneratedManifests()",
+        "class KgFleetTest",
+        "class Net"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/test/java/com/diegonmarcos/cloudkgstore/PhoneAppsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PhoneAppsTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "userAppsAreListedByLabelAndSystemAppsOnlyOnRequest()",
+        "theQueryMatchesLabelOrPackageIgnoringCase()",
+        "permissionsShowGrantedFirstWithoutTheCommonPrefix()",
+        "class PhoneAppsTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/app/src/test/java/com/diegonmarcos/cloudkgstore/WebPagesTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "WebPagesTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.cloudsearch.core.Cache",
+        "com.diegonmarcos.cloudsearch.core.Http",
+        "com.diegonmarcos.cloudsearch.core.SearchConfig",
+        "com.diegonmarcos.cloudsearch.core.SearchEngine",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Rule",
+        "org.junit.Test",
+        "org.junit.rules.TemporaryFolder"
+      ],
+      "symbols": [
+        "get(url: String, headers: Map<String, String>, timeoutMs: Int)",
+        "post(url: String, headers: Map<String, String>, body: String, timeoutMs: Int)",
+        "engine()",
+        "theJobsPageListsRealListingsAndSaysWhatItDidNotRead()",
+        "theMediaPageReadsTheImageSource()",
+        "theNewsPageReadsTheDeclaredFeedsAndAnUnreachableOneIsAnErrorStatus()",
+        "everyVerticalThePagesNameCanBeQueriedWithoutError()",
+        "class WebPagesTest",
+        "class Net"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/build.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "_ghcr_publish()",
+        "_ghcr_source()",
+        "log()",
+        "errlog()",
+        "in_nix()",
+        "in_nix_emulator()",
+        "prefer_host()",
+        "_resolve_signing()",
+        "_enforce_signature()",
+        "step_build()",
+        "step_release()",
+        "step_dev()",
+        "step_test()",
+        "step_instrument()",
+        "step_lint()",
+        "step_clean()",
+        "step_shell()",
+        "step_ship()",
+        "step_waydroid_install()",
+        "step_emulator()",
+        "_release_var()",
+        "_variant_field()",
+        "_variant_artifact()",
+        "_variant_gh_asset()",
+        "_variant_tag_suffix()",
+        "_export_variant_abis()",
+        "_resolve_template()",
+        "_ghcr_gate_public()",
+        "step_oras_push()",
+        "step_oras_pull()"
+      ],
+      "imports": [],
+      "symbols": [
+        "_ghcr_publish()",
+        "_ghcr_source()",
+        "log()",
+        "errlog()",
+        "in_nix()",
+        "in_nix_emulator()",
+        "prefer_host()",
+        "_resolve_signing()",
+        "_enforce_signature()",
+        "step_build()",
+        "step_release()",
+        "step_dev()",
+        "step_test()",
+        "step_instrument()",
+        "step_lint()",
+        "step_clean()",
+        "step_shell()",
+        "step_ship()",
+        "step_waydroid_install()",
+        "step_emulator()",
+        "_release_var()",
+        "_variant_field()",
+        "_variant_artifact()",
+        "_variant_gh_asset()",
+        "_variant_tag_suffix()",
+        "_export_variant_abis()",
+        "_resolve_template()",
+        "_ghcr_gate_public()",
+        "step_oras_push()",
+        "step_oras_pull()",
+        "step_phone_install()",
+        "_verify_asset_abi_neutral()",
+        "_sha256_sidecar()",
+        "_verify_release_asset()",
+        "_publish_release_asset()",
+        "step_gh_release()"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/flake.nix",
+      "lang": "nix",
+      "role": "flake",
+      "exports": [],
+      "imports": [],
+      "symbols": [
+        "description",
+        "inputs",
+        "outputs",
+        "pkgs",
+        "config",
+        "allowUnfree",
+        "baseAndroidArgs",
+        "toolsVersion",
+        "platformToolsVersion",
+        "buildToolsVersions",
+        "platformVersions",
+        "includeNDK",
+        "androidEnv",
+        "androidSdk",
+        "emulatorEnv",
+        "includeEmulator",
+        "includeSystemImages",
+        "systemImageTypes",
+        "abiVersions",
+        "emulatorSdk",
+        "name",
+        "buildInputs",
+        "shellHook"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/test/test-fleet-setup.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "bad()",
+        "scratch()",
+        "plant()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "bad()",
+        "scratch()",
+        "plant()"
+      ]
+    },
+    {
+      "path": "ac_cloud-kg-store/test/test-kg-store-app.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mutant()"
+      ],
+      "imports": [],
+      "symbols": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mutant()"
       ]
     },
     {
@@ -353037,10 +354927,13 @@
       ],
       "symbols": [
         "parse(o: JSONObject)",
+        "recs(a: JSONArray?)",
         "rows(collection: String)",
         "collections()",
         "added(collection: String, values: Rec)",
         "removed(collection: String, id: String)",
+        "replaced(collection: String, id: String, values: Rec)",
+        "moved(from: String, id: String, to: String)",
         "toJson()",
         "fromJson(text: String?)",
         "money(s: String?)",
@@ -353134,13 +355027,18 @@
         "field(collection: String, id: String)",
         "row(collection: String, id: String)",
         "remove(collection: String, id: String)",
+        "edit(collection: String, id: String)",
+        "move(collection: String, id: String)",
+        "accept(collection: String, n: Int)",
+        "builtin(collection: String, n: Int)",
         "empty(collection: String)",
         "LedgerBlock(o: JSONObject)",
         "commit(d: LedgerData)",
         "ReportCard(t: ReportTable)",
         "ReportRow(columns: List<String>, cells: List<String>, bold: Boolean = false)",
         "CollectionCard(def: LedgerDef, rows: List<Rec>, currency: String, onAdd: (Rec)",
-        "AddForm(def: LedgerDef, onCancel: ()",
+        "RecLines(def: LedgerDef, r: Rec, currency: String)",
+        "AddForm(def: LedgerDef, initial: Rec, onCancel: ()",
         "class LedgerTags"
       ]
     },
@@ -483043,6 +484941,7 @@
         "cgc(indexId: String)",
         "v()",
         "subpageOf(v: SearchConfig.Vertical)",
+        "navId(v: SearchConfig.Vertical, sub: String)",
         "showSubpage(v: SearchConfig.Vertical, id: String)",
         "filtersOf(v: String)",
         "listing(v: String)",
@@ -483078,8 +484977,7 @@
         "Page(v: SearchConfig.Vertical, kind: String)",
         "Categories(state: SearchState, close: ()",
         "FiltersMenu(state: SearchState)",
-        "Select(current: String, options: List<Pair<T, String>>, tag: String, modifier: Modifier = Modifier, onPick: (T)",
-        "ProfileMenu(state: SearchState)"
+        "Select(current: String, options: List<Pair<T, String>>, tag: String, modifier: Modifier = Modifier, onPick: (T)"
       ]
     },
     {
@@ -483572,11 +485470,11 @@
         "theIslandHoldsTheSevenSectionsAndEachOpens()",
         "theEnginesPageOpensAMajorEngineWithTheTypedQuery()",
         "openAgents()",
+        "everyNavPageIdIsUniqueInTheApp()",
+        "walk(pages: List<com.diegonmarcos.superapp.bottomnav.NavPage>)",
         "NAV_PAGES(section: String)",
         "click(tag: String)",
-        "waitRuns(a: com.diegonmarcos.cloudsearch.data.AgentService, n: Int)",
-        "scrollTo(list: String, tag: String)",
-        "messages(from: String, subject: String, sinceMs: Long, limit: Int)"
+        "waitRuns(a: com.diegonmarcos.cloudsearch.data.AgentService, n: Int)"
       ]
     },
     {
