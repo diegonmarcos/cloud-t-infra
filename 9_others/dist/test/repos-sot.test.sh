@@ -12,14 +12,14 @@
 # ║                                                                  ║
 # ╚══════════════════════════════════════════════════════════════════╝
 
-# #1073 - cloud-infra reads the repo list from ONE place (now the cloud hub, cloud-___/repos.json).
-# 1_cloud-configs/src/inputs/repos.sot.json is a byte copy of the CLOUD family file, cloud-___/repos.json (2_vault + a_cloud + the cloud-* repos,
+# #1073 - cloud-infra reads the repo list from ONE place (now the cloud hub, cloudy-___/repos.json).
+# 1_cloud-configs/src/inputs/repos.sot.json is a byte copy of the CLOUD family file, cloudy-___/repos.json (2_vault + a_cloud + the cloud-* repos,
 # full hierarchy; a subset of _git-repos-master/repos.json, #1224). This tester fails when
 #   S1  the copy is not a valid cloud-repos/v1 registry, or differs from the registry at its declared url
 #       (checked when the network answers; offline is reported, S2-S6 still run)
 #   S2  a fleet.repos[] entry (0_apps/src/manifest.json) is not in the registry, is pending_creation,
 #       or disagrees about private
-#   S3  a pending_creation repo (cloud-h-webapps, cloud-me-pvt-containers) is already on GitHub (flip its status),  or a repo once declared pending (cloud-h-webapps, cloud-me-pvt-containers) leaves the registry,
+#   S3  a pending_creation repo (cloudy-h-webapps, cloud-me-pvt-containers) is already on GitHub (flip its status),  or a repo once declared pending (cloudy-h-webapps, cloud-me-pvt-containers) leaves the registry,
 #       or is in the fleet manifest
 #   S4  a GitHub repo of the fetched inventory (github-repos.json) is neither registered nor in unregistered_ok
 #   S5  a live registry repo is missing from the inventory, or the old name of a rename is still used as a
@@ -30,7 +30,7 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 SOT="$ROOT/1_cloud-configs/src/inputs/repos.sot.json"
 M="$ROOT/0_apps/src/manifest.json"
 INV="$ROOT/1_cloud-configs/src/inputs/github-repos.json"
-URL="${REPOS_SOT_URL:-https://raw.githubusercontent.com/diegonmarcos/cloud-___/main/repos.json}"
+URL="${REPOS_SOT_URL:-https://raw.githubusercontent.com/diegonmarcos/cloudy-___/main/repos.json}"
 T="$(mktemp -d)"; trap 'rm -rf "$T"' EXIT
 pass=0; fail=0
 ok()  { pass=$((pass+1)); echo "PASS $1"; }
@@ -43,7 +43,7 @@ jq -e '._schema=="cloud-repos/v1" and (.repos|length)>5 and (([.repos[].name]|le
 API="$(printf '%s' "$URL" | sed -E 's#^https://raw.githubusercontent.com/([^/]+)/([^/]+)/(.+)/([^/]+)$#https://api.github.com/repos/\1/\2/contents/\4?ref=\3#')"
 if { curl -fsSL --max-time 20 -H 'Accept: application/vnd.github.raw' ${GITHUB_TOKEN:+-H "Authorization: Bearer $GITHUB_TOKEN"} "$API" -o "$T/live.json" 2>/dev/null \
      || curl -fsSL --max-time 20 "$URL" -o "$T/live.json" 2>/dev/null; } && jq -e . "$T/live.json" >/dev/null 2>&1; then
-  cmp -s "$T/live.json" "$SOT" && ok "S1b copy = $URL" || bad "S1b repos.sot.json DRIFTED from $URL (copy cloud-___/repos.json over it)"
+  cmp -s "$T/live.json" "$SOT" && ok "S1b copy = $URL" || bad "S1b repos.sot.json DRIFTED from $URL (copy cloudy-___/repos.json over it)"
 else
   echo "INFO S1b $URL not reachable from here; live comparison not made"
 fi
@@ -63,7 +63,7 @@ out=$(jq -r --argjson nc "$NONCLOUD_OK" --slurpfile s "$SOT" '[$s[0].repos[]|'"$
 # S3 pending vs reality
 pend=$(jq -r '.repos[]|select(.status=="pending_creation")|'"$GH" "$SOT")
 [ -n "$pend" ] && ok "S3a the registry declares pending_creation repos: $(echo $pend)" || ok "S3a no pending_creation repo declared (all registered repos exist)"
-for p in cloud-h-webapps cloud-me-pvt-containers; do jq -e --arg p "$p" '[.repos[].name]|index($p)' "$SOT" >/dev/null 2>&1 || bad "S3b $p must stay registered (pending_creation until it exists, then plain)"; done
+for p in cloudy-h-webapps cloud-me-pvt-containers; do jq -e --arg p "$p" '[.repos[].name]|index($p)' "$SOT" >/dev/null 2>&1 || bad "S3b $p must stay registered (pending_creation until it exists, then plain)"; done
 bad3=""
 for p in $pend; do
   jq -e --arg p "$p" '[.repos[].name]|index($p)' "$INV" >/dev/null 2>&1 && bad3="$bad3 $p(on GitHub: drop its status)"
@@ -81,7 +81,7 @@ used=""; for o in $old; do jq -e --arg o "$o" '[.fleet.repos[].github]|index($o)
 [ -z "$used" ] && ok "S5b no fleet entry still uses a renamed-away name" || bad "S5b fleet manifest uses old name(s):$used"
 
 # S6 mutation: the guard must bite
-jq '.repos |= map(select(.name != "cloud-t-infra"))' "$SOT" > "$T/mut.json"
+jq '.repos |= map(select(.name != "cloudy-t-infra"))' "$SOT" > "$T/mut.json"
 out=$(jq -r --slurpfile s "$T/mut.json" '[$s[0].repos[]|'"$GH"'] as $g | .fleet.repos[] | select(.github as $x | ($g|index($x))==null) | .dir' "$M")
 [ -n "$out" ] && ok "S6 dropping a repo from the registry is caught" || bad "S6 guard does not bite"
 

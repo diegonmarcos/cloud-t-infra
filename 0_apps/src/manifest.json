@@ -32,8 +32,8 @@
     "_semantics": "Same additive per-file rule as `targets`: only files that exist in dist/dotfiles/ are written or compared; anything else in .claude/ .vscode/ .obsidian/ is machine state and untouched. A symlink where a managed file belongs is DRIFT (it dangles off the machine that made it) and is replaced by a real file.",
     "repos": [
       {
-        "dir": "cloud-t-infra",
-        "github": "cloud-t-infra",
+        "dir": "cloudy-t-infra",
+        "github": "cloudy-t-infra",
         "private": false
       },
       {
@@ -57,26 +57,26 @@
         }
       },
       {
-        "dir": "cloud-u-android",
-        "github": "cloud-u-android",
+        "dir": "cloudy-u-android",
+        "github": "cloudy-u-android",
         "private": false
       },
       {
-        "dir": "cloud-u-containers",
-        "github": "cloud-u-containers",
+        "dir": "cloudy-u-containers",
+        "github": "cloudy-u-containers",
         "private": false,
-        "ci_skip": "Any push to cloud-u-containers redeploys the fleet and kills every running agent, so its dotfiles are emitted into a local commit and shipped in an idle-fleet window. Until that lands the CI guard must not go red on it. REMOVE this field once its dotfiles are on main; the full check (build.sh fleet-check --require-all) still covers it."
+        "ci_skip": "Any push to cloudy-u-containers redeploys the fleet and kills every running agent, so its dotfiles are emitted into a local commit and shipped in an idle-fleet window. Until that lands the CI guard must not go red on it. REMOVE this field once its dotfiles are on main; the full check (build.sh fleet-check --require-all) still covers it."
       },
       {
-        "dir": "cloud-u-desktop",
-        "github": "cloud-u-desktop",
+        "dir": "cloudy-u-desktop",
+        "github": "cloudy-u-desktop",
         "private": false,
         "scope": "public",
         "_scope_doc": "scope public = this repo takes ONLY public_targets + public_root_targets (the leak-scan and purged-history gates), never targets/root_files/module_mirrors. It owns its own .claude/.mcp.json and a 0_apps/src/claude of its own, which the shared ones must not overwrite. Added #760: #759 rewrote its history, and without the gate a merge from any older clone re-publishes the purged secrets."
       },
       {
-        "dir": "cloud-u-containers_cgc",
-        "github": "cloud-u-containers_cgc",
+        "dir": "cloudy-u-containers_cgc",
+        "github": "cloudy-u-containers_cgc",
         "private": false
       },
       {
@@ -85,8 +85,8 @@
         "private": true
       },
       {
-        "dir": "cloud-u-linux",
-        "github": "cloud-u-linux",
+        "dir": "cloudy-u-linux",
+        "github": "cloudy-u-linux",
         "private": false
       },
       {
@@ -120,8 +120,8 @@
         "private": false
       },
       {
-        "dir": "cloud_db_assets-cdn",
-        "github": "cloud_db_assets-cdn",
+        "dir": "cloudy_db_assets-cdn",
+        "github": "cloudy_db_assets-cdn",
         "private": false
       },
       {
