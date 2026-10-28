@@ -250,6 +250,9 @@
     "test_sso_gaps_closed.sh": {
       "status": "run"
     },
+    "test_sso_oidc_issue_workflow.sh": {
+      "status": "run"
+    },
     "cgc-db-queue-no-eviction.test.sh": {
       "status": "run"
     },

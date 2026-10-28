@@ -1,0 +1,104 @@
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║                                                                  ║
+# ║   GENERATED FILE — DO NOT EDIT                                   ║
+# ║                                                                  ║
+# ║   Source : 1_cicd/src/cicd/sso-oidc-issue.yml
+# ║   Engine : 1_cicd/src/scripts/cloud-ship-repo-workflow-engine.sh
+# ║   Rebuild: ./9_others/build.sh
+# ║                                                                  ║
+# ║   Manual edits will be overwritten on next build.                ║
+# ║                                                                  ║
+# ╚══════════════════════════════════════════════════════════════════╝
+
+name: "SSO OIDC issue (Authelia JWKS key + per-service client secrets, sops-encrypted)"
+
+# #1147. Generates, on an EPHEMERAL runner only:
+#   - the Authelia OIDC signing key (RSA 4096, PEM);
+#   - one random client secret per client in cloud-u-containers infra-sec_authelia/src/oidc-clients.json
+#     (client_id + secret_var are read from that PUBLIC file), plus its Authelia pbkdf2-sha512 digest.
+# Output, nothing else: PRIVATE repo diegonmarcos/cloud-me-data-pvt  sso-oidc/sso-oidc.sops.json, the whole JSON
+# sops-encrypted to the fleet age recipient (see .sops.yaml), written with CLOUD_DATA_DEPLOY_KEY (the same
+# write deploy key vault-mtls-issue uses). The public repos keep client IDs and redirect URIs only.
+# Nothing is printed (secrets are ::add-mask::ed and never echoed), no artifact is uploaded, files live in a
+# 0700 tmpfs dir that is shredded at the end. Refuses to overwrite an existing bundle unless rotate=true.
+# Delivery of each secret to its service (/run/secrets/<secret_var>, <SVC>_OIDC_CLIENT_SECRET) and flipping
+# "enabled" in oidc-clients.json are separate steps that happen after this run.
+on:
+  workflow_dispatch:
+    inputs:
+      rotate:
+        description: "true = replace an existing bundle (new JWKS key and every client secret)"
+        required: false
+        default: "false"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sso-oidc-issue
+  cancel-in-progress: false
+
+jobs:
+  issue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUD_DATA_DEPLOY_KEY: ${{ secrets.CLOUD_DATA_DEPLOY_KEY }}
+      ROTATE: ${{ inputs.rotate }}
+      AGE_RECIPIENT: age1u575hx8h4t5cgle2uznmyfy75e7cgd02h9t5dax506luz9e05vlqxtd7pq
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: diegonmarcos/cloud-u-containers
+          path: containers
+          sparse-checkout: infra-sec_authelia/src/oidc-clients.json
+          sparse-checkout-cone-mode: false
+      - name: Install sops
+        run: |
+          set -eu
+          curl -fsSL -o /tmp/sops https://github.com/getsops/sops/releases/download/v3.11.0/sops-v3.11.0.linux.amd64
+          sudo install -m 0755 /tmp/sops /usr/local/bin/sops
+          sops --version >/dev/null
+      - name: Generate key and client secrets, encrypt, publish to the private repo
+        run: |
+          set -eu
+          umask 077
+          [ -n "$CLOUD_DATA_DEPLOY_KEY" ] || { echo "::error::CLOUD_DATA_DEPLOY_KEY is not available to this workflow"; exit 1; }
+          CLIENTS="$GITHUB_WORKSPACE/containers/infra-sec_authelia/src/oidc-clients.json"
+          W="$(mktemp -d -p /dev/shm)"; cd "$W"
+          trap 'find "$W" -type f -exec shred -u {} + 2>/dev/null || true; rm -rf "$W" ~/.ssh/id_deploy || true' EXIT
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$CLOUD_DATA_DEPLOY_KEY" > ~/.ssh/id_deploy; chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_deploy -o IdentitiesOnly=yes"
+          git clone -q --depth 1 git@github.com:diegonmarcos/cloud-me-data-pvt.git "$W/pvt"
+          if [ -f "$W/pvt/sso-oidc/sso-oidc.sops.json" ] && [ "$ROTATE" != "true" ]; then
+            echo "::error::an SSO OIDC bundle already exists; pass rotate=true to replace the key and every client secret"; exit 1
+          fi
+          openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:4096 -out jwks.key 2>/dev/null
+          python3 - "$CLIENTS" <<'PY'
+          import base64, hashlib, json, os, secrets, subprocess, sys
+          clients = json.load(open(sys.argv[1]))["clients"]
+          def adapt(b):  # Authelia "adapted" base64: standard alphabet, no padding, '+' -> '.'
+              return base64.b64encode(b).decode().rstrip("=").replace("+", ".")
+          out = {"issued": subprocess.check_output(["date", "-u", "+%FT%TZ"]).decode().strip(),
+                 "jwks_key_pem": open("jwks.key").read(), "clients": {}}
+          for c in clients:
+              cid, var = c["client_id"], c["secret_var"]
+              pw = secrets.token_urlsafe(48)
+              print("::add-mask::" + pw, flush=True)
+              salt = os.urandom(16)
+              dk = hashlib.pbkdf2_hmac("sha512", pw.encode(), salt, 310000, 64)
+              out["clients"][cid] = {"secret_var": var, "secret": pw,
+                                     "digest": "$pbkdf2-sha512$310000$" + adapt(salt) + "$" + adapt(dk)}
+          json.dump(out, open("plain.json", "w"))
+          PY
+          sops --encrypt --age "$AGE_RECIPIENT" --input-type json --output-type json plain.json > sso-oidc.sops.json
+          grep -q '"sops"' sso-oidc.sops.json
+          if grep -q 'PRIVATE KEY' sso-oidc.sops.json; then echo "::error::plaintext key leaked into the sops file"; exit 1; fi
+          mkdir -p "$W/pvt/sso-oidc" && cp sso-oidc.sops.json "$W/pvt/sso-oidc/sso-oidc.sops.json"
+          printf 'Authelia OIDC JWKS signing key + per-service client secrets and pbkdf2 digests (#1147). sops-encrypted to the fleet age key; decrypt with `sops -d`.\nclients.<client_id>.secret goes to the service as <SVC>_OIDC_CLIENT_SECRET; clients.<client_id>.secret_var names the Authelia secret file; jwks_key_pem is AUTHELIA_OIDC_JWKS_KEY.\n' > "$W/pvt/sso-oidc/README.txt"
+          ( cd "$W/pvt" && git config user.name "Claude" && git config user.email "noreply@anthropic.com" && git add sso-oidc \
+            && git commit -q -m "sso-oidc: JWKS key + client secrets (sops-encrypted)" && git push -q origin HEAD:main )
+          echo "bundle pushed to cloud-me-data-pvt/sso-oidc (encrypted)."
