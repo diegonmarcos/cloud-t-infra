@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22482,
+    "files": 22485,
     "by_lang": {
       "js": 497,
-      "sh": 567,
+      "sh": 568,
       "py": 170,
-      "kotlin": 12018,
+      "kotlin": 12020,
       "java": 647,
       "nix": 31,
       "rust": 111,
@@ -19,10 +19,10 @@
     },
     "by_role": {
       "file": 2281,
-      "shell": 451,
+      "shell": 452,
       "script": 262,
       "java": 646,
-      "kotlin": 12015,
+      "kotlin": 12017,
       "module": 6424,
       "flake": 27,
       "python": 55,
@@ -173998,7 +173998,7 @@
         "startWay(way: Declarations.GitWayDecl)",
         "tableBlock()",
         "GitWayCard( way: Declarations.GitWayDecl, isCloud: Boolean, page: Declarations.GitPageDecl, login: GitLogin, listing: GitListing, chain: GitChainState, ghAuth: GhAuth, signingIn: Boolean, rungDeclared: Boolean, cloudFallback: Boolean, fleetHost: SignInHost, onSignIn: ()",
-        "GitRepoRow( name: String, repoName: String, cells: RepoTableRow, scroll: ScrollState, fork: Boolean, repo: ManagedRepo?, glance: GitSyncCoordinator.Glance?, running: GitSyncCoordinator.Running?, cloning: Boolean, expanded: Boolean, onToggle: ()",
+        "GitRepoRow( name: String, repoName: String, cells: RepoTableRow, scroll: ScrollState, fork: Boolean, repo: ManagedRepo?, glance: GitSyncCoordinator.Glance?, running: GitSyncCoordinator.Running?, icons: RepoStatus.Icons, cloning: Boolean, expanded: Boolean, onToggle: ()",
         "lightOf(repo: ManagedRepo?, glance: GitSyncCoordinator.Glance?)",
         "statusErrorText(kind: RepoStatus.ErrorKind?, detail: String?)",
         "RepoStatusLegend()",
@@ -174041,8 +174041,11 @@
         "label()",
         "request(targets: List<Target>, force: Boolean = false, level: Level = Level.LIGHT)",
         "cancelAll()",
+        "seed(entries: Map<String, Status>)",
         "invalidate(id: String)",
-        "readOne(t: Target, level: Level)",
+        "readOne(t: Target, level: Level, epochAtAsk: Int)",
+        "timedOut(t: Target, level: Level, took: Long)",
+        "failed(t: Target, level: Level, e: Throwable?, took: Long)",
         "busy(id: String)",
         "publish(id: String, s: Status)",
         "classify(p: Probe, now: Long, took: Long = 0)",
@@ -174077,6 +174080,8 @@
         "com.diegonmarcos.cloudlib.gitsync.GitRemoteInfo",
         "com.diegonmarcos.cloudlib.gitsync.ManagedRepo",
         "com.diegonmarcos.cloudlib.gitsync.RepoRegistry",
+        "com.diegonmarcos.cloudlib.sharedstore.StoreAccess",
+        "com.diegonmarcos.cloudlib.sharedstore.StoreExec",
         "java.io.File",
         "kotlinx.coroutines.CoroutineScope",
         "kotlinx.coroutines.Dispatchers",
@@ -174501,6 +174506,11 @@
         "head(dir: File)",
         "aheadBehind(localSha: String?, remoteSha: String?, localLog: List<String>)",
         "upstreamOf(config: String, branch: String)",
+        "refSha(gitDir: File, ref: String)",
+        "lightProbe(dir: File, localLog: (branch: String)",
+        "lightScript(guestDirQuoted: String)",
+        "parseLight(out: String)",
+        "v(k: String)",
         "tooLarge(dir: File, maxFiles: Int, maxMs: Long, clock: ()",
         "class RepoCheap",
         "class Head",
@@ -174672,11 +174682,23 @@
         "ageWord(ms: Long)",
         "cloneAction(cloned: Boolean, cloning: Boolean)",
         "unpushed(log: List<GitCommitInfo>, ahead: Int?)",
+        "localKind(cloned: Boolean, g: GitSyncCoordinator.Glance?)",
+        "serverKind(cloned: Boolean, g: GitSyncCoordinator.Glance?, fetchFailed: Boolean = false)",
+        "syncKind(running: Boolean, last: SyncEvent?)",
+        "icons(cloned: Boolean, g: GitSyncCoordinator.Glance?, running: Boolean, events: List<SyncEvent>, repoId: String)",
+        "lightOf(icon: String, kind: Enum<*>, decl: Map<String, Map<String, String>> = emptyMap()",
+        "progress(keys: Collection<String>, glances: Map<String, GitSyncCoordinator.Glance>)",
+        "debugLine(path: String, g: GitSyncCoordinator.Glance?)",
         "class RepoStatus",
         "class Kind",
         "class ErrorKind",
         "class Block",
-        "class CloneAction"
+        "class CloneAction",
+        "class LocalKind",
+        "class ServerKind",
+        "class SyncKind",
+        "class Icons",
+        "class Progress"
       ]
     },
     {
@@ -174718,7 +174740,9 @@
       ],
       "symbols": [
         "kindText(k: RepoStatus.Kind)",
-        "RepoStatusWindow( name: String, owner: String, row: RepoTableRow, repo: ManagedRepo?, glance: GitSyncCoordinator.Glance?, cloneUrl: String, remote: RepoRemoteStats.Stats?, cloning: Boolean, fmt: DateFormat, onClone: ()"
+        "RepoStatusWindow( name: String, owner: String, row: RepoTableRow, repo: ManagedRepo?, glance: GitSyncCoordinator.Glance?, icons: RepoStatus.Icons, cloneUrl: String, remote: RepoRemoteStats.Stats?, cloning: Boolean, fmt: DateFormat, onClone: ()",
+        "RepoThreeSections(icons: RepoStatus.Icons, name: String)",
+        "word(k: Enum<*>)"
       ]
     },
     {
@@ -174796,13 +174820,36 @@
         "columnLabel(c: RepoColumn)",
         "RepoTableHeader(column: RepoColumn, ascending: Boolean, scroll: ScrollState, onSort: (RepoColumn)",
         "RepoCells(r: RepoTableRow)",
-        "RepoStatusCell(light: StatusLight.State, name: String, onOpen: ()",
+        "RepoStatusCell(icons: RepoStatus.Icons, name: String, onOpen: ()",
+        "glyph(l: StatusLight.State)",
+        "RepoCheckProgressLine(p: RepoStatus.Progress, fmt: java.text.DateFormat)",
         "groupTitle(g: RepoGroup)",
         "actionLabel(id: String, declared: Declarations.GitOpDecl?)",
         "RepoActionGroupsView( page: Declarations.GitPageDecl, busy: Boolean, blocked: (Declarations.GitOpDecl)",
         "RepoBulkBar(busy: Boolean, prefs: DrivePrefs?, onRefreshSizes: ()",
         "RepoSummaryLine(s: RepoTable.Summary)",
         "RepoMetaTable(rows: List<Pair<String, String>>)"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/StatusCache.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "StatusCache"
+      ],
+      "imports": [
+        "java.io.File",
+        "kotlinx.serialization.Serializable",
+        "kotlinx.serialization.builtins.MapSerializer",
+        "kotlinx.serialization.builtins.serializer",
+        "kotlinx.serialization.json.Json"
+      ],
+      "symbols": [
+        "load()",
+        "save(m: Map<String, GitStatusReader.Status>)",
+        "class StatusCache",
+        "class Row"
       ]
     },
     {
@@ -175564,7 +175611,7 @@
         "label(ctx: Context, state: State)",
         "text(ctx: Context, state: State)",
         "description(ctx: Context, rowLabel: String, state: State)",
-        "StatusDot(state: StatusLight.State, rowLabel: String, modifier: Modifier = Modifier)",
+        "StatusDot(state: StatusLight.State, rowLabel: String, modifier: Modifier = Modifier, glyph: String = StatusLight.glyph(state)",
         "StatusLightRow(state: StatusLight.State, rowLabel: String, modifier: Modifier = Modifier)",
         "class StatusLight",
         "class State"
@@ -177082,6 +177129,42 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/GitStatusEndToEndTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GitStatusEndToEndTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.ui.StatusLight",
+        "java.io.File",
+        "java.nio.file.Files",
+        "java.util.concurrent.CountDownLatch",
+        "kotlinx.coroutines.runBlocking",
+        "kotlinx.coroutines.withTimeout",
+        "org.eclipse.jgit.api.Git",
+        "org.junit.After",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Before",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "setUp()",
+        "tearDown()",
+        "repo(name: String, localAhead: Boolean = false)",
+        "jgitLog(dir: File)",
+        "reader(timeoutMs: Long = 5_000, concurrency: Int = 1, light: (File)",
+        "target(key: String, dir: File)",
+        "repo(path: String)",
+        "g(level: String = \"full\", ahead: Int = 0, behind: Int = 0, changed: Int = 0, conflicts: Int = 0, upstream: String? = \"origin/main\", fetched: Long = 1, error: String? = null, gone: Boolean = false, large: Boolean = false, read: Boolean = true)",
+        "ev(ok: Boolean, summary: String, t: Long = 10)",
+        "class GitStatusEndToEndTest"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/GitStatusReaderTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -177834,6 +177917,24 @@
         "name",
         "buildInputs",
         "shellHook"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/test/emulator-git-status.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "fail()",
+        "dump()",
+        "tap()",
+        "find_row()"
+      ],
+      "imports": [],
+      "symbols": [
+        "fail()",
+        "dump()",
+        "tap()",
+        "find_row()"
       ]
     },
     {

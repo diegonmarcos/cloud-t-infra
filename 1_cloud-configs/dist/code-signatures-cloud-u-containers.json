@@ -63602,6 +63602,7 @@
         "GRIST_OIDC_IDP_CLIENT_ID",
         "GRIST_OIDC_IDP_CLIENT_SECRET",
         "GRIST_OIDC_IDP_SCOPES",
+        "GRIST_OIDC_IDP_SKIP_END_SESSION_ENDPOINT",
         "GRIST_OIDC_SP_HOST",
         "ports",
         "volumes",
