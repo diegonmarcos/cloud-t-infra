@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22455,
+    "files": 22461,
     "by_lang": {
       "js": 495,
       "sh": 564,
       "py": 168,
-      "kotlin": 11998,
+      "kotlin": 12004,
       "java": 647,
       "nix": 31,
       "rust": 111,
@@ -22,7 +22,7 @@
       "shell": 448,
       "script": 260,
       "java": 646,
-      "kotlin": 11995,
+      "kotlin": 12001,
       "module": 6422,
       "flake": 27,
       "python": 55,
@@ -29367,6 +29367,8 @@
       "exports": [
         "AiCatalogueTab",
         "AiCatalogueModel",
+        "AiSizes",
+        "AiSizeLabels",
         "AiCatalogueGroup",
         "AiCatalogueItem",
         "AiTaskCategory",
@@ -29379,6 +29381,10 @@
         "org.json.JSONObject"
       ],
       "symbols": [
+        "text(l: AiSizeLabels)",
+        "gb(v: Double)",
+        "sizes(m: AiCatalogueModel)",
+        "disk(q: String)",
         "tier(tier: String)",
         "group(o: JSONObject)",
         "parse(text: String, sharedTasks: List<AiTask>)",
@@ -29386,6 +29392,8 @@
         "objs()",
         "class AiCatalogueTab",
         "class AiCatalogueModel",
+        "class AiSizes",
+        "class AiSizeLabels",
         "class AiCatalogueGroup",
         "class AiCatalogueItem",
         "class AiTaskCategory",
@@ -29447,7 +29455,7 @@
       "symbols": [
         "AiModelCatalogue(chat: AiChatState, theme: AiTheme, fetch: CatalogueFetch = AiPublicFetch, modifier: Modifier = Modifier, onClose: (()",
         "CorePage(chat: AiChatState, theme: AiTheme, core: CoreSource?, done: ()",
-        "ModelGroup(chat: AiChatState, theme: AiTheme, g: AiCatalogueGroup, done: ()",
+        "ModelGroup(chat: AiChatState, theme: AiTheme, g: AiCatalogueGroup, cat: AiCatalogue, done: ()",
         "AiTaskCatalogue(chat: AiChatState, theme: AiTheme, decl: AiComposerDecl, modifier: Modifier = Modifier)",
         "TaskRow(chat: AiChatState, theme: AiTheme, id: String, label: String, task: AiTask?, offered: Boolean, note: String?)",
         "Header(theme: AiTheme, title: String, closeTag: String, onClose: ()",
@@ -29499,6 +29507,7 @@
         "task(id: String)",
         "catTab(id: String)",
         "catRow(id: String)",
+        "catSizes(id: String)",
         "taskGroup(id: String)",
         "mode(id: String)",
         "mcp(name: String)",
@@ -29595,6 +29604,25 @@
         "load(ctx: Context)",
         "class and",
         "class AiConfig"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ai/src/main/kotlin/com/diegonmarcos/superapp/ai/AiContext.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AiContext"
+      ],
+      "imports": [
+        "java.util.Locale"
+      ],
+      "symbols": [
+        "used(session: AiSession)",
+        "percent(used: Long, limit: Long)",
+        "line(session: AiSession, limit: Long, s: AiStrings)",
+        "answer(m: AiMsg, fmt: String)",
+        "n(v: Long)",
+        "class AiContext"
       ]
     },
     {
@@ -30100,6 +30128,7 @@
         "models()",
         "send(session: AiSession, text: String, model: String, web: Boolean, now: Long, sink: AiSink)",
         "theDesignNoLongerCarriesTheOldPickerTabs()",
+        "sizeColumnsAreComputedFromDeclaredParamsOnly()",
         "class AiCatalogueTest"
       ]
     },
@@ -30151,6 +30180,25 @@
         "theChosenModeAndMcpServersRideTheRequestAsTheStandingSystemMessage()",
         "class AiComposerTest",
         "class FakeHost"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ai/src/test/kotlin/com/diegonmarcos/superapp/ai/AiContextTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AiContextTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "session(vararg m: AiMsg)",
+        "usageIsTheLastReportedAnswerAndNeverEstimated()",
+        "modelListReportsContextLengthAndSessionsKeepTokens()",
+        "class AiContextTest"
       ]
     },
     {
@@ -31837,6 +31885,8 @@
         "Chip( label: String, selected: Boolean, onClick: ()",
         "PageButton( icon: String, label: String, onClick: ()",
         "Card(modifier: Modifier = Modifier, tag: String? = null, content: @Composable ColumnScope.()",
+        "Item( label: String, open: Boolean, onToggle: ()",
+        "Summary(text: String, tag: String = \"store-summary\")",
         "Head( label: String, open: Boolean, onToggle: ()",
         "Actions(verbs: List<StoreVerb>, modifier: Modifier = Modifier)",
         "Line(text: String, modifier: Modifier = Modifier, color: Int = Ink.DIM, tag: String? = null, mono: Boolean = false, maxLines: Int = Int.MAX_VALUE, overflow: TextOverflow = TextOverflow.Clip)",
@@ -31855,8 +31905,7 @@
         "class StoreVerb",
         "class for",
         "class StoreRow",
-        "class StorePage",
-        "class StoreTabs"
+        "class StorePage"
       ]
     },
     {
@@ -32330,6 +32379,8 @@
         "originKinds(ctx: Context, pkg: String)",
         "stateOk(r: AppRow)",
         "integrity(ctx: Context, r: AppRow)",
+        "needsLabel(ctx: Context, r: AppRow)",
+        "headOf(ctx: Context, r: AppRow)",
         "PhoneRow(ctx: Context, r: AppRow)",
         "stateLine(ctx: Context, s: SourceResolver.Check, r: AppRow)",
         "via(k: String?)",
@@ -32352,7 +32403,8 @@
         "toastLater(ctx: Context, msg: String)",
         "class StorePhoneFragment",
         "class AppRow",
-        "class Loaded"
+        "class Loaded",
+        "class PhoneHead"
       ]
     },
     {
@@ -169982,6 +170034,80 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/configs/ConfigsFsyncPage.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ConfigsFsyncPage"
+      ],
+      "imports": [
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.res.stringResource",
+        "com.diegonmarcos.clouddrive.Declarations",
+        "com.diegonmarcos.clouddrive.DriveActions",
+        "com.diegonmarcos.clouddrive.R",
+        "com.diegonmarcos.clouddrive.storage.StorageCoordinator",
+        "com.diegonmarcos.clouddrive.sync.AccountLine",
+        "com.diegonmarcos.clouddrive.sync.ConnectionRow",
+        "com.diegonmarcos.clouddrive.ui.DriveMetrics",
+        "com.diegonmarcos.clouddrive.ui.EmptyState",
+        "com.diegonmarcos.clouddrive.ui.IconCatalog",
+        "com.diegonmarcos.clouddrive.ui.SectionHeader"
+      ],
+      "symbols": [
+        "ConfigsFsyncPage(storage: StorageCoordinator, actions: DriveActions, modifier: Modifier = Modifier)"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/configs/ConfigsMountsPage.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ConfigsMountsPage"
+      ],
+      "imports": [
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.collectAsState",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.res.stringResource",
+        "com.diegonmarcos.clouddrive.Declarations",
+        "com.diegonmarcos.clouddrive.DrivePrefs",
+        "com.diegonmarcos.clouddrive.R",
+        "com.diegonmarcos.clouddrive.storage.MountProviders",
+        "com.diegonmarcos.clouddrive.storage.StorageCoordinator",
+        "com.diegonmarcos.clouddrive.sync.RcloneCoordinator",
+        "com.diegonmarcos.clouddrive.sync.RemoteWizard",
+        "com.diegonmarcos.clouddrive.ui.DriveCard",
+        "com.diegonmarcos.clouddrive.ui.DriveMetrics",
+        "com.diegonmarcos.clouddrive.ui.DriveTags",
+        "com.diegonmarcos.clouddrive.ui.Pill",
+        "com.diegonmarcos.clouddrive.ui.PillRow",
+        "com.diegonmarcos.clouddrive.ui.SectionHeader",
+        "com.diegonmarcos.clouddrive.ui.StatusLight"
+      ],
+      "symbols": [
+        "ConfigsMountsPage(storage: StorageCoordinator, rclone: RcloneCoordinator, prefs: DrivePrefs, modifier: Modifier = Modifier)",
+        "class MountWizard"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/configs/ConfigsScreen.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -170015,7 +170141,8 @@
         "com.diegonmarcos.clouddrive.DrivePrefs",
         "com.diegonmarcos.clouddrive.R",
         "com.diegonmarcos.superapp.navbartop2.NavBarTopSecondRow",
-        "com.diegonmarcos.clouddrive.backups.BackupsScreen",
+        "com.diegonmarcos.clouddrive.storage.StorageCoordinator",
+        "com.diegonmarcos.clouddrive.sync.RcloneCoordinator",
         "com.diegonmarcos.clouddrive.backups.MirrorRunner",
         "com.diegonmarcos.clouddrive.sync.GitPart",
         "com.diegonmarcos.clouddrive.sync.GitReposScreen",
@@ -170030,7 +170157,7 @@
         "com.diegonmarcos.clouddrive.ui.ToolbarIsland"
       ],
       "symbols": [
-        "ConfigsScreen( mirrors: MirrorRunner, prefs: DrivePrefs, actions: DriveActions, hasAccess: Boolean, rcloneVersion: String?, git: GitSyncCoordinator, page: String? = null, onPageConsumed: ()"
+        "ConfigsScreen( mirrors: MirrorRunner, prefs: DrivePrefs, actions: DriveActions, hasAccess: Boolean, rcloneVersion: String?, git: GitSyncCoordinator, storage: StorageCoordinator, rclone: RcloneCoordinator, page: String? = null, onPageConsumed: ()"
       ]
     },
     {
@@ -170144,10 +170271,11 @@
         "com.diegonmarcos.clouddrive.ui.DriveTags",
         "com.diegonmarcos.clouddrive.ui.Pill",
         "com.diegonmarcos.clouddrive.ui.PillRow",
+        "com.diegonmarcos.clouddrive.ui.SectionHeader",
         "com.diegonmarcos.clouddrive.ui.StatusLight"
       ],
       "symbols": [
-        "GeneralPage(prefs: DrivePrefs, actions: DriveActions, hasAccess: Boolean, modifier: Modifier = Modifier)",
+        "GeneralPage(prefs: DrivePrefs, actions: DriveActions, hasAccess: Boolean, rcloneVersion: String? = null, modifier: Modifier = Modifier)",
         "ToggleRow(label: String, checked: Boolean, onChange: (Boolean)",
         "sortLabel(key: String)"
       ]
@@ -170157,19 +170285,18 @@
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
-        "OthersPage"
+        "OthersSection"
       ],
       "imports": [
         "android.os.Build",
         "android.widget.Toast",
         "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Column",
         "androidx.compose.foundation.layout.Row",
         "androidx.compose.foundation.layout.Spacer",
-        "androidx.compose.foundation.layout.fillMaxSize",
         "androidx.compose.foundation.layout.fillMaxWidth",
         "androidx.compose.foundation.layout.padding",
         "androidx.compose.foundation.layout.width",
-        "androidx.compose.foundation.lazy.LazyColumn",
         "androidx.compose.material3.MaterialTheme",
         "androidx.compose.material3.Text",
         "androidx.compose.runtime.Composable",
@@ -170196,7 +170323,7 @@
         "com.diegonmarcos.superapp.adbdebug.AdbShellPage"
       ],
       "symbols": [
-        "OthersPage(prefs: DrivePrefs, actions: DriveActions, rcloneVersion: String?, modifier: Modifier = Modifier)",
+        "OthersSection(prefs: DrivePrefs, actions: DriveActions, rcloneVersion: String?, modifier: Modifier = Modifier)",
         "AboutRow(label: String, value: String, tag: String? = null, onClick: (()"
       ]
     },
@@ -170449,15 +170576,15 @@
         "navPages(sectionId: String)",
         "classesOf(nav: NavDecl)",
         "parseSync(text: String, pages: List<PageDecl> = emptyList()",
+        "parseMountProviders(text: String)",
+        "parseFsyncKinds(text: String)",
         "parseGitPage(e: JsonElement?)",
         "parseFiles(text: String)",
         "parseVolumes(text: String, classes: List<VolumeClassDecl> = emptyList()",
         "parseConstellation(text: String)",
         "parseSyncRules(text: String)",
         "parseApps(text: String)",
-        "parseConnections(text: String)",
-        "parseRepoSot(text: String)",
-        "restrictToRegistry(family: GitFamilyDecl, sot: RepoSotDecl)"
+        "parseConnections(text: String)"
       ]
     },
     {
@@ -172473,6 +172600,25 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/storage/MountProviders.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "MountProviders"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations.MountProviderDecl"
+      ],
+      "symbols": [
+        "specFor(d: MountProviderDecl)",
+        "state(d: MountProviderDecl, remotes: Map<String, String>, live: List<FuseWire.Live>)",
+        "wizardPreset(d: MountProviderDecl)",
+        "class only",
+        "class MountProviders",
+        "class State"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/storage/RcloneConfigOps.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -172859,7 +173005,6 @@
       "role": "kotlin",
       "exports": [
         "FsyncPageScreen",
-        "FsyncBackupScreen",
         "FolderSyncScreen"
       ],
       "imports": [
@@ -172867,6 +173012,7 @@
         "androidx.compose.animation.fadeIn",
         "androidx.compose.animation.fadeOut",
         "androidx.compose.animation.togetherWith",
+        "androidx.compose.foundation.layout.Box",
         "androidx.compose.foundation.layout.Column",
         "androidx.compose.foundation.layout.Row",
         "androidx.compose.foundation.layout.Spacer",
@@ -172901,15 +173047,12 @@
         "androidx.compose.ui.Alignment",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.res.stringResource",
-        "androidx.compose.ui.text.style.TextOverflow"
+        "androidx.compose.ui.res.stringResource"
       ],
       "symbols": [
         "FsyncPageScreen( storage: StorageCoordinator, rclone: RcloneCoordinator, actions: DriveActions, prefs: DrivePrefs, page: String? = null, onPageConsumed: ()",
         "say(msg: String)",
         "AccountLine(storage: StorageCoordinator, actions: DriveActions)",
-        "FsyncBackupScreen(storage: StorageCoordinator, actions: DriveActions, prefs: DrivePrefs, onMessage: (String)",
-        "NewBackupDialog(onDismiss: ()",
         "FolderSyncScreen(rclone: RcloneCoordinator, storage: StorageCoordinator, actions: DriveActions, prefs: DrivePrefs, onMessage: (String)",
         "NewPairDialog(onDismiss: ()"
       ]
@@ -173704,7 +173847,7 @@
         "org.json.JSONObject"
       ],
       "symbols": [
-        "RemoteWizard(storage: StorageCoordinator, editing: String?, onDismiss: ()",
+        "RemoteWizard(storage: StorageCoordinator, editing: String?, presetType: String? = null, presetName: String? = null, presetValues: Map<String, String> = emptyMap()",
         "save()",
         "class Stage"
       ]
@@ -175131,6 +175274,7 @@
         "everyDeclaredIconIsInTheCatalog()",
         "configsPages()",
         "webserverAndTopBarDeclarations()",
+        "mountProvidersAreDeclaredNotCoded()",
         "syncPagesAndPeriods()",
         "cloudListAndGitHostsAreDeclared()",
         "volumesAreReachableUnderExplorerCloud()",
@@ -175867,6 +176011,30 @@
       "symbols": [
         "caps(devFuse: Boolean = true, rw: Boolean = true, kernel: Boolean = true, proot: Boolean = true, fm3: Boolean = true, rclone: Boolean = true, sshfs: Boolean = true)",
         "class FuseWireTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/storage/MountProvidersTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "MountProvidersTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations",
+        "com.diegonmarcos.clouddrive.Declarations.MountProviderDecl",
+        "com.diegonmarcos.clouddrive.storage.MountProviders.State",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner"
+      ],
+      "symbols": [
+        "line(id: String, remote: String, type: String, path: String = \"\", ro: Boolean = false, endpoint: String = \"\", provider: String = \"\", cls: String = \"\")",
+        "class MountProvidersTest"
       ]
     },
     {

@@ -6,9 +6,9 @@
   },
   "repo": "cloud",
   "counts": {
-    "files": 745,
+    "files": 746,
     "by_lang": {
-      "sh": 400,
+      "sh": 401,
       "js": 4,
       "nix": 304,
       "py": 7,
@@ -19,7 +19,7 @@
       "file": 3,
       "flake": 6,
       "script": 143,
-      "shell": 249,
+      "shell": 250,
       "python": 6,
       "module": 31,
       "engine": 1,
@@ -4863,6 +4863,20 @@
       ],
       "symbols": [
         "ck()"
+      ]
+    },
+    {
+      "path": "9_others/test/cgc-db-public-no-private.test.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "no()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "no()"
       ]
     },
     {
