@@ -2,14 +2,56 @@
   "_warning": "FETCHED DATA — do not hand-edit. Refreshed by .github/workflows/fetch-github-repos.yml.",
   "_doc": "Source of truth for WHICH REPOS EXIST — the CLOUD family only (#1224), public and private. Repo NAMES are not sensitive; the token used to fetch them is, and never leaves the vault / GH secrets. Declarations (gitea.mirrors / octocode.repo_map) are a policy selection over this, never a substitute.",
   "_source": "GitHub API",
-  "fetched_at": "2026-10-28T16:45:26Z",
+  "fetched_at": "2026-10-28T16:53:52Z",
   "owner": "diegonmarcos",
   "repos": [
     {
       "name": "cloud-t-infra",
       "visibility": "public",
       "fork": false,
-      "pushed_at": "2026-10-28T16:45:05Z"
+      "pushed_at": "2026-10-28T16:53:37Z"
+    },
+    {
+      "name": "cloud-___",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-28T16:52:33Z"
+    },
+    {
+      "name": "cloud-me-pvt-___",
+      "visibility": "private",
+      "fork": false,
+      "pushed_at": "2026-10-28T16:52:20Z"
+    },
+    {
+      "name": "cloud-me-pub-profiles-___",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-28T16:52:18Z"
+    },
+    {
+      "name": "cloud-me-pub-___",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-28T16:52:15Z"
+    },
+    {
+      "name": "_git-repos-master",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-28T16:51:30Z"
+    },
+    {
+      "name": "cloud-u-android",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-28T16:46:36Z"
+    },
+    {
+      "name": "cloud-u-containers",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-28T16:46:09Z"
     },
     {
       "name": "cloud-a-docs",
@@ -18,52 +60,10 @@
       "pushed_at": "2026-10-28T16:43:41Z"
     },
     {
-      "name": "cloud-me-pub-profiles-___",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-28T16:43:05Z"
-    },
-    {
-      "name": "cloud-me-pub-___",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-28T16:42:59Z"
-    },
-    {
-      "name": "cloud-___",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-28T16:42:51Z"
-    },
-    {
-      "name": "cloud-u-containers",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-28T16:42:48Z"
-    },
-    {
-      "name": "cloud-me-pvt-___",
-      "visibility": "private",
-      "fork": false,
-      "pushed_at": "2026-10-28T16:39:59Z"
-    },
-    {
       "name": "cloud-me-pvt-data",
       "visibility": "private",
       "fork": false,
       "pushed_at": "2026-10-28T16:37:51Z"
-    },
-    {
-      "name": "_git-repos-master",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-28T16:37:31Z"
-    },
-    {
-      "name": "cloud-u-android",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-28T16:27:51Z"
     },
     {
       "name": "cloud-u-containers_cgc",
