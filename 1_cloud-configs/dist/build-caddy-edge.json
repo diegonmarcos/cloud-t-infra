@@ -464,7 +464,8 @@
         "portal_slug": "cloud-account",
         "entry": "index.html",
         "tester": "test-account-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-account: no web target, landing redirect"
     },
@@ -482,7 +483,8 @@
         "portal_slug": "cloud-browser",
         "entry": "index.html",
         "tester": "test-browser-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-browser: no web target, landing redirect"
     },
@@ -500,7 +502,8 @@
         "portal_slug": "cloud-c3",
         "entry": "index.html",
         "tester": "test-c3-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-c3: no web target, landing redirect"
     },
@@ -539,7 +542,8 @@
         "portal_slug": "cloud-calc",
         "entry": "index.html",
         "tester": "test-calc-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-calc: no web target, landing redirect"
     },
@@ -557,7 +561,8 @@
         "portal_slug": "cloud-camera",
         "entry": "index.html",
         "tester": "test-camera-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-camera: no web target, landing redirect"
     },
@@ -586,7 +591,8 @@
         "portal_slug": "cloud-code",
         "entry": "index.html",
         "tester": "test-code-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-code: no web target, landing redirect"
     },
@@ -615,7 +621,8 @@
         "portal_slug": "cloud-dialer",
         "entry": "index.html",
         "tester": "test-dialer-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-dialer: no web target, landing redirect"
     },
@@ -633,7 +640,8 @@
         "portal_slug": "cloud-drive",
         "entry": "index.html",
         "tester": "test-drive-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-drive: no web target, landing redirect"
     },
@@ -691,7 +699,8 @@
         "portal_slug": "cloud-me",
         "entry": "index.html",
         "tester": "test-me-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-me: no web target, landing redirect"
     },
@@ -716,7 +725,8 @@
         "portal_slug": "cloud-myterminal",
         "entry": "index.html",
         "tester": "test-myterminal-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-myterminal: no web target, landing redirect"
     },
@@ -734,7 +744,8 @@
         "portal_slug": "cloud-nav",
         "entry": "index.html",
         "tester": "test-nav-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-nav: no web target, landing redirect"
     },
@@ -752,7 +763,8 @@
         "portal_slug": "cloud-news",
         "entry": "index.html",
         "tester": "test-news-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-news: no web target, landing redirect"
     },
@@ -770,7 +782,8 @@
         "portal_slug": "cloud-notes",
         "entry": "index.html",
         "tester": "test-notes-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-notes: no web target, landing redirect"
     },
@@ -788,7 +801,8 @@
         "portal_slug": "cloud-office",
         "entry": "index.html",
         "tester": "test-office-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-office: no web target, landing redirect"
     },
@@ -806,7 +820,8 @@
         "portal_slug": "cloud-search",
         "entry": "index.html",
         "tester": "test-search-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-search: no web target, landing redirect"
     },
@@ -824,7 +839,8 @@
         "portal_slug": "cloud-store",
         "entry": "index.html",
         "tester": "test-store-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-store: no web target, landing redirect"
     },
@@ -874,7 +890,8 @@
         "portal_slug": "cloud-tools-small-llms",
         "entry": "index.html",
         "tester": "test-tools-small-llms-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-tools-small-llms: no web target, landing redirect"
     },
@@ -892,7 +909,8 @@
         "portal_slug": "cloud-vault",
         "entry": "index.html",
         "tester": "test-vault-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-vault: no web target, landing redirect"
     },
@@ -910,7 +928,8 @@
         "portal_slug": "cloud-wallet",
         "entry": "index.html",
         "tester": "test-wallet-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-wallet: no web target, landing redirect"
     },
@@ -928,7 +947,8 @@
         "portal_slug": "cloud-writer",
         "entry": "index.html",
         "tester": "test-writer-web.sh",
-        "size_budget_mb": 20
+        "size_budget_mb": 20,
+        "kind": "wasm"
       },
       "comment": "APK cloud-writer: no web target, landing redirect"
     }
