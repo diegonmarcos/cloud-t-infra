@@ -63,6 +63,12 @@ type Server = { type: string; url: string; headers?: Record<string, string>; hea
 // no route for them, so the project .mcp.json must not advertise one.
 const meshOnly = new Set<string>();
 
+// Ticket #1104: the legacy MCP hub host is retired. Every public MCP URL is
+// https://c3-pvt.diegonmarcos.com/<container>/mcp (session cookie OR bearer).
+// The legacy host is only recognised here to rewrite it; nothing is emitted on it.
+const LEGACY_MCP_HOST = 'mcp.diegonmarcos.com';
+const PVT_HOST        = 'c3-pvt.diegonmarcos.com';
+
 function main(): void {
   const servers: Record<string, Server> = {};
   const skipped: string[] = [];
@@ -93,9 +99,12 @@ function main(): void {
     const endpoint = mcp.endpoint_path ?? '/mcp';
     const name = dir.includes('_') ? dir.slice(dir.indexOf('_') + 1) : dir;
 
+    const url = proxy.parent_domain === LEGACY_MCP_HOST
+      ? `https://${PVT_HOST}/${name}${endpoint}`
+      : `https://${proxy.parent_domain}${proxy.base_path}${endpoint}`;
     servers[name] = {
       type: 'http',
-      url: `https://${proxy.parent_domain}${proxy.base_path}${endpoint}`,
+      url,
       // proxy.primary.bearer_auth → the endpoint is gated on an Authelia bearer token
       // (Caddy: @wg → @bearer → 403), so Claude Code must present one. The token
       // CANNOT go in this file: .mcp.json is committed verbatim into every repo
@@ -205,7 +214,7 @@ function main(): void {
 // OWNER DECISION 31 (2026-10-17): "first use private if a mesh member, then
 // fallback to public using bearer". NO OAuth/DCR. A plain `type: http` entry
 // has no fallback and, with no bearer, Claude Code falls into Dynamic Client
-// Registration and dies on 401 at mcp.diegonmarcos.com/register. So each
+// Registration and dies on 401 at the gate's /register. So each
 // fleet server becomes a stdio entry running .claude/mcp-connect.mjs, which
 // probes the mesh url (no auth) and otherwise bridges to the public url with
 // `Authorization: Bearer $FLEET_BEARER` (or $AUTHELIA_BEARER_TOKEN, or the
@@ -218,7 +227,7 @@ function main(): void {
 // accepts it; what the guard rejects is any http entry WITHOUT Authorization.
 function writeProjectMcp(servers: Record<string, Server>): void {
   const LIFELINE = new Set(['cloud-infra-mcp']);
-  const AUTH_HOST = 'mcp.diegonmarcos.com';
+  const AUTH_HOST = PVT_HOST;
   const meshOf: Record<string, string> = {};
   const project: Record<string, any> = {};
   for (const [n, e] of Object.entries(servers)) {
@@ -256,7 +265,7 @@ function writeProjectMcp(servers: Record<string, Server>): void {
   const out = {
     _warning: 'GENERATED — DO NOT EDIT. Derived by 1_cloud-configs/src/derive/derive-mcp-json.ts (writeProjectMcp) from the same inputs as dist/mcp.json.',
     _schema: 'mcp-servers/v1',
-    _doc: 'Owner decision 31: mesh first (no auth), else public https://mcp.diegonmarcos.com/<svc>/mcp with Authorization: Bearer $FLEET_BEARER (fallback $AUTHELIA_BEARER_TOKEN). No OAuth/DCR. Set FLEET_BEARER in the Claude Code cloud environment secrets / your shell. Bridge: .claude/mcp-connect.mjs.',
+    _doc: 'Owner decision 31: mesh first (no auth), else public https://c3-pvt.diegonmarcos.com/<container>/mcp with Authorization: Bearer $FLEET_BEARER (fallback $AUTHELIA_BEARER_TOKEN). No OAuth/DCR. Set FLEET_BEARER in the Claude Code cloud environment secrets / your shell. Bridge: .claude/mcp-connect.mjs.',
     mcpServers: project,
   };
   fs.writeFileSync(path.join(DIST_DIR, 'mcp.project.json'), JSON.stringify(out, null, 2) + '\n');

@@ -8,7 +8,7 @@
   "mcpServers": {
     "cloud-cgc-pub-mcp": {
       "type": "http",
-      "url": "https://mcp.diegonmarcos.com/cloud-cgc-pub-mcp/mcp"
+      "url": "https://c3-pvt.diegonmarcos.com/cloud-cgc-pub-mcp/mcp"
     },
     "cloud-cgc-pub-mcp-mesh": {
       "type": "http",
@@ -24,7 +24,7 @@
     },
     "cloud-drive-mcp": {
       "type": "http",
-      "url": "https://mcp.diegonmarcos.com/cloud-drive-mcp/mcp"
+      "url": "https://c3-pvt.diegonmarcos.com/cloud-drive-mcp/mcp"
     },
     "cloud-drive-mcp-mesh": {
       "type": "http",
@@ -32,7 +32,7 @@
     },
     "cloud-infra-mcp": {
       "type": "http",
-      "url": "https://mcp.diegonmarcos.com/c3-infra-mcp/mcp",
+      "url": "https://c3-pvt.diegonmarcos.com/cloud-infra-mcp/mcp",
       "headers": {
         "Authorization": "Bearer ${AUTHELIA_BEARER_TOKEN:-}"
       },
@@ -44,7 +44,7 @@
     },
     "cloud-mail-mcp": {
       "type": "http",
-      "url": "https://mcp.diegonmarcos.com/mail-mcp/mcp"
+      "url": "https://c3-pvt.diegonmarcos.com/cloud-mail-mcp/mcp"
     },
     "cloud-mail-mcp-mesh": {
       "type": "http",
@@ -52,7 +52,7 @@
     },
     "cloud-mattermost-mcp": {
       "type": "http",
-      "url": "https://mcp.diegonmarcos.com/mattermost-mcp/mcp"
+      "url": "https://c3-pvt.diegonmarcos.com/cloud-mattermost-mcp/mcp"
     },
     "cloud-mattermost-mcp-mesh": {
       "type": "http",
@@ -60,7 +60,7 @@
     },
     "cloud-services-mcp": {
       "type": "http",
-      "url": "https://mcp.diegonmarcos.com/c3-services-mcp/mcp"
+      "url": "https://c3-pvt.diegonmarcos.com/cloud-services-mcp/mcp"
     },
     "cloud-services-mcp-mesh": {
       "type": "http",
@@ -68,7 +68,7 @@
     },
     "cloud-superapp-mcp": {
       "type": "http",
-      "url": "https://mcp.diegonmarcos.com/cloud-superapp-mcp/mcp"
+      "url": "https://c3-pvt.diegonmarcos.com/cloud-superapp-mcp/mcp"
     },
     "cloud-superapp-mcp-mesh": {
       "type": "http",
@@ -84,7 +84,7 @@
     },
     "google-personal-mcp": {
       "type": "http",
-      "url": "https://mcp.diegonmarcos.com/g-personal/mcp"
+      "url": "https://c3-pvt.diegonmarcos.com/google-personal-mcp/mcp"
     },
     "google-personal-mcp-mesh": {
       "type": "http",
@@ -92,7 +92,7 @@
     },
     "google-workspace-mcp": {
       "type": "http",
-      "url": "https://mcp.diegonmarcos.com/g-workspace/mcp"
+      "url": "https://c3-pvt.diegonmarcos.com/google-workspace-mcp/mcp"
     },
     "google-workspace-mcp-mesh": {
       "type": "http",
