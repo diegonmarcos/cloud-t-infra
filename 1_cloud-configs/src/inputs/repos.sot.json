@@ -5,6 +5,20 @@
   "_renames_doc": "`renames` records an old name -> new name for things that are not (or not only) repos, so a path that still says the old name is findable and a guard can flag it. `kind: repo` = a repository rename (the entry also carries `renamed_from`); `kind: app-folder` = a folder/app inside a repo. Farmers never create the old name.",
   "renames": [
     {
+      "from": "cloud-webapps",
+      "to": "cloud-h-webapps",
+      "kind": "repo",
+      "since": "2026-10-28",
+      "doc": "GitHub repo renamed; every reference follows, none rely on the redirect. Published URL /cloud-webapps/ unchanged."
+    },
+    {
+      "from": "cloud-webapps-2",
+      "to": "cloud-h-webapps-2",
+      "kind": "repo",
+      "since": "2026-10-28",
+      "doc": "GitHub repo renamed; every reference follows, none rely on the redirect. Published URLs unchanged."
+    },
+    {
       "from": "cloud-data-lfs",
       "to": "cloud_db_LFS",
       "kind": "repo",
@@ -38,7 +52,7 @@
     },
     {
       "from": "front-suite",
-      "to": "cloud-webapps-2",
+      "to": "cloud-h-webapps-2",
       "kind": "repo",
       "since": "2026-10-25",
       "ticket": "#1196",
@@ -206,10 +220,13 @@
       "doc": "Personal notes (Obsidian vault)."
     },
     {
-      "name": "cloud-webapps",
+      "name": "cloud-h-webapps",
       "group": "a_cloud",
-      "url": "git@github.com:diegonmarcos/cloud-webapps.git",
+      "url": "git@github.com:diegonmarcos/cloud-h-webapps.git",
       "private": false,
+      "renamed_from": [
+        "cloud-webapps"
+      ],
       "doc": "The Cloud web apps: one independent site per Cloud APK (cloud-mail, cloud-drive, ...) sharing one generated top nav. Moved out of front-diegonmarcos (c__Cloud). Created 2026-10-21; tree imported from front-diegonmarcos/cloud-webapps."
     },
     {
@@ -254,12 +271,13 @@
       "doc": "Sources of the b_Profiles group (plus Lnktree, moved in from front-linktree #1217, and c_Circus/myAstro, moved in from CG-circus #1218), split from front-projects (#1072); snapshot copy, paths mirror the original layout."
     },
     {
-      "name": "cloud-webapps-2",
+      "name": "cloud-h-webapps-2",
       "group": "b_projects",
-      "url": "git@github.com:diegonmarcos/cloud-webapps-2.git",
+      "url": "git@github.com:diegonmarcos/cloud-h-webapps-2.git",
       "private": false,
       "renamed_from": [
-        "front-suite"
+        "front-suite",
+        "cloud-webapps-2"
       ],
       "doc": "Sources of the c_Suite group (now also movies, music, myfeed, #1204), split from front-projects (#1072); snapshot copy, paths mirror the original layout."
     },

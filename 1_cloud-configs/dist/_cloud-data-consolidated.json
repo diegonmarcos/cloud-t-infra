@@ -3928,8 +3928,8 @@
           "cloud": {
             "upstream": "https://github.com/diegonmarcos/cloud.git"
           },
-          "cloud-webapps": {
-            "upstream": "https://github.com/diegonmarcos/cloud-webapps.git"
+          "cloud-h-webapps": {
+            "upstream": "https://github.com/diegonmarcos/cloud-h-webapps.git"
           },
           "cloud-me-data-pvt": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-data-pvt.git",
@@ -3938,8 +3938,8 @@
           "cloud-u-linux": {
             "upstream": "https://github.com/diegonmarcos/cloud-u-linux.git"
           },
-          "cloud-webapps-2": {
-            "upstream": "https://github.com/diegonmarcos/cloud-webapps-2.git"
+          "cloud-h-webapps-2": {
+            "upstream": "https://github.com/diegonmarcos/cloud-h-webapps-2.git"
           },
           "cloud-u-containers": {
             "upstream": "https://github.com/diegonmarcos/cloud-u-containers.git"
@@ -13340,13 +13340,13 @@
         }
       },
       {
-        "id": "git#gh/cloud-webapps",
+        "id": "git#gh/cloud-h-webapps",
         "service": "gitea",
         "container": null,
         "engine": "git",
         "kind": "git-remote",
         "host": "github",
-        "repo": "diegonmarcos/cloud-webapps",
+        "repo": "diegonmarcos/cloud-h-webapps",
         "visibility": "public",
         "fork": false,
         "pushed_at": "2026-10-28T11:28:31Z",
@@ -13355,7 +13355,7 @@
         "mirrored": true,
         "persistence": {
           "type": "git",
-          "ref": "https://github.com/diegonmarcos/cloud-webapps.git",
+          "ref": "https://github.com/diegonmarcos/cloud-h-webapps.git",
           "mount": null
         },
         "vm": null,
@@ -13365,17 +13365,17 @@
         }
       },
       {
-        "id": "git#gitea/cloud-webapps",
+        "id": "git#gitea/cloud-h-webapps",
         "service": "gitea",
         "container": null,
         "engine": "git",
         "kind": "git-remote",
         "host": "gitea",
-        "repo": "cloud-webapps",
-        "upstream": "https://github.com/diegonmarcos/cloud-webapps.git",
+        "repo": "cloud-h-webapps",
+        "upstream": "https://github.com/diegonmarcos/cloud-h-webapps.git",
         "persistence": {
           "type": "git",
-          "ref": "https://github.com/diegonmarcos/cloud-webapps.git",
+          "ref": "https://github.com/diegonmarcos/cloud-h-webapps.git",
           "mount": null
         },
         "vm": "oci-A1-f_0",
@@ -13475,13 +13475,13 @@
         }
       },
       {
-        "id": "git#gh/cloud-webapps-2",
+        "id": "git#gh/cloud-h-webapps-2",
         "service": "gitea",
         "container": null,
         "engine": "git",
         "kind": "git-remote",
         "host": "github",
-        "repo": "diegonmarcos/cloud-webapps-2",
+        "repo": "diegonmarcos/cloud-h-webapps-2",
         "visibility": "public",
         "fork": false,
         "pushed_at": "2026-10-26T13:29:16Z",
@@ -13490,7 +13490,7 @@
         "mirrored": true,
         "persistence": {
           "type": "git",
-          "ref": "https://github.com/diegonmarcos/cloud-webapps-2.git",
+          "ref": "https://github.com/diegonmarcos/cloud-h-webapps-2.git",
           "mount": null
         },
         "vm": null,
@@ -13500,17 +13500,17 @@
         }
       },
       {
-        "id": "git#gitea/cloud-webapps-2",
+        "id": "git#gitea/cloud-h-webapps-2",
         "service": "gitea",
         "container": null,
         "engine": "git",
         "kind": "git-remote",
         "host": "gitea",
-        "repo": "cloud-webapps-2",
-        "upstream": "https://github.com/diegonmarcos/cloud-webapps-2.git",
+        "repo": "cloud-h-webapps-2",
+        "upstream": "https://github.com/diegonmarcos/cloud-h-webapps-2.git",
         "persistence": {
           "type": "git",
-          "ref": "https://github.com/diegonmarcos/cloud-webapps-2.git",
+          "ref": "https://github.com/diegonmarcos/cloud-h-webapps-2.git",
           "mount": null
         },
         "vm": "oci-A1-f_0",
