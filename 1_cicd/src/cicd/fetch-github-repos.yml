@@ -94,7 +94,7 @@ jobs:
           # (repos.sot.json, a byte copy of cloud/repos.json) lists, its unregistered_ok, and any cloud* name.
           # Plus the octocode external_registry (index repos of other hubs, public build.json
           # in cloud-u-containers): they are indexed, so they must exist in the inventory.
-          curl -fsSL https://raw.githubusercontent.com/diegonmarcos/cloud-u-containers/main/user-ai_cloud-cgc-pub-mcp/build.json \
+          curl -fsSL https://raw.githubusercontent.com/diegonmarcos/cloudy-u-containers/main/user-ai_cloud-cgc-pub-mcp/build.json \
             | jq '[.runtime.octocode.external_registry // [] | .[]]' > /tmp/ext.json
           jq --slurpfile r 1_cloud-configs/src/inputs/repos.sot.json --slurpfile x /tmp/ext.json '
             ([$r[0].repos[] | .url | sub("^.*[/:]"; "") | sub("\\.git$"; "")] + [$r[0].unregistered_ok[].name] + $x[0]) as $keep
@@ -116,12 +116,15 @@ jobs:
           fi
 
           # Sorted by pushed_at desc so the diff is stable run to run.
-          jq --arg owner "$OWNER" --arg now "$(date -u +%FT%TZ)" '{
+          # external_registry is recorded so the offline guard (9_others/test/repos-sot.test.sh S4)
+          # knows why those non-cloud names are here, instead of reporting them unregistered.
+          jq --arg owner "$OWNER" --arg now "$(date -u +%FT%TZ)" --slurpfile x /tmp/ext.json '{
             _warning: "FETCHED DATA — do not hand-edit. Refreshed by .github/workflows/fetch-github-repos.yml.",
             _doc: "Source of truth for WHICH REPOS EXIST — the CLOUD family only (#1224), public and private. Repo NAMES are not sensitive; the token used to fetch them is, and never leaves the vault / GH secrets. Declarations (gitea.mirrors / octocode.repo_map) are a policy selection over this, never a substitute.",
             _source: "GitHub API",
             fetched_at: $now,
             owner: $owner,
+            external_registry: $x[0],
             repos: ([.[] | {name: .name, visibility: (.visibility // (if .private then "private" else "public" end)), fork: .fork, pushed_at: .pushed_at}] | sort_by(.pushed_at) | reverse)
           }' /tmp/acc.json > 1_cloud-configs/src/inputs/github-repos.json
 

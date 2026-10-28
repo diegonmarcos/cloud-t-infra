@@ -8,7 +8,8 @@
 #       or disagrees about private
 #   S3  a pending_creation repo (cloudy-h-webapps, cloud-me-pvt-containers) is already on GitHub (flip its status),  or a repo once declared pending (cloudy-h-webapps, cloud-me-pvt-containers) leaves the registry,
 #       or is in the fleet manifest
-#   S4  a GitHub repo of the fetched inventory (github-repos.json) is neither registered nor in unregistered_ok
+#   S4  a GitHub repo of the fetched inventory (github-repos.json) is neither registered, in unregistered_ok, nor in the
+#       inventory's external_registry (octocode index repos of other hubs, recorded by the fetch)
 #   S5  a live registry repo is missing from the inventory, or the old name of a rename is still used as a
 #       fleet github name (cloud-mobile -> cloud-superapp, ffront -> front)
 #   S6  the guard bites (a mutated copy is caught)
@@ -59,7 +60,7 @@ done
 [ -z "$bad3" ] && ok "S3c no pending repo is on GitHub or in the fleet manifest" || bad "S3c pending repos misused:$bad3"
 
 # S4/S5 inventory vs registry
-out=$(jq -r --slurpfile s "$SOT" '([$s[0].repos[]|'"$GH"'] + [$s[0].unregistered_ok[].name]) as $known | .repos[] | select(.fork|not) | .name as $n | select(($known|index($n))==null) | $n' "$INV")
+out=$(jq -r --slurpfile s "$SOT" '([$s[0].repos[]|'"$GH"'] + [$s[0].unregistered_ok[].name] + (.external_registry // [])) as $known | .repos[] | select(.fork|not) | .name as $n | select(($known|index($n))==null) | $n' "$INV")
 [ -z "$out" ] && ok "S4 every GitHub repo is registered or in unregistered_ok" || bad "S4 GitHub repos nobody registered (add to _git-repos-master repos.json): $(echo $out)"
 out=$(jq -r --slurpfile s "$SOT" '[.repos[].name] as $inv | $s[0].repos[] | select((.status//"")!="pending_creation") | '"$GH"' as $g | select(($inv|index($g))==null) | $g' "$INV")
 [ -z "$out" ] && ok "S5a every live registry repo exists on GitHub" || bad "S5a registry repos missing from the GitHub inventory: $(echo $out)"
