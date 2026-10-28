@@ -2031,8 +2031,30 @@
       "_doc": "Gitea honours its reverse-proxy user header from ANY peer: REVERSE_PROXY_TRUSTED_PROXIES only feeds the X-Forwarded-For rewrite (gitea v28.0.0 routers/common/middleware.go:33); services/auth/reverseproxy.go never checks the source. With 0.0.0.0:3002 reachable from every wg0/wg-public peer and ~40 host-network containers on oci-apps, enabling reverse-proxy auth on that listener would let any of them become `diego` with one header. So gitea listens only on a unix socket in a tmpfs volume that no other container mounts, and this caddy owns :3002: it forwards `identity.header` (and X-Real-IP) only when the peer is in trusted_proxies AND the Host is this service's domain — the .app catalog routes the hub also serves from 10.0.0.1 carry Host gitea.mesh.diegonmarcos.com, so they cannot mint an identity either. Everything else reaches gitea exactly as before, anonymous."
     },
     "mirrors": {
+      "cloudy-u-containers_cgc": {
+        "upstream": "https://github.com/diegonmarcos/cloudy-u-containers_cgc.git"
+      },
       "cloudy-t-infra": {
         "upstream": "https://github.com/diegonmarcos/cloudy-t-infra.git"
+      },
+      "cloudy-u-containers": {
+        "upstream": "https://github.com/diegonmarcos/cloudy-u-containers.git"
+      },
+      "cloud-me-pvt-___": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-___.git",
+        "private": true
+      },
+      "cloud-me-pub-___": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pub-___.git"
+      },
+      "cloud-me-___": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-___.git"
+      },
+      "_git-repos-master": {
+        "upstream": "https://github.com/diegonmarcos/_git-repos-master.git"
+      },
+      "cloudy-u-android": {
+        "upstream": "https://github.com/diegonmarcos/cloudy-u-android.git"
       },
       "cloud-me-pvt-data": {
         "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-data.git",
@@ -2045,30 +2067,11 @@
       "cloudy-___": {
         "upstream": "https://github.com/diegonmarcos/cloudy-___.git"
       },
-      "cloudy-u-containers_cgc": {
-        "upstream": "https://github.com/diegonmarcos/cloudy-u-containers_cgc.git"
-      },
-      "_git-repos-master": {
-        "upstream": "https://github.com/diegonmarcos/_git-repos-master.git"
-      },
-      "cloudy-u-containers": {
-        "upstream": "https://github.com/diegonmarcos/cloudy-u-containers.git"
-      },
       "cloudy-u-linux": {
         "upstream": "https://github.com/diegonmarcos/cloudy-u-linux.git"
       },
-      "cloudy-u-android": {
-        "upstream": "https://github.com/diegonmarcos/cloudy-u-android.git"
-      },
-      "cloud-me-pvt-___": {
-        "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-___.git",
-        "private": true
-      },
       "cloud-me-pub-profiles-___": {
         "upstream": "https://github.com/diegonmarcos/cloud-me-pub-profiles-___.git"
-      },
-      "cloud-me-pub-___": {
-        "upstream": "https://github.com/diegonmarcos/cloud-me-pub-___.git"
       },
       "cloud-me-pvt-notes": {
         "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-notes.git",
