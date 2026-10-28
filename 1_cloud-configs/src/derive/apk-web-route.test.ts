@@ -38,6 +38,27 @@ describe("wasm APK host", () => {
   });
 });
 
+describe("a web block with no kind (cloud-u-android's wasm convention)", () => {
+  const bare = { portal_slug: "cloud-calc", gh_asset: "Cloud-Calc.wasm.zip", dir: "web" };
+  test("is a wasm route: gated proxy to the origin with serve_path and kind wasm", () => {
+    const { route, privateUpstream } = apkWebRoute({ name: "cloud-calc", web: bare }, ctx({ wasmOrigin: origin }));
+    expect(route.web.kind).toBe("wasm");
+    expect(route.web.serve_path).toBe("/cloud-web/apps/cloud-calc/");
+    expect(route.upstream).toBe(origin.upstream);
+    expect(route.landing_only).toBeUndefined();
+    expect(route.auth).toBeUndefined();
+    expect(privateUpstream).toBeNull();
+  });
+  test("without a declared origin it stays a landing redirect", () => {
+    const { route } = apkWebRoute({ name: "cloud-calc", web: bare }, ctx());
+    expect(route.landing_only).toBe(true);
+    expect(route.web.serve_path).toBeUndefined();
+  });
+  test("with no slug it is an error, not an open host", () => {
+    expect(() => apkWebRoute({ name: "x", web: { dir: "web" } }, ctx({ wasmOrigin: origin }))).toThrow(/portal_slug/);
+  });
+});
+
 describe("the other kinds are unchanged", () => {
   test("container: gated proxy plus a private name", () => {
     const { route, privateUpstream } = apkWebRoute({ name: "cloud-mail", web: { kind: "container", target: "cloud-webmail" } }, ctx());

@@ -1255,7 +1255,6 @@ function deriveCaddy(c: any): DerivedFile[] {
       const host = `${name}.diegonmarcos.com`;
       if (usedHosts.has(host)) throw new Error(`APK host ${host} collides with an existing vhost`);
       usedHosts.add(host);
-      const web = app.web ?? null;
       // #876: container and wasm targets are Authelia-gated (apk-web-route.ts); wasm renders only
       // once url_scheme.wasm_origin is declared, otherwise it stays a landing redirect.
       const { route, privateUpstream } = apkWebRoute(app, {
@@ -1264,7 +1263,7 @@ function deriveCaddy(c: any): DerivedFile[] {
       dedupedRoutes.push(route);
       let priv: string | null = null;
       if (privateUpstream) { priv = `${name}.mesh.diegonmarcos.com`; addPrivate(priv, privateUpstream, "apk"); }
-      apkHosts.push({ host, apk: name, web_kind: web?.kind ?? null, private: priv });
+      apkHosts.push({ host, apk: name, web_kind: route.web?.kind ?? null, private: priv });
     }
 
     // Extra declared vhosts (e.g. mails.: JMAP config URLs on the Stalwart upstream).

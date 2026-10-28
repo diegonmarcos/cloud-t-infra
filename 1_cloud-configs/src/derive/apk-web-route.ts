@@ -9,6 +9,10 @@
  *                         owner's deploy decision) a wasm app renders exactly as before: landing_only.
  *   absent / webapp       landing_only (every request 302s to the landing page).
  *
+ * A `web` block with no `kind` is a Kotlin/Wasm page: that is cloud-u-android's convention
+ * (cloud-android-ship-repo-workflow-engine.sh reads web.get("kind", "wasm")), and every #876 wasm
+ * app declares its block that way. The route always carries the resolved `web.kind`.
+ *
  * No route built here ever carries `auth: "none"`: absent `auth` is the Authelia gate (an anonymous
  * request is redirected to the landing page / Authelia login by the renderer), and the tests pin that.
  */
@@ -29,7 +33,7 @@ export interface ApkWebRoute {
 
 export function apkWebRoute(app: { name: string; web?: any }, ctx: ApkWebCtx): ApkWebRoute {
   const name = String(app.name);
-  let web: any = app.web ?? null;
+  let web: any = app.web ? { ...app.web, kind: app.web.kind ?? "wasm" } : null;
   let upstream: string | undefined;
   let privateUpstream: string | null = null;
   let comment = `APK ${name}: no web target, landing redirect`;
