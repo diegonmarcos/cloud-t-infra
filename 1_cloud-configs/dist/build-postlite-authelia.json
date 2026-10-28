@@ -1996,6 +1996,12 @@
     "group": "Infra Apps",
     "category": "Net-Routing & Security"
   },
+  "tests": {
+    "sso-oidc": {
+      "cmd": "bash test/test-sso-oidc.sh",
+      "cwd": "src"
+    }
+  },
   "timezone": "Europe/Madrid",
   "secret_env_vars": [
     "AUTHELIA_JWT_SECRET",

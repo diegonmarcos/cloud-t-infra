@@ -6,9 +6,9 @@
   },
   "repo": "cloud-u-containers",
   "counts": {
-    "files": 2502,
+    "files": 2503,
     "by_lang": {
-      "sh": 168,
+      "sh": 169,
       "nix": 183,
       "js": 92,
       "py": 507,
@@ -16,7 +16,7 @@
       "rust": 362
     },
     "by_role": {
-      "shell": 158,
+      "shell": 159,
       "nix-module": 19,
       "file": 339,
       "python": 493,
@@ -19454,6 +19454,18 @@
         "pkgs",
         "default",
         "srcDir"
+      ]
+    },
+    {
+      "path": "infra-sec_authelia/src/test/test-sso-oidc.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "chk()"
+      ],
+      "imports": [],
+      "symbols": [
+        "chk()"
       ]
     },
     {
@@ -63553,6 +63565,10 @@
         "APP_HOME_URL",
         "GRIST_SANDBOX_FLAVOR",
         "GRIST_LOG_LEVEL",
+        "GRIST_OIDC_IDP_ISSUER",
+        "GRIST_OIDC_IDP_CLIENT_ID",
+        "GRIST_OIDC_IDP_CLIENT_SECRET",
+        "GRIST_OIDC_IDP_SCOPES",
         "ports",
         "volumes",
         "healthcheck",
@@ -63651,6 +63667,7 @@
         "dbName",
         "dbPort",
         "appPort",
+        "ssoIssuer",
         "services",
         "hedgedoc",
         "image",
@@ -63672,16 +63689,15 @@
         "CMD_SESSION_SECRET",
         "CMD_TRUST_PROXY",
         "CMD_LOGLEVEL",
-        "postgres",
-        "POSTGRES_USER",
-        "POSTGRES_PASSWORD",
-        "POSTGRES_DB",
-        "PGDATA",
-        "PGPORT",
-        "healthcheck",
-        "test",
-        "interval",
-        "timeout"
+        "CMD_OAUTH2_PROVIDERNAME",
+        "CMD_OAUTH2_CLIENT_ID",
+        "CMD_OAUTH2_CLIENT_SECRET",
+        "CMD_OAUTH2_AUTHORIZATION_URL",
+        "CMD_OAUTH2_TOKEN_URL",
+        "CMD_OAUTH2_USER_PROFILE_URL",
+        "CMD_OAUTH2_SCOPE",
+        "CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR",
+        "CMD_OAUTH2_USER_PROFILE_DISPLAY_NAME_ATTR"
       ]
     },
     {

@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22461,
+    "files": 22464,
     "by_lang": {
       "js": 495,
-      "sh": 564,
+      "sh": 565,
       "py": 168,
-      "kotlin": 12004,
+      "kotlin": 12006,
       "java": 647,
       "nix": 31,
       "rust": 111,
@@ -19,10 +19,10 @@
     },
     "by_role": {
       "file": 2281,
-      "shell": 448,
+      "shell": 449,
       "script": 260,
       "java": 646,
-      "kotlin": 12001,
+      "kotlin": 12003,
       "module": 6422,
       "flake": 27,
       "python": 55,
@@ -30693,6 +30693,65 @@
         "class Entry",
         "class StoreLink",
         "class Plan"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/appstore/src/main/java/com/diegonmarcos/superapp/appstore/AppsMcpApi.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AppsMcpApi"
+      ],
+      "imports": [
+        "android.content.Context",
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "missing(kinds: List<Kind>)",
+        "load(ctx: Context)",
+        "parse(json: String)",
+        "endpoint(e: JSONObject, base: String)",
+        "rows(d: Decl, apps: List<Pair<String, String>>)",
+        "summary(d: Decl, rows: List<Row>)",
+        "report(d: Decl, rows: List<Row>)",
+        "class AppsMcpApi",
+        "class Kind",
+        "class Endpoint",
+        "class Row",
+        "class Decl"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/appstore/src/main/java/com/diegonmarcos/superapp/appstore/AppsMcpApiPage.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AppsMcpApiPage"
+      ],
+      "imports": [
+        "android.util.Base64",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.font.FontFamily",
+        "androidx.compose.ui.unit.sp",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "AppsMcpApiPage()"
       ]
     },
     {
@@ -487528,6 +487587,7 @@
       "exports": [
         "AccessPage",
         "PAGE_MESH",
+        "PAGE_MCPAPI",
         "PAGE_IPC",
         "PAGE_IDENTITY",
         "PAGE_ANDROID",
@@ -488496,6 +488556,24 @@
         "ok()",
         "bad()",
         "mirror()"
+      ]
+    },
+    {
+      "path": "ac_cloud-store/test/test-store-mcpapi-page.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mut()"
+      ],
+      "imports": [],
+      "symbols": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mut()"
       ]
     },
     {

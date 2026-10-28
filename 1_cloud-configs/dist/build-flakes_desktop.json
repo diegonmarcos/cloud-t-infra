@@ -6235,6 +6235,12 @@
         "group": "Infra Apps",
         "category": "Net-Routing & Security"
       },
+      "tests": {
+        "sso-oidc": {
+          "cmd": "bash test/test-sso-oidc.sh",
+          "cwd": "src"
+        }
+      },
       "timezone": "Europe/Madrid",
       "api": {
         "has_api": true,
@@ -10725,6 +10731,16 @@
         "primary": {
           "domain": "playlist.diegonmarcos.com",
           "auth": "two_factor",
+          "identity": {
+            "header": "X-Remote-User",
+            "bearer": {
+              "claude-admin": "diego"
+            },
+            "session": {
+              "me@diegonmarcos.com": "diego"
+            },
+            "_doc": "Header auth (#1147): the hub caddy strips any inbound header of this name before forward_auth, sets it only from these tables (Authelia username in Remote-User, or fleet client_id in X-Auth-User), and answers 403 for a validated identity with no row. Mechanism in infra-sec_caddy/src/identity.nix."
+          },
           "bypass_paths": [
             "/api/auth/spotify/callback",
             "/api/auth/youtube/callback"
@@ -10882,7 +10898,17 @@
       "proxy": {
         "primary": {
           "domain": "cal.diegonmarcos.com",
-          "auth": "two_factor"
+          "auth": "two_factor",
+          "identity": {
+            "header": "X-Remote-User",
+            "bearer": {
+              "claude-admin": "me@diegonmarcos.com"
+            },
+            "session": {
+              "me@diegonmarcos.com": "me@diegonmarcos.com"
+            },
+            "_doc": "Header auth (#1147): the hub caddy strips any inbound header of this name before forward_auth, sets it only from these tables (Authelia username in Remote-User, or fleet client_id in X-Auth-User), and answers 403 for a validated identity with no row. Mechanism in infra-sec_caddy/src/identity.nix."
+          }
         }
       },
       "declared_ports": {
@@ -11066,7 +11092,17 @@
       "proxy": {
         "primary": {
           "domain": "notes.diegonmarcos.com",
-          "auth": "two_factor"
+          "auth": "two_factor",
+          "identity": {
+            "header": "X-Remote-User",
+            "bearer": {
+              "claude-admin": "diego"
+            },
+            "session": {
+              "me@diegonmarcos.com": "diego"
+            },
+            "_doc": "Header auth (#1147): the hub caddy strips any inbound header of this name before forward_auth, sets it only from these tables (Authelia username in Remote-User, or fleet client_id in X-Auth-User), and answers 403 for a validated identity with no row. Mechanism in infra-sec_caddy/src/identity.nix."
+          }
         }
       },
       "declared_ports": {
@@ -11253,7 +11289,17 @@
       "proxy": {
         "primary": {
           "domain": "contacts.diegonmarcos.com",
-          "auth": "two_factor"
+          "auth": "two_factor",
+          "identity": {
+            "header": "X-Remote-User",
+            "bearer": {
+              "claude-admin": "me@diegonmarcos.com"
+            },
+            "session": {
+              "me@diegonmarcos.com": "me@diegonmarcos.com"
+            },
+            "_doc": "Header auth (#1147): the hub caddy strips any inbound header of this name before forward_auth, sets it only from these tables (Authelia username in Remote-User, or fleet client_id in X-Auth-User), and answers 403 for a validated identity with no row. Mechanism in infra-sec_caddy/src/identity.nix."
+          }
         }
       },
       "declared_ports": {
@@ -11499,7 +11545,17 @@
           "type": "path",
           "parent_domain": "app.diegonmarcos.com",
           "base_path": "/filebrowser",
-          "auth": "two_factor"
+          "auth": "two_factor",
+          "identity": {
+            "header": "X-Forwarded-User",
+            "bearer": {
+              "claude-admin": "diego"
+            },
+            "session": {
+              "me@diegonmarcos.com": "diego"
+            },
+            "_doc": "Header auth (#1147): the hub caddy strips any inbound header of this name before forward_auth, sets it only from these tables (Authelia username in Remote-User, or fleet client_id in X-Auth-User), and answers 403 for a validated identity with no row. Mechanism in infra-sec_caddy/src/identity.nix."
+          }
         }
       },
       "declared_ports": {
