@@ -2002,5 +2002,8 @@
     "group": "Cloud Apps",
     "category": "Data Apps"
   },
-  "upstream_image": "quay.io/hedgedoc/hedgedoc:latest"
+  "upstream_image": "quay.io/hedgedoc/hedgedoc:latest",
+  "secret_env_vars": [
+    "HEDGEDOC_OIDC_CLIENT_SECRET"
+  ]
 }

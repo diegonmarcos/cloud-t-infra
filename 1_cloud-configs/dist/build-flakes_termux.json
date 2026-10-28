@@ -11463,7 +11463,10 @@
         "display_name": "Etherpad",
         "description": "Collaborative real-time text editor with HTTP API.",
         "auth": "api-key"
-      }
+      },
+      "secret_env_vars": [
+        "ETHERPAD_OIDC_CLIENT_SECRET"
+      ]
     },
     "filebrowser": {
       "category": "app",
@@ -11680,7 +11683,10 @@
         "display_name": "Grist",
         "description": "Self-hosted spreadsheet and database with REST API.",
         "auth": "api-key"
-      }
+      },
+      "secret_env_vars": [
+        "GRIST_OIDC_CLIENT_SECRET"
+      ]
     },
     "hedgedoc": {
       "category": "app",
@@ -11809,7 +11815,10 @@
         "display_name": "HedgeDoc",
         "description": "Collaborative markdown editor with REST API.",
         "auth": "bearer"
-      }
+      },
+      "secret_env_vars": [
+        "HEDGEDOC_OIDC_CLIENT_SECRET"
+      ]
     },
     "revealmd": {
       "category": "app",

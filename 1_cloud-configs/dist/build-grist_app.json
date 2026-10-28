@@ -2000,5 +2000,8 @@
     "category": "Data Apps"
   },
   "upstream_image": "gristlabs/grist:latest",
-  "grist_admin_email": "admin@diegonmarcos.com"
+  "grist_admin_email": "admin@diegonmarcos.com",
+  "secret_env_vars": [
+    "GRIST_OIDC_CLIENT_SECRET"
+  ]
 }
