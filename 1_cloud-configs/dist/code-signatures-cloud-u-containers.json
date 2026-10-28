@@ -6,9 +6,9 @@
   },
   "repo": "cloud-u-containers",
   "counts": {
-    "files": 2503,
+    "files": 2505,
     "by_lang": {
-      "sh": 169,
+      "sh": 171,
       "nix": 183,
       "js": 92,
       "py": 507,
@@ -16,7 +16,7 @@
       "rust": 362
     },
     "by_role": {
-      "shell": 159,
+      "shell": 161,
       "nix-module": 19,
       "file": 339,
       "python": 493,
@@ -14862,6 +14862,15 @@
         "PORT",
         "TZ",
         "CONNECTIONS",
+        "AUTH_PROVIDER",
+        "OAUTH_AUTH",
+        "OAUTH_TOKEN",
+        "OAUTH_CLIENT_ID",
+        "OAUTH_CLIENT_SECRET",
+        "OAUTH_SCOPE",
+        "OAUTH_LOGIN_FIELD",
+        "OAUTH_ALLOWED_LOGINS",
+        "PERMISSIONS",
         "services",
         "dbgate",
         "image",
@@ -14873,11 +14882,7 @@
         "healthcheck",
         "test",
         "interval",
-        "timeout",
-        "retries",
-        "start_period",
-        "reservations",
-        "dbgate_data"
+        "timeout"
       ]
     },
     {
@@ -63339,6 +63344,7 @@
         "TITLE",
         "DEFAULT_PAD_TEXT",
         "ADMIN_PASSWORD",
+        "ETHERPAD_OIDC_CLIENT_SECRET",
         "DB_TYPE",
         "DB_HOST",
         "DB_PORT",
@@ -63348,6 +63354,7 @@
         "TRUST_PROXY",
         "LOGLEVEL",
         "PORT",
+        "command",
         "volumes",
         "healthcheck",
         "test",
@@ -63360,9 +63367,7 @@
         "postgres",
         "entrypoint",
         "POSTGRES_USER",
-        "POSTGRES_PASSWORD",
-        "POSTGRES_DB",
-        "PGDATA"
+        "POSTGRES_PASSWORD"
       ]
     },
     {
@@ -63395,6 +63400,20 @@
         "templates",
         "composeSpec",
         "title"
+      ]
+    },
+    {
+      "path": "user-prod_etherpad/src/test-sso-entrypoint.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "fresh()",
+        "run()"
+      ],
+      "imports": [],
+      "symbols": [
+        "fresh()",
+        "run()"
       ]
     },
     {
@@ -63453,6 +63472,7 @@
         "container_name",
         "ports",
         "dns",
+        "entrypoint",
         "volumes",
         "environment",
         "PUID",
@@ -63463,6 +63483,7 @@
         "FB_NOAUTH",
         "FB_LOG",
         "FB_PORT",
+        "FB_PROXY_AUTH",
         "healthcheck",
         "test",
         "interval",
@@ -63502,6 +63523,18 @@
         "templates",
         "composeSpec",
         "title"
+      ]
+    },
+    {
+      "path": "user-prod_filebrowser/src/test-fb-proxy-auth.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "run()"
+      ],
+      "imports": [],
+      "symbols": [
+        "run()"
       ]
     },
     {
@@ -63569,6 +63602,7 @@
         "GRIST_OIDC_IDP_CLIENT_ID",
         "GRIST_OIDC_IDP_CLIENT_SECRET",
         "GRIST_OIDC_IDP_SCOPES",
+        "GRIST_OIDC_SP_HOST",
         "ports",
         "volumes",
         "healthcheck",

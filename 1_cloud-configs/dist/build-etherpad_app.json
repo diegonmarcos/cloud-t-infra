@@ -2013,5 +2013,11 @@
     "group": "Cloud Apps",
     "category": "Data Apps"
   },
-  "upstream_image": "etherpad/etherpad:latest"
+  "upstream_image": "etherpad/etherpad:latest",
+  "tests": {
+    "sso-entrypoint": {
+      "cmd": "bash test-sso-entrypoint.sh",
+      "cwd": "src"
+    }
+  }
 }

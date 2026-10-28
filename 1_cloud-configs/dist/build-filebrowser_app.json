@@ -2008,5 +2008,11 @@
     "group": "Cloud Apps",
     "category": "Data Apps"
   },
-  "upstream_image": "filebrowser/filebrowser:latest"
+  "upstream_image": "filebrowser/filebrowser:latest",
+  "tests": {
+    "fb-proxy-auth": {
+      "cmd": "bash test-fb-proxy-auth.sh",
+      "cwd": "src"
+    }
+  }
 }

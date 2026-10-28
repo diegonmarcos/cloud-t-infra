@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22464,
+    "files": 22478,
     "by_lang": {
-      "js": 495,
-      "sh": 565,
-      "py": 168,
-      "kotlin": 12006,
+      "js": 497,
+      "sh": 567,
+      "py": 170,
+      "kotlin": 12014,
       "java": 647,
       "nix": 31,
       "rust": 111,
@@ -19,11 +19,11 @@
     },
     "by_role": {
       "file": 2281,
-      "shell": 449,
-      "script": 260,
+      "shell": 451,
+      "script": 262,
       "java": 646,
-      "kotlin": 12003,
-      "module": 6422,
+      "kotlin": 12011,
+      "module": 6424,
       "flake": 27,
       "python": 55,
       "rust-module": 111,
@@ -256,6 +256,31 @@
         "get(url)",
         "fmt_price(usd_per_million)",
         "jlist(xs, like)",
+        "main(argv)"
+      ]
+    },
+    {
+      "path": ".github/workflows/scripts/cloud-android-apps-mcp-api.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "build_jsons(root)",
+        "endpoints(rows, where, problems)",
+        "consolidate(root)",
+        "dump(doc)",
+        "main(argv)"
+      ],
+      "imports": [
+        "glob",
+        "json",
+        "os",
+        "sys"
+      ],
+      "symbols": [
+        "build_jsons(root)",
+        "endpoints(rows, where, problems)",
+        "consolidate(root)",
+        "dump(doc)",
         "main(argv)"
       ]
     },
@@ -2792,6 +2817,31 @@
         "get(url)",
         "fmt_price(usd_per_million)",
         "jlist(xs, like)",
+        "main(argv)"
+      ]
+    },
+    {
+      "path": "1_cicd/src/scripts/cloud-android-apps-mcp-api.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "build_jsons(root)",
+        "endpoints(rows, where, problems)",
+        "consolidate(root)",
+        "dump(doc)",
+        "main(argv)"
+      ],
+      "imports": [
+        "glob",
+        "json",
+        "os",
+        "sys"
+      ],
+      "symbols": [
+        "build_jsons(root)",
+        "endpoints(rows, where, problems)",
+        "consolidate(root)",
+        "dump(doc)",
         "main(argv)"
       ]
     },
@@ -36400,6 +36450,45 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/browser/src/main/assets/browser/web_hardware.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [],
+      "imports": [],
+      "symbols": [
+        "err(name, message)",
+        "hasGesture()",
+        "bytesOf(v)",
+        "toHex(u8)",
+        "fromHex(h)",
+        "viewOf(h)",
+        "utf8(s)",
+        "call(op, args, gesture)",
+        "emit(target, type, props)",
+        "wire(proto, events)",
+        "expose(table)",
+        "define(name, value)",
+        "recv(text)",
+        "makePort(info)",
+        "makeConfig(dev, c)",
+        "needOpen(d)",
+        "needConfig(d)",
+        "iface(d, n)",
+        "setupOf(s)",
+        "makeDevice(info)",
+        "recordsOf(message)",
+        "aborted(signal)",
+        "class SerialPort",
+        "class Serial",
+        "class USBDevice",
+        "class USB",
+        "class NDEFRecord",
+        "class NDEFMessage",
+        "class NDEFReadingEvent",
+        "class NDEFReader"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/browser/src/main/java/com/diegonmarcos/superapp/browser/AcAndroid.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -38812,6 +38901,40 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/browser/src/main/java/com/diegonmarcos/superapp/browser/CdcAcmSerial.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "CdcAcmSerial"
+      ],
+      "imports": [
+        "java.util.concurrent.CopyOnWriteArrayList"
+      ],
+      "symbols": [
+        "observe(l: HwSerialListener)",
+        "unobserve(l: HwSerialListener)",
+        "ports()",
+        "dataInterface(d: HwUsbDevice)",
+        "open(key: String, o: SerialOptions)",
+        "fail(m: String)",
+        "lineCoding(key: String, p: Port, o: SerialOptions)",
+        "release(key: String, p: Port)",
+        "pump(key: String)",
+        "write(key: String, bytes: ByteArray)",
+        "setSignals(key: String, dtr: Boolean?, rts: Boolean?, brk: Boolean?)",
+        "close(key: String)",
+        "drop(key: String)",
+        "attached(d: HwUsbDevice)",
+        "detached(key: String)",
+        "class Arduino",
+        "class CdcAcmSerial",
+        "class Port",
+        "class with",
+        "class Layout",
+        "class could"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/browser/src/main/java/com/diegonmarcos/superapp/browser/DomAutofill.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -39847,6 +39970,296 @@
         "props(c: GattCharacteristic)",
         "hex(b: ByteArray)",
         "isSecure(origin: String)"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/browser/src/main/java/com/diegonmarcos/superapp/browser/WebHardware.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "WebHardware"
+      ],
+      "imports": [
+        "android.app.Activity",
+        "android.content.Context",
+        "android.os.Handler",
+        "android.os.Looper",
+        "android.webkit.JavascriptInterface",
+        "android.webkit.WebView",
+        "androidx.webkit.WebViewCompat",
+        "androidx.webkit.WebViewFeature",
+        "org.json.JSONObject",
+        "java.util.WeakHashMap",
+        "java.util.concurrent.Executors"
+      ],
+      "symbols": [
+        "ensure(key: String, done: (Boolean)",
+        "attach(w: WebView, privateTab: Boolean)",
+        "grants(api: String, shared: WebHwGrants)",
+        "onPageStarted(w: WebView)",
+        "detach(w: WebView)",
+        "script()",
+        "deliver(w: WebView, json: String)",
+        "post(json: String?)",
+        "get(key: String)",
+        "put(key: String, value: String?)",
+        "keys()",
+        "class it",
+        "class WebHardware",
+        "class Bridge",
+        "class Kv",
+        "class Mem"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/browser/src/main/java/com/diegonmarcos/superapp/browser/WebHardwareAndroid.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AndroidUsbBackend",
+        "AndroidNfcBackend"
+      ],
+      "imports": [
+        "android.app.Activity",
+        "android.app.PendingIntent",
+        "android.content.BroadcastReceiver",
+        "android.content.Context",
+        "android.content.Intent",
+        "android.content.IntentFilter",
+        "android.content.pm.PackageManager",
+        "android.hardware.usb.UsbConstants",
+        "android.hardware.usb.UsbDevice",
+        "android.hardware.usb.UsbDeviceConnection",
+        "android.hardware.usb.UsbEndpoint",
+        "android.hardware.usb.UsbInterface",
+        "android.hardware.usb.UsbManager",
+        "android.nfc.NdefMessage",
+        "android.nfc.NdefRecord",
+        "android.nfc.NfcAdapter",
+        "android.nfc.Tag",
+        "android.nfc.tech.Ndef",
+        "android.nfc.tech.NdefFormatable",
+        "android.os.Build",
+        "androidx.core.content.ContextCompat",
+        "java.util.concurrent.ConcurrentHashMap",
+        "java.util.concurrent.CopyOnWriteArrayList"
+      ],
+      "symbols": [
+        "onReceive(c: Context, i: Intent)",
+        "ensureRegistered()",
+        "observe(l: HwUsbListener)",
+        "unobserve(l: HwUsbListener)",
+        "snapshot()",
+        "device(key: String)",
+        "attached()",
+        "model(key: String, d: UsbDevice)",
+        "hasPermission(key: String)",
+        "requestPermission(key: String, done: (Boolean)",
+        "open(key: String)",
+        "close(key: String)",
+        "iface(d: UsbDevice, number: Int, alt: Int)",
+        "selectConfiguration(key: String, value: Int)",
+        "claim(key: String, number: Int)",
+        "release(key: String, number: Int)",
+        "setAlternate(key: String, number: Int, setting: Int)",
+        "control(key: String, requestType: Int, request: Int, value: Int, index: Int, data: ByteArray?, length: Int)",
+        "endpoint(d: UsbDevice, number: Int, dirIn: Boolean)",
+        "bulkIn(key: String, endpoint: Int, length: Int, timeoutMs: Int)",
+        "bulkOut(key: String, endpoint: Int, data: ByteArray, timeoutMs: Int)",
+        "reset(key: String)",
+        "start(l: NfcListener)",
+        "stop(l: NfcListener)",
+        "writeNext(records: List<NdefRec>, overwrite: Boolean, done: (NfcWriteResult)",
+        "cancelWrite()",
+        "ensureReader()",
+        "maybeDisable()",
+        "onTag(tag: Tag)",
+        "writeTag(tag: Tag, w: Write)",
+        "class AndroidUsbBackend",
+        "class AndroidNfcBackend",
+        "class Write"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/browser/src/main/java/com/diegonmarcos/superapp/browser/WebHardwareChooser.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [],
+      "imports": [
+        "android.app.Activity",
+        "android.content.ContextWrapper",
+        "android.os.Handler",
+        "android.os.Looper",
+        "android.view.ViewGroup",
+        "android.webkit.WebView",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.heightIn",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Surface",
+        "androidx.compose.material3.Text",
+        "androidx.compose.material3.TextButton",
+        "androidx.compose.material3.darkColorScheme",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.ComposeView",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "androidx.compose.ui.window.Dialog"
+      ],
+      "symbols": [
+        "activity()",
+        "host(activity: Activity, content: @Composable (dismiss: ()",
+        "pick(request: HwChoiceRequest, onPick: (String)",
+        "finish(key: String?)",
+        "allowNfc(origin: String, writing: Boolean, onAllow: ()",
+        "finish(allow: Boolean)",
+        "tapTag(origin: String, onCancel: ()",
+        "WebHwChooserDialog(origin: String, kind: String, choices: List<HwChoice>, onPick: (String)",
+        "WebNfcPromptDialog(origin: String, writing: Boolean, onAllow: ()",
+        "WebNfcTapDialog(origin: String, onCancel: ()",
+        "class ComposeHwChooser"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/browser/src/main/java/com/diegonmarcos/superapp/browser/WebHardwareCore.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "WebHardwareCore"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.bluetooth.Hex",
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "ensure(key: String, done: (Boolean)",
+        "close()",
+        "handle(origin: String, text: String)",
+        "reset()",
+        "offerDevices(id: Int, kind: String, grants: WebHwGrants, candidates: ()",
+        "refresh()",
+        "attached(d: HwUsbDevice)",
+        "detached(key: String)",
+        "refreshChooser()",
+        "requestSerial(id: Int, args: JSONObject, gesture: Boolean)",
+        "withSerialGrant(id: Int, args: JSONObject, block: (HwGrant)",
+        "withSerial(id: Int, args: JSONObject, block: (HwUsbDevice)",
+        "withOpenSerial(id: Int, args: JSONObject, block: (HwUsbDevice)",
+        "openSerial(id: Int, d: HwUsbDevice, args: JSONObject)",
+        "writeSerial(id: Int, d: HwUsbDevice, args: JSONObject)",
+        "setSignals(id: Int, d: HwUsbDevice, args: JSONObject)",
+        "opt(k: String)",
+        "closeSerial(key: String)",
+        "data(key: String, bytes: ByteArray)",
+        "closed(key: String)",
+        "requestUsb(id: Int, args: JSONObject, gesture: Boolean)",
+        "matches(f: JSONObject, d: HwUsbDevice)",
+        "ok(c: Int, s: Int, p: Int)",
+        "withUsbGrant(id: Int, args: JSONObject, block: (HwGrant)",
+        "withUsb(id: Int, args: JSONObject, block: (HwUsbDevice)",
+        "withOpenUsb(id: Int, args: JSONObject, block: (HwUsbDevice, UsbState)",
+        "openUsb(id: Int, d: HwUsbDevice)",
+        "closeUsb(key: String)",
+        "selectConfiguration(id: Int, d: HwUsbDevice, s: UsbState, args: JSONObject)",
+        "currentConfig(d: HwUsbDevice, s: UsbState)",
+        "claim(id: Int, d: HwUsbDevice, s: UsbState, args: JSONObject)",
+        "release(id: Int, d: HwUsbDevice, s: UsbState, args: JSONObject)",
+        "selectAlternate(id: Int, d: HwUsbDevice, s: UsbState, args: JSONObject)",
+        "endpointOf(d: HwUsbDevice, s: UsbState, number: Int, dirIn: Boolean)",
+        "control(id: Int, d: HwUsbDevice, s: UsbState, args: JSONObject, dirIn: Boolean)",
+        "bulk(id: Int, d: HwUsbDevice, s: UsbState, args: JSONObject, dirIn: Boolean)",
+        "clearHalt(id: Int, d: HwUsbDevice, s: UsbState, args: JSONObject)",
+        "transferReply(id: Int, r: UsbTransfer, dirIn: Boolean)",
+        "nfcReady(id: Int, gesture: Boolean, writing: Boolean, then: ()",
+        "nfcScan(id: Int, gesture: Boolean)"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/browser/src/main/java/com/diegonmarcos/superapp/browser/WebHardwareModel.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HwUsbEndpoint",
+        "HwUsbAlt",
+        "HwUsbInterface",
+        "HwUsbConfig",
+        "HwUsbDevice",
+        "UsbTransfer",
+        "HwUsbListener",
+        "UsbBackend",
+        "SerialOptions",
+        "HwSerialListener",
+        "SerialBackend",
+        "NdefRec",
+        "RawNdef",
+        "NfcListener",
+        "NfcWriteResult",
+        "NfcBackend",
+        "NdefCodec",
+        "HwGrant",
+        "WebHwGrants",
+        "HwChoice",
+        "HwChoiceRequest",
+        "WebHwChooser"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "java.util.concurrent.CopyOnWriteArrayList"
+      ],
+      "symbols": [
+        "attached(d: HwUsbDevice)",
+        "detached(key: String)",
+        "observe(l: HwUsbListener)",
+        "unobserve(l: HwUsbListener)",
+        "attached()",
+        "hasPermission(key: String)",
+        "requestPermission(key: String, done: (Boolean)",
+        "open(key: String)",
+        "close(key: String)",
+        "selectConfiguration(key: String, value: Int)",
+        "claim(key: String, number: Int)",
+        "release(key: String, number: Int)",
+        "setAlternate(key: String, number: Int, setting: Int)",
+        "control(key: String, requestType: Int, request: Int, value: Int, index: Int, data: ByteArray?, length: Int)",
+        "bulkIn(key: String, endpoint: Int, length: Int, timeoutMs: Int = 5000)",
+        "bulkOut(key: String, endpoint: Int, data: ByteArray, timeoutMs: Int = 5000)",
+        "reset(key: String)",
+        "data(key: String, bytes: ByteArray)",
+        "closed(key: String)",
+        "observe(l: HwSerialListener)",
+        "unobserve(l: HwSerialListener)",
+        "ports()",
+        "open(key: String, o: SerialOptions)",
+        "write(key: String, bytes: ByteArray)",
+        "setSignals(key: String, dtr: Boolean?, rts: Boolean?, brk: Boolean?)",
+        "tag(serial: String, records: List<NdefRec>)",
+        "failed(message: String)",
+        "start(l: NfcListener)",
+        "stop(l: NfcListener)",
+        "writeNext(records: List<NdefRec>, overwrite: Boolean, done: (NfcWriteResult)",
+        "cancelWrite()",
+        "toWeb(r: RawNdef)",
+        "toRaw(r: NdefRec)",
+        "forOrigin(origin: String)",
+        "grant(origin: String, g: HwGrant)",
+        "find(origin: String, id: String)",
+        "has(origin: String, key: String)",
+        "revoke(origin: String, key: String)",
+        "clear(origin: String)",
+        "origins()"
       ]
     },
     {
@@ -83919,6 +84332,90 @@
       ]
     },
     {
+      "path": "ac_cloud-browser/app/src/test/java/com/diegonmarcos/cloudbrowser/WebHardwareCoreTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "WebHardwareCoreTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.browser.CdcAcmSerial",
+        "com.diegonmarcos.superapp.browser.HwChoiceRequest",
+        "com.diegonmarcos.superapp.browser.HwUsbAlt",
+        "com.diegonmarcos.superapp.browser.HwUsbConfig",
+        "com.diegonmarcos.superapp.browser.HwUsbDevice",
+        "com.diegonmarcos.superapp.browser.HwUsbEndpoint",
+        "com.diegonmarcos.superapp.browser.HwUsbInterface",
+        "com.diegonmarcos.superapp.browser.HwUsbListener",
+        "com.diegonmarcos.superapp.browser.NdefCodec",
+        "com.diegonmarcos.superapp.browser.NdefRec",
+        "com.diegonmarcos.superapp.browser.NfcBackend",
+        "com.diegonmarcos.superapp.browser.NfcListener",
+        "com.diegonmarcos.superapp.browser.NfcWriteResult",
+        "com.diegonmarcos.superapp.browser.RawNdef",
+        "com.diegonmarcos.superapp.browser.UsbBackend",
+        "com.diegonmarcos.superapp.browser.UsbTransfer",
+        "com.diegonmarcos.superapp.browser.WebBleGrants",
+        "com.diegonmarcos.superapp.browser.WebHardwareCore",
+        "com.diegonmarcos.superapp.browser.WebHwChooser",
+        "com.diegonmarcos.superapp.browser.WebHwGrants",
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertArrayEquals",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotEquals",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Before",
+        "org.junit.Test",
+        "java.io.File"
+      ],
+      "symbols": [
+        "hex(b: ByteArray)",
+        "ep(n: Int, dirIn: Boolean, type: String = \"bulk\", size: Int = 64)",
+        "observe(l: HwUsbListener)",
+        "unobserve(l: HwUsbListener)",
+        "attached()",
+        "hasPermission(key: String)",
+        "requestPermission(key: String, done: (Boolean)",
+        "open(key: String)",
+        "close(key: String)",
+        "selectConfiguration(key: String, value: Int)",
+        "claim(key: String, number: Int)",
+        "release(key: String, number: Int)",
+        "setAlternate(key: String, number: Int, setting: Int)",
+        "control(key: String, requestType: Int, request: Int, value: Int, index: Int, data: ByteArray?, length: Int)",
+        "bulkIn(key: String, endpoint: Int, length: Int, timeoutMs: Int)",
+        "bulkOut(key: String, endpoint: Int, data: ByteArray, timeoutMs: Int)",
+        "reset(key: String)",
+        "plug(d: HwUsbDevice)",
+        "unplug(key: String)",
+        "start(l: NfcListener)",
+        "stop(l: NfcListener)",
+        "writeNext(records: List<NdefRec>, overwrite: Boolean, done: (NfcWriteResult)",
+        "cancelWrite()",
+        "get(key: String)",
+        "put(key: String, value: String?)",
+        "keys()",
+        "pick(request: HwChoiceRequest, onPick: (String)",
+        "allowNfc(origin: String, writing: Boolean, onAllow: ()",
+        "tapTag(origin: String, onCancel: ()",
+        "setUp()",
+        "ensure(key: String, done: (Boolean)",
+        "call(op: String, args: JSONObject = JSONObject()",
+        "ok(op: String, r: JSONObject?)",
+        "errName(r: JSONObject?)",
+        "events(name: String)",
+        "obj(vararg p: Pair<String, Any>)",
+        "portId()",
+        "usbId(key: String)",
+        "openSerial(p: String, baud: Int = 115200)",
+        "openUsb(key: String)"
+      ]
+    },
+    {
       "path": "ac_cloud-browser/build.sh",
       "lang": "sh",
       "role": "shell",
@@ -84127,6 +84624,20 @@
       ]
     },
     {
+      "path": "ac_cloud-browser/test/emulator-linktree.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "bad()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "bad()"
+      ]
+    },
+    {
       "path": "ac_cloud-browser/test/emulator-local-names.sh",
       "lang": "sh",
       "role": "shell",
@@ -84152,6 +84663,22 @@
         "tap_text()",
         "wait_for()",
         "fg_service()"
+      ]
+    },
+    {
+      "path": "ac_cloud-browser/test/hw_polyfill_harness.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [],
+      "imports": [
+        "fs",
+        "vm"
+      ],
+      "symbols": [
+        "typeOk(t, v)",
+        "shapeOk(shape, obj)",
+        "makeWindow({ secure = true, topIsSelf = true, existing = {}, userActivation } = {})",
+        "load(win)"
       ]
     },
     {
@@ -84250,6 +84777,22 @@
     },
     {
       "path": "ac_cloud-browser/test/test-browser-web-bluetooth.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "bad()",
+        "run_mut()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "bad()",
+        "run_mut()"
+      ]
+    },
+    {
+      "path": "ac_cloud-browser/test/test-browser-web-hardware.sh",
       "lang": "sh",
       "role": "shell",
       "exports": [
@@ -170628,6 +171171,7 @@
         "rowAction(id: String)",
         "cloneUrl(repo: GitRepoDecl)",
         "byGithub(github: String)",
+        "lfsOf(github: String)",
         "cloneable(github: String)",
         "routable(id: String)",
         "decode(b64: String)",
@@ -170650,8 +171194,7 @@
         "parseVolumes(text: String, classes: List<VolumeClassDecl> = emptyList()",
         "parseConstellation(text: String)",
         "parseSyncRules(text: String)",
-        "parseApps(text: String)",
-        "parseConnections(text: String)"
+        "parseApps(text: String)"
       ]
     },
     {
@@ -173455,7 +173998,7 @@
         "startWay(way: Declarations.GitWayDecl)",
         "tableBlock()",
         "GitWayCard( way: Declarations.GitWayDecl, isCloud: Boolean, page: Declarations.GitPageDecl, login: GitLogin, listing: GitListing, chain: GitChainState, ghAuth: GhAuth, signingIn: Boolean, rungDeclared: Boolean, cloudFallback: Boolean, fleetHost: SignInHost, onSignIn: ()",
-        "GitRepoRow( name: String, repoName: String, cells: RepoTableRow, scroll: ScrollState, fork: Boolean, source: String = \"\", repo: ManagedRepo?, glance: GitSyncCoordinator.Glance?, running: GitSyncCoordinator.Running?, cloning: Boolean, expanded: Boolean, onToggle: ()",
+        "GitRepoRow( name: String, repoName: String, cells: RepoTableRow, scroll: ScrollState, fork: Boolean, repo: ManagedRepo?, glance: GitSyncCoordinator.Glance?, running: GitSyncCoordinator.Running?, cloning: Boolean, expanded: Boolean, onToggle: ()",
         "lightOf(repo: ManagedRepo?, glance: GitSyncCoordinator.Glance?)",
         "statusErrorText(kind: RepoStatus.ErrorKind?, detail: String?)",
         "RepoStatusLegend()",
@@ -174076,11 +174619,55 @@
         "light(kind: Kind)",
         "errorKind(reason: String?)",
         "block(cloned: Boolean, g: GitSyncCoordinator.Glance?)",
+        "cloneAction(cloned: Boolean, cloning: Boolean)",
         "unpushed(log: List<GitCommitInfo>, ahead: Int?)",
         "class RepoStatus",
         "class Kind",
         "class ErrorKind",
-        "class Block"
+        "class Block",
+        "class CloneAction"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/RepoStatusWindow.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [],
+      "imports": [
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.navigationBarsPadding",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.statusBarsPadding",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Surface",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.window.Dialog",
+        "androidx.compose.ui.window.DialogProperties",
+        "com.diegonmarcos.clouddrive.R",
+        "com.diegonmarcos.clouddrive.ui.DriveMetrics",
+        "com.diegonmarcos.clouddrive.ui.DriveTags",
+        "com.diegonmarcos.clouddrive.ui.Pill",
+        "com.diegonmarcos.clouddrive.ui.StatusDot",
+        "com.diegonmarcos.cloudlib.gitsync.ManagedRepo",
+        "java.text.DateFormat",
+        "java.util.Date"
+      ],
+      "symbols": [
+        "kindText(k: RepoStatus.Kind)",
+        "RepoStatusWindow( name: String, owner: String, row: RepoTableRow, repo: ManagedRepo?, glance: GitSyncCoordinator.Glance?, cloneUrl: String, remote: RepoRemoteStats.Stats?, cloning: Boolean, fmt: DateFormat, onClone: ()"
       ]
     },
     {
@@ -174102,9 +174689,10 @@
         "size(bytes: Long?)",
         "count(n: Int?)",
         "visibility(isPrivate: Boolean?, pvt: String, pub: String)",
+        "lfs(lfs: Boolean?, lfsWord: String, normalWord: String)",
         "dirty(files: Int?, yes: String, no: String)",
         "aheadBehind(ahead: Int?, behind: Int?)",
-        "rowOf(name: String, declaredPrivate: Boolean?, cloned: Boolean, glance: GitSyncCoordinator.Glance?, remote: RepoRemoteStats.Stats?, provider: String? = null, diskBytes: Long? = null)",
+        "rowOf(name: String, declaredPrivate: Boolean?, cloned: Boolean, glance: GitSyncCoordinator.Glance?, remote: RepoRemoteStats.Stats?, provider: String? = null, diskBytes: Long? = null, lfs: Boolean? = null)",
         "class RepoColumn",
         "class RepoTableRow",
         "class RepoTable",
@@ -174122,6 +174710,7 @@
         "androidx.compose.foundation.clickable",
         "androidx.compose.foundation.horizontalScroll",
         "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
         "androidx.compose.foundation.layout.Column",
         "androidx.compose.foundation.layout.ExperimentalLayoutApi",
         "androidx.compose.foundation.layout.FlowRow",
@@ -174147,13 +174736,16 @@
         "com.diegonmarcos.clouddrive.ui.DriveMetrics",
         "com.diegonmarcos.clouddrive.ui.DriveTags",
         "com.diegonmarcos.clouddrive.ui.IconCatalog",
-        "com.diegonmarcos.clouddrive.ui.Pill"
+        "com.diegonmarcos.clouddrive.ui.Pill",
+        "com.diegonmarcos.clouddrive.ui.StatusDot",
+        "com.diegonmarcos.clouddrive.ui.StatusLight"
       ],
       "symbols": [
         "repoCellModifier(c: RepoColumn)",
         "columnLabel(c: RepoColumn)",
         "RepoTableHeader(column: RepoColumn, ascending: Boolean, scroll: ScrollState, onSort: (RepoColumn)",
         "RepoCells(r: RepoTableRow)",
+        "RepoStatusCell(light: StatusLight.State, name: String, onOpen: ()",
         "groupTitle(g: RepoGroup)",
         "actionLabel(id: String, declared: Declarations.GitOpDecl?)",
         "RepoActionGroupsView( page: Declarations.GitPageDecl, busy: Boolean, blocked: (Declarations.GitOpDecl)",
@@ -175863,6 +176455,7 @@
         "pendingRepositoriesAreDeclaredAndNeverCloneable()",
         "pending(n: String)",
         "renamesComeFromTheRegistry()",
+        "lfsComesFromTheRegistryFieldNeverFromKotlin()",
         "blankAndBrokenRegistryParseToEmptyAndListNothing()",
         "class RepoSotTest"
       ]
@@ -176364,6 +176957,9 @@
         "tableBlock()",
         "onPageOpened()",
         "onTick()",
+        "GitRepoRow(\")",
+        "lightOf(\")",
+        "RepoStatusCell(\")",
         "class GitPageLayoutTest"
       ]
     },
@@ -355884,6 +356480,7 @@
       ],
       "symbols": [
         "WebPage(block: JSONObject, modifier: Modifier = Modifier)",
+        "onRenderProcessGone(view: WebView?, detail: android.webkit.RenderProcessGoneDetail?)",
         "onPageFinished(view: WebView?, url: String?)",
         "doUpdateVisitedHistory(view: WebView?, url: String?, isReload: Boolean)",
         "importData()",

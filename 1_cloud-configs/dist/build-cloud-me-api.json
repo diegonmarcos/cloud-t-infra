@@ -2050,19 +2050,19 @@
       "list": [
         {
           "name": "cloud-me-containers",
-          "ssh": "git@github.com:diegonmarcos/cloud-me-containers.git",
+          "ssh": "git@github.com:diegonmarcos/cloud-me-pvt-containers.git",
           "branch": "main",
           "key_env": "CME_KEY_CONTAINERS_B64"
         },
         {
           "name": "cloud-me_configs",
-          "ssh": "git@github.com:diegonmarcos/cloud-me_configs.git",
+          "ssh": "git@github.com:diegonmarcos/cloud-me-pvt-configs.git",
           "branch": "main",
           "key_env": "CME_KEY_CONFIGS_B64"
         },
         {
           "name": "cloud-me_cgc",
-          "ssh": "git@github.com:diegonmarcos/cloud-me_cgc.git",
+          "ssh": "git@github.com:diegonmarcos/cloud-me-pvt-cgc.git",
           "branch": "main",
           "key_env": "CME_KEY_CGC_B64"
         }

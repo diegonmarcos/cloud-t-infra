@@ -2015,7 +2015,8 @@
       "_include_forks_doc": "FairEmail and octocode are upstream forks; mirroring them copies other people's code with no backup value. Flip to true to include them.",
       "exclude": [
         "cloud-vault",
-        "cloud-me_vault"
+        "cloud-me_vault",
+        "cloud-me-pvt-vault"
       ],
       "_exclude_doc": "Repo names to skip entirely (exact match against github-repos.json .repos[].name — see expandGiteaMirrors in 1_cloud-configs/src/derive/cloud-data-config-consolidated.ts). Empty = mirror every non-fork repo in the inventory. cloud-vault is hard-excluded as defense in depth: mirror privacy otherwise depends solely on the inventory's private:true flag, and that same derived-flag mechanism already republished cloud-data (also private) as a public mirror once before it existed (see _mirrors_doc above). A credential store must not depend on a single flag being right every time. cloud-me_vault is the SAME credential store under its current GitHub name: api.github.com/repos/diegonmarcos/cloud-vault answers 301 to repository id 1138187048, which is cloud-me_vault (measured 2026-10-01). Excluding only the old name let the renamed vault back into the derived mirror set as an empty private mirror, and GITHUB_MIRROR_TOKEN would have filled it. A rename must update this list; the flake also drops excluded names from the derived set, so a stale inventory cannot re-create one."
     },
@@ -2030,49 +2031,91 @@
       "_doc": "Gitea honours its reverse-proxy user header from ANY peer: REVERSE_PROXY_TRUSTED_PROXIES only feeds the X-Forwarded-For rewrite (gitea v28.0.0 routers/common/middleware.go:33); services/auth/reverseproxy.go never checks the source. With 0.0.0.0:3002 reachable from every wg0/wg-public peer and ~40 host-network containers on oci-apps, enabling reverse-proxy auth on that listener would let any of them become `diego` with one header. So gitea listens only on a unix socket in a tmpfs volume that no other container mounts, and this caddy owns :3002: it forwards `identity.header` (and X-Real-IP) only when the peer is in trusted_proxies AND the Host is this service's domain — the .app catalog routes the hub also serves from 10.0.0.1 carry Host gitea.mesh.diegonmarcos.com, so they cannot mint an identity either. Everything else reaches gitea exactly as before, anonymous."
     },
     "mirrors": {
-      "cloud-me-my-ai": {
-        "upstream": "https://github.com/diegonmarcos/cloud-me-my-ai.git",
+      "cloud-a-docs": {
+        "upstream": "https://github.com/diegonmarcos/cloud-a-docs.git",
         "private": true
-      },
-      "cloud-u-android": {
-        "upstream": "https://github.com/diegonmarcos/cloud-u-android.git"
-      },
-      "_git-repos-master": {
-        "upstream": "https://github.com/diegonmarcos/_git-repos-master.git"
-      },
-      "cloud-t-infra": {
-        "upstream": "https://github.com/diegonmarcos/cloud-t-infra.git"
-      },
-      "cloud-me-profiles": {
-        "upstream": "https://github.com/diegonmarcos/cloud-me-profiles.git"
-      },
-      "cloud": {
-        "upstream": "https://github.com/diegonmarcos/cloud.git"
-      },
-      "cloud-h-webapps": {
-        "upstream": "https://github.com/diegonmarcos/cloud-h-webapps.git"
-      },
-      "cloud-me-data-pvt": {
-        "upstream": "https://github.com/diegonmarcos/cloud-me-data-pvt.git",
-        "private": true
-      },
-      "cloud-u-linux": {
-        "upstream": "https://github.com/diegonmarcos/cloud-u-linux.git"
-      },
-      "cloud-h-webapps-2": {
-        "upstream": "https://github.com/diegonmarcos/cloud-h-webapps-2.git"
       },
       "cloud-u-containers": {
         "upstream": "https://github.com/diegonmarcos/cloud-u-containers.git"
       },
-      "cloud-me-others": {
-        "upstream": "https://github.com/diegonmarcos/cloud-me-others.git"
+      "cloud-t-infra": {
+        "upstream": "https://github.com/diegonmarcos/cloud-t-infra.git"
+      },
+      "cloud": {
+        "upstream": "https://github.com/diegonmarcos/cloud.git"
+      },
+      "_git-repos-master": {
+        "upstream": "https://github.com/diegonmarcos/_git-repos-master.git"
+      },
+      "cloud-me-pub-profiles": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pub-profiles.git"
+      },
+      "cloud-me-pub-profiles-prf-prs": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pub-profiles-prf-prs.git"
+      },
+      "cloud-me-pub-profiles-_lnktree": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pub-profiles-_lnktree.git"
+      },
+      "cloud-u-linux": {
+        "upstream": "https://github.com/diegonmarcos/cloud-u-linux.git"
+      },
+      "cloud-u-android": {
+        "upstream": "https://github.com/diegonmarcos/cloud-u-android.git"
+      },
+      "cloud-me-pvt-configs": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-configs.git",
+        "private": true
+      },
+      "cloud-me-pvt-my-ai": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-my-ai.git",
+        "private": true
+      },
+      "cloud-me-pvt": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pvt.git",
+        "private": true
+      },
+      "cloud-me-pvt-notes": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-notes.git",
+        "private": true
+      },
+      "cloud-me-pub": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pub.git"
+      },
+      "cloud-h-webapps-2": {
+        "upstream": "https://github.com/diegonmarcos/cloud-h-webapps-2.git"
+      },
+      "cloud-me-pvt-containers": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-containers.git",
+        "private": true
+      },
+      "z-archived_c3-infra-plugin": {
+        "upstream": "https://github.com/diegonmarcos/z-archived_c3-infra-plugin.git",
+        "private": true
+      },
+      "cloud-h-webapps": {
+        "upstream": "https://github.com/diegonmarcos/cloud-h-webapps.git"
+      },
+      "cloud-me-pvt-data": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-data.git",
+        "private": true
+      },
+      "cloud-me-pub-profiles-stark.x": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pub-profiles-stark.x.git"
+      },
+      "cloud-me-pub-profiles-nexus.z": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pub-profiles-nexus.z.git"
+      },
+      "cloud-me-pub-profiles-leaf.y": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pub-profiles-leaf.y.git"
+      },
+      "cloud-me-pub-shared": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pub-shared.git"
       },
       "cloud_db_assets-cdn": {
         "upstream": "https://github.com/diegonmarcos/cloud_db_assets-cdn.git"
       },
-      "cloud-me_cgc": {
-        "upstream": "https://github.com/diegonmarcos/cloud-me_cgc.git",
+      "cloud-me-pvt-cgc": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-cgc.git",
         "private": true
       },
       "cloud-u-containers_cgc": {
@@ -2081,38 +2124,18 @@
       "cloud_db_infra-ops-obsv_configs-sync": {
         "upstream": "https://github.com/diegonmarcos/cloud_db_infra-ops-obsv_configs-sync.git"
       },
-      "cloud-me_configs": {
-        "upstream": "https://github.com/diegonmarcos/cloud-me_configs.git",
-        "private": true
-      },
       "cloud-u-desktop": {
         "upstream": "https://github.com/diegonmarcos/cloud-u-desktop.git"
-      },
-      "cloud-me": {
-        "upstream": "https://github.com/diegonmarcos/cloud-me.git",
-        "private": true
-      },
-      "z-archived_c3-infra-plugin": {
-        "upstream": "https://github.com/diegonmarcos/z-archived_c3-infra-plugin.git",
-        "private": true
       },
       "cloud_db_LFS": {
         "upstream": "https://github.com/diegonmarcos/cloud_db_LFS.git",
         "private": true
       },
-      "cloud-me-containers": {
-        "upstream": "https://github.com/diegonmarcos/cloud-me-containers.git",
-        "private": true
+      "z-archived_cloud-me-pub-data": {
+        "upstream": "https://github.com/diegonmarcos/z-archived_cloud-me-pub-data.git"
       },
-      "cloud-me-notes": {
-        "upstream": "https://github.com/diegonmarcos/cloud-me-notes.git",
-        "private": true
-      },
-      "cloud-me_data-pub": {
-        "upstream": "https://github.com/diegonmarcos/cloud-me_data-pub.git"
-      },
-      "cloud-me_data-private": {
-        "upstream": "https://github.com/diegonmarcos/cloud-me_data-private.git",
+      "z-archived_cloud-me-pvt-data-private": {
+        "upstream": "https://github.com/diegonmarcos/z-archived_cloud-me-pvt-data-private.git",
         "private": true
       },
       "z-archived_My-ai-memory": {
