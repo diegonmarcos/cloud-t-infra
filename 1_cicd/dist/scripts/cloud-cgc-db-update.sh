@@ -261,7 +261,12 @@ if [ -z "${CGC_SANDBOXED:-}" ] && [ "${CGC_NO_SANDBOX:-}" != "1" ]; then
   # but there is no system manager → scope creation dies with "Host is down". There
   # the container's own cpus/memory limits already provide freeze-safety, so fall
   # back to nice/ionice.
-  if [ -d /run/systemd/system ] && command -v systemd-run >/dev/null 2>&1 && sudo -n true 2>/dev/null; then
+  if [ -d /run/systemd/system ] && command -v systemd-run >/dev/null 2>&1 && sudo -n true 2>/dev/null \
+     && CGC_SUDO_E_PROBE=1 sudo -n -E sh -c '[ "${CGC_SUDO_E_PROBE:-}" = 1 ]' 2>/dev/null; then
+    # The last probe: sudo-rs (newer runner images) ignores -E ("preserving the entire
+    # environment is not supported"), which silently dropped CGC_PACKAGE_MODE & co. and
+    # sent per-repo legs down the monolith path ("no GHCR DB base restored"). Without a
+    # working -E the scope cannot carry the env, so take the nice/ionice fallback.
     # --scope units have no ExecContext, so SupplementaryGroups= is rejected and
     # --uid/--gid drop the docker group → no daemon-socket access. Run with egid =
     # the docker socket's group (data-derived, not hardcoded) so the sandboxed
