@@ -20,7 +20,7 @@
 
 # 2026-09-06: a_solutions is NOT a submodule and must not be re-added as one.
 #
-# It was split out to diegonmarcos/cloud-u-containers on 2026-08-27 and then
+# It was split out to diegonmarcos/cloudy-u-containers on 2026-08-27 and then
 # immediately mounted back here as a submodule, which kept every path
 # resolving but left the tree inside cloud-infra in every way that mattered:
 # a container change still had to land here as a gitlink bump, so this repo

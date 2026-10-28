@@ -24,7 +24,7 @@ ENGINE_NIX="$REPO_ROOT/a_solutions/_shared/engine.nix"
 fail=0
 
 # A check that cannot reach its subject FAILS. a_solutions is a separate
-# repository (diegonmarcos/cloud-u-containers) that CI checks out into this
+# repository (diegonmarcos/cloudy-u-containers) that CI checks out into this
 # path; if the checkout is missing, this tester has verified NOTHING and must
 # say so rather than exiting 0 over an absent file.
 if [ ! -f "$ENGINE_NIX" ]; then

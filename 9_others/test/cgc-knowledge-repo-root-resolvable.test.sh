@@ -51,7 +51,7 @@
 # WHY IT IS REGISTERED "quarantine" IN 9_others/test-registry.json
 #
 #   The defect is real and is NOT fixed: the resolver lives in
-#   diegonmarcos/cloud-u-containers, a different repository. This guard is red
+#   diegonmarcos/cloudy-u-containers, a different repository. This guard is red
 #   on purpose and run-registered-testers.sh asserts it stays red; the day the
 #   resolver is moved onto GIT_ROOT the runner goes RED for the opposite reason
 #   and demands the flip to "run". It can therefore never decay into a skip.

@@ -50,7 +50,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: diegonmarcos/cloud-u-containers
+          repository: diegonmarcos/cloudy-u-containers
           path: containers
       - name: Install sops
         run: |

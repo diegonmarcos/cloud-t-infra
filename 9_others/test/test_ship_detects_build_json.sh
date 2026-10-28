@@ -14,7 +14,7 @@
 # superproject `git diff HEAD -- 'a_solutions/*/src/**' 'a_solutions/*/build.json'`
 # pathspec. Both belonged to an implementation that no longer exists. On
 # 2026-09-06 a_solutions stopped being a submodule and became a separate
-# repository (diegonmarcos/cloud-u-containers), and detection moved INSIDE that
+# repository (diegonmarcos/cloudy-u-containers), and detection moved INSIDE that
 # checkout. So this tester reported 4/4 red against a tree whose behaviour was
 # correct, and it would have gone green again for anyone who pasted the two
 # strings back in WITHOUT restoring the behaviour — including a `paths:` entry

@@ -50,7 +50,7 @@ set -eo pipefail
 # wrong for one of the two copies.
 REPO_ROOT="$(_d="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"; while [ "$_d" != "/" ] && [ ! -e "$_d/.git" ]; do _d="$(dirname "$_d")"; done; printf '%s' "$_d")"
 
-# The container definitions live in diegonmarcos/cloud-u-containers, which is a
+# The container definitions live in diegonmarcos/cloudy-u-containers, which is a
 # plain sibling repository (NOT a submodule since 2026-09-06). CI checks it out
 # at a_solutions/; a developer clone has it beside this repo. Both are real
 # layouts, so accept either — and fail loudly if neither is present rather than

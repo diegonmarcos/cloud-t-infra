@@ -156,7 +156,7 @@ jobs:
       repos: ${{ steps.repos.outputs.repos }}
     steps:
       - uses: actions/checkout@v4
-      # a_solutions is its OWN repository (diegonmarcos/cloud-u-containers),
+      # a_solutions is its OWN repository (diegonmarcos/cloudy-u-containers),
       # NOT a submodule of this one (split out 2026-09-06). It is checked out
       # at the path every in-repo reference already uses, so nothing
       # downstream changes. fetch-depth: 0 — per-service change detection
@@ -164,7 +164,7 @@ jobs:
       - name: Checkout cloud-u-containers into a_solutions
         uses: actions/checkout@v4
         with:
-          repository: diegonmarcos/cloud-u-containers
+          repository: diegonmarcos/cloudy-u-containers
           path: a_solutions
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -256,7 +256,7 @@ jobs:
       - name: Job clock
         run: echo "CGC_START_TS=$(date +%s)" >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
-      # a_solutions is its OWN repository (diegonmarcos/cloud-u-containers),
+      # a_solutions is its OWN repository (diegonmarcos/cloudy-u-containers),
       # NOT a submodule of this one (split out 2026-09-06). It is checked out
       # at the path every in-repo reference already uses, so nothing
       # downstream changes. fetch-depth: 0 — per-service change detection
@@ -264,7 +264,7 @@ jobs:
       - name: Checkout cloud-u-containers into a_solutions
         uses: actions/checkout@v4
         with:
-          repository: diegonmarcos/cloud-u-containers
+          repository: diegonmarcos/cloudy-u-containers
           path: a_solutions
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -475,7 +475,7 @@ jobs:
       CGC_BOOTSTRAP_TOLERANT: "1"
     steps:
       - uses: actions/checkout@v4
-      # a_solutions is its OWN repository (diegonmarcos/cloud-u-containers),
+      # a_solutions is its OWN repository (diegonmarcos/cloudy-u-containers),
       # NOT a submodule of this one (split out 2026-09-06). It is checked out
       # at the path every in-repo reference already uses, so nothing
       # downstream changes. fetch-depth: 0 — per-service change detection
@@ -483,7 +483,7 @@ jobs:
       - name: Checkout cloud-u-containers into a_solutions
         uses: actions/checkout@v4
         with:
-          repository: diegonmarcos/cloud-u-containers
+          repository: diegonmarcos/cloudy-u-containers
           path: a_solutions
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}

@@ -13,7 +13,7 @@
 # ┌──────────────────────────────────────────────────────────────┐
 # │  cgc-db RESTORE — one surface onto oci-apps.                 │
 # │                                                              │
-# │  pub: dispatched by diegonmarcos/cloud-u-containers_cgc      │
+# │  pub: dispatched by diegonmarcos/cloudy-u-containers_cgc      │
 # │       (public) after it indexes.                             │
 # │  pvt: PULLED (#951) — no cross-repo token. Hourly, the       │
 # │       `check` job compares the private cgc-db-<repo>         │
@@ -128,7 +128,7 @@ jobs:
           # Their versions are read with this repo's CGC_GHCR_PAT (classic, read:packages —
           # the credential the box already pulls them with); the job token cannot see them.
           [ -n "${CGC_GHCR_PAT:-}" ] || { echo "::error::CGC_GHCR_PAT is empty — cannot read the private packages' versions"; exit 1; }
-          BJ=$(curl -sSfL https://raw.githubusercontent.com/diegonmarcos/cloud-u-containers/main/user-ai_cloud-cgc-pub-mcp/build.json)
+          BJ=$(curl -sSfL https://raw.githubusercontent.com/diegonmarcos/cloudy-u-containers/main/user-ai_cloud-cgc-pub-mcp/build.json)
           PREFIX=$(printf '%s' "$BJ" | jq -r '.per_repo_publish.image_prefix')
           NEWER=""
           for r in $(printf '%s' "$BJ" | jq -r '.runtime.octocode.private_repos // [] | .[]'); do
@@ -142,7 +142,7 @@ jobs:
           if [ -z "$NEWER" ]; then echo "[cgc-db] nothing newer than the last pvt restore — done"; exit 0; fi
           # The restore script runs from cloud-u-containers_cgc main (the restore step only
           # accepts commits on main); the private caller's pin is not readable from here.
-          REF=$(gh api repos/diegonmarcos/cloud-u-containers_cgc/commits/main --jq .sha)
+          REF=$(gh api repos/diegonmarcos/cloudy-u-containers_cgc/commits/main --jq .sha)
           echo "::notice::pvt pull: newer than the last restore:$NEWER — restoring the pvt surface with cloud-u-containers_cgc@$REF"
           GO=true
 
@@ -166,7 +166,7 @@ jobs:
       CGC_BOOTSTRAP_TOLERANT: "1"
     steps:
       - uses: actions/checkout@v4
-      # a_solutions is its OWN repository (diegonmarcos/cloud-u-containers),
+      # a_solutions is its OWN repository (diegonmarcos/cloudy-u-containers),
       # NOT a submodule of this one (split out 2026-09-06). It is checked out
       # at the path every in-repo reference already uses, so nothing
       # downstream changes. fetch-depth: 0 — per-service change detection
@@ -174,7 +174,7 @@ jobs:
       - name: Checkout cloud-u-containers into a_solutions
         uses: actions/checkout@v4
         with:
-          repository: diegonmarcos/cloud-u-containers
+          repository: diegonmarcos/cloudy-u-containers
           path: a_solutions
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -184,7 +184,7 @@ jobs:
         with:
           include: I_cloud
       - name: Fetch restore-all from cloud-u-containers_cgc at the dispatched commit
-        # The pipeline's code lives in the public diegonmarcos/cloud-u-containers_cgc. The
+        # The pipeline's code lives in the public diegonmarcos/cloudy-u-containers_cgc. The
         # dispatcher names the commit it indexed with; restore runs the restore script of
         # that SAME commit (image layout and in-image state are a contract between them).
         # Only a commit on that repo's main is accepted: a dispatch token must not be able
@@ -197,16 +197,16 @@ jobs:
           set -eu
           # accept a short sha (7-39 hex): resolve it to the full one on cloud-u-containers_cgc
           if printf '%s' "$REF" | grep -Eq '^[0-9a-f]{7,39}$'; then
-            REF=$(gh api "repos/diegonmarcos/cloud-u-containers_cgc/commits/$REF" --jq .sha) || { echo "::error::cgc_ref cannot be resolved"; exit 1; }
+            REF=$(gh api "repos/diegonmarcos/cloudy-u-containers_cgc/commits/$REF" --jq .sha) || { echo "::error::cgc_ref cannot be resolved"; exit 1; }
           fi
           printf '%s' "$REF" | grep -Eq '^[0-9a-f]{40}$' || { echo "::error::cgc_ref '$REF' is not a 40-hex commit sha"; exit 1; }
-          ST=$(gh api "repos/diegonmarcos/cloud-u-containers_cgc/compare/$REF...main" -q .status 2>/dev/null || echo error)
+          ST=$(gh api "repos/diegonmarcos/cloudy-u-containers_cgc/compare/$REF...main" -q .status 2>/dev/null || echo error)
           case "$ST" in
             identical|ahead) echo "[cgc-db] cgc_ref $REF is on cloud-u-containers_cgc main ($ST)" ;;
             *) echo "::error::cgc_ref $REF is not an ancestor of cloud-u-containers_cgc main (compare: $ST) — refusing to run its restore script"; exit 1 ;;
           esac
           curl -sSfL -o "$RUNNER_TEMP/cgc-restore-all.sh" \
-            "https://raw.githubusercontent.com/diegonmarcos/cloud-u-containers_cgc/$REF/1_cicd/src/ops/cloud-cgc-db-restore-all.sh"
+            "https://raw.githubusercontent.com/diegonmarcos/cloudy-u-containers_cgc/$REF/1_cicd/src/ops/cloud-cgc-db-restore-all.sh"
           sh -n "$RUNNER_TEMP/cgc-restore-all.sh"
           echo "[cgc-db] restore-all script: cloud-u-containers_cgc@$REF ($(wc -l < "$RUNNER_TEMP/cgc-restore-all.sh") lines)"
       - name: WireGuard up

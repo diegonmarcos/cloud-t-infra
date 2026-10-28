@@ -193,7 +193,7 @@ DIST="$REPO_ROOT/1_cloud-configs/dist"
 if [ ! -d "$SVCROOT" ]; then
     # Not a skip. A missing a_solutions means this guard checked nothing, and a
     # guard that checks nothing must never be the reason a run is green (#368).
-    echo "::error::a_solutions/ is not checked out — this guard cannot verify anything. The job must check out diegonmarcos/cloud-u-containers into a_solutions/ before running it."
+    echo "::error::a_solutions/ is not checked out — this guard cannot verify anything. The job must check out diegonmarcos/cloudy-u-containers into a_solutions/ before running it."
     exit 1
 fi
 [ -d "$DIST" ] || { echo "::error::$DIST missing — run 1_cloud-configs/build.sh"; exit 1; }

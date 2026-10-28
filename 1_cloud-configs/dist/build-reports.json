@@ -3562,10 +3562,10 @@
     "github": {
       "enabled": true,
       "repos": [
-        "diegonmarcos/cloud-t-infra",
+        "diegonmarcos/cloudy-t-infra",
         "diegonmarcos/cloud-data",
         "diegonmarcos/cloud-infra-desktop",
-        "diegonmarcos/cloud-u-linux",
+        "diegonmarcos/cloudy-u-linux",
         "diegonmarcos/front",
         "diegonmarcos/cloud-mykonsole-dtk"
       ],

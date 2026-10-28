@@ -21,7 +21,7 @@ on:
     paths:
       # a_solutions is DELIBERATELY ABSENT from this list and must stay that
       # way. On 2026-09-06 it stopped being a submodule and became a plain
-      # sibling repository (diegonmarcos/cloud-u-containers) that this repo
+      # sibling repository (diegonmarcos/cloudy-u-containers) that this repo
       # merely checks out. Nothing about a container change touches THIS
       # repository any more — not a file, not a gitlink — so no `paths:`
       # entry here, bare or globbed, can ever match one. Container changes
@@ -89,7 +89,7 @@ jobs:
           submodules: false
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
-      # a_solutions is its OWN repository (diegonmarcos/cloud-u-containers),
+      # a_solutions is its OWN repository (diegonmarcos/cloudy-u-containers),
       # NOT a submodule of this one (split out 2026-09-06). It is checked out
       # at the path every in-repo reference already uses, so nothing
       # downstream changes. fetch-depth: 0 — per-service change detection
@@ -97,7 +97,7 @@ jobs:
       - name: Checkout cloud-u-containers into a_solutions
         uses: actions/checkout@v4
         with:
-          repository: diegonmarcos/cloud-u-containers
+          repository: diegonmarcos/cloudy-u-containers
           path: a_solutions
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -637,7 +637,7 @@ jobs:
           fetch-depth: 2
           submodules: false
 
-      # a_solutions is its OWN repository (diegonmarcos/cloud-u-containers),
+      # a_solutions is its OWN repository (diegonmarcos/cloudy-u-containers),
       # NOT a submodule of this one (split out 2026-09-06). It is checked out
       # at the path every in-repo reference already uses, so nothing
       # downstream changes. fetch-depth: 0 — per-service change detection
@@ -645,7 +645,7 @@ jobs:
       - name: Checkout cloud-u-containers into a_solutions
         uses: actions/checkout@v4
         with:
-          repository: diegonmarcos/cloud-u-containers
+          repository: diegonmarcos/cloudy-u-containers
           path: a_solutions
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -702,7 +702,7 @@ jobs:
           if [ ! -f "$(dirname "$GITHUB_WORKSPACE")/cloud-u-android/2_configs/apk-manifest.json" ]; then
             rm -rf "$(dirname "$GITHUB_WORKSPACE")/cloud-u-android"
             GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 --filter=blob:none --sparse \
-              https://github.com/diegonmarcos/cloud-u-android.git "$(dirname "$GITHUB_WORKSPACE")/cloud-u-android"
+              https://github.com/diegonmarcos/cloudy-u-android.git "$(dirname "$GITHUB_WORKSPACE")/cloud-u-android"
             git -C "$(dirname "$GITHUB_WORKSPACE")/cloud-u-android" sparse-checkout set 2_configs
           fi
           bash 1_cloud-configs/build.sh all
@@ -833,7 +833,7 @@ jobs:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_ACTIONS: true
           GITHUB_EVENT_NAME: ${{ github.event_name }}
-          GITHUB_REPOSITORY: diegonmarcos/cloud-t-infra
+          GITHUB_REPOSITORY: diegonmarcos/cloudy-t-infra
           GITHUB_RUN_ID: ${{ github.run_id }}
           GITHUB_SHA: ${{ github.sha }}
           TRACE_DIR: ${{ runner.temp }}/traces
@@ -1066,7 +1066,7 @@ jobs:
           fetch-depth: 2
           submodules: false
 
-      # a_solutions is its OWN repository (diegonmarcos/cloud-u-containers),
+      # a_solutions is its OWN repository (diegonmarcos/cloudy-u-containers),
       # NOT a submodule of this one (split out 2026-09-06). It is checked out
       # at the path every in-repo reference already uses, so nothing
       # downstream changes. fetch-depth: 0 — per-service change detection
@@ -1074,7 +1074,7 @@ jobs:
       - name: Checkout cloud-u-containers into a_solutions
         uses: actions/checkout@v4
         with:
-          repository: diegonmarcos/cloud-u-containers
+          repository: diegonmarcos/cloudy-u-containers
           path: a_solutions
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -1105,7 +1105,7 @@ jobs:
           if [ ! -f "$(dirname "$GITHUB_WORKSPACE")/cloud-u-android/2_configs/apk-manifest.json" ]; then
             rm -rf "$(dirname "$GITHUB_WORKSPACE")/cloud-u-android"
             GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 --filter=blob:none --sparse \
-              https://github.com/diegonmarcos/cloud-u-android.git "$(dirname "$GITHUB_WORKSPACE")/cloud-u-android"
+              https://github.com/diegonmarcos/cloudy-u-android.git "$(dirname "$GITHUB_WORKSPACE")/cloud-u-android"
             git -C "$(dirname "$GITHUB_WORKSPACE")/cloud-u-android" sparse-checkout set 2_configs
           fi
           bash 1_cloud-configs/build.sh all
@@ -1196,7 +1196,7 @@ jobs:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_ACTIONS: true
           GITHUB_EVENT_NAME: ${{ github.event_name }}
-          GITHUB_REPOSITORY: diegonmarcos/cloud-t-infra
+          GITHUB_REPOSITORY: diegonmarcos/cloudy-t-infra
           GITHUB_RUN_ID: ${{ github.run_id }}
           GITHUB_SHA: ${{ github.sha }}
           TRACE_DIR: ${{ runner.temp }}/traces

@@ -128,7 +128,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="${CLOUD_ROOT:-$(cd "$SCRIPT_DIR/../../.." && pwd)}"
 
 # Where the container repository is checked out. It is a sibling repository
-# (diegonmarcos/cloud-u-containers) that both CI and the shared tree place at
+# (diegonmarcos/cloudy-u-containers) that both CI and the shared tree place at
 # a_solutions/, which is where every in-repo reference already looks.
 SOLUTIONS_DIR="${SOLUTIONS_DIR:-$REPO_ROOT/a_solutions}"
 

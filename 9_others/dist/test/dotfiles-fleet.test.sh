@@ -132,7 +132,7 @@ POL=""
 for c in "${CLAUDE_SOT_DIR:-/nonexistent}" "$ROOT/../cloud-u-linux/da_my-ai/data/claude" "$HOME/git/cloud-u-linux/da_my-ai/data/claude"; do
     [ -f "$c/mcp-policy.json" ] && { POL="$c/mcp-policy.json"; break; }
 done
-if [ -z "$POL" ] && git clone -q --depth 1 https://github.com/diegonmarcos/cloud-u-linux.git "$T/cul" 2>/dev/null; then POL="$T/cul/da_my-ai/data/claude/mcp-policy.json"; fi
+if [ -z "$POL" ] && git clone -q --depth 1 https://github.com/diegonmarcos/cloudy-u-linux.git "$T/cul" 2>/dev/null; then POL="$T/cul/da_my-ai/data/claude/mcp-policy.json"; fi
 if [ -n "$POL" ] && [ -f "$POL" ]; then
     want=$(jq -r '.tiers.default|sort|join(",")' "$POL"); have=$(jq -r '.mcpServers|keys|sort|join(",")' "$ROOT/0_apps/dist/dotfiles/root/mcp.json")
     [ -n "$want" ] && [ "$want" = "$have" ] && ok "R4 shipped .mcp.json == declared default tier ($want)" || bad "R4 shipped .mcp.json servers [$have] != declared default tier [$want] (mcp-policy.json .tiers.default)"

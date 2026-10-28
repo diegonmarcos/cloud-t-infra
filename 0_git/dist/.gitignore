@@ -133,7 +133,7 @@ build.log
 .obsidian/workspace-mobile.json
 
 # ── Sibling repositories checked out inside this tree ────────────────────────
-## a_solutions is diegonmarcos/cloud-u-containers — a SEPARATE repository, not
+## a_solutions is diegonmarcos/cloudy-u-containers — a SEPARATE repository, not
 ## a submodule (see 0_git/src/gitmodules for the full rationale). CI checks it
 ## out at this path with actions/checkout; locally it is a standalone clone.
 ##

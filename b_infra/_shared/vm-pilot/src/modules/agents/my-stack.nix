@@ -31,7 +31,7 @@
 let
   # 2026-08-27: my-webserver and my-watchdog moved to cloud-u-linux in the d*
   # split, so their rolling releases are published there now.
-  repo = "diegonmarcos/cloud-u-linux";
+  repo = "diegonmarcos/cloudy-u-linux";
   webPort = 8000;
 
   # Bind to the MESH address only, resolved at start.

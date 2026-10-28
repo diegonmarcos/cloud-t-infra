@@ -17,7 +17,7 @@ jobs:
         with:
           submodules: false
 
-      # a_solutions is its OWN repository (diegonmarcos/cloud-u-containers),
+      # a_solutions is its OWN repository (diegonmarcos/cloudy-u-containers),
       # NOT a submodule of this one (split out 2026-09-06). It is checked out
       # at the path every in-repo reference already uses, so nothing
       # downstream changes. fetch-depth: 0 — per-service change detection
@@ -25,7 +25,7 @@ jobs:
       - name: Checkout cloud-u-containers into a_solutions
         uses: actions/checkout@v4
         with:
-          repository: diegonmarcos/cloud-u-containers
+          repository: diegonmarcos/cloudy-u-containers
           path: a_solutions
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -297,7 +297,7 @@ jobs:
       # ($REPO/../cloud-t-infra) — the same layout as a dev machine's ~/git.
       # Both repos are public, so no token is involved.
       - name: Phase 44-45 — fetch the claude config SoT (cloud-u-linux)
-        run: git clone --depth 1 https://github.com/diegonmarcos/cloud-u-linux.git "$(dirname "$GITHUB_WORKSPACE")/cloud-u-linux"
+        run: git clone --depth 1 https://github.com/diegonmarcos/cloudy-u-linux.git "$(dirname "$GITHUB_WORKSPACE")/cloud-u-linux"
       # 2026-09-06: quoted — the bare ": " inside this name made the whole file
       # invalid YAML ("mapping values are not allowed here"), so GitHub failed
       # every lint-pipeline run at startup with zero jobs from 33d5abc onward.
@@ -341,13 +341,13 @@ jobs:
         with:
           submodules: false
 
-      # a_solutions is its OWN repository (diegonmarcos/cloud-u-containers);
+      # a_solutions is its OWN repository (diegonmarcos/cloudy-u-containers);
       # the registered testers resolve paths under it (see test headers —
       # e.g. cgc-knowledge-repo-root-resolvable refuses to pass without it).
       - name: Checkout cloud-u-containers into a_solutions
         uses: actions/checkout@v4
         with:
-          repository: diegonmarcos/cloud-u-containers
+          repository: diegonmarcos/cloudy-u-containers
           path: a_solutions
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}

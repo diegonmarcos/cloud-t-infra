@@ -12,7 +12,7 @@ on:
   push:
     paths:
       # a_solutions is DELIBERATELY ABSENT here. Since 2026-09-06 it is a
-      # separate repository (diegonmarcos/cloud-u-containers), not a submodule,
+      # separate repository (diegonmarcos/cloudy-u-containers), not a submodule,
       # so a wrangler-service change touches no path in THIS repo and no
       # `paths:` entry can match it. It arrives on repository_dispatch below.
       - "1_cicd/src/cicd/ship-wrangler.yml"
@@ -70,7 +70,7 @@ jobs:
           submodules: false
           fetch-depth: 0
 
-      # a_solutions is its OWN repository (diegonmarcos/cloud-u-containers),
+      # a_solutions is its OWN repository (diegonmarcos/cloudy-u-containers),
       # NOT a submodule of this one (split out 2026-09-06). It is checked out
       # at the path every in-repo reference already uses, so nothing
       # downstream changes. fetch-depth: 0 — per-service change detection
@@ -78,7 +78,7 @@ jobs:
       - name: Checkout cloud-u-containers into a_solutions
         uses: actions/checkout@v4
         with:
-          repository: diegonmarcos/cloud-u-containers
+          repository: diegonmarcos/cloudy-u-containers
           path: a_solutions
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}

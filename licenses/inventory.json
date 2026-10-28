@@ -277,13 +277,13 @@
    "licence_source": "licenses/curated.json::flake_licences[raw.githubusercontent.com/diegonmarcos/]",
    "note": "Own data file fetched as a non-flake input (this repository's config.json)."
   },
-  "flake:raw.githubusercontent.com/diegonmarcos/cloud-t-infra/main/config.json": {
+  "flake:raw.githubusercontent.com/diegonmarcos/cloudy-t-infra/main/config.json": {
    "kind": "flake",
    "declared_in": [
     ".github/flake.nix",
     "1_cicd/src/flake.nix"
    ],
-   "version": "https://raw.githubusercontent.com/diegonmarcos/cloud-t-infra/main/config.json",
+   "version": "https://raw.githubusercontent.com/diegonmarcos/cloudy-t-infra/main/config.json",
    "licence": "PolyForm-Noncommercial-1.0.0",
    "licence_source": "licenses/curated.json::flake_licences[raw.githubusercontent.com/diegonmarcos/]",
    "note": "Own data file fetched as a non-flake input (this repository's config.json)."

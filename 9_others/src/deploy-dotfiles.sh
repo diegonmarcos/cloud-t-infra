@@ -30,6 +30,6 @@ if command -v my-ai >/dev/null 2>&1; then exec my-ai engine run dotfiles -- "$@"
 T="$(mktemp -d)"
 trap 'rm -rf "$T"' EXIT
 echo "deploy-dotfiles: no my-ai engine found locally - shallow-cloning cloud-u-linux" >&2
-git clone -q --depth 1 https://github.com/diegonmarcos/cloud-u-linux.git "$T/cloud-u-linux" \
+git clone -q --depth 1 https://github.com/diegonmarcos/cloudy-u-linux.git "$T/cloud-u-linux" \
     || { echo "FATAL: cannot obtain the dotfiles engine from cloud-u-linux" >&2; exit 1; }
 sh "$T/cloud-u-linux/$REL" "$@"

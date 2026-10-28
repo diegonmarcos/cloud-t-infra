@@ -99,7 +99,7 @@ check_service() {
 #
 # These were three copy-pasted blocks, and a_solutions/ was reached by a glob
 # that simply iterates zero times when the directory is not there. a_solutions
-# is a SEPARATE repository (diegonmarcos/cloud-u-containers) that CI checks out
+# is a SEPARATE repository (diegonmarcos/cloudy-u-containers) that CI checks out
 # into this path, so "not there" is the normal state of any checkout that
 # forgot the checkout step — and in that state this tester scanned b_infra and
 # c_vps, found them clean, and printed "PASS (304 files checked)". The container

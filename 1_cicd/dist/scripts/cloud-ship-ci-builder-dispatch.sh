@@ -203,7 +203,7 @@ if [ "$(_as_svc_count)" -eq 0 ] \
    || { [ -n "${A_SOLUTIONS_SHA:-}" ] && [ "$(_as_head)" != "$A_SOLUTIONS_SHA" ]; }; then
   log "Materialising a_solutions from cloud-u-containers${A_SOLUTIONS_SHA:+ @ $A_SOLUTIONS_SHA} (have: $(_as_svc_count) build.sh, head: $(_as_head))"
   rm -rf "$_AS_DIR"
-  if ! git clone --quiet https://github.com/diegonmarcos/cloud-u-containers.git "$_AS_DIR" >&2; then
+  if ! git clone --quiet https://github.com/diegonmarcos/cloudy-u-containers.git "$_AS_DIR" >&2; then
     log_error "a_solutions clone FAILED — cloud-u-containers unreachable over public HTTPS"
     exit 1
   fi

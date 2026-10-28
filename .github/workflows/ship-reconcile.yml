@@ -213,13 +213,13 @@ jobs:
         with:
           submodules: false
 
-      # a_solutions is its OWN repository (diegonmarcos/cloud-u-containers), NOT
+      # a_solutions is its OWN repository (diegonmarcos/cloudy-u-containers), NOT
       # a submodule (split out 2026-09-06). The reconcile reads each service's
       # build.json from here to learn its container names.
       - name: Checkout cloud-u-containers into a_solutions
         uses: actions/checkout@v4
         with:
-          repository: diegonmarcos/cloud-u-containers
+          repository: diegonmarcos/cloudy-u-containers
           path: a_solutions
           fetch-depth: 1
           token: ${{ secrets.GITHUB_TOKEN }}
