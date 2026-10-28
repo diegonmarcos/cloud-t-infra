@@ -2,26 +2,50 @@
   "_warning": "FETCHED DATA — do not hand-edit. Refreshed by .github/workflows/fetch-github-repos.yml.",
   "_doc": "Source of truth for WHICH REPOS EXIST — the CLOUD family only (#1224), public and private. Repo NAMES are not sensitive; the token used to fetch them is, and never leaves the vault / GH secrets. Declarations (gitea.mirrors / octocode.repo_map) are a policy selection over this, never a substitute.",
   "_source": "GitHub API",
-  "fetched_at": "2026-10-28T16:57:45Z",
+  "fetched_at": "2026-10-28T17:01:00Z",
   "owner": "diegonmarcos",
   "repos": [
     {
       "name": "cloudy-t-infra",
       "visibility": "public",
       "fork": false,
-      "pushed_at": "2026-10-28T16:57:30Z"
+      "pushed_at": "2026-10-28T17:00:44Z"
+    },
+    {
+      "name": "cloud-me-pvt-data",
+      "visibility": "private",
+      "fork": false,
+      "pushed_at": "2026-10-28T17:00:09Z"
+    },
+    {
+      "name": "cloudy-a-docs",
+      "visibility": "private",
+      "fork": false,
+      "pushed_at": "2026-10-28T16:59:13Z"
+    },
+    {
+      "name": "cloudy-___",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-28T16:58:31Z"
+    },
+    {
+      "name": "cloudy-u-containers_cgc",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-28T16:58:10Z"
+    },
+    {
+      "name": "_git-repos-master",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-28T16:58:06Z"
     },
     {
       "name": "cloudy-u-containers",
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-28T16:56:02Z"
-    },
-    {
-      "name": "cloudy-a-docs",
-      "visibility": "private",
-      "fork": false,
-      "pushed_at": "2026-10-28T16:56:01Z"
     },
     {
       "name": "cloudy-u-linux",
@@ -34,12 +58,6 @@
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-28T16:54:19Z"
-    },
-    {
-      "name": "cloudy-___",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-28T16:52:33Z"
     },
     {
       "name": "cloud-me-pvt-___",
@@ -58,24 +76,6 @@
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-28T16:52:15Z"
-    },
-    {
-      "name": "_git-repos-master",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-28T16:51:30Z"
-    },
-    {
-      "name": "cloud-me-pvt-data",
-      "visibility": "private",
-      "fork": false,
-      "pushed_at": "2026-10-28T16:37:51Z"
-    },
-    {
-      "name": "cloudy-u-containers_cgc",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-28T14:57:03Z"
     },
     {
       "name": "cloud-me-pvt-notes",
