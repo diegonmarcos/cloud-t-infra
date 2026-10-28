@@ -2203,7 +2203,7 @@
         "git#gh": [
           {
             "id": "git#gh/cloudy-u-containers_cgc",
-            "service": "gitea",
+            "service": "cloud-cgc-pub-mcp",
             "container": null,
             "engine": "git",
             "kind": "git-remote",
@@ -2212,8 +2212,8 @@
             "visibility": "public",
             "fork": false,
             "pushed_at": "2026-10-28T17:06:48Z",
-            "indexed": false,
-            "local_dir": null,
+            "indexed": true,
+            "local_dir": "cloudy-u-containers_cgc",
             "mirrored": true,
             "persistence": {
               "type": "git",
@@ -2228,7 +2228,7 @@
           },
           {
             "id": "git#gh/cloudy-t-infra",
-            "service": "gitea",
+            "service": "cloud-cgc-pub-mcp",
             "container": null,
             "engine": "git",
             "kind": "git-remote",
@@ -2237,8 +2237,8 @@
             "visibility": "public",
             "fork": false,
             "pushed_at": "2026-10-28T17:06:41Z",
-            "indexed": false,
-            "local_dir": null,
+            "indexed": true,
+            "local_dir": "cloudy-t-infra",
             "mirrored": true,
             "persistence": {
               "type": "git",
@@ -2253,7 +2253,7 @@
           },
           {
             "id": "git#gh/cloudy-u-containers",
-            "service": "gitea",
+            "service": "cloud-cgc-pub-mcp",
             "container": null,
             "engine": "git",
             "kind": "git-remote",
@@ -2262,8 +2262,8 @@
             "visibility": "public",
             "fork": false,
             "pushed_at": "2026-10-28T17:06:05Z",
-            "indexed": false,
-            "local_dir": null,
+            "indexed": true,
+            "local_dir": "cloudy-u-containers",
             "mirrored": true,
             "persistence": {
               "type": "git",
@@ -2378,7 +2378,7 @@
           },
           {
             "id": "git#gh/cloudy-u-android",
-            "service": "gitea",
+            "service": "cloud-cgc-pub-mcp",
             "container": null,
             "engine": "git",
             "kind": "git-remote",
@@ -2387,8 +2387,8 @@
             "visibility": "public",
             "fork": false,
             "pushed_at": "2026-10-28T17:02:19Z",
-            "indexed": false,
-            "local_dir": null,
+            "indexed": true,
+            "local_dir": "cloudy-u-android",
             "mirrored": true,
             "persistence": {
               "type": "git",
@@ -2428,7 +2428,7 @@
           },
           {
             "id": "git#gh/cloudy-a-docs",
-            "service": "gitea",
+            "service": "cloud-cgc-pub-mcp",
             "container": null,
             "engine": "git",
             "kind": "git-remote",
@@ -2437,8 +2437,8 @@
             "visibility": "private",
             "fork": false,
             "pushed_at": "2026-10-28T16:59:13Z",
-            "indexed": false,
-            "local_dir": null,
+            "indexed": true,
+            "local_dir": "cloudy-a-docs",
             "mirrored": true,
             "persistence": {
               "type": "git",
@@ -2478,7 +2478,7 @@
           },
           {
             "id": "git#gh/cloudy-u-linux",
-            "service": "gitea",
+            "service": "cloud-cgc-pub-mcp",
             "container": null,
             "engine": "git",
             "kind": "git-remote",
@@ -2487,8 +2487,8 @@
             "visibility": "public",
             "fork": false,
             "pushed_at": "2026-10-28T16:54:56Z",
-            "indexed": false,
-            "local_dir": null,
+            "indexed": true,
+            "local_dir": "cloudy-u-linux",
             "mirrored": true,
             "persistence": {
               "type": "git",
@@ -2653,7 +2653,7 @@
           },
           {
             "id": "git#gh/cloudy-h-webapps-2",
-            "service": "gitea",
+            "service": "cloud-cgc-pub-mcp",
             "container": null,
             "engine": "git",
             "kind": "git-remote",
@@ -2662,8 +2662,8 @@
             "visibility": "public",
             "fork": false,
             "pushed_at": "2026-10-28T12:08:35Z",
-            "indexed": false,
-            "local_dir": null,
+            "indexed": true,
+            "local_dir": "cloudy-h-webapps-2",
             "mirrored": true,
             "persistence": {
               "type": "git",
@@ -2728,7 +2728,7 @@
           },
           {
             "id": "git#gh/cloudy-h-webapps",
-            "service": "gitea",
+            "service": "cloud-cgc-pub-mcp",
             "container": null,
             "engine": "git",
             "kind": "git-remote",
@@ -2737,8 +2737,8 @@
             "visibility": "public",
             "fork": false,
             "pushed_at": "2026-10-28T12:01:55Z",
-            "indexed": false,
-            "local_dir": null,
+            "indexed": true,
+            "local_dir": "cloudy-h-webapps",
             "mirrored": true,
             "persistence": {
               "type": "git",
@@ -3053,7 +3053,7 @@
           },
           {
             "id": "git#gh/cloudy-u-desktop",
-            "service": "gitea",
+            "service": "cloud-cgc-pub-mcp",
             "container": null,
             "engine": "git",
             "kind": "git-remote",
@@ -3062,8 +3062,8 @@
             "visibility": "public",
             "fork": false,
             "pushed_at": "2026-10-23T12:46:48Z",
-            "indexed": false,
-            "local_dir": null,
+            "indexed": true,
+            "local_dir": "cloudy-u-desktop",
             "mirrored": true,
             "persistence": {
               "type": "git",
@@ -5976,7 +5976,7 @@
       "git#gh": [
         {
           "id": "git#gh/cloudy-u-containers_cgc",
-          "service": "gitea",
+          "service": "cloud-cgc-pub-mcp",
           "container": null,
           "engine": "git",
           "kind": "git-remote",
@@ -5985,8 +5985,8 @@
           "visibility": "public",
           "fork": false,
           "pushed_at": "2026-10-28T17:06:48Z",
-          "indexed": false,
-          "local_dir": null,
+          "indexed": true,
+          "local_dir": "cloudy-u-containers_cgc",
           "mirrored": true,
           "persistence": {
             "type": "git",
@@ -6001,7 +6001,7 @@
         },
         {
           "id": "git#gh/cloudy-t-infra",
-          "service": "gitea",
+          "service": "cloud-cgc-pub-mcp",
           "container": null,
           "engine": "git",
           "kind": "git-remote",
@@ -6010,8 +6010,8 @@
           "visibility": "public",
           "fork": false,
           "pushed_at": "2026-10-28T17:06:41Z",
-          "indexed": false,
-          "local_dir": null,
+          "indexed": true,
+          "local_dir": "cloudy-t-infra",
           "mirrored": true,
           "persistence": {
             "type": "git",
@@ -6026,7 +6026,7 @@
         },
         {
           "id": "git#gh/cloudy-u-containers",
-          "service": "gitea",
+          "service": "cloud-cgc-pub-mcp",
           "container": null,
           "engine": "git",
           "kind": "git-remote",
@@ -6035,8 +6035,8 @@
           "visibility": "public",
           "fork": false,
           "pushed_at": "2026-10-28T17:06:05Z",
-          "indexed": false,
-          "local_dir": null,
+          "indexed": true,
+          "local_dir": "cloudy-u-containers",
           "mirrored": true,
           "persistence": {
             "type": "git",
@@ -6151,7 +6151,7 @@
         },
         {
           "id": "git#gh/cloudy-u-android",
-          "service": "gitea",
+          "service": "cloud-cgc-pub-mcp",
           "container": null,
           "engine": "git",
           "kind": "git-remote",
@@ -6160,8 +6160,8 @@
           "visibility": "public",
           "fork": false,
           "pushed_at": "2026-10-28T17:02:19Z",
-          "indexed": false,
-          "local_dir": null,
+          "indexed": true,
+          "local_dir": "cloudy-u-android",
           "mirrored": true,
           "persistence": {
             "type": "git",
@@ -6201,7 +6201,7 @@
         },
         {
           "id": "git#gh/cloudy-a-docs",
-          "service": "gitea",
+          "service": "cloud-cgc-pub-mcp",
           "container": null,
           "engine": "git",
           "kind": "git-remote",
@@ -6210,8 +6210,8 @@
           "visibility": "private",
           "fork": false,
           "pushed_at": "2026-10-28T16:59:13Z",
-          "indexed": false,
-          "local_dir": null,
+          "indexed": true,
+          "local_dir": "cloudy-a-docs",
           "mirrored": true,
           "persistence": {
             "type": "git",
@@ -6251,7 +6251,7 @@
         },
         {
           "id": "git#gh/cloudy-u-linux",
-          "service": "gitea",
+          "service": "cloud-cgc-pub-mcp",
           "container": null,
           "engine": "git",
           "kind": "git-remote",
@@ -6260,8 +6260,8 @@
           "visibility": "public",
           "fork": false,
           "pushed_at": "2026-10-28T16:54:56Z",
-          "indexed": false,
-          "local_dir": null,
+          "indexed": true,
+          "local_dir": "cloudy-u-linux",
           "mirrored": true,
           "persistence": {
             "type": "git",
@@ -6426,7 +6426,7 @@
         },
         {
           "id": "git#gh/cloudy-h-webapps-2",
-          "service": "gitea",
+          "service": "cloud-cgc-pub-mcp",
           "container": null,
           "engine": "git",
           "kind": "git-remote",
@@ -6435,8 +6435,8 @@
           "visibility": "public",
           "fork": false,
           "pushed_at": "2026-10-28T12:08:35Z",
-          "indexed": false,
-          "local_dir": null,
+          "indexed": true,
+          "local_dir": "cloudy-h-webapps-2",
           "mirrored": true,
           "persistence": {
             "type": "git",
@@ -6501,7 +6501,7 @@
         },
         {
           "id": "git#gh/cloudy-h-webapps",
-          "service": "gitea",
+          "service": "cloud-cgc-pub-mcp",
           "container": null,
           "engine": "git",
           "kind": "git-remote",
@@ -6510,8 +6510,8 @@
           "visibility": "public",
           "fork": false,
           "pushed_at": "2026-10-28T12:01:55Z",
-          "indexed": false,
-          "local_dir": null,
+          "indexed": true,
+          "local_dir": "cloudy-h-webapps",
           "mirrored": true,
           "persistence": {
             "type": "git",
@@ -6826,7 +6826,7 @@
         },
         {
           "id": "git#gh/cloudy-u-desktop",
-          "service": "gitea",
+          "service": "cloud-cgc-pub-mcp",
           "container": null,
           "engine": "git",
           "kind": "git-remote",
@@ -6835,8 +6835,8 @@
           "visibility": "public",
           "fork": false,
           "pushed_at": "2026-10-23T12:46:48Z",
-          "indexed": false,
-          "local_dir": null,
+          "indexed": true,
+          "local_dir": "cloudy-u-desktop",
           "mirrored": true,
           "persistence": {
             "type": "git",

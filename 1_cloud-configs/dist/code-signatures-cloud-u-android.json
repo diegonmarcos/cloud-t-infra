@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22478,
+    "files": 22482,
     "by_lang": {
       "js": 497,
       "sh": 567,
       "py": 170,
-      "kotlin": 12014,
+      "kotlin": 12018,
       "java": 647,
       "nix": 31,
       "rust": 111,
@@ -22,7 +22,7 @@
       "shell": 451,
       "script": 262,
       "java": 646,
-      "kotlin": 12011,
+      "kotlin": 12015,
       "module": 6424,
       "flake": 27,
       "python": 55,
@@ -171170,6 +171170,8 @@
         "matches(isDirectory: Boolean, mimeType: String, extension: String)",
         "rowAction(id: String)",
         "cloneUrl(repo: GitRepoDecl)",
+        "canonical(name: String)",
+        "isArchived(name: String)",
         "byGithub(github: String)",
         "lfsOf(github: String)",
         "cloneable(github: String)",
@@ -171192,9 +171194,7 @@
         "parseGitPage(e: JsonElement?)",
         "parseFiles(text: String)",
         "parseVolumes(text: String, classes: List<VolumeClassDecl> = emptyList()",
-        "parseConstellation(text: String)",
-        "parseSyncRules(text: String)",
-        "parseApps(text: String)"
+        "parseConstellation(text: String)"
       ]
     },
     {
@@ -174039,13 +174039,15 @@
       ],
       "symbols": [
         "label()",
-        "request(targets: List<Target>, force: Boolean = false)",
+        "request(targets: List<Target>, force: Boolean = false, level: Level = Level.LIGHT)",
+        "cancelAll()",
         "invalidate(id: String)",
-        "readOne(t: Target)",
+        "readOne(t: Target, level: Level)",
         "busy(id: String)",
         "publish(id: String, s: Status)",
         "classify(p: Probe, now: Long, took: Long = 0)",
         "class GitStatusReader",
+        "class Level",
         "class Probe",
         "class State",
         "class Status",
@@ -174061,6 +174063,7 @@
       ],
       "imports": [
         "android.content.Context",
+        "com.diegonmarcos.clouddrive.BuildConfig",
         "com.diegonmarcos.clouddrive.Declarations",
         "com.diegonmarcos.clouddrive.DriveDebugLog",
         "com.diegonmarcos.clouddrive.GitSyncWorker",
@@ -174093,9 +174096,15 @@
         "setAutoPullOnOpen(on: Boolean)",
         "unmetered()",
         "onPageOpened()",
+        "refreshRegistry()",
+        "apply(text: String?)",
         "onTick()",
         "autoSettings()",
         "runPlan(work: Set<AutoChecks.Work>)",
+        "checkWorktree(repo: ManagedRepo)",
+        "lightCheckAll()",
+        "fullCheckAll()",
+        "cancelStatusReads()",
         "fetchAll()",
         "refreshSizes(force: Boolean = false)",
         "save(repo: ManagedRepo)",
@@ -174117,13 +174126,7 @@
         "refreshRemoteStats(targets: List<Pair<String, String>>, extraToken: String = \"\")",
         "runFeed(owner: String, name: String)",
         "setRemote(repo: ManagedRepo, mode: com.diegonmarcos.clouddrive.Declarations.GitRemoteModeDecl, owner: String, name: String)",
-        "cloneInto(name: String, url: String, authKind: String, username: String, token: String, sshKeyPath: String = \"\")",
-        "probeStatus(dir: File)",
-        "autoPullDecision(enabled: Boolean, requireUnmetered: Boolean, unmetered: Boolean, busy: Boolean)",
-        "glanceOf(s: GitStatusReader.Status)",
-        "pickAuth( kind: String, stored: ()",
-        "hostOf(url: String)",
-        "class GitSyncCoordinator"
+        "cloneInto(name: String, url: String, authKind: String, username: String, token: String, sshKeyPath: String = \"\")"
       ]
     },
     {
@@ -174484,6 +174487,28 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/RepoCheap.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoCheap"
+      ],
+      "imports": [
+        "java.io.File"
+      ],
+      "symbols": [
+        "isClone(dir: File)",
+        "head(dir: File)",
+        "aheadBehind(localSha: String?, remoteSha: String?, localLog: List<String>)",
+        "upstreamOf(config: String, branch: String)",
+        "tooLarge(dir: File, maxFiles: Int, maxMs: Long, clock: ()",
+        "class RepoCheap",
+        "class Head",
+        "class parsing",
+        "class Refs"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/RepoCompound.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -174604,6 +174629,30 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/RepoSotLive.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoSotLive"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations",
+        "java.io.File",
+        "java.net.HttpURLConnection",
+        "java.net.URL"
+      ],
+      "symbols": [
+        "get(url: String, etag: String?)",
+        "cached(dir: File)",
+        "refresh(dir: File, url: String, fetcher: Fetcher, minIntervalMs: Long, now: Long, force: Boolean = false)",
+        "valid(body: String)",
+        "class RepoSotLive",
+        "class Response",
+        "class Fetcher",
+        "class Outcome"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/RepoStatus.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -174619,6 +174668,8 @@
         "light(kind: Kind)",
         "errorKind(reason: String?)",
         "block(cloned: Boolean, g: GitSyncCoordinator.Glance?)",
+        "levelCaption(g: GitSyncCoordinator.Glance?, now: Long)",
+        "ageWord(ms: Long)",
         "cloneAction(cloned: Boolean, cloning: Boolean)",
         "unpushed(log: List<GitCommitInfo>, ahead: Int?)",
         "class RepoStatus",
@@ -176424,6 +176475,39 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/RepoSotLiveTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoSotLiveTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.sync.RepoSotLive",
+        "java.io.File",
+        "java.nio.file.Files",
+        "org.junit.After",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Before",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "setUp()",
+        "tearDown()",
+        "get(url: String, etag: String?)",
+        "firstOpenFetchesAndCaches_thenAFreshCacheIsNotAskedAgain_thenAnEtagMatchMovesNothing()",
+        "aNewerLiveRegistryReplacesTheCache_andABadAnswerNeverDoes()",
+        "theLiveObjectParsesLikeTheBakedArray_renamesFoldIntoTheNewName_archivedIsRecognised()",
+        "renameChainsAreFollowedToTheCurrentName()",
+        "theBakedRegistryOfThisBuildListsNoOldName()",
+        "class RepoSotLiveTest",
+        "class Fake"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/RepoSotTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -177168,6 +177252,48 @@
       ],
       "symbols": [
         "class RepoRemoteStatsTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/RepoSchedulerTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoSchedulerTest"
+      ],
+      "imports": [
+        "java.io.File",
+        "java.nio.file.Files",
+        "java.util.concurrent.CountDownLatch",
+        "java.util.concurrent.atomic.AtomicInteger",
+        "kotlinx.coroutines.runBlocking",
+        "kotlinx.coroutines.withTimeout",
+        "org.junit.After",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Before",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "setUp()",
+        "tearDown()",
+        "clone(name: String, onDemand: Boolean = false)",
+        "probe()",
+        "waitFor(what: String, cond: ()",
+        "neverMoreProbesThanTheDeclaredConcurrency()",
+        "closingTheScreenCancelsTheReadsStillQueued()",
+        "aLargeRepositoryIsSkippedByThePassAndReadOnDemand()",
+        "lightLevelNeverTouchesTheWorktreeAndFullIsOneAtATime()",
+        "lightGlanceHasNoDirtyCount_andTheCaptionNamesLevelAndAge()",
+        "aheadBehindFromRefsOnly()",
+        "add(s: String)",
+        "theSizeGuardStopsCountingAtTheBound()",
+        "invoke()",
+        "headAndUpstreamAreReadFromTheGitFilesWithoutTheEngine()",
+        "class RepoSchedulerTest",
+        "class ConcurrentList"
       ]
     },
     {
