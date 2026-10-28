@@ -51,3 +51,6 @@
 #     INSIDE the a_solutions checkout, not a gitlink in this repo.
 #   • a_solutions/ is gitignored here so the untracked checkout cannot be
 #     swept into a commit by a bulk `git add`.
+[submodule "0_hub/cloudy-___"]
+	path = 0_hub/cloudy-___
+	url = https://github.com/diegonmarcos/cloudy-___.git
