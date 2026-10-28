@@ -5,6 +5,14 @@
   "_renames_doc": "`renames` records an old name -> new name for things that are not (or not only) repos, so a path that still says the old name is findable and a guard can flag it. `kind: repo` = a repository rename (the entry also carries `renamed_from`); `kind: app-folder` = a folder/app inside a repo. Farmers never create the old name.",
   "renames": [
     {
+      "from": "cloud-data-lfs",
+      "to": "cloud_db_LFS",
+      "kind": "repo",
+      "since": "2026-10-28",
+      "ticket": "#1224",
+      "doc": "GitHub repo is cloud_db_LFS; the registry name followed it."
+    },
+    {
       "from": "front-assets-cdn",
       "to": "cloud_db_assets-cdn",
       "kind": "repo",
@@ -168,10 +176,13 @@
       "doc": "Generated fleet config consumed by cloud's services."
     },
     {
-      "name": "cloud-data-lfs",
+      "name": "cloud_db_LFS",
       "group": "a_cloud",
-      "url": "git@github.com:diegonmarcos/cloud-data-lfs.git",
+      "url": "git@github.com:diegonmarcos/cloud_db_LFS.git",
       "private": true,
+      "renamed_from": [
+        "cloud-data-lfs"
+      ],
       "doc": "Large binary artefacts (git-lfs) for cloud-me-data-pvt (was cloud-data)."
     },
     {
@@ -240,7 +251,7 @@
       "renamed_from": [
         "front-profiles"
       ],
-      "doc": "Sources of the b_Profiles group (and Lnktree, moved in from front-linktree, #1217), split from front-projects (#1072); snapshot copy, paths mirror the original layout."
+      "doc": "Sources of the b_Profiles group (plus Lnktree, moved in from front-linktree #1217, and c_Circus/myAstro, moved in from CG-circus #1218), split from front-projects (#1072); snapshot copy, paths mirror the original layout."
     },
     {
       "name": "cloud-webapps-2",
