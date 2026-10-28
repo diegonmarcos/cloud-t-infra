@@ -418,7 +418,10 @@ ensure_repos() {
   # after the pipeline, where we are back in the function's own shell.
   _clonefail="$REPOS_ROOT/.cgc-clone-failed"
   rm -f "$_clonefail"
-  jq -r '.runtime.octocode.repo_map | to_entries[] | "\(.key) \(.value)"' "$BJ" | while read -r lname remote; do
+  # PUBLIC run: private repos (private_repos) are never cloned or indexed here; they belong
+  # to the private cloud-me_cgc run, which sets CGC_INCLUDE_PRIVATE=1. Guarded by
+  # cgc-db-public-no-private.test.sh.
+  jq -r --arg inc "${CGC_INCLUDE_PRIVATE:-0}" '(.runtime.octocode.private_repos // []) as $p | .runtime.octocode.repo_map | to_entries[] | select($inc == "1" or (.key as $k | $p | index($k) | not)) | "\(.key) \(.value)"' "$BJ" | while read -r lname remote; do
     [ -n "$lname" ] || continue
     d="$REPOS_ROOT/$lname"
     # PRIVATE repos need a deploy key. $TOKEN here is the job's GITHUB_TOKEN, which is scoped
