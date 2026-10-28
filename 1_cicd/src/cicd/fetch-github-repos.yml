@@ -92,8 +92,12 @@ jobs:
 
           # #1224: the inventory holds the CLOUD family only: repos the cloud registry
           # (repos.sot.json, a byte copy of cloud/repos.json) lists, its unregistered_ok, and any cloud* name.
-          jq --slurpfile r 1_cloud-configs/src/inputs/repos.sot.json '
-            ([$r[0].repos[] | .url | sub("^.*[/:]"; "") | sub("\\.git$"; "")] + [$r[0].unregistered_ok[].name]) as $keep
+          # Plus the octocode external_registry (index repos of other hubs, public build.json
+          # in cloud-u-containers): they are indexed, so they must exist in the inventory.
+          curl -fsSL https://raw.githubusercontent.com/diegonmarcos/cloud-u-containers/main/user-ai_cloud-cgc-pub-mcp/build.json \
+            | jq '[.runtime.octocode.external_registry // [] | .[]]' > /tmp/ext.json
+          jq --slurpfile r 1_cloud-configs/src/inputs/repos.sot.json --slurpfile x /tmp/ext.json '
+            ([$r[0].repos[] | .url | sub("^.*[/:]"; "") | sub("\\.git$"; "")] + [$r[0].unregistered_ok[].name] + $x[0]) as $keep
             | [.[] | select(.name as $n | ($keep | index($n)) != null or ($n | startswith("cloud")))]' /tmp/acc.json > /tmp/acc.fam && mv /tmp/acc.fam /tmp/acc.json
 
           # Second belt: a token can be valid yet scoped to fewer repos than

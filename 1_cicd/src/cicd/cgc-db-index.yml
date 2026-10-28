@@ -738,7 +738,7 @@ jobs:
                 box_ghcr_login || true
                 _probe_repo=$(printf '%s\n' "$PRIV" | awk '{print $1}')
                 if [ -n "$_probe_repo" ]; then
-                  _probe_img="${PREFIX}${_probe_repo}:${TAG}"
+                  _probe_img="${PREFIX}$(printf %s "$_probe_repo" | tr A-Z a-z | sed -E 's/[._-]{2,}/-/g; s/^[._-]+//'):${TAG}"
                   # ssh_retry so a mesh-slot steal (rc=255) retries instead of
                   # reading as "box cannot pull" — this condition hard-refuses
                   # the pvt restore, so a connection blip here must not be

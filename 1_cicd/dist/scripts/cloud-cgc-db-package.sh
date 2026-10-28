@@ -612,7 +612,7 @@ PKG="${IMAGE##*/}"
 _dm=$(detect_mode "$PKG")
 case "$_dm" in
   base)   _mode=base ;;
-  repo:*) _mode=repo; LOCAL_NAME="${_dm#repo:}" ;;
+  repo:*) _mode=repo; LOCAL_NAME="${CGC_LOCAL_NAME:-${_dm#repo:}}" ;;
   *)      _mode=monolith ;;
 esac
 MODE="${CGC_PKG_MODE:-$_mode}"

@@ -87,13 +87,34 @@ function main(): void {
   // cost decision; the local->github mapping under it is pure derived data.
   const indexRepos: string[] = oct.index_repos ?? [];
 
+  // external_registry: index_repos members of OTHER hubs (Projects-___, CG-___) and
+  // _git-repos-master, whose registries are not checked out here. Declared as data in
+  // build.json, mapped local == GitHub name. A name both here and in the cloud registry
+  // is ambiguous and refused.
+  const external: string[] = oct.external_registry ?? [];
+  const clash = external.filter((r) => byName.has(r));
+  if (clash.length > 0) {
+    throw new Error(`external_registry names already in I_cloud/repos.json: ${clash.join(', ')}`);
+  }
+  for (const r of external) byName.set(r, r);
+
+  // Every index repo becomes a GHCR package cgc-db-<image name>; two repos that
+  // normalise to one image name would overwrite each other's DB.
+  const imageName = (n: string) => n.toLowerCase().replace(/[._-]{2,}/g, '-').replace(/^[._-]+/, '');
+  const seen = new Map<string, string>();
+  for (const r of indexRepos) {
+    const i = imageName(r);
+    if (seen.has(i)) throw new Error(`index_repos ${seen.get(i)} and ${r} share the GHCR image name cgc-db-${i}`);
+    seen.set(i, r);
+  }
+
   // A repo that is not declared in the registry can never be indexed. Without
   // this, a typo or an invented name reaches cloud-cgc-db-update.sh:388, which
   // aborts the whole indexing job mid-run at 04:00.
   const undeclared = indexRepos.filter((r) => !byName.has(r));
   if (undeclared.length > 0) {
     throw new Error(
-      `index_repos entries not declared in I_cloud/repos.json: ${undeclared.join(', ')} — ` +
+      `index_repos entries not declared in I_cloud/repos.json or external_registry: ${undeclared.join(', ')} — ` +
       `declare them in the registry first, or they will never be cloned and ` +
       `cloud-cgc-db-update.sh will abort at :388`,
     );

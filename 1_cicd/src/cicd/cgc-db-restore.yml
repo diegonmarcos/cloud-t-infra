@@ -120,7 +120,7 @@ jobs:
           PREFIX=$(printf '%s' "$BJ" | jq -r '.per_repo_publish.image_prefix')
           NEWER=""
           for r in $(printf '%s' "$BJ" | jq -r '.runtime.octocode.private_repos // [] | .[]'); do
-            pkg="${PREFIX##*/}$r"
+            pkg="${PREFIX##*/}$(printf %s "$r" | tr A-Z a-z | sed -E 's/[._-]{2,}/-/g; s/^[._-]+//')"
             t=$(GH_TOKEN="$CGC_GHCR_PAT" gh api "/user/packages/container/$pkg/versions?per_page=1" --jq '.[0].updated_at // empty' 2>/dev/null || true)
             if [ -z "$t" ]; then echo "::warning::cannot read $pkg's versions — skipping it"; continue; fi
             ts=$(date -u -d "$t" +%s)
@@ -443,7 +443,7 @@ jobs:
                 box_ghcr_login || true
                 _probe_repo=$(printf '%s\n' "$PRIV" | awk '{print $1}')
                 if [ -n "$_probe_repo" ]; then
-                  _probe_img="${PREFIX}${_probe_repo}:${TAG}"
+                  _probe_img="${PREFIX}$(printf %s "$_probe_repo" | tr A-Z a-z | sed -E 's/[._-]{2,}/-/g; s/^[._-]+//'):${TAG}"
                   # ssh_retry so a mesh-slot steal (rc=255) retries instead of
                   # reading as "box cannot pull" — this condition hard-refuses
                   # the pvt restore, so a connection blip here must not be
