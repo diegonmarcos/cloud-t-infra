@@ -1,12 +1,44 @@
 {
-  "_doc": "THE CLOUD FAMILY FILE. The full hierarchy (groups 2_vault and a_cloud plus the cloud-* repos of b_projects, every repo with all its fields, parts, renames) of the cloud repos and nothing else. Home: the cloud hub repo (cloud___/repos.json); cloud-t-infra keeps a byte copy at 1_cloud-configs/src/inputs/repos.sot.json. A SUBSET of _git-repos-master/repos.json, which stays the superset for the whole account; entries must match it field for field (node repos-sot.js check-subset, run from _git-repos-master). Regenerate from the registry, never hand-edit (#1224).",
+  "_doc": "THE CLOUD FAMILY FILE. The full hierarchy (groups 2_vault and a_cloud plus the cloud-* repos of b_projects, every repo with all its fields, parts, renames) of the cloud repos and nothing else. Home: the cloud hub repo (cloud-___/repos.json); cloud-t-infra keeps a byte copy at 1_cloud-configs/src/inputs/repos.sot.json. A SUBSET of _git-repos-master/repos.json, which stays the superset for the whole account; entries must match it field for field (node repos-sot.js check-subset, run from _git-repos-master). Regenerate from the registry, never hand-edit (#1224).",
   "_schema": "cloud-repos/v1",
   "_status_doc": "`status` is optional. Absent = the repo exists and is cloned/linked as usual. `pending_creation` = declared on purpose, but the GitHub repo is NOT created yet: every farmer (clone.sh, the cloud-drive seed, the libs:repos mirror, the fleet dotfiles guard) must SKIP it - no clone, no symlink, no seed - and the guard fails if a pending entry is treated as live. Flip it by deleting the field in the same commit that creates the repo. `parts` (optional) lists named sub-trees that live INSIDE the same repo, declared as placeholders so farmers and docs know the planned layout before any file moves; a part is never a repo of its own and is never cloned or linked.",
   "_renames_doc": "`renames` records an old name -> new name for things that are not (or not only) repos, so a path that still says the old name is findable and a guard can flag it. `kind: repo` = a repository rename (the entry also carries `renamed_from`); `kind: app-folder` = a folder/app inside a repo. Farmers never create the old name.",
   "renames": [
     {
+      "from": "cloud-me-pub-profiles___",
+      "to": "cloud-me-pub-profiles-___",
+      "kind": "repo",
+      "since": "2026-10-28",
+      "ticket": "#1244",
+      "doc": "Intermediate hub name; the final form is <name>-___ so hubs sort first."
+    },
+    {
+      "from": "cloud-me-pub___",
+      "to": "cloud-me-pub-___",
+      "kind": "repo",
+      "since": "2026-10-28",
+      "ticket": "#1244",
+      "doc": "Intermediate hub name; the final form is <name>-___ so hubs sort first."
+    },
+    {
+      "from": "cloud-me-pvt___",
+      "to": "cloud-me-pvt-___",
+      "kind": "repo",
+      "since": "2026-10-28",
+      "ticket": "#1244",
+      "doc": "Intermediate hub name; the final form is <name>-___ so hubs sort first."
+    },
+    {
+      "from": "cloud___",
+      "to": "cloud-___",
+      "kind": "repo",
+      "since": "2026-10-28",
+      "ticket": "#1244",
+      "doc": "Intermediate hub name; the final form is <name>-___ so hubs sort first."
+    },
+    {
       "from": "cloud-me-pub-profiles",
-      "to": "cloud-me-pub-profiles___",
+      "to": "cloud-me-pub-profiles-___",
       "kind": "repo",
       "since": "2026-10-28",
       "ticket": "#1244",
@@ -14,7 +46,7 @@
     },
     {
       "from": "cloud-me-pub",
-      "to": "cloud-me-pub___",
+      "to": "cloud-me-pub-___",
       "kind": "repo",
       "since": "2026-10-28",
       "ticket": "#1244",
@@ -22,7 +54,7 @@
     },
     {
       "from": "cloud-me-pvt",
-      "to": "cloud-me-pvt___",
+      "to": "cloud-me-pvt-___",
       "kind": "repo",
       "since": "2026-10-28",
       "ticket": "#1244",
@@ -30,7 +62,7 @@
     },
     {
       "from": "cloud",
-      "to": "cloud___",
+      "to": "cloud-___",
       "kind": "repo",
       "since": "2026-10-28",
       "ticket": "#1244",
@@ -328,12 +360,13 @@
       "doc": "Secrets (sops/age). Every credential the fleet uses."
     },
     {
-      "name": "cloud___",
+      "name": "cloud-___",
       "group": "a_cloud",
-      "url": "git@github.com:diegonmarcos/cloud___.git",
+      "url": "git@github.com:diegonmarcos/cloud-___.git",
       "private": false,
       "renamed_from": [
-        "cloud"
+        "cloud",
+        "cloud___"
       ],
       "doc": "Project master for the cloud project: a repos.json subset of this file plus committed symlinks. Had a symlink here but no entry until 2026-08-20 — the drift that made `ls a_cloud/` disagree with `--list`."
     },
@@ -506,22 +539,24 @@
       "doc": "Archived 2026-10-28: stale skeleton (per-app backups, AI sessions, Maps history, Financial), superseded by cloud-me-pvt-data; was cloud-me_data-private, registered then renamed z-archived_ the same day."
     },
     {
-      "name": "cloud-me-pub___",
+      "name": "cloud-me-pub-___",
       "group": "a_cloud",
-      "url": "git@github.com:diegonmarcos/cloud-me-pub___.git",
+      "url": "git@github.com:diegonmarcos/cloud-me-pub-___.git",
       "private": false,
       "renamed_from": [
-        "cloud-me-pub"
+        "cloud-me-pub",
+        "cloud-me-pub___"
       ],
       "doc": "Hub of the public cloud-me family (Cloud-Me-Pub): the cloud-me-pub-profiles hub and cloud-me-pub-shared (the pub data repo is archived). Its own repos.json subset plus committed symlinks; lists no private repo. Created 2026-10-28."
     },
     {
-      "name": "cloud-me-pvt___",
+      "name": "cloud-me-pvt-___",
       "group": "a_cloud",
-      "url": "git@github.com:diegonmarcos/cloud-me-pvt___.git",
+      "url": "git@github.com:diegonmarcos/cloud-me-pvt-___.git",
       "private": true,
       "renamed_from": [
-        "cloud-me-pvt"
+        "cloud-me-pvt",
+        "cloud-me-pvt___"
       ],
       "doc": "Hub of the private cloud-me family (Cloud-Me-Pvt): its own repos.json subset plus committed symlinks to the private cloud-me repos. Private repo. Created 2026-10-28."
     },
@@ -548,15 +583,16 @@
       "doc": "Sources of the b_MyData group, split from front-projects (#1072); snapshot copy, paths mirror the original layout."
     },
     {
-      "name": "cloud-me-pub-profiles___",
+      "name": "cloud-me-pub-profiles-___",
       "group": "b_projects",
-      "url": "git@github.com:diegonmarcos/cloud-me-pub-profiles___.git",
+      "url": "git@github.com:diegonmarcos/cloud-me-pub-profiles-___.git",
       "private": false,
       "renamed_from": [
         "front-profiles",
         "cloud-me-profiles",
         "Me-Profiles",
-        "cloud-me-pub-profiles"
+        "cloud-me-pub-profiles",
+        "cloud-me-pub-profiles___"
       ],
       "doc": "Hub of the cloud-me-pub-profiles family (Leaf.y, Nexus.z, Stark.x, Prf-Prs, _Lnktree): its own repos.json subset plus committed symlinks, same model as CG, Fin-CM and cloud. Was cloud-me-profiles (the b_Profiles, Lnktree and myAstro sources); content split into cloud-me-pub-profiles-prf-prs and cloud-me-pub-profiles-_lnktree 2026-10-28."
     },

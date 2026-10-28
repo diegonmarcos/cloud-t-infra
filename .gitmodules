@@ -26,7 +26,7 @@
 
 [submodule "I_cloud"]
 	path = I_cloud
-	url = git@github.com:diegonmarcos/cloud___.git
+	url = git@github.com:diegonmarcos/cloud-___.git
 	shallow = true
 	ignore = all
 
