@@ -1,4 +1,17 @@
 #!/usr/bin/env bash
+
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║                                                                  ║
+# ║   GENERATED FILE — DO NOT EDIT                                   ║
+# ║                                                                  ║
+# ║   Source : 9_others/src/../test/test_sso_oidc_issue_workflow.sh
+# ║   Engine : 1_cicd/src/scripts/cloud-ship-repo-workflow-engine.sh
+# ║   Rebuild: ./9_others/build.sh
+# ║                                                                  ║
+# ║   Manual edits will be overwritten on next build.                ║
+# ║                                                                  ║
+# ╚══════════════════════════════════════════════════════════════════╝
+
 # #1147: the sso-oidc-issue workflow must generate the JWKS key and the client secrets ONLY on the runner and
 # publish them ONLY sops-encrypted to the private data repo. Static checks on the source workflow:
 #   - sops-encrypts the bundle and verifies the output carries no PRIVATE KEY;

@@ -1,4 +1,17 @@
 #!/usr/bin/env bash
+
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║                                                                  ║
+# ║   GENERATED FILE — DO NOT EDIT                                   ║
+# ║                                                                  ║
+# ║   Source : 9_others/src/../test/repos-sot.test.sh
+# ║   Engine : 1_cicd/src/scripts/cloud-ship-repo-workflow-engine.sh
+# ║   Rebuild: ./9_others/build.sh
+# ║                                                                  ║
+# ║   Manual edits will be overwritten on next build.                ║
+# ║                                                                  ║
+# ╚══════════════════════════════════════════════════════════════════╝
+
 # #1073 - cloud-infra reads the repo list from ONE place (now the cloud hub, cloud/repos.json).
 # 1_cloud-configs/src/inputs/repos.sot.json is a byte copy of the CLOUD family file, cloud/repos.json (2_vault + a_cloud + the cloud-* repos,
 # full hierarchy; a subset of _git-repos-master/repos.json, #1224). This tester fails when
