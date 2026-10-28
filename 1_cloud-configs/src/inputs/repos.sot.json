@@ -379,6 +379,7 @@
       "group": "a_cloud",
       "url": "git@github.com:diegonmarcos/cloud_db_LFS.git",
       "private": true,
+      "lfs": true,
       "renamed_from": [
         "cloud-data-lfs"
       ],
