@@ -1,57 +1,63 @@
 {
   "_warning": "FETCHED DATA — do not hand-edit. Refreshed by .github/workflows/fetch-github-repos.yml.",
-  "_doc": "Source of truth for WHICH REPOS EXIST — the CLOUD family only (repos registered in repos.sot.json plus its unregistered_ok), public and private. Repo NAMES are not sensitive; the token used to fetch them is, and never leaves the vault / GH secrets. Declarations (gitea.mirrors / octocode.repo_map) are a policy selection over this, never a substitute.",
+  "_doc": "Source of truth for WHICH REPOS EXIST — the CLOUD family only (#1224), public and private. Repo NAMES are not sensitive; the token used to fetch them is, and never leaves the vault / GH secrets. Declarations (gitea.mirrors / octocode.repo_map) are a policy selection over this, never a substitute.",
   "_source": "GitHub API",
-  "fetched_at": "2026-10-27T23:19:24Z",
+  "fetched_at": "2026-10-28T11:30:34Z",
   "owner": "diegonmarcos",
   "repos": [
     {
-      "name": "cloud-t-infra",
-      "visibility": "public",
+      "name": "cloud-me-my-ai",
+      "visibility": "private",
       "fork": false,
-      "pushed_at": "2026-10-27T23:17:26Z"
+      "pushed_at": "2026-10-28T11:30:32Z"
     },
     {
       "name": "cloud-u-android",
       "visibility": "public",
       "fork": false,
-      "pushed_at": "2026-10-27T23:16:36Z"
+      "pushed_at": "2026-10-28T11:30:27Z"
     },
     {
       "name": "git-repos-master",
       "visibility": "public",
       "fork": false,
-      "pushed_at": "2026-10-27T23:15:46Z"
+      "pushed_at": "2026-10-28T11:30:19Z"
     },
     {
-      "name": "cloud-me-my-ai",
-      "visibility": "private",
+      "name": "cloud-t-infra",
+      "visibility": "public",
       "fork": false,
-      "pushed_at": "2026-10-27T23:10:57Z"
+      "pushed_at": "2026-10-28T11:30:17Z"
     },
     {
       "name": "cloud-me-profiles",
       "visibility": "public",
       "fork": false,
-      "pushed_at": "2026-10-27T22:05:01Z"
+      "pushed_at": "2026-10-28T11:30:14Z"
+    },
+    {
+      "name": "cloud",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-28T11:30:05Z"
+    },
+    {
+      "name": "cloud-webapps",
+      "visibility": "public",
+      "fork": false,
+      "pushed_at": "2026-10-28T11:28:31Z"
     },
     {
       "name": "cloud-me-data-pvt",
       "visibility": "private",
       "fork": false,
-      "pushed_at": "2026-10-27T21:43:02Z"
+      "pushed_at": "2026-10-28T06:36:06Z"
     },
     {
       "name": "cloud-u-linux",
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-26T14:15:55Z"
-    },
-    {
-      "name": "cloud",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-26T13:42:03Z"
     },
     {
       "name": "cloud-webapps-2",
@@ -124,12 +130,6 @@
       "visibility": "private",
       "fork": false,
       "pushed_at": "2026-10-23T10:43:40Z"
-    },
-    {
-      "name": "cloud-webapps",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-22T11:53:18Z"
     },
     {
       "name": "cloud_db_LFS",
