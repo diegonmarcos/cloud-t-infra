@@ -76,7 +76,7 @@ step_compose() {
         esac
     }
     GHCR_TOKEN_VAL=""; _ghcr_src=""
-    GHCR_TOKEN_FILE="${HOME}/git/cloud-vault/A_A0-Providers/B_SERVICES-CLOUD/b0-github/api-key_opaque/token"
+    GHCR_TOKEN_FILE="${HOME}/git/cloud-vault/Shared/Providers/B_SERVICES-CLOUD/b0-github/api-key_opaque/token"
     if _ghcr_token_usable "${GHCR_PULL_TOKEN:-}"; then
         GHCR_TOKEN_VAL="$GHCR_PULL_TOKEN"; _ghcr_src="GHCR_PULL_TOKEN"
     elif [ -n "${GHCR_PULL_TOKEN:-}" ]; then

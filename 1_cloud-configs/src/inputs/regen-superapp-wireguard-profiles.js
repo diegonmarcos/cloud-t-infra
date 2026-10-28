@@ -27,7 +27,7 @@ const { join } = require("path");
 // note below both read it, so a vault reorganisation cannot move one and leave
 // the other naming a directory that no longer exists (the 2026-09-26 move left
 // the default at A0_keys/providers/wireguard and the script dead on ENOENT).
-const VAULT_REL = "A_A0-Providers/C_TOOLS-INFRA/c0-wireguard";
+const VAULT_REL = "Shared/Providers/C_TOOLS-INFRA/c0-wireguard";
 const VAULT = process.env.WG_VAULT_DIR ?? join(process.env.HOME, "git/cloud-vault", VAULT_REL);
 const PLACEHOLDER = "<PROVIDED_BY_DEVICE>";
 const users = JSON.parse(readFileSync(join(__dirname, "superapp-users.json"), "utf-8")).users;
