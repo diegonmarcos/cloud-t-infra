@@ -20889,6 +20889,7 @@
       "lang": "sh",
       "role": "shell",
       "exports": [
+        "cgc_image_name()",
         "need_bj()",
         "cleanup()",
         "stage_image()",
@@ -20897,6 +20898,7 @@
       ],
       "imports": [],
       "symbols": [
+        "cgc_image_name()",
         "need_bj()",
         "cleanup()",
         "stage_image()",

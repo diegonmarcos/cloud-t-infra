@@ -3727,21 +3727,31 @@
           "cloudy-t-infra": {
             "upstream": "https://github.com/diegonmarcos/cloudy-t-infra.git"
           },
-          "cloudy-u-containers": {
-            "upstream": "https://github.com/diegonmarcos/cloudy-u-containers.git"
+          "cloud-me-pvt-data": {
+            "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-data.git",
+            "private": true
           },
           "cloudy-a-docs": {
             "upstream": "https://github.com/diegonmarcos/cloudy-a-docs.git",
             "private": true
+          },
+          "cloudy-___": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-___.git"
+          },
+          "cloudy-u-containers_cgc": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-u-containers_cgc.git"
+          },
+          "_git-repos-master": {
+            "upstream": "https://github.com/diegonmarcos/_git-repos-master.git"
+          },
+          "cloudy-u-containers": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-u-containers.git"
           },
           "cloudy-u-linux": {
             "upstream": "https://github.com/diegonmarcos/cloudy-u-linux.git"
           },
           "cloudy-u-android": {
             "upstream": "https://github.com/diegonmarcos/cloudy-u-android.git"
-          },
-          "cloudy-___": {
-            "upstream": "https://github.com/diegonmarcos/cloudy-___.git"
           },
           "cloud-me-pvt-___": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-___.git",
@@ -3752,16 +3762,6 @@
           },
           "cloud-me-pub-___": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-pub-___.git"
-          },
-          "_git-repos-master": {
-            "upstream": "https://github.com/diegonmarcos/_git-repos-master.git"
-          },
-          "cloud-me-pvt-data": {
-            "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-data.git",
-            "private": true
-          },
-          "cloudy-u-containers_cgc": {
-            "upstream": "https://github.com/diegonmarcos/cloudy-u-containers_cgc.git"
           },
           "cloud-me-pvt-notes": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-notes.git",
@@ -7941,11 +7941,34 @@
           "index_repos": [
             "cloud-t-infra",
             "cloud-u-desktop",
+            "cloud-u-containers",
+            "cloud-u-android",
+            "cloud-u-linux",
+            "cloud-u-containers_cgc",
+            "cloud-h-webapps",
+            "cloud-h-webapps-2",
+            "cloud-me-pub-shared",
+            "cloud-me-pub-profiles-prf-prs",
+            "cloud-me-pub-profiles-_lnktree",
+            "cloud-me-pub-profiles-leaf.y",
+            "cloud-me-pub-profiles-nexus.z",
+            "cloud-me-pub-profiles-stark.x",
+            "_git-repos-master",
+            "Projects-endeavours",
+            "Projects-labtools",
+            "CG-circus",
+            "CG-galaxy",
             "cloud-me-pvt-data",
             "cloud-me-pvt-my-ai",
-            "cloud-a-docs",
-            "cloud-u-containers",
-            "cloud-u-android"
+            "cloud-a-docs"
+          ],
+          "_external_registry_comment": "index_repos entries that are NOT in the cloud registry (I_cloud/repos.json): members of the Projects-___ and CG-___ hubs, plus _git-repos-master. Their hubs' registries are not checked out in cloud-t-infra, so derive-repo-map.ts maps them local==GitHub name and fetch-github-repos.yml keeps them in the inventory. PUBLIC repos only. Selection 2026-10-28 (ls-tree counts): public, non-archived repos with code. Left out: the hub repos (cloud-___, cloud-me-pub-___, cloud-me-pub-profiles-___, Projects-___, CG-___, Fin-CM-___, DeepSc-___, DuckPeng-___: link indexes, 4-7 code files), Fin-CM-Blmbrg/Fin-CM-mqpm/DeepSc-X (11-file skeletons), CG-voxel-rust (2 files), cloud_db_assets-cdn and cloud_db_infra-ops-obsv_configs-sync (data, no code), diegonmarcos.github.io (built site output), diegonmarcos (profile), z-archived_*.",
+          "external_registry": [
+            "_git-repos-master",
+            "Projects-endeavours",
+            "Projects-labtools",
+            "CG-circus",
+            "CG-galaxy"
           ],
           "_private_repos_comment": "Repos in index_repos whose GitHub source is PRIVATE. Their DBs must never land in the volume the PUBLIC MCP mounts. cloud-cgc-db-restore-all.sh filters these out unless CGC_INCLUDE_PRIVATE=1, which cloud-cgc-pvt-mcp will set together with its own CGC_DB_TARGET_VOLUME. Keep in sync with repo_map: the value is the local_name (the index_repos entry), not the GitHub remote name.",
           "private_repos": [
@@ -7958,11 +7981,26 @@
           "repo_map": {
             "cloud-t-infra": "cloud-t-infra",
             "cloud-u-desktop": "cloud-u-desktop",
+            "cloud-u-containers": "cloud-u-containers",
+            "cloud-u-android": "cloud-u-android",
+            "cloud-u-linux": "cloud-u-linux",
+            "cloud-u-containers_cgc": "cloud-u-containers_cgc",
+            "cloud-h-webapps": "cloud-h-webapps",
+            "cloud-h-webapps-2": "cloud-h-webapps-2",
+            "cloud-me-pub-shared": "cloud-me-pub-shared",
+            "cloud-me-pub-profiles-prf-prs": "cloud-me-pub-profiles-prf-prs",
+            "cloud-me-pub-profiles-_lnktree": "cloud-me-pub-profiles-_lnktree",
+            "cloud-me-pub-profiles-leaf.y": "cloud-me-pub-profiles-leaf.y",
+            "cloud-me-pub-profiles-nexus.z": "cloud-me-pub-profiles-nexus.z",
+            "cloud-me-pub-profiles-stark.x": "cloud-me-pub-profiles-stark.x",
+            "_git-repos-master": "_git-repos-master",
+            "Projects-endeavours": "Projects-endeavours",
+            "Projects-labtools": "Projects-labtools",
+            "CG-circus": "CG-circus",
+            "CG-galaxy": "CG-galaxy",
             "cloud-me-pvt-data": "cloud-me-pvt-data",
             "cloud-me-pvt-my-ai": "cloud-me-pvt-my-ai",
-            "cloud-a-docs": "cloud-a-docs",
-            "cloud-u-containers": "cloud-u-containers",
-            "cloud-u-android": "cloud-u-android"
+            "cloud-a-docs": "cloud-a-docs"
           },
           "_graphrag_skip_comment": "Subset of index_repos (data-driven, no hardcoded names in the script) whose GraphRAG LLM relationship pass is skipped entirely — pure prose/text corpora have no code semantics to relate, so the pass is zero graph nodes for real per-node LLM cost. Structural/FastEmbed indexing (the semantic phase, USE_LLM=false) still runs normally; only the graphrag phase (USE_LLM=true) skips these repos. Honored by cloud-cgc-db-update.sh's per-repo loop.",
           "graphrag_skip": [],
@@ -7988,7 +8026,8 @@
             "binary_ratio": 0.5
           },
           "sync_exclude": {
-            "cloud-vault": "credential store — cloud-cgc-pub-mcp indexes the shared volume; secrets would be embedded in the GraphRAG DB"
+            "cloud-vault": "credential store — cloud-cgc-pub-mcp indexes the shared volume; secrets would be embedded in the GraphRAG DB",
+            "cloud-me-pvt-vault": "credential store (current name of cloud-vault) — cloud-cgc-pub-mcp indexes the shared volume; secrets would be embedded in the GraphRAG DB"
           }
         }
       },

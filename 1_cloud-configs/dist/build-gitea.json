@@ -2034,21 +2034,31 @@
       "cloudy-t-infra": {
         "upstream": "https://github.com/diegonmarcos/cloudy-t-infra.git"
       },
-      "cloudy-u-containers": {
-        "upstream": "https://github.com/diegonmarcos/cloudy-u-containers.git"
+      "cloud-me-pvt-data": {
+        "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-data.git",
+        "private": true
       },
       "cloudy-a-docs": {
         "upstream": "https://github.com/diegonmarcos/cloudy-a-docs.git",
         "private": true
+      },
+      "cloudy-___": {
+        "upstream": "https://github.com/diegonmarcos/cloudy-___.git"
+      },
+      "cloudy-u-containers_cgc": {
+        "upstream": "https://github.com/diegonmarcos/cloudy-u-containers_cgc.git"
+      },
+      "_git-repos-master": {
+        "upstream": "https://github.com/diegonmarcos/_git-repos-master.git"
+      },
+      "cloudy-u-containers": {
+        "upstream": "https://github.com/diegonmarcos/cloudy-u-containers.git"
       },
       "cloudy-u-linux": {
         "upstream": "https://github.com/diegonmarcos/cloudy-u-linux.git"
       },
       "cloudy-u-android": {
         "upstream": "https://github.com/diegonmarcos/cloudy-u-android.git"
-      },
-      "cloudy-___": {
-        "upstream": "https://github.com/diegonmarcos/cloudy-___.git"
       },
       "cloud-me-pvt-___": {
         "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-___.git",
@@ -2059,16 +2069,6 @@
       },
       "cloud-me-pub-___": {
         "upstream": "https://github.com/diegonmarcos/cloud-me-pub-___.git"
-      },
-      "_git-repos-master": {
-        "upstream": "https://github.com/diegonmarcos/_git-repos-master.git"
-      },
-      "cloud-me-pvt-data": {
-        "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-data.git",
-        "private": true
-      },
-      "cloudy-u-containers_cgc": {
-        "upstream": "https://github.com/diegonmarcos/cloudy-u-containers_cgc.git"
       },
       "cloud-me-pvt-notes": {
         "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-notes.git",
