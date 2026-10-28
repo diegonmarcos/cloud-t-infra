@@ -4,6 +4,7 @@
 # geo-allowed.json is a generated copy of cloud-u-containers _shared/geo-fence.json allowed_countries,
 # and a CI check there fails when the two differ. A country Cloudflare cannot place (XX, T1) is not in
 # the set, so it is blocked too (fail closed).
+# Plain block (default Cloudflare 403 page): the plan is not entitled to a custom response body (#1216).
 locals {
   geo_allowed = jsondecode(file("${path.module}/geo-allowed.json")).allowed_countries
   c3_pub_host = "c3-pub.diegonmarcos.com"
@@ -21,12 +22,5 @@ resource "cloudflare_ruleset" "c3_pub_geo_fence" {
     description = "c3-pub: client country not in the geo-fence allowlist (unplaceable XX/T1 included)"
     enabled     = true
     expression  = "(http.host eq \"${local.c3_pub_host}\" and not ip.src.country in {${join(" ", [for c in local.geo_allowed : "\"${c}\""])}})"
-    action_parameters {
-      response {
-        status_code  = 403
-        content_type = "text/html"
-        content      = "<!doctype html><meta charset=utf-8><title>Not available in your region</title><h1>Not available in your region</h1><p>This service is restricted to Europe and the USA.</p>"
-      }
-    }
   }
 }
