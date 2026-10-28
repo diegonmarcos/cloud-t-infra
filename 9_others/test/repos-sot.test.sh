@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# #1073 - cloud-infra reads the repo list from ONE place: git-repos-master/repos.json.
-# 1_cloud-configs/src/inputs/repos.sot.json is its byte copy (git-repos-master's ./clone.sh --sync
-# refreshes it). This tester fails when
+# #1073 - cloud-infra reads the repo list from ONE place (now the cloud hub, cloud/repos.json).
+# 1_cloud-configs/src/inputs/repos.sot.json is a byte copy of the CLOUD family file, cloud/repos.json (2_vault + a_cloud + the cloud-* repos,
+# full hierarchy; a subset of git-repos-master/repos.json, #1224). This tester fails when
 #   S1  the copy is not a valid cloud-repos/v1 registry, or differs from the registry at its declared url
 #       (checked when the network answers; offline is reported, S2-S6 still run)
 #   S2  a fleet.repos[] entry (0_apps/src/manifest.json) is not in the registry, is pending_creation,
@@ -17,7 +17,7 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 SOT="$ROOT/1_cloud-configs/src/inputs/repos.sot.json"
 M="$ROOT/0_apps/src/manifest.json"
 INV="$ROOT/1_cloud-configs/src/inputs/github-repos.json"
-URL="${REPOS_SOT_URL:-https://raw.githubusercontent.com/diegonmarcos/git-repos-master/main/repos.json}"
+URL="${REPOS_SOT_URL:-https://raw.githubusercontent.com/diegonmarcos/cloud/main/repos.json}"
 T="$(mktemp -d)"; trap 'rm -rf "$T"' EXIT
 pass=0; fail=0
 ok()  { pass=$((pass+1)); echo "PASS $1"; }
@@ -30,7 +30,7 @@ jq -e '._schema=="cloud-repos/v1" and (.repos|length)>5 and (([.repos[].name]|le
 API="$(printf '%s' "$URL" | sed -E 's#^https://raw.githubusercontent.com/([^/]+)/([^/]+)/(.+)/([^/]+)$#https://api.github.com/repos/\1/\2/contents/\4?ref=\3#')"
 if { curl -fsSL --max-time 20 -H 'Accept: application/vnd.github.raw' ${GITHUB_TOKEN:+-H "Authorization: Bearer $GITHUB_TOKEN"} "$API" -o "$T/live.json" 2>/dev/null \
      || curl -fsSL --max-time 20 "$URL" -o "$T/live.json" 2>/dev/null; } && jq -e . "$T/live.json" >/dev/null 2>&1; then
-  cmp -s "$T/live.json" "$SOT" && ok "S1b copy = $URL" || bad "S1b repos.sot.json DRIFTED from $URL (run git-repos-master ./clone.sh --sync)"
+  cmp -s "$T/live.json" "$SOT" && ok "S1b copy = $URL" || bad "S1b repos.sot.json DRIFTED from $URL (copy cloud/repos.json over it)"
 else
   echo "INFO S1b $URL not reachable from here; live comparison not made"
 fi
@@ -41,8 +41,11 @@ out=$(jq -r --slurpfile s "$SOT" '.fleet.repos[] as $f
   | select(($r.status // "") == "pending_creation" or (($r.private // false) != ($f.private // false)))
   | "\($f.dir): registry says status=\($r.status // "-") private=\($r.private // false), fleet says private=\($f.private // false)"' "$M")
 [ -z "$out" ] && ok "S2a fleet repos agree with the registry (created, same visibility)" || { bad "S2a fleet/registry disagree"; echo "$out" | sed 's/^/    /'; }
-out=$(jq -r --slurpfile s "$SOT" '[$s[0].repos[]|'"$GH"'] as $g | .fleet.repos[] | select(.github as $x | ($g|index($x))==null) | .dir + " (" + .github + ")"' "$M")
-[ -z "$out" ] && ok "S2b every fleet repo is in the registry" || { bad "S2b fleet repo not in the registry: $out"; }
+# #1224: the registry here is the CLOUD family only. Fleet dotfile targets of other families
+# (registered in git-repos-master/repos.json, not in the cloud file) are listed explicitly.
+NONCLOUD_OK='["front","CG","Fin-CM","DeepSc","DuckPeng","z-archived_front-data","diegonmarcos.github.io","CG-galaxy-gaia","CG-unity"]'
+out=$(jq -r --argjson nc "$NONCLOUD_OK" --slurpfile s "$SOT" '[$s[0].repos[]|'"$GH"'] as $g | .fleet.repos[] | select(.github as $x | ($g|index($x))==null and ($nc|index($x))==null) | .dir + " (" + .github + ")"' "$M")
+[ -z "$out" ] && ok "S2b every fleet repo is in the cloud registry or an allowed other-family target" || { bad "S2b fleet repo not in the registry: $out"; }
 
 # S3 pending vs reality
 pend=$(jq -r '.repos[]|select(.status=="pending_creation")|'"$GH" "$SOT")

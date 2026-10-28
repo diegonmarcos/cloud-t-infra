@@ -1,6 +1,6 @@
 {
   "_warning": "FETCHED DATA — do not hand-edit. Refreshed by .github/workflows/fetch-github-repos.yml.",
-  "_doc": "Source of truth for WHICH REPOS EXIST — all repos, public and private. Repo NAMES are not sensitive; the token used to fetch them is, and never leaves the vault / GH secrets. Declarations (gitea.mirrors / octocode.repo_map) are a policy selection over this, never a substitute.",
+  "_doc": "Source of truth for WHICH REPOS EXIST — the CLOUD family only (repos registered in repos.sot.json plus its unregistered_ok), public and private. Repo NAMES are not sensitive; the token used to fetch them is, and never leaves the vault / GH secrets. Declarations (gitea.mirrors / octocode.repo_map) are a policy selection over this, never a substitute.",
   "_source": "GitHub API",
   "fetched_at": "2026-10-27T23:19:24Z",
   "owner": "diegonmarcos",
@@ -24,76 +24,10 @@
       "pushed_at": "2026-10-27T23:15:46Z"
     },
     {
-      "name": "diegonmarcos.github.io",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-27T23:14:42Z"
-    },
-    {
-      "name": "DuckPeng",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-27T23:13:33Z"
-    },
-    {
-      "name": "DeepSc",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-27T23:13:31Z"
-    },
-    {
-      "name": "Fin-CM",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-27T23:13:29Z"
-    },
-    {
-      "name": "DeepSc-X",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-27T23:12:27Z"
-    },
-    {
-      "name": "Fin-CM-Blmbrg",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-27T23:12:25Z"
-    },
-    {
-      "name": "Fin-CM-mqpm",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-27T23:12:23Z"
-    },
-    {
-      "name": "DeepSc-StarkX",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-27T23:11:52Z"
-    },
-    {
-      "name": "Fin-CM-NexusZ",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-27T23:11:50Z"
-    },
-    {
-      "name": "DuckPeng-LeafY",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-27T23:11:47Z"
-    },
-    {
       "name": "cloud-me-my-ai",
       "visibility": "private",
       "fork": false,
       "pushed_at": "2026-10-27T23:10:57Z"
-    },
-    {
-      "name": "front-labtools",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-27T22:06:31Z"
     },
     {
       "name": "cloud-me-profiles",
@@ -108,46 +42,10 @@
       "pushed_at": "2026-10-27T21:43:02Z"
     },
     {
-      "name": "diegonmarcos",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-27T12:29:48Z"
-    },
-    {
       "name": "cloud-u-linux",
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-26T14:15:55Z"
-    },
-    {
-      "name": "CG-galaxy-gaia",
-      "visibility": "private",
-      "fork": false,
-      "pushed_at": "2026-10-26T13:44:28Z"
-    },
-    {
-      "name": "CG-unity",
-      "visibility": "private",
-      "fork": false,
-      "pushed_at": "2026-10-26T13:44:19Z"
-    },
-    {
-      "name": "CG-galaxy",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-26T13:44:15Z"
-    },
-    {
-      "name": "CG",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-26T13:42:26Z"
-    },
-    {
-      "name": "front",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-26T13:42:06Z"
     },
     {
       "name": "cloud",
@@ -156,22 +54,10 @@
       "pushed_at": "2026-10-26T13:42:03Z"
     },
     {
-      "name": "CG-voxel-rust",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-26T13:33:00Z"
-    },
-    {
       "name": "cloud-webapps-2",
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-26T13:29:16Z"
-    },
-    {
-      "name": "CG-circus",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-26T13:29:13Z"
     },
     {
       "name": "cloud-u-containers",
@@ -180,58 +66,16 @@
       "pushed_at": "2026-10-26T00:05:56Z"
     },
     {
-      "name": "front-endeavours",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T23:10:38Z"
-    },
-    {
       "name": "cloud-me-others",
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-25T23:10:29Z"
     },
     {
-      "name": "z-archived_front-media",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T19:03:20Z"
-    },
-    {
       "name": "cloud_db_assets-cdn",
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-25T19:00:59Z"
-    },
-    {
-      "name": "z-archived_front-others",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T19:00:57Z"
-    },
-    {
-      "name": "z-archived_front-feeds",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T19:00:21Z"
-    },
-    {
-      "name": "z-archived_front-warehouse",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T19:00:18Z"
-    },
-    {
-      "name": "z-archived_front-individual",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T19:00:16Z"
-    },
-    {
-      "name": "front-linktree",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-25T19:00:09Z"
     },
     {
       "name": "cloud-me_cgc",
@@ -270,18 +114,6 @@
       "pushed_at": "2026-10-23T12:46:48Z"
     },
     {
-      "name": "z-archived_front-projects",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-23T12:12:40Z"
-    },
-    {
-      "name": "lecole-42",
-      "visibility": "private",
-      "fork": false,
-      "pushed_at": "2026-10-23T12:11:27Z"
-    },
-    {
       "name": "cloud-me",
       "visibility": "private",
       "fork": false,
@@ -292,12 +124,6 @@
       "visibility": "private",
       "fork": false,
       "pushed_at": "2026-10-23T10:43:40Z"
-    },
-    {
-      "name": "z-archived_front-data",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-22T20:35:16Z"
     },
     {
       "name": "cloud-webapps",
@@ -316,66 +142,6 @@
       "visibility": "private",
       "fork": false,
       "pushed_at": "2026-10-21T19:43:10Z"
-    },
-    {
-      "name": "lecole-42_ml-Agentic",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-21T16:45:27Z"
-    },
-    {
-      "name": "lecole-42_ml-MachineLearning",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-21T16:42:25Z"
-    },
-    {
-      "name": "lecole-42_ops-Mylibs",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-15T10:10:01Z"
-    },
-    {
-      "name": "lecole-42_ml-DataScience",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-15T10:09:33Z"
-    },
-    {
-      "name": "lecole-42_dev",
-      "visibility": "private",
-      "fork": false,
-      "pushed_at": "2026-10-15T10:09:04Z"
-    },
-    {
-      "name": "lecole-42_cyber-Cyberwarfare",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-15T10:08:49Z"
-    },
-    {
-      "name": "lecole-42_back-System",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-15T10:08:32Z"
-    },
-    {
-      "name": "lecole-42_back-Graphic",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-15T10:08:12Z"
-    },
-    {
-      "name": "lecole-42_back-Algo",
-      "visibility": "public",
-      "fork": false,
-      "pushed_at": "2026-10-15T10:07:40Z"
-    },
-    {
-      "name": "lecole-42-projects",
-      "visibility": "private",
-      "fork": false,
-      "pushed_at": "2026-10-15T10:07:10Z"
     },
     {
       "name": "cloud-me-notes",
