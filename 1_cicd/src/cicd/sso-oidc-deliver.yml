@@ -1,0 +1,99 @@
+name: "SSO OIDC deliver (per-service sops fragments from the issued bundle)"
+
+# #1147, step 2 of 3 (1: sso-oidc-issue, 3: flip "enabled" in oidc-clients.json and ship).
+# Decrypts cloud-me-pvt-data sso-oidc/sso-oidc.sops.json on an EPHEMERAL runner (tmpfs, shredded) and
+# re-encrypts, per service, only that service's value as a NEW sops file to the fleet age recipient:
+#   <svc_dir>/src/<file>   with  <ENV> = clients.<client_id>.secret      (+ _credentials record)
+#   infra-sec_authelia/src/secrets.sso-oidc.yaml  with  <secret_var> = clients.<client_id>.digest
+# <file> is secrets.yaml when the service has none yet, else the fragment secrets.sso-oidc.yaml that
+# cloud-ship-container-step-secrets-decrypt.sh merges (#760). Output, encrypted only, goes to
+# cloud-me-pvt-data sso-oidc/deliver/<svc_dir>/src/<file>; it is copied verbatim into cloud-u-containers
+# (no credential here can push there). The JWKS key in the bundle is NOT delivered: Authelia keeps its
+# current AUTHELIA_OIDC_JWKS_KEY. Nothing is printed and no artifact is uploaded.
+on:
+  workflow_dispatch:
+    inputs:
+      clients:
+        description: "space-separated client_id=svc_dir:ENV entries"
+        required: false
+        default: "hedgedoc=user-prod_hedgedoc:HEDGEDOC_OIDC_CLIENT_SECRET grist=user-prod_grist:GRIST_OIDC_CLIENT_SECRET photoprism=user-media_photoprism:PHOTOPRISM_OIDC_CLIENT_SECRET dagu-ui=infra-obs_dagu:DAGU_OIDC_CLIENT_SECRET gitea=infra-dat_gitea:GITEA_OIDC_CLIENT_SECRET etherpad=user-prod_etherpad:ETHERPAD_OIDC_CLIENT_SECRET dbgate=infra-obs_dbgate:DBGATE_OIDC_CLIENT_SECRET"
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sso-oidc-deliver
+  cancel-in-progress: false
+
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUD_DATA_DEPLOY_KEY: ${{ secrets.CLOUD_DATA_DEPLOY_KEY }}
+      SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
+      CLIENTS_IN: ${{ inputs.clients }}
+      AGE_RECIPIENT: age1u575hx8h4t5cgle2uznmyfy75e7cgd02h9t5dax506luz9e05vlqxtd7pq
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: diegonmarcos/cloud-u-containers
+          path: containers
+      - name: Install sops
+        run: |
+          set -eu
+          curl -fsSL -o /tmp/sops https://github.com/getsops/sops/releases/download/v3.11.0/sops-v3.11.0.linux.amd64
+          sudo install -m 0755 /tmp/sops /usr/local/bin/sops
+          sops --version >/dev/null
+      - name: Decrypt bundle, write encrypted per-service files, publish to the private repo
+        run: |
+          set -eu
+          umask 077
+          [ -n "$CLOUD_DATA_DEPLOY_KEY" ] || { echo "::error::CLOUD_DATA_DEPLOY_KEY is not available"; exit 1; }
+          [ -n "$SOPS_AGE_KEY" ] || { echo "::error::SOPS_AGE_KEY is not available"; exit 1; }
+          C="$GITHUB_WORKSPACE/containers"
+          W="$(mktemp -d -p /dev/shm)"; cd "$W"
+          trap 'find "$W" -type f -exec shred -u {} + 2>/dev/null || true; rm -rf "$W" ~/.ssh/id_deploy || true' EXIT
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$CLOUD_DATA_DEPLOY_KEY" > ~/.ssh/id_deploy; chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_deploy -o IdentitiesOnly=yes"
+          git clone -q --depth 1 git@github.com:diegonmarcos/cloud-me-pvt-data.git "$W/pvt"
+          B="$W/pvt/sso-oidc/sso-oidc.sops.json"
+          [ -f "$B" ] || { echo "::error::no bundle; run sso-oidc-issue first"; exit 1; }
+          sops -d --input-type json --output-type json "$B" > plain.json
+          python3 - "$C" "$CLIENTS_IN" <<'PY'
+          import json, os, sys
+          root, spec = sys.argv[1], sys.argv[2].split()
+          b = json.load(open("plain.json"))
+          for c in b["clients"].values():
+              print("::add-mask::" + c["secret"], flush=True)
+          auth = {}
+          os.makedirs("out", exist_ok=True)
+          for e in spec:
+              cid, rest = e.split("=", 1); svc, env = rest.split(":", 1)
+              c = b["clients"][cid]
+              base = os.path.join(root, svc, "src", "secrets.yaml")
+              name = "secrets.sso-oidc.yaml" if os.path.exists(base) else "secrets.yaml"
+              doc = {env: c["secret"], "_credentials": {"sso_oidc": {
+                  "type": "oauth", "url": "https://sso.diegonmarcos.com", "client_id": cid,
+                  "client_secret": c["secret"], "note": "Authelia OIDC client (#1147), from sso-oidc bundle " + b["issued"]}}}
+              d = os.path.join("out", svc, "src"); os.makedirs(d, exist_ok=True)
+              json.dump(doc, open(os.path.join(d, name + ".json"), "w"))
+              auth[c["secret_var"]] = c["digest"]
+              auth.setdefault("_credentials", {})[cid] = {"type": "oauth", "client_id": cid,
+                  "hashed": c["digest"], "note": "pbkdf2 digest of the " + cid + " client secret (#1147)"}
+          d = os.path.join("out", "infra-sec_authelia", "src"); os.makedirs(d, exist_ok=True)
+          json.dump(auth, open(os.path.join(d, "secrets.sso-oidc.yaml.json"), "w"))
+          PY
+          rm -rf "$W/pvt/sso-oidc/deliver"
+          find out -name '*.json' | while read -r f; do
+            rel="${f#out/}"; dst="$W/pvt/sso-oidc/deliver/${rel%.json}"; mkdir -p "$(dirname "$dst")"
+            sops --encrypt --age "$AGE_RECIPIENT" --input-type json --output-type yaml "$f" > "$dst"
+            grep -q '^sops:' "$dst" || { echo "::error::$rel not encrypted"; exit 1; }
+          done
+          if grep -rqE 'pbkdf2-sha512|PRIVATE KEY' "$W/pvt/sso-oidc/deliver"; then echo "::error::plaintext leaked"; exit 1; fi
+          ( cd "$W/pvt" && git config user.name "Claude" && git config user.email "noreply@anthropic.com" && git add sso-oidc/deliver \
+            && { git diff --cached --quiet || git commit -q -m "sso-oidc: per-service encrypted delivery files (#1147)"; } && git push -q origin HEAD:main )
+          echo "delivery files pushed to cloud-me-pvt-data/sso-oidc/deliver (encrypted): $(find "$W/pvt/sso-oidc/deliver" -type f | wc -l)"
