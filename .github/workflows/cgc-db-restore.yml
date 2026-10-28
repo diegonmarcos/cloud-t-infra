@@ -17,7 +17,7 @@
 # │       (public) after it indexes.                             │
 # │  pvt: PULLED (#951) — no cross-repo token. Hourly, the       │
 # │       `check` job compares the private cgc-db-<repo>         │
-# │       packages (diegonmarcos/cloud-me_cgc pushes them) with  │
+# │       packages (diegonmarcos/cloud-me-pvt-cgc pushes them) with  │
 # │       the start of the last successful pvt restore and runs  │
 # │       one when a package is newer. Inert while the legacy    │
 # │       cgc-db.yml here is still enabled (it restores itself). │
@@ -59,7 +59,7 @@ on:
         required: false
         default: ""
         type: string
-  # pvt PULL (#951): the private orchestrator (cloud-me_cgc) no longer dispatches this.
+  # pvt PULL (#951): the private orchestrator (cloud-me-pvt-cgc) no longer dispatches this.
   schedule:
     - cron: "23 * * * *"
 

@@ -16,7 +16,7 @@ name: "Vault mTLS issue (fleet client CA + per-device .p12, sops-encrypted)"
 #   - the fleet client CA (ECDSA P-256, 5 years). Its KEY never leaves this job in plaintext;
 #   - one client certificate per device (90 days, EKU clientAuth, CN = device id) as a PKCS#12 with a random password.
 # Outputs, nothing else:
-#   1. PRIVATE repo diegonmarcos/cloud-me-data-pvt  vault-mtls/vault-mtls.sops.json : the CA key, CA cert, and each device
+#   1. PRIVATE repo diegonmarcos/cloud-me-pvt-data  vault-mtls/vault-mtls.sops.json : the CA key, CA cert, and each device
 #      .p12 (base64) + its password, the whole JSON sops-encrypted to the fleet age recipient (see .sops.yaml).
 #      Written with CLOUD_DATA_DEPLOY_KEY (the same write deploy key the health-report publisher uses).
 #   2. THIS public repo 1_cloud-configs/src/inputs/vault-client-ca.pem : the PUBLIC CA certificate only. The derive turns it
@@ -105,7 +105,7 @@ jobs:
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
           printf '%s\n' "$CLOUD_DATA_DEPLOY_KEY" > ~/.ssh/id_deploy; chmod 600 ~/.ssh/id_deploy
           ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
-          GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_deploy -o IdentitiesOnly=yes" git clone -q --depth 1 git@github.com:diegonmarcos/cloud-me-data-pvt.git "$W/pvt"
+          GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_deploy -o IdentitiesOnly=yes" git clone -q --depth 1 git@github.com:diegonmarcos/cloud-me-pvt-data.git "$W/pvt"
           mkdir -p "$W/pvt/vault-mtls" && cp vault-mtls.sops.json "$W/pvt/vault-mtls/vault-mtls.sops.json"
           printf 'Fleet client CA + per-device .p12 for the vault mTLS leg (#1117). sops-encrypted to the fleet age key; decrypt with `sops -d`.\nOwner steps: decrypt, pull devices.<id>.p12_b64 (base64) and p12_password, import the .p12 on the device (Android: Settings > Security > Install a certificate > VPN & app user cert), then in the vault app pick it under Client certificate (mTLS) > Choose system. Server URL: https://vault.diegonmarcos.com\n' > "$W/pvt/vault-mtls/README.txt"
           ( cd "$W/pvt" && git config user.name "Claude" && git config user.email "noreply@anthropic.com" && git add vault-mtls \
@@ -119,4 +119,4 @@ jobs:
           git add -f 1_cloud-configs/src/inputs/vault-client-ca.pem
           git commit -q -m "vault-mtls: publish PUBLIC fleet client CA certificate (#1117) [skip ci]"
           git push -q origin HEAD:${{ github.ref_name }}
-          echo "issued for: $DEVICES; encrypted bundle pushed to cloud-me-data-pvt/vault-mtls; public CA cert committed."
+          echo "issued for: $DEVICES; encrypted bundle pushed to cloud-me-pvt-data/vault-mtls; public CA cert committed."

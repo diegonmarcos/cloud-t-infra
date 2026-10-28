@@ -102,6 +102,12 @@ jobs:
             page=$((page + 1))
           done
 
+          # #1224: the inventory holds the CLOUD family only: repos the cloud registry
+          # (repos.sot.json, a byte copy of cloud/repos.json) lists, its unregistered_ok, and any cloud* name.
+          jq --slurpfile r 1_cloud-configs/src/inputs/repos.sot.json '
+            ([$r[0].repos[] | .url | sub("^.*[/:]"; "") | sub("\\.git$"; "")] + [$r[0].unregistered_ok[].name]) as $keep
+            | [.[] | select(.name as $n | ($keep | index($n)) != null or ($n | startswith("cloud")))]' /tmp/acc.json > /tmp/acc.fam && mv /tmp/acc.fam /tmp/acc.json
+
           # Second belt: a token can be valid yet scoped to fewer repos than
           # last time. Never let an inventory shrink silently — losing a repo
           # here turns its declarations into false "dangling" reports
@@ -120,7 +126,7 @@ jobs:
           # Sorted by pushed_at desc so the diff is stable run to run.
           jq --arg owner "$OWNER" --arg now "$(date -u +%FT%TZ)" '{
             _warning: "FETCHED DATA — do not hand-edit. Refreshed by .github/workflows/fetch-github-repos.yml.",
-            _doc: "Source of truth for WHICH REPOS EXIST — all repos, public and private. Repo NAMES are not sensitive; the token used to fetch them is, and never leaves the vault / GH secrets. Declarations (gitea.mirrors / octocode.repo_map) are a policy selection over this, never a substitute.",
+            _doc: "Source of truth for WHICH REPOS EXIST — the CLOUD family only (#1224), public and private. Repo NAMES are not sensitive; the token used to fetch them is, and never leaves the vault / GH secrets. Declarations (gitea.mirrors / octocode.repo_map) are a policy selection over this, never a substitute.",
             _source: "GitHub API",
             fetched_at: $now,
             owner: $owner,

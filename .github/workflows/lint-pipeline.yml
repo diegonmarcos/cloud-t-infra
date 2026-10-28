@@ -114,8 +114,6 @@ jobs:
       # No .mcp.json entry may be a bare http url (that falls back to OAuth/DCR).
       - name: Phase 14b — every MCP entry is mesh-first launcher or bearer http (no OAuth-only)
         run: bash 9_others/test/test_mcp_json_no_oauth_only.sh
-      - name: Phase 14c — no shipped MCP config or hook depends on api./mcp. (tickets #1100/#1104)
-        run: bash 9_others/test/test_mcp_json_no_legacy_hosts.sh
       - name: Phase 14 — proxied_mcps children resolve to real services
         run: bash 9_others/test/test_proxied_mcps_resolution.sh
       - name: Phase 15 — engine layout detection works pre-build

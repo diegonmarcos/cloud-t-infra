@@ -4,7 +4,7 @@ name: "SSO OIDC issue (Authelia JWKS key + per-service client secrets, sops-encr
 #   - the Authelia OIDC signing key (RSA 4096, PEM);
 #   - one random client secret per client in cloud-u-containers infra-sec_authelia/src/oidc-clients.json
 #     (client_id + secret_var are read from that PUBLIC file), plus its Authelia pbkdf2-sha512 digest.
-# Output, nothing else: PRIVATE repo diegonmarcos/cloud-me-data-pvt  sso-oidc/sso-oidc.sops.json, the whole JSON
+# Output, nothing else: PRIVATE repo diegonmarcos/cloud-me-pvt-data  sso-oidc/sso-oidc.sops.json, the whole JSON
 # sops-encrypted to the fleet age recipient (see .sops.yaml), written with CLOUD_DATA_DEPLOY_KEY (the same
 # write deploy key vault-mtls-issue uses). The public repos keep client IDs and redirect URIs only.
 # Nothing is printed (secrets are ::add-mask::ed and never echoed), no artifact is uploaded, files live in a
@@ -60,7 +60,7 @@ jobs:
           printf '%s\n' "$CLOUD_DATA_DEPLOY_KEY" > ~/.ssh/id_deploy; chmod 600 ~/.ssh/id_deploy
           ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_deploy -o IdentitiesOnly=yes"
-          git clone -q --depth 1 git@github.com:diegonmarcos/cloud-me-data-pvt.git "$W/pvt"
+          git clone -q --depth 1 git@github.com:diegonmarcos/cloud-me-pvt-data.git "$W/pvt"
           if [ -f "$W/pvt/sso-oidc/sso-oidc.sops.json" ] && [ "$ROTATE" != "true" ]; then
             echo "::error::an SSO OIDC bundle already exists; pass rotate=true to replace the key and every client secret"; exit 1
           fi
@@ -89,4 +89,4 @@ jobs:
           printf 'Authelia OIDC JWKS signing key + per-service client secrets and pbkdf2 digests (#1147). sops-encrypted to the fleet age key; decrypt with `sops -d`.\nclients.<client_id>.secret goes to the service as <SVC>_OIDC_CLIENT_SECRET; clients.<client_id>.secret_var names the Authelia secret file; jwks_key_pem is AUTHELIA_OIDC_JWKS_KEY.\n' > "$W/pvt/sso-oidc/README.txt"
           ( cd "$W/pvt" && git config user.name "Claude" && git config user.email "noreply@anthropic.com" && git add sso-oidc \
             && git commit -q -m "sso-oidc: JWKS key + client secrets (sops-encrypted)" && git push -q origin HEAD:main )
-          echo "bundle pushed to cloud-me-data-pvt/sso-oidc (encrypted)."
+          echo "bundle pushed to cloud-me-pvt-data/sso-oidc (encrypted)."
