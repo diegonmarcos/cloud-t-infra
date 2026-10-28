@@ -37,13 +37,13 @@
         "private": false
       },
       {
-        "dir": "cloud-me-data-pvt",
-        "github": "cloud-me-data-pvt",
+        "dir": "cloud-me-pvt-data",
+        "github": "cloud-me-pvt-data",
         "private": true
       },
       {
-        "dir": "cloud-me-my-ai",
-        "github": "cloud-me-my-ai",
+        "dir": "cloud-me-pvt-my-ai",
+        "github": "cloud-me-pvt-my-ai",
         "private": true,
         "sources": {
           "prefix": "4___ASSETS___/4.2.Config",
@@ -80,8 +80,8 @@
         "private": false
       },
       {
-        "dir": "cloud-me_cgc",
-        "github": "cloud-me_cgc",
+        "dir": "cloud-me-pvt-cgc",
+        "github": "cloud-me-pvt-cgc",
         "private": true
       },
       {
@@ -91,7 +91,7 @@
       },
       {
         "dir": "cloud-vault",
-        "github": "cloud-me_vault",
+        "github": "cloud-me-pvt-vault",
         "private": true
       },
       {
