@@ -185,7 +185,9 @@ jobs:
           set -eu
           BJ="a_solutions/user-ai_cloud-cgc-pub-mcp/build.json"
           [ -f "$BJ" ] || { echo "::error::$BJ not found"; exit 1; }
-          REPOS_JSON=$(jq -c '[.runtime.octocode.index_repos[]]' "$BJ")
+          # PUBLIC run: private repos (private_repos) are never indexed here; they
+          # belong to the private cloud-me_cgc run only. Guarded by cgc-db-public-no-private.test.sh.
+          REPOS_JSON=$(jq -c '(.runtime.octocode.private_repos // []) as $p | [.runtime.octocode.index_repos[] | select(. as $r | $p | index($r) | not)]' "$BJ")
           # Optional subset. index_repos stays the single source of truth: the input
           # can only NARROW it, never introduce a repo, and an unknown name is a hard
           # error rather than a silently-empty matrix that looks like a clean run.
