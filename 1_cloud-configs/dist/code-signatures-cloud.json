@@ -290,6 +290,7 @@
       "lang": "sh",
       "role": "script",
       "exports": [
+        "cgc_image_name()",
         "need_bj()",
         "cleanup()",
         "lance_newest_manifest()",
@@ -309,6 +310,7 @@
         "deploy-compose.sh"
       ],
       "symbols": [
+        "cgc_image_name()",
         "need_bj()",
         "cleanup()",
         "lance_newest_manifest()",
@@ -341,6 +343,7 @@
       "lang": "sh",
       "role": "script",
       "exports": [
+        "cgc_image_name()",
         "octocode_has_fastembed()",
         "ensure_octocode()",
         "ensure_ghcr_auth()",
@@ -369,14 +372,14 @@
         "manifest_read()",
         "octo_log_digest()",
         "cgc_repo_is_private()",
-        "octo_log_redact()",
-        "octo_log_report()"
+        "octo_log_redact()"
       ],
       "imports": [
         "cgc-db-lance-integrity.test.sh",
         "$HERE/cloud-cgc-db-chunk.sh"
       ],
       "symbols": [
+        "cgc_image_name()",
         "octocode_has_fastembed()",
         "ensure_octocode()",
         "ensure_ghcr_auth()",
@@ -1877,6 +1880,7 @@
       "lang": "sh",
       "role": "shell",
       "exports": [
+        "cgc_image_name()",
         "need_bj()",
         "cleanup()",
         "lance_newest_manifest()",
@@ -1896,6 +1900,7 @@
         "deploy-compose.sh"
       ],
       "symbols": [
+        "cgc_image_name()",
         "need_bj()",
         "cleanup()",
         "lance_newest_manifest()",
@@ -1928,6 +1933,7 @@
       "lang": "sh",
       "role": "shell",
       "exports": [
+        "cgc_image_name()",
         "octocode_has_fastembed()",
         "ensure_octocode()",
         "ensure_ghcr_auth()",
@@ -1956,14 +1962,14 @@
         "manifest_read()",
         "octo_log_digest()",
         "cgc_repo_is_private()",
-        "octo_log_redact()",
-        "octo_log_report()"
+        "octo_log_redact()"
       ],
       "imports": [
         "cgc-db-lance-integrity.test.sh",
         "$HERE/cloud-cgc-db-chunk.sh"
       ],
       "symbols": [
+        "cgc_image_name()",
         "octocode_has_fastembed()",
         "ensure_octocode()",
         "ensure_ghcr_auth()",

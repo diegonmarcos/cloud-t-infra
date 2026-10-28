@@ -3724,41 +3724,44 @@
           "_doc": "Gitea honours its reverse-proxy user header from ANY peer: REVERSE_PROXY_TRUSTED_PROXIES only feeds the X-Forwarded-For rewrite (gitea v28.0.0 routers/common/middleware.go:33); services/auth/reverseproxy.go never checks the source. With 0.0.0.0:3002 reachable from every wg0/wg-public peer and ~40 host-network containers on oci-apps, enabling reverse-proxy auth on that listener would let any of them become `diego` with one header. So gitea listens only on a unix socket in a tmpfs volume that no other container mounts, and this caddy owns :3002: it forwards `identity.header` (and X-Real-IP) only when the peer is in trusted_proxies AND the Host is this service's domain — the .app catalog routes the hub also serves from 10.0.0.1 carry Host gitea.mesh.diegonmarcos.com, so they cannot mint an identity either. Everything else reaches gitea exactly as before, anonymous."
         },
         "mirrors": {
-          "cloud-t-infra": {
-            "upstream": "https://github.com/diegonmarcos/cloud-t-infra.git"
+          "cloudy-t-infra": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-t-infra.git"
           },
-          "cloud-a-docs": {
-            "upstream": "https://github.com/diegonmarcos/cloud-a-docs.git",
+          "cloudy-u-containers": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-u-containers.git"
+          },
+          "cloudy-a-docs": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-a-docs.git",
             "private": true
           },
-          "cloud-me-pub-profiles___": {
-            "upstream": "https://github.com/diegonmarcos/cloud-me-pub-profiles___.git"
+          "cloudy-u-linux": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-u-linux.git"
           },
-          "cloud-me-pub___": {
-            "upstream": "https://github.com/diegonmarcos/cloud-me-pub___.git"
+          "cloudy-u-android": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-u-android.git"
           },
-          "cloud___": {
-            "upstream": "https://github.com/diegonmarcos/cloud___.git"
+          "cloudy-___": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-___.git"
           },
-          "cloud-u-containers": {
-            "upstream": "https://github.com/diegonmarcos/cloud-u-containers.git"
-          },
-          "cloud-me-pvt___": {
-            "upstream": "https://github.com/diegonmarcos/cloud-me-pvt___.git",
+          "cloud-me-pvt-___": {
+            "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-___.git",
             "private": true
+          },
+          "cloud-me-pub-profiles-___": {
+            "upstream": "https://github.com/diegonmarcos/cloud-me-pub-profiles-___.git"
+          },
+          "cloud-me-pub-___": {
+            "upstream": "https://github.com/diegonmarcos/cloud-me-pub-___.git"
+          },
+          "_git-repos-master": {
+            "upstream": "https://github.com/diegonmarcos/_git-repos-master.git"
           },
           "cloud-me-pvt-data": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-data.git",
             "private": true
           },
-          "_git-repos-master": {
-            "upstream": "https://github.com/diegonmarcos/_git-repos-master.git"
-          },
-          "cloud-u-android": {
-            "upstream": "https://github.com/diegonmarcos/cloud-u-android.git"
-          },
-          "cloud-u-containers_cgc": {
-            "upstream": "https://github.com/diegonmarcos/cloud-u-containers_cgc.git"
+          "cloudy-u-containers_cgc": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-u-containers_cgc.git"
           },
           "cloud-me-pvt-notes": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-notes.git",
@@ -3770,9 +3773,6 @@
           "cloud-me-pub-profiles-_lnktree": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-pub-profiles-_lnktree.git"
           },
-          "cloud-u-linux": {
-            "upstream": "https://github.com/diegonmarcos/cloud-u-linux.git"
-          },
           "cloud-me-pvt-configs": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-configs.git",
             "private": true
@@ -3781,8 +3781,8 @@
             "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-my-ai.git",
             "private": true
           },
-          "cloud-h-webapps-2": {
-            "upstream": "https://github.com/diegonmarcos/cloud-h-webapps-2.git"
+          "cloudy-h-webapps-2": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps-2.git"
           },
           "cloud-me-pvt-containers": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-containers.git",
@@ -3792,8 +3792,11 @@
             "upstream": "https://github.com/diegonmarcos/z-archived_c3-infra-plugin.git",
             "private": true
           },
-          "cloud-h-webapps": {
-            "upstream": "https://github.com/diegonmarcos/cloud-h-webapps.git"
+          "cloudy-h-webapps": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps.git"
+          },
+          "CG-circus": {
+            "upstream": "https://github.com/diegonmarcos/CG-circus.git"
           },
           "cloud-me-pub-profiles-stark.x": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-pub-profiles-stark.x.git"
@@ -3804,28 +3807,37 @@
           "cloud-me-pub-profiles-leaf.y": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-pub-profiles-leaf.y.git"
           },
+          "Projects-labtools": {
+            "upstream": "https://github.com/diegonmarcos/Projects-labtools.git"
+          },
+          "CG-galaxy": {
+            "upstream": "https://github.com/diegonmarcos/CG-galaxy.git"
+          },
+          "Projects-endeavours": {
+            "upstream": "https://github.com/diegonmarcos/Projects-endeavours.git"
+          },
           "cloud-me-pub-shared": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-pub-shared.git"
           },
-          "cloud_db_assets-cdn": {
-            "upstream": "https://github.com/diegonmarcos/cloud_db_assets-cdn.git"
+          "cloudy_db_assets-cdn": {
+            "upstream": "https://github.com/diegonmarcos/cloudy_db_assets-cdn.git"
           },
           "cloud-me-pvt-cgc": {
             "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-cgc.git",
             "private": true
           },
-          "cloud_db_infra-ops-obsv_configs-sync": {
-            "upstream": "https://github.com/diegonmarcos/cloud_db_infra-ops-obsv_configs-sync.git"
+          "cloudy_db_infra-ops-obsv_configs-sync": {
+            "upstream": "https://github.com/diegonmarcos/cloudy_db_infra-ops-obsv_configs-sync.git"
           },
-          "cloud-u-desktop": {
-            "upstream": "https://github.com/diegonmarcos/cloud-u-desktop.git"
+          "cloudy-u-desktop": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-u-desktop.git"
           },
           "z-archived_cloud-me-pvt-legacy": {
             "upstream": "https://github.com/diegonmarcos/z-archived_cloud-me-pvt-legacy.git",
             "private": true
           },
-          "cloud_db_LFS": {
-            "upstream": "https://github.com/diegonmarcos/cloud_db_LFS.git",
+          "cloudy_db_LFS": {
+            "upstream": "https://github.com/diegonmarcos/cloudy_db_LFS.git",
             "private": true
           },
           "z-archived_cloud-me-pub-data": {
@@ -6932,6 +6944,11 @@
         "url_scheme": {
           "_doc": "Fleet URL scheme (cloud-infra a0_docs/eng-specs/url-scheme.md). container_prefix: every container gets c3-{container}.diegonmarcos.com (wg_only, 403 off-mesh) and c3-{container}.mesh.diegonmarcos.com. APKs get cloud-{name}.diegonmarcos.com (public, never wg_only, Authelia, anonymous -> landing) and, when they declare a container web target, cloud-{name}.mesh.diegonmarcos.com. Both lists are GENERATED: manifests.apk is cloud-u-android's 2_configs/apk-manifest.json (relative to the cloud-infra root), manifests.mcp is cloud-u-containers' _shared/mcp-manifest.json (relative to a_solutions). Nothing here lists an APK, container or MCP by hand. groups documents the special address groups and is asserted by test-url-scheme.sh. extra_routes are additive vhosts: mails. serves the JMAP config URLs (well-known paths public, rest of the vhost mesh-only, like jmap.).",
           "container_prefix": "c3-",
+          "wasm_origin": {
+            "_doc": "#876 where the Kotlin/Wasm APK pages live: the cloud-web portal on GitHub Pages serves each bundle at <path_prefix>/<web.portal_slug>/ (the list is <path_prefix>/available.json). cloud-infra's apk-web-route.ts turns every web.kind wasm APK host into an Authelia-gated proxy to upstream with web.serve_path; the renderer rewrites to serve_path behind edge_auth. test/test-wasm-serve-path.sh asserts it.",
+            "upstream": "https://diegonmarcos.github.io",
+            "path_prefix": "/cloud-web/apps"
+          },
           "manifests": {
             "apk": "../cloud-u-android/2_configs/apk-manifest.json",
             "mcp": "_shared/mcp-manifest.json"

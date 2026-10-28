@@ -452,7 +452,7 @@
     },
     {
       "domain": "cloud-account.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-account",
       "web": {
@@ -465,13 +465,14 @@
         "entry": "index.html",
         "tester": "test-account-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-account/"
       },
-      "comment": "APK cloud-account: no web target, landing redirect"
+      "comment": "APK cloud-account: web target wasm bundle cloud-account (Authelia-gated)"
     },
     {
       "domain": "cloud-browser.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-browser",
       "web": {
@@ -484,13 +485,14 @@
         "entry": "index.html",
         "tester": "test-browser-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-browser/"
       },
-      "comment": "APK cloud-browser: no web target, landing redirect"
+      "comment": "APK cloud-browser: web target wasm bundle cloud-browser (Authelia-gated)"
     },
     {
       "domain": "cloud-c3.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/c_configs/cloud-c3/",
       "apk": "cloud-c3",
       "web": {
@@ -503,9 +505,10 @@
         "entry": "index.html",
         "tester": "test-c3-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-c3/"
       },
-      "comment": "APK cloud-c3: no web target, landing redirect"
+      "comment": "APK cloud-c3: web target wasm bundle cloud-c3 (Authelia-gated)"
     },
     {
       "domain": "cloud-c3-morpheus.diegonmarcos.com",
@@ -530,7 +533,7 @@
     },
     {
       "domain": "cloud-calc.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-calc",
       "web": {
@@ -543,13 +546,14 @@
         "entry": "index.html",
         "tester": "test-calc-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-calc/"
       },
-      "comment": "APK cloud-calc: no web target, landing redirect"
+      "comment": "APK cloud-calc: web target wasm bundle cloud-calc (Authelia-gated)"
     },
     {
       "domain": "cloud-camera.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-camera",
       "web": {
@@ -562,9 +566,10 @@
         "entry": "index.html",
         "tester": "test-camera-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-camera/"
       },
-      "comment": "APK cloud-camera: no web target, landing redirect"
+      "comment": "APK cloud-camera: web target wasm bundle cloud-camera (Authelia-gated)"
     },
     {
       "domain": "cloud-chat.diegonmarcos.com",
@@ -579,7 +584,7 @@
     },
     {
       "domain": "cloud-code.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-code",
       "web": {
@@ -592,9 +597,10 @@
         "entry": "index.html",
         "tester": "test-code-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-code/"
       },
-      "comment": "APK cloud-code: no web target, landing redirect"
+      "comment": "APK cloud-code: web target wasm bundle cloud-code (Authelia-gated)"
     },
     {
       "domain": "cloud-contacts.diegonmarcos.com",
@@ -609,7 +615,7 @@
     },
     {
       "domain": "cloud-dialer.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-dialer",
       "web": {
@@ -622,13 +628,14 @@
         "entry": "index.html",
         "tester": "test-dialer-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-dialer/"
       },
-      "comment": "APK cloud-dialer: no web target, landing redirect"
+      "comment": "APK cloud-dialer: web target wasm bundle cloud-dialer (Authelia-gated)"
     },
     {
       "domain": "cloud-drive.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-drive",
       "web": {
@@ -641,9 +648,10 @@
         "entry": "index.html",
         "tester": "test-drive-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-drive/"
       },
-      "comment": "APK cloud-drive: no web target, landing redirect"
+      "comment": "APK cloud-drive: web target wasm bundle cloud-drive (Authelia-gated)"
     },
     {
       "domain": "cloud-gallery.diegonmarcos.com",
@@ -687,7 +695,7 @@
     },
     {
       "domain": "cloud-me.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-me",
       "web": {
@@ -700,9 +708,10 @@
         "entry": "index.html",
         "tester": "test-me-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-me/"
       },
-      "comment": "APK cloud-me: no web target, landing redirect"
+      "comment": "APK cloud-me: web target wasm bundle cloud-me (Authelia-gated)"
     },
     {
       "domain": "cloud-media-center.diegonmarcos.com",
@@ -713,7 +722,7 @@
     },
     {
       "domain": "cloud-myterminal.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/c_agi/cloud-myterminal/",
       "apk": "cloud-myterminal",
       "web": {
@@ -726,13 +735,14 @@
         "entry": "index.html",
         "tester": "test-myterminal-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-myterminal/"
       },
-      "comment": "APK cloud-myterminal: no web target, landing redirect"
+      "comment": "APK cloud-myterminal: web target wasm bundle cloud-myterminal (Authelia-gated)"
     },
     {
       "domain": "cloud-nav.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-nav",
       "web": {
@@ -745,13 +755,14 @@
         "entry": "index.html",
         "tester": "test-nav-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-nav/"
       },
-      "comment": "APK cloud-nav: no web target, landing redirect"
+      "comment": "APK cloud-nav: web target wasm bundle cloud-nav (Authelia-gated)"
     },
     {
       "domain": "cloud-news.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-news",
       "web": {
@@ -764,13 +775,14 @@
         "entry": "index.html",
         "tester": "test-news-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-news/"
       },
-      "comment": "APK cloud-news: no web target, landing redirect"
+      "comment": "APK cloud-news: web target wasm bundle cloud-news (Authelia-gated)"
     },
     {
       "domain": "cloud-notes.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-notes",
       "web": {
@@ -783,13 +795,14 @@
         "entry": "index.html",
         "tester": "test-notes-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-notes/"
       },
-      "comment": "APK cloud-notes: no web target, landing redirect"
+      "comment": "APK cloud-notes: web target wasm bundle cloud-notes (Authelia-gated)"
     },
     {
       "domain": "cloud-office.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-office",
       "web": {
@@ -802,13 +815,14 @@
         "entry": "index.html",
         "tester": "test-office-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-office/"
       },
-      "comment": "APK cloud-office: no web target, landing redirect"
+      "comment": "APK cloud-office: web target wasm bundle cloud-office (Authelia-gated)"
     },
     {
       "domain": "cloud-search.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-search",
       "web": {
@@ -821,13 +835,14 @@
         "entry": "index.html",
         "tester": "test-search-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-search/"
       },
-      "comment": "APK cloud-search: no web target, landing redirect"
+      "comment": "APK cloud-search: web target wasm bundle cloud-search (Authelia-gated)"
     },
     {
       "domain": "cloud-store.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-store",
       "web": {
@@ -840,9 +855,10 @@
         "entry": "index.html",
         "tester": "test-store-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-store/"
       },
-      "comment": "APK cloud-store: no web target, landing redirect"
+      "comment": "APK cloud-store: web target wasm bundle cloud-store (Authelia-gated)"
     },
     {
       "domain": "cloud-superapp.diegonmarcos.com",
@@ -878,7 +894,7 @@
     },
     {
       "domain": "cloud-tools-small-llms.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-tools-small-llms",
       "web": {
@@ -891,13 +907,14 @@
         "entry": "index.html",
         "tester": "test-tools-small-llms-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-tools-small-llms/"
       },
-      "comment": "APK cloud-tools-small-llms: no web target, landing redirect"
+      "comment": "APK cloud-tools-small-llms: web target wasm bundle cloud-tools-small-llms (Authelia-gated)"
     },
     {
       "domain": "cloud-vault.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-vault",
       "web": {
@@ -910,13 +927,14 @@
         "entry": "index.html",
         "tester": "test-vault-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-vault/"
       },
-      "comment": "APK cloud-vault: no web target, landing redirect"
+      "comment": "APK cloud-vault: web target wasm bundle cloud-vault (Authelia-gated)"
     },
     {
       "domain": "cloud-wallet.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-wallet",
       "web": {
@@ -929,13 +947,14 @@
         "entry": "index.html",
         "tester": "test-wallet-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-wallet/"
       },
-      "comment": "APK cloud-wallet: no web target, landing redirect"
+      "comment": "APK cloud-wallet: web target wasm bundle cloud-wallet (Authelia-gated)"
     },
     {
       "domain": "cloud-writer.diegonmarcos.com",
-      "landing_only": true,
+      "upstream": "https://diegonmarcos.github.io",
       "landing": "https://diegonmarcos.github.io/c__Cloud/",
       "apk": "cloud-writer",
       "web": {
@@ -948,9 +967,10 @@
         "entry": "index.html",
         "tester": "test-writer-web.sh",
         "size_budget_mb": 20,
-        "kind": "wasm"
+        "kind": "wasm",
+        "serve_path": "/cloud-web/apps/cloud-writer/"
       },
-      "comment": "APK cloud-writer: no web target, landing redirect"
+      "comment": "APK cloud-writer: web target wasm bundle cloud-writer (Authelia-gated)"
     }
   ],
   "public_path_routes": [
