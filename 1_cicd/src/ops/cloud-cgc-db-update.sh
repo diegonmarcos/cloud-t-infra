@@ -489,10 +489,19 @@ ensure_repos() {
       # sed redacts any token embedded in the reported remote URL.
       _gitc="git -c http.extraheader="
       _cerr="$CGC_SCRATCH/clone-err.$$"
-      if $_gitc clone -q --filter=blob:none --no-checkout "$url" "$d" 2>"$_cerr" \
-        && $_gitc -C "$d" checkout -q 2>>"$_cerr"; then
-        :
-      elif rm -rf "$d" 2>/dev/null; $_gitc clone -q "$url" "$d" 2>>"$_cerr"; then
+      # Transient network flakes (run 40692164340: "HTTP/2 framing layer ... early EOF" failed the
+      # whole leg at minute one) get 3 attempts with HTTP/1.1; a real auth failure fails 3 times.
+      _gitc="git -c http.extraheader= -c http.version=HTTP/1.1"
+      _cok=0
+      for _try in 1 2 3; do
+        : > "$_cerr"; rm -rf "$d" 2>/dev/null
+        if $_gitc clone -q --filter=blob:none --no-checkout "$url" "$d" 2>>"$_cerr" \
+          && $_gitc -C "$d" checkout -q 2>>"$_cerr"; then _cok=1; break
+        elif rm -rf "$d" 2>/dev/null; $_gitc clone -q "$url" "$d" 2>>"$_cerr"; then _cok=1; break
+        fi
+        [ "$_try" = 3 ] || { echo "[cgc-db] clone $lname attempt $_try failed - retrying in $((_try * 10))s"; sleep $((_try * 10)); }
+      done
+      if [ "$_cok" = 1 ]; then
         :
       else
         sed 's/x-access-token:[^@]*@/x-access-token:***@/g' "$_cerr" | tail -8 >&2
