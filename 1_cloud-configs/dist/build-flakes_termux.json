@@ -3730,8 +3730,8 @@
           "cloud-u-android": {
             "upstream": "https://github.com/diegonmarcos/cloud-u-android.git"
           },
-          "git-repos-master": {
-            "upstream": "https://github.com/diegonmarcos/git-repos-master.git"
+          "_git-repos-master": {
+            "upstream": "https://github.com/diegonmarcos/_git-repos-master.git"
           },
           "cloud-t-infra": {
             "upstream": "https://github.com/diegonmarcos/cloud-t-infra.git"

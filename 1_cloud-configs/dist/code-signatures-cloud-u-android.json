@@ -1234,6 +1234,7 @@
       "exports": [
         "adb(*a, timeout=90)",
         "shell(cmd, timeout=90)",
+        "emulator_alive()",
         "dump(tries=8, _depth=0)",
         "anr_evidence(pkg=\"\")",
         "dismiss_emulator_prompt(nodes)",
@@ -1247,6 +1248,7 @@
         "settle(s=0.9)",
         "screen_size()",
         "pages_of(section)",
+        "class SectionTimeout",
         "class Node",
         "class Walk"
       ],
@@ -1263,6 +1265,7 @@
       "symbols": [
         "adb(*a, timeout=90)",
         "shell(cmd, timeout=90)",
+        "emulator_alive()",
         "dump(tries=8, _depth=0)",
         "anr_evidence(pkg=\"\")",
         "dismiss_emulator_prompt(nodes)",
@@ -1276,6 +1279,7 @@
         "settle(s=0.9)",
         "screen_size()",
         "pages_of(section)",
+        "class SectionTimeout",
         "class Node",
         "class Walk"
       ]
@@ -3766,6 +3770,7 @@
       "exports": [
         "adb(*a, timeout=90)",
         "shell(cmd, timeout=90)",
+        "emulator_alive()",
         "dump(tries=8, _depth=0)",
         "anr_evidence(pkg=\"\")",
         "dismiss_emulator_prompt(nodes)",
@@ -3779,6 +3784,7 @@
         "settle(s=0.9)",
         "screen_size()",
         "pages_of(section)",
+        "class SectionTimeout",
         "class Node",
         "class Walk"
       ],
@@ -3795,6 +3801,7 @@
       "symbols": [
         "adb(*a, timeout=90)",
         "shell(cmd, timeout=90)",
+        "emulator_alive()",
         "dump(tries=8, _depth=0)",
         "anr_evidence(pkg=\"\")",
         "dismiss_emulator_prompt(nodes)",
@@ -3808,6 +3815,7 @@
         "settle(s=0.9)",
         "screen_size()",
         "pages_of(section)",
+        "class SectionTimeout",
         "class Node",
         "class Walk"
       ]
