@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # #1073 - cloud-infra reads the repo list from ONE place (now the cloud hub, cloud/repos.json).
 # 1_cloud-configs/src/inputs/repos.sot.json is a byte copy of the CLOUD family file, cloud/repos.json (2_vault + a_cloud + the cloud-* repos,
-# full hierarchy; a subset of git-repos-master/repos.json, #1224). This tester fails when
+# full hierarchy; a subset of _git-repos-master/repos.json, #1224). This tester fails when
 #   S1  the copy is not a valid cloud-repos/v1 registry, or differs from the registry at its declared url
 #       (checked when the network answers; offline is reported, S2-S6 still run)
 #   S2  a fleet.repos[] entry (0_apps/src/manifest.json) is not in the registry, is pending_creation,
@@ -42,7 +42,7 @@ out=$(jq -r --slurpfile s "$SOT" '.fleet.repos[] as $f
   | "\($f.dir): registry says status=\($r.status // "-") private=\($r.private // false), fleet says private=\($f.private // false)"' "$M")
 [ -z "$out" ] && ok "S2a fleet repos agree with the registry (created, same visibility)" || { bad "S2a fleet/registry disagree"; echo "$out" | sed 's/^/    /'; }
 # #1224: the registry here is the CLOUD family only. Fleet dotfile targets of other families
-# (registered in git-repos-master/repos.json, not in the cloud file) are listed explicitly.
+# (registered in _git-repos-master/repos.json, not in the cloud file) are listed explicitly.
 NONCLOUD_OK='["Projects","CG","Fin-CM","DeepSc","DuckPeng","z-archived_front-data","diegonmarcos.github.io","CG-galaxy-gaia","CG-unity"]'
 out=$(jq -r --argjson nc "$NONCLOUD_OK" --slurpfile s "$SOT" '[$s[0].repos[]|'"$GH"'] as $g | .fleet.repos[] | select(.github as $x | ($g|index($x))==null and ($nc|index($x))==null) | .dir + " (" + .github + ")"' "$M")
 [ -z "$out" ] && ok "S2b every fleet repo is in the cloud registry or an allowed other-family target" || { bad "S2b fleet repo not in the registry: $out"; }
@@ -60,7 +60,7 @@ done
 
 # S4/S5 inventory vs registry
 out=$(jq -r --slurpfile s "$SOT" '([$s[0].repos[]|'"$GH"'] + [$s[0].unregistered_ok[].name]) as $known | .repos[] | select(.fork|not) | .name as $n | select(($known|index($n))==null) | $n' "$INV")
-[ -z "$out" ] && ok "S4 every GitHub repo is registered or in unregistered_ok" || bad "S4 GitHub repos nobody registered (add to git-repos-master repos.json): $(echo $out)"
+[ -z "$out" ] && ok "S4 every GitHub repo is registered or in unregistered_ok" || bad "S4 GitHub repos nobody registered (add to _git-repos-master repos.json): $(echo $out)"
 out=$(jq -r --slurpfile s "$SOT" '[.repos[].name] as $inv | $s[0].repos[] | select((.status//"")!="pending_creation") | '"$GH"' as $g | select(($inv|index($g))==null) | $g' "$INV")
 [ -z "$out" ] && ok "S5a every live registry repo exists on GitHub" || bad "S5a registry repos missing from the GitHub inventory: $(echo $out)"
 old=$(jq -r '(.renames // [])[].from, (.repos[].renamed_from // [])[]' "$SOT" | sort -u)

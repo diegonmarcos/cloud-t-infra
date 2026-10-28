@@ -55,7 +55,7 @@
   ],
   "unregistered_ok": [
     {
-      "name": "git-repos-master",
+      "name": "_git-repos-master",
       "reason": "this index itself (see _self_doc)"
     },
     {
