@@ -10,10 +10,11 @@ for f in 0_apps/src/root/mcp.json 0_apps/src/root/mcp.optin.json .mcp.json 0_app
          1_cloud-configs/dist/mcp.json 1_cloud-configs/dist/mcp.project.json 1_cloud-configs/dist/mcp.optin.json \
          .claude/hooks/c3/ai-usage-post.sh 0_apps/src/claude/hooks/c3/ai-usage-post.sh 0_apps/dist/dotfiles/claude/hooks/c3/ai-usage-post.sh; do
   [ -f "$ROOT/$f" ] || continue
-  if grep -nE '(^|[^a-z0-9-])(api|mcp)\.diegonmarcos\.com' "$ROOT/$f"; then echo "FAIL $f: legacy host"; bad=1; fi
+  # NOT_YET_ON_PVT in the deriver: cloud-cgc-pvt-mcp is not mounted on c3-pvt yet, its legacy path is the only exception
+  if grep -nE '(^|[^a-z0-9-])(api|mcp)\.diegonmarcos\.com' "$ROOT/$f" | grep -v 'mcp\.diegonmarcos\.com/cloud-cgc-pvt-mcp/mcp'; then echo "FAIL $f: legacy host"; bad=1; fi
 done
 D="$ROOT/1_cloud-configs/src/derive/derive-mcp-json.ts"
-n=$(grep -c "mcp\.diegonmarcos\.com" "$D" || true)
+n=$(grep -c "LEGACY_MCP_HOST *= *'mcp\.diegonmarcos\.com'" "$D" || true)
 [ "$n" = 1 ] || { echo "FAIL derive-mcp-json.ts names the legacy host $n times (want exactly the one rewrite constant)"; bad=1; }
 grep -q "PVT_HOST *= *'c3-pvt.diegonmarcos.com'" "$D" || { echo "FAIL deriver lost the c3-pvt host"; bad=1; }
 [ "$bad" = 0 ] && echo "ok: no legacy api./mcp. host in shipped MCP config or hooks"

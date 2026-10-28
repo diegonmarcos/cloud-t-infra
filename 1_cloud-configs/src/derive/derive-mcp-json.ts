@@ -68,6 +68,10 @@ const meshOnly = new Set<string>();
 // The legacy host is only recognised here to rewrite it; nothing is emitted on it.
 const LEGACY_MCP_HOST = 'mcp.diegonmarcos.com';
 const PVT_HOST        = 'c3-pvt.diegonmarcos.com';
+// Containers not yet mounted on c3-pvt: their public fallback stays on the legacy MCP hub path
+// until the mount lands (cloud-cgc-pvt-mcp is a second container of the cgc-pub-mcp service).
+// Remove an entry the moment c3-pvt serves /<container>/; the list only shrinks.
+const NOT_YET_ON_PVT = new Set(['cloud-cgc-pvt-mcp']);
 
 function main(): void {
   const servers: Record<string, Server> = {};
@@ -247,7 +251,7 @@ function writeProjectMcp(servers: Record<string, Server>): void {
     // no --public, so off-mesh the bridge says "no public route" instead of
     // probing an edge path that 404s.
     const mesh = isPublic ? meshOf[n] : e.url;
-    const pub = isPublic ? e.url : `https://${AUTH_HOST}/${n}/mcp`;
+    const pub = isPublic ? e.url : `https://${NOT_YET_ON_PVT.has(n) ? LEGACY_MCP_HOST : AUTH_HOST}/${n}/mcp`;
     const args = ['${CLAUDE_PROJECT_DIR:-.}/.claude/mcp-connect.mjs'];
     if (mesh) args.push('--mesh', mesh);
     if (!meshOnly.has(n)) args.push('--public', pub);
