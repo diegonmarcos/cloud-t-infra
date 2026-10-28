@@ -95,28 +95,28 @@
         "private": true
       },
       {
-        "dir": "Projects",
-        "github": "Projects",
+        "dir": "Projects___",
+        "github": "Projects___",
         "private": false
       },
       {
-        "dir": "CG",
-        "github": "CG",
+        "dir": "CG___",
+        "github": "CG___",
         "private": false
       },
       {
-        "dir": "Fin-CM",
-        "github": "Fin-CM",
+        "dir": "Fin-CM___",
+        "github": "Fin-CM___",
         "private": false
       },
       {
-        "dir": "DeepSc",
-        "github": "DeepSc",
+        "dir": "DeepSc___",
+        "github": "DeepSc___",
         "private": false
       },
       {
-        "dir": "DuckPeng",
-        "github": "DuckPeng",
+        "dir": "DuckPeng___",
+        "github": "DuckPeng___",
         "private": false
       },
       {
