@@ -666,6 +666,13 @@
       "doc": "Archived 2026-10-28: stale skeleton (per-app backups, AI sessions, Maps history, Financial), superseded by cloud-me-pvt-data; was cloud-me_data-private, registered then renamed z-archived_ the same day."
     },
     {
+      "name": "cloud-me-___",
+      "group": "a_cloud",
+      "url": "git@github.com:diegonmarcos/cloud-me-___.git",
+      "private": false,
+      "doc": "Top hub of the cloud-me project (the owner's configs across the cloud): an index above the two sub-hubs cloud-me-pub-___ and cloud-me-pvt-___, its own repos.json subset (only those two) plus committed symlinks, same model as cloudy-___ and CG-___. Created 2026-10-28 (#1244)."
+    },
+    {
       "name": "cloud-me-pub-___",
       "group": "a_cloud",
       "url": "git@github.com:diegonmarcos/cloud-me-pub-___.git",
