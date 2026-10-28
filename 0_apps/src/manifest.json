@@ -95,8 +95,8 @@
         "private": true
       },
       {
-        "dir": "front",
-        "github": "front",
+        "dir": "Projects",
+        "github": "Projects",
         "private": false
       },
       {

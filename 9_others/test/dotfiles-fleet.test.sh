@@ -108,7 +108,7 @@ M="$ROOT/0_apps/src/manifest.json"
 n=$(jq '.fleet.repos|length' "$M"); u=$(jq '[.fleet.repos[].dir]|unique|length' "$M")
 [ "$n" -gt 1 ] && [ "$n" = "$u" ] && ok "R1 fleet lists $n distinct repos" || bad "R1 fleet repos missing/duplicated ($n/$u)"
 # #1224: the inventory is the CLOUD family only; fleet targets of other families are listed explicitly.
-NONCLOUD_OK='["front","CG","Fin-CM","DeepSc","DuckPeng","z-archived_front-data","diegonmarcos.github.io","CG-galaxy-gaia","CG-unity"]'
+NONCLOUD_OK='["Projects","CG","Fin-CM","DeepSc","DuckPeng","z-archived_front-data","diegonmarcos.github.io","CG-galaxy-gaia","CG-unity"]'
 missing=$(jq -r --argjson nc "$NONCLOUD_OK" --slurpfile g "$ROOT/1_cloud-configs/src/inputs/github-repos.json" '[.fleet.repos[].github] - [$g[0].repos[].name] - $nc | join(",")' "$M")
 [ -z "$missing" ] && ok "R2 every fleet repo exists on GitHub" || bad "R2 not on GitHub: $missing"
 cmp -s "$ROOT/1_cloud-configs/dist/mcp.project.json" "$ROOT/0_apps/dist/dotfiles/root/mcp.json" && ok "R3 shipped .mcp.json IS the deriver's output" || bad "R3 0_apps/dist/dotfiles/root/mcp.json differs from 1_cloud-configs/dist/mcp.project.json — run build.sh dotfiles"

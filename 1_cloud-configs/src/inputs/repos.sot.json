@@ -1,5 +1,5 @@
 {
-  "_doc": "THE CLOUD FAMILY FILE. The full hierarchy (groups 2_vault and a_cloud plus the cloud-* repos of b_front, every repo with all its fields, parts, renames) of the cloud repos and nothing else. Home: the cloud hub repo (cloud/repos.json); cloud-t-infra keeps a byte copy at 1_cloud-configs/src/inputs/repos.sot.json. A SUBSET of git-repos-master/repos.json, which stays the superset for the whole account; entries must match it field for field (node repos-sot.js check-subset, run from git-repos-master). Regenerate from the registry, never hand-edit (#1224).",
+  "_doc": "THE CLOUD FAMILY FILE. The full hierarchy (groups 2_vault and a_cloud plus the cloud-* repos of b_projects, every repo with all its fields, parts, renames) of the cloud repos and nothing else. Home: the cloud hub repo (cloud/repos.json); cloud-t-infra keeps a byte copy at 1_cloud-configs/src/inputs/repos.sot.json. A SUBSET of git-repos-master/repos.json, which stays the superset for the whole account; entries must match it field for field (node repos-sot.js check-subset, run from git-repos-master). Regenerate from the registry, never hand-edit (#1224).",
   "_schema": "cloud-repos/v1",
   "_status_doc": "`status` is optional. Absent = the repo exists and is cloned/linked as usual. `pending_creation` = declared on purpose, but the GitHub repo is NOT created yet: every farmer (clone.sh, the cloud-drive seed, the libs:repos mirror, the fleet dotfiles guard) must SKIP it - no clone, no symlink, no seed - and the guard fails if a pending entry is treated as live. Flip it by deleting the field in the same commit that creates the repo. `parts` (optional) lists named sub-trees that live INSIDE the same repo, declared as placeholders so farmers and docs know the planned layout before any file moves; a part is never a repo of its own and is never cloned or linked.",
   "_renames_doc": "`renames` records an old name -> new name for things that are not (or not only) repos, so a path that still says the old name is findable and a guard can flag it. `kind: repo` = a repository rename (the entry also carries `renamed_from`); `kind: app-folder` = a folder/app inside a repo. Farmers never create the old name.",
@@ -83,7 +83,7 @@
   "groups": {
     "2_vault": "Secrets (sops/age) — every credential the fleet uses. Numbered so it sorts ahead of the lettered groups: it is the one repo whose absence breaks the others.",
     "a_cloud": "The cloud project — infrastructure, services, data, devices and the tooling built for them. Its own project master is `cloud`, which indexes this same set minus the account-level repos.",
-    "b_front": "The front-end — the published site, its content, its assets and its experiments. Its project master is `ffront`. Kept out of a_cloud because it ships on its own cadence to its own hosts; folding it in was what made a_cloud mean nothing."
+    "b_projects": "Projects (renamed from b_front 2026-10-28) — the front-end: the published site, its content, its assets and its experiments. Its project master is `Projects`. Kept out of a_cloud because it ships on its own cadence to its own hosts; folding it in was what made a_cloud mean nothing."
   },
   "repos": [
     {
@@ -235,7 +235,7 @@
     },
     {
       "name": "cloud-me-others",
-      "group": "b_front",
+      "group": "b_projects",
       "url": "git@github.com:diegonmarcos/cloud-me-others.git",
       "private": false,
       "renamed_from": [
@@ -245,7 +245,7 @@
     },
     {
       "name": "cloud-me-profiles",
-      "group": "b_front",
+      "group": "b_projects",
       "url": "git@github.com:diegonmarcos/cloud-me-profiles.git",
       "private": false,
       "renamed_from": [
@@ -255,7 +255,7 @@
     },
     {
       "name": "cloud-webapps-2",
-      "group": "b_front",
+      "group": "b_projects",
       "url": "git@github.com:diegonmarcos/cloud-webapps-2.git",
       "private": false,
       "renamed_from": [
@@ -265,7 +265,7 @@
     },
     {
       "name": "cloud_db_assets-cdn",
-      "group": "b_front",
+      "group": "b_projects",
       "url": "git@github.com:diegonmarcos/cloud_db_assets-cdn.git",
       "private": false,
       "renamed_from": [
