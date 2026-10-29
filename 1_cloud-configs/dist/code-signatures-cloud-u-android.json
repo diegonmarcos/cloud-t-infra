@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22561,
+    "files": 22565,
     "by_lang": {
       "js": 497,
-      "sh": 574,
+      "sh": 575,
       "py": 170,
-      "kotlin": 12090,
+      "kotlin": 12093,
       "java": 647,
       "nix": 31,
       "rust": 111,
@@ -19,10 +19,10 @@
     },
     "by_role": {
       "file": 2281,
-      "shell": 458,
+      "shell": 459,
       "script": 262,
       "java": 646,
-      "kotlin": 12087,
+      "kotlin": 12090,
       "module": 6424,
       "flake": 27,
       "python": 55,
@@ -2596,7 +2596,7 @@
       ]
     },
     {
-      "path": "_dotfiles/apps/src/claude/mcp-connect.mjs",
+      "path": "0_apps/src/claude/mcp-connect.mjs",
       "lang": "js",
       "role": "file",
       "exports": [],
@@ -172900,6 +172900,9 @@
         "urlFor(owner: String, name: String)",
         "reposUrl(page: Int)",
         "webUrlFor(owner: String, name: String)",
+        "labelFor(lang: String)",
+        "group(id: String)",
+        "item(id: String)",
         "argv(op: String, url: String, dest: String, depth: Int = 0)",
         "folderAction(kind: String)",
         "depthActions(scope: String)",
@@ -172932,10 +172935,7 @@
         "objects(e: JsonElement?)",
         "tabsOf(nav: NavDecl)",
         "pagesOf(nav: NavDecl, sectionId: String)",
-        "navPages(sectionId: String)",
-        "classesOf(nav: NavDecl)",
-        "parseSync(text: String, pages: List<PageDecl> = emptyList()",
-        "parseMountProviders(text: String)"
+        "navPages(sectionId: String)"
       ]
     },
     {
@@ -173058,6 +173058,7 @@
         "openUrl(url: String)",
         "launchApp(packageName: String, fallbackUrl: String)",
         "openAuthProfile(pkg: String, target: String, extra: String)",
+        "openInFiles(path: String)",
         "class DriveActions"
       ]
     },
@@ -174135,6 +174136,7 @@
         "com.diegonmarcos.clouddrive.backups.MirrorRunner"
       ],
       "symbols": [
+        "openInFiles(path: String)",
         "onCreate(savedInstanceState: Bundle?)",
         "startup()",
         "guarded(phase: String, optional: Boolean = false, block: ()",
@@ -175861,7 +175863,6 @@
         "DepthBar(actions: List<Declarations.GitDepthActionDecl>, running: Boolean, onAction: (Declarations.GitDepthActionDecl)",
         "DepthProgress(r: BulkDepth.Run, onOpen: ()",
         "DepthReportWindow(r: BulkDepth.Run, onCancel: ()",
-        "DepthPills(actions: List<Declarations.GitDepthActionDecl>, enabled: Boolean, onAction: (Declarations.GitDepthActionDecl)",
         "RepoFilterRow(filters: List<Declarations.GitFilterDecl>, selection: Map<String, String>, onSelect: (String, String)",
         "UnlistedPanel( label: String, folders: List<UnlistedRepos.Folder>, glances: Map<String, GitSyncCoordinator.Glance>, lastCommits: Map<String, Long>, run: BulkDepth.Run?, coordinator: GitSyncCoordinator, onOpenReport: ()",
         "ActivityLogsWindow(events: List<SyncEvent>, fmt: DateFormat, onClose: ()",
@@ -176273,6 +176274,9 @@
         "fetchAll()",
         "refreshSizes(force: Boolean = false)",
         "save(repo: ManagedRepo)",
+        "setAutoSync(repo: ManagedRepo, on: Boolean, minutes: Long)",
+        "workTree(repo: ManagedRepo)",
+        "solveConflicts(repo: ManagedRepo, plan: RepoWorkflow.Plan)",
         "remove(repo: ManagedRepo)",
         "setSecret(repo: ManagedRepo, secret: String)",
         "hasSecret(repo: ManagedRepo)",
@@ -176288,10 +176292,7 @@
         "prFeed(owner: String, name: String)",
         "setCloneDepth(depth: Int)",
         "setCloneViaSsh(ssh: Boolean)",
-        "refreshRemoteStats(targets: List<Pair<String, String>>, extraToken: String = \"\")",
-        "fillRemoteStatsOnce(targets: List<Pair<String, String>>, extraToken: String = \"\")",
-        "runFeed(owner: String, name: String)",
-        "setRemote(repo: ManagedRepo, mode: com.diegonmarcos.clouddrive.Declarations.GitRemoteModeDecl, owner: String, name: String)"
+        "refreshRemoteStats(targets: List<Pair<String, String>>, extraToken: String = \"\")"
       ]
     },
     {
@@ -176631,7 +176632,6 @@
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
-        "RepoGroup",
         "RepoActions"
       ],
       "imports": [],
@@ -176640,9 +176640,7 @@
         "route(id: String)",
         "isCompound(id: String)",
         "needsClone(id: String)",
-        "class RepoGroup",
         "class RepoActions",
-        "class Group",
         "class Route",
         "class Bulk"
       ]
@@ -177007,12 +177005,47 @@
         "RepoStatusCell(icons: RepoStatus.Icons, name: String, onOpen: ()",
         "glyph(l: StatusLight.State)",
         "RepoCheckProgressLine(p: RepoStatus.Progress, fmt: java.text.DateFormat)",
-        "groupTitle(g: RepoGroup)",
         "actionLabel(id: String, declared: Declarations.GitOpDecl?)",
         "RepoActionGroupsView( page: Declarations.GitPageDecl, busy: Boolean, blocked: (Declarations.GitOpDecl)",
+        "MenuItems( page: Declarations.GitPageDecl, g: Declarations.GitMenuGroupDecl, groupId: String, danger: Boolean, lang: String, busy: Boolean, blocked: (Declarations.GitOpDecl)",
         "RepoBulkBar(busy: Boolean, prefs: DrivePrefs?, onRefreshSizes: ()",
         "RepoSummaryLine(s: RepoTable.Summary)",
         "RepoMetaTable(rows: List<Pair<String, String>>)"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/RepoWorkflow.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoWorkflow",
+        "AutoSyncPlan"
+      ],
+      "imports": [
+        "com.diegonmarcos.cloudlib.gitsync.ConflictSide",
+        "com.diegonmarcos.cloudlib.gitsync.GitChange",
+        "com.diegonmarcos.cloudlib.gitsync.GitStatusSnapshot"
+      ],
+      "symbols": [
+        "letter(c: GitChange?)",
+        "dirty(s: GitStatusSnapshot)",
+        "conflicts(s: GitStatusSnapshot)",
+        "inProgress(state: String)",
+        "solvePlan(conflicts: List<String>, choices: Map<String, Choice>, state: String)",
+        "minutes(repoMinutes: Long, defaultMinutes: Long)",
+        "toggled(on: Boolean, repoMinutes: Long, defaultMinutes: Long)",
+        "tickMinutes(baseMinutes: Long, optedInMinutes: List<Long>)",
+        "nextRunMinutes(on: Boolean, periodMinutes: Long, lastSyncEpochSeconds: Long, nowEpochSeconds: Long, tickInMinutes: Long?)",
+        "class RepoWorkflow",
+        "class Dirty",
+        "class InProgress",
+        "class Choice",
+        "class Step",
+        "class Resolve",
+        "class Stage",
+        "class Continue",
+        "class Plan",
+        "class AutoSyncPlan"
       ]
     },
     {
@@ -179681,7 +179714,6 @@
         "org.junit.Test"
       ],
       "symbols": [
-        "of(g: RepoGroup)",
         "plan(verb: String, args: JSONObject = JSONObject()",
         "class RepoActionsTest"
       ]
@@ -179734,6 +179766,32 @@
         "row(name: String, last: Long?)",
         "class RepoFiltersTest",
         "class R"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/RepoMenuTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoMenuTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations",
+        "java.io.File",
+        "kotlinx.serialization.json.Json",
+        "kotlinx.serialization.json.JsonObject",
+        "kotlinx.serialization.json.jsonArray",
+        "kotlinx.serialization.json.jsonObject",
+        "kotlinx.serialization.json.jsonPrimitive",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "ids(g: String)",
+        "class RepoMenuTest"
       ]
     },
     {
@@ -179855,6 +179913,25 @@
         "row(name: String, pvt: Boolean? = false, main: Long? = null, total: Long? = null, br: Int? = null, dirty: Int? = null, a: Int? = null, b: Int? = null)",
         "names(rows: List<RepoTableRow>, c: RepoColumn, asc: Boolean)",
         "class RepoTableTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/RepoWorkflowTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoWorkflowTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.cloudlib.gitsync.ConflictSide",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "class RepoWorkflowTest"
       ]
     },
     {
@@ -180892,6 +180969,26 @@
         "_json()",
         "_sub()",
         "_swap()"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/test/test-drive-git-menu.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "pass()",
+        "fail()",
+        "g1()",
+        "g2()",
+        "mut()"
+      ],
+      "imports": [],
+      "symbols": [
+        "pass()",
+        "fail()",
+        "g1()",
+        "g2()",
+        "mut()"
       ]
     },
     {
