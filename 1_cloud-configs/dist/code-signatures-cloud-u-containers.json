@@ -6,19 +6,19 @@
   },
   "repo": "cloud-u-containers",
   "counts": {
-    "files": 2505,
+    "files": 2506,
     "by_lang": {
       "sh": 171,
+      "js": 93,
       "nix": 183,
-      "js": 92,
       "py": 507,
       "ts": 1190,
       "rust": 362
     },
     "by_role": {
       "shell": 161,
+      "file": 340,
       "nix-module": 19,
-      "file": 339,
       "python": 493,
       "module": 733,
       "script": 9,
@@ -132,6 +132,25 @@
         "rfire()",
         "wts()",
         "dprep()"
+      ]
+    },
+    {
+      "path": "_dotfiles/readme/readme-render.cjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "fs",
+        "path"
+      ],
+      "symbols": [
+        "treeLines(entries, depth)",
+        "walk(es, pre, d)",
+        "nodeData(x, name)",
+        "migrate(md, kind)",
+        "blocks(n, rd)",
+        "render(node, readme, tpl)",
+        "renderRepo(root)"
       ]
     },
     {

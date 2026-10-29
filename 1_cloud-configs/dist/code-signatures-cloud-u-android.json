@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22574,
+    "files": 22578,
     "by_lang": {
       "sh": 584,
-      "js": 497,
+      "js": 498,
       "py": 170,
-      "kotlin": 12093,
+      "kotlin": 12096,
       "java": 647,
       "nix": 31,
       "rust": 111,
@@ -19,11 +19,11 @@
     },
     "by_role": {
       "hook": 158,
-      "file": 2281,
+      "file": 2282,
       "shell": 460,
       "script": 262,
       "java": 646,
-      "kotlin": 12090,
+      "kotlin": 12093,
       "module": 6424,
       "flake": 27,
       "python": 55,
@@ -115,6 +115,25 @@
       "imports": [],
       "symbols": [
         "render()"
+      ]
+    },
+    {
+      "path": "_dotfiles/readme/readme-render.cjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "fs",
+        "path"
+      ],
+      "symbols": [
+        "treeLines(entries, depth)",
+        "walk(es, pre, d)",
+        "nodeData(x, name)",
+        "migrate(md, kind)",
+        "blocks(n, rd)",
+        "render(node, readme, tpl)",
+        "renderRepo(root)"
       ]
     },
     {
@@ -74154,7 +74173,9 @@
         "_selected()",
         "sync_one()",
         "_derive_list()",
-        "refresh_list()"
+        "refresh_list()",
+        "_derive_outline()",
+        "refresh_outline()"
       ],
       "imports": [],
       "symbols": [
@@ -74163,7 +74184,9 @@
         "_selected()",
         "sync_one()",
         "_derive_list()",
-        "refresh_list()"
+        "refresh_list()",
+        "_derive_outline()",
+        "refresh_outline()"
       ]
     },
     {
@@ -359191,6 +359214,118 @@
       ]
     },
     {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/RepoTree.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoLeaf",
+        "RepoNode",
+        "RepoOutline",
+        "RepoTreeConfig",
+        "RepoTarget",
+        "RepoRow",
+        "RepoTreeModel",
+        "RepoTreeStore"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.util.Base64",
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "containerCodes()",
+        "leaves()",
+        "parse(text: String)",
+        "node(o: JSONObject)",
+        "areaCodeFor(pageId: String)",
+        "shown(outline: List<RepoNode>)",
+        "area(outline: List<RepoNode>, code: String)",
+        "target(leaf: RepoLeaf)",
+        "parse(o: JSONObject)",
+        "isOpen(code: String)",
+        "toggle(code: String)",
+        "expandAll(roots: List<RepoNode>)",
+        "collapseAll(roots: List<RepoNode>)",
+        "rows(roots: List<RepoNode>)",
+        "walk(n: RepoNode, depth: Int)",
+        "load()",
+        "save(expanded: Set<String>)",
+        "class RepoLeaf",
+        "class RepoNode",
+        "class RepoOutline",
+        "class RepoTreeConfig",
+        "class RepoTarget",
+        "class App",
+        "class Url",
+        "class RepoRow",
+        "class RepoTreeModel",
+        "class RepoTreeStore"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/RepoTreeScreen.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoTreeTags",
+        "RepoTreeScreen",
+        "RepoTreeFullDialog"
+      ],
+      "imports": [
+        "android.content.ActivityNotFoundException",
+        "android.content.Context",
+        "android.content.Intent",
+        "android.net.Uri",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.PaddingValues",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "androidx.compose.ui.window.Dialog",
+        "androidx.compose.ui.window.DialogProperties",
+        "com.diegonmarcos.superapp.uiicons.UiIcons",
+        "com.diegonmarcos.superapp.uikit.KitTextButton",
+        "com.diegonmarcos.superapp.uikit.KitTonalButton"
+      ],
+      "symbols": [
+        "row(code: String)",
+        "get(ctx: Context, asset: String)",
+        "RepoTreeScreen(areaCode: String?, modifier: Modifier = Modifier, config: RepoTreeConfig = RepoTreeConfig.baked)",
+        "RepoTreeRow(row: RepoRow, onClick: ()",
+        "RepoTreeFullDialog(onDismiss: ()",
+        "openRepo(ctx: Context, target: RepoTarget)",
+        "class RepoTreeTags",
+        "class RepoOutlineAsset"
+      ]
+    },
+    {
       "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/Sections.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -359998,6 +360133,34 @@
       "symbols": [
         "schema(id: String)",
         "class ProfileRecordTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/RepoTreeTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoTreeTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.RuntimeEnvironment",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "strings(a: JSONArray?)",
+        "node(roots: List<RepoNode>, label: String)",
+        "labels(o: JSONObject)",
+        "class RepoTreeTest"
       ]
     },
     {

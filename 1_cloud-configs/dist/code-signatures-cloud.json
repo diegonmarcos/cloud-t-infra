@@ -6,17 +6,17 @@
   },
   "repo": "cloud",
   "counts": {
-    "files": 1567,
+    "files": 1568,
     "by_lang": {
       "sh": 1058,
-      "js": 168,
+      "js": 169,
       "nix": 304,
       "py": 7,
       "ts": 30
     },
     "by_role": {
       "hook": 377,
-      "file": 85,
+      "file": 86,
       "shell": 538,
       "flake": 6,
       "script": 143,
@@ -108,6 +108,25 @@
       "imports": [],
       "symbols": [
         "render()"
+      ]
+    },
+    {
+      "path": "_dotfiles/readme/readme-render.cjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "fs",
+        "path"
+      ],
+      "symbols": [
+        "treeLines(entries, depth)",
+        "walk(es, pre, d)",
+        "nodeData(x, name)",
+        "migrate(md, kind)",
+        "blocks(n, rd)",
+        "render(node, readme, tpl)",
+        "renderRepo(root)"
       ]
     },
     {
