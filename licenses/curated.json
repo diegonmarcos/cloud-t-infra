@@ -40,6 +40,10 @@
   ".vscode": {
    "licence": "PolyForm-Noncommercial-1.0.0"
   },
+  "0_hub": {
+   "licence": "LicenseRef-NoLicenseGranted",
+   "note": "Holds the cloudy-___ hub submodule (own repository, own code)."
+  },
   "0____________________": {
    "licence": "PolyForm-Noncommercial-1.0.0",
    "note": "Separator directory (sorts the tree); holds no code."
