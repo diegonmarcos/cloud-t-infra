@@ -28,7 +28,7 @@ Owner rule (2026-10-16): **PUBLIC URL = fleet Bearer OR Authelia session cookie.
 | suite.diegonmarcos.com | whole host | Owner ruling 2026-10-22 (#1104): GitHub Pages custom domain, explicit public HTML host without auth; the content is public on github.io anyway. |
 | maps.diegonmarcos.com | whole host | Owner ruling 2026-10-22 (#1104): GitHub Pages custom domain, explicit public HTML host without auth; the content is public on github.io anyway. |
 | *.diegonmarcos.com | whole host | Routing tier (#1104, owner ruling 2026-10-22): there is NO public wildcard route. This catch-all serves nothing: an undeclared subdomain is redirected to the apex and reaches no upstream. Guard: _shared/test-fleet-addressing.mjs. |
-| mta-sts.diegonmarcos.com | paths: `/.well-known/mta-sts.txt` | Owner decision 22: MTA-STS policy (RFC 8461) is fetched anonymously by sending MTAs. |
+| mta-sts.diegonmarcos.com | whole host | Owner decision 2026-10-29 (#1292): the whole MTA-STS host is public, home page included. The policy (RFC 8461) is fetched anonymously by sending MTAs and the host carries nothing else: /.well-known/mta-sts.txt serves the policy, / a one-line public notice, any other path 404. Previously only the policy path was exempt (scope paths) so / answered 302 to auth. |
 | vpn.diegonmarcos.com | WebSocket upgrade requests only (`Upgrade: websocket`) | Owner decision 2026-10-16: the wstunnel client opens a WebSocket upgrade to a secret path prefix and cannot do a cookie/bearer handshake. The exemption is `Upgrade: websocket` only; wstunnel itself rejects every upgrade whose path is not its secret --http-upgrade-path-prefix, and every non-upgrade request to vpn. is gated. |
 | every host | acme-http-01: `/.well-known/acme-challenge/*` | Owner decision 2026-10-16: ACME http-01 validation requests come from the CA and cannot carry a token. Exempted on EVERY host (the path is excluded from the gate). Caddy core answers a live token before any route runs; this fleet itself issues via DNS-01. |
 | every host | cors-preflight: `OPTIONS with Access-Control-Request-Method` | Browsers never attach credentials to a CORS preflight. The (edge_auth) snippet answers it itself with 204; it is never proxied to an upstream, so it serves no content. Plain OPTIONS (WebDAV discovery) is NOT exempt. |
@@ -416,7 +416,6 @@ Owner rule (2026-10-16): **PUBLIC URL = fleet Bearer OR Authelia session cookie.
 | mails.diegonmarcos.com | b | Bearer (fleet token, introspect-proxy; `Authorization` or `X-Fleet-Authorization`) OR Authelia session -- enforced for non-mesh sources; mesh peers keep WG trust; plus mesh guard on the rest | - |
 | matrix.diegonmarcos.com | b | Bearer (fleet token, introspect-proxy; `Authorization` or `X-Fleet-Authorization`) OR Authelia session | `/_matrix/federation/*` `/_matrix/key/*` `/.well-known/matrix/*` `/_matrix/client/*` |
 | mcp.diegonmarcos.com | b | Bearer (fleet token, introspect-proxy; `Authorization` or `X-Fleet-Authorization`) OR Authelia session -- enforced for non-mesh sources; mesh peers keep WG trust | `/.well-known/oauth-protected-resource*` `/.well-known/oauth-authorization-server*` `/.well-known/openid-configuration*` `/register` `/authorize` `/token` `/callback` `/oauth/*` `/*/.well-known/oauth-protected-resource*` `/*/.well-known/oauth-authorization-server*` `/*/register` `/*/authorize` `/*/token` `/*/callback` |
-| mta-sts.diegonmarcos.com | b | Bearer (fleet token, introspect-proxy; `Authorization` or `X-Fleet-Authorization`) OR Authelia session | `/.well-known/mta-sts.txt` |
 | playlist.diegonmarcos.com | b | Bearer (fleet token, introspect-proxy; `Authorization` or `X-Fleet-Authorization`) OR Authelia session -- enforced for non-mesh sources; mesh peers keep WG trust; plus mesh guard on the rest | - |
 | vpn.diegonmarcos.com | b | Bearer (fleet token, introspect-proxy; `Authorization` or `X-Fleet-Authorization`) OR Authelia session -- except `Upgrade: websocket` | - |
 | *.diegonmarcos.com | c | none (anonymous) | `whole host` |
@@ -425,6 +424,7 @@ Owner rule (2026-10-16): **PUBLIC URL = fleet Bearer OR Authelia session cookie.
 | diegonmarcos.com, www.diegonmarcos.com | c | none (anonymous) | `whole host` |
 | linktree.diegonmarcos.com | c | none (anonymous) | `whole host` |
 | maps.diegonmarcos.com | c | none (anonymous) | `whole host` |
+| mta-sts.diegonmarcos.com | c | none (anonymous) | `whole host` |
 | nexus.diegonmarcos.com | c | none (anonymous) | `whole host` |
 | suite.diegonmarcos.com | c | none (anonymous) | `whole host` |
 | 13 x `*.db` names | a | mesh only (`@not_mesh` 403; edge L4 forwards the SNI but the hub refuses non-mesh sources) | - |
@@ -509,7 +509,6 @@ A tier-b host's gate runs before any of these; the inner column is the *addition
 | mcp.diegonmarcos.com | `/*/authorize` | c | declared public-open |
 | mcp.diegonmarcos.com | `/*/token` | c | declared public-open |
 | mcp.diegonmarcos.com | `/*/callback` | c | declared public-open |
-| mta-sts.diegonmarcos.com | `/.well-known/mta-sts.txt` | c | declared public-open |
 | vpn.diegonmarcos.com | `Upgrade: websocket` | c | declared public-open (wstunnel enforces its own secret path prefix) |
 | every host | `/.well-known/acme-challenge/*` | c | ACME http-01 |
 | every host | `OPTIONS` + `Access-Control-Request-Method` | c | CORS preflight, answered 204 by the gate, never proxied |
