@@ -130,6 +130,7 @@
         "treeLines(entries, depth)",
         "walk(es, pre, d)",
         "nodeData(x, name)",
+        "variant(r)",
         "migrate(md, kind)",
         "blocks(n, rd)",
         "render(node, readme, tpl)",
