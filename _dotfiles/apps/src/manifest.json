@@ -172,8 +172,30 @@
       {
         "from": "claude",
         "to": "_dotfiles/apps/dist/dotfiles/claude"
+      },
+      {
+        "from": "root",
+        "to": "0_apps/src/root",
+        "only": [
+          "mcp.json"
+        ]
+      },
+      {
+        "from": "root",
+        "to": "0_apps/dist/dotfiles/root",
+        "only": [
+          "mcp.json"
+        ]
+      },
+      {
+        "from": "claude",
+        "to": "0_apps/src/claude"
+      },
+      {
+        "from": "claude",
+        "to": "0_apps/dist/dotfiles/claude"
       }
     ],
-    "_module_mirrors_doc": "Some repos (front-assets-cdn, CG-unity) carry their OWN copy of this module, whose `build.sh dotfiles` re-deploys its src/ over the repo root. Left stale it silently undoes the emit on the next build there — a second declaration of the same file. So the fleet files are also written into those copies, but ONLY where the destination directory already exists: a repo without the module never gets one. `from` is a subdirectory of dist/dotfiles/, `to` is repo-relative. `only` limits a mirror to named files: dist/dotfiles/root also holds sops.yaml, which is per-repo (see root_files) and must never be mirrored."
+    "_module_mirrors_doc": "Some repos (front-assets-cdn, CG-unity) carry their OWN copy of this module, whose `build.sh dotfiles` re-deploys its src/ over the repo root. Left stale it silently undoes the emit on the next build there — a second declaration of the same file. So the fleet files are also written into those copies, but ONLY where the destination directory already exists: a repo without the module never gets one. `from` is a subdirectory of dist/dotfiles/, `to` is repo-relative. `only` limits a mirror to named files: dist/dotfiles/root also holds sops.yaml, which is per-repo (see root_files) and must never be mirrored. Transition (#1290 _dotfiles convention): the 0_apps/ entries cover repos not yet moved to _dotfiles/apps/; a destination that does not exist is skipped, so they are inert once every repo is migrated and can then be dropped."
   }
 }

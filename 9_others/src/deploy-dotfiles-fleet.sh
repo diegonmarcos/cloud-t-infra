@@ -77,7 +77,7 @@ if (q === "sources") { const r = f.repos.find(x => x.dir === process.argv[3]); i
 if (q === "mirrors") { const r = f.repos.find(x => x.dir === process.argv[3]); if (!r || r.scope !== "public") for (const x of f.module_mirrors || []) console.log(x.from + "\t" + x.to + "\t" + (x.only ? x.only.join(" ") : "-")); }
 ' "$MANIFEST" "$@"; }
 
-SELF="$(cd "$DF_SRC/.." && pwd -P)"   # the repo that owns the declaration: it is the source, not a mirror target
+SELF="$(git -C "$DF_SRC" rev-parse --show-toplevel 2>/dev/null || (cd "$DF_SRC/../.." && pwd -P))"   # the repo that owns the declaration (git toplevel): it is the source, not a mirror target
 TAB="$(printf '\t')"
 LOG="$(mktemp)"; trap 'rm -f "$LOG"' EXIT   # findings, one per line — counted at the end (sync runs in pipe subshells)
 
