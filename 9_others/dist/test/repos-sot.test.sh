@@ -57,7 +57,7 @@ out=$(jq -r --slurpfile s "$SOT" '.fleet.repos[] as $f
 [ -z "$out" ] && ok "S2a fleet repos agree with the registry (created, same visibility)" || { bad "S2a fleet/registry disagree"; echo "$out" | sed 's/^/    /'; }
 # #1224: the registry here is the CLOUD family only. Fleet dotfile targets of other families
 # (registered in _git-repos-master/repos.json, not in the cloud file) are listed explicitly.
-NONCLOUD_OK='["Projects-___","CG-___","Fin-CM-___","DeepSc-___","DuckPeng-___","z-archived_front-data","diegonmarcos.github.io","CG-galaxy-gaia","CG-unity"]'
+NONCLOUD_OK='["Projects-___","CG-___","Fin-___","DeepSc-___","DuckPeng-___","z-archived_front-data","diegonmarcos.github.io","CG-galaxy-gaia","CG-unity"]'
 out=$(jq -r --argjson nc "$NONCLOUD_OK" --slurpfile s "$SOT" '[$s[0].repos[]|'"$GH"'] as $g | .fleet.repos[] | select(.github as $x | ($g|index($x))==null and ($nc|index($x))==null) | .dir + " (" + .github + ")"' "$M")
 [ -z "$out" ] && ok "S2b every fleet repo is in the cloud registry or an allowed other-family target" || { bad "S2b fleet repo not in the registry: $out"; }
 

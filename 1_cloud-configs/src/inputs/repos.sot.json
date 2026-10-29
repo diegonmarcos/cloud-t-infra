@@ -687,7 +687,7 @@
       "name": "cloud-me-pvt-___",
       "group": "a_cloud",
       "url": "git@github.com:diegonmarcos/cloud-me-pvt-___.git",
-      "private": true,
+      "private": false,
       "renamed_from": [
         "cloud-me-pvt",
         "cloud-me-pvt___"
