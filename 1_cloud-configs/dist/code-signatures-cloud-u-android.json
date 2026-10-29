@@ -6,10 +6,10 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22565,
+    "files": 22574,
     "by_lang": {
+      "sh": 584,
       "js": 497,
-      "sh": 575,
       "py": 170,
       "kotlin": 12093,
       "java": 647,
@@ -18,8 +18,9 @@
       "ts": 8441
     },
     "by_role": {
+      "hook": 158,
       "file": 2281,
-      "shell": 459,
+      "shell": 460,
       "script": 262,
       "java": 646,
       "kotlin": 12090,
@@ -27,13 +28,151 @@
       "flake": 27,
       "python": 55,
       "rust-module": 111,
-      "hook": 150,
       "nix-module": 4,
       "entrypoint": 3,
       "mcp-tool": 53
     }
   },
   "files": [
+    {
+      "path": "_dotfiles/apps/src/claude/hooks/c3/_lib.sh",
+      "lang": "sh",
+      "role": "hook",
+      "exports": [
+        "block()"
+      ],
+      "imports": [],
+      "symbols": [
+        "block()"
+      ]
+    },
+    {
+      "path": "_dotfiles/apps/src/claude/hooks/c3/ai-usage-post.sh",
+      "lang": "sh",
+      "role": "hook",
+      "exports": [
+        "num()",
+        "int()",
+        "safe()",
+        "send()"
+      ],
+      "imports": [],
+      "symbols": [
+        "num()",
+        "int()",
+        "safe()",
+        "send()"
+      ]
+    },
+    {
+      "path": "_dotfiles/apps/src/claude/hooks/c3/no-mass-delete.sh",
+      "lang": "sh",
+      "role": "hook",
+      "exports": [
+        "wipe()",
+        "msg()"
+      ],
+      "imports": [],
+      "symbols": [
+        "wipe()",
+        "msg()"
+      ]
+    },
+    {
+      "path": "_dotfiles/apps/src/claude/hooks/c3/tests/run.sh",
+      "lang": "sh",
+      "role": "hook",
+      "exports": [
+        "t()"
+      ],
+      "imports": [],
+      "symbols": [
+        "t()"
+      ]
+    },
+    {
+      "path": "_dotfiles/apps/src/claude/mcp-connect.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "node:child_process",
+        "node:path"
+      ],
+      "symbols": [
+        "meshReachable(url)",
+        "bearer()",
+        "send(msg)"
+      ]
+    },
+    {
+      "path": "_dotfiles/deploy.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "render()"
+      ],
+      "imports": [],
+      "symbols": [
+        "render()"
+      ]
+    },
+    {
+      "path": ".claude/hooks/c3/_lib.sh",
+      "lang": "sh",
+      "role": "hook",
+      "exports": [
+        "block()"
+      ],
+      "imports": [],
+      "symbols": [
+        "block()"
+      ]
+    },
+    {
+      "path": ".claude/hooks/c3/ai-usage-post.sh",
+      "lang": "sh",
+      "role": "hook",
+      "exports": [
+        "num()",
+        "int()",
+        "safe()",
+        "send()"
+      ],
+      "imports": [],
+      "symbols": [
+        "num()",
+        "int()",
+        "safe()",
+        "send()"
+      ]
+    },
+    {
+      "path": ".claude/hooks/c3/no-mass-delete.sh",
+      "lang": "sh",
+      "role": "hook",
+      "exports": [
+        "wipe()",
+        "msg()"
+      ],
+      "imports": [],
+      "symbols": [
+        "wipe()",
+        "msg()"
+      ]
+    },
+    {
+      "path": ".claude/hooks/c3/tests/run.sh",
+      "lang": "sh",
+      "role": "hook",
+      "exports": [
+        "t()"
+      ],
+      "imports": [],
+      "symbols": [
+        "t()"
+      ]
+    },
     {
       "path": ".claude/mcp-connect.mjs",
       "lang": "js",
@@ -2593,21 +2732,6 @@
         "step_build_fork()",
         "step_publish_fork()",
         "_oci_pull_blob()"
-      ]
-    },
-    {
-      "path": "0_apps/src/claude/mcp-connect.mjs",
-      "lang": "js",
-      "role": "file",
-      "exports": [],
-      "imports": [
-        "node:child_process",
-        "node:path"
-      ],
-      "symbols": [
-        "meshReachable(url)",
-        "bearer()",
-        "send(msg)"
       ]
     },
     {
