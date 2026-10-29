@@ -5,6 +5,7 @@
   "label": "cloudy-t-infra",
   "code": "1.1.2.1",
   "kind": "repo",
+  "variant": "repo",
   "description": "what happens if a Penguin learns  how to surf?",
   "visibility": "public",
   "url": "https://github.com/diegonmarcos/cloudy-t-infra",
