@@ -2,13 +2,14 @@
 # ║                                                                  ║
 # ║   GENERATED FILE — DO NOT EDIT                                   ║
 # ║                                                                  ║
-# ║   Source : _git-repos-master/9_others/templates/readme/readme-check.yml
-# ║   Engine : _git-repos-master/repos-sot.js sync-readmes
-# ║   Rebuild: node repos-sot.js sync-readmes <clone>
+# ║   Source : 1_cicd/src/cicd/readme-check.yml
+# ║   Engine : 1_cicd/src/scripts/cloud-ship-repo-workflow-engine.sh
+# ║   Rebuild: ./9_others/build.sh
 # ║                                                                  ║
 # ║   Manual edits will be overwritten on next build.                ║
 # ║                                                                  ║
 # ╚══════════════════════════════════════════════════════════════════╝
+
 #
 # README drift guard (#1303): README.md must equal a fresh render of _dotfiles/readme/
 # (template.md.tpl + node.json + readme.json). Node only, no install, a few seconds.
