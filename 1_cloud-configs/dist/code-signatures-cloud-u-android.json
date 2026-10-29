@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22557,
+    "files": 22561,
     "by_lang": {
       "js": 497,
-      "sh": 573,
+      "sh": 574,
       "py": 170,
-      "kotlin": 12087,
+      "kotlin": 12090,
       "java": 647,
       "nix": 31,
       "rust": 111,
@@ -19,10 +19,10 @@
     },
     "by_role": {
       "file": 2281,
-      "shell": 457,
+      "shell": 458,
       "script": 262,
       "java": 646,
-      "kotlin": 12084,
+      "kotlin": 12087,
       "module": 6424,
       "flake": 27,
       "python": 55,
@@ -172896,10 +172896,12 @@
         "kotlinx.serialization.json.intOrNull"
       ],
       "symbols": [
+        "asRun()",
         "urlFor(owner: String, name: String)",
         "reposUrl(page: Int)",
         "webUrlFor(owner: String, name: String)",
         "argv(op: String, url: String, dest: String, depth: Int = 0)",
+        "folderAction(kind: String)",
         "depthActions(scope: String)",
         "depthAction(id: String)",
         "op(id: String)",
@@ -172933,9 +172935,7 @@
         "navPages(sectionId: String)",
         "classesOf(nav: NavDecl)",
         "parseSync(text: String, pages: List<PageDecl> = emptyList()",
-        "parseMountProviders(text: String)",
-        "parseFsyncKinds(text: String)",
-        "parseGitPage(e: JsonElement?)"
+        "parseMountProviders(text: String)"
       ]
     },
     {
@@ -175632,6 +175632,91 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/FolderActions.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FolderActions"
+      ],
+      "imports": [
+        "java.io.File",
+        "java.text.SimpleDateFormat",
+        "java.util.Date",
+        "java.util.Locale",
+        "java.util.TimeZone"
+      ],
+      "symbols": [
+        "conflictName(base: String, taken: (String)",
+        "renameTarget(repoName: String, taken: (String)",
+        "stamp(nowMs: Long)",
+        "archiveName(name: String, nowMs: Long, taken: (String)",
+        "archiveDir(gitRoot: File, archiveRoot: String)",
+        "insideArchive(dir: File, archiveDir: File)",
+        "usableName(name: String)",
+        "reasons()",
+        "typedOk(typed: String, folderName: String)",
+        "guardOf(porcelain: String, unpushedCount: String)",
+        "guardScript(guestDir: String, q: (String)",
+        "parseGuard(out: String)",
+        "moveScript(from: String, to: String, q: (String)",
+        "deleteScript(dir: String, q: (String)",
+        "class FolderActions",
+        "class Guard",
+        "class Target"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/FolderTableUi.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [],
+      "imports": [
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.heightIn",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.material3.AlertDialog",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Text",
+        "androidx.compose.material3.TextButton",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.colorResource",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.font.FontFamily",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "com.diegonmarcos.clouddrive.Declarations",
+        "com.diegonmarcos.clouddrive.R",
+        "com.diegonmarcos.clouddrive.ui.DriveMetrics",
+        "com.diegonmarcos.clouddrive.ui.DriveTags",
+        "com.diegonmarcos.clouddrive.ui.Hairline",
+        "com.diegonmarcos.clouddrive.ui.Pill",
+        "com.diegonmarcos.clouddrive.ui.SectionHeader",
+        "kotlinx.coroutines.Dispatchers",
+        "kotlinx.coroutines.withContext"
+      ],
+      "symbols": [
+        "FolderRepoTable( tableId: String, title: String, hint: String, empty: String, rows: List<FolderActions.Target>?, glances: Map<String, GitSyncCoordinator.Glance>, lastCommits: Map<String, Long>, run: BulkDepth.Run?, kinds: List<String>, coordinator: GitSyncCoordinator, subtitle: @Composable (FolderActions.Target)",
+        "FolderConfirmDialog(c: FolderConfirm, coordinator: GitSyncCoordinator, repoint: (java.io.File, java.io.File)",
+        "class FolderConfirm"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/FsyncPage.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -175778,7 +175863,7 @@
         "DepthReportWindow(r: BulkDepth.Run, onCancel: ()",
         "DepthPills(actions: List<Declarations.GitDepthActionDecl>, enabled: Boolean, onAction: (Declarations.GitDepthActionDecl)",
         "RepoFilterRow(filters: List<Declarations.GitFilterDecl>, selection: Map<String, String>, onSelect: (String, String)",
-        "UnlistedPanel(label: String, folders: List<UnlistedRepos.Folder>, glances: Map<String, GitSyncCoordinator.Glance>, events: List<SyncEvent>, fmt: DateFormat)",
+        "UnlistedPanel( label: String, folders: List<UnlistedRepos.Folder>, glances: Map<String, GitSyncCoordinator.Glance>, lastCommits: Map<String, Long>, run: BulkDepth.Run?, coordinator: GitSyncCoordinator, onOpenReport: ()",
         "ActivityLogsWindow(events: List<SyncEvent>, fmt: DateFormat, onClose: ()",
         "FullWindow(title: String, tag: String, onClose: ()"
       ]
@@ -176351,48 +176436,26 @@
         "ParentlessPanel"
       ],
       "imports": [
-        "androidx.compose.foundation.layout.Arrangement",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.Row",
-        "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.layout.heightIn",
-        "androidx.compose.foundation.layout.padding",
-        "androidx.compose.material3.AlertDialog",
-        "androidx.compose.material3.MaterialTheme",
-        "androidx.compose.material3.Text",
-        "androidx.compose.material3.TextButton",
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.LaunchedEffect",
         "androidx.compose.runtime.getValue",
         "androidx.compose.runtime.mutableStateOf",
         "androidx.compose.runtime.remember",
-        "androidx.compose.runtime.rememberCoroutineScope",
         "androidx.compose.runtime.setValue",
-        "androidx.compose.ui.Alignment",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.platform.LocalContext",
         "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.res.colorResource",
         "androidx.compose.ui.res.stringResource",
-        "androidx.compose.ui.text.font.FontFamily",
-        "androidx.compose.ui.text.style.TextOverflow",
+        "com.diegonmarcos.clouddrive.Declarations",
         "com.diegonmarcos.clouddrive.DrivePrefs",
         "com.diegonmarcos.clouddrive.R",
-        "com.diegonmarcos.clouddrive.ui.DriveMetrics",
         "com.diegonmarcos.clouddrive.ui.DriveTags",
-        "com.diegonmarcos.clouddrive.ui.Hairline",
-        "com.diegonmarcos.clouddrive.ui.Pill",
-        "com.diegonmarcos.clouddrive.ui.SectionHeader",
         "java.io.File",
         "kotlinx.coroutines.Dispatchers",
-        "kotlinx.coroutines.launch",
         "kotlinx.coroutines.withContext"
       ],
       "symbols": [
-        "ParentlessPanel(roots: List<File>, prefs: DrivePrefs, onChanged: ()",
-        "rescan()",
-        "say(o: LocalRepos.Outcome)",
-        "run(list: List<LocalRepos.Parentless>)"
+        "ParentlessPanel( roots: List<File>, prefs: DrivePrefs, coordinator: GitSyncCoordinator, glances: Map<String, GitSyncCoordinator.Glance>, lastCommits: Map<String, Long>, run: BulkDepth.Run?, onOpenReport: ()"
       ]
     },
     {
@@ -176868,7 +176931,8 @@
       "exports": [
         "RepoColumn",
         "RepoTableRow",
-        "RepoTable"
+        "RepoTable",
+        "FolderTable"
       ],
       "imports": [],
       "symbols": [
@@ -176886,10 +176950,12 @@
         "dirty(files: Int?, yes: String, no: String)",
         "aheadBehind(ahead: Int?, behind: Int?)",
         "rowOf(name: String, declaredPrivate: Boolean?, cloned: Boolean, glance: GitSyncCoordinator.Glance?, remote: RepoRemoteStats.Stats?, provider: String? = null, diskBytes: Long? = null, lfs: Boolean? = null, localHeadMs: Long? = null)",
+        "rowOf(t: FolderActions.Target, glance: GitSyncCoordinator.Glance?, provider: String?, lastCommitMs: Long?)",
         "class RepoColumn",
         "class RepoTableRow",
         "class RepoTable",
-        "class Summary"
+        "class Summary",
+        "class FolderTable"
       ]
     },
     {
@@ -176936,7 +177002,7 @@
       "symbols": [
         "repoCellModifier(c: RepoColumn)",
         "columnLabel(c: RepoColumn)",
-        "RepoTableHeader(column: RepoColumn, ascending: Boolean, scroll: ScrollState, onSort: (RepoColumn)",
+        "RepoTableHeader(column: RepoColumn, ascending: Boolean, scroll: ScrollState, tag: String = DriveTags.SYNC_GIT_TABLE_HEADER, onSort: (RepoColumn)",
         "RepoCells(r: RepoTableRow)",
         "RepoStatusCell(icons: RepoStatus.Icons, name: String, onOpen: ()",
         "glyph(l: StatusLight.State)",
@@ -177570,6 +177636,8 @@
         "tab(id: String)",
         "drawerItem(id: String)",
         "parentlessRow(name: String)",
+        "folderTableHeader(table: String)",
+        "folderAction(kind: String, name: String)",
         "hostCard(id: String)",
         "hostToken(id: String)",
         "hostSignIn(id: String)",
@@ -179277,6 +179345,29 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/FolderActionsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FolderActionsTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations",
+        "java.io.File",
+        "java.nio.file.Files",
+        "kotlinx.serialization.json.Json",
+        "kotlinx.serialization.json.jsonObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "class FolderActionsTest"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/GhLoginFollowTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -179557,9 +179648,10 @@
         "scanFollowsAGitFileAndIgnoresDuplicateRoots()",
         "onlyTheOriginRemoteCounts()",
         "renameMovesTheFolderAndKeepsItsContent()",
-        "renameRefusesWhenTheTargetExistsAndTouchesNothing()",
+        "renameToATakenNameBecomesConflictAndTouchesTheOtherFolderNot()",
+        "renameCountsConflictsUpAndAPlainFileCountsAsTaken()",
         "renameRefusesAnUnusableNameAndAMissingFolder()",
-        "renameAllRenamesEveryRowAndRefusesOnlyTheOnesWhoseTargetExists()",
+        "renameAllRenamesEveryRowAndSendsAClashToConflict()",
         "renameAllCannotLetTwoRowsWinOneName()",
         "repointPathMovesTheFolderAndWhatIsInsideAndNothingElse()",
         "theRegistryFollowsTheRenameWithItsIdAndItsCredential()",
@@ -180742,6 +180834,28 @@
         "a1()",
         "n1()",
         "c1()"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/test/test-drive-git-folder-actions.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "pass()",
+        "fail()",
+        "k1()",
+        "r1()",
+        "c1()",
+        "h1()"
+      ],
+      "imports": [],
+      "symbols": [
+        "pass()",
+        "fail()",
+        "k1()",
+        "r1()",
+        "c1()",
+        "h1()"
       ]
     },
     {
