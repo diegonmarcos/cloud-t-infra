@@ -48,6 +48,10 @@
    "licence": "PolyForm-Noncommercial-1.0.0",
    "note": "Separator directory (sorts the tree); holds no code."
   },
+  "_dotfiles": {
+   "licence": "PolyForm-Noncommercial-1.0.0",
+   "note": "Repo dotfile declarations (_dotfiles convention): git/ and apps/ plus deploy.sh."
+  },
   "_dotfiles/apps": {
    "licence": "PolyForm-Noncommercial-1.0.0"
   },
