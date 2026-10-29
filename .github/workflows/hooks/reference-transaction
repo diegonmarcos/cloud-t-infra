@@ -4,7 +4,7 @@
 # ║                                                                  ║
 # ║   GENERATED FILE — DO NOT EDIT                                   ║
 # ║                                                                  ║
-# ║   Source : 0_git/src/hooks/reference-transaction
+# ║   Source : _dotfiles/git/src/hooks/reference-transaction
 # ║   Engine : 1_cicd/src/scripts/cloud-ship-repo-workflow-engine.sh
 # ║   Rebuild: ./9_others/build.sh
 # ║                                                                  ║
@@ -15,8 +15,8 @@
 # ╔══════════════════════════════════════════════════════════════════╗
 # ║ reference-transaction — forbid creating new local branches       ║
 # ║                                                                  ║
-# ║ Source: cloud/0_git/src/hooks/reference-transaction        ║
-# ║ Active via [core] hooksPath = 0_git/dist/hooks             ║
+# ║ Source: cloud/_dotfiles/git/src/hooks/reference-transaction        ║
+# ║ Active via [core] hooksPath = _dotfiles/git/dist/hooks             ║
 # ║                                                                  ║
 # ║ Main-only policy: this repo is worked on directly on `main`.     ║
 # ║ A branch creation is a ref update under refs/heads/ whose OLD    ║
@@ -43,7 +43,7 @@ while read -r old _new ref; do
           printf '\n\033[31mBLOCKED: creating new local branches is disabled (main-only policy).\033[0m\n'
           printf '  attempted : %s\n' "${ref#refs/heads/}"
           printf '  Work directly on main.\n'
-          printf '  Source    : 0_git/src/hooks/reference-transaction\n\n'
+          printf '  Source    : _dotfiles/git/src/hooks/reference-transaction\n\n'
         } >&2
         exit 1
       fi

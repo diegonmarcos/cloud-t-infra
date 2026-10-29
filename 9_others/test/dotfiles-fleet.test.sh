@@ -38,16 +38,16 @@ cat > "$S/manifest.json" <<'J'
  "fleet":{"repos":[{"dir":"r-ok"},{"dir":"r-bad"},{"dir":"r-none"},{"dir":"r-ghost"},
    {"dir":"r-src","sources":{"prefix":"assets/cfg","map":{".mcp.json":"mcp.json",".claude":"claude"}}}],
           "root_files":["mcp.json"],
-          "module_mirrors":[{"from":"root","to":"0_apps/src/root","only":["mcp.json"]}]}}
+          "module_mirrors":[{"from":"root","to":"_dotfiles/apps/src/root","only":["mcp.json"]}]}}
 J
 # r-ok: everything in sync
 mkdir -p "$B/r-ok/.claude" "$B/r-ok/.vscode"
 cp -p "$D/claude/helper.sh" "$B/r-ok/.claude/"; cp "$D/vscode/settings.json" "$B/r-ok/.vscode/"; cp "$D/root/mcp.json" "$B/r-ok/.mcp.json"
 # r-bad: .mcp.json is a dangling symlink, .claude file drifted, .vscode absent, stale module copy
-mkdir -p "$B/r-bad/.claude" "$B/r-bad/0_apps/src/root"
+mkdir -p "$B/r-bad/.claude" "$B/r-bad/_dotfiles/apps/src/root"
 ln -s /home/nobody/.mcp.json "$B/r-bad/.mcp.json"
 echo stale > "$B/r-bad/.claude/helper.sh"
-echo '{"mcpServers":{}}' > "$B/r-bad/0_apps/src/root/mcp.json"
+echo '{"mcpServers":{}}' > "$B/r-bad/_dotfiles/apps/src/root/mcp.json"
 # r-none: bare repo (the cloud-data-my-ai-memory case) — no dotfiles, no module
 mkdir -p "$B/r-none"
 # r-ghost: not checked out at all
@@ -58,16 +58,16 @@ run() { sh "$FLEET" "$@" "$S" "$D" "$B"; }
 
 expect C1 1 'SYMLINK.*r-bad.*\.mcp\.json'            -- run --check
 expect C2 1 'DRIFT.*r-bad.*\.claude/helper\.sh'      -- run --check
-expect C3 1 'DRIFT.*r-bad.*0_apps/src/root/mcp\.json' -- run --check
+expect C3 1 'DRIFT.*r-bad.*_dotfiles/apps/src/root/mcp\.json' -- run --check
 expect C4 1 'MISSING.*r-none.*\.mcp\.json'           -- run --check
 expect C4b 1 'MISSING.*r-src.*assets/cfg/claude/helper\.sh|DRIFT.*r-src.*assets/cfg/claude/helper\.sh' -- run --check
 expect C4c 1 'DRIFT.*r-src.*assets/cfg/mcp\.json' -- run --check
 expect C5 0 'ABSENT.*r-ghost' -- run
 expect C5b 0 'fleet dotfiles: 4 repo\(s\) checked, 1 absent, 0 drifted' -- run --check
 cmp -s "$D/root/mcp.json" "$B/r-src/assets/cfg/mcp.json" && cmp -s "$D/claude/helper.sh" "$B/r-src/assets/cfg/claude/helper.sh" && [ ! -e "$B/r-src/assets/cfg/vscode" ] && ok "C5c fleet files also land in the repo's own dotfile SOURCE (mapped paths only)" || bad "C5c source tree not updated"
-[ ! -e "$B/r-none/0_apps" ] && ok "C6 module copy never created where the repo has no module" || bad "C6 created 0_apps in r-none"
+[ ! -e "$B/r-none/_dotfiles/apps" ] && ok "C6 module copy never created where the repo has no module" || bad "C6 created _dotfiles/apps in r-none"
 [ -f "$B/r-bad/.mcp.json" ] && [ ! -L "$B/r-bad/.mcp.json" ] && cmp -s "$D/root/mcp.json" "$B/r-bad/.mcp.json" && ok "C7 symlink replaced by a real, identical file" || bad "C7 symlink not replaced"
-[ ! -e "$B/r-bad/0_apps/src/root/sops.yaml" ] && ok "C6b per-repo sops.yaml is never mirrored (only: [mcp.json])" || bad "C6b sops.yaml leaked into a module copy"
+[ ! -e "$B/r-bad/_dotfiles/apps/src/root/sops.yaml" ] && ok "C6b per-repo sops.yaml is never mirrored (only: [mcp.json])" || bad "C6b sops.yaml leaked into a module copy"
 [ -x "$B/r-none/.claude/helper.sh" ] && ok "C8 exec bit survives the emit" || bad "C8 exec bit lost"
 expect C9 1 'FAIL: --require-all' -- run --require-all --check
 echo '{"targets":{}}' > "$S/manifest.json"
@@ -85,33 +85,33 @@ grep -q 'p1 fetched' <<<"$out" && grep -q 'p2 skipped (ci_skip' <<<"$out" && gre
 # C12 (#760): scope "public" — a repo that owns its own .claude/.mcp.json and
 # module copy (cloud-infra-desktop) takes ONLY the public gates, and the CI
 # fetcher asks GitHub for only those paths.
-P="$T/pub"; mkdir -p "$P/src" "$P/dist/claude" "$P/dist/githooks" "$P/dist/root" "$P/base/pp/.claude" "$P/base/pp/0_apps/src/root"
+P="$T/pub"; mkdir -p "$P/src" "$P/dist/claude" "$P/dist/githooks" "$P/dist/root" "$P/base/pp/.claude" "$P/base/pp/_dotfiles/apps/src/root"
 echo shared > "$P/dist/claude/helper.sh"; echo gate > "$P/dist/githooks/history-gate"; echo '{"shared":1}' > "$P/dist/root/mcp.json"
-echo own > "$P/base/pp/.claude/helper.sh"; echo '{"own":1}' > "$P/base/pp/0_apps/src/root/mcp.json"
+echo own > "$P/base/pp/.claude/helper.sh"; echo '{"own":1}' > "$P/base/pp/_dotfiles/apps/src/root/mcp.json"
 cat > "$P/src/manifest.json" <<'J'
 {"targets":{"claude":".claude"},"root_targets":{"mcp.json":".mcp.json"},"public_targets":{"githooks":".githooks"},
  "fleet":{"repos":[{"dir":"pp","github":"pp","private":false,"scope":"public"}],"root_files":["mcp.json"],
-          "module_mirrors":[{"from":"root","to":"0_apps/src/root","only":["mcp.json"]}]}}
+          "module_mirrors":[{"from":"root","to":"_dotfiles/apps/src/root","only":["mcp.json"]}]}}
 J
 git init -q "$P/base/pp"
 sh "$FLEET" "$P/src" "$P/dist" "$P/base" >/dev/null 2>&1
 [ "$(cat "$P/base/pp/.githooks/history-gate" 2>/dev/null)" = gate ] && ok "C12a scope public: public gate emitted" || bad "C12a scope public: gate not emitted"
-[ "$(cat "$P/base/pp/.claude/helper.sh")" = own ] && [ ! -e "$P/base/pp/.mcp.json" ] && [ "$(cat "$P/base/pp/0_apps/src/root/mcp.json")" = '{"own":1}' ] \
+[ "$(cat "$P/base/pp/.claude/helper.sh")" = own ] && [ ! -e "$P/base/pp/.mcp.json" ] && [ "$(cat "$P/base/pp/_dotfiles/apps/src/root/mcp.json")" = '{"own":1}' ] \
     && ok "C12b scope public: own .claude, .mcp.json and module copy untouched" || bad "C12b scope public: shared dotfiles overwrote the repo's own"
 printf '#!/bin/sh\necho "$*" >> "%s/gitargs"\n[ "$1" = clone ] && for a; do d="$a"; done && mkdir -p "$d"; exit 0\n' "$P" > "$T/stub/git"
 PATH="$T/stub:$PATH" sh "$ROOT/9_others/src/fetch-fleet-public.sh" "$P/src/manifest.json" "$P/fetched" >/dev/null 2>&1
 sp=$(grep 'sparse-checkout set' "$P/gitargs" 2>/dev/null)
-grep -q '/.githooks/' <<<"$sp" && ! grep -qE '/\.claude/|/\.mcp\.json|0_apps' <<<"$sp" && ok "C12c fetcher: scope public fetches only the public paths" || { bad "C12c fetcher paths wrong"; echo "    $sp"; }
+grep -q '/.githooks/' <<<"$sp" && ! grep -qE '/\.claude/|/\.mcp\.json|_dotfiles/apps' <<<"$sp" && ok "C12c fetcher: scope public fetches only the public paths" || { bad "C12c fetcher paths wrong"; echo "    $sp"; }
 
 # ── part 2: the real declaration ───────────────────────────────────────────
-M="$ROOT/0_apps/src/manifest.json"
+M="$ROOT/_dotfiles/apps/src/manifest.json"
 n=$(jq '.fleet.repos|length' "$M"); u=$(jq '[.fleet.repos[].dir]|unique|length' "$M")
 [ "$n" -gt 1 ] && [ "$n" = "$u" ] && ok "R1 fleet lists $n distinct repos" || bad "R1 fleet repos missing/duplicated ($n/$u)"
 # #1224: the inventory is the CLOUD family only; fleet targets of other families are listed explicitly.
 NONCLOUD_OK='["Projects-___","CG-___","Fin-___","DeepSc-___","DuckPeng-___","z-archived_front-data","diegonmarcos.github.io","CG-galaxy-gaia","CG-unity"]'
 missing=$(jq -r --argjson nc "$NONCLOUD_OK" --slurpfile g "$ROOT/1_cloud-configs/src/inputs/github-repos.json" '[.fleet.repos[].github] - [$g[0].repos[].name] - $nc | join(",")' "$M")
 [ -z "$missing" ] && ok "R2 every fleet repo exists on GitHub" || bad "R2 not on GitHub: $missing"
-cmp -s "$ROOT/1_cloud-configs/dist/mcp.project.json" "$ROOT/0_apps/dist/dotfiles/root/mcp.json" && ok "R3 shipped .mcp.json IS the deriver's output" || bad "R3 0_apps/dist/dotfiles/root/mcp.json differs from 1_cloud-configs/dist/mcp.project.json — run build.sh dotfiles"
+cmp -s "$ROOT/1_cloud-configs/dist/mcp.project.json" "$ROOT/_dotfiles/apps/dist/dotfiles/root/mcp.json" && ok "R3 shipped .mcp.json IS the deriver's output" || bad "R3 _dotfiles/apps/dist/dotfiles/root/mcp.json differs from 1_cloud-configs/dist/mcp.project.json — run build.sh dotfiles"
 # R4 (owner decision, #1197): the shipped default MCP tier is deliberately cut to the DECLARED default
 # (mcp-policy.json .tiers.default in the claude config SoT, cloud-u-linux) so the default context stays
 # <= 20k tokens; every other server is an opt-in tier. Assert shipped == declared, so drift in EITHER direction fails.
@@ -121,12 +121,12 @@ for c in "${CLAUDE_SOT_DIR:-/nonexistent}" "$ROOT/../cloud-u-linux/da_my-ai/data
 done
 if [ -z "$POL" ] && git clone -q --depth 1 https://github.com/diegonmarcos/cloudy-u-linux.git "$T/cul" 2>/dev/null; then POL="$T/cul/da_my-ai/data/claude/mcp-policy.json"; fi
 if [ -n "$POL" ] && [ -f "$POL" ]; then
-    want=$(jq -r '.tiers.default|sort|join(",")' "$POL"); have=$(jq -r '.mcpServers|keys|sort|join(",")' "$ROOT/0_apps/dist/dotfiles/root/mcp.json")
+    want=$(jq -r '.tiers.default|sort|join(",")' "$POL"); have=$(jq -r '.mcpServers|keys|sort|join(",")' "$ROOT/_dotfiles/apps/dist/dotfiles/root/mcp.json")
     [ -n "$want" ] && [ "$want" = "$have" ] && ok "R4 shipped .mcp.json == declared default tier ($want)" || bad "R4 shipped .mcp.json servers [$have] != declared default tier [$want] (mcp-policy.json .tiers.default)"
 else
     bad "R4 cannot read the claude config SoT mcp-policy.json (set CLAUDE_SOT_DIR or provide a cloud-u-linux sibling)"
 fi
-[ -x "$ROOT/0_apps/dist/dotfiles/claude/mcp-auth-headers.sh" ] && ok "R5 the headersHelper ships with the dotfiles" || bad "R5 mcp-auth-headers.sh missing/not executable in dist"
+[ -x "$ROOT/_dotfiles/apps/dist/dotfiles/claude/mcp-auth-headers.sh" ] && ok "R5 the headersHelper ships with the dotfiles" || bad "R5 mcp-auth-headers.sh missing/not executable in dist"
 
 # ── part 3: the real fleet ─────────────────────────────────────────────────
 if [ "${GITHUB_ACTIONS:-}" = true ] || [ "${FLEET_LIVE:-}" = 1 ]; then
@@ -136,7 +136,7 @@ if [ "${GITHUB_ACTIONS:-}" = true ] || [ "${FLEET_LIVE:-}" = 1 ]; then
     else
         LIVE="${CLOUD_GIT_BASE:-$HOME/git}"; args="--require-all"
     fi
-    expect L1 0 'fleet dotfiles: [0-9]+ repo' -- sh "$FLEET" --check $args "$ROOT/0_apps/src" "$ROOT/0_apps/dist/dotfiles" "$LIVE"
+    expect L1 0 'fleet dotfiles: [0-9]+ repo' -- sh "$FLEET" --check $args "$ROOT/_dotfiles/apps/src" "$ROOT/_dotfiles/apps/dist/dotfiles" "$LIVE"
 else
     echo "SKIP L1 live fleet (set FLEET_LIVE=1, or run in CI)"
 fi

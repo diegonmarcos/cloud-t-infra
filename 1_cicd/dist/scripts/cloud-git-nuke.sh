@@ -16,7 +16,7 @@
 # ║ cloud-git-nuke.sh — bulletproof reset-from-origin `git nuke`     ║
 # ║                                                                  ║
 # ║ Source: cloud/1_cicd/src/ops/cloud-git-nuke.sh          ║
-# ║ Wired : 0_git/srcconfig  →  [alias] nuke               ║
+# ║ Wired : _dotfiles/git/srcconfig  →  [alias] nuke               ║
 # ║                                                                  ║
 # ║ Sibling of `git sync` — same fan-out, opposite contract:         ║
 # ║   sync  → smart, non-destructive (stash → rebase → pop)          ║

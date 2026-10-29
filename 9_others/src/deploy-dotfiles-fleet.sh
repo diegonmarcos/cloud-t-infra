@@ -132,7 +132,7 @@ for repo in $REPOS; do
 
     # A hook file does nothing until git is told where hooks live. Wire it on emit
     # where the clone has no hooksPath at all; a repo that already points git at
-    # its own hooks (0_git/dist/hooks) chains to .githooks/pre-commit from there.
+    # its own hooks (_dotfiles/git/dist/hooks) chains to .githooks/pre-commit from there.
     hooks_dir="$(mf hooks "$repo")"
     if [ -n "$hooks_dir" ] && [ "$CHECK" = 0 ] && [ -z "$(git -C "$root" config core.hooksPath 2>/dev/null)" ]; then
         git -C "$root" config core.hooksPath "$hooks_dir" && note "WROTE" "$repo" "core.hooksPath=$hooks_dir (git config)"

@@ -48,17 +48,17 @@
    "licence": "PolyForm-Noncommercial-1.0.0",
    "note": "Separator directory (sorts the tree); holds no code."
   },
-  "0_apps": {
+  "_dotfiles/apps": {
    "licence": "PolyForm-Noncommercial-1.0.0"
   },
-  "0_git": {
+  "_dotfiles/git": {
    "licence": "PolyForm-Noncommercial-1.0.0"
   },
-  "0_git/dist": {
+  "_dotfiles/git/dist": {
    "licence": "PolyForm-Noncommercial-1.0.0",
-   "note": "Verbatim copy of 0_git/src/LICENSE made by 9_others/build.sh."
+   "note": "Verbatim copy of _dotfiles/git/src/LICENSE made by 9_others/build.sh."
   },
-  "0_git/src": {
+  "_dotfiles/git/src": {
    "licence": "PolyForm-Noncommercial-1.0.0",
    "note": "Holds the PolyForm Noncommercial 1.0.0 text itself (source of the root LICENSE); the licence text is not third-party code."
   },

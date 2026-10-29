@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Tester for 0_apps/src/githooks/history-gate (#760): history that a secret
+# Tester for _dotfiles/apps/src/githooks/history-gate (#760): history that a secret
 # purge removed must never be published again by a stale clone.
 #
 # Builds a throwaway repo standing in for "old history" and "new history" and
@@ -8,8 +8,8 @@
 set -uo pipefail
 
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
-GATE="$ROOT/0_apps/src/githooks/history-gate"
-LIST="$ROOT/0_apps/src/githooks/purged-history"
+GATE="$ROOT/_dotfiles/apps/src/githooks/history-gate"
+LIST="$ROOT/_dotfiles/apps/src/githooks/purged-history"
 TMP=$(mktemp -d); trap 'rm -rf "$TMP"' EXIT
 PASSES=0; FAILS=0
 ok()  { PASSES=$((PASSES+1)); echo "  ok   $1"; }

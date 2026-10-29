@@ -42,8 +42,8 @@ on:
       # (The second entry used to read 1_cicd/dist/1_cicd/src/scripts/**
       # — a doubled path that matched nothing, so script edits never triggered
       # this workflow.)
-      - "0_git/src/**"
-      - "0_apps/src/**"
+      - "_dotfiles/git/src/**"
+      - "_dotfiles/apps/src/**"
       - "1_cicd/src/**"
       # The emitter's OWN source tree. Editing the thing that generates every
       # config used to trigger no regeneration at all.
@@ -245,7 +245,7 @@ jobs:
           # 2026-08-23) never reached the hub's peer list. Same failure mode
           # the block above describes; the materialized a_solutions copies
           # were staged but the file they are copies OF was not.
-          for p in 0_git/dist/ 0_apps/dist/ 1_cicd/dist/ 9_others/dist/ \
+          for p in _dotfiles/git/dist/ _dotfiles/apps/dist/ 1_cicd/dist/ 9_others/dist/ \
                    1_cloud-configs/dist/ \
                    b_infra/_shared/vm-pilot/dist/ \
                    b_infra/nixhm-sudo-*/dist/; do

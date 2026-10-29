@@ -20,7 +20,7 @@ and fails, naming it, when something new appears with no entry. Its tester
 ## 1. The licence of this repository's own code
 
 The original code here is licensed under the **PolyForm Noncommercial License 1.0.0**
-([`LICENSE`](./LICENSE), SPDX `PolyForm-Noncommercial-1.0.0`; its source is `0_git/src/LICENSE`,
+([`LICENSE`](./LICENSE), SPDX `PolyForm-Noncommercial-1.0.0`; its source is `_dotfiles/git/src/LICENSE`,
 copied verbatim to the root by `9_others/build.sh`). Plain English: free to use, copy, modify and
 share for any **noncommercial** purpose; commercial use is not granted without a separate licence.
 It is source-available, not OSI "open source".
@@ -46,7 +46,7 @@ Contact for commercial licensing: Diego Nepomuceno Marcos — <https://diegonmar
 
 | Kind | Subjects | Licences |
 |---|---|---|
-| Top-level directories | 23 incl. `licenses/` (+ `0_git/src`, `0_git/dist` holding the licence text) | all own, PolyForm-NC |
+| Top-level directories | 23 incl. `licenses/` (+ `_dotfiles/git/src`, `_dotfiles/git/dist` holding the licence text) | all own, PolyForm-NC |
 | Flake inputs | `nixpkgs`, `home-manager` | MIT (the Nix expressions; each package keeps its own `meta.license`) |
 | Flake inputs (own) | this repo's `config.json` fetched as a non-flake input | own |
 | Container base image | `debian` (vm-pilot transport image) | per-package Debian licences |

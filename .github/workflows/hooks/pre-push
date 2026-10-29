@@ -4,7 +4,7 @@
 # ║                                                                  ║
 # ║   GENERATED FILE — DO NOT EDIT                                   ║
 # ║                                                                  ║
-# ║   Source : 0_git/src/hooks/pre-push
+# ║   Source : _dotfiles/git/src/hooks/pre-push
 # ║   Engine : 1_cicd/src/scripts/cloud-ship-repo-workflow-engine.sh
 # ║   Rebuild: ./9_others/build.sh
 # ║                                                                  ║
@@ -15,8 +15,8 @@
 # ╔══════════════════════════════════════════════════════════════════╗
 # ║ pre-push — block non-main remote refs; rebase submodules         ║
 # ║                                                                  ║
-# ║ Source: cloud/0_git/src/hooks/pre-push                     ║
-# ║ Active via [core] hooksPath = 0_git/dist/hooks             ║
+# ║ Source: cloud/_dotfiles/git/src/hooks/pre-push                     ║
+# ║ Active via [core] hooksPath = _dotfiles/git/dist/hooks             ║
 # ║                                                                  ║
 # ║ Main-only policy, remote half: `reference-transaction` blocks    ║
 # ║ creating a LOCAL branch, but `git push origin HEAD:new-branch`   ║
@@ -40,7 +40,7 @@ _PUSH_REFS="$(cat)"
 
 # ── Purged history (#760): never re-publish what a secret purge removed ──
 # The fleet gate (.githooks/history-gate, markers in .githooks/purged-history).
-# This repo's hooksPath is 0_git/dist/hooks, so .githooks/pre-push never runs
+# This repo's hooksPath is _dotfiles/git/dist/hooks, so .githooks/pre-push never runs
 # here on its own — chain to it, like pre-commit chains to .githooks/leak-scan.
 _gate="$(git rev-parse --show-toplevel)/.githooks/history-gate"
 if [ -f "$_gate" ]; then
@@ -64,7 +64,7 @@ if [ -n "$_blocked" ]; then
     printf '  attempted:\n'
     printf "$_blocked"
     printf '  Work directly on main — push there instead.\n'
-    printf '  Source   : 0_git/src/hooks/pre-push\n\n'
+    printf '  Source   : _dotfiles/git/src/hooks/pre-push\n\n'
   } >&2
   exit 1
 fi

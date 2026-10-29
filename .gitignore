@@ -2,7 +2,7 @@
 # ║                                                                  ║
 # ║   GENERATED FILE — DO NOT EDIT                                   ║
 # ║                                                                  ║
-# ║   Source : 0_git/src/gitignore
+# ║   Source : _dotfiles/git/src/gitignore
 # ║   Engine : 1_cicd/src/scripts/cloud-ship-repo-workflow-engine.sh
 # ║   Rebuild: ./9_others/build.sh
 # ║                                                                  ║
@@ -17,7 +17,7 @@
 
 # ── Secrets & Credentials (reinforces global gitignore) ──
 # KEEP IN SYNC WITH:
-#   Pre-commit hook: 0_git/src/hooks/pre-commit  (blocks even git add -f)
+#   Pre-commit hook: _dotfiles/git/src/hooks/pre-commit  (blocks even git add -f)
 #   Global gitignore: ~/git/cloud-infra-desktop/ba_flakes_desktop/src/modules/programs/git.nix
 #   Global gitignore: ~/git/cloud-infra-desktop/bb_flakes_termux/src/modules/programs/git.nix
 ## Decrypted secrets output
@@ -134,7 +134,7 @@ build.log
 
 # ── Sibling repositories checked out inside this tree ────────────────────────
 ## a_solutions is diegonmarcos/cloudy-u-containers — a SEPARATE repository, not
-## a submodule (see 0_git/src/gitmodules for the full rationale). CI checks it
+## a submodule (see _dotfiles/git/src/gitmodules for the full rationale). CI checks it
 ## out at this path with actions/checkout; locally it is a standalone clone.
 ##
 ## It MUST be ignored. Without this rule the ~85 service directories sit in the

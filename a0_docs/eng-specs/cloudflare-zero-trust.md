@@ -76,7 +76,7 @@ Legend: **Access**: canonical hostname moves to tunnel + Access in phase 3, and 
 - **Mechanism**: Access service tokens, sent as the `CF-Access-Client-Id` + `CF-Access-Client-Secret` headers. Apps set `service_auth_401_redirect = true`, so a bad token gets a 401 and never a login page. Policies use `decision = "non_identity"` with `include.service_token`.
 - **One token per client class** (terraform `.zero_trust.service_tokens[]`, `duration` 8760h, renewed by re-apply plus export):
   - `zt-pilot-machine`: phase 1 test token.
-  - `claude-code-mcp`: Claude Code / agents. The headers are added by the existing `.mcp.json` `headersHelper` (`0_apps/src/claude/mcp-auth-headers.sh`) next to today's Authelia bearer, so either edge works.
+  - `claude-code-mcp`: Claude Code / agents. The headers are added by the existing `.mcp.json` `headersHelper` (`_dotfiles/apps/src/claude/mcp-auth-headers.sh`) next to today's Authelia bearer, so either edge works.
   - `ci-gha`: GitHub Actions. GHA secrets `CF_ACCESS_CLIENT_ID/SECRET` are set from sops with `devops_secrets_set`.
   - `cloud-apps`: C3 APIs / dagu calling public hostnames. Mesh-internal calls stay direct over WG and need no token.
   - `android-superapp`: the phone app, when its routes move.

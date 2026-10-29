@@ -82,7 +82,7 @@
    "licence_source": "licenses/curated.json::directories",
    "note": "Separator directory (sorts the tree); holds no code."
   },
-  "dir:0_apps": {
+  "dir:_dotfiles/apps": {
    "kind": "dir",
    "declared_in": [
     "(tree)"
@@ -90,7 +90,7 @@
    "licence": "PolyForm-Noncommercial-1.0.0",
    "licence_source": "licenses/curated.json::directories"
   },
-  "dir:0_git": {
+  "dir:_dotfiles/git": {
    "kind": "dir",
    "declared_in": [
     "(tree)"
@@ -403,19 +403,19 @@
    "licence_source": "licenses/curated.json::tf_licences[registry.terraform.io/y0n0zawa/resend]",
    "note": "Community provider (github.com/y0n0zawa/terraform-provider-resend)."
   },
-  "vendored:0_git/dist": {
+  "vendored:_dotfiles/git/dist": {
    "kind": "vendored",
    "declared_in": [
-    "0_git/dist/LICENSE"
+    "_dotfiles/git/dist/LICENSE"
    ],
    "licence": "PolyForm-Noncommercial-1.0.0",
    "licence_source": "licenses/curated.json::directories",
-   "note": "Verbatim copy of 0_git/src/LICENSE made by 9_others/build.sh."
+   "note": "Verbatim copy of _dotfiles/git/src/LICENSE made by 9_others/build.sh."
   },
-  "vendored:0_git/src": {
+  "vendored:_dotfiles/git/src": {
    "kind": "vendored",
    "declared_in": [
-    "0_git/src/LICENSE"
+    "_dotfiles/git/src/LICENSE"
    ],
    "licence": "PolyForm-Noncommercial-1.0.0",
    "licence_source": "licenses/curated.json::directories",

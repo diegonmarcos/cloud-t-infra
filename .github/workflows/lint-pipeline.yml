@@ -248,7 +248,7 @@ jobs:
       # no CI to run them, which is the same failure they exist to catch — a
       # rule nothing enforces. They run HERE because both gates need cloud-infra
       # AND the SoT side by side, and cloud-infra is the repo that consumes the
-      # SoT: 0_apps/src/claude/ is refreshed from it by deploy-dotfiles.sh, and
+      # SoT: _dotfiles/apps/src/claude/ is refreshed from it by deploy-dotfiles.sh, and
       # 1_cloud-configs/dist/mcp.json is what the client lists are derived from.
       #
       - name: Phase 46 — unjam covers every ship-wg-runner workflow
@@ -315,7 +315,7 @@ jobs:
       # every lint-pipeline run at startup with zero jobs from 33d5abc onward.
       - name: "Phase 44 — claude SoT: one source of truth, no second copy"
         # Asserts no flake/repo vendors its own settings or mcp template, that
-        # cloud-infra's GENERATED 0_apps/src/claude/ is byte-identical to the
+        # cloud-infra's GENERATED _dotfiles/apps/src/claude/ is byte-identical to the
         # SoT, that every MCP cloud-infra declares reaches the client list, and
         # that retired MCPs stay retired.
         # Block scalar: a double-quoted YAML string cannot contain the inner

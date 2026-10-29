@@ -17,7 +17,7 @@
 # ║                                                                  ║
 # ║ Proves:                                                          ║
 # ║   The repo-root .gitignore is derived from                       ║
-# ║   0_git/src/gitignore via the workflow engine.             ║
+# ║   _dotfiles/git/src/gitignore via the workflow engine.             ║
 # ║                                                                  ║
 # ║ Invariants (post-header-injection):                              ║
 # ║   1. src/gitignore exists (the source of truth)                  ║
@@ -36,13 +36,13 @@ set -eo pipefail
 # different depths, so one literal count is wrong for one of the two copies.
 REPO_ROOT="$(_d="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"; while [ "$_d" != "/" ] && [ ! -e "$_d/.git" ]; do _d="$(dirname "$_d")"; done; printf '%s' "$_d")"
 
-SRC="$REPO_ROOT/0_git/src/gitignore"
+SRC="$REPO_ROOT/_dotfiles/git/src/gitignore"
 # 9_others/build.sh:133 renders this with inject_header into "$GIT_DIST/.gitignore",
-# and GIT_DIST is 0_git/dist. The path below said 1_cicd/dist/.gitignore, left over
+# and GIT_DIST is _dotfiles/git/dist. The path below said 1_cicd/dist/.gitignore, left over
 # from the 2026-04 reorg that gave each tier its own dist/ — the SRC line above was
-# migrated to 0_git/ and this one was not, so the tester reported a missing artifact
+# migrated to _dotfiles/git/ and this one was not, so the tester reported a missing artifact
 # against a tree where the artifact is present, tracked and current.
-DIST="$REPO_ROOT/0_git/dist/.gitignore"
+DIST="$REPO_ROOT/_dotfiles/git/dist/.gitignore"
 ROOT="$REPO_ROOT/.gitignore"
 HEADER_JSON="$REPO_ROOT/9_others/src/generated-header.json"
 
@@ -53,14 +53,14 @@ fail() { printf "  ✗ %s\n" "$1" >&2; FAIL=1; }
 MARKER="$(jq -r '.marker' "$HEADER_JSON")"
 
 echo "── .gitignore must be owned by 9_others/src/ ──"
-[ -f "$SRC" ]  && pass "source exists: 0_git/src/gitignore"         || fail "missing source: 0_git/src/gitignore"
-[ -f "$DIST" ] && pass "dist artifact exists: 0_git/dist/.gitignore" || fail "missing dist (run ./9_others/build.sh build)"
+[ -f "$SRC" ]  && pass "source exists: _dotfiles/git/src/gitignore"         || fail "missing source: _dotfiles/git/src/gitignore"
+[ -f "$DIST" ] && pass "dist artifact exists: _dotfiles/git/dist/.gitignore" || fail "missing dist (run ./9_others/build.sh build)"
 [ -f "$ROOT" ] && pass "deployed copy exists: .gitignore"                  || fail "missing deploy (run ./9_others/build.sh deploy)"
 
 # 1. dist == root (deploy is a verbatim copy)
 if [ -f "$DIST" ] && [ -f "$ROOT" ]; then
     if cmp -s "$DIST" "$ROOT"; then
-        pass "0_git/dist/.gitignore == .gitignore (root)"
+        pass "_dotfiles/git/dist/.gitignore == .gitignore (root)"
     else
         fail "dist/.gitignore diverges from root — rerun ./9_others/build.sh"
     fi

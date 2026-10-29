@@ -4,7 +4,7 @@
 # ║                                                                  ║
 # ║   GENERATED FILE — DO NOT EDIT                                   ║
 # ║                                                                  ║
-# ║   Source : 0_git/src/hooks/post-checkout
+# ║   Source : _dotfiles/git/src/hooks/post-checkout
 # ║   Engine : 1_cicd/src/scripts/cloud-ship-repo-workflow-engine.sh
 # ║   Rebuild: ./9_others/build.sh
 # ║                                                                  ║
@@ -15,8 +15,8 @@
 # ╔══════════════════════════════════════════════════════════════════╗
 # ║ post-checkout — sync submodules after branch switch              ║
 # ║                                                                  ║
-# ║ Source: cloud/0_git/src/hooks/post-checkout                ║
-# ║ Active via [core] hooksPath = 0_git/dist/hooks             ║
+# ║ Source: cloud/_dotfiles/git/src/hooks/post-checkout                ║
+# ║ Active via [core] hooksPath = _dotfiles/git/dist/hooks             ║
 # ║                                                                  ║
 # ║ Fires after `git checkout <branch>`. Args: old_ref new_ref       ║
 # ║ flag (1 = branch switch, 0 = file checkout). Only syncs on       ║

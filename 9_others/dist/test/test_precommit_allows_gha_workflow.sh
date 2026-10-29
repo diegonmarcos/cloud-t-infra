@@ -31,7 +31,7 @@ set -eo pipefail
 # 9_others/test/ and 1_cicd/dist/test/ (generated), which sit at
 # different depths, so one literal count is wrong for one of the two copies.
 REPO_ROOT="$(_d="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"; while [ "$_d" != "/" ] && [ ! -e "$_d/.git" ]; do _d="$(dirname "$_d")"; done; printf '%s' "$_d")"
-HOOK="$REPO_ROOT/0_git/dist/hooks/pre-commit"
+HOOK="$REPO_ROOT/_dotfiles/git/dist/hooks/pre-commit"
 
 FAIL=0
 pass() { printf "  ✓ %s\n" "$1"; }

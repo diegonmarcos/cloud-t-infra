@@ -1,4 +1,17 @@
 #!/usr/bin/env bash
+
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║                                                                  ║
+# ║   GENERATED FILE — DO NOT EDIT                                   ║
+# ║                                                                  ║
+# ║   Source : 9_others/src/../test/cgc-db-public-no-private.test.sh
+# ║   Engine : 1_cicd/src/scripts/cloud-ship-repo-workflow-engine.sh
+# ║   Rebuild: ./9_others/build.sh
+# ║                                                                  ║
+# ║   Manual edits will be overwritten on next build.                ║
+# ║                                                                  ║
+# ╚══════════════════════════════════════════════════════════════════╝
+
 # Guard: the PUBLIC cgc-db matrix never contains a private repo (private_repos).
 # Extracts the real matrix jq filter from the workflow source and runs it on a fixture.
 set -u

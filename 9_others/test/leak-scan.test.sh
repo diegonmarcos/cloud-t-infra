@@ -13,8 +13,8 @@
 # holds a token-shaped literal (it would trip the very gates it tests).
 set -uo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
-SCAN="$ROOT/0_apps/src/githooks/leak-scan"
-RULES="$ROOT/0_apps/src/root/gitleaks.toml"
+SCAN="$ROOT/_dotfiles/apps/src/githooks/leak-scan"
+RULES="$ROOT/_dotfiles/apps/src/root/gitleaks.toml"
 STEP="$ROOT/1_cicd/src/scripts/cloud-ship-container-step-verify-dist-leaks.sh"
 FLEET="$ROOT/9_others/src/deploy-dotfiles-fleet.sh"
 T="$(mktemp -d)"; trap 'rm -rf "$T"' EXIT
@@ -100,12 +100,12 @@ sh "$FLEET" "$S" "$D" "$B" >/dev/null 2>&1
 [ "$(rc sh "$FLEET" --check "$S" "$D" "$B")" = 0 ] && ok "G5f second --check is GREEN" || bad "G5f still drifting after emit"
 
 # ── G6 real declaration ───────────────────────────────────────────────────
-M="$ROOT/0_apps/src/manifest.json"
+M="$ROOT/_dotfiles/apps/src/manifest.json"
 jq -e '.public_targets.githooks==".githooks" and .public_targets.github==".github" and .public_root_targets["gitleaks.toml"]==".gitleaks.toml"' "$M" >/dev/null && ok "G6a manifest declares the three gates as public_*" || bad "G6a manifest public_* incomplete"
-[ -x "$ROOT/0_apps/src/githooks/leak-scan" ] && [ -x "$ROOT/0_apps/src/githooks/pre-commit" ] && [ -f "$ROOT/0_apps/src/github/workflows/leak-scan.yml" ] && ok "G6b gate sources exist, hooks executable" || bad "G6b gate sources missing / not executable"
+[ -x "$ROOT/_dotfiles/apps/src/githooks/leak-scan" ] && [ -x "$ROOT/_dotfiles/apps/src/githooks/pre-commit" ] && [ -f "$ROOT/_dotfiles/apps/src/github/workflows/leak-scan.yml" ] && ok "G6b gate sources exist, hooks executable" || bad "G6b gate sources missing / not executable"
 n=$(grep -c '^id = "token-shape-' "$RULES"); [ "$n" -ge 4 ] && ok "G6c $n token-shape rules declared" || bad "G6c token-shape rules missing ($n)"
 grep -q 'step_verify_dist_leaks; step_wrangler' "$ROOT/1_cicd/src/scripts/cloud-ship-container-engine.sh" && ok "G6d engine runs the dist gate before every wrangler deploy" || bad "G6d dist gate not wired before step_wrangler"
-grep -q '\.githooks/leak-scan" --staged' "$ROOT/0_git/src/hooks/pre-commit" && ok "G6e cloud-infra's own pre-commit chains the leak scan" || bad "G6e 0_git pre-commit does not chain leak-scan"
+grep -q '\.githooks/leak-scan" --staged' "$ROOT/_dotfiles/git/src/hooks/pre-commit" && ok "G6e cloud-infra's own pre-commit chains the leak scan" || bad "G6e _dotfiles/git pre-commit does not chain leak-scan"
 
 echo "leak-scan: $pass passed, $fail failed"
 [ "$fail" -eq 0 ]

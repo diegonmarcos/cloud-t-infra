@@ -6,9 +6,9 @@
 set -euo pipefail
 ROOT=$(cd "$(dirname "$0")/../.." && pwd)
 bad=0
-for f in 0_apps/src/root/mcp.json 0_apps/src/root/mcp.optin.json .mcp.json 0_apps/dist/dotfiles/root/mcp.json \
+for f in _dotfiles/apps/src/root/mcp.json _dotfiles/apps/src/root/mcp.optin.json .mcp.json _dotfiles/apps/dist/dotfiles/root/mcp.json \
          1_cloud-configs/dist/mcp.json 1_cloud-configs/dist/mcp.project.json 1_cloud-configs/dist/mcp.optin.json \
-         .claude/hooks/c3/ai-usage-post.sh 0_apps/src/claude/hooks/c3/ai-usage-post.sh 0_apps/dist/dotfiles/claude/hooks/c3/ai-usage-post.sh; do
+         .claude/hooks/c3/ai-usage-post.sh _dotfiles/apps/src/claude/hooks/c3/ai-usage-post.sh _dotfiles/apps/dist/dotfiles/claude/hooks/c3/ai-usage-post.sh; do
   [ -f "$ROOT/$f" ] || continue
   # NOT_YET_ON_PVT in the deriver: cloud-cgc-pvt-mcp is not mounted on c3-pvt yet, its legacy path is the only exception
   if grep -nE '(^|[^a-z0-9-])(api|mcp)\.diegonmarcos\.com' "$ROOT/$f" | grep -v 'mcp\.diegonmarcos\.com/cloud-cgc-pvt-mcp/mcp'; then echo "FAIL $f: legacy host"; bad=1; fi

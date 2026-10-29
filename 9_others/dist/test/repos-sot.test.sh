@@ -17,7 +17,7 @@
 # full hierarchy; a subset of _git-repos-master/repos.json, #1224). This tester fails when
 #   S1  the copy is not a valid cloud-repos/v1 registry, or differs from the registry at its declared url
 #       (checked when the network answers; offline is reported, S2-S6 still run)
-#   S2  a fleet.repos[] entry (0_apps/src/manifest.json) is not in the registry, is pending_creation,
+#   S2  a fleet.repos[] entry (_dotfiles/apps/src/manifest.json) is not in the registry, is pending_creation,
 #       or disagrees about private
 #   S3  a pending_creation repo (cloudy-h-webapps, cloud-me-pvt-containers) is already on GitHub (flip its status),  or a repo once declared pending (cloudy-h-webapps, cloud-me-pvt-containers) leaves the registry,
 #       or is in the fleet manifest
@@ -29,7 +29,7 @@
 set -uo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 SOT="$ROOT/1_cloud-configs/src/inputs/repos.sot.json"
-M="$ROOT/0_apps/src/manifest.json"
+M="$ROOT/_dotfiles/apps/src/manifest.json"
 INV="$ROOT/1_cloud-configs/src/inputs/github-repos.json"
 URL="${REPOS_SOT_URL:-https://raw.githubusercontent.com/diegonmarcos/cloudy-___/main/repos.json}"
 T="$(mktemp -d)"; trap 'rm -rf "$T"' EXIT

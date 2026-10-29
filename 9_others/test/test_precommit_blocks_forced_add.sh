@@ -14,7 +14,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 # the source tree always failed on a missing hook. Matches the form
 # test_precommit_allows_gha_workflow.sh already used.
 REPO_ROOT="$(_d="$SCRIPT_DIR"; while [ "$_d" != "/" ] && [ ! -e "$_d/.git" ]; do _d="$(dirname "$_d")"; done; printf '%s' "$_d")"
-HOOK="$REPO_ROOT/0_git/dist/hooks/pre-commit"
+HOOK="$REPO_ROOT/_dotfiles/git/dist/hooks/pre-commit"
 [ -x "$HOOK" ] || { echo "FAIL: pre-commit hook missing or not executable: $HOOK" >&2; exit 1; }
 
 PASS=0; FAIL=0

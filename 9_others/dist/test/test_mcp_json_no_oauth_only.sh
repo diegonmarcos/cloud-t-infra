@@ -22,10 +22,10 @@
 # Client Registration and dies with "DCR rejected (HTTP 401)" at /register.
 set -euo pipefail
 ROOT=$(cd "$(dirname "$0")/../.." && pwd)
-files=("$ROOT/0_apps/src/root/mcp.json")
+files=("$ROOT/_dotfiles/apps/src/root/mcp.json")
 [ -f "$ROOT/.mcp.json" ] && files+=("$ROOT/.mcp.json")
 [ -f "$ROOT/1_cloud-configs/dist/mcp.project.json" ] && files+=("$ROOT/1_cloud-configs/dist/mcp.project.json")
-[ -f "$ROOT/0_apps/src/claude/mcp-connect.mjs" ] || { echo "FAIL: 0_apps/src/claude/mcp-connect.mjs missing"; exit 1; }
+[ -f "$ROOT/_dotfiles/apps/src/claude/mcp-connect.mjs" ] || { echo "FAIL: _dotfiles/apps/src/claude/mcp-connect.mjs missing"; exit 1; }
 node -e '
 let bad = 0;
 for (const f of process.argv.slice(1)) {

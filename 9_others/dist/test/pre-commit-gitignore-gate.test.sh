@@ -20,7 +20,7 @@
 #
 # These cases pin both call sites of assert_no_forced_gitignored.
 set -u
-HOOK="$(cd "$(dirname "$0")/../.." && pwd)/0_git/dist/hooks/pre-commit"
+HOOK="$(cd "$(dirname "$0")/../.." && pwd)/_dotfiles/git/dist/hooks/pre-commit"
 PASS=0; FAIL=0
 ok()   { PASS=$((PASS+1)); echo "  ok   - $1"; }
 nope() { FAIL=$((FAIL+1)); echo "  FAIL - $1"; }

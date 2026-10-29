@@ -4,7 +4,7 @@
 # ║                                                                  ║
 # ║   GENERATED FILE — DO NOT EDIT                                   ║
 # ║                                                                  ║
-# ║   Source : 0_git/src/hooks/post-merge
+# ║   Source : _dotfiles/git/src/hooks/post-merge
 # ║   Engine : 1_cicd/src/scripts/cloud-ship-repo-workflow-engine.sh
 # ║   Rebuild: ./9_others/build.sh
 # ║                                                                  ║
@@ -15,8 +15,8 @@
 # ╔══════════════════════════════════════════════════════════════════╗
 # ║ post-merge — rebase submodules after pull/merge                  ║
 # ║                                                                  ║
-# ║ Source: cloud/0_git/src/hooks/post-merge                   ║
-# ║ Active via [core] hooksPath = 0_git/dist/hooks             ║
+# ║ Source: cloud/_dotfiles/git/src/hooks/post-merge                   ║
+# ║ Active via [core] hooksPath = _dotfiles/git/dist/hooks             ║
 # ║                                                                  ║
 # ║ Fires after `git pull` and `git merge`. Pulls each submodule     ║
 # ║ worktree onto its upstream HEAD (rebased) so local submodule     ║

@@ -103,7 +103,7 @@ fi
 # and compare with `diff -rq`, which does not look at permissions. Between them
 # they were blind to #399 in both of its halves:
 #
-#   · `build.sh build` purged 0_apps/dist and 0_git/dist but had no step that
+#   · `build.sh build` purged _dotfiles/apps/dist and _dotfiles/git/dist but had no step that
 #     re-emits the dotfiles tree or dist/LICENSE, so the compile-only verb
 #     DELETED 15 committed artifacts. `ship` put them straight back, so this
 #     lint never saw a thing.
@@ -122,7 +122,7 @@ echo "── build.sh build is non-destructive and mode-faithful ──"
     exit 1
 }
 BUILD_DIRT=$(git -C "$REPO_ROOT" status --porcelain -- \
-    0_git/dist 0_apps/dist 1_cicd/dist 2_sops/dist 9_others/dist)
+    _dotfiles/git/dist _dotfiles/apps/dist 1_cicd/dist 2_sops/dist 9_others/dist)
 if [ -n "$BUILD_DIRT" ]; then
     echo "$BUILD_DIRT" | sed 's/^/  /'
     echo "::error::'build.sh build' left dist/ dirty. Every line above is an artifact the compile-only verb deleted, re-moded or failed to reproduce byte-for-byte — dist/ is supposed to be a faithful, executable copy of src/."

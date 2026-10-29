@@ -4,7 +4,7 @@
 # ║                                                                  ║
 # ║   GENERATED FILE — DO NOT EDIT                                   ║
 # ║                                                                  ║
-# ║   Source : 0_git/src/hooks/pre-commit
+# ║   Source : _dotfiles/git/src/hooks/pre-commit
 # ║   Engine : 1_cicd/src/scripts/cloud-ship-repo-workflow-engine.sh
 # ║   Rebuild: ./9_others/build.sh
 # ║                                                                  ║
@@ -15,9 +15,9 @@
 # ╔══════════════════════════════════════════════════════════════════╗
 # ║ pre-commit — block secrets from ever reaching a commit           ║
 # ║                                                                  ║
-# ║ Source: cloud/0_git/src/hooks/pre-commit                     ║
-# ║ Deploy: build.sh workflow → 0_git/dist/hooks/                ║
-# ║ Active: via .gitconfig [core] hooksPath = 0_git/dist/hooks   ║
+# ║ Source: cloud/_dotfiles/git/src/hooks/pre-commit                     ║
+# ║ Deploy: build.sh workflow → _dotfiles/git/dist/hooks/                ║
+# ║ Active: via .gitconfig [core] hooksPath = _dotfiles/git/dist/hooks   ║
 # ║                                                                  ║
 # ║ KEEP IN SYNC with .gitignore patterns.                           ║
 # ║ Catches secrets even after git add -f (gitignore bypass).        ║
@@ -461,8 +461,8 @@ assert_no_forced_gitignored
 # Everything above judges files by NAME or ignore-status. A signed JWT pasted
 # into wrangler.toml passed all of it (2026-10-01): the file is not named like a
 # secret and was meant to be tracked. .githooks/leak-scan is the fleet-wide
-# scanner (emitted from 0_apps/src/githooks/, rules in .gitleaks.toml); this
-# repo's hooksPath points at 0_git/dist/hooks, so it is chained from here.
+# scanner (emitted from _dotfiles/apps/src/githooks/, rules in .gitleaks.toml); this
+# repo's hooksPath points at _dotfiles/git/dist/hooks, so it is chained from here.
 # Runs last, over the final staged set — including what this hook auto-staged.
 if [ -f "$(git rev-parse --show-toplevel)/.githooks/leak-scan" ]; then
   sh "$(git rev-parse --show-toplevel)/.githooks/leak-scan" --staged || exit 1

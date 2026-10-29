@@ -19,16 +19,16 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 # Prefix says what kind of thing it is: 0_/1_/2_ are config (the dotfile and
 # env tier), a_/b_ are the project's own tree, I_ are submodules.
 #
-#   0_git/     git config + hooks       -> .gitconfig include, core.hooksPath
-#   0_apps/    editor & agent dotfiles  -> .claude/ .vscode/ .obsidian/ .mcp.json
+#   _dotfiles/git/     git config + hooks       -> .gitconfig include, core.hooksPath
+#   _dotfiles/apps/    editor & agent dotfiles  -> .claude/ .vscode/ .obsidian/ .mcp.json
 #   1_cicd/    workflows, scripts, ops  -> .github/workflows/
 #   2_sops/    sops.yaml                -> .sops.yaml
 #   9_others/  shared libs + this file
 #
 # Each tier owns its own dist/, so an artifact's source and its compiled form
 # sit together instead of every tier writing into one shared flat directory.
-GIT_SRC="$REPO_ROOT/0_git/src";     GIT_DIST="$REPO_ROOT/0_git/dist"
-APPS_SRC="$REPO_ROOT/0_apps/src";   APPS_DIST="$REPO_ROOT/0_apps/dist"
+GIT_SRC="$REPO_ROOT/_dotfiles/git/src";     GIT_DIST="$REPO_ROOT/_dotfiles/git/dist"
+APPS_SRC="$REPO_ROOT/_dotfiles/apps/src";   APPS_DIST="$REPO_ROOT/_dotfiles/apps/dist"
 CICD_SRC="$REPO_ROOT/1_cicd/src";   CICD_DIST="$REPO_ROOT/1_cicd/dist"
 SOPS_SRC="$REPO_ROOT/2_sops";       SOPS_DIST="$REPO_ROOT/2_sops/dist"
 LIB_SRC="$SCRIPT_DIR/src";          LIB_DIST="$SCRIPT_DIR/dist"
@@ -68,7 +68,7 @@ do_build() {
     step "purging $(relp "$DIST_DIR")/"
     # Purge every tier's dist THIS PHASE RE-EMITS, and only those. Each tier
     # owns its own compiled output now, so a single rm -rf "$DIST_DIR" would
-    # leave 0_git and 1_cicd holding stale artifacts from the previous build —
+    # leave _dotfiles/git and 1_cicd holding stale artifacts from the previous build —
     # the exact stale-output problem the purge exists to prevent.
     #
     # $APPS_DIST is NOT in the list: nothing in do_build writes it. The dotfiles
@@ -167,11 +167,11 @@ do_build() {
     # stamped into it; a licence must not. GitHub's licence detector and SPDX
     # scanners match the text, and a banner above it can make a recognised
     # licence unrecognised. Altering the text of a licence is also not a
-    # cosmetic act. Source of truth in 0_git/src/ like the other git files.
+    # cosmetic act. Source of truth in _dotfiles/git/src/ like the other git files.
     #
     # This leg lives in BUILD because it is a src→dist render like every other
     # step here. It used to sit in DEPLOY, which meant the build purge deleted
-    # 0_git/dist/LICENSE and no build step put it back: `build.sh build` left
+    # _dotfiles/git/dist/LICENSE and no build step put it back: `build.sh build` left
     # dist/ incomplete and git reported the deletion.
     if [ -f "$GIT_SRC/LICENSE" ]; then
         step "copying LICENSE (verbatim — no generated-file banner)"
@@ -387,7 +387,7 @@ do_deploy() {
             esac
         done < "$GIT_DIST/gitconfig"
         unset _gc_section _gc_key
-        git -C "$REPO_ROOT" config --local include.path ../0_git/dist/gitconfig 2>/dev/null || true
+        git -C "$REPO_ROOT" config --local include.path ../_dotfiles/git/dist/gitconfig 2>/dev/null || true
         ok "gitconfig include wired into .git/config"
     fi
 

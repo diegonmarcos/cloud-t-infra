@@ -25,8 +25,8 @@
 # live and are skipped — the gate is about what can be committed. Outside a git
 # work tree nothing can be committed, so every file is scanned.
 #
-# Rules: the fleet's ONE declaration, 0_apps/src/root/gitleaks.toml, through the
-# same scanner the pre-commit hook runs (0_apps/src/githooks/leak-scan) — its
+# Rules: the fleet's ONE declaration, _dotfiles/apps/src/root/gitleaks.toml, through the
+# same scanner the pre-commit hook runs (_dotfiles/apps/src/githooks/leak-scan) — its
 # token-shape-* rules need only grep, which the cloud-builder image has.
 #
 # Applies to deploy.wrangler=true services (build.json). Any hit fails the step.
@@ -37,8 +37,8 @@ step_verify_dist_leaks() {
     [ -d "$DIST_DIR" ] || { log_error "verify-dist-leaks: no dist/ at $DIST_DIR — run build first"; return 1; }
 
     _vdl_root="$(cd "$STEPS_DIR/../../.." && pwd)"
-    _vdl_scan="$_vdl_root/0_apps/src/githooks/leak-scan"
-    _vdl_rules="$_vdl_root/0_apps/src/root/gitleaks.toml"
+    _vdl_scan="$_vdl_root/_dotfiles/apps/src/githooks/leak-scan"
+    _vdl_rules="$_vdl_root/_dotfiles/apps/src/root/gitleaks.toml"
     [ -f "$_vdl_scan" ] && [ -f "$_vdl_rules" ] || {
         log_error "verify-dist-leaks: scanner or rules missing ($_vdl_scan, $_vdl_rules) — refusing to call dist/ clean"
         return 1; }

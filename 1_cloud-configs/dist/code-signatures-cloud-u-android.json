@@ -2596,7 +2596,7 @@
       ]
     },
     {
-      "path": "0_apps/src/claude/mcp-connect.mjs",
+      "path": "_dotfiles/apps/src/claude/mcp-connect.mjs",
       "lang": "js",
       "role": "file",
       "exports": [],
