@@ -19,7 +19,10 @@
 # makes detection compare against the last SUCCESSFULLY deployed commit.
 # Usage: bash 9_others/test/test_ship_deployed_sha_retry.sh
 set -eu
-ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+# Resolve the repo root by walking up to the dir holding 1_cicd/: the same test runs from
+# 9_others/test/ (source) and 9_others/dist/test/ (generated copy), which sit at different depths.
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+while [ ! -d "$ROOT/1_cicd/src/scripts" ] && [ "$ROOT" != "/" ]; do ROOT="$(dirname "$ROOT")"; done
 H="$ROOT/1_cicd/src/scripts/cloud-ship-deployed-sha.sh"
 pass=0; fail=0
 ck() { if [ "$2" = "$3" ]; then pass=$((pass+1)); echo "  ok   $1"; else fail=$((fail+1)); echo "  FAIL $1 (want '$3', got '$2')"; fi; }
