@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22779,
+    "files": 22785,
     "by_lang": {
-      "sh": 612,
+      "sh": 614,
       "js": 513,
       "py": 174,
-      "kotlin": 12218,
+      "kotlin": 12222,
       "java": 647,
       "nix": 35,
       "rust": 111,
@@ -20,10 +20,10 @@
     "by_role": {
       "hook": 158,
       "file": 2302,
-      "shell": 488,
+      "shell": 490,
       "script": 265,
       "java": 646,
-      "kotlin": 12215,
+      "kotlin": 12219,
       "python": 56,
       "module": 6447,
       "flake": 31,
@@ -360925,6 +360925,84 @@
       ]
     },
     {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/health/HealthRationaleActivity.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HealthRationaleActivity"
+      ],
+      "imports": [
+        "android.os.Bundle",
+        "androidx.activity.ComponentActivity",
+        "androidx.activity.compose.setContent",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.material3.Text",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.colorResource",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "com.diegonmarcos.cloudme.MePermDecl",
+        "com.diegonmarcos.cloudme.R"
+      ],
+      "symbols": [
+        "onCreate(savedInstanceState: Bundle?)",
+        "class HealthRationaleActivity"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/health/HealthTracked.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "TrackedPage"
+      ],
+      "imports": [
+        "androidx.activity.compose.rememberLauncherForActivityResult",
+        "androidx.compose.foundation.Canvas",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableIntStateOf",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.produceState",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.rememberCoroutineScope",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.geometry.Offset",
+        "androidx.compose.ui.geometry.Size",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.graphics.drawscope.Stroke",
+        "androidx.compose.ui.graphics.StrokeCap",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.superapp.health.HealthConnectGateway",
+        "java.time.ZoneId",
+        "java.time.format.DateTimeFormatter",
+        "java.util.Locale",
+        "kotlinx.coroutines.launch"
+      ],
+      "symbols": [
+        "TrackedPage(@Suppress(\"UNUSED_PARAMETER\")",
+        "TrackedCard(m: TrackedMetric, v: Double?, onClick: ()",
+        "Ring(p: Float, on: Color, off: Color)",
+        "TrackedDetail(m: TrackedMetric, tick: Int, changed: ()",
+        "key2(a: Any, b: Any, content: @Composable ()"
+      ]
+    },
+    {
       "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/health/HealthTrackerPages.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -361080,6 +361158,77 @@
         "class WorkoutEntry",
         "class HealthUserData",
         "class HealthUserStore"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/health/TrackedHc.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "TrackedMetric",
+        "TrackedRange",
+        "Bucket",
+        "Tracked",
+        "TrackedHc"
+      ],
+      "imports": [
+        "android.content.Context",
+        "androidx.health.connect.client.HealthConnectClient",
+        "androidx.health.connect.client.aggregate.AggregateMetric",
+        "androidx.health.connect.client.aggregate.AggregationResult",
+        "androidx.health.connect.client.permission.HealthPermission",
+        "androidx.health.connect.client.records.ActiveCaloriesBurnedRecord",
+        "androidx.health.connect.client.records.DistanceRecord",
+        "androidx.health.connect.client.records.ExerciseSessionRecord",
+        "androidx.health.connect.client.records.HeartRateRecord",
+        "androidx.health.connect.client.records.HydrationRecord",
+        "androidx.health.connect.client.records.Record",
+        "androidx.health.connect.client.records.SleepSessionRecord",
+        "androidx.health.connect.client.records.StepsRecord",
+        "androidx.health.connect.client.records.WeightRecord",
+        "androidx.health.connect.client.request.AggregateGroupByDurationRequest",
+        "androidx.health.connect.client.request.AggregateGroupByPeriodRequest",
+        "androidx.health.connect.client.request.AggregateRequest",
+        "androidx.health.connect.client.request.ReadRecordsRequest",
+        "androidx.health.connect.client.time.TimeRangeFilter",
+        "androidx.health.connect.client.units.Energy",
+        "androidx.health.connect.client.units.Length",
+        "androidx.health.connect.client.units.Mass",
+        "androidx.health.connect.client.units.Volume",
+        "org.json.JSONObject",
+        "java.time.Duration",
+        "java.time.Instant",
+        "java.time.LocalDate",
+        "java.time.LocalDateTime",
+        "java.time.Period",
+        "java.time.ZoneId",
+        "kotlin.reflect.KClass"
+      ],
+      "symbols": [
+        "parse(json: String)",
+        "load(ctx: Context)",
+        "progress(value: Double?, goal: Double)",
+        "format(m: TrackedMetric, v: Double?)",
+        "grid(range: TrackedRange, today: LocalDate, values: Map<LocalDateTime, Double>)",
+        "summary(m: TrackedMetric, buckets: List<Bucket>)",
+        "history(buckets: List<Bucket>)",
+        "validEntry(m: TrackedMetric, v: Double?)",
+        "type(id: String)",
+        "metric(id: String)",
+        "value(id: String, r: AggregationResult)",
+        "readPerms(ids: Collection<String> = IDS)",
+        "writePerm(id: String)",
+        "today(c: HealthConnectClient, id: String, zone: ZoneId, now: Instant = Instant.now()",
+        "series(c: HealthConnectClient, id: String, range: TrackedRange, zone: ZoneId)",
+        "record(m: TrackedMetric, v: Double, end: Instant, zone: ZoneId)",
+        "from(min: Long)",
+        "add(c: HealthConnectClient, m: TrackedMetric, v: Double, zone: ZoneId)",
+        "class TrackedMetric",
+        "class TrackedRange",
+        "class Bucket",
+        "class Tracked",
+        "class TrackedHc",
+        "class else"
       ]
     },
     {
@@ -361402,6 +361551,7 @@
         "androidx.compose.runtime.key",
         "androidx.compose.runtime.mutableIntStateOf",
         "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.produceState",
         "androidx.compose.runtime.remember",
         "androidx.compose.runtime.setValue",
         "androidx.compose.runtime.staticCompositionLocalOf",
@@ -361410,14 +361560,21 @@
         "com.diegonmarcos.superapp.themebg.themeBackground",
         "androidx.compose.ui.res.stringResource",
         "androidx.fragment.app.commit",
+        "androidx.lifecycle.lifecycleScope",
+        "com.diegonmarcos.superapp.health.HealthConnectGateway",
+        "com.diegonmarcos.superapp.perms.PermAskLog",
+        "com.diegonmarcos.superapp.perms.Perms",
+        "com.diegonmarcos.superapp.perms.PermsSettings",
+        "kotlinx.coroutines.launch",
         "com.diegonmarcos.superapp.bottomnav.FleetChrome",
         "com.diegonmarcos.superapp.uikit.CloudKitTheme",
         "com.diegonmarcos.superapp.uikit.KitFragmentHostState",
         "com.diegonmarcos.superapp.uikit.KitPalette",
-        "com.diegonmarcos.superapp.updater.UpdateProgress",
-        "com.diegonmarcos.superapp.updater.Updater"
+        "com.diegonmarcos.superapp.updater.UpdateProgress"
       ],
       "symbols": [
+        "walkStart(steps: List<PermStep>)",
+        "walkNext()",
         "onCreate(savedInstanceState: Bundle?)",
         "onNewIntent(intent: Intent)",
         "handleShortcutIntent(intent: Intent?)",
@@ -361458,6 +361615,89 @@
         "MeBottomBar( selectedSectionId: String?, onOpen: (String)",
         "MeBody( selectedSectionId: String?, onOpen: (String)",
         "class MeBottomNav"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/MePerms.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "MePermDecl",
+        "RowKind",
+        "PermRow",
+        "PermStep",
+        "AskMemory",
+        "MePermPlan",
+        "MePerms",
+        "MePermissions",
+        "LocalMePermissions",
+        "PermissionTags",
+        "PermissionsList",
+        "PermissionBanner"
+      ],
+      "imports": [
+        "android.app.Activity",
+        "android.content.Context",
+        "android.content.pm.PackageManager",
+        "android.util.Base64",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.produceState",
+        "androidx.compose.runtime.staticCompositionLocalOf",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.colorResource",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "com.diegonmarcos.superapp.health.HealthConnectGateway",
+        "com.diegonmarcos.superapp.perms.PermKind",
+        "com.diegonmarcos.superapp.perms.PermState",
+        "com.diegonmarcos.superapp.perms.PermStatusReader",
+        "com.diegonmarcos.superapp.perms.Perms",
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "parse(json: String)",
+        "arr(a: JSONArray?)",
+        "startup(rows: List<PermRow>, mem: AskMemory)",
+        "grantAll(rows: List<PermRow>)",
+        "forRow(row: PermRow, rows: List<PermRow>)",
+        "healthStep(rows: List<PermRow>)",
+        "banner(rows: List<PermRow>)",
+        "healthLabel(perm: String)",
+        "memory(ctx: Context)",
+        "noteHealthAsked(ctx: Context)",
+        "noteSpecialOpened(ctx: Context, id: String)",
+        "rows(ctx: Context, activity: Activity?, healthAvailable: Boolean, healthGranted: Set<String>?, decl: MePermDecl = MePermDecl.baked)",
+        "health(ctx: Context)",
+        "row(id: String)",
+        "grant(id: String)",
+        "stateText(r: PermRow)",
+        "PermissionsList(title: String, subtitle: String)",
+        "PermissionBanner(missing: List<String>, onGrantAll: ()",
+        "class MePermDecl",
+        "class InstallPerm",
+        "class RowKind",
+        "class PermRow",
+        "class PermStep",
+        "class Runtime",
+        "class Health",
+        "class Settings",
+        "class AskMemory",
+        "class MePermPlan",
+        "class MePerms",
+        "class MePermissions",
+        "class PermissionTags"
       ]
     },
     {
@@ -361514,68 +361754,6 @@
         "drawerItem(sectionId: String)",
         "MeDrawer(onOpen: (String)",
         "class MeTopBar"
-      ]
-    },
-    {
-      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/Permissions.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "DeclaredPermission",
-        "PermState",
-        "GateDecision",
-        "Permissions",
-        "MePermissions",
-        "LocalMePermissions",
-        "PermissionTags",
-        "PermissionsList",
-        "PermissionBanner"
-      ],
-      "imports": [
-        "android.app.Activity",
-        "android.content.Context",
-        "android.content.Intent",
-        "android.content.pm.PackageManager",
-        "android.net.Uri",
-        "android.os.Build",
-        "android.provider.Settings",
-        "android.util.Base64",
-        "androidx.compose.foundation.background",
-        "androidx.compose.foundation.clickable",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.Row",
-        "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.layout.padding",
-        "androidx.compose.material3.Text",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.staticCompositionLocalOf",
-        "androidx.compose.ui.Alignment",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.platform.LocalContext",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.res.colorResource",
-        "androidx.compose.ui.unit.dp",
-        "androidx.compose.ui.unit.sp",
-        "androidx.core.app.ActivityCompat",
-        "androidx.core.content.ContextCompat",
-        "org.json.JSONArray"
-      ],
-      "symbols": [
-        "declared()",
-        "state(ctx: Context, p: DeclaredPermission)",
-        "states(ctx: Context)",
-        "markAsked(ctx: Context, perms: Collection<String>)",
-        "gate(states: List<PermState>)",
-        "openSettings(ctx: Context)",
-        "row(perm: String)",
-        "PermissionsList(title: String, subtitle: String)",
-        "PermissionBanner(missing: List<String>)",
-        "class DeclaredPermission",
-        "class PermState",
-        "class GateDecision",
-        "class Permissions",
-        "class MePermissions",
-        "class PermissionTags"
       ]
     },
     {
@@ -362251,6 +362429,30 @@
       ]
     },
     {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/health/TrackedTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "TrackedTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "java.time.LocalDate",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "m(id: String)",
+        "class TrackedTest"
+      ]
+    },
+    {
       "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/HostedFragmentLeakTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -362489,6 +362691,34 @@
       ]
     },
     {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/MePermsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "MePermsTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "android.content.pm.PackageManager",
+        "com.diegonmarcos.superapp.perms.PermState",
+        "com.diegonmarcos.superapp.perms.Perms",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.RuntimeEnvironment",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "rt(id: String, s: PermState)",
+        "sp(id: String, s: PermState)",
+        "hc(p: String, s: PermState)",
+        "class MePermsTest"
+      ]
+    },
+    {
       "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/MeShellTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -362593,31 +362823,6 @@
         "showTabs(select: String)",
         "nameCount(id: String)",
         "class MeTabsTest"
-      ]
-    },
-    {
-      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/PermissionsTest.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "PermissionsTest"
-      ],
-      "imports": [
-        "android.app.Application",
-        "android.content.pm.PackageManager",
-        "org.robolectric.RuntimeEnvironment",
-        "org.junit.Assert.assertEquals",
-        "org.junit.Assert.assertFalse",
-        "org.junit.Assert.assertTrue",
-        "org.junit.Test",
-        "org.junit.runner.RunWith",
-        "org.robolectric.RobolectricTestRunner",
-        "org.robolectric.annotation.Config"
-      ],
-      "symbols": [
-        "perm(name: String, required: Boolean = true)",
-        "state(p: DeclaredPermission, granted: Boolean, asked: Boolean, rationale: Boolean = false)",
-        "class PermissionsTest"
       ]
     },
     {
@@ -362984,6 +363189,30 @@
         "_gone()",
         "_sub()",
         "_json()"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/test/test-me-health-tracked.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "plant()"
+      ],
+      "imports": [],
+      "symbols": [
+        "plant()"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/test/test-me-perms.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "plant()"
+      ],
+      "imports": [],
+      "symbols": [
+        "plant()"
       ]
     },
     {

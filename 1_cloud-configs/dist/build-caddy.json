@@ -467,8 +467,8 @@
     },
     {
       "domain": "fin-api.diegonmarcos.com",
-      "target": "https://c3-pvt.diegonmarcos.com/fin-api{uri}",
-      "comment": "fin-api own host retired (#1104): redirect to the c3-pvt path"
+      "target": "https://c3-pvt.diegonmarcos.com/capital-stack-finterminal-api{uri}",
+      "comment": "capital-stack-finterminal-api own host retired (#1104): redirect to the c3-pvt path"
     }
   ],
   "routes": [
@@ -6352,12 +6352,12 @@
     {
       "host": "fin-api.diegonmarcos.com",
       "path": null,
-      "upstream": "https://c3-pvt.diegonmarcos.com/fin-api{uri}",
+      "upstream": "https://c3-pvt.diegonmarcos.com/capital-stack-finterminal-api{uri}",
       "kind": "redirect",
       "tls": "public",
       "zone": "com",
       "service": null,
-      "notes": "fin-api own host retired (#1104): redirect to the c3-pvt path"
+      "notes": "capital-stack-finterminal-api own host retired (#1104): redirect to the c3-pvt path"
     }
   ],
   "private_A0_app_short": [
