@@ -327,8 +327,8 @@
         "log_level": "info"
       },
       {
-        "container": "fin-api",
-        "service": "fin-api",
+        "container": "capital-stack-finterminal-api",
+        "service": "capital-stack-finterminal-api",
         "log_level": "info"
       },
       {

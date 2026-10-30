@@ -76,8 +76,8 @@
       "url": "https://api.diegonmarcos.com/health"
     },
     {
-      "service": "fin-api",
-      "url": "https://api.diegonmarcos.com/fin-api/health"
+      "service": "capital-stack-finterminal-api",
+      "url": "https://api.diegonmarcos.com/capital-stack-finterminal-api/health"
     },
     {
       "service": "photoprism",
@@ -218,8 +218,8 @@
       "domain": "api.diegonmarcos.com"
     },
     {
-      "service": "fin-api",
-      "domain": "api.diegonmarcos.com/fin-api"
+      "service": "capital-stack-finterminal-api",
+      "domain": "api.diegonmarcos.com/capital-stack-finterminal-api"
     },
     {
       "service": "photoprism",
@@ -364,8 +364,8 @@
       "domain": "api.diegonmarcos.com"
     },
     {
-      "service": "fin-api",
-      "domain": "api.diegonmarcos.com/fin-api"
+      "service": "capital-stack-finterminal-api",
+      "domain": "api.diegonmarcos.com/capital-stack-finterminal-api"
     },
     {
       "service": "photoprism",

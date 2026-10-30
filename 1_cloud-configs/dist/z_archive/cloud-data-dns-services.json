@@ -257,9 +257,9 @@
       "ip": "10.0.0.1",
       "desc": "Unified scrapers API (Instagram / Pinterest / LinkedIn / generic crawl) — retires crawlee-cloud. Lean single-container FastAPI, on-demand, flat-JSON output."
     },
-    "fin-api": {
+    "capital-stack-finterminal-api": {
       "ip": "10.0.0.1",
-      "desc": "Fincept Terminal backend (fin-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools"
+      "desc": "Fincept Terminal backend (capital-stack-finterminal-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools"
     },
     "photoprism": {
       "ip": "10.0.0.1",

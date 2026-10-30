@@ -236,11 +236,11 @@
       "service": "scrappers-api"
     },
     {
-      "name": "api.diegonmarcos.com/fin-api",
+      "name": "api.diegonmarcos.com/capital-stack-finterminal-api",
       "type": "CNAME",
       "content": "diegonmarcos.com",
       "proxied": true,
-      "service": "fin-api"
+      "service": "capital-stack-finterminal-api"
     },
     {
       "name": "photos.diegonmarcos.com",

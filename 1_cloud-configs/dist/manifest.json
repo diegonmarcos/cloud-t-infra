@@ -392,8 +392,8 @@
     "name": "build scrappers api"
   },
   {
-    "file": "build-fin-api.json",
-    "name": "build fin api"
+    "file": "build-capital-stack-finterminal-api.json",
+    "name": "build capital stack finterminal api"
   },
   {
     "file": "build-photoprism_app.json",

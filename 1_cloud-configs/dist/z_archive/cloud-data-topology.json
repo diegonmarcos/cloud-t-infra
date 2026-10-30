@@ -137,7 +137,7 @@
         "matrix-element",
         "mautrix-whatsapp",
         "scrappers-api",
-        "fin-api",
+        "capital-stack-finterminal-api",
         "photoprism_app",
         "photoprism_mariadb",
         "photoprism_rclone",
@@ -935,10 +935,10 @@
         "service": "scrappers-api"
       },
       {
-        "name": "fin-api.mesh.diegonmarcos.com",
+        "name": "capital-stack-finterminal-api.mesh.diegonmarcos.com",
         "type": "A",
         "value": "10.0.0.6",
-        "service": "fin-api"
+        "service": "capital-stack-finterminal-api"
       },
       {
         "name": "photoprism.mesh.diegonmarcos.com",
@@ -5918,27 +5918,27 @@
       },
       "flake": "user-data_scrappers-api"
     },
-    "fin-api": {
+    "capital-stack-finterminal-api": {
       "category": "fin",
       "vm": "oci-A1-f_0",
-      "folder": "user-fin_fin-api",
-      "description": "Fincept Terminal backend (fin-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools",
-      "domain": "api.diegonmarcos.com/fin-api",
+      "folder": "user-fin_capital-stack-finterminal-api",
+      "description": "Fincept Terminal backend (capital-stack-finterminal-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools",
+      "domain": "api.diegonmarcos.com/capital-stack-finterminal-api",
       "port": 8340,
-      "dns": "fin-api.mesh.diegonmarcos.com",
+      "dns": "capital-stack-finterminal-api.mesh.diegonmarcos.com",
       "upstream": "10.0.0.6:8340",
       "containers": {
         "app": {
-          "container_name": "fin-api",
-          "image": "ghcr.io/diegonmarcos/fin-api:latest",
+          "container_name": "capital-stack-finterminal-api",
+          "image": "ghcr.io/diegonmarcos/capital-stack-finterminal-api:latest",
           "port": 8340,
           "port_env": "FIN_API_PORT",
-          "dns": "fin-api.mesh.diegonmarcos.com",
+          "dns": "capital-stack-finterminal-api.mesh.diegonmarcos.com",
           "public": true,
           "proxy": {
             "type": "path",
             "parent_domain": "api.diegonmarcos.com",
-            "base_path": "/fin-api",
+            "base_path": "/capital-stack-finterminal-api",
             "auth": "two_factor"
           },
           "healthcheck": "/health",
@@ -5957,13 +5957,13 @@
         }
       },
       "container_names": [
-        "fin-api"
+        "capital-stack-finterminal-api"
       ],
       "all_ports": [
         "8340"
       ],
       "all_dns": [
-        "fin-api.mesh.diegonmarcos.com"
+        "capital-stack-finterminal-api.mesh.diegonmarcos.com"
       ],
       "compose": {
         "containers": [],
@@ -5974,7 +5974,7 @@
         "primary": {
           "type": "path",
           "parent_domain": "api.diegonmarcos.com",
-          "base_path": "/fin-api",
+          "base_path": "/capital-stack-finterminal-api",
           "auth": "two_factor",
           "paths": {
             "/health": {
@@ -5987,7 +5987,7 @@
         "app": 8340
       },
       "health": {
-        "path": "/fin-api/health"
+        "path": "/capital-stack-finterminal-api/health"
       },
       "monitoring": {
         "tls_check": true,
@@ -5997,7 +5997,7 @@
       "backup": {
         "enabled": false
       },
-      "flake": "user-fin_fin-api"
+      "flake": "user-fin_capital-stack-finterminal-api"
     },
     "photoprism": {
       "category": "app",

@@ -216,7 +216,7 @@
         {
           "label": "Finance",
           "containers": [
-            "fin-api"
+            "capital-stack-finterminal-api"
           ]
         },
         {
@@ -1977,23 +1977,23 @@
       "auth_type": "woauth"
     },
     {
-      "name": "fin-api",
+      "name": "capital-stack-finterminal-api",
       "kind": "container",
-      "service": "fin-api",
+      "service": "capital-stack-finterminal-api",
       "role": "app",
-      "dir": "user-fin_fin-api",
+      "dir": "user-fin_capital-stack-finterminal-api",
       "group": "Project Apps",
       "category": "Finance",
-      "description": "Fincept Terminal backend (fin-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools",
-      "image": "ghcr.io/diegonmarcos/fin-api:latest",
+      "description": "Fincept Terminal backend (capital-stack-finterminal-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools",
+      "image": "ghcr.io/diegonmarcos/capital-stack-finterminal-api:latest",
       "host": "oci-apps",
-      "dns": "fin-api.mesh.diegonmarcos.com",
+      "dns": "capital-stack-finterminal-api.mesh.diegonmarcos.com",
       "port": 8340,
       "public": true,
       "protocol": "http",
       "db_engine": "",
       "legacy_category": "fin",
-      "public_url": "api.diegonmarcos.com/fin-api",
+      "public_url": "api.diegonmarcos.com/capital-stack-finterminal-api",
       "auth": "two_factor",
       "auth_type": "woauth"
     },

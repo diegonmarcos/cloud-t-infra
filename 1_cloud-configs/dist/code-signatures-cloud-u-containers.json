@@ -60200,7 +60200,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/build.sh",
+      "path": "user-fin_capital-stack-finterminal-api/build.sh",
       "lang": "sh",
       "role": "shell",
       "exports": [
@@ -60236,7 +60236,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/app/src/main.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/app/src/main.rs",
       "lang": "rust",
       "role": "entrypoint",
       "exports": [],
@@ -60249,7 +60249,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/build.sh",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/build.sh",
       "lang": "sh",
       "role": "shell",
       "exports": [
@@ -60299,7 +60299,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/agents/agents-core/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/agents/agents-core/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60339,7 +60339,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/agents/agents-economic/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/agents/agents-economic/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60368,7 +60368,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/agents/agents-geopolitical/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/agents/agents-geopolitical/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60396,7 +60396,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/agents/agents-hedgefund/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/agents/agents-hedgefund/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60432,7 +60432,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/agents/agents-investors/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/agents/agents-investors/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60474,7 +60474,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/agents/agents-llm/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/agents/agents-llm/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60501,7 +60501,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/analytics/analytics-backtest/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/analytics/analytics-backtest/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60525,7 +60525,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/analytics/analytics-backtest/tests/parity.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/analytics/analytics-backtest/tests/parity.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -60541,7 +60541,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/analytics/analytics-cfa/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/analytics/analytics-cfa/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60571,7 +60571,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/analytics/analytics-cfa/tests/parity.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/analytics/analytics-cfa/tests/parity.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -60587,7 +60587,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/analytics/analytics-derivatives/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/analytics/analytics-derivatives/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60613,7 +60613,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/analytics/analytics-derivatives/tests/parity.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/analytics/analytics-derivatives/tests/parity.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -60628,7 +60628,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/analytics/analytics-fixedincome/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/analytics/analytics-fixedincome/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60655,7 +60655,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/analytics/analytics-fixedincome/tests/parity.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/analytics/analytics-fixedincome/tests/parity.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -60670,7 +60670,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/analytics/analytics-portfolio/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/analytics/analytics-portfolio/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60696,7 +60696,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/analytics/analytics-portfolio/tests/parity.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/analytics/analytics-portfolio/tests/parity.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -60712,7 +60712,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/analytics/analytics-quant/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/analytics/analytics-quant/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60744,7 +60744,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/analytics/analytics-quant/tests/parity.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/analytics/analytics-quant/tests/parity.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -60759,7 +60759,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/analytics/analytics-risk/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/analytics/analytics-risk/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60786,7 +60786,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/analytics/analytics-risk/tests/parity.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/analytics/analytics-risk/tests/parity.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -60802,7 +60802,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/auth/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/auth/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60828,7 +60828,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/brokers/brokers-alpaca/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/brokers/brokers-alpaca/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60866,7 +60866,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/brokers/brokers-core/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/brokers/brokers-core/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60903,7 +60903,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/brokers/brokers-generic/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/brokers/brokers-generic/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -60947,7 +60947,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/brokers/brokers-generic/tests/specs_drive_tests.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/brokers/brokers-generic/tests/specs_drive_tests.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -60965,7 +60965,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/brokers/brokers-paper/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/brokers/brokers-paper/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61007,7 +61007,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/client/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/client/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61048,7 +61048,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/client/tests/round_trip.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/client/tests/round_trip.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -61068,7 +61068,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/core/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/core/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61086,7 +61086,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/data/data-akshare/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/data/data-akshare/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61115,7 +61115,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/data/data-alphavantage/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/data/data-alphavantage/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61145,7 +61145,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/data/data-coingecko/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/data/data-coingecko/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61174,7 +61174,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/data/data-core/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/data/data-core/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61210,7 +61210,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/data/data-dbnomics/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/data/data-dbnomics/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61240,7 +61240,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/data/data-fred/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/data/data-fred/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61270,7 +61270,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/data/data-generic/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/data/data-generic/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61311,7 +61311,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/data/data-generic/tests/specs_drive_tests.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/data/data-generic/tests/specs_drive_tests.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -61330,7 +61330,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/data/data-imf/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/data/data-imf/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61360,7 +61360,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/data/data-kraken/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/data/data-kraken/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61389,7 +61389,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/data/data-polygon/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/data/data-polygon/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61418,7 +61418,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/data/data-worldbank/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/data/data-worldbank/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61448,7 +61448,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/data/data-yahoo/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/data/data-yahoo/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61479,7 +61479,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/datahub/src/hub.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/datahub/src/hub.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61533,7 +61533,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/datahub/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/datahub/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61549,7 +61549,7 @@
       "symbols": []
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/datahub/src/pattern.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/datahub/src/pattern.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61575,7 +61575,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/datahub/src/policy.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/datahub/src/policy.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61591,7 +61591,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/datahub/src/producer.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/datahub/src/producer.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61608,7 +61608,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/datahub/src/subscription.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/datahub/src/subscription.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61625,7 +61625,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/datahub/tests/datahub_tests.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/datahub/tests/datahub_tests.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -61655,7 +61655,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/eventbus/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/eventbus/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61680,7 +61680,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/http/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/http/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61706,7 +61706,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/mcp/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/mcp/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61744,7 +61744,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/migration/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/migration/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61778,7 +61778,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/ml/ml-candle/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/ml/ml-candle/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61805,7 +61805,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/ml/ml-candle/tests/parity.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/ml/ml-candle/tests/parity.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -61822,7 +61822,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/ml/ml-factor/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/ml/ml-factor/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61854,7 +61854,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/ml/ml-factor/tests/parity.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/ml/ml-factor/tests/parity.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -61869,7 +61869,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/ml/ml-hft/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/ml/ml-hft/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61900,7 +61900,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/ml/ml-hft/tests/parity.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/ml/ml-hft/tests/parity.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -61916,7 +61916,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/ml/ml-rl/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/ml/ml-rl/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -61958,7 +61958,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/ml/ml-rl/tests/parity.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/ml/ml-rl/tests/parity.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -61974,7 +61974,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/nodegraph/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/nodegraph/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62020,7 +62020,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/server/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62037,7 +62037,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/server/src/main.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/main.rs",
       "lang": "rust",
       "role": "entrypoint",
       "exports": [],
@@ -62051,7 +62051,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/server/src/routes/health.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/routes/health.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62069,7 +62069,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/server/src/routes/info.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/routes/info.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62087,7 +62087,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/server/src/routes/mcp.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/routes/mcp.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62105,7 +62105,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/server/src/routes/personas.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/routes/personas.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62127,7 +62127,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/server/src/routes/topics.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/routes/topics.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62148,7 +62148,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/server/src/state.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/state.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62167,7 +62167,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/server/src/ws.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/ws.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62192,7 +62192,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/server/tests/http_smoke.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/tests/http_smoke.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [],
@@ -62213,7 +62213,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/storage/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/storage/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62236,7 +62236,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/trading/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/trading/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62281,7 +62281,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/ui/ui-charts/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/ui/ui-charts/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62315,7 +62315,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/ui/ui-core/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/ui/ui-core/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62372,7 +62372,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/ui/ui-screens/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/ui/ui-screens/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62418,7 +62418,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/ui/ui-widgets/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/ui/ui-widgets/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62455,7 +62455,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/code/crates/ws/src/lib.rs",
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/ws/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
       "exports": [
@@ -62475,7 +62475,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/compose.nix",
+      "path": "user-fin_capital-stack-finterminal-api/src/compose.nix",
       "lang": "nix",
       "role": "compose",
       "exports": [
@@ -62489,7 +62489,7 @@
         "vmIp",
         "binariesImage",
         "services",
-        "fin-api",
+        "capital-stack-finterminal-api",
         "image",
         "container_name",
         "network_mode",
@@ -62502,7 +62502,7 @@
       ]
     },
     {
-      "path": "user-fin_fin-api/src/flake.nix",
+      "path": "user-fin_capital-stack-finterminal-api/src/flake.nix",
       "lang": "nix",
       "role": "flake",
       "exports": [

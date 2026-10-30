@@ -924,12 +924,12 @@
       "comment": "c3 container scrappers-api (mesh-only; scrappers-api-http-3020.mesh.diegonmarcos.com)"
     },
     {
-      "domain": "c3-fin-api.diegonmarcos.com",
+      "domain": "c3-capital-stack-finterminal-api.diegonmarcos.com",
       "upstream": "10.0.0.6:8340",
       "auth": "none",
       "wg_only": true,
-      "container": "fin-api",
-      "comment": "c3 container fin-api (mesh-only; fin-api-http-8340.mesh.diegonmarcos.com)"
+      "container": "capital-stack-finterminal-api",
+      "comment": "c3 container capital-stack-finterminal-api (mesh-only; capital-stack-finterminal-api-http-8340.mesh.diegonmarcos.com)"
     },
     {
       "domain": "c3-photoprism-app.diegonmarcos.com",
@@ -1617,10 +1617,10 @@
           "comment": "Unified scrapers API (Instagram / Pinterest / LinkedIn / generic crawl) — retires crawlee-cloud. Lean single-container FastAPI, on-demand, flat-JSON output."
         },
         {
-          "base_path": "/fin-api",
+          "base_path": "/capital-stack-finterminal-api",
           "upstream": "10.0.0.6:8340",
           "wg_only": true,
-          "comment": "Fincept Terminal backend (fin-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools"
+          "comment": "Fincept Terminal backend (capital-stack-finterminal-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools"
         }
       ],
       "comment": "API hub -- path-based routing to backend APIs",
@@ -2149,9 +2149,9 @@
       "private_name": "cloud.scrappers-api.mesh.diegonmarcos.com"
     },
     {
-      "service": "fin-api.mesh.diegonmarcos.com",
+      "service": "capital-stack-finterminal-api.mesh.diegonmarcos.com",
       "upstream": "10.0.0.6:8340",
-      "private_name": "cloud.fin-api.mesh.diegonmarcos.com"
+      "private_name": "cloud.capital-stack-finterminal-api.mesh.diegonmarcos.com"
     },
     {
       "service": "photoprism.mesh.diegonmarcos.com",
@@ -2524,9 +2524,9 @@
       "source": "internal_routes"
     },
     {
-      "service": "cloud.fin-api.mesh.diegonmarcos.com",
+      "service": "cloud.capital-stack-finterminal-api.mesh.diegonmarcos.com",
       "upstream": "10.0.0.6:8340",
-      "alias_of": "fin-api.mesh.diegonmarcos.com",
+      "alias_of": "capital-stack-finterminal-api.mesh.diegonmarcos.com",
       "source": "internal_routes"
     },
     {
@@ -2854,7 +2854,7 @@
       "source": "url_scheme"
     },
     {
-      "service": "c3-fin-api.mesh.diegonmarcos.com",
+      "service": "c3-capital-stack-finterminal-api.mesh.diegonmarcos.com",
       "upstream": "10.0.0.6:8340",
       "scheme": "c3",
       "source": "url_scheme"
@@ -3192,9 +3192,9 @@
         "private": "c3-scrappers-api.mesh.diegonmarcos.com"
       },
       {
-        "host": "c3-fin-api.diegonmarcos.com",
-        "container": "fin-api",
-        "private": "c3-fin-api.mesh.diegonmarcos.com"
+        "host": "c3-capital-stack-finterminal-api.diegonmarcos.com",
+        "container": "capital-stack-finterminal-api",
+        "private": "c3-capital-stack-finterminal-api.mesh.diegonmarcos.com"
       },
       {
         "host": "c3-photoprism-app.diegonmarcos.com",
@@ -4522,19 +4522,19 @@
     },
     {
       "kind": "redirect",
-      "service": "fin-api.mesh.diegonmarcos.com",
-      "redirect_to": "https://fin-api-http-8340.mesh.diegonmarcos.com",
-      "container": "fin-api",
+      "service": "capital-stack-finterminal-api.mesh.diegonmarcos.com",
+      "redirect_to": "https://capital-stack-finterminal-api-http-8340.mesh.diegonmarcos.com",
+      "container": "capital-stack-finterminal-api",
       "container_key": "app",
-      "svc": "fin-api",
+      "svc": "capital-stack-finterminal-api",
       "vm": "oci-A1-f_0"
     },
     {
       "kind": "canonical",
-      "service": "fin-api-http-8340.mesh.diegonmarcos.com",
-      "container": "fin-api",
+      "service": "capital-stack-finterminal-api-http-8340.mesh.diegonmarcos.com",
+      "container": "capital-stack-finterminal-api",
       "container_key": "app",
-      "svc": "fin-api",
+      "svc": "capital-stack-finterminal-api",
       "vm": "oci-A1-f_0",
       "port": 8340,
       "protocol": "http",
@@ -5147,13 +5147,13 @@
     },
     {
       "host": "api.diegonmarcos.com",
-      "path": "/fin-api",
+      "path": "/capital-stack-finterminal-api",
       "upstream": "10.0.0.6:8340",
       "kind": "reverse_proxy",
       "tls": "public",
       "zone": "com",
       "service": null,
-      "notes": "Fincept Terminal backend (fin-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools"
+      "notes": "Fincept Terminal backend (capital-stack-finterminal-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools"
     }
   ],
   "public_C_app_paths": [
@@ -5750,14 +5750,14 @@
       "notes": "c3 container scrappers-api (mesh-only; scrappers-api-http-3020.mesh.diegonmarcos.com)"
     },
     {
-      "host": "c3-fin-api.diegonmarcos.com",
+      "host": "c3-capital-stack-finterminal-api.diegonmarcos.com",
       "path": null,
       "upstream": "10.0.0.6:8340",
       "kind": "reverse_proxy",
       "tls": "public",
       "zone": "com",
       "service": null,
-      "notes": "c3 container fin-api (mesh-only; fin-api-http-8340.mesh.diegonmarcos.com)"
+      "notes": "c3 container capital-stack-finterminal-api (mesh-only; capital-stack-finterminal-api-http-8340.mesh.diegonmarcos.com)"
     },
     {
       "host": "c3-photoprism-app.diegonmarcos.com",
@@ -6842,7 +6842,7 @@
       "notes": null
     },
     {
-      "host": "fin-api.mesh.diegonmarcos.com",
+      "host": "capital-stack-finterminal-api.mesh.diegonmarcos.com",
       "path": null,
       "upstream": "10.0.0.6:8340",
       "kind": "reverse_proxy",
@@ -7434,13 +7434,13 @@
       "notes": null
     },
     {
-      "host": "fin-api-http-8340.mesh.diegonmarcos.com",
+      "host": "capital-stack-finterminal-api-http-8340.mesh.diegonmarcos.com",
       "path": null,
       "upstream": "10.0.0.6:8340",
       "kind": "reverse_proxy",
       "tls": "on_demand",
       "zone": "com",
-      "service": "fin-api",
+      "service": "capital-stack-finterminal-api",
       "notes": null
     },
     {

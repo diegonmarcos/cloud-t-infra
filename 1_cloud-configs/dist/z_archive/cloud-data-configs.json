@@ -188,6 +188,18 @@
       ]
     },
     {
+      "name": "capital-stack-finterminal-api",
+      "category": "fin",
+      "vm": "oci-A1-f_0",
+      "description": "Fincept Terminal backend (capital-stack-finterminal-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools",
+      "domain": "api.diegonmarcos.com/capital-stack-finterminal-api",
+      "ports": [],
+      "networks": [],
+      "containers": [
+        "capital-stack-finterminal-api"
+      ]
+    },
+    {
       "name": "chat-mattermost",
       "category": "app",
       "vm": "oci-A1-f_0",
@@ -525,18 +537,6 @@
       "networks": [],
       "containers": [
         "filebrowser_app"
-      ]
-    },
-    {
-      "name": "fin-api",
-      "category": "fin",
-      "vm": "oci-A1-f_0",
-      "description": "Fincept Terminal backend (fin-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools",
-      "domain": "api.diegonmarcos.com/fin-api",
-      "ports": [],
-      "networks": [],
-      "containers": [
-        "fin-api"
       ]
     },
     {
@@ -1648,6 +1648,18 @@
       ]
     },
     {
+      "name": "capital-stack-finterminal-api",
+      "category": "fin",
+      "vm": "oci-A1-f_0",
+      "description": "Fincept Terminal backend (capital-stack-finterminal-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools",
+      "domain": "api.diegonmarcos.com/capital-stack-finterminal-api",
+      "ports": [],
+      "networks": [],
+      "containers": [
+        "capital-stack-finterminal-api"
+      ]
+    },
+    {
       "name": "chat-mattermost",
       "category": "app",
       "vm": "oci-A1-f_0",
@@ -1816,18 +1828,6 @@
       "networks": [],
       "containers": [
         "filebrowser_app"
-      ]
-    },
-    {
-      "name": "fin-api",
-      "category": "fin",
-      "vm": "oci-A1-f_0",
-      "description": "Fincept Terminal backend (fin-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools",
-      "domain": "api.diegonmarcos.com/fin-api",
-      "ports": [],
-      "networks": [],
-      "containers": [
-        "fin-api"
       ]
     },
     {

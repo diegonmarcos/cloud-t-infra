@@ -179,9 +179,9 @@
       "service": "scrappers-api"
     },
     {
-      "name": "Fincept Terminal backend (fin-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools",
-      "url": "https://api.diegonmarcos.com/fin-api",
-      "service": "fin-api"
+      "name": "Fincept Terminal backend (capital-stack-finterminal-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools",
+      "url": "https://api.diegonmarcos.com/capital-stack-finterminal-api",
+      "service": "capital-stack-finterminal-api"
     },
     {
       "name": "PhotoPrism AI-powered photo management (oci-flex-1)",

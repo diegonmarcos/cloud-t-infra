@@ -745,15 +745,15 @@
             "public_url": "https://jmap.diegonmarcos.com"
           },
           {
-            "id": "fin-api",
-            "name": "fin-api",
+            "id": "capital-stack-finterminal-api",
+            "name": "capital-stack-finterminal-api",
             "vm": "oci-A1-f_0",
             "category": "fin",
             "subgroup": "Finance",
             "port": 8340,
             "private_ip": "10.0.0.6",
-            "private_url": "https://fin-api.mesh.diegonmarcos.com",
-            "public_url": "https://api.diegonmarcos.com/fin-api"
+            "private_url": "https://capital-stack-finterminal-api.mesh.diegonmarcos.com",
+            "public_url": "https://api.diegonmarcos.com/capital-stack-finterminal-api"
           },
           {
             "id": "photoprism",
@@ -4409,15 +4409,15 @@
           "public_url": "https://jmap.diegonmarcos.com"
         },
         {
-          "id": "fin-api",
-          "name": "fin-api",
+          "id": "capital-stack-finterminal-api",
+          "name": "capital-stack-finterminal-api",
           "vm": "oci-A1-f_0",
           "category": "fin",
           "subgroup": "Finance",
           "port": 8340,
           "private_ip": "10.0.0.6",
-          "private_url": "https://fin-api.mesh.diegonmarcos.com",
-          "public_url": "https://api.diegonmarcos.com/fin-api"
+          "private_url": "https://capital-stack-finterminal-api.mesh.diegonmarcos.com",
+          "public_url": "https://api.diegonmarcos.com/capital-stack-finterminal-api"
         },
         {
           "id": "photoprism",

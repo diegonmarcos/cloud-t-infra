@@ -2030,25 +2030,25 @@
     },
     {
       "table": "service",
-      "id": "fin_api",
-      "key": "service:fin_api",
+      "id": "capital_stack_finterminal_api",
+      "key": "service:capital_stack_finterminal_api",
       "properties": {
-        "name": "fin-api",
+        "name": "capital-stack-finterminal-api",
         "category": "fin",
-        "description": "Fincept Terminal backend (fin-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools",
-        "domain": "api.diegonmarcos.com/fin-api",
+        "description": "Fincept Terminal backend (capital-stack-finterminal-api) — REST + WebSocket over DataHub, 35 data connectors, 7 analytics, 17 brokers, 6 investor personas, MCP tools",
+        "domain": "api.diegonmarcos.com/capital-stack-finterminal-api",
         "port": 8340,
         "vm": "oci-apps",
-        "folder": "user-fin_fin-api"
+        "folder": "user-fin_capital-stack-finterminal-api"
       }
     },
     {
       "table": "container",
-      "id": "fin_api",
-      "key": "container:fin_api",
+      "id": "capital_stack_finterminal_api",
+      "key": "container:capital_stack_finterminal_api",
       "properties": {
-        "name": "fin-api",
-        "image": "ghcr.io/diegonmarcos/fin-api:latest",
+        "name": "capital-stack-finterminal-api",
+        "image": "ghcr.io/diegonmarcos/capital-stack-finterminal-api:latest",
         "role": "app",
         "port": 8340,
         "public": true
@@ -2746,10 +2746,10 @@
     },
     {
       "table": "domain",
-      "id": "api_diegonmarcos_com/fin_api",
-      "key": "domain:api_diegonmarcos_com/fin_api",
+      "id": "api_diegonmarcos_com/capital_stack_finterminal_api",
+      "key": "domain:api_diegonmarcos_com/capital_stack_finterminal_api",
       "properties": {
-        "fqdn": "api.diegonmarcos.com/fin-api"
+        "fqdn": "api.diegonmarcos.com/capital-stack-finterminal-api"
       }
     },
     {
@@ -3604,13 +3604,13 @@
     },
     {
       "table": "module",
-      "id": "user_fin_fin_api",
-      "key": "module:user_fin_fin_api",
+      "id": "user_fin_capital_stack_finterminal_api",
+      "key": "module:user_fin_capital_stack_finterminal_api",
       "properties": {
-        "name": "user-fin_fin-api",
+        "name": "user-fin_capital-stack-finterminal-api",
         "repo": "cloud",
         "category": "fin",
-        "service": "fin-api"
+        "service": "capital-stack-finterminal-api"
       }
     },
     {
@@ -5301,16 +5301,16 @@
     },
     {
       "table": "hosted_on",
-      "from": "service:fin_api",
+      "from": "service:capital_stack_finterminal_api",
       "to": "vm:oci_apps",
-      "key": "service:fin_api->hosted_on->vm:oci_apps",
+      "key": "service:capital_stack_finterminal_api->hosted_on->vm:oci_apps",
       "properties": {}
     },
     {
       "table": "runs_container",
-      "from": "service:fin_api",
-      "to": "container:fin_api",
-      "key": "service:fin_api->runs_container->container:fin_api",
+      "from": "service:capital_stack_finterminal_api",
+      "to": "container:capital_stack_finterminal_api",
+      "key": "service:capital_stack_finterminal_api->runs_container->container:capital_stack_finterminal_api",
       "properties": {
         "role": "app"
       }
@@ -5910,11 +5910,11 @@
     },
     {
       "table": "proxied_by",
-      "from": "service:fin_api",
+      "from": "service:capital_stack_finterminal_api",
       "to": "service:caddy",
-      "key": "service:fin_api->proxied_by->service:caddy",
+      "key": "service:capital_stack_finterminal_api->proxied_by->service:caddy",
       "properties": {
-        "domain": "api.diegonmarcos.com/fin-api"
+        "domain": "api.diegonmarcos.com/capital-stack-finterminal-api"
       }
     },
     {
@@ -6281,9 +6281,9 @@
     },
     {
       "table": "routes_to",
-      "from": "domain:api_diegonmarcos_com/fin_api",
-      "to": "service:fin_api",
-      "key": "domain:api_diegonmarcos_com/fin_api->routes_to->service:fin_api",
+      "from": "domain:api_diegonmarcos_com/capital_stack_finterminal_api",
+      "to": "service:capital_stack_finterminal_api",
+      "key": "domain:api_diegonmarcos_com/capital_stack_finterminal_api->routes_to->service:capital_stack_finterminal_api",
       "properties": {}
     },
     {
@@ -7317,16 +7317,16 @@
     },
     {
       "table": "belongs_to_repo",
-      "from": "module:user_fin_fin_api",
+      "from": "module:user_fin_capital_stack_finterminal_api",
       "to": "repo:cloud",
-      "key": "module:user_fin_fin_api->belongs_to_repo->repo:cloud",
+      "key": "module:user_fin_capital_stack_finterminal_api->belongs_to_repo->repo:cloud",
       "properties": {}
     },
     {
       "table": "implements",
-      "from": "module:user_fin_fin_api",
-      "to": "service:fin_api",
-      "key": "module:user_fin_fin_api->implements->service:fin_api",
+      "from": "module:user_fin_capital_stack_finterminal_api",
+      "to": "service:capital_stack_finterminal_api",
+      "key": "module:user_fin_capital_stack_finterminal_api->implements->service:capital_stack_finterminal_api",
       "properties": {}
     },
     {

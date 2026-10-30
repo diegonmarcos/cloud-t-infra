@@ -86,8 +86,8 @@
       "url": "https://api.diegonmarcos.com/health"
     },
     {
-      "service": "fin-api",
-      "url": "https://api.diegonmarcos.com/fin-api/health"
+      "service": "capital-stack-finterminal-api",
+      "url": "https://api.diegonmarcos.com/capital-stack-finterminal-api/health"
     },
     {
       "service": "photoprism",
@@ -228,8 +228,8 @@
       "domain": "api.diegonmarcos.com"
     },
     {
-      "service": "fin-api",
-      "domain": "api.diegonmarcos.com/fin-api"
+      "service": "capital-stack-finterminal-api",
+      "domain": "api.diegonmarcos.com/capital-stack-finterminal-api"
     },
     {
       "service": "photoprism",
@@ -374,8 +374,8 @@
       "domain": "api.diegonmarcos.com"
     },
     {
-      "service": "fin-api",
-      "domain": "api.diegonmarcos.com/fin-api"
+      "service": "capital-stack-finterminal-api",
+      "domain": "api.diegonmarcos.com/capital-stack-finterminal-api"
     },
     {
       "service": "photoprism",
@@ -1313,17 +1313,17 @@
         "path": "/health"
       }
     },
-    "fin-api": {
-      "name": "fin-api",
+    "capital-stack-finterminal-api": {
+      "name": "capital-stack-finterminal-api",
       "vm": "oci-A1-f_0",
-      "domain": "api.diegonmarcos.com/fin-api",
+      "domain": "api.diegonmarcos.com/capital-stack-finterminal-api",
       "enabled": true,
       "category": "fin",
       "ports": {
         "app": 8340
       },
       "health": {
-        "path": "/fin-api/health"
+        "path": "/capital-stack-finterminal-api/health"
       }
     },
     "photoprism": {
@@ -2049,13 +2049,13 @@
       "dns": "scrappers-api.mesh.diegonmarcos.com"
     },
     {
-      "service": "fin-api",
-      "dns": "fin-api.mesh.diegonmarcos.com"
+      "service": "capital-stack-finterminal-api",
+      "dns": "capital-stack-finterminal-api.mesh.diegonmarcos.com"
     },
     {
-      "service": "fin-api",
+      "service": "capital-stack-finterminal-api",
       "container": "app",
-      "dns": "fin-api.mesh.diegonmarcos.com"
+      "dns": "capital-stack-finterminal-api.mesh.diegonmarcos.com"
     },
     {
       "service": "photoprism",
@@ -2350,7 +2350,7 @@
           "matrix-element",
           "matrix-mautrix-whatsapp",
           "scrappers-api",
-          "fin-api",
+          "capital-stack-finterminal-api",
           "photoprism",
           "playlist-syncer",
           "news-gdelt",
@@ -3263,17 +3263,17 @@
           "path": "/health"
         }
       },
-      "fin-api": {
-        "name": "fin-api",
+      "capital-stack-finterminal-api": {
+        "name": "capital-stack-finterminal-api",
         "vm": "oci-A1-f_0",
-        "domain": "api.diegonmarcos.com/fin-api",
+        "domain": "api.diegonmarcos.com/capital-stack-finterminal-api",
         "enabled": true,
         "category": "fin",
         "ports": {
           "app": 8340
         },
         "health": {
-          "path": "/fin-api/health"
+          "path": "/capital-stack-finterminal-api/health"
         }
       },
       "photoprism": {
