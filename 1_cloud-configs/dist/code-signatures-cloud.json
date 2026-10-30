@@ -6,9 +6,9 @@
   },
   "repo": "cloud",
   "counts": {
-    "files": 1568,
+    "files": 1569,
     "by_lang": {
-      "sh": 1058,
+      "sh": 1059,
       "js": 169,
       "nix": 304,
       "py": 7,
@@ -17,7 +17,7 @@
     "by_role": {
       "hook": 377,
       "file": 86,
-      "shell": 538,
+      "shell": 539,
       "flake": 6,
       "script": 143,
       "module": 113,
@@ -20694,6 +20694,24 @@
       "symbols": [
         "pass()",
         "fail()"
+      ]
+    },
+    {
+      "path": "9_others/test/test_overlay_private_secrets.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "bad()",
+        "mk_vault()",
+        "mk_dest()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "bad()",
+        "mk_vault()",
+        "mk_dest()"
       ]
     },
     {

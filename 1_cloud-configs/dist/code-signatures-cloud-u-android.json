@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22606,
+    "files": 22611,
     "by_lang": {
-      "sh": 591,
+      "sh": 592,
       "js": 498,
       "py": 170,
-      "kotlin": 12117,
+      "kotlin": 12121,
       "java": 647,
       "nix": 31,
       "rust": 111,
@@ -20,10 +20,10 @@
     "by_role": {
       "hook": 158,
       "file": 2282,
-      "shell": 467,
+      "shell": 468,
       "script": 262,
       "java": 646,
-      "kotlin": 12114,
+      "kotlin": 12118,
       "module": 6424,
       "flake": 27,
       "python": 55,
@@ -359745,6 +359745,133 @@
       ]
     },
     {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/LnktreeCache.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LnktreeCacheConfig",
+        "CacheState",
+        "CacheTtl",
+        "CacheKey",
+        "CacheEntry",
+        "LnktreeCacheStore",
+        "LnktreePage",
+        "LnktreePages",
+        "PrefetchPlanner",
+        "RefScan",
+        "Fetched",
+        "LnktreePrefetch",
+        "Served",
+        "LnktreeResolver",
+        "LruHolder"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "java.io.File",
+        "java.net.URI",
+        "java.security.MessageDigest",
+        "java.util.Properties",
+        "java.util.concurrent.Callable",
+        "java.util.concurrent.Executors"
+      ],
+      "symbols": [
+        "caches(pageId: String)",
+        "parse(o: JSONObject?)",
+        "decide(fetchedAt: Long?, now: Long, ttlMs: Long)",
+        "normalize(url: String)",
+        "of(url: String)",
+        "dirName(pageId: String)",
+        "pageDir(pageId: String)",
+        "bodyFile(pageId: String, url: String)",
+        "metaFile(pageId: String, url: String)",
+        "get(pageId: String, url: String)",
+        "state(pageId: String, url: String, ttlMs: Long)",
+        "put(pageId: String, url: String, mime: String, encoding: String?, status: Int, bytes: ByteArray)",
+        "clearPage(pageId: String)",
+        "clearAll()",
+        "trim(maxBytes: Long)",
+        "size(m: File)",
+        "deleteTree(f: File)",
+        "fromStack(id: String, stack: JSONArray, cfg: LnktreeCacheConfig)",
+        "plan(pages: List<LnktreePage>, cfg: LnktreeCacheConfig, store: LnktreeCacheStore)",
+        "html(html: String, base: String)",
+        "css(css: String, cssUrl: String)",
+        "resolve(raw: List<String>, base: String)",
+        "run(pages: List<LnktreePage>, cfg: LnktreeCacheConfig, store: LnktreeCacheStore, fetch: (String)",
+        "page(p: LnktreePage, cfg: LnktreeCacheConfig, store: LnktreeCacheStore, fetch: (String)",
+        "serve( pageId: String, url: String, cfg: LnktreeCacheConfig, store: LnktreeCacheStore, fetch: (String)",
+        "hardRefresh(pageId: String, cfg: LnktreeCacheConfig, store: LnktreeCacheStore)",
+        "get(key: String)",
+        "getOrPut(key: String, create: ()",
+        "remove(key: String)",
+        "clear()",
+        "class LnktreeCacheConfig",
+        "class CacheState",
+        "class CacheTtl",
+        "class CacheKey",
+        "class CacheEntry",
+        "class LnktreeCacheStore",
+        "class LnktreePage",
+        "class LnktreePages",
+        "class PrefetchPlanner",
+        "class RefScan"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/LnktreeWeb.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LnktreeCache",
+        "LnktreePrefetchWorker",
+        "LnktreePrefetchScheduler",
+        "LnktreeHolder",
+        "LocalLnktreeHolder"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.webkit.WebResourceRequest",
+        "android.webkit.WebResourceResponse",
+        "android.webkit.WebView",
+        "androidx.compose.foundation.lazy.LazyListState",
+        "androidx.work.Constraints",
+        "androidx.work.CoroutineWorker",
+        "androidx.work.ExistingWorkPolicy",
+        "androidx.work.NetworkType",
+        "androidx.work.OneTimeWorkRequestBuilder",
+        "androidx.work.WorkManager",
+        "androidx.work.WorkerParameters",
+        "kotlinx.coroutines.Dispatchers",
+        "kotlinx.coroutines.withContext",
+        "java.io.File",
+        "java.net.HttpURLConnection",
+        "java.net.URL",
+        "java.util.concurrent.ConcurrentHashMap",
+        "java.util.concurrent.Executors"
+      ],
+      "symbols": [
+        "store(ctx: Context)",
+        "pages(ctx: Context, cfg: LnktreeCacheConfig = config)",
+        "leaves(ps: List<Page>)",
+        "fetch(url: String)",
+        "intercept(ctx: Context, pageId: String, pageUrl: String, req: WebResourceRequest)",
+        "revalidate(s: LnktreeCacheStore, pageId: String, url: String)",
+        "hardRefresh(ctx: Context, pageId: String)",
+        "doWork()",
+        "schedule(ctx: Context)",
+        "web(key: String, create: ()",
+        "peek(key: String)",
+        "forget(key: String)",
+        "list(key: String)",
+        "destroy()",
+        "class LnktreeCache",
+        "class LnktreePrefetchWorker",
+        "class LnktreePrefetchScheduler",
+        "class LnktreeHolder"
+      ]
+    },
+    {
       "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/MainActivity.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -360427,13 +360554,19 @@
         "androidx.compose.runtime.saveable.rememberSaveable",
         "androidx.compose.runtime.setValue",
         "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.input.pointer.PointerEventPass",
+        "androidx.compose.ui.input.pointer.pointerInput",
         "androidx.compose.ui.platform.LocalContext",
+        "kotlinx.coroutines.Dispatchers",
+        "kotlinx.coroutines.launch",
+        "kotlinx.coroutines.withContext",
         "androidx.compose.ui.viewinterop.AndroidView",
         "org.json.JSONObject"
       ],
       "symbols": [
-        "WebPage(block: JSONObject, modifier: Modifier = Modifier)",
+        "WebPage(block: JSONObject, modifier: Modifier = Modifier, pageId: String = block.optString(\"url\")",
         "onRenderProcessGone(view: WebView?, detail: android.webkit.RenderProcessGoneDetail?)",
+        "shouldInterceptRequest(view: WebView?, request: android.webkit.WebResourceRequest?)",
         "onPageFinished(view: WebView?, url: String?)",
         "doUpdateVisitedHistory(view: WebView?, url: String?, isReload: Boolean)",
         "importData()",
@@ -360742,6 +360875,57 @@
       ],
       "symbols": [
         "class LegacyRoutesTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/LnktreeCacheDeclTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LnktreeCacheDeclTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "class the",
+        "class LnktreeCacheDeclTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/LnktreeCacheTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LnktreeCacheTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Rule",
+        "org.junit.Test",
+        "org.junit.rules.TemporaryFolder",
+        "java.util.concurrent.atomic.AtomicInteger"
+      ],
+      "symbols": [
+        "store()",
+        "html(vararg refs: String)",
+        "put(s: LnktreeCacheStore, page: String, url: String, body: String = \"x\")",
+        "twoPages(s: LnktreeCacheStore)",
+        "class LnktreeCacheTest"
       ]
     },
     {
@@ -361247,6 +361431,18 @@
         "bad()",
         "scratch()",
         "plant()"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/test/test-lnktree-cache.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "bad()"
+      ],
+      "imports": [],
+      "symbols": [
+        "bad()"
       ]
     },
     {
