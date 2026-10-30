@@ -6,9 +6,9 @@
   },
   "repo": "cloud-u-containers",
   "counts": {
-    "files": 2506,
+    "files": 2508,
     "by_lang": {
-      "sh": 171,
+      "sh": 173,
       "js": 93,
       "nix": 183,
       "py": 507,
@@ -16,7 +16,7 @@
       "rust": 362
     },
     "by_role": {
-      "shell": 161,
+      "shell": 163,
       "file": 340,
       "nix-module": 19,
       "python": 493,
@@ -1012,6 +1012,36 @@
         "run_case()",
         "probe()",
         "expect()"
+      ]
+    },
+    {
+      "path": "_shared/test/no-sops-in-public.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "allowed()"
+      ],
+      "imports": [],
+      "symbols": [
+        "allowed()"
+      ]
+    },
+    {
+      "path": "_shared/test/no-sops-in-public.test.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "new_repo()",
+        "commit()",
+        "run()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "new_repo()",
+        "commit()",
+        "run()"
       ]
     },
     {
