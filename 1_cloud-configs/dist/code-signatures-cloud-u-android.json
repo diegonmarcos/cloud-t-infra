@@ -6,27 +6,27 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22627,
+    "files": 22705,
     "by_lang": {
-      "sh": 593,
-      "js": 500,
-      "py": 170,
-      "kotlin": 12134,
+      "sh": 610,
+      "js": 504,
+      "py": 173,
+      "kotlin": 12184,
       "java": 647,
-      "nix": 31,
+      "nix": 35,
       "rust": 111,
       "ts": 8441
     },
     "by_role": {
       "hook": 158,
-      "file": 2283,
-      "shell": 469,
-      "script": 262,
+      "file": 2284,
+      "shell": 486,
+      "script": 264,
       "java": 646,
-      "kotlin": 12131,
-      "module": 6425,
-      "flake": 27,
-      "python": 55,
+      "kotlin": 12181,
+      "python": 56,
+      "module": 6428,
+      "flake": 31,
       "rust-module": 111,
       "nix-module": 4,
       "entrypoint": 3,
@@ -232,6 +232,34 @@
       "symbols": [
         "repo_is_private()",
         "verify_visibility()"
+      ]
+    },
+    {
+      "path": ".github/workflows/scripts/cloud_android_app_families.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "load(root)",
+        "prefix_class(root)",
+        "top_dirs(root)",
+        "family_of(root, dirname)",
+        "fleet_id(root, dirname)",
+        "folder_of(root, member)",
+        "folder_of_name(root, name)"
+      ],
+      "imports": [
+        "json",
+        "os",
+        "re"
+      ],
+      "symbols": [
+        "load(root)",
+        "prefix_class(root)",
+        "top_dirs(root)",
+        "family_of(root, dirname)",
+        "fleet_id(root, dirname)",
+        "folder_of(root, member)",
+        "folder_of_name(root, name)"
       ]
     },
     {
@@ -1023,7 +1051,8 @@
       "imports": [
         "cloud_android_lib_closure",
         "glob",
-        "xml.etree.ElementTree"
+        "xml.etree.ElementTree",
+        "cloud_android_app_families"
       ],
       "symbols": [
         "label(path)",
@@ -1081,7 +1110,8 @@
         "json",
         "os",
         "re",
-        "sys"
+        "sys",
+        "cloud_android_app_families"
       ],
       "symbols": [
         "load(p)",
@@ -2006,7 +2036,8 @@
         "main(root)"
       ],
       "imports": [
-        "json"
+        "json",
+        "cloud_android_app_families"
       ],
       "symbols": [
         "code(text)",
@@ -2778,6 +2809,34 @@
       "symbols": [
         "repo_is_private()",
         "verify_visibility()"
+      ]
+    },
+    {
+      "path": "1_cicd/src/scripts/cloud_android_app_families.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "load(root)",
+        "prefix_class(root)",
+        "top_dirs(root)",
+        "family_of(root, dirname)",
+        "fleet_id(root, dirname)",
+        "folder_of(root, member)",
+        "folder_of_name(root, name)"
+      ],
+      "imports": [
+        "json",
+        "os",
+        "re"
+      ],
+      "symbols": [
+        "load(root)",
+        "prefix_class(root)",
+        "top_dirs(root)",
+        "family_of(root, dirname)",
+        "fleet_id(root, dirname)",
+        "folder_of(root, member)",
+        "folder_of_name(root, name)"
       ]
     },
     {
@@ -3569,7 +3628,8 @@
       "imports": [
         "cloud_android_lib_closure",
         "glob",
-        "xml.etree.ElementTree"
+        "xml.etree.ElementTree",
+        "cloud_android_app_families"
       ],
       "symbols": [
         "label(path)",
@@ -3627,7 +3687,8 @@
         "json",
         "os",
         "re",
-        "sys"
+        "sys",
+        "cloud_android_app_families"
       ],
       "symbols": [
         "load(p)",
@@ -4552,7 +4613,8 @@
         "main(root)"
       ],
       "imports": [
-        "json"
+        "json",
+        "cloud_android_app_families"
       ],
       "symbols": [
         "code(text)",
@@ -6569,6 +6631,26 @@
         "bad()",
         "scratch()",
         "plant()"
+      ]
+    },
+    {
+      "path": "1_cicd/src/templates/test-lnktree-app.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mutant()",
+        "jedit()"
+      ],
+      "imports": [],
+      "symbols": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mutant()",
+        "jedit()"
       ]
     },
     {
@@ -19759,6 +19841,7 @@
         "androidx.compose.ui.test.onNodeWithTag",
         "androidx.compose.ui.test.onNodeWithText",
         "androidx.compose.ui.test.performClick",
+        "androidx.compose.ui.test.performScrollTo",
         "com.diegonmarcos.superapp.cal.TaskEvent",
         "com.diegonmarcos.superapp.cal.TaskTodo",
         "com.diegonmarcos.superapp.cal.TasksPopup",
@@ -24936,6 +25019,20 @@
       ]
     },
     {
+      "path": "aa_cloud-superapp/data/app-categories.py",
+      "lang": "py",
+      "role": "python",
+      "exports": [
+        "derive(bj, apps)"
+      ],
+      "imports": [
+        "json"
+      ],
+      "symbols": [
+        "derive(bj, apps)"
+      ]
+    },
+    {
       "path": "aa_cloud-superapp/data/audit-fleet.sh",
       "lang": "sh",
       "role": "shell",
@@ -25204,6 +25301,26 @@
         "ok()",
         "bad()",
         "check()"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/test/test-app-families.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "check()",
+        "ok()",
+        "bad()",
+        "stage()",
+        "mutant()"
+      ],
+      "imports": [],
+      "symbols": [
+        "check()",
+        "ok()",
+        "bad()",
+        "stage()",
+        "mutant()"
       ]
     },
     {
@@ -26993,6 +27110,28 @@
       "symbols": [
         "ok()",
         "bad()"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/test/test-store-cloud-categories.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "bad()",
+        "expected()",
+        "actual()",
+        "check()",
+        "mut()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "bad()",
+        "expected()",
+        "actual()",
+        "check()",
+        "mut()"
       ]
     },
     {
@@ -32641,7 +32780,6 @@
         "fleetObjects(key: String)",
         "applicationOf(id: String)",
         "shelfOf(app: Fleet.App)",
-        "jevShelf(app: Fleet.App)",
         "headingOf(app: Fleet.App)",
         "palette()",
         "onResume()",
@@ -32677,7 +32815,8 @@
         "runStage(ctx: Context, app: Fleet.App, verb: String)",
         "rowAction(ctx: Context, app: Fleet.App, a: FleetActions.Action, stg: StoreStages.Stage?)",
         "verb(onClick: ()",
-        "stageVerb(ctx: Context, app: Fleet.App, a: FleetActions.Action, verb: String, stg: StoreStages.Stage?, tag: String)"
+        "stageVerb(ctx: Context, app: Fleet.App, a: FleetActions.Action, verb: String, stg: StoreStages.Stage?, tag: String)",
+        "stop(ctx: Context, app: Fleet.App)"
       ]
     },
     {
@@ -91559,6 +91698,26 @@
       ]
     },
     {
+      "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/DateForms.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "DateForms"
+      ],
+      "imports": [
+        "java.time.format.TextStyle",
+        "java.util.Locale"
+      ],
+      "symbols": [
+        "label(o: Declarations.Output, values: Map<String, String>, bind: Map<String, String>)",
+        "result(book: WorkingDays.Book, o: Declarations.Output, bind: Map<String, String>, values: Map<String, String>)",
+        "v(role: String)",
+        "ok(text: String)",
+        "bad(why: String)",
+        "class DateForms"
+      ]
+    },
+    {
       "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/debugapi/CalcDebugApi.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -91879,6 +92038,7 @@
         "class Tab",
         "class Key",
         "class Action",
+        "class Option",
         "class Field",
         "class Output",
         "class Form",
@@ -92010,8 +92170,11 @@
       ],
       "symbols": [
         "parseConfig(json: String)",
+        "parseGraph(g: JSONObject)",
         "category(o: JSONObject)",
         "parseCatalog(json: String)",
+        "parsePlot(o: JSONObject)",
+        "plotProblems(p: PlotSpec)",
         "problems(c: Catalog)",
         "chips(c: Catalog, cfg: Config)",
         "filter(c: Catalog, mine: List<Formula>, favourites: Set<String>, chip: String, query: String, cfg: Config)",
@@ -92036,18 +92199,62 @@
         "class Palette",
         "class Category",
         "class EvalRules",
+        "class CustomPlot",
+        "class GraphConfig",
         "class Config",
         "class Formula",
         "class Catalog",
-        "class Edited",
+        "class PlotVar",
+        "class PlotAnim",
+        "class PlotWave",
+        "class PlotSpec",
+        "class Edited"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/LatexPlot.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LatexPlot"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "lex(tex: String, ignored: Set<String>)",
+        "peek()",
+        "isSym(c: Char)",
+        "isCmd(n: String)",
+        "close(c: Char)",
+        "expr()",
+        "startsFactor(p: T?)",
+        "term()",
+        "unary()",
+        "power()",
+        "exponent()",
+        "exponentAtom()",
+        "variable(name: String)",
+        "letter(c: Char)",
+        "group()",
+        "atom()",
+        "funArg()",
+        "command(n: String)",
+        "lhsName(lhs: List<T>)",
+        "convert(tex: String, rules: Latex.GraphConfig)",
+        "spec(ok: Conversion.Ok, title: String, caption: String, c: Latex.CustomPlot)",
+        "class LatexPlot",
         "class Conversion",
         "class Ok",
         "class Unsupported",
         "class Stop",
-        "class Tok",
+        "class T",
+        "class Num",
+        "class Let",
         "class Cmd",
-        "class Ch",
-        "class Parser"
+        "class Sym",
+        "class P"
       ]
     },
     {
@@ -92145,6 +92352,69 @@
         "class Oven",
         "class Data",
         "class Macros"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/PlotExpr.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PlotExpr"
+      ],
+      "imports": [
+        "kotlin.math.abs",
+        "kotlin.math.atan2",
+        "kotlin.math.ceil",
+        "kotlin.math.cos",
+        "kotlin.math.exp",
+        "kotlin.math.floor",
+        "kotlin.math.hypot",
+        "kotlin.math.ln",
+        "kotlin.math.max",
+        "kotlin.math.min",
+        "kotlin.math.pow",
+        "kotlin.math.sin",
+        "kotlin.math.sqrt"
+      ],
+      "symbols": [
+        "eval(c: Ctx)",
+        "eval(env: Map<String, Double>)",
+        "lanczos(z: Double)",
+        "gamma(z0: Double)",
+        "lgamma(z0: Double)",
+        "fact(n: Double)",
+        "erf(x: Double)",
+        "comb(n: Double, k0: Double)",
+        "primepi(x: Double)",
+        "rnd(k: Double)",
+        "agm(a0: Double, b0: Double, n0: Double, second: Boolean)",
+        "cfan(x: Double, n0: Double)",
+        "logistic(r: Double, x0: Double, n0: Double)",
+        "tokenize(src: String)",
+        "isAsciiLetter()",
+        "compile(src: String, vars: Collection<String>)",
+        "run()",
+        "show(t: Tok)",
+        "isOp(v: String)",
+        "take(v: String)",
+        "cmp()",
+        "add()",
+        "mul()",
+        "unary()",
+        "pow()",
+        "args()",
+        "primary()",
+        "binder(kind: String)",
+        "class PlotExpr",
+        "class ExprException",
+        "class Ctx",
+        "class Node",
+        "class Compiled",
+        "class Tok",
+        "class Num",
+        "class Id",
+        "class Op",
+        "class Parser"
       ]
     },
     {
@@ -92586,6 +92856,7 @@
         "openConfigs()",
         "toggleConfigs()",
         "openLatexEditor(draft: LatexModel.Draft)",
+        "openLatexGraph(target: LatexModel.GraphTarget)",
         "remember(e: Logic.Entry, max: Int)",
         "deleteHistory(index: Int)",
         "save(next: List<Logic.Entry>)",
@@ -92873,6 +93144,67 @@
       ]
     },
     {
+      "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/ui/DateFields.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "DateTags"
+      ],
+      "imports": [
+        "androidx.compose.foundation.BorderStroke",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.aspectRatio",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.shape.CircleShape",
+        "androidx.compose.material3.DropdownMenu",
+        "androidx.compose.material3.DropdownMenuItem",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.OutlinedButton",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Switch",
+        "androidx.compose.material3.Text",
+        "androidx.compose.material3.TextButton",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.text.style.TextAlign",
+        "com.diegonmarcos.cloudcalc.Declarations",
+        "com.diegonmarcos.cloudcalc.RangeSelection",
+        "com.diegonmarcos.cloudcalc.WorkingDays",
+        "java.time.DayOfWeek",
+        "java.time.LocalDate",
+        "java.time.YearMonth",
+        "java.time.format.TextStyle",
+        "java.time.temporal.WeekFields"
+      ],
+      "symbols": [
+        "day(d: LocalDate)",
+        "choice(id: String)",
+        "toggle(id: String)",
+        "ChoiceField(label: String, options: List<Declarations.Option>, value: String, tag: String, onPick: (String)",
+        "ToggleField(label: String, value: Boolean, tag: String, onChange: (Boolean)",
+        "DateField( label: String, text: String, onText: (String)",
+        "CalendarGrid(selection: RangeSelection, calendar: (LocalDate)",
+        "weekendFor(bind: Map<String, String>, values: Map<String, String>)",
+        "class DateTags"
+      ]
+    },
+    {
       "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/ui/IconCatalog.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -93090,7 +93422,8 @@
         "isFavourite(id: String)",
         "persist()",
         "class LatexModel",
-        "class Draft"
+        "class Draft",
+        "class GraphTarget"
       ]
     },
     {
@@ -93102,7 +93435,8 @@
         "TexHandle",
         "TexView",
         "LatexLibraryMode",
-        "LatexEditorMode"
+        "LatexEditorMode",
+        "LatexGraphMode"
       ],
       "imports": [
         "android.annotation.SuppressLint",
@@ -93116,6 +93450,7 @@
         "android.webkit.WebView",
         "android.webkit.WebViewClient",
         "androidx.activity.compose.BackHandler",
+        "androidx.compose.foundation.clickable",
         "androidx.compose.foundation.layout.Arrangement",
         "androidx.compose.foundation.layout.Column",
         "androidx.compose.foundation.layout.Row",
@@ -93123,9 +93458,12 @@
         "androidx.compose.foundation.layout.fillMaxWidth",
         "androidx.compose.foundation.layout.height",
         "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.lazy.LazyColumn",
         "androidx.compose.foundation.lazy.LazyRow",
         "androidx.compose.foundation.lazy.items",
         "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.text.KeyboardOptions",
         "androidx.compose.foundation.text.selection.SelectionContainer",
         "androidx.compose.foundation.verticalScroll",
         "androidx.compose.material3.AlertDialog",
@@ -93137,16 +93475,14 @@
         "androidx.compose.material3.MaterialTheme",
         "androidx.compose.material3.OutlinedButton",
         "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Slider",
         "androidx.compose.material3.Text",
         "androidx.compose.material3.TextButton",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.LaunchedEffect",
-        "androidx.compose.runtime.SideEffect",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableIntStateOf",
-        "androidx.compose.runtime.mutableStateOf"
+        "androidx.compose.runtime.Composable"
       ],
       "symbols": [
+        "graphField(symbol: String)",
+        "graphSlider(symbol: String)",
         "chip(id: String)",
         "symbol(label: String)",
         "run(js: String)",
@@ -93170,9 +93506,21 @@
         "record(result: String = \"\")",
         "LatexEditorMode(mode: Declarations.Mode)",
         "evaluate()",
+        "ready()",
+        "probe(which: String, text: String)",
+        "anim(name: String, value: Double)",
+        "error(message: String)",
+        "grab(on: Boolean)",
+        "plotLabels()",
+        "plotMessage(spec: Latex.PlotSpec, mode: String, labels: String, values: Map<String, Double>? = null)",
+        "PlotView( handle: TexHandle, modifier: Modifier = Modifier, onProbe: (String, String)",
+        "fmtNum(d: Double)",
+        "snap(v: Double, min: Double, step: Double)",
+        "VarEditor(v: Latex.PlotVar, values: MutableMap<String, Double>)",
+        "LatexGraphMode(mode: Declarations.Mode)",
+        "plotCustom(tex: String, title: String)",
         "class LatexTags",
-        "class TexHandle",
-        "class TexBridge"
+        "class TexHandle"
       ]
     },
     {
@@ -93286,6 +93634,7 @@
         "ratesLine(json: String)",
         "UnitPicker( units: List<Logic.Item>, selected: String, favourites: List<String>, modifier: Modifier, text: (Logic.Item?, String)",
         "item(name: String)",
+        "holidayBook(ctx: android.content.Context, mode: Declarations.Mode)",
         "FormMode(mode: Declarations.Mode)",
         "FormBody(mode: Declarations.Mode, form: Declarations.Form)",
         "PlotMode(mode: Declarations.Mode)",
@@ -93713,6 +94062,52 @@
         "share(f: File)",
         "TrackerLinkMode(mode: Declarations.Mode)",
         "class ToolkitTags"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/WorkingDays.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "WorkingDays",
+        "RangeSelection"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "java.time.DayOfWeek",
+        "java.time.LocalDate"
+      ],
+      "symbols": [
+        "on(year: Int)",
+        "easter(year: Int)",
+        "has(id: String)",
+        "holidays(region: String, year: Int)",
+        "forCountry(country: String)",
+        "calendar(region: String, weekend: Set<DayOfWeek>)",
+        "parse(json: String)",
+        "rule(o: JSONObject)",
+        "weekendOf(value: String)",
+        "holidayName(d: LocalDate)",
+        "isWeekend(d: LocalDate)",
+        "isHoliday(d: LocalDate)",
+        "isWorking(d: LocalDate)",
+        "between(from: LocalDate, to: LocalDate, inclusive: Boolean)",
+        "add(from: LocalDate, n: Int)",
+        "date(text: String)",
+        "objects()",
+        "tap(day: LocalDate)",
+        "contains(d: LocalDate)",
+        "class WorkingDays",
+        "class Rule",
+        "class Fixed",
+        "class FromEaster",
+        "class NthWeekday",
+        "class Region",
+        "class Book",
+        "class Span",
+        "class Calendar",
+        "class RangeSelection"
       ]
     },
     {
@@ -94165,6 +94560,32 @@
       ]
     },
     {
+      "path": "ac_cloud-calc/app/src/test/java/com/diegonmarcos/cloudcalc/PlotTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PlotTest"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "java.io.File"
+      ],
+      "symbols": [
+        "eval(expr: String, vars: Map<String, Double> = emptyMap()",
+        "rejected(expr: String, vars: Collection<String> = listOf(\"x\")",
+        "conv(tex: String)",
+        "ok(tex: String)",
+        "why(tex: String)",
+        "class PlotTest"
+      ]
+    },
+    {
       "path": "ac_cloud-calc/app/src/test/java/com/diegonmarcos/cloudcalc/SensorsAppTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -94477,6 +94898,33 @@
       ]
     },
     {
+      "path": "ac_cloud-calc/app/src/test/java/com/diegonmarcos/cloudcalc/WorkingDaysTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "WorkingDaysTest"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "java.io.File",
+        "java.time.DayOfWeek",
+        "java.time.LocalDate"
+      ],
+      "symbols": [
+        "d(s: String)",
+        "es(weekend: Set<DayOfWeek> = satSun)",
+        "form(id: String)",
+        "values(vararg kv: Pair<String, String>)",
+        "out(label: String, v: Map<String, String>)",
+        "class WorkingDaysTest"
+      ]
+    },
+    {
       "path": "ac_cloud-calc/build.sh",
       "lang": "sh",
       "role": "shell",
@@ -94667,6 +95115,110 @@
       ]
     },
     {
+      "path": "ac_cloud-calc/data/assets/latex/plot/expr.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [],
+      "imports": [],
+      "symbols": [
+        "ExprError(message)",
+        "lanczos(z)",
+        "gamma(z)",
+        "lgamma(z)",
+        "fact(n)",
+        "erf(x)",
+        "comb(n, k)",
+        "primepi(x)",
+        "rnd(k)",
+        "agm(a, b, n, second)",
+        "cfan(x, n)",
+        "table(o)",
+        "tokenize(src)",
+        "compile(src, vars)",
+        "peek()",
+        "isOp(v)",
+        "take(v)",
+        "cmp()",
+        "add()",
+        "mul()",
+        "unary()",
+        "pow()",
+        "args()",
+        "primary()",
+        "binder(kind)"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/data/assets/latex/plot/graph.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [],
+      "imports": [],
+      "symbols": [
+        "el(id)",
+        "fin(x)",
+        "quant(sorted, q)",
+        "robust(vals)",
+        "niceStep(span, target)",
+        "fmt(x)",
+        "mix(c0, c1, t)",
+        "ramp(t)",
+        "rgb(c, k)",
+        "colorOf(i)",
+        "say(id, text)",
+        "report(name)",
+        "setup(canvas, cssH)",
+        "heights()",
+        "defaults(plot)",
+        "fail(msg)",
+        "layout()",
+        "schedule()",
+        "tick(now)",
+        "redraw3()",
+        "frame2(s)",
+        "draw2d()",
+        "X(x)",
+        "Y(y)",
+        "probe2d(px, py, free)",
+        "toX(sx)",
+        "toY(sy)",
+        "bounds3(s)",
+        "project(v, p, W, H)",
+        "draw3d()",
+        "norm(p)",
+        "P(p)",
+        "probe3d(px, py, radius)",
+        "local(canvas, e)",
+        "wire()",
+        "clear()",
+        "count()",
+        "up2()",
+        "end3(e)"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/data/assets/latex/plot/model.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [],
+      "imports": [
+        "./expr.js"
+      ],
+      "symbols": [
+        "solid(k)",
+        "sgn(n)",
+        "dist(p, q)",
+        "prepare(plot)",
+        "layers(block, label)",
+        "lin(lo, hi, n)",
+        "range(p, name)",
+        "fin(x)",
+        "sample2d(p, values)",
+        "sample3d(p, values)",
+        "badCount(samples)"
+      ]
+    },
+    {
       "path": "ac_cloud-calc/data/assets/latex/viewer.js",
       "lang": "js",
       "role": "module",
@@ -94684,6 +95236,7 @@
       "role": "file",
       "exports": [
         "parse",
+        "expandPlot",
         "build"
       ],
       "imports": [
@@ -94694,7 +95247,9 @@
       ],
       "symbols": [
         "parse(md)",
-        "build(md)"
+        "expandPlot(id, src, problems)",
+        "build(mdOwner, mdPi, plots)",
+        "samplePlots(formulas, bad)"
       ]
     },
     {
@@ -95747,6 +96302,18 @@
       ]
     },
     {
+      "path": "ac_cloud-calc/test/test-calc-datetime.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "mutate()"
+      ],
+      "imports": [],
+      "symbols": [
+        "mutate()"
+      ]
+    },
+    {
       "path": "ac_cloud-calc/test/test-calc-icon.sh",
       "lang": "sh",
       "role": "shell",
@@ -95846,6 +96413,23 @@
         "bad()",
         "scratch()",
         "plant()"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/test/test-plots.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "node:fs",
+        "node:path",
+        "node:vm",
+        "node:module",
+        "node:url"
+      ],
+      "symbols": [
+        "ctxFor(sink)",
+        "makeEnv()"
       ]
     },
     {
@@ -173448,6 +174032,38 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/configs/GeneralDecl.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GeneralDecl"
+      ],
+      "imports": [
+        "kotlinx.serialization.json.Json",
+        "kotlinx.serialization.json.JsonArray",
+        "kotlinx.serialization.json.JsonElement",
+        "kotlinx.serialization.json.JsonObject",
+        "kotlinx.serialization.json.JsonPrimitive",
+        "kotlinx.serialization.json.booleanOrNull",
+        "kotlinx.serialization.json.contentOrNull",
+        "kotlinx.serialization.json.intOrNull"
+      ],
+      "symbols": [
+        "status(e: PermEntry, sdk: Int, manufacturer: String, granted: Boolean?, requiredPackageInstalled: Boolean = true)",
+        "resolve(text: String, vars: Map<String, String>)",
+        "str(k: String)",
+        "strings(k: String)",
+        "objects(e: JsonElement?)",
+        "parse(text: String)",
+        "class GeneralDecl",
+        "class Anchor",
+        "class IntentSpec",
+        "class PermEntry",
+        "class General",
+        "class Status"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/configs/GeneralPage.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -173462,12 +174078,15 @@
         "androidx.compose.foundation.layout.fillMaxWidth",
         "androidx.compose.foundation.layout.padding",
         "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.lazy.rememberLazyListState",
         "androidx.compose.material3.MaterialTheme",
         "androidx.compose.material3.Switch",
         "androidx.compose.material3.Text",
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.collectAsState",
         "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.rememberCoroutineScope",
         "androidx.compose.ui.Alignment",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.res.stringResource",
@@ -173482,12 +174101,80 @@
         "com.diegonmarcos.clouddrive.ui.Pill",
         "com.diegonmarcos.clouddrive.ui.PillRow",
         "com.diegonmarcos.clouddrive.ui.SectionHeader",
-        "com.diegonmarcos.clouddrive.ui.StatusLight"
+        "com.diegonmarcos.clouddrive.ui.StatusLight",
+        "kotlinx.coroutines.launch"
       ],
       "symbols": [
         "GeneralPage(prefs: DrivePrefs, actions: DriveActions, hasAccess: Boolean, rcloneVersion: String? = null, modifier: Modifier = Modifier)",
+        "ExplorerSection(prefs: DrivePrefs, actions: DriveActions, hasAccess: Boolean, snap: DrivePrefs.Snapshot)",
+        "ManageSection(prefs: DrivePrefs, snap: DrivePrefs.Snapshot)",
+        "AgentsSection(prefs: DrivePrefs, snap: DrivePrefs.Snapshot)",
         "ToggleRow(label: String, checked: Boolean, onChange: (Boolean)",
         "sortLabel(key: String)"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/configs/GeneralPerms.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GeneralPerms",
+        "GeneralAnchorRow",
+        "GeneralPermsSection"
+      ],
+      "imports": [
+        "android.app.AppOpsManager",
+        "android.content.ComponentName",
+        "android.content.Context",
+        "android.content.Intent",
+        "android.content.pm.PackageManager",
+        "android.net.Uri",
+        "android.os.Build",
+        "android.os.Environment",
+        "android.os.PowerManager",
+        "android.provider.Settings",
+        "androidx.activity.compose.rememberLauncherForActivityResult",
+        "androidx.activity.result.contract.ActivityResultContracts",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.material3.HorizontalDivider",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.IconButton",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.mutableIntStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.lifecycle.compose.LocalLifecycleOwner",
+        "androidx.lifecycle.Lifecycle",
+        "androidx.lifecycle.repeatOnLifecycle",
+        "com.diegonmarcos.clouddrive.BuildConfig",
+        "com.diegonmarcos.clouddrive.R"
+      ],
+      "symbols": [
+        "vars()",
+        "names(e: GeneralDecl.PermEntry)",
+        "held(ctx: Context, p: String)",
+        "granted(ctx: Context, e: GeneralDecl.PermEntry)",
+        "status(ctx: Context, e: GeneralDecl.PermEntry)",
+        "intentOf(ctx: Context, s: GeneralDecl.IntentSpec)",
+        "open(ctx: Context, e: GeneralDecl.PermEntry)",
+        "GeneralAnchorRow(anchors: List<GeneralDecl.Anchor>, onSelect: (Int)",
+        "GeneralPermsSection(perms: List<GeneralDecl.PermEntry>)",
+        "class GeneralPerms"
       ]
     },
     {
@@ -179392,6 +180079,40 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/configs/GeneralDeclTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GeneralDeclTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.ui.IconCatalog",
+        "com.diegonmarcos.clouddrive.configs.GeneralDecl.Status",
+        "java.io.File",
+        "kotlinx.serialization.json.Json",
+        "kotlinx.serialization.json.jsonObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "entry(id: String)",
+        "e(check: String, min: Int? = null, max: Int? = null, oem: String = \"\", pkg: String = \"\")",
+        "everyManifestPermissionIsDeclaredAndEveryDeclaredOneIsInTheManifest()",
+        "anchorsAreUniqueIconedAndEndWithPermsBeforeDevice()",
+        "anchorsMatchTheSectionsGeneralPageDrawsInOrder()",
+        "theBatteryOptimisationEntryExistsWithItsIntent()",
+        "theSamsungEntryTriesTheNeverSleepingComponentFirstAndFallsBackToAppInfo()",
+        "everyEntryIsWellFormed()",
+        "statusMapping()",
+        "placeholdersResolveAndUnknownOnesStay()",
+        "class is",
+        "class GeneralDeclTest"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/DeclarationsTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -182132,6 +182853,22 @@
         "f7()",
         "run()",
         "mut()"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/test/test-drive-general-perms.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "pass()",
+        "fail()",
+        "py()"
+      ],
+      "imports": [],
+      "symbols": [
+        "pass()",
+        "fail()",
+        "py()"
       ]
     },
     {
@@ -580414,6 +581151,1634 @@
         "NavShell(decl: NavDecl)",
         "MockPage()",
         "class MockRow"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Decl.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Decl"
+      ],
+      "imports": [
+        "android.util.Base64",
+        "com.diegonmarcos.superapp.bottomnav.NavDecl"
+      ],
+      "symbols": [
+        "decode(b64: String)",
+        "class Decl"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Holdings.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Holding",
+        "Holdings"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "parse(json: String)",
+        "toJson(list: List<Holding>)",
+        "add(list: List<Holding>, ticker: String, quantity: String, cost: String)",
+        "remove(list: List<Holding>, index: Int)",
+        "costBasis(list: List<Holding>)",
+        "class Holding",
+        "class Holdings"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/MainActivity.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "MainActivity"
+      ],
+      "imports": [
+        "android.os.Bundle",
+        "androidx.activity.ComponentActivity",
+        "androidx.activity.compose.setContent",
+        "com.diegonmarcos.capitalfinterm.ui.AppShell",
+        "com.diegonmarcos.capitalfinterm.ui.AppTheme",
+        "com.diegonmarcos.superapp.bottomnav.FleetChrome"
+      ],
+      "symbols": [
+        "onCreate(savedInstanceState: Bundle?)",
+        "class MainActivity"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Pages.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Entry",
+        "Pages"
+      ],
+      "imports": [
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "entries(stacks: String, sectionId: String)",
+        "resolve(e: Entry, targets: String)",
+        "class Entry",
+        "class Pages"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/AppShell.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Tags",
+        "AppShell"
+      ],
+      "imports": [
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.WindowInsets",
+        "androidx.compose.foundation.layout.displayCutout",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.statusBars",
+        "androidx.compose.foundation.layout.union",
+        "androidx.compose.foundation.layout.windowInsetsPadding",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "com.diegonmarcos.capitalfinterm.Decl",
+        "com.diegonmarcos.capitalfinterm.R",
+        "com.diegonmarcos.superapp.bottomnav.islandEntries",
+        "com.diegonmarcos.superapp.bottomnav.rememberAccountLauncher",
+        "com.diegonmarcos.superapp.navbarbottom.NavBarBottomHost",
+        "com.diegonmarcos.superapp.navbartop1.NavBarTopFirstRowScaffold",
+        "com.diegonmarcos.superapp.navbartop1.titleHierarchy",
+        "com.diegonmarcos.superapp.themebg.themeBackground"
+      ],
+      "symbols": [
+        "entry(title: String)",
+        "AppShell()",
+        "class Tags"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/AppTheme.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AppTheme"
+      ],
+      "imports": [
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.res.colorResource",
+        "com.diegonmarcos.capitalfinterm.R",
+        "com.diegonmarcos.superapp.uikit.CloudKitTheme",
+        "com.diegonmarcos.superapp.uikit.KitPalette"
+      ],
+      "symbols": [
+        "AppTheme(content: @Composable ()"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/HoldingsPanel.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HoldingsPanel"
+      ],
+      "imports": [
+        "android.content.Context",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.text.KeyboardOptions",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.input.KeyboardType",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.capitalfinterm.Holding",
+        "com.diegonmarcos.capitalfinterm.Holdings",
+        "com.diegonmarcos.capitalfinterm.R",
+        "com.diegonmarcos.superapp.uikit.KitButton",
+        "com.diegonmarcos.superapp.uikit.KitCard",
+        "com.diegonmarcos.superapp.uikit.KitSectionHeader",
+        "com.diegonmarcos.superapp.uikit.KitSettingsRow",
+        "com.diegonmarcos.superapp.uikit.KitTextButton",
+        "java.util.Locale"
+      ],
+      "symbols": [
+        "HoldingsPanel()",
+        "save(list: List<Holding>)",
+        "fmt(x: Double)"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/SectionPage.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "SectionPage"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.content.Intent",
+        "android.net.Uri",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.alpha",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.capitalfinterm.BuildConfig",
+        "com.diegonmarcos.capitalfinterm.Decl",
+        "com.diegonmarcos.capitalfinterm.Entry",
+        "com.diegonmarcos.capitalfinterm.Pages",
+        "com.diegonmarcos.capitalfinterm.R",
+        "com.diegonmarcos.superapp.uikit.GroupTitle",
+        "com.diegonmarcos.superapp.uikit.KitCard",
+        "com.diegonmarcos.superapp.uikit.KitSectionHeader",
+        "com.diegonmarcos.superapp.uikit.KitSettingsRow",
+        "com.diegonmarcos.superapp.uikit.LocalKitPalette"
+      ],
+      "symbols": [
+        "SectionPage(sectionId: String)",
+        "EntryRow(e: Entry, url: String?, onOpen: (String)",
+        "AboutPanel()",
+        "openUrl(ctx: Context, url: String)"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/HoldingsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HoldingsTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "addValidatesAndUppercases()",
+        "roundTripsThroughJson()",
+        "removeAndCostBasis()",
+        "class HoldingsTest"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/PagesTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PagesTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "entriesKeepTheirOrderAndFields()",
+        "anUndeclaredSectionHasNoEntries()",
+        "eachSourceResolvesFromTheBakedTargets()",
+        "plannedOrSourcelessOrUnresolvedIsNull()",
+        "class PagesTest"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/build.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "_ghcr_publish()",
+        "_ghcr_source()",
+        "log()",
+        "errlog()",
+        "in_nix()",
+        "in_nix_emulator()",
+        "prefer_host()",
+        "_resolve_signing()",
+        "_enforce_signature()",
+        "step_build()",
+        "step_release()",
+        "step_dev()",
+        "step_test()",
+        "step_instrument()",
+        "step_lint()",
+        "step_clean()",
+        "step_shell()",
+        "step_ship()",
+        "step_waydroid_install()",
+        "step_emulator()",
+        "_release_var()",
+        "_variant_field()",
+        "_variant_artifact()",
+        "_variant_gh_asset()",
+        "_variant_tag_suffix()",
+        "_export_variant_abis()",
+        "_resolve_template()",
+        "_ghcr_gate_public()",
+        "step_oras_push()",
+        "step_oras_pull()"
+      ],
+      "imports": [],
+      "symbols": [
+        "_ghcr_publish()",
+        "_ghcr_source()",
+        "log()",
+        "errlog()",
+        "in_nix()",
+        "in_nix_emulator()",
+        "prefer_host()",
+        "_resolve_signing()",
+        "_enforce_signature()",
+        "step_build()",
+        "step_release()",
+        "step_dev()",
+        "step_test()",
+        "step_instrument()",
+        "step_lint()",
+        "step_clean()",
+        "step_shell()",
+        "step_ship()",
+        "step_waydroid_install()",
+        "step_emulator()",
+        "_release_var()",
+        "_variant_field()",
+        "_variant_artifact()",
+        "_variant_gh_asset()",
+        "_variant_tag_suffix()",
+        "_export_variant_abis()",
+        "_resolve_template()",
+        "_ghcr_gate_public()",
+        "step_oras_push()",
+        "step_oras_pull()",
+        "step_phone_install()",
+        "_verify_asset_abi_neutral()",
+        "_sha256_sidecar()",
+        "_verify_release_asset()",
+        "_publish_release_asset()",
+        "step_gh_release()"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/flake.nix",
+      "lang": "nix",
+      "role": "flake",
+      "exports": [],
+      "imports": [],
+      "symbols": [
+        "description",
+        "inputs",
+        "outputs",
+        "pkgs",
+        "config",
+        "allowUnfree",
+        "baseAndroidArgs",
+        "toolsVersion",
+        "platformToolsVersion",
+        "buildToolsVersions",
+        "platformVersions",
+        "includeNDK",
+        "androidEnv",
+        "androidSdk",
+        "emulatorEnv",
+        "includeEmulator",
+        "includeSystemImages",
+        "systemImageTypes",
+        "abiVersions",
+        "emulatorSdk",
+        "name",
+        "buildInputs",
+        "shellHook"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/test/test-fleet-setup.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "bad()",
+        "scratch()",
+        "plant()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "bad()",
+        "scratch()",
+        "plant()"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/test/test-lnktree-app.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mutant()",
+        "jedit()"
+      ],
+      "imports": [],
+      "symbols": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mutant()",
+        "jedit()"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/Decl.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Decl"
+      ],
+      "imports": [
+        "android.util.Base64",
+        "com.diegonmarcos.superapp.bottomnav.NavDecl"
+      ],
+      "symbols": [
+        "decode(b64: String)",
+        "class Decl"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/Holdings.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Holding",
+        "Holdings"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "parse(json: String)",
+        "toJson(list: List<Holding>)",
+        "add(list: List<Holding>, ticker: String, quantity: String, cost: String)",
+        "remove(list: List<Holding>, index: Int)",
+        "costBasis(list: List<Holding>)",
+        "class Holding",
+        "class Holdings"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/MainActivity.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "MainActivity"
+      ],
+      "imports": [
+        "android.os.Bundle",
+        "androidx.activity.ComponentActivity",
+        "androidx.activity.compose.setContent",
+        "com.diegonmarcos.cgomniverse.ui.AppShell",
+        "com.diegonmarcos.cgomniverse.ui.AppTheme",
+        "com.diegonmarcos.superapp.bottomnav.FleetChrome"
+      ],
+      "symbols": [
+        "onCreate(savedInstanceState: Bundle?)",
+        "class MainActivity"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/Pages.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Entry",
+        "Pages"
+      ],
+      "imports": [
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "entries(stacks: String, sectionId: String)",
+        "resolve(e: Entry, targets: String)",
+        "class Entry",
+        "class Pages"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/ui/AppShell.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Tags",
+        "AppShell"
+      ],
+      "imports": [
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.WindowInsets",
+        "androidx.compose.foundation.layout.displayCutout",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.statusBars",
+        "androidx.compose.foundation.layout.union",
+        "androidx.compose.foundation.layout.windowInsetsPadding",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "com.diegonmarcos.cgomniverse.Decl",
+        "com.diegonmarcos.cgomniverse.R",
+        "com.diegonmarcos.superapp.bottomnav.islandEntries",
+        "com.diegonmarcos.superapp.bottomnav.rememberAccountLauncher",
+        "com.diegonmarcos.superapp.navbarbottom.NavBarBottomHost",
+        "com.diegonmarcos.superapp.navbartop1.NavBarTopFirstRowScaffold",
+        "com.diegonmarcos.superapp.navbartop1.titleHierarchy",
+        "com.diegonmarcos.superapp.themebg.themeBackground"
+      ],
+      "symbols": [
+        "entry(title: String)",
+        "AppShell()",
+        "class Tags"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/ui/AppTheme.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AppTheme"
+      ],
+      "imports": [
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.res.colorResource",
+        "com.diegonmarcos.cgomniverse.R",
+        "com.diegonmarcos.superapp.uikit.CloudKitTheme",
+        "com.diegonmarcos.superapp.uikit.KitPalette"
+      ],
+      "symbols": [
+        "AppTheme(content: @Composable ()"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/ui/HoldingsPanel.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HoldingsPanel"
+      ],
+      "imports": [
+        "android.content.Context",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.text.KeyboardOptions",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.input.KeyboardType",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.cgomniverse.Holding",
+        "com.diegonmarcos.cgomniverse.Holdings",
+        "com.diegonmarcos.cgomniverse.R",
+        "com.diegonmarcos.superapp.uikit.KitButton",
+        "com.diegonmarcos.superapp.uikit.KitCard",
+        "com.diegonmarcos.superapp.uikit.KitSectionHeader",
+        "com.diegonmarcos.superapp.uikit.KitSettingsRow",
+        "com.diegonmarcos.superapp.uikit.KitTextButton",
+        "java.util.Locale"
+      ],
+      "symbols": [
+        "HoldingsPanel()",
+        "save(list: List<Holding>)",
+        "fmt(x: Double)"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/ui/SectionPage.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "SectionPage"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.content.Intent",
+        "android.net.Uri",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.alpha",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.cgomniverse.BuildConfig",
+        "com.diegonmarcos.cgomniverse.Decl",
+        "com.diegonmarcos.cgomniverse.Entry",
+        "com.diegonmarcos.cgomniverse.Pages",
+        "com.diegonmarcos.cgomniverse.R",
+        "com.diegonmarcos.superapp.uikit.GroupTitle",
+        "com.diegonmarcos.superapp.uikit.KitCard",
+        "com.diegonmarcos.superapp.uikit.KitSectionHeader",
+        "com.diegonmarcos.superapp.uikit.KitSettingsRow",
+        "com.diegonmarcos.superapp.uikit.LocalKitPalette"
+      ],
+      "symbols": [
+        "SectionPage(sectionId: String)",
+        "EntryRow(e: Entry, url: String?, onOpen: (String)",
+        "AboutPanel()",
+        "openUrl(ctx: Context, url: String)"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/test/java/com/diegonmarcos/cgomniverse/HoldingsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HoldingsTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "addValidatesAndUppercases()",
+        "roundTripsThroughJson()",
+        "removeAndCostBasis()",
+        "class HoldingsTest"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/test/java/com/diegonmarcos/cgomniverse/PagesTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PagesTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "entriesKeepTheirOrderAndFields()",
+        "anUndeclaredSectionHasNoEntries()",
+        "eachSourceResolvesFromTheBakedTargets()",
+        "plannedOrSourcelessOrUnresolvedIsNull()",
+        "class PagesTest"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/build.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "_ghcr_publish()",
+        "_ghcr_source()",
+        "log()",
+        "errlog()",
+        "in_nix()",
+        "in_nix_emulator()",
+        "prefer_host()",
+        "_resolve_signing()",
+        "_enforce_signature()",
+        "step_build()",
+        "step_release()",
+        "step_dev()",
+        "step_test()",
+        "step_instrument()",
+        "step_lint()",
+        "step_clean()",
+        "step_shell()",
+        "step_ship()",
+        "step_waydroid_install()",
+        "step_emulator()",
+        "_release_var()",
+        "_variant_field()",
+        "_variant_artifact()",
+        "_variant_gh_asset()",
+        "_variant_tag_suffix()",
+        "_export_variant_abis()",
+        "_resolve_template()",
+        "_ghcr_gate_public()",
+        "step_oras_push()",
+        "step_oras_pull()"
+      ],
+      "imports": [],
+      "symbols": [
+        "_ghcr_publish()",
+        "_ghcr_source()",
+        "log()",
+        "errlog()",
+        "in_nix()",
+        "in_nix_emulator()",
+        "prefer_host()",
+        "_resolve_signing()",
+        "_enforce_signature()",
+        "step_build()",
+        "step_release()",
+        "step_dev()",
+        "step_test()",
+        "step_instrument()",
+        "step_lint()",
+        "step_clean()",
+        "step_shell()",
+        "step_ship()",
+        "step_waydroid_install()",
+        "step_emulator()",
+        "_release_var()",
+        "_variant_field()",
+        "_variant_artifact()",
+        "_variant_gh_asset()",
+        "_variant_tag_suffix()",
+        "_export_variant_abis()",
+        "_resolve_template()",
+        "_ghcr_gate_public()",
+        "step_oras_push()",
+        "step_oras_pull()",
+        "step_phone_install()",
+        "_verify_asset_abi_neutral()",
+        "_sha256_sidecar()",
+        "_verify_release_asset()",
+        "_publish_release_asset()",
+        "step_gh_release()"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/flake.nix",
+      "lang": "nix",
+      "role": "flake",
+      "exports": [],
+      "imports": [],
+      "symbols": [
+        "description",
+        "inputs",
+        "outputs",
+        "pkgs",
+        "config",
+        "allowUnfree",
+        "baseAndroidArgs",
+        "toolsVersion",
+        "platformToolsVersion",
+        "buildToolsVersions",
+        "platformVersions",
+        "includeNDK",
+        "androidEnv",
+        "androidSdk",
+        "emulatorEnv",
+        "includeEmulator",
+        "includeSystemImages",
+        "systemImageTypes",
+        "abiVersions",
+        "emulatorSdk",
+        "name",
+        "buildInputs",
+        "shellHook"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/test/test-fleet-setup.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "bad()",
+        "scratch()",
+        "plant()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "bad()",
+        "scratch()",
+        "plant()"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/test/test-lnktree-app.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mutant()",
+        "jedit()"
+      ],
+      "imports": [],
+      "symbols": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mutant()",
+        "jedit()"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-CAD/app/src/main/java/com/diegonmarcos/hardtechcad/Decl.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Decl"
+      ],
+      "imports": [
+        "android.util.Base64",
+        "com.diegonmarcos.superapp.bottomnav.NavDecl"
+      ],
+      "symbols": [
+        "decode(b64: String)",
+        "class Decl"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-CAD/app/src/main/java/com/diegonmarcos/hardtechcad/Holdings.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Holding",
+        "Holdings"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "parse(json: String)",
+        "toJson(list: List<Holding>)",
+        "add(list: List<Holding>, ticker: String, quantity: String, cost: String)",
+        "remove(list: List<Holding>, index: Int)",
+        "costBasis(list: List<Holding>)",
+        "class Holding",
+        "class Holdings"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-CAD/app/src/main/java/com/diegonmarcos/hardtechcad/MainActivity.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "MainActivity"
+      ],
+      "imports": [
+        "android.os.Bundle",
+        "androidx.activity.ComponentActivity",
+        "androidx.activity.compose.setContent",
+        "com.diegonmarcos.hardtechcad.ui.AppShell",
+        "com.diegonmarcos.hardtechcad.ui.AppTheme",
+        "com.diegonmarcos.superapp.bottomnav.FleetChrome"
+      ],
+      "symbols": [
+        "onCreate(savedInstanceState: Bundle?)",
+        "class MainActivity"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-CAD/app/src/main/java/com/diegonmarcos/hardtechcad/Pages.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Entry",
+        "Pages"
+      ],
+      "imports": [
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "entries(stacks: String, sectionId: String)",
+        "resolve(e: Entry, targets: String)",
+        "class Entry",
+        "class Pages"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-CAD/app/src/main/java/com/diegonmarcos/hardtechcad/ui/AppShell.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Tags",
+        "AppShell"
+      ],
+      "imports": [
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.WindowInsets",
+        "androidx.compose.foundation.layout.displayCutout",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.statusBars",
+        "androidx.compose.foundation.layout.union",
+        "androidx.compose.foundation.layout.windowInsetsPadding",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "com.diegonmarcos.hardtechcad.Decl",
+        "com.diegonmarcos.hardtechcad.R",
+        "com.diegonmarcos.superapp.bottomnav.islandEntries",
+        "com.diegonmarcos.superapp.bottomnav.rememberAccountLauncher",
+        "com.diegonmarcos.superapp.navbarbottom.NavBarBottomHost",
+        "com.diegonmarcos.superapp.navbartop1.NavBarTopFirstRowScaffold",
+        "com.diegonmarcos.superapp.navbartop1.titleHierarchy",
+        "com.diegonmarcos.superapp.themebg.themeBackground"
+      ],
+      "symbols": [
+        "entry(title: String)",
+        "AppShell()",
+        "class Tags"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-CAD/app/src/main/java/com/diegonmarcos/hardtechcad/ui/AppTheme.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AppTheme"
+      ],
+      "imports": [
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.res.colorResource",
+        "com.diegonmarcos.hardtechcad.R",
+        "com.diegonmarcos.superapp.uikit.CloudKitTheme",
+        "com.diegonmarcos.superapp.uikit.KitPalette"
+      ],
+      "symbols": [
+        "AppTheme(content: @Composable ()"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-CAD/app/src/main/java/com/diegonmarcos/hardtechcad/ui/HoldingsPanel.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HoldingsPanel"
+      ],
+      "imports": [
+        "android.content.Context",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.text.KeyboardOptions",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.input.KeyboardType",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.hardtechcad.Holding",
+        "com.diegonmarcos.hardtechcad.Holdings",
+        "com.diegonmarcos.hardtechcad.R",
+        "com.diegonmarcos.superapp.uikit.KitButton",
+        "com.diegonmarcos.superapp.uikit.KitCard",
+        "com.diegonmarcos.superapp.uikit.KitSectionHeader",
+        "com.diegonmarcos.superapp.uikit.KitSettingsRow",
+        "com.diegonmarcos.superapp.uikit.KitTextButton",
+        "java.util.Locale"
+      ],
+      "symbols": [
+        "HoldingsPanel()",
+        "save(list: List<Holding>)",
+        "fmt(x: Double)"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-CAD/app/src/main/java/com/diegonmarcos/hardtechcad/ui/SectionPage.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "SectionPage"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.content.Intent",
+        "android.net.Uri",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.alpha",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.hardtechcad.BuildConfig",
+        "com.diegonmarcos.hardtechcad.Decl",
+        "com.diegonmarcos.hardtechcad.Entry",
+        "com.diegonmarcos.hardtechcad.Pages",
+        "com.diegonmarcos.hardtechcad.R",
+        "com.diegonmarcos.superapp.uikit.GroupTitle",
+        "com.diegonmarcos.superapp.uikit.KitCard",
+        "com.diegonmarcos.superapp.uikit.KitSectionHeader",
+        "com.diegonmarcos.superapp.uikit.KitSettingsRow",
+        "com.diegonmarcos.superapp.uikit.LocalKitPalette"
+      ],
+      "symbols": [
+        "SectionPage(sectionId: String)",
+        "EntryRow(e: Entry, url: String?, onOpen: (String)",
+        "AboutPanel()",
+        "openUrl(ctx: Context, url: String)"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-CAD/app/src/test/java/com/diegonmarcos/hardtechcad/HoldingsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HoldingsTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "addValidatesAndUppercases()",
+        "roundTripsThroughJson()",
+        "removeAndCostBasis()",
+        "class HoldingsTest"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-CAD/app/src/test/java/com/diegonmarcos/hardtechcad/PagesTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PagesTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "entriesKeepTheirOrderAndFields()",
+        "anUndeclaredSectionHasNoEntries()",
+        "eachSourceResolvesFromTheBakedTargets()",
+        "plannedOrSourcelessOrUnresolvedIsNull()",
+        "class PagesTest"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-CAD/build.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "_ghcr_publish()",
+        "_ghcr_source()",
+        "log()",
+        "errlog()",
+        "in_nix()",
+        "in_nix_emulator()",
+        "prefer_host()",
+        "_resolve_signing()",
+        "_enforce_signature()",
+        "step_build()",
+        "step_release()",
+        "step_dev()",
+        "step_test()",
+        "step_instrument()",
+        "step_lint()",
+        "step_clean()",
+        "step_shell()",
+        "step_ship()",
+        "step_waydroid_install()",
+        "step_emulator()",
+        "_release_var()",
+        "_variant_field()",
+        "_variant_artifact()",
+        "_variant_gh_asset()",
+        "_variant_tag_suffix()",
+        "_export_variant_abis()",
+        "_resolve_template()",
+        "_ghcr_gate_public()",
+        "step_oras_push()",
+        "step_oras_pull()"
+      ],
+      "imports": [],
+      "symbols": [
+        "_ghcr_publish()",
+        "_ghcr_source()",
+        "log()",
+        "errlog()",
+        "in_nix()",
+        "in_nix_emulator()",
+        "prefer_host()",
+        "_resolve_signing()",
+        "_enforce_signature()",
+        "step_build()",
+        "step_release()",
+        "step_dev()",
+        "step_test()",
+        "step_instrument()",
+        "step_lint()",
+        "step_clean()",
+        "step_shell()",
+        "step_ship()",
+        "step_waydroid_install()",
+        "step_emulator()",
+        "_release_var()",
+        "_variant_field()",
+        "_variant_artifact()",
+        "_variant_gh_asset()",
+        "_variant_tag_suffix()",
+        "_export_variant_abis()",
+        "_resolve_template()",
+        "_ghcr_gate_public()",
+        "step_oras_push()",
+        "step_oras_pull()",
+        "step_phone_install()",
+        "_verify_asset_abi_neutral()",
+        "_sha256_sidecar()",
+        "_verify_release_asset()",
+        "_publish_release_asset()",
+        "step_gh_release()"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-CAD/flake.nix",
+      "lang": "nix",
+      "role": "flake",
+      "exports": [],
+      "imports": [],
+      "symbols": [
+        "description",
+        "inputs",
+        "outputs",
+        "pkgs",
+        "config",
+        "allowUnfree",
+        "baseAndroidArgs",
+        "toolsVersion",
+        "platformToolsVersion",
+        "buildToolsVersions",
+        "platformVersions",
+        "includeNDK",
+        "androidEnv",
+        "androidSdk",
+        "emulatorEnv",
+        "includeEmulator",
+        "includeSystemImages",
+        "systemImageTypes",
+        "abiVersions",
+        "emulatorSdk",
+        "name",
+        "buildInputs",
+        "shellHook"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-CAD/test/test-fleet-setup.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "bad()",
+        "scratch()",
+        "plant()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "bad()",
+        "scratch()",
+        "plant()"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-CAD/test/test-lnktree-app.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mutant()",
+        "jedit()"
+      ],
+      "imports": [],
+      "symbols": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mutant()",
+        "jedit()"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-Sim2Real/app/src/main/java/com/diegonmarcos/hardtechsim2real/Decl.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Decl"
+      ],
+      "imports": [
+        "android.util.Base64",
+        "com.diegonmarcos.superapp.bottomnav.NavDecl"
+      ],
+      "symbols": [
+        "decode(b64: String)",
+        "class Decl"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-Sim2Real/app/src/main/java/com/diegonmarcos/hardtechsim2real/Holdings.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Holding",
+        "Holdings"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "parse(json: String)",
+        "toJson(list: List<Holding>)",
+        "add(list: List<Holding>, ticker: String, quantity: String, cost: String)",
+        "remove(list: List<Holding>, index: Int)",
+        "costBasis(list: List<Holding>)",
+        "class Holding",
+        "class Holdings"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-Sim2Real/app/src/main/java/com/diegonmarcos/hardtechsim2real/MainActivity.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "MainActivity"
+      ],
+      "imports": [
+        "android.os.Bundle",
+        "androidx.activity.ComponentActivity",
+        "androidx.activity.compose.setContent",
+        "com.diegonmarcos.hardtechsim2real.ui.AppShell",
+        "com.diegonmarcos.hardtechsim2real.ui.AppTheme",
+        "com.diegonmarcos.superapp.bottomnav.FleetChrome"
+      ],
+      "symbols": [
+        "onCreate(savedInstanceState: Bundle?)",
+        "class MainActivity"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-Sim2Real/app/src/main/java/com/diegonmarcos/hardtechsim2real/Pages.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Entry",
+        "Pages"
+      ],
+      "imports": [
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "entries(stacks: String, sectionId: String)",
+        "resolve(e: Entry, targets: String)",
+        "class Entry",
+        "class Pages"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-Sim2Real/app/src/main/java/com/diegonmarcos/hardtechsim2real/ui/AppShell.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Tags",
+        "AppShell"
+      ],
+      "imports": [
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.WindowInsets",
+        "androidx.compose.foundation.layout.displayCutout",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.statusBars",
+        "androidx.compose.foundation.layout.union",
+        "androidx.compose.foundation.layout.windowInsetsPadding",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "com.diegonmarcos.hardtechsim2real.Decl",
+        "com.diegonmarcos.hardtechsim2real.R",
+        "com.diegonmarcos.superapp.bottomnav.islandEntries",
+        "com.diegonmarcos.superapp.bottomnav.rememberAccountLauncher",
+        "com.diegonmarcos.superapp.navbarbottom.NavBarBottomHost",
+        "com.diegonmarcos.superapp.navbartop1.NavBarTopFirstRowScaffold",
+        "com.diegonmarcos.superapp.navbartop1.titleHierarchy",
+        "com.diegonmarcos.superapp.themebg.themeBackground"
+      ],
+      "symbols": [
+        "entry(title: String)",
+        "AppShell()",
+        "class Tags"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-Sim2Real/app/src/main/java/com/diegonmarcos/hardtechsim2real/ui/AppTheme.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AppTheme"
+      ],
+      "imports": [
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.res.colorResource",
+        "com.diegonmarcos.hardtechsim2real.R",
+        "com.diegonmarcos.superapp.uikit.CloudKitTheme",
+        "com.diegonmarcos.superapp.uikit.KitPalette"
+      ],
+      "symbols": [
+        "AppTheme(content: @Composable ()"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-Sim2Real/app/src/main/java/com/diegonmarcos/hardtechsim2real/ui/HoldingsPanel.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HoldingsPanel"
+      ],
+      "imports": [
+        "android.content.Context",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.text.KeyboardOptions",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.input.KeyboardType",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.hardtechsim2real.Holding",
+        "com.diegonmarcos.hardtechsim2real.Holdings",
+        "com.diegonmarcos.hardtechsim2real.R",
+        "com.diegonmarcos.superapp.uikit.KitButton",
+        "com.diegonmarcos.superapp.uikit.KitCard",
+        "com.diegonmarcos.superapp.uikit.KitSectionHeader",
+        "com.diegonmarcos.superapp.uikit.KitSettingsRow",
+        "com.diegonmarcos.superapp.uikit.KitTextButton",
+        "java.util.Locale"
+      ],
+      "symbols": [
+        "HoldingsPanel()",
+        "save(list: List<Holding>)",
+        "fmt(x: Double)"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-Sim2Real/app/src/main/java/com/diegonmarcos/hardtechsim2real/ui/SectionPage.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "SectionPage"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.content.Intent",
+        "android.net.Uri",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.alpha",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.hardtechsim2real.BuildConfig",
+        "com.diegonmarcos.hardtechsim2real.Decl",
+        "com.diegonmarcos.hardtechsim2real.Entry",
+        "com.diegonmarcos.hardtechsim2real.Pages",
+        "com.diegonmarcos.hardtechsim2real.R",
+        "com.diegonmarcos.superapp.uikit.GroupTitle",
+        "com.diegonmarcos.superapp.uikit.KitCard",
+        "com.diegonmarcos.superapp.uikit.KitSectionHeader",
+        "com.diegonmarcos.superapp.uikit.KitSettingsRow",
+        "com.diegonmarcos.superapp.uikit.LocalKitPalette"
+      ],
+      "symbols": [
+        "SectionPage(sectionId: String)",
+        "EntryRow(e: Entry, url: String?, onOpen: (String)",
+        "AboutPanel()",
+        "openUrl(ctx: Context, url: String)"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-Sim2Real/app/src/test/java/com/diegonmarcos/hardtechsim2real/HoldingsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HoldingsTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "addValidatesAndUppercases()",
+        "roundTripsThroughJson()",
+        "removeAndCostBasis()",
+        "class HoldingsTest"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-Sim2Real/app/src/test/java/com/diegonmarcos/hardtechsim2real/PagesTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PagesTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "entriesKeepTheirOrderAndFields()",
+        "anUndeclaredSectionHasNoEntries()",
+        "eachSourceResolvesFromTheBakedTargets()",
+        "plannedOrSourcelessOrUnresolvedIsNull()",
+        "class PagesTest"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-Sim2Real/build.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "_ghcr_publish()",
+        "_ghcr_source()",
+        "log()",
+        "errlog()",
+        "in_nix()",
+        "in_nix_emulator()",
+        "prefer_host()",
+        "_resolve_signing()",
+        "_enforce_signature()",
+        "step_build()",
+        "step_release()",
+        "step_dev()",
+        "step_test()",
+        "step_instrument()",
+        "step_lint()",
+        "step_clean()",
+        "step_shell()",
+        "step_ship()",
+        "step_waydroid_install()",
+        "step_emulator()",
+        "_release_var()",
+        "_variant_field()",
+        "_variant_artifact()",
+        "_variant_gh_asset()",
+        "_variant_tag_suffix()",
+        "_export_variant_abis()",
+        "_resolve_template()",
+        "_ghcr_gate_public()",
+        "step_oras_push()",
+        "step_oras_pull()"
+      ],
+      "imports": [],
+      "symbols": [
+        "_ghcr_publish()",
+        "_ghcr_source()",
+        "log()",
+        "errlog()",
+        "in_nix()",
+        "in_nix_emulator()",
+        "prefer_host()",
+        "_resolve_signing()",
+        "_enforce_signature()",
+        "step_build()",
+        "step_release()",
+        "step_dev()",
+        "step_test()",
+        "step_instrument()",
+        "step_lint()",
+        "step_clean()",
+        "step_shell()",
+        "step_ship()",
+        "step_waydroid_install()",
+        "step_emulator()",
+        "_release_var()",
+        "_variant_field()",
+        "_variant_artifact()",
+        "_variant_gh_asset()",
+        "_variant_tag_suffix()",
+        "_export_variant_abis()",
+        "_resolve_template()",
+        "_ghcr_gate_public()",
+        "step_oras_push()",
+        "step_oras_pull()",
+        "step_phone_install()",
+        "_verify_asset_abi_neutral()",
+        "_sha256_sidecar()",
+        "_verify_release_asset()",
+        "_publish_release_asset()",
+        "step_gh_release()"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-Sim2Real/flake.nix",
+      "lang": "nix",
+      "role": "flake",
+      "exports": [],
+      "imports": [],
+      "symbols": [
+        "description",
+        "inputs",
+        "outputs",
+        "pkgs",
+        "config",
+        "allowUnfree",
+        "baseAndroidArgs",
+        "toolsVersion",
+        "platformToolsVersion",
+        "buildToolsVersions",
+        "platformVersions",
+        "includeNDK",
+        "androidEnv",
+        "androidSdk",
+        "emulatorEnv",
+        "includeEmulator",
+        "includeSystemImages",
+        "systemImageTypes",
+        "abiVersions",
+        "emulatorSdk",
+        "name",
+        "buildInputs",
+        "shellHook"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-Sim2Real/test/test-fleet-setup.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "bad()",
+        "scratch()",
+        "plant()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "bad()",
+        "scratch()",
+        "plant()"
+      ]
+    },
+    {
+      "path": "ad_Hardtech-Sim2Real/test/test-lnktree-app.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mutant()",
+        "jedit()"
+      ],
+      "imports": [],
+      "symbols": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mutant()",
+        "jedit()"
       ]
     },
     {
