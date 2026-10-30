@@ -2643,22 +2643,22 @@
           }
         },
         {
-          "id": "git#gh/cloudy-h-webapps-2",
-          "service": "cloud-cgc-pub-mcp",
+          "id": "git#gh/cloudy-h-webapps-desk",
+          "service": "gitea",
           "container": null,
           "engine": "git",
           "kind": "git-remote",
           "host": "github",
-          "repo": "diegonmarcos/cloudy-h-webapps-2",
+          "repo": "diegonmarcos/cloudy-h-webapps-desk",
           "visibility": "public",
           "fork": false,
           "pushed_at": "2026-10-28T12:08:35Z",
-          "indexed": true,
-          "local_dir": "cloudy-h-webapps-2",
+          "indexed": false,
+          "local_dir": null,
           "mirrored": true,
           "persistence": {
             "type": "git",
-            "ref": "https://github.com/diegonmarcos/cloudy-h-webapps-2.git",
+            "ref": "https://github.com/diegonmarcos/cloudy-h-webapps-desk.git",
             "mount": null
           },
           "vm": null,
@@ -2718,22 +2718,22 @@
           }
         },
         {
-          "id": "git#gh/cloudy-h-webapps",
-          "service": "cloud-cgc-pub-mcp",
+          "id": "git#gh/cloudy-h-webapps-mob",
+          "service": "gitea",
           "container": null,
           "engine": "git",
           "kind": "git-remote",
           "host": "github",
-          "repo": "diegonmarcos/cloudy-h-webapps",
+          "repo": "diegonmarcos/cloudy-h-webapps-mob",
           "visibility": "public",
           "fork": false,
           "pushed_at": "2026-10-28T12:01:55Z",
-          "indexed": true,
-          "local_dir": "cloudy-h-webapps",
+          "indexed": false,
+          "local_dir": null,
           "mirrored": true,
           "persistence": {
             "type": "git",
-            "ref": "https://github.com/diegonmarcos/cloudy-h-webapps.git",
+            "ref": "https://github.com/diegonmarcos/cloudy-h-webapps-mob.git",
             "mount": null
           },
           "vm": null,
@@ -3555,17 +3555,17 @@
           }
         },
         {
-          "id": "git#gitea/cloudy-h-webapps-2",
+          "id": "git#gitea/cloudy-h-webapps-desk",
           "service": "gitea",
           "container": null,
           "engine": "git",
           "kind": "git-remote",
           "host": "gitea",
-          "repo": "cloudy-h-webapps-2",
-          "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps-2.git",
+          "repo": "cloudy-h-webapps-desk",
+          "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps-desk.git",
           "persistence": {
             "type": "git",
-            "ref": "https://github.com/diegonmarcos/cloudy-h-webapps-2.git",
+            "ref": "https://github.com/diegonmarcos/cloudy-h-webapps-desk.git",
             "mount": null
           },
           "vm": "oci-A1-f_0",
@@ -3615,17 +3615,17 @@
           }
         },
         {
-          "id": "git#gitea/cloudy-h-webapps",
+          "id": "git#gitea/cloudy-h-webapps-mob",
           "service": "gitea",
           "container": null,
           "engine": "git",
           "kind": "git-remote",
           "host": "gitea",
-          "repo": "cloudy-h-webapps",
-          "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps.git",
+          "repo": "cloudy-h-webapps-mob",
+          "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps-mob.git",
           "persistence": {
             "type": "git",
-            "ref": "https://github.com/diegonmarcos/cloudy-h-webapps.git",
+            "ref": "https://github.com/diegonmarcos/cloudy-h-webapps-mob.git",
             "mount": null
           },
           "vm": "oci-A1-f_0",
@@ -6416,22 +6416,22 @@
         }
       },
       {
-        "id": "git#gh/cloudy-h-webapps-2",
-        "service": "cloud-cgc-pub-mcp",
+        "id": "git#gh/cloudy-h-webapps-desk",
+        "service": "gitea",
         "container": null,
         "engine": "git",
         "kind": "git-remote",
         "host": "github",
-        "repo": "diegonmarcos/cloudy-h-webapps-2",
+        "repo": "diegonmarcos/cloudy-h-webapps-desk",
         "visibility": "public",
         "fork": false,
         "pushed_at": "2026-10-28T12:08:35Z",
-        "indexed": true,
-        "local_dir": "cloudy-h-webapps-2",
+        "indexed": false,
+        "local_dir": null,
         "mirrored": true,
         "persistence": {
           "type": "git",
-          "ref": "https://github.com/diegonmarcos/cloudy-h-webapps-2.git",
+          "ref": "https://github.com/diegonmarcos/cloudy-h-webapps-desk.git",
           "mount": null
         },
         "vm": null,
@@ -6491,22 +6491,22 @@
         }
       },
       {
-        "id": "git#gh/cloudy-h-webapps",
-        "service": "cloud-cgc-pub-mcp",
+        "id": "git#gh/cloudy-h-webapps-mob",
+        "service": "gitea",
         "container": null,
         "engine": "git",
         "kind": "git-remote",
         "host": "github",
-        "repo": "diegonmarcos/cloudy-h-webapps",
+        "repo": "diegonmarcos/cloudy-h-webapps-mob",
         "visibility": "public",
         "fork": false,
         "pushed_at": "2026-10-28T12:01:55Z",
-        "indexed": true,
-        "local_dir": "cloudy-h-webapps",
+        "indexed": false,
+        "local_dir": null,
         "mirrored": true,
         "persistence": {
           "type": "git",
-          "ref": "https://github.com/diegonmarcos/cloudy-h-webapps.git",
+          "ref": "https://github.com/diegonmarcos/cloudy-h-webapps-mob.git",
           "mount": null
         },
         "vm": null,
@@ -7328,17 +7328,17 @@
         }
       },
       {
-        "id": "git#gitea/cloudy-h-webapps-2",
+        "id": "git#gitea/cloudy-h-webapps-desk",
         "service": "gitea",
         "container": null,
         "engine": "git",
         "kind": "git-remote",
         "host": "gitea",
-        "repo": "cloudy-h-webapps-2",
-        "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps-2.git",
+        "repo": "cloudy-h-webapps-desk",
+        "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps-desk.git",
         "persistence": {
           "type": "git",
-          "ref": "https://github.com/diegonmarcos/cloudy-h-webapps-2.git",
+          "ref": "https://github.com/diegonmarcos/cloudy-h-webapps-desk.git",
           "mount": null
         },
         "vm": "oci-A1-f_0",
@@ -7388,17 +7388,17 @@
         }
       },
       {
-        "id": "git#gitea/cloudy-h-webapps",
+        "id": "git#gitea/cloudy-h-webapps-mob",
         "service": "gitea",
         "container": null,
         "engine": "git",
         "kind": "git-remote",
         "host": "gitea",
-        "repo": "cloudy-h-webapps",
-        "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps.git",
+        "repo": "cloudy-h-webapps-mob",
+        "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps-mob.git",
         "persistence": {
           "type": "git",
-          "ref": "https://github.com/diegonmarcos/cloudy-h-webapps.git",
+          "ref": "https://github.com/diegonmarcos/cloudy-h-webapps-mob.git",
           "mount": null
         },
         "vm": "oci-A1-f_0",

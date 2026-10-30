@@ -3790,8 +3790,8 @@
             "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-my-ai.git",
             "private": true
           },
-          "cloudy-h-webapps-2": {
-            "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps-2.git"
+          "cloudy-h-webapps-desk": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps-desk.git"
           },
           "z-archived_cloud-me-pvt-containers": {
             "upstream": "https://github.com/diegonmarcos/z-archived_cloud-me-pvt-containers.git",
@@ -3801,8 +3801,8 @@
             "upstream": "https://github.com/diegonmarcos/z-archived_c3-infra-plugin.git",
             "private": true
           },
-          "cloudy-h-webapps": {
-            "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps.git"
+          "cloudy-h-webapps-mob": {
+            "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps-mob.git"
           },
           "CG-circus": {
             "upstream": "https://github.com/diegonmarcos/CG-circus.git"
