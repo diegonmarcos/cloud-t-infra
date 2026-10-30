@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22705,
+    "files": 22732,
     "by_lang": {
-      "sh": 610,
+      "sh": 611,
       "js": 504,
       "py": 173,
-      "kotlin": 12184,
+      "kotlin": 12210,
       "java": 647,
       "nix": 35,
       "rust": 111,
@@ -20,10 +20,10 @@
     "by_role": {
       "hook": 158,
       "file": 2284,
-      "shell": 486,
+      "shell": 487,
       "script": 264,
       "java": 646,
-      "kotlin": 12181,
+      "kotlin": 12207,
       "python": 56,
       "module": 6428,
       "flake": 31,
@@ -581154,6 +581154,112 @@
       ]
     },
     {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/AssetData.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AssetData"
+      ],
+      "imports": [
+        "android.content.Context"
+      ],
+      "symbols": [
+        "read(ctx: Context, name: String)",
+        "sourcesJson(ctx: Context)",
+        "sources(ctx: Context)",
+        "control(ctx: Context)",
+        "dashboards(ctx: Context)",
+        "class AssetData"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Catalog.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Feed",
+        "KeyIn",
+        "Source",
+        "Catalog"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "feeds(tab: String, entry: String)",
+        "parse(json: String)",
+        "categories(json: String, sources: List<Source>)",
+        "byId(sources: List<Source>, id: String)",
+        "sourcesFor(sources: List<Source>, tab: String, entry: String)",
+        "ranked(sources: List<Source>, tab: String, entry: String)",
+        "unmapped(sources: List<Source>, entries: List<Pair<String, String>>)",
+        "str(o: JSONObject, key: String)",
+        "pathsOf(o: JSONObject?)",
+        "feedsOf(arr: JSONArray?)",
+        "class Feed",
+        "class KeyIn",
+        "class Source",
+        "class Catalog"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Control.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "CState",
+        "ControlAction",
+        "ControlDecl",
+        "Control"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "java.io.IOException"
+      ],
+      "symbols": [
+        "parse(json: String)",
+        "state(d: ControlDecl, body: String)",
+        "action(d: ControlDecl, id: String)",
+        "enabled(d: ControlDecl, actionId: String, state: CState, onMesh: Boolean)",
+        "needsConfirm(d: ControlDecl, actionId: String)",
+        "statusUrl(d: ControlDecl, base: String)",
+        "actionUrl(d: ControlDecl, base: String, actionId: String)",
+        "readState(d: ControlDecl, base: String, http: Http)",
+        "run(d: ControlDecl, base: String, http: Http, actionId: String)",
+        "class CState",
+        "class ControlAction",
+        "class ControlDecl",
+        "class Control"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Dashboards.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Panel",
+        "Dashboard",
+        "DashStatus",
+        "Dashboards"
+      ],
+      "imports": [
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "parse(json: String)",
+        "byId(list: List<Dashboard>, id: String)",
+        "status(d: Dashboard, sources: List<Source>)",
+        "panel(o: JSONObject)",
+        "list(o: JSONObject, key: String)",
+        "class Panel",
+        "class Dashboard",
+        "class DashStatus",
+        "class Dashboards"
+      ]
+    },
+    {
       "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Decl.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -581167,6 +581273,82 @@
       "symbols": [
         "decode(b64: String)",
         "class Decl"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Engine.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ChartPoint",
+        "PanelData",
+        "Engine"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "java.io.IOException",
+        "java.time.LocalDate",
+        "java.util.Locale",
+        "java.util.concurrent.Callable",
+        "java.util.concurrent.Executors"
+      ],
+      "symbols": [
+        "load(panel: Panel, source: Source, http: Http, today: LocalDate, route: PrimaryRoute? = null)",
+        "alloc(panel: Panel, legs: List<Pair<String, Int>>)",
+        "fredPanel(panel: Panel, source: Source, f: JSONObject, http: Http, today: LocalDate, route: PrimaryRoute?)",
+        "derived(panel: Panel, f: JSONObject, series: List<FredSeries>, asOf: String, missing: String)",
+        "fredSeries(source: Source, f: JSONObject, http: Http, today: LocalDate, route: PrimaryRoute?)",
+        "forwardGrid(panel: Panel, f: JSONObject, series: List<FredSeries>, asOf: String, note: String)",
+        "fxCross(panel: Panel, series: List<FredSeries>, asOf: String, note: String)",
+        "perSeries(panel: Panel, source: Source, f: JSONObject, http: Http)",
+        "imf(panel: Panel, source: Source, f: JSONObject, http: Http)",
+        "worldBank(panel: Panel, source: Source, f: JSONObject, http: Http)",
+        "articles(panel: Panel, source: Source, f: JSONObject, http: Http)",
+        "params(f: JSONObject)",
+        "strings(a: JSONArray?)",
+        "years(v: Double)",
+        "num(v: Double, digits: Int)",
+        "group(v: Double)",
+        "sig(v: Double)",
+        "change(last: Obs, prev: Obs?, scale: Double, digits: Int)",
+        "pct(last: Obs, prev: Obs?)",
+        "pctChange(last: Obs, prev: Obs?)",
+        "class ChartPoint",
+        "class PanelData",
+        "class Engine",
+        "class FredSeries",
+        "class or"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Forward.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Forward"
+      ],
+      "imports": [],
+      "symbols": [
+        "yieldAt(curve: List<Pair<Double, Double>>, t: Double)",
+        "rate(curve: List<Pair<Double, Double>>, start: Double, length: Double)",
+        "curve(curve: List<Pair<Double, Double>>, length: Double, maxStart: Int)",
+        "class Forward"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/FredCsv.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Obs",
+        "FredCsv"
+      ],
+      "imports": [],
+      "symbols": [
+        "parse(csv: String)",
+        "class Obs",
+        "class FredCsv"
       ]
     },
     {
@@ -581192,6 +581374,32 @@
       ]
     },
     {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Http.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Http",
+        "UrlHttp",
+        "CachedHttp"
+      ],
+      "imports": [
+        "java.io.ByteArrayOutputStream",
+        "java.io.IOException",
+        "java.net.HttpURLConnection",
+        "java.net.URL",
+        "java.util.concurrent.ConcurrentHashMap"
+      ],
+      "symbols": [
+        "get(url: String)",
+        "post(url: String)",
+        "call(method: String, url: String)",
+        "clear()",
+        "class Http",
+        "class UrlHttp",
+        "class CachedHttp"
+      ]
+    },
+    {
       "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/MainActivity.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -581212,6 +581420,29 @@
       ]
     },
     {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Mesh.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PrimaryRoute",
+        "Mesh",
+        "Priority"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "java.io.IOException"
+      ],
+      "symbols": [
+        "parse(json: String)",
+        "hostOf(url: String)",
+        "reachable(http: Http, base: String, healthPath: String)",
+        "route(panel: Panel, dash: Dashboard, sources: List<Source>, mesh: Map<String, String>, reachable: (String)",
+        "class PrimaryRoute",
+        "class Mesh",
+        "class Priority"
+      ]
+    },
+    {
       "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Pages.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -581227,6 +581458,74 @@
         "resolve(e: Entry, targets: String)",
         "class Entry",
         "class Pages"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Providers.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "SeriesData",
+        "CountryValue",
+        "Article",
+        "Providers"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "latest()",
+        "dbnomics(json: String)",
+        "worldBank(json: String)",
+        "imf(json: String, indicator: String, countries: List<String>, names: Map<String, String>)",
+        "gdelt(json: String)",
+        "finceptSeries(json: String)",
+        "seen(raw: String)",
+        "strings(arr: JSONArray?)",
+        "class SeriesData",
+        "class CountryValue",
+        "class Article",
+        "class Providers"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Requests.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Requests"
+      ],
+      "imports": [
+        "java.net.URLEncoder",
+        "java.time.LocalDate"
+      ],
+      "symbols": [
+        "url(endpoint: String, path: String, params: List<Pair<String, String>>, slots: Map<String, String> = emptyMap()",
+        "fred(endpoint: String, seriesId: String, today: LocalDate, lookbackDays: Int)",
+        "enc(s: String)",
+        "class Requests"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/SourceKeys.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "SecretBox",
+        "SourceKeys"
+      ],
+      "imports": [],
+      "symbols": [
+        "get(id: String)",
+        "put(id: String, value: String)",
+        "remove(id: String)",
+        "has(id: String)",
+        "save(id: String, raw: String)",
+        "clear(id: String)",
+        "read(id: String)",
+        "class SecretBox",
+        "class SourceKeys"
       ]
     },
     {
@@ -581263,7 +581562,11 @@
         "com.diegonmarcos.superapp.themebg.themeBackground"
       ],
       "symbols": [
+        "action(id: String)",
         "entry(title: String)",
+        "panel(id: String)",
+        "source(id: String)",
+        "key(id: String)",
         "AppShell()",
         "class Tags"
       ]
@@ -581284,6 +581587,148 @@
       ],
       "symbols": [
         "AppTheme(content: @Composable ()"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/ContainerControl.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ContainerControl"
+      ],
+      "imports": [
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableIntStateOf",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.rememberCoroutineScope",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.capitalfinterm.AssetData",
+        "com.diegonmarcos.capitalfinterm.CState",
+        "com.diegonmarcos.capitalfinterm.Control",
+        "com.diegonmarcos.capitalfinterm.Decl",
+        "com.diegonmarcos.capitalfinterm.Mesh",
+        "com.diegonmarcos.capitalfinterm.R",
+        "com.diegonmarcos.superapp.uikit.KitCard",
+        "com.diegonmarcos.superapp.uikit.KitConfirmDialog",
+        "com.diegonmarcos.superapp.uikit.KitOutlinedButton",
+        "com.diegonmarcos.superapp.uikit.KitSettingsRow",
+        "com.diegonmarcos.superapp.uikit.KitState",
+        "com.diegonmarcos.superapp.uikit.KitStatePill",
+        "com.diegonmarcos.superapp.uikit.KitTextButton",
+        "com.diegonmarcos.superapp.uikit.LocalKitPalette",
+        "kotlinx.coroutines.Dispatchers",
+        "kotlinx.coroutines.launch",
+        "kotlinx.coroutines.withContext"
+      ],
+      "symbols": [
+        "ContainerControl(sourceId: String)",
+        "run(actionId: String)"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/DashboardPage.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Net",
+        "statusPill",
+        "DashboardPage"
+      ],
+      "imports": [
+        "androidx.activity.compose.BackHandler",
+        "androidx.compose.foundation.Canvas",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxHeight",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableIntStateOf",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.drawBehind",
+        "androidx.compose.ui.geometry.Offset",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.graphics.Path",
+        "androidx.compose.ui.graphics.PathEffect",
+        "androidx.compose.ui.graphics.drawscope.Stroke",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.style.TextAlign",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.capitalfinterm.AssetData",
+        "com.diegonmarcos.capitalfinterm.CachedHttp"
+      ],
+      "symbols": [
+        "reachable(healthUrl: String)",
+        "forget()",
+        "statusPill(status: DashStatus)",
+        "DashboardPage(dashboardId: String, onBack: ()",
+        "PanelCard(dash: Dashboard, panel: Panel, all: List<Source>, source: Source?, hasKey: Boolean, refresh: Int, onOpenSources: ()",
+        "LiveBody(dash: Dashboard, panel: Panel, all: List<Source>, source: Source, refresh: Int)",
+        "PanelContent(panel: Panel, data: PanelData)",
+        "LineChart(points: List<ChartPoint>, unit: String)",
+        "BarChart(points: List<ChartPoint>, unit: String)",
+        "DataTable(columns: List<String>, rows: List<List<String>>, links: List<String>, wideFirst: Boolean, onOpen: (String)",
+        "cellMod(i: Int, scope: androidx.compose.foundation.layout.RowScope)",
+        "PlaceholderBody(panel: Panel, source: Source?, hasKey: Boolean, onOpenSources: ()",
+        "dashed(color: Color)",
+        "fmt(v: Double)",
+        "class Net",
+        "class Load",
+        "class Loading",
+        "class Failed",
+        "class Ok"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/EncryptedSecretBox.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "EncryptedSecretBox"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.content.SharedPreferences",
+        "com.diegonmarcos.capitalfinterm.SecretBox",
+        "com.diegonmarcos.superapp.crash.SafeEncryptedPrefs"
+      ],
+      "symbols": [
+        "get(id: String)",
+        "put(id: String, value: String)",
+        "remove(id: String)",
+        "class secret",
+        "class EncryptedSecretBox"
       ]
     },
     {
@@ -581349,14 +581794,21 @@
         "androidx.compose.foundation.verticalScroll",
         "androidx.compose.material3.Text",
         "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
         "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.draw.alpha",
         "androidx.compose.ui.platform.LocalContext",
         "androidx.compose.ui.platform.testTag",
         "androidx.compose.ui.res.stringResource",
         "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.capitalfinterm.AssetData",
         "com.diegonmarcos.capitalfinterm.BuildConfig",
+        "com.diegonmarcos.capitalfinterm.DashStatus",
+        "com.diegonmarcos.capitalfinterm.Dashboards",
         "com.diegonmarcos.capitalfinterm.Decl",
         "com.diegonmarcos.capitalfinterm.Entry",
         "com.diegonmarcos.capitalfinterm.Pages",
@@ -581365,13 +581817,230 @@
         "com.diegonmarcos.superapp.uikit.KitCard",
         "com.diegonmarcos.superapp.uikit.KitSectionHeader",
         "com.diegonmarcos.superapp.uikit.KitSettingsRow",
+        "com.diegonmarcos.superapp.uikit.KitStatePill",
         "com.diegonmarcos.superapp.uikit.LocalKitPalette"
       ],
       "symbols": [
-        "SectionPage(sectionId: String)",
+        "SectionPage(sectionId: String, onOpenConfig: ()",
         "EntryRow(e: Entry, url: String?, onOpen: (String)",
+        "DashboardRow(e: Entry, status: DashStatus?, onOpen: ()",
         "AboutPanel()",
         "openUrl(ctx: Context, url: String)"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/SourcesPanel.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "SourcesPanel"
+      ],
+      "imports": [
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.text.KeyboardOptions",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.input.KeyboardType",
+        "androidx.compose.ui.text.input.PasswordVisualTransformation",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.capitalfinterm.AssetData",
+        "com.diegonmarcos.capitalfinterm.Catalog",
+        "com.diegonmarcos.capitalfinterm.R",
+        "com.diegonmarcos.capitalfinterm.Source",
+        "com.diegonmarcos.capitalfinterm.SourceKeys",
+        "com.diegonmarcos.superapp.uikit.GroupTitle",
+        "com.diegonmarcos.superapp.uikit.KitButton",
+        "com.diegonmarcos.superapp.uikit.KitCard",
+        "com.diegonmarcos.superapp.uikit.KitSectionHeader",
+        "com.diegonmarcos.superapp.uikit.KitSettingsRow",
+        "com.diegonmarcos.superapp.uikit.KitState",
+        "com.diegonmarcos.superapp.uikit.KitStatePill",
+        "com.diegonmarcos.superapp.uikit.KitTextButton",
+        "com.diegonmarcos.superapp.uikit.LocalKitPalette"
+      ],
+      "symbols": [
+        "SourcesPanel()",
+        "SourceCard(source: Source, hasKey: Boolean, onSave: (String)",
+        "KeyEditor(source: Source, hasKey: Boolean, onSave: (String)"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/CatalogTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "CatalogTest"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "finTermEntries()",
+        "theCatalogParsesWithTheFourCategories()",
+        "everySourceIsFullyDeclared()",
+        "everyFinTermEntryMapsToAtLeastOneDeclaredSource()",
+        "everyFeedNamesAnEntryThatExists()",
+        "anUnmappedEntryIsReported()",
+        "aJsonNullIsEmptyNotTheTextNull()",
+        "class CatalogTest"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/ControlTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ControlTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "java.io.IOException"
+      ],
+      "symbols": [
+        "body(status: String?)",
+        "statesFollowDockerPsText()",
+        "offTheMeshNoActionIsEnabledInAnyState()",
+        "onTheMeshEachActionIsAvailableOnlyInItsStates()",
+        "stopAndRestartAskFirstAndAnUnknownActionAlwaysAsks()",
+        "addressesAreBuiltFromTheBakedMeshBaseAndTheDeclaredPaths()",
+        "runPostsThenReadsTheStateBack()",
+        "get(url: String)",
+        "post(url: String)",
+        "reachabilityIsTheHealthAnswerAndNothingElse()",
+        "class ControlTest"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/DashboardsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "DashboardsTest"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "everyDashboardEntryOfBuildJsonHasItsDashboard()",
+        "everyPanelIsWiredToASourceThatFeedsItsEntry()",
+        "theKeyFreeDashboardsAreLiveAndTheKeyedOnesAreDashed()",
+        "status(id: String)",
+        "modelPortfolioLegsSumToOneHundred()",
+        "class DashboardsTest"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/DataFiles.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "DataFiles"
+      ],
+      "imports": [
+        "java.io.File"
+      ],
+      "symbols": [
+        "find(vararg candidates: String)",
+        "class DataFiles"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/EngineTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "EngineTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Assert.fail",
+        "org.junit.Test",
+        "java.io.IOException",
+        "java.time.LocalDate"
+      ],
+      "symbols": [
+        "panel(dash: String, id: String)",
+        "get(url: String)",
+        "post(url: String)",
+        "fredAnswer(url: String)",
+        "yieldCurveIsBuiltFromOneRequestPerSeriesAtTheDeclaredEndpoint()",
+        "aSeriesThatFailsIsNotedAndTheRestStillDraw()",
+        "nothingBackIsAnErrorNotAnEmptyChart()",
+        "forwardRatesAreDerivedFromTheFredCurve()",
+        "fxCrossMatrixIsConsistentWithTheSpotRates()",
+        "worldBondsReadDbnomicsThroughTheDeclaredPathAndParams()",
+        "newsRowsCarryTheirLinks()",
+        "requestsAreEndpointPathAndEncodedParams()",
+        "modelPortfolioAllocationIsStatic()",
+        "theCacheAnswersTwiceFromOneRequest()",
+        "class EngineTest",
+        "class Fake"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/ForwardTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ForwardTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "oneYearForwardOneYearOutIsTheTextbookValue()",
+        "aForwardFromTodayIsTheSpotYield()",
+        "aFlatCurveHasFlatForwards()",
+        "anUpwardCurveHasForwardsAboveSpot()",
+        "interpolationIsLinearAndFlatOutside()",
+        "degenerateInputsAreNaNAndTheCurveHasOnePointPerStartYear()",
+        "class ForwardTest"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/FredCsvTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FredCsvTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "parsesEachSeriesAndDropsMissingValues()",
+        "aSingleSeriesAnswerAndTheOlderDateHeaderParse()",
+        "anythingElseParsesToNothing()",
+        "class FredCsvTest"
       ]
     },
     {
@@ -581412,6 +582081,86 @@
         "eachSourceResolvesFromTheBakedTargets()",
         "plannedOrSourcelessOrUnresolvedIsNull()",
         "class PagesTest"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/PriorityTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PriorityTest"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "java.io.IOException",
+        "java.time.LocalDate"
+      ],
+      "symbols": [
+        "get(url: String)",
+        "post(url: String)",
+        "cloudFincepIsRankedFirstForEveryEntryAndPublicBeforeKeyed()",
+        "theRouteIsOnlyOfferedWhenTheMeshAnswers()",
+        "fredCsv(url: String)",
+        "topic(id: String)",
+        "whenReachableTheFleetServesEverySeriesAndThePublicSourceIsNotAsked()",
+        "aTopicTheFleetHasNotPublishedFallsBackToThePublicSourceSeriesBySeries()",
+        "withNoRouteTheFleetIsNeverAsked()",
+        "everyFredPanelDeclaresTheFleetAsItsPrimaryAndNoAddressIsTyped()",
+        "class PriorityTest",
+        "class Net"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/ProvidersTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ProvidersTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "dbnomicsSeriesWithNaAndLatest()",
+        "worldBankDropsRowsWithoutAValue()",
+        "imfTakesTheLatestYearOfEachWantedCountry()",
+        "gdeltArticlesAndSeenDate()",
+        "class ProvidersTest"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/SourceKeysTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "SourceKeysTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "get(id: String)",
+        "put(id: String, value: String)",
+        "remove(id: String)",
+        "saveTrimsAndKeysPerSource()",
+        "malformedKeysAreRefusedAndNothingIsStored()",
+        "clearForgetsTheKey()",
+        "theKeyIsInNoStringTheClassPrints()",
+        "class SourceKeysTest",
+        "class MemBox"
       ]
     },
     {
@@ -581520,6 +582269,24 @@
         "name",
         "buildInputs",
         "shellHook"
+      ]
+    },
+    {
+      "path": "ad_Capital-FinTerm/test/test-finterm-sources.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mutant()"
+      ],
+      "imports": [],
+      "symbols": [
+        "check()",
+        "ok()",
+        "bad()",
+        "mutant()"
       ]
     },
     {
