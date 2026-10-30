@@ -385,6 +385,9 @@
     },
     "test_ship_long_jobs_bounded.sh": {
       "status": "run"
+    },
+    "test_overlay_private_secrets.sh": {
+      "status": "run"
     }
   }
 }
