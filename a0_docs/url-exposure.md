@@ -60,6 +60,8 @@ Owner rule (2026-10-16): **PUBLIC URL = fleet Bearer OR Authelia session cookie.
 | c3-authelia.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | c3-calendar-radicale.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | c3-calendar-radicale.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
+| c3-capital-stack-finterminal-api.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
+| c3-capital-stack-finterminal-api.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | c3-cloud-cgc-pub-mcp.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | c3-cloud-cgc-pub-mcp.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | c3-cloud-cgc-pvt-mcp.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
@@ -100,8 +102,6 @@ Owner rule (2026-10-16): **PUBLIC URL = fleet Bearer OR Authelia session cookie.
 | c3-etherpad-app.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | c3-filebrowser-app.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | c3-filebrowser-app.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
-| c3-fin-api.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
-| c3-fin-api.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | c3-git-proxy-api.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | c3-git-proxy-api.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | c3-gitea.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
@@ -166,6 +166,8 @@ Owner rule (2026-10-16): **PUBLIC URL = fleet Bearer OR Authelia session cookie.
 | calendar-radicale-http-5232.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | calendar-radicale.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | calendar.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
+| capital-stack-finterminal-api-http-8340.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
+| capital-stack-finterminal-api.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | chat-mattermost.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | cloud-cgc-pub-mcp-http-3105.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | cloud-cgc-pub-mcp.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
@@ -208,6 +210,7 @@ Owner rule (2026-10-16): **PUBLIC URL = fleet Bearer OR Authelia session cookie.
 | cloud.caddy.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | cloud.calendar-radicale.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | cloud.calendar.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
+| cloud.capital-stack-finterminal-api.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | cloud.chat-mattermost.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | cloud.cloud-cgc-pub-mcp.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | cloud.cloud-drive-mcp.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
@@ -233,7 +236,6 @@ Owner rule (2026-10-16): **PUBLIC URL = fleet Bearer OR Authelia session cookie.
 | cloud.etherpad.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | cloud.filebrowser-app.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | cloud.filebrowser.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
-| cloud.fin-api.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | cloud.g-personal-mcp.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | cloud.g-workspace-mcp.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | cloud.git-proxy-api.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
@@ -290,8 +292,6 @@ Owner rule (2026-10-16): **PUBLIC URL = fleet Bearer OR Authelia session cookie.
 | etherpad_app-http-3012.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | filebrowser.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | filebrowser_app-http-3015.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
-| fin-api-http-8340.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
-| fin-api.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | g-personal-mcp.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | g-workspace-mcp.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
 | git-proxy-api-http-8123.mesh.diegonmarcos.com | a | mesh only (403 off-mesh) | - |
@@ -449,7 +449,7 @@ A tier-b host's gate runs before any of these; the inner column is the *addition
 | api.diegonmarcos.com | `/scrappers/*` | b | mesh only (wg_only) |
 | api.diegonmarcos.com | `/scrappers/health` | b | formerly anonymous (public_paths); now behind the gate |
 | api.diegonmarcos.com | `/scrappers/openapi.json` | b | formerly anonymous (public_paths); now behind the gate |
-| api.diegonmarcos.com | `/fin-api/*` | b | mesh only (wg_only) |
+| api.diegonmarcos.com | `/capital-stack-finterminal-api/*` | b | mesh only (wg_only) |
 | cloud.diegonmarcos.com | `/spec/*` | b | mesh only (wg_only) |
 | cloud.diegonmarcos.com | `/probe/*` | b | mesh only (wg_only) |
 | analytics.diegonmarcos.com | `/matomo/*` | b | Bearer OR Authelia (mkProtected) |
