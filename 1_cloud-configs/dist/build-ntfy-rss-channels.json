@@ -840,10 +840,10 @@
       "id": "logs_mcp-oauth",
       "topic": "logs_mcp-oauth",
       "title": "mcp-oauth",
-      "path": "Cloud-Infra/Logs/gcp-proxy/mcp-oauth",
+      "path": "Cloud-Infra/Logs/local/mcp-oauth",
       "category": "logs",
       "source": "logs",
-      "vm": "gcp-proxy",
+      "vm": "local",
       "feed": "/feed/c/logs_mcp-oauth.atom",
       "quiet": true
     },

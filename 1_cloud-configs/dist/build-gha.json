@@ -286,11 +286,6 @@
       "vm": "gcp-proxy",
       "has_docker": true
     },
-    "mcp-oauth": {
-      "dir": "infra-sec_mcp-oauth",
-      "vm": "gcp-proxy",
-      "has_docker": true
-    },
     "tokens-api": {
       "dir": "infra-sec_tokens-api",
       "vm": "oci-apps",

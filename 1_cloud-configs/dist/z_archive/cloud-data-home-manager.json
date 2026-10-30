@@ -422,8 +422,7 @@
         "wireguard-mesh-ws-tunnel",
         "authelia",
         "caddy",
-        "introspect-proxy",
-        "mcp-oauth"
+        "introspect-proxy"
       ],
       "method": "gcloud",
       "gha": {

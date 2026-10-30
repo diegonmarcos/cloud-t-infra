@@ -177,10 +177,6 @@
       "ip": "10.0.0.1",
       "desc": "OIDC token introspection sidecar for Caddy Bearer auth"
     },
-    "mcp-oauth": {
-      "ip": "10.0.0.1",
-      "desc": "MCP OAuth 2.1 authorization server for mcp.diegonmarcos.com (option 31.1, approved 2026-10-28): RFC 8414/9728 discovery, RFC 7591 DCR, /authorize behind Authelia, PKCE S256 /token, opaque tokens introspected by introspect-proxy"
-    },
     "tokens-api": {
       "ip": "10.0.0.1",
       "desc": "Fleet token engine: lists, generates, reveals and revokes every fleet bearer token (fleet ft_ tokens and adopted Authelia JWTs); introspect-proxy asks it before accepting a Bearer, so a revoked token stops working within 60 seconds. Public address: c3-pvt.diegonmarcos.com/tokens-api (shared gate, #1104); mesh tokens-api.mesh.diegonmarcos.com"
