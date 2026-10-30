@@ -121,7 +121,7 @@
       "pushed_at": "2026-10-28T13:03:00Z"
     },
     {
-      "name": "cloudy-h-webapps-2",
+      "name": "cloudy-h-webapps-desk",
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-28T12:08:35Z"
@@ -139,7 +139,7 @@
       "pushed_at": "2026-10-28T12:05:29Z"
     },
     {
-      "name": "cloudy-h-webapps",
+      "name": "cloudy-h-webapps-mob",
       "visibility": "public",
       "fork": false,
       "pushed_at": "2026-10-28T12:01:55Z"

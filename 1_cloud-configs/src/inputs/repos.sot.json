@@ -613,9 +613,9 @@
       "doc": "Personal notes (Obsidian vault)."
     },
     {
-      "name": "cloudy-h-webapps",
+      "name": "cloudy-h-webapps-mob",
       "group": "a_cloud",
-      "url": "git@github.com:diegonmarcos/cloudy-h-webapps.git",
+      "url": "git@github.com:diegonmarcos/cloudy-h-webapps-mob.git",
       "private": false,
       "renamed_from": [
         "cloud-webapps",
@@ -784,9 +784,9 @@
       "doc": "Leaf.y company site (published at /leafy/), moved from front-endeavours a_Companies/leafy (#1224); renamed from DuckPeng-LeafY into the cloud-me-pub-profiles family 2026-10-28; Projects-endeavours keeps a symlink to this repo."
     },
     {
-      "name": "cloudy-h-webapps-2",
+      "name": "cloudy-h-webapps-desk",
       "group": "b_projects",
-      "url": "git@github.com:diegonmarcos/cloudy-h-webapps-2.git",
+      "url": "git@github.com:diegonmarcos/cloudy-h-webapps-desk.git",
       "private": false,
       "renamed_from": [
         "front-suite",

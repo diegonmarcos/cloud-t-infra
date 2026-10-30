@@ -19,7 +19,7 @@
 #       (checked when the network answers; offline is reported, S2-S6 still run)
 #   S2  a fleet.repos[] entry (_dotfiles/apps/src/manifest.json) is not in the registry, is pending_creation,
 #       or disagrees about private
-#   S3  a pending_creation repo (cloudy-h-webapps, cloud-me-pvt-containers) is already on GitHub (flip its status),  or a repo once declared pending (cloudy-h-webapps, cloud-me-pvt-containers) leaves the registry,
+#   S3  a pending_creation repo (cloudy-h-webapps-mob, cloud-me-pvt-containers) is already on GitHub (flip its status),  or a repo once declared pending (cloudy-h-webapps-mob, cloud-me-pvt-containers) leaves the registry,
 #       or is in the fleet manifest
 #   S4  a GitHub repo of the fetched inventory (github-repos.json) is neither registered, in unregistered_ok, nor in the
 #       inventory's external_registry (octocode index repos of other hubs, recorded by the fetch)
@@ -64,7 +64,7 @@ out=$(jq -r --argjson nc "$NONCLOUD_OK" --slurpfile s "$SOT" '[$s[0].repos[]|'"$
 # S3 pending vs reality
 pend=$(jq -r '.repos[]|select(.status=="pending_creation")|'"$GH" "$SOT")
 [ -n "$pend" ] && ok "S3a the registry declares pending_creation repos: $(echo $pend)" || ok "S3a no pending_creation repo declared (all registered repos exist)"
-for p in cloudy-h-webapps z-archived_cloud-me-pvt-containers; do jq -e --arg p "$p" '[.repos[].name]|index($p)' "$SOT" >/dev/null 2>&1 || bad "S3b $p must stay registered (pending_creation until it exists, then plain)"; done
+for p in cloudy-h-webapps-mob z-archived_cloud-me-pvt-containers; do jq -e --arg p "$p" '[.repos[].name]|index($p)' "$SOT" >/dev/null 2>&1 || bad "S3b $p must stay registered (pending_creation until it exists, then plain)"; done
 bad3=""
 for p in $pend; do
   jq -e --arg p "$p" '[.repos[].name]|index($p)' "$INV" >/dev/null 2>&1 && bad3="$bad3 $p(on GitHub: drop its status)"
