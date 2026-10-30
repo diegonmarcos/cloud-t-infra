@@ -988,7 +988,7 @@ function deriveCaddy(c: any): DerivedFile[] {
   // ── Redirects: domain → target (permanent redirect, no upstream needed) ──
   const redirects: any[] = [
     { domain: "mail.diegonmarcos.com", target: "https://webmail.diegonmarcos.com{uri}", comment: "mail → webmail redirect" },
-    { domain: "fin-api.diegonmarcos.com", target: "https://c3-pvt.diegonmarcos.com/fin-api{uri}", comment: "fin-api own host retired (#1104): redirect to the c3-pvt path" },
+    { domain: "fin-api.diegonmarcos.com", target: "https://c3-pvt.diegonmarcos.com/capital-stack-finterminal-api{uri}", comment: "capital-stack-finterminal-api own host retired (#1104): redirect to the c3-pvt path" },
   ];
 
   // ── Auth upstreams: Caddy forward_auth targets (from cloud-data, not hardcoded) ──
@@ -3960,7 +3960,7 @@ const SERVICE_SUBGROUP_OVERRIDE: Record<string, { group: "infra-apps" | "user-ap
   "revealmd":               { group: "user-apps",  subgroup: "Productivity" },
   "send":                   { group: "user-apps",  subgroup: "Productivity" },
   "paca":                   { group: "user-apps",  subgroup: "Productivity" },
-  "fin-api":                { group: "user-apps",  subgroup: "Finance" },
+  "capital-stack-finterminal-api":               { group: "user-apps",  subgroup: "Finance" },
 };
 
 const RUNNER_SERVICES = new Set(["gha-runner", "cloud-builder-x", "dagu"]);
