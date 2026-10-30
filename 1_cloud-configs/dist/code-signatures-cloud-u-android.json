@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22611,
+    "files": 22627,
     "by_lang": {
-      "sh": 592,
-      "js": 498,
+      "sh": 593,
+      "js": 500,
       "py": 170,
-      "kotlin": 12121,
+      "kotlin": 12134,
       "java": 647,
       "nix": 31,
       "rust": 111,
@@ -19,12 +19,12 @@
     },
     "by_role": {
       "hook": 158,
-      "file": 2282,
-      "shell": 468,
+      "file": 2283,
+      "shell": 469,
       "script": 262,
       "java": 646,
-      "kotlin": 12118,
-      "module": 6424,
+      "kotlin": 12131,
+      "module": 6425,
       "flake": 27,
       "python": 55,
       "rust-module": 111,
@@ -8084,69 +8084,6 @@
       ]
     },
     {
-      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cal/CalendarAgendaPopup.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "CalendarAgendaPopup"
-      ],
-      "imports": [
-        "android.content.Context",
-        "android.os.SystemClock",
-        "android.view.View",
-        "androidx.compose.foundation.background",
-        "androidx.compose.foundation.clickable",
-        "androidx.compose.foundation.combinedClickable",
-        "androidx.compose.foundation.layout.Arrangement",
-        "androidx.compose.foundation.layout.Box",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.Row",
-        "androidx.compose.foundation.layout.Spacer",
-        "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.layout.height",
-        "androidx.compose.foundation.layout.padding",
-        "androidx.compose.foundation.layout.size",
-        "androidx.compose.foundation.layout.width",
-        "androidx.compose.foundation.rememberScrollState",
-        "androidx.compose.foundation.shape.CircleShape",
-        "androidx.compose.foundation.verticalScroll",
-        "androidx.compose.material3.Text",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.LaunchedEffect",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableLongStateOf",
-        "androidx.compose.runtime.mutableStateOf",
-        "androidx.compose.runtime.remember",
-        "androidx.compose.runtime.setValue",
-        "androidx.compose.ui.Alignment",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.draw.clip",
-        "androidx.compose.ui.graphics.Color",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.text.font.FontFamily",
-        "androidx.compose.ui.text.font.FontWeight",
-        "androidx.compose.ui.text.style.TextAlign",
-        "androidx.compose.ui.unit.dp",
-        "androidx.compose.ui.unit.sp",
-        "com.diegonmarcos.superapp.ui.KitBubble",
-        "com.diegonmarcos.superapp.ui.KitPopup",
-        "kotlinx.coroutines.delay"
-      ],
-      "symbols": [
-        "stopwatchCurrentMs()",
-        "show(ctx: Context, anchor: View)",
-        "show(host: View, rect: androidx.compose.ui.unit.IntRect)",
-        "CalendarBubble()",
-        "Tab(text: String, selected: Boolean, modifier: Modifier, onClick: ()",
-        "AgendaView()",
-        "MonthView()",
-        "Stopwatch()",
-        "formatStopwatch(ms: Long)",
-        "resetStopwatchForTest()",
-        "class CalendarAgendaPopup"
-      ]
-    },
-    {
       "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cal/CalendarMonthFragment.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -8201,6 +8138,159 @@
         "monthGrid(year: Int, month: Int)",
         "newInstance()",
         "class CalendarMonthFragment"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cal/TasksData.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "TaskEvent",
+        "TaskTodo",
+        "AgendaRow",
+        "TasksSource",
+        "TasksModel"
+      ],
+      "imports": [
+        "java.time.DayOfWeek",
+        "java.time.Instant",
+        "java.time.LocalDate",
+        "java.time.LocalDateTime",
+        "java.time.LocalTime",
+        "java.time.YearMonth",
+        "java.time.ZoneId",
+        "java.time.ZoneOffset",
+        "java.time.format.DateTimeFormatter"
+      ],
+      "symbols": [
+        "events(fromMs: Long, toMs: Long)",
+        "todos()",
+        "months(today: LocalDate, before: Int, after: Int)",
+        "grid(month: YearMonth, firstDow: DayOfWeek)",
+        "eventDays(events: List<TaskEvent>, zone: ZoneId = ZoneId.systemDefault()",
+        "agenda( events: List<TaskEvent>, from: LocalDate, day: LocalDate?, windowDays: Int, max: Int, zone: ZoneId = ZoneId.systemDefault()",
+        "openTodos(todos: List<TaskTodo>, max: Int)",
+        "window(today: LocalDate, monthsBefore: Int, monthsAfter: Int, zone: ZoneId = ZoneId.systemDefault()",
+        "class TaskEvent",
+        "class TaskTodo",
+        "class AgendaRow",
+        "class TasksSource",
+        "class TasksModel"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cal/TasksFeed.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "TasksFeed"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.content.Intent",
+        "android.content.pm.PackageManager",
+        "com.diegonmarcos.superapp.BuildConfig",
+        "com.diegonmarcos.superapp.core.DataBackendClient",
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "attach(ctx: Context)",
+        "check(ctx: Context)",
+        "events(fromMs: Long, toMs: Long)",
+        "todos()",
+        "parseEvents(text: String, method: String = EVENTS)",
+        "parseTodos(text: String, method: String = TODOS)",
+        "rows(text: String, method: String)",
+        "ask(method: String, vararg args: String)",
+        "tooOld(pkg: String, found: Int, needed: Int)",
+        "class TasksFeed"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cal/TasksPopup.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "TasksPopup"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.content.Intent",
+        "android.os.SystemClock",
+        "android.view.View",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.combinedClickable",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.heightIn",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.shape.CircleShape",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material3.Checkbox",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableLongStateOf",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.font.FontFamily",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.text.style.TextAlign",
+        "androidx.compose.ui.text.style.TextOverflow"
+      ],
+      "symbols": [
+        "stopwatchCurrentMs()",
+        "show(host: View, rect: androidx.compose.ui.unit.IntRect)",
+        "TasksBubble( source: TasksSource = TasksFeed, today: LocalDate = LocalDate.now()",
+        "openApp(ctx: Context, pkg: String)",
+        "Tab(text: String, selected: Boolean, modifier: Modifier, onClick: ()",
+        "Months(decl: TasksPopupDeclaration, today: LocalDate, withEvents: Set<LocalDate>, picked: LocalDate?, onDay: (LocalDate)",
+        "Day(day: LocalDate?, cellDp: Int, today: LocalDate, hasEvent: Boolean, picked: Boolean, onDay: (LocalDate)",
+        "Table(tag: String, caption: String, columns: List<Pair<String, Float>>, heightDp: Int, trailing: @Composable ()",
+        "Note(text: String)",
+        "AgendaTable(decl: TasksPopupDeclaration, events: List<TaskEvent>, error: String?, today: LocalDate, picked: LocalDate?, heightDp: Int, clear: ()",
+        "TodoTable(decl: TasksPopupDeclaration, todos: List<TaskTodo>, error: String?, heightDp: Int, onRow: ()",
+        "Stopwatch()",
+        "formatStopwatch(ms: Long)",
+        "resetStopwatchForTest()",
+        "class TasksPopup"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/cal/TasksPopupDecl.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "TasksPopupDeclaration",
+        "TasksPopupDecl"
+      ],
+      "imports": [
+        "android.util.Base64",
+        "com.diegonmarcos.superapp.BuildConfig",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "parse(json: String)",
+        "class TasksPopupDeclaration",
+        "class TasksPopupDecl"
       ]
     },
     {
@@ -8945,6 +9035,8 @@
         "android.content.Context",
         "android.widget.Toast",
         "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.horizontalScroll",
         "androidx.compose.foundation.layout.Arrangement",
         "androidx.compose.foundation.layout.Column",
         "androidx.compose.foundation.layout.Row",
@@ -8952,6 +9044,7 @@
         "androidx.compose.foundation.layout.fillMaxWidth",
         "androidx.compose.foundation.layout.height",
         "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
         "androidx.compose.foundation.rememberScrollState",
         "androidx.compose.foundation.verticalScroll",
         "androidx.compose.material3.AlertDialog",
@@ -8960,12 +9053,16 @@
         "androidx.compose.runtime.LaunchedEffect",
         "androidx.compose.runtime.getValue",
         "androidx.compose.runtime.mutableIntStateOf",
+        "androidx.compose.runtime.mutableStateMapOf",
+        "androidx.compose.runtime.rememberCoroutineScope",
         "androidx.compose.runtime.mutableStateOf",
         "androidx.compose.runtime.remember",
         "androidx.compose.runtime.setValue",
         "androidx.compose.ui.Alignment",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.layout.onPlaced",
+        "androidx.compose.ui.layout.positionInParent",
         "androidx.compose.ui.platform.LocalContext",
         "androidx.compose.ui.platform.testTag",
         "androidx.compose.ui.res.stringResource",
@@ -8974,18 +9071,12 @@
         "androidx.compose.ui.unit.dp",
         "androidx.compose.ui.unit.sp",
         "androidx.lifecycle.Lifecycle",
-        "androidx.lifecycle.repeatOnLifecycle",
-        "com.diegonmarcos.superapp.R",
-        "com.diegonmarcos.superapp.launcher.SectionPages",
-        "com.diegonmarcos.superapp.launcher.Sections",
-        "com.diegonmarcos.superapp.onehand.ArcMenu",
-        "com.diegonmarcos.superapp.onehand.CircularMenu",
-        "com.diegonmarcos.superapp.onehand.GestureAction",
-        "com.diegonmarcos.superapp.onehand.OneHandConfig"
+        "androidx.lifecycle.repeatOnLifecycle"
       ],
       "symbols": [
         "palette()",
         "Content()",
+        "IndexRow(sections: List<OneHandPageDecl.Section>, onPick: (String)",
         "addStars(ctx: Context)",
         "starCard(name: String, place: String, what: String, outer: List<String>, inner: List<String>)",
         "addEdgeMenu(ctx: Context)",
@@ -8995,7 +9086,8 @@
         "resetEdgeMenu(ctx: Context)",
         "addFloatingMenu(ctx: Context)",
         "addHomeGestures(ctx: Context)",
-        "infoSection(t: String)",
+        "addStatusBar(ctx: Context)",
+        "infoSection(sec: OneHandPageDecl.Section)",
         "subhead(t: String)",
         "caption(t: String)",
         "buildOptions(cfg: OneHandConfig)",
@@ -9005,6 +9097,25 @@
         "newInstance()",
         "class OneHandFragment",
         "class Option"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/configs/OneHandPageDecl.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "OneHandPageDecl"
+      ],
+      "imports": [
+        "android.util.Base64",
+        "com.diegonmarcos.superapp.BuildConfig",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "parse(json: String)",
+        "section(id: String)",
+        "class OneHandPageDecl",
+        "class Section"
       ]
     },
     {
@@ -10516,6 +10627,7 @@
         "dispatch(target: String, scope: CoroutineScope)",
         "anchorTarget(anchors: PageAnchors, id: String?)",
         "PagePanel( state: AggregatorState, index: Int, panel: Sections.StackPanel, anchors: PageAnchors, actions: PageActions, )",
+        "PageEntry(panel: Sections.StackPanel, index: Int, anchors: PageAnchors, onOpen: (String)",
         "foldable(open: Boolean)",
         "PanelBody(state: AggregatorState, index: Int, panel: Sections.StackPanel, actions: PageActions)",
         "EmbeddedFragment(state: AggregatorState, index: Int, host: Fragment, create: ()",
@@ -11540,6 +11652,7 @@
       ],
       "symbols": [
         "petOf(toolId: String)",
+        "metricText(id: String)",
         "run()",
         "centreTopReservePx()",
         "clockReservePx()",
@@ -11577,8 +11690,7 @@
         "install(activity: Activity, host: ComposeView)",
         "SignalDots(level: Int, tint: Int, modifier: Modifier = Modifier)",
         "IconLabel(text: String, tint: Int, modifier: Modifier = Modifier)",
-        "Tappable(tag: String, onTap: (IntRect)",
-        "PetAbove(model: StatusStripModel, toolId: String)"
+        "Tappable(tag: String, onTap: (IntRect)"
       ]
     },
     {
@@ -11680,6 +11792,24 @@
         "fanGesture(sectionId: String, items: List<Pair<String, Pair<Int, String>>>)",
         "awaitLiftOrDrift(id: PointerId, start: Offset, slop: Float)",
         "class LauncherToolbarFx"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/launcher/LnktreeTargets.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LnktreeTargets"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.BuildConfig",
+        "android.util.Base64",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "resolve(site: String, registry: String, repo: String, path: String, linktree: String, appUrls: String)",
+        "of(panel: Sections.StackPanel)",
+        "class LnktreeTargets"
       ]
     },
     {
@@ -12171,6 +12301,43 @@
       "symbols": [
         "admits(isDown: Boolean, x: Float, y: Float)",
         "class StarGestureGate"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/app/src/main/java/com/diegonmarcos/superapp/launcher/StatusBarDecl.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "StatusElement",
+        "StatusBarDeclaration",
+        "StatusBarDecl",
+        "StatusBarPrefs"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.util.Base64",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableIntStateOf",
+        "androidx.compose.runtime.setValue",
+        "com.diegonmarcos.superapp.BuildConfig",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "parse(json: String)",
+        "layout( decl: StatusBarDeclaration, hidden: Map<String, Boolean> = emptyMap()",
+        "ordered(decl: StatusBarDeclaration, position: String, orders: Map<String, List<String>> = emptyMap()",
+        "move(ids: List<String>, index: Int, delta: Int)",
+        "sp(ctx: Context)",
+        "hidden(ctx: Context)",
+        "orders(ctx: Context)",
+        "setVisible(ctx: Context, id: String, on: Boolean)",
+        "setOrder(ctx: Context, position: String, ids: List<String>)",
+        "reset(ctx: Context)",
+        "layout(ctx: Context)",
+        "class StatusElement",
+        "class StatusBarDeclaration",
+        "class StatusBarDecl",
+        "class StatusBarPrefs"
       ]
     },
     {
@@ -19408,6 +19575,32 @@
       ]
     },
     {
+      "path": "aa_cloud-superapp/app/src/test/java/com/diegonmarcos/superapp/cal/TasksModelTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "TasksModelTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config",
+        "java.time.DayOfWeek",
+        "java.time.LocalDate",
+        "java.time.YearMonth",
+        "java.time.ZoneId"
+      ],
+      "symbols": [
+        "ms(d: LocalDate, h: Int = 9)",
+        "decl(count: Int, def: String)",
+        "class TasksModelTest"
+      ]
+    },
+    {
       "path": "aa_cloud-superapp/app/src/test/java/com/diegonmarcos/superapp/cloud/C3PagesComposeTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -19464,33 +19657,6 @@
       ],
       "symbols": [
         "class CalendarAgendaComposeTest"
-      ]
-    },
-    {
-      "path": "aa_cloud-superapp/app/src/test/java/com/diegonmarcos/superapp/cloud/CalendarAgendaPopupComposeTest.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "CalendarAgendaPopupComposeTest"
-      ],
-      "imports": [
-        "com.diegonmarcos.superapp.cal.CalendarAgendaPopup",
-        "android.app.Application",
-        "androidx.compose.ui.test.onNodeWithTag",
-        "androidx.compose.ui.test.onNodeWithText",
-        "androidx.compose.ui.test.performClick",
-        "com.diegonmarcos.superapp.ui.KitPageHarness",
-        "org.junit.Assert.assertEquals",
-        "org.junit.Assert.assertTrue",
-        "org.junit.Before",
-        "org.junit.Test",
-        "org.junit.runner.RunWith",
-        "org.robolectric.RobolectricTestRunner",
-        "org.robolectric.annotation.Config"
-      ],
-      "symbols": [
-        "fresh()",
-        "class CalendarAgendaPopupComposeTest"
       ]
     },
     {
@@ -19577,6 +19743,45 @@
       "symbols": [
         "repoFile(rel: String)",
         "class FleetDiagnosticsTest"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/app/src/test/java/com/diegonmarcos/superapp/cloud/TasksPopupComposeTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "TasksPopupComposeTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "androidx.compose.ui.test.assertTextEquals",
+        "androidx.compose.ui.test.onAllNodesWithTag",
+        "androidx.compose.ui.test.onNodeWithTag",
+        "androidx.compose.ui.test.onNodeWithText",
+        "androidx.compose.ui.test.performClick",
+        "com.diegonmarcos.superapp.cal.TaskEvent",
+        "com.diegonmarcos.superapp.cal.TaskTodo",
+        "com.diegonmarcos.superapp.cal.TasksPopup",
+        "com.diegonmarcos.superapp.cal.TasksSource",
+        "com.diegonmarcos.superapp.ui.KitPageHarness",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Before",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config",
+        "java.time.LocalDate",
+        "java.time.ZoneId"
+      ],
+      "symbols": [
+        "ms(d: LocalDate, h: Int)",
+        "events(fromMs: Long, toMs: Long)",
+        "todos()",
+        "fresh()",
+        "show()",
+        "waitFor(tag: String)",
+        "class TasksPopupComposeTest"
       ]
     },
     {
@@ -20708,6 +20913,27 @@
       ]
     },
     {
+      "path": "aa_cloud-superapp/app/src/test/java/com/diegonmarcos/superapp/launcher/LnktreeTargetsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LnktreeTargetsTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "r(site: String = \"\", registry: String = \"\", repo: String = \"\", path: String = \"\")",
+        "class LnktreeTargetsTest"
+      ]
+    },
+    {
       "path": "aa_cloud-superapp/app/src/test/java/com/diegonmarcos/superapp/launcher/MyHealthCardScreenTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -21394,6 +21620,30 @@
         "play(gate: StarGestureGate, gesture: List<Ev>)",
         "class StarGestureGateTest",
         "class Ev"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/app/src/test/java/com/diegonmarcos/superapp/launcher/StatusBarDeclTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "StatusBarDeclTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "json(vararg els: String)",
+        "el(id: String, pos: String, order: Int, visible: Boolean = true, kind: String = \"network\")",
+        "ids(m: Map<String, List<StatusElement>>, pos: String)",
+        "class StatusBarDeclTest"
       ]
     },
     {
@@ -91748,6 +91998,59 @@
       ]
     },
     {
+      "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/Latex.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Latex"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "parseConfig(json: String)",
+        "category(o: JSONObject)",
+        "parseCatalog(json: String)",
+        "problems(c: Catalog)",
+        "chips(c: Catalog, cfg: Config)",
+        "filter(c: Catalog, mine: List<Formula>, favourites: Set<String>, chip: String, query: String, cfg: Config)",
+        "encodeMine(list: List<Formula>)",
+        "decodeMine(json: String?, cfg: Config)",
+        "encodeFavourites(ids: Set<String>)",
+        "decodeFavourites(json: String?)",
+        "newMineId(taken: Collection<String>, nowMs: Long)",
+        "insertAt(text: String, start: Int, end: Int, snippet: String)",
+        "lex(tex: String)",
+        "toExpression(tex: String, rules: EvalRules)",
+        "emit(sb: StringBuilder, piece: String)",
+        "sequence(close: Char?)",
+        "arg()",
+        "one(k: Tok, last: Boolean)",
+        "entry(modeId: String, tex: String, result: String, cfg: Config)",
+        "isLatexEntry(e: Logic.Entry, cfg: Config)",
+        "objects()",
+        "strings()",
+        "class Latex",
+        "class Symbol",
+        "class Palette",
+        "class Category",
+        "class EvalRules",
+        "class Config",
+        "class Formula",
+        "class Catalog",
+        "class Edited",
+        "class Conversion",
+        "class Ok",
+        "class Unsupported",
+        "class Stop",
+        "class Tok",
+        "class Cmd",
+        "class Ch",
+        "class Parser"
+      ]
+    },
+    {
       "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/Logic.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -92282,6 +92585,7 @@
         "showSection(id: String)",
         "openConfigs()",
         "toggleConfigs()",
+        "openLatexEditor(draft: LatexModel.Draft)",
         "remember(e: Logic.Entry, max: Int)",
         "deleteHistory(index: Int)",
         "save(next: List<Logic.Entry>)",
@@ -92762,6 +93066,113 @@
         "ModelPicker(current: String, slugs: List<String>, use: String, onPick: (String?)",
         "JevTestMode(mode: Declarations.Mode)",
         "dataUrl(ctx: Context, uri: Uri)"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/ui/LatexModel.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LatexModel"
+      ],
+      "imports": [
+        "android.content.SharedPreferences",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateListOf",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.setValue",
+        "com.diegonmarcos.cloudcalc.Latex"
+      ],
+      "symbols": [
+        "saveMine(title: String, tex: String, id: String? = null)",
+        "deleteMine(id: String)",
+        "toggleFavourite(id: String)",
+        "isFavourite(id: String)",
+        "persist()",
+        "class LatexModel",
+        "class Draft"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/app/src/main/java/com/diegonmarcos/cloudcalc/ui/LatexScreens.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LatexTags",
+        "TexHandle",
+        "TexView",
+        "LatexLibraryMode",
+        "LatexEditorMode"
+      ],
+      "imports": [
+        "android.annotation.SuppressLint",
+        "android.content.Context",
+        "android.content.Intent",
+        "android.graphics.Bitmap",
+        "android.graphics.Canvas",
+        "android.os.Handler",
+        "android.os.Looper",
+        "android.webkit.JavascriptInterface",
+        "android.webkit.WebView",
+        "android.webkit.WebViewClient",
+        "androidx.activity.compose.BackHandler",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.lazy.LazyRow",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.text.selection.SelectionContainer",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material3.AlertDialog",
+        "androidx.compose.material3.AssistChip",
+        "androidx.compose.material3.DropdownMenu",
+        "androidx.compose.material3.DropdownMenuItem",
+        "androidx.compose.material3.FilledTonalButton",
+        "androidx.compose.material3.FilterChip",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.OutlinedButton",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Text",
+        "androidx.compose.material3.TextButton",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.SideEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableIntStateOf",
+        "androidx.compose.runtime.mutableStateOf"
+      ],
+      "symbols": [
+        "chip(id: String)",
+        "symbol(label: String)",
+        "run(js: String)",
+        "pageLoaded()",
+        "snapshot(cfg: Latex.Config, current: String, onBitmap: (Bitmap?)",
+        "pick(id: String)",
+        "status(ok: Boolean, message: String)",
+        "size(px: Int)",
+        "css(c: Color)",
+        "themeJson()",
+        "TexView( handle: TexHandle, modifier: Modifier = Modifier, onPick: (String)",
+        "buildWebView( ctx: Context, handle: TexHandle, bg: Int, cfg: Latex.Config, onPick: (String)",
+        "configured( ctx: Context, handle: TexHandle, bg: Int, cfg: Latex.Config, onPick: (String)",
+        "onPageFinished(view: WebView?, url: String?)",
+        "io(block: ()",
+        "catalogOf(ctx: Context)",
+        "shareText(ctx: Context, text: String)",
+        "shareImage(ctx: Context, bmp: Bitmap, text: String)",
+        "LatexLibraryMode(mode: Declarations.Mode)",
+        "LatexDetail(catalog: Latex.Catalog, f: Latex.Formula, onBack: ()",
+        "record(result: String = \"\")",
+        "LatexEditorMode(mode: Declarations.Mode)",
+        "evaluate()",
+        "class LatexTags",
+        "class TexHandle",
+        "class TexBridge"
       ]
     },
     {
@@ -93683,6 +94094,33 @@
       ]
     },
     {
+      "path": "ac_cloud-calc/app/src/test/java/com/diegonmarcos/cloudcalc/LatexTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LatexTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.cloudcalc.ui.LatexModel",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.RuntimeEnvironment",
+        "java.io.File"
+      ],
+      "symbols": [
+        "expr(tex: String)",
+        "ok(tex: String)",
+        "why(tex: String)",
+        "class LatexTest"
+      ]
+    },
+    {
       "path": "ac_cloud-calc/app/src/test/java/com/diegonmarcos/cloudcalc/LogicTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -94226,6 +94664,37 @@
       "symbols": [
         "at(zone: ZoneId, y: Int, mo: Int, d: Int, h: Int, mi: Int, s: Int = 0)",
         "class ClockLogicTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/data/assets/latex/viewer.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [],
+      "imports": [],
+      "symbols": [
+        "opts(display)",
+        "draw(el, tex, display)",
+        "report(ok, message)"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/data/latex/gen-formulas.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [
+        "parse",
+        "build"
+      ],
+      "imports": [
+        "node:fs",
+        "node:path",
+        "node:module",
+        "node:url"
+      ],
+      "symbols": [
+        "parse(md)",
+        "build(md)"
       ]
     },
     {
@@ -95289,6 +95758,18 @@
       "symbols": [
         "ok()",
         "bad()"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/test/test-calc-latex.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "mutate()"
+      ],
+      "imports": [],
+      "symbols": [
+        "mutate()"
       ]
     },
     {
