@@ -15,7 +15,7 @@ description: |
   #1064. The containers' sops-encrypted secrets live only in the private repo
   diegonmarcos/cloud-me-pvt-vault (Linux-Containers/), not in the public
   cloudy-u-containers. Clones the vault read-only with the existing
-  VAULT_DEPLOY_KEY (shallow, Linux-Containers only) and copies the sops files
+  VAULT_DEPLOY_KEY (shallow) and copies the sops files
   into the already checked-out containers tree (a_solutions) at the same
   relative paths. No new secret. Values are never printed.
 
@@ -35,7 +35,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Clone vault (read-only deploy key, Linux-Containers only) and overlay
+    - name: Clone vault (read-only deploy key) and overlay
       shell: bash
       env:
         VAULT_DEPLOY_KEY: ${{ inputs.vault_deploy_key }}
@@ -51,8 +51,7 @@ runs:
         V="${RUNNER_TEMP:-/tmp}/pvt-vault"
         rm -rf "$V"
         GIT_SSH_COMMAND="ssh -i $HOME/.ssh/vault_deploy -o IdentitiesOnly=yes" \
-          git clone -q --depth 1 --filter=blob:none --sparse git@github.com:diegonmarcos/cloud-me-pvt-vault.git "$V"
-        git -C "$V" sparse-checkout set Linux-Containers
+          git clone -q --depth 1 git@github.com:diegonmarcos/cloud-me-pvt-vault.git "$V"
         rm -f ~/.ssh/vault_deploy
         bash "$OVERLAY_SCRIPT" "$V" "$OVERLAY_TARGET"
         rm -rf "$V"
