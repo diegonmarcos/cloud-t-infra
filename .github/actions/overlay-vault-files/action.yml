@@ -1,0 +1,58 @@
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║                                                                  ║
+# ║   GENERATED FILE — DO NOT EDIT                                   ║
+# ║                                                                  ║
+# ║   Source : 1_cicd/src/actions/overlay-vault-files/action.yml
+# ║   Engine : 1_cicd/src/scripts/cloud-ship-repo-workflow-engine.sh
+# ║   Rebuild: ./9_others/build.sh
+# ║                                                                  ║
+# ║   Manual edits will be overwritten on next build.                ║
+# ║                                                                  ║
+# ╚══════════════════════════════════════════════════════════════════╝
+
+name: "Overlay private secrets"
+description: |
+  #1064. The containers' sops-encrypted secrets live only in the private repo
+  diegonmarcos/cloud-me-pvt-vault (Linux-Containers/), not in the public
+  cloudy-u-containers. Clones the vault read-only with the existing
+  VAULT_DEPLOY_KEY (shallow, Linux-Containers only) and copies the sops files
+  into the already checked-out containers tree (a_solutions) at the same
+  relative paths. No new secret. Values are never printed.
+
+inputs:
+  vault_deploy_key:
+    description: "SSH private key with read access to diegonmarcos/cloud-me-pvt-vault (secrets.VAULT_DEPLOY_KEY)"
+    required: true
+  target:
+    description: "Path of the checked-out containers repo"
+    required: false
+    default: "a_solutions"
+  script:
+    description: "Path of overlay-private-secrets.sh in this repo"
+    required: false
+    default: ".github/workflows/scripts/overlay-private-secrets.sh"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Clone vault (read-only deploy key, Linux-Containers only) and overlay
+      shell: bash
+      env:
+        VAULT_DEPLOY_KEY: ${{ inputs.vault_deploy_key }}
+        OVERLAY_TARGET: ${{ inputs.target }}
+        OVERLAY_SCRIPT: ${{ inputs.script }}
+      run: |
+        set -eu
+        [ -n "$VAULT_DEPLOY_KEY" ] || { echo "::error::VAULT_DEPLOY_KEY is not available; the containers' sops files live only in the private vault"; exit 1; }
+        umask 077
+        mkdir -p ~/.ssh && chmod 700 ~/.ssh
+        printf '%s\n' "$VAULT_DEPLOY_KEY" > ~/.ssh/vault_deploy
+        ssh-keyscan github.com 2>/dev/null >> ~/.ssh/known_hosts
+        V="${RUNNER_TEMP:-/tmp}/pvt-vault"
+        rm -rf "$V"
+        GIT_SSH_COMMAND="ssh -i $HOME/.ssh/vault_deploy -o IdentitiesOnly=yes" \
+          git clone -q --depth 1 --filter=blob:none --sparse git@github.com:diegonmarcos/cloud-me-pvt-vault.git "$V"
+        git -C "$V" sparse-checkout set Linux-Containers
+        rm -f ~/.ssh/vault_deploy
+        bash "$OVERLAY_SCRIPT" "$V" "$OVERLAY_TARGET"
+        rm -rf "$V"

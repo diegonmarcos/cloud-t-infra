@@ -7,8 +7,8 @@ name: "SSO OIDC deliver (per-service sops fragments from the issued bundle)"
 #   infra-sec_authelia/src/secrets.sso-oidc.yaml  with  <secret_var> = clients.<client_id>.digest
 # <file> is secrets.yaml when the service has none yet, else the fragment secrets.sso-oidc.yaml that
 # cloud-ship-container-step-secrets-decrypt.sh merges (#760). Output, encrypted only, goes to
-# cloud-me-pvt-vault Identity/sso-oidc/deliver/<svc_dir>/src/<file>; it is copied verbatim into cloud-u-containers
-# (no credential here can push there). The JWKS key in the bundle is NOT delivered: Authelia keeps its
+# cloud-me-pvt-vault Identity/sso-oidc/deliver/<svc_dir>/src/<file> AND, since #1064, straight to the vault's
+# Linux-Containers/<svc_dir>/src/<file> (the single secrets source; the public cloudy-u-containers holds none). The JWKS key in the bundle is NOT delivered: Authelia keeps its
 # current AUTHELIA_OIDC_JWKS_KEY. Nothing is printed and no artifact is uploaded.
 on:
   workflow_dispatch:
@@ -36,10 +36,6 @@ jobs:
       CLIENTS_IN: ${{ inputs.clients }}
       AGE_RECIPIENT: age1u575hx8h4t5cgle2uznmyfy75e7cgd02h9t5dax506luz9e05vlqxtd7pq
     steps:
-      - uses: actions/checkout@v4
-        with:
-          repository: diegonmarcos/cloudy-u-containers
-          path: containers
       - name: Install sops
         run: |
           set -eu
@@ -52,7 +48,6 @@ jobs:
           umask 077
           [ -n "$VAULT_WRITE_DEPLOY_KEY" ] || { echo "::error::VAULT_WRITE_DEPLOY_KEY is not available"; exit 1; }
           [ -n "$SOPS_AGE_KEY" ] || { echo "::error::SOPS_AGE_KEY is not available"; exit 1; }
-          C="$GITHUB_WORKSPACE/containers"
           W="$(mktemp -d -p /dev/shm)"; cd "$W"
           trap 'find "$W" -type f -exec shred -u {} + 2>/dev/null || true; rm -rf "$W" ~/.ssh/id_deploy || true' EXIT
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
@@ -63,7 +58,7 @@ jobs:
           B="$W/pvt/Identity/sso-oidc/sso-oidc.sops.json"
           [ -f "$B" ] || { echo "::error::no bundle; run sso-oidc-issue first"; exit 1; }
           sops -d --input-type json --output-type json "$B" > plain.json
-          python3 - "$C" "$CLIENTS_IN" <<'PY'
+          python3 - "$W/pvt" "$CLIENTS_IN" <<'PY'
           import json, os, sys
           root, spec = sys.argv[1], sys.argv[2].split()
           b = json.load(open("plain.json"))
@@ -74,8 +69,12 @@ jobs:
           for e in spec:
               cid, rest = e.split("=", 1); svc, env = rest.split(":", 1)
               c = b["clients"][cid]
-              base = os.path.join(root, svc, "src", "secrets.yaml")
-              name = "secrets.sso-oidc.yaml" if os.path.exists(base) else "secrets.yaml"
+              # #1064: the base file is looked up in the private vault. A service whose secrets.yaml is itself
+              # an earlier delivery of this workflow keeps that name (a second secrets.sso-oidc.yaml would
+              # define the same key twice and fail the merge).
+              base = os.path.join(root, "Linux-Containers", svc, "src", "secrets.yaml")
+              prev = os.path.join(root, "Identity", "sso-oidc", "deliver", svc, "src", "secrets.yaml")
+              name = "secrets.sso-oidc.yaml" if (os.path.exists(base) and not os.path.exists(prev)) else "secrets.yaml"
               doc = {env: c["secret"], "_credentials": {"sso_oidc": {
                   "type": "oauth", "url": "https://sso.diegonmarcos.com", "client_id": cid,
                   "client_secret": c["secret"], "note": "Authelia OIDC client (#1147), from sso-oidc bundle " + b["issued"]}}}
@@ -92,8 +91,9 @@ jobs:
             rel="${f#out/}"; dst="$W/pvt/Identity/sso-oidc/deliver/${rel%.json}"; mkdir -p "$(dirname "$dst")"
             sops --encrypt --age "$AGE_RECIPIENT" --input-type json --output-type yaml "$f" > "$dst"
             grep -q '^sops:' "$dst" || { echo "::error::$rel not encrypted"; exit 1; }
+            lc="$W/pvt/Linux-Containers/${rel%.json}"; mkdir -p "$(dirname "$lc")"; cp "$dst" "$lc"
           done
           if grep -rqE 'pbkdf2-sha512|PRIVATE KEY' "$W/pvt/Identity/sso-oidc/deliver"; then echo "::error::plaintext leaked"; exit 1; fi
-          ( cd "$W/pvt" && git config user.name "Claude" && git config user.email "noreply@anthropic.com" && git add Identity/sso-oidc/deliver \
+          ( cd "$W/pvt" && git config user.name "Claude" && git config user.email "noreply@anthropic.com" && git add Identity/sso-oidc/deliver Linux-Containers \
             && { git diff --cached --quiet || git commit -q -m "sso-oidc: per-service encrypted delivery files (#1147)"; } && git push -q origin HEAD:main )
           echo "delivery files pushed to cloud-me-pvt-vault/Identity/sso-oidc/deliver (encrypted): $(find "$W/pvt/Identity/sso-oidc/deliver" -type f | wc -l)"

@@ -211,6 +211,17 @@ if [ "$_as_n" -eq 0 ] || [ ! -f "$_AS_DIR/_shared/engine.nix" ]; then
 fi
 log "a_solutions ready: ${_as_n} service build.sh @ $(git -C "$_AS_DIR" rev-parse --short HEAD 2>/dev/null || echo '?')"
 
+# #1064: the sops-encrypted secrets are NOT in the public cloud-u-containers
+# any more. They come from the private cloud-me-pvt-vault (Linux-Containers/),
+# which every ship workflow already clones (fetch-vault, read-only deploy key)
+# and mounts at $HOME/git/cloud-vault. Overlay them into the a_solutions tree
+# at the same relative paths, so step_secrets and engine.nix read
+# <svc>/src/secrets.yaml exactly as before. Fails closed: a missing or short
+# vault must not ship services without their secrets. Idempotent.
+_VAULT_ROOT="${VAULT_DIR:-$HOME/git/cloud-vault}"
+OVERLAY_OPTIONAL=1 bash "$_DISPATCH_DIR/overlay-private-secrets.sh" "$_VAULT_ROOT" "$_AS_DIR" >&2 \
+  || { log_error "private secrets overlay failed — refusing to ship without the vault's sops files"; exit 1; }
+
 # build.ship_hold (string = reason): a registered service whose build cannot succeed
 # yet (e.g. its upstream GHCR package is not readable) is held out of the ship, so
 # one pending service does not fail the build gate and skip every other deploy.
