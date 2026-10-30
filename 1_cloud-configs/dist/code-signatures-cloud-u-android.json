@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22588,
+    "files": 22606,
     "by_lang": {
-      "sh": 586,
+      "sh": 591,
       "js": 498,
       "py": 170,
-      "kotlin": 12104,
+      "kotlin": 12117,
       "java": 647,
       "nix": 31,
       "rust": 111,
@@ -20,10 +20,10 @@
     "by_role": {
       "hook": 158,
       "file": 2282,
-      "shell": 462,
+      "shell": 467,
       "script": 262,
       "java": 646,
-      "kotlin": 12101,
+      "kotlin": 12114,
       "module": 6424,
       "flake": 27,
       "python": 55,
@@ -27025,6 +27025,22 @@
         "bad()",
         "has()",
         "lacks()"
+      ]
+    },
+    {
+      "path": "aa_cloud-superapp/test/test-web-tokens.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "bad()",
+        "has()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "bad()",
+        "has()"
       ]
     },
     {
@@ -72212,6 +72228,65 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/nfc/src/main/java/com/diegonmarcos/superapp/nfc/Mifare.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "MifareLayout",
+        "ClassicIo",
+        "SectorRead",
+        "ClassicScan",
+        "MifareClassicProbe",
+        "MadEntry",
+        "Mad",
+        "MadDecoder",
+        "ClassicReport",
+        "DesfireVersion",
+        "DesfireInfo",
+        "Desfire"
+      ],
+      "imports": [],
+      "symbols": [
+        "sectorCount(size: Int)",
+        "blocksIn(sector: Int, size: Int)",
+        "firstBlock(sector: Int, size: Int)",
+        "blockCount(size: Int)",
+        "sizeName(size: Int)",
+        "unsupportedLine(sakIsClassic: Boolean, techPresent: Boolean, phoneHasNxp: Boolean)",
+        "auth(sector: Int, key: ByteArray, keyB: Boolean)",
+        "read(block: Int)",
+        "scan(io: ClassicIo, size: Int, keys: List<ClassicKey>, budgetMs: Long, clock: ()",
+        "crc8(b: ByteArray)",
+        "decode(block1: ByteArray, block2: ByteArray, gpb: Int, mad2: List<ByteArray>? = null)",
+        "aids(first: Int, data: ByteArray, from: Int, count: Int)",
+        "blockLine(block: Int, data: ByteArray?, trailer: Boolean)",
+        "summary(scan: ClassicScan)",
+        "section(typeName: String, size: Int, androidType: String, scan: ClassicScan, catalog: NfcCatalog)",
+        "parseVersion(b: ByteArray)",
+        "u(i: Int)",
+        "bcd(x: Int)",
+        "productionText(v: DesfireVersion)",
+        "describe(v: DesfireVersion, catalog: NfcCatalog)",
+        "split(resp: ByteArray)",
+        "run(tx: (ByteArray)",
+        "probe(tx: (ByteArray)",
+        "appIds(d: ByteArray)",
+        "section(info: DesfireInfo)",
+        "class MifareLayout",
+        "class ClassicIo",
+        "class SectorRead",
+        "class ClassicScan",
+        "class MifareClassicProbe",
+        "class MadEntry",
+        "class Mad",
+        "class MadDecoder",
+        "class ClassicReport",
+        "class DesfireVersion",
+        "class DesfireInfo",
+        "class Desfire"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/nfc/src/main/java/com/diegonmarcos/superapp/nfc/Ndef.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -72265,6 +72340,8 @@
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
+        "ClassicKey",
+        "DesfireName",
         "NxpVersion",
         "NfcCatalog"
       ],
@@ -72274,6 +72351,10 @@
         "org.json.JSONObject"
       ],
       "symbols": [
+        "isClassicSak(s: Int)",
+        "isDesfireSak(s: Int)",
+        "madAid(aid: Int)",
+        "desfireName(hwType: Int, hwMajor: Int)",
         "manufacturer(uid0: Int)",
         "iso15693(code: Int)",
         "sakName(s: Int)",
@@ -72283,6 +72364,9 @@
         "hexMap(key: String)",
         "strMap(key: String)",
         "rows(key: String)",
+        "hexSet(a: JSONArray?)",
+        "class ClassicKey",
+        "class DesfireName",
         "class NxpVersion",
         "class NfcCatalog"
       ]
@@ -72308,6 +72392,7 @@
         "kotlinx.coroutines.flow.update"
       ],
       "symbols": [
+        "phoneHasMifareClassic()",
         "refresh()",
         "startReader(activity: Activity)",
         "stopReader(activity: Activity)",
@@ -72357,6 +72442,7 @@
         "android.nfc.FormatException",
         "android.nfc.Tag",
         "android.nfc.tech.IsoDep",
+        "android.nfc.tech.MifareClassic",
         "android.nfc.tech.MifareUltralight",
         "android.nfc.tech.NdefFormatable",
         "android.nfc.tech.NfcA",
@@ -72369,6 +72455,10 @@
         "techName(full: String)",
         "read(tag: Tag, catalog: NfcCatalog, now: Long = System.currentTimeMillis()",
         "guard(what: String, block: ()",
+        "classicSection(mc: MifareClassic, catalog: NfcCatalog)",
+        "auth(sector: Int, key: ByteArray, keyB: Boolean)",
+        "read(block: Int)",
+        "desfire(d: IsoDep, catalog: NfcCatalog)",
         "ultralight(ul: MifareUltralight, catalog: NfcCatalog)",
         "write(tag: Tag, message: ByteArray, format: Boolean)",
         "class NfcReader"
@@ -72448,6 +72538,48 @@
         "historyTab(controller: NfcController, s: NfcState)",
         "StatusCard(controller: NfcController, s: NfcState)",
         "class NfcTab"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/nfc/src/test/java/com/diegonmarcos/superapp/nfc/MifareTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "MifareTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "java.io.File"
+      ],
+      "symbols": [
+        "hex(s: String)",
+        "sakMapsToClassicTypes()",
+        "layoutOfTheFamilies()",
+        "catalogKeysAreExactlyTheFourPublicOnes()",
+        "madCrcMatchesTheKnownNdefDirectory()",
+        "madRejectsBadCrcAndMissingDirectory()",
+        "mad2AddsSectors17To39()",
+        "block(aid: Int, n: Int, head: Boolean)",
+        "versionBytes(hwType: Int, hwMajor: Int, storage: Int)",
+        "desfireVersionParsesAndIsNamedFromTheCatalog()",
+        "ok(data: ByteArray, sw2: Int)",
+        "desfireProbeFollowsContinuationsAndListsApplicationsWithoutAuth()",
+        "desfireAppListNeedingAuthIsNotAnError()",
+        "nonDesfireIsNotNamedDesfire()",
+        "auth(sector: Int, key: ByteArray, keyB: Boolean)",
+        "read(block: Int)",
+        "hotelCardAllLockedIsNormalNotAnError()",
+        "openSectorIsDumpedAndTrailerKeysAreHidden()",
+        "madIsDecodedWhenSectorZeroOpens()",
+        "timeBudgetStopsTheProbeAndSaysSo()",
+        "unsupportedPhoneSaysSoClearly()",
+        "class MifareTest",
+        "class FakeCard"
       ]
     },
     {
@@ -81085,6 +81217,78 @@
         "ApRow(c: WifiController, s: WifiState, ap: AccessPoint, now: Long, open: (WifiTab)",
         "class WifiTab",
         "class WifiLayout"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/ui-baseline/shots/src/test/kotlin/com/diegonmarcos/uibaseline/BaselineShots.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PhoneShots",
+        "TabletLandShots",
+        "TabletPortShots",
+        "BaselineShots"
+      ],
+      "imports": [
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.graphics.Brush",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.res.painterResource",
+        "androidx.compose.ui.test.junit4.createComposeRule",
+        "androidx.compose.ui.test.onRoot",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.superapp.bottomnav.BottomNavEntry",
+        "com.diegonmarcos.superapp.bottomnav.BottomNavIsland",
+        "com.diegonmarcos.superapp.bottomnav.NavDecl",
+        "com.diegonmarcos.superapp.bottomnav.NavPage",
+        "com.diegonmarcos.superapp.bottomnav.PageTabs",
+        "com.diegonmarcos.superapp.bottomnav.appTopBarLabels",
+        "com.diegonmarcos.superapp.bottomnav.islandEntries",
+        "com.diegonmarcos.superapp.navbarbottom.NavBarBottom",
+        "com.diegonmarcos.superapp.navbartop1.NavBarTopFirstRow",
+        "com.diegonmarcos.superapp.navbartop1.titleHierarchy",
+        "com.diegonmarcos.superapp.navbartop2.NavBarTopSecondRow",
+        "com.diegonmarcos.superapp.themebg.ThemeBackground",
+        "com.diegonmarcos.superapp.themebg.themeBackground",
+        "com.diegonmarcos.superapp.uikit.CloudKitTheme",
+        "com.diegonmarcos.superapp.uikit.KitPalette",
+        "com.diegonmarcos.superapp.uikit.KitSamples",
+        "com.github.takahirom.roborazzi.captureRoboImage",
+        "org.json.JSONObject",
+        "org.junit.Rule",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "build(dir: String)",
+        "palette(themeId: String)",
+        "c(role: String)",
+        "shot(name: String, content: @Composable ()",
+        "island()",
+        "cloudTabs()",
+        "kitCloud()",
+        "kitMinimalist()",
+        "kit(theme: String)",
+        "fleetCalc()",
+        "fleetTasks()",
+        "fleetC3()",
+        "fleet(dir: String, app: String, sectionId: String, pageId: String)",
+        "class PhoneShots",
+        "class TabletLandShots",
+        "class TabletPortShots",
+        "class BaselineShots"
       ]
     },
     {
@@ -95085,6 +95289,32 @@
       "symbols": [
         "ok()",
         "bad()"
+      ]
+    },
+    {
+      "path": "ac_cloud-calc/test/test-calc-nfc-classic.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "pass()",
+        "fail()",
+        "c1()",
+        "c2()",
+        "c3()",
+        "c4()",
+        "red()",
+        "pycat()"
+      ],
+      "imports": [],
+      "symbols": [
+        "pass()",
+        "fail()",
+        "c1()",
+        "c2()",
+        "c3()",
+        "c4()",
+        "red()",
+        "pycat()"
       ]
     },
     {
@@ -173045,12 +173275,14 @@
       ],
       "symbols": [
         "asRun()",
+        "label(key: String)",
+        "option(id: String)",
+        "item(id: String)",
         "urlFor(owner: String, name: String)",
         "reposUrl(page: Int)",
         "webUrlFor(owner: String, name: String)",
         "labelFor(lang: String)",
         "group(id: String)",
-        "item(id: String)",
         "argv(op: String, url: String, dest: String, depth: Int = 0)",
         "folderAction(kind: String)",
         "depthActions(scope: String)",
@@ -173078,12 +173310,10 @@
         "element(text: String)",
         "str(key: String, default: String = \"\")",
         "bool(key: String, default: Boolean = false)",
+        "boolOrNull(key: String)",
         "int(key: String)",
         "strings(key: String)",
-        "objects(e: JsonElement?)",
-        "tabsOf(nav: NavDecl)",
-        "pagesOf(nav: NavDecl, sectionId: String)",
-        "navPages(sectionId: String)"
+        "objects(e: JsonElement?)"
       ]
     },
     {
@@ -175811,6 +176041,8 @@
         "guardScript(guestDir: String, q: (String)",
         "parseGuard(out: String)",
         "moveScript(from: String, to: String, q: (String)",
+        "debrisScript(dir: String, minAgeMinutes: Int, q: (String)",
+        "debrisOldEnough(modifiedMs: Long, nowMs: Long, minAgeMinutes: Int)",
         "deleteScript(dir: String, q: (String)",
         "originSeg(origin: String)",
         "fixedOrigin(origin: String, names: RegistryNames)",
@@ -176028,10 +176260,7 @@
         "java.text.DateFormat"
       ],
       "symbols": [
-        "DepthBar(actions: List<Declarations.GitDepthActionDecl>, running: Boolean, onAction: (Declarations.GitDepthActionDecl)",
-        "DepthProgress(r: BulkDepth.Run, onOpen: ()",
         "DepthReportWindow(r: BulkDepth.Run, onCancel: ()",
-        "RepoFilterRow(filters: List<Declarations.GitFilterDecl>, selection: Map<String, String>, onSelect: (String, String)",
         "UnlistedPanel( label: String, folders: List<UnlistedRepos.Folder>, glances: Map<String, GitSyncCoordinator.Glance>, lastCommits: Map<String, Long>, run: BulkDepth.Run?, coordinator: GitSyncCoordinator, onOpenReport: ()",
         "ActivityLogsWindow(events: List<SyncEvent>, fmt: DateFormat, onClose: ()",
         "FullWindow(title: String, tag: String, onClose: ()"
@@ -176200,6 +176429,27 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/GitInventoryUi.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [],
+      "imports": [
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "com.diegonmarcos.clouddrive.Declarations",
+        "com.diegonmarcos.clouddrive.sync.inventory.RepoInventory",
+        "com.diegonmarcos.clouddrive.ui.DriveMetrics",
+        "com.diegonmarcos.clouddrive.ui.DriveTags"
+      ],
+      "symbols": [
+        "InventorySections( inventory: RepoInventory.Inventory?, decl: Declarations.GitInventoryDecl, glances: Map<String, GitSyncCoordinator.Glance>, lastCommits: Map<String, Long>, run: BulkDepth.Run?, coordinator: GitSyncCoordinator, onOpenReport: ()",
+        "class of",
+        "class has"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/GitPageFrame.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -176265,6 +176515,7 @@
         "androidx.activity.compose.rememberLauncherForActivityResult",
         "androidx.activity.result.contract.ActivityResultContracts",
         "androidx.compose.foundation.ScrollState",
+        "androidx.compose.foundation.background",
         "androidx.compose.foundation.clickable",
         "androidx.compose.foundation.horizontalScroll",
         "androidx.compose.foundation.layout.Arrangement",
@@ -176295,8 +176546,7 @@
         "androidx.compose.material3.ExperimentalMaterial3Api",
         "androidx.compose.material3.Icon",
         "androidx.compose.material3.LinearProgressIndicator",
-        "androidx.compose.material3.MaterialTheme",
-        "androidx.compose.material3.ModalBottomSheet"
+        "androidx.compose.material3.MaterialTheme"
       ],
       "symbols": [
         "GitReposScreen(coordinator: GitSyncCoordinator, actions: DriveActions, nextRunMinutes: Long?, modifier: Modifier = Modifier, view: GitView = GitView.ME, prefs: DrivePrefs? = null, part: GitPart = GitPart.TABLE)",
@@ -176325,20 +176575,20 @@
         "cloneViaGh(repo: GitHubRepos.Repo)",
         "startWay(way: Declarations.GitWayDecl)",
         "runDepthAll(a: Declarations.GitDepthActionDecl)",
+        "countsOf(f: Declarations.GitFilterDecl)",
+        "runTopItem(item: Declarations.GitTopItemDecl)",
+        "onTopItem(item: Declarations.GitTopItemDecl)",
         "tableBlock()",
         "GitWayCard( way: Declarations.GitWayDecl, isCloud: Boolean, page: Declarations.GitPageDecl, login: GitLogin, listing: GitListing, chain: GitChainState, ghAuth: GhAuth, signingIn: Boolean, rungDeclared: Boolean, cloudFallback: Boolean, fleetHost: SignInHost, onSignIn: ()",
-        "GitRepoRow( name: String, repoName: String, cells: RepoTableRow, scroll: ScrollState, fork: Boolean, repo: ManagedRepo?, glance: GitSyncCoordinator.Glance?, running: GitSyncCoordinator.Running?, icons: RepoStatus.Icons, cloning: Boolean, expanded: Boolean, onToggle: ()",
+        "GitRepoRow( name: String, repoName: String, cells: RepoTableRow, scroll: ScrollState, fork: Boolean, copies: Int = 1, copiesLabel: String = \"\", repo: ManagedRepo?, glance: GitSyncCoordinator.Glance?, running: GitSyncCoordinator.Running?, icons: RepoStatus.Icons, cloning: Boolean, expanded: Boolean, onToggle: ()",
         "lightOf(repo: ManagedRepo?, glance: GitSyncCoordinator.Glance?)",
         "statusErrorText(kind: RepoStatus.ErrorKind?, detail: String?)",
-        "RepoStatusLegend()",
         "RepoStatusBlock(b: RepoStatus.Block, fmt: DateFormat)",
         "GitRepoOpsBox( repo: ManagedRepo, page: Declarations.GitPageDecl, details: GitSyncCoordinator.Details?, result: com.diegonmarcos.cloudlib.gitsync.GitOpResult?, running: GitSyncCoordinator.Running?, glance: GitSyncCoordinator.Glance?, fmt: DateFormat, coordinator: GitSyncCoordinator, actions: DriveActions, repoName: String, owner: String, remote: RepoRemoteStats.Stats?, cloneDepth: Int, cloneSsh: Boolean, onSettings: ()",
         "declared(op: Declarations.GitOpDecl)",
         "act(id: String)",
         "GitRepoNotClonedBox( page: Declarations.GitPageDecl, repoName: String, owner: String, row: RepoTableRow, isPrivate: Boolean?, remote: RepoRemoteStats.Stats?, cloneUrl: String, cloning: Boolean, coordinator: GitSyncCoordinator, actions: DriveActions, onClone: ()",
-        "MetaLine(text: String)",
-        "stepLabel(step: GitSyncCoordinator.Step)",
-        "HistoryRow(e: SyncEvent, fmt: DateFormat, compact: Boolean = false)"
+        "MetaLine(text: String)"
       ]
     },
     {
@@ -176409,6 +176659,9 @@
         "com.diegonmarcos.cloudlib.gitsync.GitRemoteInfo",
         "com.diegonmarcos.cloudlib.gitsync.ManagedRepo",
         "com.diegonmarcos.cloudlib.gitsync.RepoRegistry",
+        "com.diegonmarcos.clouddrive.sync.inventory.InventoryScript",
+        "com.diegonmarcos.clouddrive.sync.inventory.RepoInventory",
+        "com.diegonmarcos.clouddrive.sync.jobs.GitJobs",
         "com.diegonmarcos.clouddrive.sync.store.StoreShell",
         "java.io.File",
         "kotlinx.coroutines.CoroutineScope",
@@ -176426,6 +176679,7 @@
         "loadRegistry()",
         "reread(repo: ManagedRepo)",
         "pullAll(force: Boolean, trigger: String = SyncHistory.TRIGGER_MANUAL, only: Set<String>? = null)",
+        "bulkRunning()",
         "gitJobRunning(ownBulk: Boolean)",
         "sweepStalePacks(ownBulk: Boolean = false)",
         "setAutoPullOnOpen(on: Boolean)",
@@ -176440,7 +176694,7 @@
         "lightCheckAll()",
         "fullCheckAll()",
         "cancelStatusReads()",
-        "fetchAll()",
+        "fetchAll(only: List<ManagedRepo>? = null)",
         "refreshSizes(force: Boolean = false)",
         "save(repo: ManagedRepo)",
         "setAutoSync(repo: ManagedRepo, on: Boolean, minutes: Long)",
@@ -176456,10 +176710,161 @@
         "perform(repo: ManagedRepo, opId: String, message: String, token: ()",
         "record(repo: ManagedRepo, opId: String, result: GitOpResult, trigger: String)",
         "runCompound(repo: ManagedRepo, id: String)",
-        "runCompoundAll(id: String)",
-        "checkoutMain(repo: ManagedRepo)",
-        "prFeed(owner: String, name: String)",
-        "setCloneDepth(depth: Int)"
+        "runCompoundAll(id: String, only: List<ManagedRepo>? = null)",
+        "bulkOps(id: String, targets: List<ManagedRepo>, op: (ManagedRepo)",
+        "single(repo: ManagedRepo, id: String, step: Step, body: ()"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/GitTopBar.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GitTopBarState"
+      ],
+      "imports": [
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.lazy.LazyRow",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.filled.Settings",
+        "androidx.compose.material3.AlertDialog",
+        "androidx.compose.material3.DropdownMenu",
+        "androidx.compose.material3.DropdownMenuItem",
+        "androidx.compose.material3.ExperimentalMaterial3Api",
+        "androidx.compose.material3.FilterChip",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.LinearProgressIndicator",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.ModalBottomSheet",
+        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.material3.Text",
+        "androidx.compose.material3.TextButton",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.font.FontWeight",
+        "com.diegonmarcos.clouddrive.Declarations",
+        "com.diegonmarcos.clouddrive.DrivePrefs",
+        "com.diegonmarcos.clouddrive.sync.jobs.GitJobs",
+        "com.diegonmarcos.clouddrive.ui.DriveMetrics",
+        "com.diegonmarcos.clouddrive.ui.DriveTags",
+        "com.diegonmarcos.clouddrive.ui.IconCatalog",
+        "com.diegonmarcos.clouddrive.ui.IslandAction"
+      ],
+      "symbols": [
+        "reason(item: Declarations.GitTopItemDecl, writingJob: String?, scopeCount: Int, labels: (String)",
+        "summary(counters: List<String>, total: Int, cloned: Int, needsYou: Int, ahead: Int, behind: Int, checkedAge: String, labels: (String)",
+        "GitTopBar( decl: Declarations.GitTopBarDecl, prefs: DrivePrefs?, enabledReason: (Declarations.GitTopItemDecl)",
+        "GitJobLine(job: GitJobs.State?, labels: (String)",
+        "GitSearchRow(decl: Declarations.GitTopBarDecl, query: String, onQuery: (String)",
+        "QuickFilterRail(filters: List<Declarations.GitFilterDecl>, selection: Map<String, String>, counts: (Declarations.GitFilterDecl)",
+        "GitFilterSheet(decl: Declarations.GitTopBarDecl, filters: List<Declarations.GitFilterDecl>, selection: Map<String, String>, counts: (Declarations.GitFilterDecl)",
+        "GitTopConfirm(item: Declarations.GitTopItemDecl, decl: Declarations.GitTopBarDecl, targets: Int, onConfirm: ()",
+        "GitLegendDialog(decl: Declarations.GitTopBarDecl, icons: Map<String, Map<String, String>>, onDismiss: ()",
+        "class GitTopBarState"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/inventory/InventoryScript.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "InventoryScript"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.sync.LocalRepos",
+        "com.diegonmarcos.clouddrive.sync.RepoCheap",
+        "java.io.File"
+      ],
+      "symbols": [
+        "safeGlob(g: String)",
+        "build(guestRoots: List<String>, maxDepth: Int, debris: List<String>, q: (String)",
+        "parse(out: String, host: (String)",
+        "walkIo(roots: List<File>, maxDepth: Int, maxDirs: Int, deadlineMs: Long, debris: List<String>, now: ()",
+        "sizesScript(guestDirs: List<String>, q: (String)",
+        "parseSizes(out: String)",
+        "bareOrigin(gitDir: File)",
+        "globRegex(glob: String)",
+        "encode(l: List<Entry>)",
+        "decode(s: String?)",
+        "class InventoryScript",
+        "class Kind",
+        "class Entry",
+        "class Parsed"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/inventory/RepoInventory.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoInventory"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations",
+        "com.diegonmarcos.clouddrive.sync.LocalRepos",
+        "com.diegonmarcos.clouddrive.sync.RegistryNames"
+      ],
+      "symbols": [
+        "of(cls: RepoClass)",
+        "byPath(path: String)",
+        "cloneOf(identity: String)",
+        "classify(entries: List<InventoryScript.Entry>, names: RegistryNames, sot: Declarations.RepoSotDecl, managedPaths: Set<String>, now: Long = 0L, via: String = \"\", truncated: Boolean = false, malformed: Int = 0)",
+        "class RepoInventory",
+        "class RepoClass",
+        "class Row",
+        "class Inventory"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/jobs/GitJobs.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GitJobs"
+      ],
+      "imports": [
+        "kotlinx.coroutines.CoroutineScope",
+        "kotlinx.coroutines.Job",
+        "kotlinx.coroutines.NonCancellable",
+        "kotlinx.coroutines.flow.MutableStateFlow",
+        "kotlinx.coroutines.flow.StateFlow",
+        "kotlinx.coroutines.flow.update",
+        "kotlinx.coroutines.joinAll",
+        "kotlinx.coroutines.launch",
+        "kotlinx.coroutines.sync.Semaphore",
+        "kotlinx.coroutines.withContext"
+      ],
+      "symbols": [
+        "outcomeOf(name: String)",
+        "lines()",
+        "refusal(spec: Spec)",
+        "locked(path: String)",
+        "running(path: String)",
+        "submit(spec: Spec)",
+        "record(id: String, name: String, o: Outcome)",
+        "cancel(id: String)",
+        "dismiss(id: String)",
+        "latest(vararg kinds: String)",
+        "class GitJobs",
+        "class Status",
+        "class Outcome",
+        "class Target",
+        "class Spec",
+        "class State"
       ]
     },
     {
@@ -176527,20 +176932,12 @@
         "found(dir: File, origin: String, names: RegistryNames = RegistryNames.NONE)",
         "parentless(found: List<Found>, names: RegistryNames = RegistryNames.NONE)",
         "usable(name: String)",
-        "rename(p: Parentless)",
-        "renameAll(rows: List<Parentless>)",
         "repointPath(path: String, old: String, new: String)",
         "withOrigin(config: String, url: String)",
         "setOrigin(dir: File, url: String)",
         "class LocalRepos",
         "class Found",
-        "class Parentless",
-        "class Outcome",
-        "class Renamed",
-        "class TargetExists",
-        "class Missing",
-        "class Invalid",
-        "class Failed"
+        "class Parentless"
       ]
     },
     {
@@ -176612,10 +177009,8 @@
       "imports": [
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.collectAsState",
         "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableStateOf",
-        "androidx.compose.runtime.remember",
-        "androidx.compose.runtime.setValue",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.platform.LocalContext",
         "androidx.compose.ui.platform.testTag",
@@ -176623,13 +177018,11 @@
         "com.diegonmarcos.clouddrive.Declarations",
         "com.diegonmarcos.clouddrive.DrivePrefs",
         "com.diegonmarcos.clouddrive.R",
-        "com.diegonmarcos.clouddrive.ui.DriveTags",
-        "java.io.File",
-        "kotlinx.coroutines.Dispatchers",
-        "kotlinx.coroutines.withContext"
+        "com.diegonmarcos.clouddrive.sync.inventory.RepoInventory",
+        "com.diegonmarcos.clouddrive.ui.DriveTags"
       ],
       "symbols": [
-        "ParentlessPanel( roots: List<File>, prefs: DrivePrefs, coordinator: GitSyncCoordinator, glances: Map<String, GitSyncCoordinator.Glance>, lastCommits: Map<String, Long>, run: BulkDepth.Run?, onOpenReport: ()"
+        "ParentlessPanel( prefs: DrivePrefs, coordinator: GitSyncCoordinator, glances: Map<String, GitSyncCoordinator.Glance>, lastCommits: Map<String, Long>, run: BulkDepth.Run?, onOpenReport: ()"
       ]
     },
     {
@@ -176766,6 +177159,7 @@
         "githubName(name: String)",
         "isOld(name: String)",
         "carries(folder: String, repoName: String)",
+        "identity(nameOrUrl: String)",
         "live()",
         "class RegistryNames"
       ]
@@ -176835,8 +177229,7 @@
         "isCompound(id: String)",
         "needsClone(id: String)",
         "class RepoActions",
-        "class Route",
-        "class Bulk"
+        "class Route"
       ]
     },
     {
@@ -176850,7 +177243,6 @@
         "java.io.File"
       ],
       "symbols": [
-        "isClone(dir: File)",
         "head(dir: File)",
         "aheadBehind(localSha: String?, remoteSha: String?, localLog: List<String>)",
         "upstreamOf(config: String, branch: String)",
@@ -176931,11 +177323,17 @@
       "exports": [
         "RepoFilters"
       ],
-      "imports": [],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations"
+      ],
       "symbols": [
-        "matches(filter: String, option: String, f: Facts)",
-        "apply(items: List<T>, selection: Map<String, String>, facts: (T)",
-        "showUnlisted(selection: Map<String, String>)",
+        "selected(filter: Declarations.GitFilterDecl, selection: Map<String, String>)",
+        "matches(o: Declarations.GitFilterOptionDecl?, f: Facts)",
+        "matches(filter: Declarations.GitFilterDecl, selection: Map<String, String>, f: Facts)",
+        "apply(items: List<T>, filters: List<Declarations.GitFilterDecl>, selection: Map<String, String>, query: String = \"\", facts: (T)",
+        "counts(items: List<T>, filters: List<Declarations.GitFilterDecl>, selection: Map<String, String>, query: String, filter: Declarations.GitFilterDecl, facts: (T)",
+        "active(filters: List<Declarations.GitFilterDecl>, selection: Map<String, String>)",
+        "toggle(filter: Declarations.GitFilterDecl, selection: Map<String, String>, option: String)",
         "encode(sel: Map<String, String>)",
         "decode(s: String?)",
         "encodeSort(c: RepoColumn, asc: Boolean)",
@@ -177198,12 +177596,9 @@
         "RepoCells(r: RepoTableRow)",
         "RepoStatusCell(icons: RepoStatus.Icons, name: String, onOpen: ()",
         "glyph(l: StatusLight.State)",
-        "RepoCheckProgressLine(p: RepoStatus.Progress, fmt: java.text.DateFormat)",
         "actionLabel(id: String, declared: Declarations.GitOpDecl?)",
         "RepoActionGroupsView( page: Declarations.GitPageDecl, busy: Boolean, blocked: (Declarations.GitOpDecl)",
         "MenuItems( page: Declarations.GitPageDecl, g: Declarations.GitMenuGroupDecl, groupId: String, danger: Boolean, lang: String, busy: Boolean, blocked: (Declarations.GitOpDecl)",
-        "RepoBulkBar(busy: Boolean, prefs: DrivePrefs?, onRefreshSizes: ()",
-        "RepoSummaryLine(s: RepoTable.Summary)",
         "RepoMetaTable(rows: List<Pair<String, String>>)"
       ]
     },
@@ -177400,7 +177795,6 @@
         "syncScript(guestDir: String, message: String, name: String, email: String, rebase: Boolean)",
         "clone(ctx: Context, url: String, dir: File, token: String, depth: Int? = null)",
         "sync(ctx: Context, dir: File, message: String, name: String, email: String, rebase: Boolean, token: String)",
-        "guestOf(ctx: Context, dir: File)",
         "bareClone(ctx: Context, url: String, guestDir: String, token: String, depth: Int)",
         "bareUpdate(ctx: Context, guestDir: String, token: String, depth: Int = 0)",
         "sweepStalePacks(ctx: Context, gitRoot: File, bareRoot: String, patterns: List<String>, minAgeHours: Int)",
@@ -177859,8 +178253,6 @@
       ],
       "symbols": [
         "expandRoots(templates: List<String>, vars: Map<String, List<String>>)",
-        "walk(roots: List<File>, maxDepth: Int, maxDirs: Int, deadlineMs: Long, now: ()",
-        "unlisted(found: List<Folder>, registry: Set<String>, canonical: (String)",
         "without(l: List<Folder>, gone: Set<String>)",
         "statusKey(path: String)",
         "encode(l: List<Folder>)",
@@ -179608,6 +180000,24 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/DebrisCleanupTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "DebrisCleanupTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "q(s: String)",
+        "class DebrisCleanupTest"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/FleetGitPagingTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -179688,7 +180098,7 @@
       ],
       "symbols": [
         "clone(parent: File, n: String, url: String)",
-        "unlistedOf(origin: String)",
+        "unlistedOf(origin: String, sot: Declarations.RepoSotDecl = sot2)",
         "class FolderOriginsTest"
       ]
     },
@@ -179777,6 +180187,7 @@
         "GitPageLayoutTest"
       ],
       "imports": [
+        "com.diegonmarcos.clouddrive.Declarations",
         "java.io.File",
         "org.junit.Assert.assertEquals",
         "org.junit.Assert.assertFalse",
@@ -179785,6 +180196,7 @@
       ],
       "symbols": [
         "tableBlock()",
+        "PageActionsBar(\")",
         "onPageOpened()",
         "onTick()",
         "GitRepoRow(\")",
@@ -179942,6 +180354,103 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/GitTopBarStateTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GitTopBarStateTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations",
+        "java.io.File",
+        "kotlinx.serialization.json.Json",
+        "kotlinx.serialization.json.jsonObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "class GitTopBarStateTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/inventory/InventoryScriptTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "InventoryScriptTest"
+      ],
+      "imports": [
+        "java.io.File",
+        "java.nio.file.Files",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "q(s: String)",
+        "class InventoryScriptTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/inventory/RepoInventoryPhoneTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoInventoryPhoneTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations",
+        "com.diegonmarcos.clouddrive.sync.RegistryNames",
+        "com.diegonmarcos.clouddrive.sync.inventory.InventoryScript.Entry",
+        "com.diegonmarcos.clouddrive.sync.inventory.InventoryScript.Kind",
+        "com.diegonmarcos.clouddrive.sync.inventory.RepoInventory.RepoClass",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "tree(name: String, origin: String, head: Long = 0)",
+        "row(name: String)",
+        "class RepoInventoryPhoneTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/jobs/GitJobsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GitJobsTest"
+      ],
+      "imports": [
+        "java.util.concurrent.CountDownLatch",
+        "java.util.concurrent.TimeUnit",
+        "java.util.concurrent.atomic.AtomicInteger",
+        "kotlinx.coroutines.CoroutineScope",
+        "kotlinx.coroutines.Dispatchers",
+        "kotlinx.coroutines.SupervisorJob",
+        "kotlinx.coroutines.delay",
+        "kotlinx.coroutines.runBlocking",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNotNull",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "jobs()",
+        "targets(n: Int, prefix: String = \"/s/git/r\")",
+        "ok(msg: String = \"done\")",
+        "class GitJobsTest"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/LastCommitsTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -179997,12 +180506,6 @@
         "scanFindsOnlyFoldersWithAGitAndReadsTheirOrigin()",
         "scanFollowsAGitFileAndIgnoresDuplicateRoots()",
         "onlyTheOriginRemoteCounts()",
-        "renameMovesTheFolderAndKeepsItsContent()",
-        "renameToATakenNameBecomesConflictAndTouchesTheOtherFolderNot()",
-        "renameCountsConflictsUpAndAPlainFileCountsAsTaken()",
-        "renameRefusesAnUnusableNameAndAMissingFolder()",
-        "renameAllRenamesEveryRowAndSendsAClashToConflict()",
-        "renameAllCannotLetTwoRowsWinOneName()",
         "repointPathMovesTheFolderAndWhatIsInsideAndNothingElse()",
         "theRegistryFollowsTheRenameWithItsIdAndItsCredential()",
         "aNameTheOwnerChoseIsKeptWhenTheFolderIsRenamed()",
@@ -180079,7 +180582,7 @@
         "org.junit.Test"
       ],
       "symbols": [
-        "pick(sel: Map<String, String>)",
+        "pick(sel: Map<String, String>, q: String = \"\")",
         "row(name: String, last: Long?)",
         "class RepoFiltersTest",
         "class R"
@@ -180482,7 +180985,6 @@
       "imports": [
         "com.diegonmarcos.clouddrive.Declarations",
         "java.io.File",
-        "java.nio.file.Files",
         "kotlinx.serialization.json.Json",
         "kotlinx.serialization.json.jsonObject",
         "org.junit.Assert.assertEquals",
@@ -180490,7 +180992,6 @@
         "org.junit.Test"
       ],
       "symbols": [
-        "repo(parent: File, name: String, origin: String?)",
         "class UnlistedReposTest"
       ]
     },
@@ -181347,6 +181848,40 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/test/test-drive-git-inventory.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "pass()",
+        "fail()",
+        "i1()"
+      ],
+      "imports": [],
+      "symbols": [
+        "pass()",
+        "fail()",
+        "i1()"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/test/test-drive-git-jobs.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "pass()",
+        "fail()",
+        "j1()",
+        "j2()"
+      ],
+      "imports": [],
+      "symbols": [
+        "pass()",
+        "fail()",
+        "j1()",
+        "j2()"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/test/test-drive-git-menu.sh",
       "lang": "sh",
       "role": "shell",
@@ -181470,6 +182005,26 @@
       "symbols": [
         "pass()",
         "fail()"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/test/test-drive-git-top-bar.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "pass()",
+        "fail()",
+        "t1()",
+        "t2()",
+        "f1()"
+      ],
+      "imports": [],
+      "symbols": [
+        "pass()",
+        "fail()",
+        "t1()",
+        "t2()",
+        "f1()"
       ]
     },
     {

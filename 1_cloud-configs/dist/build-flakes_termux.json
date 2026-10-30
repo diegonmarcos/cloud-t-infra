@@ -3787,8 +3787,8 @@
           "cloudy-h-webapps-2": {
             "upstream": "https://github.com/diegonmarcos/cloudy-h-webapps-2.git"
           },
-          "cloud-me-pvt-containers": {
-            "upstream": "https://github.com/diegonmarcos/cloud-me-pvt-containers.git",
+          "z-archived_cloud-me-pvt-containers": {
+            "upstream": "https://github.com/diegonmarcos/z-archived_cloud-me-pvt-containers.git",
             "private": true
           },
           "z-archived_c3-infra-plugin": {
