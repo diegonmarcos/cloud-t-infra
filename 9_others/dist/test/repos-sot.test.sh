@@ -64,7 +64,7 @@ out=$(jq -r --argjson nc "$NONCLOUD_OK" --slurpfile s "$SOT" '[$s[0].repos[]|'"$
 # S3 pending vs reality
 pend=$(jq -r '.repos[]|select(.status=="pending_creation")|'"$GH" "$SOT")
 [ -n "$pend" ] && ok "S3a the registry declares pending_creation repos: $(echo $pend)" || ok "S3a no pending_creation repo declared (all registered repos exist)"
-for p in cloudy-h-webapps cloud-me-pvt-containers; do jq -e --arg p "$p" '[.repos[].name]|index($p)' "$SOT" >/dev/null 2>&1 || bad "S3b $p must stay registered (pending_creation until it exists, then plain)"; done
+for p in cloudy-h-webapps z-archived_cloud-me-pvt-containers; do jq -e --arg p "$p" '[.repos[].name]|index($p)' "$SOT" >/dev/null 2>&1 || bad "S3b $p must stay registered (pending_creation until it exists, then plain)"; done
 bad3=""
 for p in $pend; do
   jq -e --arg p "$p" '[.repos[].name]|index($p)' "$INV" >/dev/null 2>&1 && bad3="$bad3 $p(on GitHub: drop its status)"
