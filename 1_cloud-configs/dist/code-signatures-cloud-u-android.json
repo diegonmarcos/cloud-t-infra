@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22578,
+    "files": 22588,
     "by_lang": {
-      "sh": 584,
+      "sh": 586,
       "js": 498,
       "py": 170,
-      "kotlin": 12096,
+      "kotlin": 12104,
       "java": 647,
       "nix": 31,
       "rust": 111,
@@ -20,10 +20,10 @@
     "by_role": {
       "hook": 158,
       "file": 2282,
-      "shell": 460,
+      "shell": 462,
       "script": 262,
       "java": 646,
-      "kotlin": 12093,
+      "kotlin": 12101,
       "module": 6424,
       "flake": 27,
       "python": 55,
@@ -175659,11 +175659,14 @@
         "plan(targets: List<Target>, mirrors: List<Mirror>, canonical: (String)",
         "cloneArgs(url: String, guestDir: String, depth: Int, q: (String)",
         "updateArgs(guestDir: String, q: (String)",
+        "updateScript(guestDir: String, depth: Int, q: (String)",
+        "parseUpdate(out: String)",
         "index(mirrors: List<Mirror>, canonical: (String)",
         "class BareClones",
         "class Mirror",
         "class Target",
-        "class Plan"
+        "class Plan",
+        "class UpdateOutcome"
       ]
     },
     {
@@ -175714,9 +175717,8 @@
       ],
       "imports": [
         "android.content.Context",
-        "com.diegonmarcos.cloudlib.sharedstore.StoreExec",
-        "com.diegonmarcos.cloudlib.sharedstore.StoreExec.Companion.q",
-        "com.diegonmarcos.cloudlib.sharedstore.StorePaths"
+        "com.diegonmarcos.clouddrive.sync.store.StoreShell",
+        "com.diegonmarcos.clouddrive.sync.store.StoreShell.Companion.q"
       ],
       "symbols": [
         "guest(p: String)",
@@ -175810,8 +175812,26 @@
         "parseGuard(out: String)",
         "moveScript(from: String, to: String, q: (String)",
         "deleteScript(dir: String, q: (String)",
+        "originSeg(origin: String)",
+        "fixedOrigin(origin: String, names: RegistryNames)",
+        "originLabel(origin: String, names: RegistryNames)",
+        "fixNote(origin: String, names: RegistryNames)",
+        "archiveCandidates(name: String, nowMs: Long)",
+        "renameName(originName: String, names: RegistryNames)",
+        "alreadyNamed(folder: String, originName: String, names: RegistryNames)",
+        "setOriginScript(guestDir: String, url: String, q: (String)",
+        "originsScript(guestDirs: List<String>, q: (String)",
+        "parseOrigins(out: String)",
+        "takenScript(guestParent: String, candidates: List<String>, q: (String)",
+        "renameCandidates(repoName: String)",
+        "goneByIo(viaExec: Boolean, isDir: ()",
+        "renamePlan(folder: String, originName: String, names: RegistryNames, viaExec: Boolean, takenExec: (List<String>)",
         "class FolderActions",
         "class Guard",
+        "class RenamePlan",
+        "class Go",
+        "class Skip",
+        "class Fail",
         "class Target"
       ]
     },
@@ -176389,8 +176409,7 @@
         "com.diegonmarcos.cloudlib.gitsync.GitRemoteInfo",
         "com.diegonmarcos.cloudlib.gitsync.ManagedRepo",
         "com.diegonmarcos.cloudlib.gitsync.RepoRegistry",
-        "com.diegonmarcos.cloudlib.sharedstore.StoreAccess",
-        "com.diegonmarcos.cloudlib.sharedstore.StoreExec",
+        "com.diegonmarcos.clouddrive.sync.store.StoreShell",
         "java.io.File",
         "kotlinx.coroutines.CoroutineScope",
         "kotlinx.coroutines.Dispatchers",
@@ -176407,6 +176426,8 @@
         "loadRegistry()",
         "reread(repo: ManagedRepo)",
         "pullAll(force: Boolean, trigger: String = SyncHistory.TRIGGER_MANUAL, only: Set<String>? = null)",
+        "gitJobRunning(ownBulk: Boolean)",
+        "sweepStalePacks(ownBulk: Boolean = false)",
         "setAutoPullOnOpen(on: Boolean)",
         "unmetered()",
         "onPageOpened()",
@@ -176438,9 +176459,7 @@
         "runCompoundAll(id: String)",
         "checkoutMain(repo: ManagedRepo)",
         "prFeed(owner: String, name: String)",
-        "setCloneDepth(depth: Int)",
-        "setCloneViaSsh(ssh: Boolean)",
-        "refreshRemoteStats(targets: List<Pair<String, String>>, extraToken: String = \"\")"
+        "setCloneDepth(depth: Int)"
       ]
     },
     {
@@ -176501,12 +176520,18 @@
         "originFromConfig(config: String)",
         "gitDirOf(dir: File)",
         "originOf(dir: File)",
-        "scan(roots: List<File>)",
-        "parentless(found: List<Found>)",
+        "isIncoming(f: File)",
+        "isSymlink(f: File)",
+        "ownGit(dir: File)",
+        "scan(roots: List<File>, names: RegistryNames = RegistryNames.NONE)",
+        "found(dir: File, origin: String, names: RegistryNames = RegistryNames.NONE)",
+        "parentless(found: List<Found>, names: RegistryNames = RegistryNames.NONE)",
         "usable(name: String)",
         "rename(p: Parentless)",
         "renameAll(rows: List<Parentless>)",
         "repointPath(path: String, old: String, new: String)",
+        "withOrigin(config: String, url: String)",
+        "setOrigin(dir: File, url: String)",
         "class LocalRepos",
         "class Found",
         "class Parentless",
@@ -176711,6 +176736,7 @@
       ],
       "imports": [
         "android.content.Context",
+        "com.diegonmarcos.clouddrive.sync.store.StoreRoute",
         "com.diegonmarcos.cloudlib.rclone.RcloneRunner",
         "com.diegonmarcos.cloudlib.sharedstore.StoreAccess",
         "com.diegonmarcos.cloudlib.sharedstore.StorePaths",
@@ -176722,6 +176748,26 @@
         "refusal(args: List<String>)",
         "begin(args: List<String>)",
         "class RcloneStoreLegs"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/RegistryNames.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RegistryNames"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations"
+      ],
+      "symbols": [
+        "entryOf(name: String)",
+        "currentName(name: String)",
+        "githubName(name: String)",
+        "isOld(name: String)",
+        "carries(folder: String, repoName: String)",
+        "live()",
+        "class RegistryNames"
       ]
     },
     {
@@ -177197,6 +177243,34 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/StalePackCleaner.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "StalePackCleaner"
+      ],
+      "imports": [
+        "java.io.File",
+        "java.nio.file.Files",
+        "java.nio.file.LinkOption"
+      ],
+      "symbols": [
+        "safePattern(p: String)",
+        "globRegex(glob: String)",
+        "matches(name: String, patterns: List<String>)",
+        "busy(runningRepos: Int, cloning: Int, depthRunActive: Boolean, bulkActive: Boolean)",
+        "packDirs(gitRoot: File, bareRoot: String)",
+        "real(d: File)",
+        "sweep(packDirs: List<File>, patterns: List<String>, minAgeHours: Int, nowMs: Long, jobRunning: Boolean)",
+        "script(guestGit: String, bareRoot: String, patterns: List<String>, minAgeHours: Int, q: (String)",
+        "parse(out: String)",
+        "message(r: Result)",
+        "humanBytes(b: Long)",
+        "class StalePackCleaner",
+        "class Result"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/StatusCache.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -177257,6 +177331,52 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/store/StoreRoute.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "StoreRoute"
+      ],
+      "imports": [
+        "android.content.Context",
+        "com.diegonmarcos.cloudlib.sharedstore.StoreAccess",
+        "com.diegonmarcos.cloudlib.sharedstore.StorePaths"
+      ],
+      "symbols": [
+        "inStore(hostPath: String)",
+        "guest(hostPath: String)",
+        "guestOrThrow(hostPath: String)",
+        "host(guestPath: String)",
+        "of(ctx: Context)",
+        "class StoreRoute"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/store/StoreShell.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "StoreShell",
+        "TermuxShell"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.os.Looper",
+        "com.diegonmarcos.cloudlib.sharedstore.StoreExec"
+      ],
+      "symbols": [
+        "run(script: String, stdin: String? = null, timeoutMs: Int = 60_000)",
+        "job(script: String, stdin: String? = null, deadlineMs: Long = 30 * 60_000L)",
+        "of(ctx: Context)",
+        "q(s: String)",
+        "refusal()",
+        "run(script: String, stdin: String?, timeoutMs: Int)",
+        "job(script: String, stdin: String?, deadlineMs: Long)",
+        "class StoreShell",
+        "class TermuxShell"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/StoreGit.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -177265,24 +177385,25 @@
       ],
       "imports": [
         "android.content.Context",
+        "com.diegonmarcos.clouddrive.sync.store.StoreRoute",
+        "com.diegonmarcos.clouddrive.sync.store.StoreShell",
         "com.diegonmarcos.cloudlib.gitsync.GitOpResult",
-        "com.diegonmarcos.cloudlib.sharedstore.StoreAccess",
-        "com.diegonmarcos.cloudlib.sharedstore.StoreExec",
-        "com.diegonmarcos.cloudlib.sharedstore.StoreExec.Companion.q",
-        "com.diegonmarcos.cloudlib.sharedstore.StorePaths",
         "java.io.File"
       ],
       "symbols": [
         "useExec(ctx: Context)",
-        "guest(dir: File)",
+        "shell(ctx: Context)",
+        "guest(ctx: Context, dir: File)",
+        "q(s: String)",
         "authed(args: String)",
         "cloneScript(url: String, guestDir: String, depth: Int?)",
         "syncScript(guestDir: String, message: String, name: String, email: String, rebase: Boolean)",
         "clone(ctx: Context, url: String, dir: File, token: String, depth: Int? = null)",
         "sync(ctx: Context, dir: File, message: String, name: String, email: String, rebase: Boolean, token: String)",
-        "guestOf(dir: File)",
+        "guestOf(ctx: Context, dir: File)",
         "bareClone(ctx: Context, url: String, guestDir: String, token: String, depth: Int)",
-        "bareUpdate(ctx: Context, guestDir: String, token: String)",
+        "bareUpdate(ctx: Context, guestDir: String, token: String, depth: Int = 0)",
+        "sweepStalePacks(ctx: Context, gitRoot: File, bareRoot: String, patterns: List<String>, minAgeHours: Int)",
         "listBare(ctx: Context, bareRoot: File)",
         "isRepository(ctx: Context, dir: File)",
         "class StoreGit"
@@ -177540,6 +177661,8 @@
       "imports": [
         "android.content.Context",
         "android.os.Looper",
+        "com.diegonmarcos.clouddrive.sync.store.StoreRoute",
+        "com.diegonmarcos.clouddrive.sync.store.StoreShell",
         "com.diegonmarcos.cloudlib.gitsync.GitBranchInfo",
         "com.diegonmarcos.cloudlib.gitsync.GitCommitInfo",
         "com.diegonmarcos.cloudlib.gitsync.GitEngine",
@@ -177548,9 +177671,6 @@
         "com.diegonmarcos.cloudlib.gitsync.GitTransport",
         "com.diegonmarcos.cloudlib.gitsync.GitTransports",
         "com.diegonmarcos.cloudlib.gitsync.GitWire",
-        "com.diegonmarcos.cloudlib.sharedstore.StoreAccess",
-        "com.diegonmarcos.cloudlib.sharedstore.StoreExec",
-        "com.diegonmarcos.cloudlib.sharedstore.StorePaths",
         "kotlinx.serialization.KSerializer",
         "kotlinx.serialization.builtins.ListSerializer",
         "org.json.JSONObject",
@@ -177567,7 +177687,6 @@
         "enc(s: KSerializer<T>, v: T)",
         "ok(result: String)",
         "answer(req: JSONObject)",
-        "inStore(dir: File)",
         "install(ctx: Context)",
         "class TermuxGitTransport"
       ]
@@ -177742,6 +177861,7 @@
         "expandRoots(templates: List<String>, vars: Map<String, List<String>>)",
         "walk(roots: List<File>, maxDepth: Int, maxDirs: Int, deadlineMs: Long, now: ()",
         "unlisted(found: List<Folder>, registry: Set<String>, canonical: (String)",
+        "without(l: List<Folder>, gone: Set<String>)",
         "statusKey(path: String)",
         "encode(l: List<Folder>)",
         "decode(s: String?)",
@@ -179436,6 +179556,7 @@
         "org.junit.Test"
       ],
       "symbols": [
+        "run(dir: File, vararg c: String)",
         "class BareClonesTest"
       ]
     },
@@ -179549,6 +179670,29 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/FolderOriginsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FolderOriginsTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations",
+        "java.io.File",
+        "java.nio.file.Files",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "clone(parent: File, n: String, url: String)",
+        "unlistedOf(origin: String)",
+        "class FolderOriginsTest"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/GhLoginFollowTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -179598,6 +179742,31 @@
         "fetchWithoutATokenOrAUserFailsBeforeAnyRequest()",
         "theCloneUserIsTheHostsFixedOneElseTheSignInName()",
         "class GitHostsTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/GitKeepTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GitKeepTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations",
+        "java.io.File",
+        "kotlinx.serialization.json.Json",
+        "kotlinx.serialization.json.jsonArray",
+        "kotlinx.serialization.json.jsonObject",
+        "kotlinx.serialization.json.jsonPrimitive",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "st(ahead: Int, behind: Int, changed: Int)",
+        "class GitKeepTest"
       ]
     },
     {
@@ -180080,6 +180249,56 @@
       ],
       "symbols": [
         "class RepoWorkflowTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/StalePackCleanerTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "StalePackCleanerTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations",
+        "java.io.File",
+        "java.nio.file.Files",
+        "kotlinx.serialization.json.Json",
+        "kotlinx.serialization.json.jsonObject",
+        "org.junit.After",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Before",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "setUp()",
+        "tearDown()",
+        "pack(clone: String)",
+        "bare(owner: String, repo: String)",
+        "file(dir: File, name: String, bytes: Int, ageHours: Long)",
+        "sweep(minAge: Int = 6, running: Boolean = false)",
+        "parse(block: String)",
+        "class StalePackCleanerTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/store/StoreRouteTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "StoreRouteTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.cloudlib.sharedstore.StorePaths",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "class StoreRouteTest"
       ]
     },
     {
@@ -181039,6 +181258,7 @@
         "d1()",
         "d2()",
         "d3()",
+        "b1()",
         "d4()",
         "u1()",
         "f1()",
@@ -181053,6 +181273,7 @@
         "d1()",
         "d2()",
         "d3()",
+        "b1()",
         "d4()",
         "u1()",
         "f1()",
@@ -181071,7 +181292,10 @@
         "k1()",
         "r1()",
         "c1()",
-        "h1()"
+        "e1()",
+        "n1()",
+        "h1()",
+        "i1()"
       ],
       "imports": [],
       "symbols": [
@@ -181080,7 +181304,10 @@
         "k1()",
         "r1()",
         "c1()",
-        "h1()"
+        "e1()",
+        "n1()",
+        "h1()",
+        "i1()"
       ]
     },
     {
@@ -181213,6 +181440,22 @@
         "s2()",
         "s3()",
         "s4()"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/test/test-drive-git-store.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "pass()",
+        "fail()",
+        "s1()"
+      ],
+      "imports": [],
+      "symbols": [
+        "pass()",
+        "fail()",
+        "s1()"
       ]
     },
     {
@@ -181433,6 +181676,28 @@
         "d12_rules()",
         "d12_machines()",
         "d13_sections()"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/test/test-drive-stale-packs.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "pass()",
+        "fail()",
+        "s1()",
+        "s2()",
+        "s3()",
+        "mut()"
+      ],
+      "imports": [],
+      "symbols": [
+        "pass()",
+        "fail()",
+        "s1()",
+        "s2()",
+        "s3()",
+        "mut()"
       ]
     },
     {
