@@ -43,6 +43,11 @@ cd "$REPO_ROOT" || exit 1
 ENGINE_CHANGED=""
 while IFS= read -r _p; do
   case "$_p" in
+    # Guard scripts and docs under _shared/ are CI-only: nothing is built from
+    # them, so they must not fan out to every engine consumer (2026-10-30: a
+    # test-fleet-addressing.mjs edit redeployed 9 gcp-proxy services, incl. the
+    # never-deployed mcp-oauth, and recreated authelia-redis).
+    _shared/test-*|_shared/test/*|_shared/*.md) ;;
     _shared/*) ENGINE_CHANGED=1 ;;
   esac
 done

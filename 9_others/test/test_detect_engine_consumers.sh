@@ -85,6 +85,10 @@ case " $RES " in
   *)                echo "  ok   engine change excludes the non-consumer (no over-trigger)" ;;
 esac
 
+# ── 1b. CI-only files under _shared/ are not engine changes ─────────────────
+RES=$(resolve $'_shared/test-fleet-addressing.mjs\n_shared/test/no-sops-in-public.sh\n_shared/README.md\n')
+check "_shared test/doc-only change ships nothing" "" "$RES"
+
 # ── 2. A change that does NOT touch the engine → nothing ships ──────────────
 RES=$(resolve $'quiet_svc/src/flake.nix\nengine_svc/build.json\n')
 check "non-engine change ships nothing" "" "$RES"
