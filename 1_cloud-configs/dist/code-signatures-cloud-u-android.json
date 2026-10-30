@@ -6,26 +6,26 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22732,
+    "files": 22779,
     "by_lang": {
-      "sh": 611,
-      "js": 504,
-      "py": 173,
-      "kotlin": 12210,
+      "sh": 612,
+      "js": 513,
+      "py": 174,
+      "kotlin": 12218,
       "java": 647,
       "nix": 35,
       "rust": 111,
-      "ts": 8441
+      "ts": 8469
     },
     "by_role": {
       "hook": 158,
-      "file": 2284,
-      "shell": 487,
-      "script": 264,
+      "file": 2302,
+      "shell": 488,
+      "script": 265,
       "java": 646,
-      "kotlin": 12207,
+      "kotlin": 12215,
       "python": 56,
-      "module": 6428,
+      "module": 6447,
       "flake": 31,
       "rust-module": 111,
       "nix-module": 4,
@@ -1411,6 +1411,8 @@
         "declared_backgrounds(nodes, where=\"\")",
         "check_second_rows(app, sections, bad)",
         "check_backgrounds(app, sections, spec, code, rel, bad)",
+        "kotlin_strings(text, enum)",
+        "check_nav_ui(root, apps, uis, exempt, spec, bad)",
         "main(argv)"
       ],
       "imports": [
@@ -1438,6 +1440,8 @@
         "declared_backgrounds(nodes, where=\"\")",
         "check_second_rows(app, sections, bad)",
         "check_backgrounds(app, sections, spec, code, rel, bad)",
+        "kotlin_strings(text, enum)",
+        "check_nav_ui(root, apps, uis, exempt, spec, bad)",
         "main(argv)"
       ]
     },
@@ -3988,6 +3992,8 @@
         "declared_backgrounds(nodes, where=\"\")",
         "check_second_rows(app, sections, bad)",
         "check_backgrounds(app, sections, spec, code, rel, bad)",
+        "kotlin_strings(text, enum)",
+        "check_nav_ui(root, apps, uis, exempt, spec, bad)",
         "main(argv)"
       ],
       "imports": [
@@ -4015,6 +4021,8 @@
         "declared_backgrounds(nodes, where=\"\")",
         "check_second_rows(app, sections, bad)",
         "check_backgrounds(app, sections, spec, code, rel, bad)",
+        "kotlin_strings(text, enum)",
+        "check_nav_ui(root, apps, uis, exempt, spec, bad)",
         "main(argv)"
       ]
     },
@@ -36039,6 +36047,67 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/bottomnav/src/commonMain/kotlin/com/diegonmarcos/superapp/bottomnav/NavUi.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavUiMode",
+        "DrawerRow",
+        "NavQuickAction",
+        "NavUiSettings",
+        "NavChromePlan",
+        "NavUiDecl",
+        "NavUiStore",
+        "MemoryNavUiStore",
+        "resolveNavUi",
+        "LocalNavUiDefault",
+        "LocalNavUiStore",
+        "LocalNavUiSettings",
+        "ChromeScrollPolicy",
+        "chromeScrollStep",
+        "chromeScrollReleaseStep",
+        "LocalChromeScrollPolicy",
+        "CleanDrawerEntry",
+        "CleanDrawerModel",
+        "cleanDrawerModel"
+      ],
+      "imports": [
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.runtime.staticCompositionLocalOf",
+        "kotlin.io.encoding.Base64",
+        "kotlin.io.encoding.ExperimentalEncodingApi"
+      ],
+      "symbols": [
+        "of(text: String?)",
+        "scrollPolicy()",
+        "plan(mode: NavUiMode, tokens: NavTokens = NavTokens()",
+        "parse(json: String)",
+        "fromBuildConfig(uiNavUiB64: String)",
+        "mode()",
+        "setMode(mode: NavUiMode?)",
+        "scrollHide()",
+        "setScrollHide(on: Boolean?)",
+        "resolveNavUi(default: NavUiSettings, store: NavUiStore?)",
+        "chromeScrollStep(policy: ChromeScrollPolicy, state: ChromeScrollState, delta: Float, dragging: Boolean)",
+        "chromeScrollReleaseStep(policy: ChromeScrollPolicy, state: ChromeScrollState)",
+        "cleanDrawerModel(bottom: List<NavSection>, section: NavSection?, currentPageId: String?)",
+        "walk(list: List<NavPage>, depth: Int)",
+        "class NavUiMode",
+        "class DrawerRow",
+        "class NavQuickAction",
+        "class NavUiSettings",
+        "class NavChromePlan",
+        "class NavUiDecl",
+        "class NavUiStore",
+        "class MemoryNavUiStore",
+        "class ChromeScrollPolicy",
+        "class CleanDrawerEntry",
+        "class CleanDrawerModel"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/bottomnav/src/commonMain/kotlin/com/diegonmarcos/superapp/bottomnav/PageTabs.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -36207,7 +36276,7 @@
         "appTopBarColors()",
         "settingsItem(id: String)",
         "CircleButton( icon: ImageVector, label: String, tag: String, colors: AppTopBarColors, modifier: Modifier = Modifier, onClick: ()",
-        "DrawerOverlay(controller: AppTopBarController, labels: AppTopBarLabels, colors: AppTopBarColors)",
+        "DrawerOverlay(controller: AppTopBarController, labels: AppTopBarLabels, colors: AppTopBarColors, lead: TopBarDrawerContent? = null)",
         "AiPopup( controller: AppTopBarController, labels: AppTopBarLabels, colors: AppTopBarColors, aiPanel: @Composable (close: ()",
         "calculatePosition(anchorBounds: IntRect, windowSize: IntSize, layoutDirection: LayoutDirection, popupContentSize: IntSize)",
         "class AppTopBarController",
@@ -36551,6 +36620,47 @@
         "sectionChange()",
         "withPlatformFontPadding()",
         "platformImeVisible()"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bottomnav/src/main/kotlin/com/diegonmarcos/superapp/bottomnav/NavUiPrefs.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavUiPrefs",
+        "rememberNavUiPrefs",
+        "rememberNavUiSettings",
+        "currentNavUi",
+        "currentScrollPolicy",
+        "ProvideNavUi",
+        "navTopRowFill"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.provider.Settings",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.CompositionLocalProvider",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.platform.LocalContext"
+      ],
+      "symbols": [
+        "mode()",
+        "setMode(mode: NavUiMode?)",
+        "scrollHide()",
+        "setScrollHide(on: Boolean?)",
+        "of(context: Context)",
+        "rememberNavUiPrefs()",
+        "rememberNavUiSettings()",
+        "currentNavUi()",
+        "currentScrollPolicy()",
+        "ProvideNavUi(content: @Composable ()",
+        "navTopRowFill()",
+        "class config",
+        "class NavUiPrefs"
       ]
     },
     {
@@ -37094,6 +37204,26 @@
       ],
       "symbols": [
         "class NavTokensTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bottomnav/src/test/kotlin/com/diegonmarcos/superapp/bottomnav/NavUiTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavUiTest"
+      ],
+      "imports": [
+        "java.util.Base64",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "section(id: String, vararg pages: NavPage)",
+        "class NavUiTest"
       ]
     },
     {
@@ -77981,6 +78111,42 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop1/NavBarTopCleanRow.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavBarTopCleanRow"
+      ],
+      "imports": [
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.filled.Menu",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.ExperimentalComposeUiApi",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.semantics.Role",
+        "androidx.compose.ui.semantics.contentDescription",
+        "androidx.compose.ui.semantics.semantics",
+        "androidx.compose.ui.semantics.testTagsAsResourceId",
+        "com.diegonmarcos.superapp.bottomnav.AppTopBarController",
+        "com.diegonmarcos.superapp.bottomnav.AppTopBarLabels",
+        "com.diegonmarcos.superapp.bottomnav.navTopRowFill",
+        "com.diegonmarcos.superapp.themebg.ThemeColors"
+      ],
+      "symbols": [
+        "NavBarTopCleanRow(colors: ThemeColors, labels: AppTopBarLabels, controller: AppTopBarController, modifier: Modifier = Modifier)"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop1/NavBarTopFirstRow.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -77999,7 +78165,6 @@
       ],
       "imports": [
         "androidx.compose.foundation.background",
-        "androidx.compose.foundation.border",
         "androidx.compose.foundation.clickable",
         "androidx.compose.foundation.horizontalScroll",
         "androidx.compose.foundation.verticalScroll",
@@ -78037,7 +78202,8 @@
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.CompositionLocalProvider",
         "androidx.compose.runtime.DisposableEffect",
-        "androidx.compose.runtime.ProvidableCompositionLocal"
+        "androidx.compose.runtime.ProvidableCompositionLocal",
+        "androidx.compose.runtime.compositionLocalOf"
       ],
       "symbols": [
         "islandMaxWidth(rowWidth: Dp)",
@@ -78058,6 +78224,67 @@
         "class HierarchyEntry",
         "class BreadcrumbLeafState",
         "class BelowAnchor"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop1/NavCleanDrawer.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "CleanDrawerTags",
+        "CleanDrawerContent"
+      ],
+      "imports": [
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.ColumnScope",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.heightIn",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.filled.AccountCircle",
+        "androidx.compose.material.icons.filled.ArrowDropDown",
+        "androidx.compose.material.icons.filled.AutoAwesome",
+        "androidx.compose.material.icons.filled.Settings",
+        "androidx.compose.material3.DropdownMenu",
+        "androidx.compose.material3.DropdownMenuItem",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.LocalContentColor",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.graphics.vector.ImageVector",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.semantics.Role",
+        "androidx.compose.ui.semantics.contentDescription",
+        "androidx.compose.ui.semantics.semantics",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.superapp.bottomnav.AppTopBarLabels",
+        "com.diegonmarcos.superapp.bottomnav.CleanDrawerEntry",
+        "com.diegonmarcos.superapp.bottomnav.CleanDrawerModel"
+      ],
+      "symbols": [
+        "pageEntry(id: String)",
+        "subEntry(id: String)",
+        "action(a: NavQuickAction)",
+        "row(r: DrawerRow)",
+        "CleanDrawerContent( model: CleanDrawerModel, labels: AppTopBarLabels, onPage: (CleanDrawerEntry)",
+        "ActionIcon(icon: ImageVector, label: String, tag: String, size: androidx.compose.ui.unit.Dp, onClick: ()",
+        "UrlBarDropdown( face: String, entries: List<CleanDrawerEntry>, tag: String, entryTag: (String)",
+        "class CleanDrawerTags"
       ]
     },
     {
@@ -78357,6 +78584,63 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop2/NavUiConfigCard.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavUiConfigTags",
+        "navUiModeLabel",
+        "NAV_UI_TITLE",
+        "NAV_UI_SCROLL_HIDE_LABEL",
+        "NavUiConfigCard",
+        "NavUiConfigDialog"
+      ],
+      "imports": [
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.FlowRow",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Surface",
+        "androidx.compose.material3.Switch",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.semantics.Role",
+        "androidx.compose.ui.semantics.contentDescription",
+        "androidx.compose.ui.semantics.role",
+        "androidx.compose.ui.semantics.selected",
+        "androidx.compose.ui.semantics.semantics",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "androidx.compose.ui.window.Dialog",
+        "com.diegonmarcos.superapp.bottomnav.LocalNavUiDefault",
+        "com.diegonmarcos.superapp.bottomnav.LocalNavUiStore",
+        "com.diegonmarcos.superapp.bottomnav.NavUiDecl",
+        "com.diegonmarcos.superapp.bottomnav.NavUiMode",
+        "com.diegonmarcos.superapp.bottomnav.NavUiStore",
+        "com.diegonmarcos.superapp.bottomnav.rememberNavUiPrefs",
+        "com.diegonmarcos.superapp.themebg.ThemeBackground"
+      ],
+      "symbols": [
+        "mode(mode: NavUiMode)",
+        "navUiModeLabel(mode: NavUiMode)",
+        "NavUiConfigCard( modifier: Modifier = Modifier, dark: Boolean = true, store: NavUiStore = LocalNavUiStore.current ?: rememberNavUiPrefs()",
+        "NavUiConfigDialog(dark: Boolean = true, onDismiss: ()",
+        "class NavUiConfigTags"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop2/SecondRowIcons.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -78548,17 +78832,25 @@
         "androidx.compose.material.icons.Icons",
         "androidx.compose.material.icons.outlined.Home",
         "androidx.compose.material.icons.outlined.Mail",
+        "androidx.compose.runtime.CompositionLocalProvider",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.graphics.vector.rememberVectorPainter",
         "androidx.compose.ui.platform.testTag",
         "androidx.compose.ui.test.junit4.createAndroidComposeRule",
         "androidx.compose.ui.test.onAllNodesWithTag",
         "androidx.compose.ui.test.onNodeWithTag",
+        "androidx.compose.ui.test.performClick",
         "androidx.compose.ui.test.performTouchInput",
         "androidx.compose.ui.test.swipeDown",
         "androidx.compose.ui.test.swipeUp",
         "androidx.compose.ui.unit.dp",
         "com.diegonmarcos.superapp.bottomnav.BottomNavEntry",
+        "com.diegonmarcos.superapp.bottomnav.ChromeScrollPolicy",
+        "com.diegonmarcos.superapp.bottomnav.LocalChromeScrollPolicy",
+        "com.diegonmarcos.superapp.bottomnav.LocalNavUiStore",
+        "com.diegonmarcos.superapp.bottomnav.MemoryNavUiStore",
+        "com.diegonmarcos.superapp.bottomnav.NavQuickAction",
+        "com.diegonmarcos.superapp.bottomnav.NavUiMode",
         "com.diegonmarcos.superapp.bottomnav.NavPage",
         "com.diegonmarcos.superapp.bottomnav.TopBarTags",
         "com.diegonmarcos.superapp.navbarbottom.BottomTags",
@@ -78568,19 +78860,11 @@
         "org.junit.Assert.assertEquals",
         "org.junit.Assert.assertTrue",
         "org.junit.Rule",
-        "org.junit.Test",
-        "org.junit.rules.RuleChain",
-        "org.junit.rules.TestRule",
-        "org.junit.runner.RunWith",
-        "org.junit.runners.model.Statement",
-        "org.robolectric.RobolectricTestRunner",
-        "org.robolectric.RuntimeEnvironment",
-        "org.robolectric.Shadows.shadowOf",
-        "org.robolectric.annotation.Config"
+        "org.junit.Test"
       ],
       "symbols": [
         "evaluate()",
-        "show()",
+        "show( policy: ChromeScrollPolicy? = ChromeScrollPolicy.Shrink, ui: MemoryNavUiStore = MemoryNavUiStore()",
         "count(tag: String)",
         "h(tag: String)",
         "class NavChromeScrollTest"
@@ -428672,6 +428956,7 @@
         "androidx.core.view.WindowInsetsCompat",
         "app.cloudnotes.pro.plugin.CloudNotesThemePlugin",
         "app.cloudnotes.pro.plugin.ExternalFilePlugin",
+        "app.cloudnotes.pro.plugin.VaultPlugin",
         "app.cloudnotes.pro.plugin.LocalAIButtonPlugin",
         "app.cloudnotes.pro.plugin.LocalAuthPlugin",
         "app.cloudnotes.pro.plugin.LocalHashCashPlugin",
@@ -428754,18 +429039,23 @@
         "androidx.compose.material3.NavigationDrawerItem",
         "androidx.compose.material3.Surface",
         "androidx.compose.material3.Text",
+        "androidx.compose.material3.TextButton",
         "androidx.compose.material3.darkColorScheme",
         "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.CompositionLocalProvider",
         "androidx.compose.runtime.getValue",
         "androidx.compose.runtime.mutableStateOf",
         "androidx.compose.runtime.setValue",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.platform.testTag",
         "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.window.Dialog",
         "androidx.compose.ui.viewinterop.AndroidView",
         "com.diegonmarcos.superapp.ai.AiFleetChatPanel",
         "com.diegonmarcos.superapp.bottomnav.ChromeWebScroll",
         "com.diegonmarcos.superapp.bottomnav.LocalNavChromeCollapse",
+        "com.diegonmarcos.superapp.bottomnav.LocalNavUiDefault",
+        "com.diegonmarcos.superapp.bottomnav.NavUiDecl",
         "com.diegonmarcos.superapp.bottomnav.TopBarDrawer",
         "com.diegonmarcos.superapp.bottomnav.navEntry",
         "com.diegonmarcos.superapp.bottomnav.rememberAccountLauncher",
@@ -428773,6 +429063,7 @@
         "com.diegonmarcos.superapp.navbartop1.NavBarTopFirstRowScaffold",
         "com.diegonmarcos.superapp.navbartop1.titleHierarchy",
         "com.diegonmarcos.superapp.navbartop2.NavBarTopSecondRow",
+        "com.diegonmarcos.superapp.navbartop2.NavUiConfigCard",
         "org.json.JSONArray"
       ],
       "symbols": [
@@ -428780,6 +429071,7 @@
         "setDocs(json: String)",
         "host()",
         "Content(container: ViewGroup, web: WebView)",
+        "ConfigsUi(dark: Boolean)",
         "Drawer(close: ()",
         "Eyebrow(text: String)",
         "class DrawerDoc",
@@ -429036,6 +429328,72 @@
         "renderMermaidSvg(call: PluginCall)",
         "renderTypstSvg(call: PluginCall)",
         "class PreviewPlugin"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/apps/android/App/app/src/main/java/app/cloudnotes/pro/plugin/VaultPlugin.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "VaultPlugin"
+      ],
+      "imports": [
+        "android.app.Activity",
+        "android.content.Intent",
+        "android.net.Uri",
+        "android.os.Build",
+        "android.os.Environment",
+        "android.provider.DocumentsContract",
+        "android.provider.Settings",
+        "android.util.Base64",
+        "android.webkit.MimeTypeMap",
+        "androidx.activity.result.ActivityResult",
+        "com.getcapacitor.JSArray",
+        "com.getcapacitor.JSObject",
+        "com.getcapacitor.Plugin",
+        "com.getcapacitor.PluginCall",
+        "com.getcapacitor.PluginMethod",
+        "com.getcapacitor.annotation.ActivityCallback",
+        "com.getcapacitor.annotation.CapacitorPlugin",
+        "java.io.File"
+      ],
+      "symbols": [
+        "list(id: String)",
+        "open(id: String)",
+        "sizeOf(id: String)",
+        "write(id: String, bytes: ByteArray)",
+        "create(parentId: String, name: String, isDir: Boolean)",
+        "rename(id: String, name: String)",
+        "remove(id: String)",
+        "entry(name: String, id: String, isDir: Boolean, size: Long, mtime: Long)",
+        "mimeFor(name: String)",
+        "doc(id: String)",
+        "file(id: String)",
+        "rel(id: String)",
+        "uri(id: String)",
+        "hasAllFilesAccess()",
+        "backend(root: String)",
+        "guarded(call: PluginCall, body: (root: String, b: Backend)",
+        "treeName(tree: Uri)",
+        "pickVault(call: PluginCall)",
+        "pickVaultResult(call: PluginCall?, result: ActivityResult)",
+        "persisted(call: PluginCall)",
+        "releaseVault(call: PluginCall)",
+        "openPath(call: PluginCall)",
+        "list(call: PluginCall)",
+        "readText(call: PluginCall)",
+        "readBinary(call: PluginCall)",
+        "writeText(call: PluginCall)",
+        "create(call: PluginCall)",
+        "rename(call: PluginCall)",
+        "remove(call: PluginCall)",
+        "openSettings(call: PluginCall)",
+        "class VaultPlugin",
+        "class Fail",
+        "class Backend",
+        "class Saf",
+        "class Direct",
+        "class Store"
       ]
     },
     {
@@ -429665,6 +430023,20 @@
       "imports": [
         "@capacitor/core",
         "./definitions"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/apps/android/src/plugins/vault.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "Vault"
+      ],
+      "imports": [
+        "@capacitor/core",
+        "@cloud-notes/core/mobile/vault/native-host",
+        "@cloud-notes/core/mobile/vault/vault-fs"
       ],
       "symbols": []
     },
@@ -466465,6 +466837,18 @@
       "symbols": []
     },
     {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/pages/workspace/vault.tsx",
+      "lang": "ts",
+      "role": "file",
+      "exports": [
+        "Component"
+      ],
+      "imports": [
+        "../../vault"
+      ],
+      "symbols": []
+    },
+    {
       "path": "ac_cloud-notes/packages/frontend/core/src/mobile/pages/workspace/workbench-root.spec.tsx",
       "lang": "ts",
       "role": "file",
@@ -466578,6 +466962,538 @@
       "symbols": [
         "class SwipeHelper"
       ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/canvas-view.tsx",
+      "lang": "ts",
+      "role": "file",
+      "exports": [
+        "CanvasViewProps",
+        "CanvasView"
+      ],
+      "imports": [
+        "react",
+        "./jsoncanvas",
+        "./markdown",
+        "./icons"
+      ],
+      "symbols": [
+        "renderNode(n: CanvasNode, isSel: boolean, isFrom: boolean)"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/decl-types.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "PluginStatus",
+        "PluginRow",
+        "FileTypeRow",
+        "RibbonItem",
+        "CommandRow",
+        "HtmlDecl",
+        "VaultDecl"
+      ],
+      "imports": [],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/decl.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "VAULT_DECL"
+      ],
+      "imports": [
+        "./vault-decl.json",
+        "./decl-types"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/enhance.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "renderMermaidInto",
+        "enhanceMarkdown",
+        "EnhanceContext"
+      ],
+      "imports": [
+        "katex/dist/katex.min.css",
+        "../../modules/code-block-preview-renderer/classic-mermaid",
+        "./markdown"
+      ],
+      "symbols": [
+        "renderMermaidInto(el: HTMLElement, code: string)",
+        "enhanceMarkdown(root: HTMLElement, ctx: EnhanceContext)"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/file-types.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "handlerFor",
+        "extOf",
+        "baseName",
+        "stem",
+        "isTextHandler"
+      ],
+      "imports": [
+        "./decl-types"
+      ],
+      "symbols": [
+        "handlerFor(decl: Pick<VaultDecl, 'file_types'>, path: string)"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/html-sandbox.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "externalRefs",
+        "buildCsp",
+        "buildSandboxFrame",
+        "SandboxFrame"
+      ],
+      "imports": [
+        "./decl-types"
+      ],
+      "symbols": [
+        "externalRefs(html: string)",
+        "buildCsp(html: HtmlDecl, allowCdn: boolean)",
+        "buildSandboxFrame(page: string, html: HtmlDecl, allowCdn: boolean)"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/icons.tsx",
+      "lang": "ts",
+      "role": "file",
+      "exports": [
+        "Icon"
+      ],
+      "imports": [
+        "react"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/index-runner.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "runIndex",
+        "RunOptions"
+      ],
+      "imports": [
+        "./vault-index",
+        "./vault-index.worker"
+      ],
+      "symbols": [
+        "runIndex(\n  texts: ReadonlyMap<string, string>,\n  allPaths: readonly string[],\n  opts: RunOptions\n)"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/index.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "VaultView"
+      ],
+      "imports": [],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/json-tree.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "parseJson",
+        "jsonRows",
+        "JsonKind",
+        "JsonRow",
+        "JsonParse",
+        "kindOf",
+        "formatJson"
+      ],
+      "imports": [],
+      "symbols": [
+        "parseJson(text: string)",
+        "jsonRows(value: unknown, expanded: ReadonlySet<string>, maxRows = 5000)"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/jsoncanvas.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "emptyCanvas",
+        "parseCanvas",
+        "serializeCanvas",
+        "newId",
+        "addTextNode",
+        "addGroup",
+        "updateNode",
+        "moveNode",
+        "removeNode",
+        "addEdge",
+        "removeEdge",
+        "membersOf",
+        "bounds",
+        "anchor",
+        "CanvasSide",
+        "CanvasNodeType",
+        "CanvasNode",
+        "CanvasEdge",
+        "JsonCanvas",
+        "CanvasParseResult",
+        "CANVAS_PRESET_COLORS",
+        "canvasColor"
+      ],
+      "imports": [],
+      "symbols": [
+        "emptyCanvas()",
+        "parseCanvas(source: string)",
+        "serializeCanvas(canvas: JsonCanvas)",
+        "newId(existing: Iterable<string>)",
+        "addTextNode(\n  canvas: JsonCanvas,\n  at: { x: number; y: number },\n  text = '',\n  size = { width: 250, height: 60 }\n)",
+        "addGroup(\n  canvas: JsonCanvas,\n  rect: { x: number; y: number; width: number; height: number },\n  label = ''\n)",
+        "updateNode(canvas: JsonCanvas, id: string, patch: Partial<CanvasNode>)",
+        "moveNode(canvas: JsonCanvas, id: string, dx: number, dy: number)",
+        "removeNode(canvas: JsonCanvas, id: string)",
+        "addEdge(\n  canvas: JsonCanvas,\n  fromNode: string,\n  toNode: string,\n  extra: Partial<CanvasEdge> = {}\n)",
+        "removeEdge(canvas: JsonCanvas, id: string)",
+        "membersOf(canvas: JsonCanvas, groupId: string)",
+        "bounds(canvas: JsonCanvas)",
+        "anchor(node: CanvasNode, side: CanvasSide | undefined, toward: { x: number; y: number })"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/markdown.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "parseFrontmatter",
+        "maskCode",
+        "parseWikiTarget",
+        "extractLinks",
+        "extractTags",
+        "extractHeadings",
+        "extractTasks",
+        "wordCount",
+        "safeHref",
+        "renderMarkdown",
+        "FrontmatterValue",
+        "Frontmatter",
+        "WikiLink",
+        "Heading",
+        "TaskItem",
+        "escapeHtml",
+        "IMAGE_EXT",
+        "CALLOUT_TYPES",
+        "RenderOptions"
+      ],
+      "imports": [],
+      "symbols": [
+        "parseFrontmatter(src: string)",
+        "maskCode(text: string)",
+        "parseWikiTarget(raw: string)",
+        "extractLinks(body: string)",
+        "extractTags(body: string, fm: Record<string, FrontmatterValue> = {})",
+        "extractHeadings(body: string)",
+        "extractTasks(body: string)",
+        "wordCount(body: string)",
+        "safeHref(href: string)",
+        "inline(src: string)",
+        "renderMarkdown(src: string, opts: RenderOptions = {})"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/native-host.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "provideVaultNative",
+        "vaultNative"
+      ],
+      "imports": [
+        "./vault-fs"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/obsidian-config.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "statusOf",
+        "enabledMap",
+        "parseHotkeys",
+        "readObsidianConfig",
+        "ConfigReader",
+        "PluginStatusOrUnmapped",
+        "ConfigFileReport",
+        "PluginReport",
+        "HotkeyReport",
+        "SnippetReport",
+        "VaultConfigReport"
+      ],
+      "imports": [
+        "./decl-types"
+      ],
+      "symbols": [
+        "statusOf(\n  decl: Pick<VaultDecl, 'plugins'>,\n  id: string,\n  kind: PluginReport['kind']\n)",
+        "enabledMap(data: unknown)",
+        "parseHotkeys(data: unknown)",
+        "readObsidianConfig(\n  reader: ConfigReader,\n  decl: Pick<VaultDecl, 'config_dir' | 'config_files' | 'config_dirs' | 'plugins'>\n)"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/palette.tsx",
+      "lang": "ts",
+      "role": "file",
+      "exports": [
+        "PaletteProps",
+        "Palette"
+      ],
+      "imports": [
+        "react",
+        "./decl-types",
+        "./vault-index"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/panes.tsx",
+      "lang": "ts",
+      "role": "file",
+      "exports": [
+        "FilesPane",
+        "SearchPane",
+        "OutlinePane",
+        "BacklinksPane",
+        "OutgoingPane",
+        "TagsPane",
+        "ConfigsPane"
+      ],
+      "imports": [
+        "react",
+        "./decl-types",
+        "./icons",
+        "./obsidian-config",
+        "./vault-index",
+        "./use-vault"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/recent-vaults.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "readRecent",
+        "touchRecent",
+        "forgetRecent",
+        "VaultKind",
+        "RecentVault",
+        "KeyValueStore",
+        "kindOfRoot"
+      ],
+      "imports": [],
+      "symbols": [
+        "readRecent(store: KeyValueStore, key: string)",
+        "touchRecent(\n  store: KeyValueStore,\n  key: string,\n  max: number,\n  vault: { root: string; name: string },\n  now = Date.now()",
+        "forgetRecent(store: KeyValueStore, key: string, root: string)"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/style.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "VAULT_CSS"
+      ],
+      "imports": [],
+      "symbols": [
+        "class prefix"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/use-vault.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "useVault",
+        "Tab",
+        "OpenVault",
+        "VaultApi"
+      ],
+      "imports": [
+        "react",
+        "./decl-types",
+        "./file-types",
+        "./index-runner",
+        "./native-host",
+        "./obsidian-config",
+        "./recent-vaults",
+        "./vault-index",
+        "./vault-fs"
+      ],
+      "symbols": [
+        "useVault(decl: VaultDecl, storage: KeyValueStore)"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/vault-fs.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "nativeVaultFS",
+        "walkVault",
+        "NativeEntry",
+        "VaultNative",
+        "VaultEntry",
+        "VaultFS",
+        "joinPath",
+        "parentOf"
+      ],
+      "imports": [],
+      "symbols": [
+        "nativeVaultFS(native: VaultNative, root: string)",
+        "walkVault(\n  fs: VaultFS,\n  limits: { max_depth: number; max_notes: number; skip_dirs: string[] },\n  opts: { hidden?: boolean } = {}\n)"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/vault-graph.tsx",
+      "lang": "ts",
+      "role": "file",
+      "exports": [
+        "VaultGraph"
+      ],
+      "imports": [
+        "@blocksuite/cloud-notes-graph",
+        "react",
+        "../views/graph/graph-canvas",
+        "./file-types",
+        "./vault-index"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/vault-index.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "resolveLink",
+        "parseNote",
+        "buildIndex",
+        "tagCounts",
+        "searchPaths",
+        "searchContent",
+        "RawLink",
+        "IndexedLink",
+        "NoteInfo",
+        "VaultIndex",
+        "INDEXED_EXT",
+        "IndexBuilder",
+        "ContentHit"
+      ],
+      "imports": [
+        "./jsoncanvas",
+        "./file-types",
+        "./markdown"
+      ],
+      "symbols": [
+        "resolveLink(target: string, fromPath: string, allPaths: readonly string[])",
+        "parseNote(path: string, text: string)",
+        "buildIndex(files: { path: string; text: string }[], allPaths?: readonly string[])",
+        "tagCounts(index: VaultIndex)",
+        "searchPaths(paths: readonly string[], query: string, limit = 50)",
+        "searchContent(texts: Record<string, string>, query: string, limit = 100)",
+        "class IndexBuilder"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/vault-index.worker.ts",
+      "lang": "ts",
+      "role": "module",
+      "exports": [
+        "IndexRequest",
+        "IndexResponse"
+      ],
+      "imports": [
+        "./vault-index"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/VaultShell.tsx",
+      "lang": "ts",
+      "role": "file",
+      "exports": [
+        "VaultShell"
+      ],
+      "imports": [
+        "react",
+        "./decl-types",
+        "./file-types",
+        "./icons",
+        "./markdown",
+        "./panes",
+        "./palette",
+        "./use-vault",
+        "./vault-graph",
+        "./viewers"
+      ],
+      "symbols": [
+        "hotkeyMatches(hotkey: string, e: KeyboardEvent)"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/VaultView.tsx",
+      "lang": "ts",
+      "role": "file",
+      "exports": [
+        "VaultView"
+      ],
+      "imports": [
+        "@cloud-notes/component",
+        "react",
+        "./decl",
+        "./icons",
+        "./recent-vaults",
+        "./style",
+        "./use-vault",
+        "./VaultShell"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/core/src/mobile/vault/viewers.tsx",
+      "lang": "ts",
+      "role": "file",
+      "exports": [
+        "SourceEditor",
+        "MarkdownView",
+        "MermaidView",
+        "JsonView",
+        "HtmlView",
+        "ImageView",
+        "CanvasPane"
+      ],
+      "imports": [
+        "react",
+        "./canvas-view",
+        "./decl-types",
+        "./enhance",
+        "./html-sandbox",
+        "./json-tree",
+        "./markdown",
+        "./vault-index",
+        "./use-vault"
+      ],
+      "symbols": []
     },
     {
       "path": "ac_cloud-notes/packages/frontend/core/src/mobile/views/all-docs/collection/detail.css.ts",
@@ -467156,7 +468072,8 @@
         "./pages/workspace/journals",
         "./pages/workspace/search",
         "./pages/workspace/tag",
-        "./pages/workspace/tag/detail"
+        "./pages/workspace/tag/detail",
+        "./pages/workspace/vault"
       ],
       "symbols": []
     },
@@ -483437,6 +484354,20 @@
       "symbols": []
     },
     {
+      "path": "ac_cloud-notes/scripts/gen-vault-decl.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "render()"
+      ],
+      "imports": [
+        "json"
+      ],
+      "symbols": [
+        "render()"
+      ]
+    },
+    {
       "path": "ac_cloud-notes/scripts/generate-release-yml.mjs",
       "lang": "js",
       "role": "script",
@@ -483732,6 +484663,148 @@
       "symbols": [
         "ok()",
         "fail()"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/test/test-vault.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "step()"
+      ],
+      "imports": [],
+      "symbols": [
+        "step()"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/test/vault/canvas.test.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "node:test",
+        "node:assert/strict",
+        "./helpers.mjs"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/test/vault/config.test.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "node:test",
+        "node:assert/strict",
+        "node:path",
+        "./helpers.mjs"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/test/vault/helpers.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [
+        "walk",
+        "APP",
+        "SRC",
+        "FIX",
+        "decl",
+        "src",
+        "fixture",
+        "folderReader"
+      ],
+      "imports": [
+        "node:fs",
+        "node:path",
+        "node:url"
+      ],
+      "symbols": [
+        "walk(root, dir = '')"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/test/vault/html.test.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "node:test",
+        "node:assert/strict",
+        "node:fs",
+        "./helpers.mjs"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/test/vault/index.test.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "node:test",
+        "node:assert/strict",
+        "node:path",
+        "./helpers.mjs"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/test/vault/json.test.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "node:test",
+        "node:assert/strict",
+        "./helpers.mjs"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "ac_cloud-notes/test/vault/loader.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [
+        "resolve"
+      ],
+      "imports": [
+        "node:module"
+      ],
+      "symbols": [
+        "resolve(s,c,n)"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/test/vault/markdown.test.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "node:test",
+        "node:assert/strict",
+        "./helpers.mjs"
+      ],
+      "symbols": [
+        "fm(s)"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/test/vault/plugin-map.test.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "node:test",
+        "node:assert/strict",
+        "node:path",
+        "node:fs",
+        "./helpers.mjs"
+      ],
+      "symbols": [
+        "enabled(vault)"
       ]
     },
     {
@@ -581154,7 +582227,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/AssetData.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/AssetData.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581173,7 +582246,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Catalog.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Catalog.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581204,7 +582277,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Control.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Control.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581235,7 +582308,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Dashboards.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Dashboards.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581260,7 +582333,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Decl.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Decl.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581276,7 +582349,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Engine.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Engine.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581294,11 +582367,12 @@
         "java.util.concurrent.Executors"
       ],
       "symbols": [
-        "load(panel: Panel, source: Source, http: Http, today: LocalDate, route: PrimaryRoute? = null)",
+        "load(panel: Panel, source: Source, http: Http, today: LocalDate, route: PrimaryRoute? = null, fallback: Source? = null)",
         "alloc(panel: Panel, legs: List<Pair<String, Int>>)",
-        "fredPanel(panel: Panel, source: Source, f: JSONObject, http: Http, today: LocalDate, route: PrimaryRoute?)",
+        "fredPanel(panel: Panel, source: Source, f: JSONObject, http: Http, today: LocalDate, route: PrimaryRoute?, fallback: Source?)",
         "derived(panel: Panel, f: JSONObject, series: List<FredSeries>, asOf: String, missing: String)",
-        "fredSeries(source: Source, f: JSONObject, http: Http, today: LocalDate, route: PrimaryRoute?)",
+        "fredSeries(source: Source, f: JSONObject, http: Http, today: LocalDate, route: PrimaryRoute?, fallback: Source?)",
+        "dbnomicsObs(src: Source, spec: JSONObject, http: Http)",
         "forwardGrid(panel: Panel, f: JSONObject, series: List<FredSeries>, asOf: String, note: String)",
         "fxCross(panel: Panel, series: List<FredSeries>, asOf: String, note: String)",
         "perSeries(panel: Panel, source: Source, f: JSONObject, http: Http)",
@@ -581322,7 +582396,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Forward.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Forward.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581337,7 +582411,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/FredCsv.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/FredCsv.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581352,7 +582426,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Holdings.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Holdings.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581374,7 +582448,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Http.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Http.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581400,7 +582474,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/MainActivity.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/MainActivity.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581420,7 +582494,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Mesh.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Mesh.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581443,7 +582517,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Pages.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Pages.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581461,7 +582535,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Providers.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Providers.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581490,7 +582564,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/Requests.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Requests.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581508,7 +582582,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/SourceKeys.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/SourceKeys.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581529,7 +582603,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/AppShell.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/AppShell.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581572,7 +582646,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/AppTheme.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/AppTheme.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581590,7 +582664,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/ContainerControl.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/ContainerControl.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581638,7 +582712,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/DashboardPage.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/DashboardPage.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581711,7 +582785,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/EncryptedSecretBox.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/EncryptedSecretBox.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581732,7 +582806,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/HoldingsPanel.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/HoldingsPanel.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581776,7 +582850,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/SectionPage.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/SectionPage.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581829,7 +582903,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/SourcesPanel.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/SourcesPanel.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581877,7 +582951,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/CatalogTest.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/CatalogTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581902,7 +582976,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/ControlTest.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/ControlTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581931,7 +583005,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/DashboardsTest.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/DashboardsTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581954,7 +583028,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/DataFiles.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/DataFiles.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -581969,7 +583043,19 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/EngineTest.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/DbnomicsH15Fixture.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "DbnomicsH15Fixture"
+      ],
+      "imports": [],
+      "symbols": [
+        "class DbnomicsH15Fixture"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/EngineTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -582003,7 +583089,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/ForwardTest.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/ForwardTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -582025,7 +583111,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/FredCsvTest.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/FredCsvTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -582044,7 +583130,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/HoldingsTest.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/HoldingsTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -582063,7 +583149,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/PagesTest.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/PagesTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -582084,7 +583170,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/PriorityTest.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/PriorityTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -582112,12 +583198,19 @@
         "aTopicTheFleetHasNotPublishedFallsBackToThePublicSourceSeriesBySeries()",
         "withNoRouteTheFleetIsNeverAsked()",
         "everyFredPanelDeclaresTheFleetAsItsPrimaryAndNoAddressIsTyped()",
+        "dbnomicsAnswer(url: String)",
+        "fredIsRankedBeforeDbnomicsForTheFourFredEntries()",
+        "everyFredPanelWithADbnomicsCodeDeclaresDbnomicsAsItsFallback()",
+        "whenFredAnswersNothingTheSecondSourceServesEverySeriesAndIsAskedAfterFred()",
+        "aSeriesFredServesIsNotAskedOfDbnomicsAndTheMixIsNamedBoth()",
+        "withoutAFallbackSourceDbnomicsIsNeverAsked()",
+        "aSeriesWithNoDbnomicsCodeHasNoSecondSourceAndIsReportedUnavailable()",
         "class PriorityTest",
         "class Net"
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/ProvidersTest.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/ProvidersTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -582134,11 +583227,12 @@
         "worldBankDropsRowsWithoutAValue()",
         "imfTakesTheLatestYearOfEachWantedCountry()",
         "gdeltArticlesAndSeenDate()",
+        "dbnomicsFedH15FixtureParsesToTheLatestNumericObservation()",
         "class ProvidersTest"
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/app/src/test/java/com/diegonmarcos/capitalfinterm/SourceKeysTest.kt",
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/SourceKeysTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
@@ -582164,7 +583258,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/build.sh",
+      "path": "ad_Capital-Stack-FinTerminal/build.sh",
       "lang": "sh",
       "role": "shell",
       "exports": [
@@ -582240,7 +583334,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/flake.nix",
+      "path": "ad_Capital-Stack-FinTerminal/flake.nix",
       "lang": "nix",
       "role": "flake",
       "exports": [],
@@ -582272,7 +583366,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/test/test-finterm-sources.sh",
+      "path": "ad_Capital-Stack-FinTerminal/test/test-finterm-sources.sh",
       "lang": "sh",
       "role": "shell",
       "exports": [
@@ -582290,7 +583384,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/test/test-fleet-setup.sh",
+      "path": "ad_Capital-Stack-FinTerminal/test/test-fleet-setup.sh",
       "lang": "sh",
       "role": "shell",
       "exports": [
@@ -582308,7 +583402,7 @@
       ]
     },
     {
-      "path": "ad_Capital-FinTerm/test/test-lnktree-app.sh",
+      "path": "ad_Capital-Stack-FinTerminal/test/test-lnktree-app.sh",
       "lang": "sh",
       "role": "shell",
       "exports": [
