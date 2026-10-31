@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22888,
+    "files": 22913,
     "by_lang": {
       "sh": 628,
-      "js": 514,
+      "js": 526,
       "py": 184,
-      "kotlin": 12298,
+      "kotlin": 12311,
       "java": 649,
       "nix": 35,
       "rust": 111,
@@ -19,13 +19,13 @@
     },
     "by_role": {
       "hook": 158,
-      "file": 2302,
+      "file": 2303,
       "shell": 500,
       "script": 276,
       "java": 648,
-      "kotlin": 12295,
+      "kotlin": 12308,
       "python": 59,
-      "module": 6448,
+      "module": 6459,
       "flake": 31,
       "rust-module": 111,
       "nix-module": 4,
@@ -42084,6 +42084,649 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/assets/cgc/cgc-anim.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [
+        "boneMap",
+        "buildClip",
+        "retargetMixamo",
+        "VRM_TO_MIXAMO"
+      ],
+      "imports": [],
+      "symbols": [
+        "boneMap(root, vrm)",
+        "shape(kind, x)",
+        "value(spec, t, dur)",
+        "buildClip(THREE, root, def, vrm)",
+        "retargetMixamo(THREE, clip, root, sourceHipsHeight, vrm)"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/assets/cgc/cgc.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [
+        "createViewer",
+        "boot"
+      ],
+      "imports": [
+        "three",
+        "../space/OrbitControls.js",
+        "./vendor/GLTFLoader.js",
+        "./vendor/FBXLoader.js",
+        "./vendor/GLTFExporter.js",
+        "./vendor/meshopt_decoder.module.js",
+        "./vendor/RoomEnvironment.js",
+        "./vendor/three-vrm.module.min.js",
+        "./cgc-anim.js"
+      ],
+      "symbols": [
+        "emit(type, data)",
+        "createViewer(container, cfgIn = {})",
+        "resize()",
+        "frameModel()",
+        "resetCamera()",
+        "loaderFor(kind)",
+        "kindOf(url, kind)",
+        "loadClipDefs()",
+        "load(url, kind)",
+        "meshes()",
+        "describe()",
+        "targets(name)",
+        "play(id, fade = 0.35)",
+        "addMixamoClip(id, url, sourceHipsHeight)",
+        "setMorph(name, v)",
+        "neutralMap(tex)",
+        "setColor(name, hex, keepTexture = false)",
+        "setVisible(name, on)",
+        "apply(ops)",
+        "toBase64(buf)",
+        "save(name, mime, buf)",
+        "exportGLB(name = 'avatar.glb')",
+        "snapshotPNG(name = 'avatar.png')",
+        "tick()",
+        "boot(config)"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/assets/cgc/vendor/BufferGeometryUtils.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [
+        "computeMikkTSpaceTangents",
+        "mergeGeometries",
+        "mergeAttributes",
+        "deepCloneAttribute",
+        "deinterleaveAttribute",
+        "deinterleaveGeometry",
+        "interleaveAttributes",
+        "estimateBytesUsed",
+        "mergeVertices",
+        "toTrianglesDrawMode",
+        "computeMorphedAttributes",
+        "mergeGroups",
+        "toCreasedNormals"
+      ],
+      "imports": [
+        "three",
+        "three/addons/utils/BufferGeometryUtils.js"
+      ],
+      "symbols": [
+        "computeMikkTSpaceTangents( geometry, MikkTSpace, negateSign = true )",
+        "getAttributeArray( attribute )",
+        "mergeGeometries( geometries, useGroups = false )",
+        "mergeAttributes( attributes )",
+        "deepCloneAttribute( attribute )",
+        "interleaveAttributes( attributes )",
+        "deinterleaveAttribute( attribute )",
+        "deinterleaveGeometry( geometry )",
+        "estimateBytesUsed( geometry )",
+        "mergeVertices( geometry, tolerance = 1e-4 )",
+        "toTrianglesDrawMode( geometry, drawMode )",
+        "computeMorphedAttributes( object )",
+        "_calculateMorphedAttributeData(\n\t\tobject,\n\t\tattribute,\n\t\tmorphAttribute,\n\t\tmorphTargetsRelative,\n\t\ta,\n\t\tb,\n\t\tc,\n\t\tmodifiedAttributeArray\n\t)",
+        "mergeGroups( geometry )",
+        "toCreasedNormals( geometry, creaseAngle = Math.PI / 3 /* 60 degrees */ )"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/assets/cgc/vendor/FBXLoader.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [
+        "FBXLoader"
+      ],
+      "imports": [
+        "three",
+        "./fflate.module.js",
+        "./NURBSCurve.js",
+        "three/addons/loaders/FBXLoader.js"
+      ],
+      "symbols": [
+        "isFbxFormatBinary( buffer )",
+        "isFbxFormatASCII( text )",
+        "read( offset )",
+        "getFbxVersion( text )",
+        "convertFBXTimeToSeconds( time )",
+        "getData( polygonVertexIndex, polygonIndex, vertexIndex, infoObject )",
+        "generateTransform( transformData )",
+        "getEulerOrder( order )",
+        "parseNumberArray( value )",
+        "convertArrayBufferToString( buffer, from, to )",
+        "append( a, b )",
+        "slice( a, b, from, to )",
+        "class FBXLoader",
+        "class FBXTreeParser",
+        "class GeometryParser",
+        "class AnimationParser",
+        "class TextParser",
+        "class BinaryParser",
+        "class BinaryReader",
+        "class FBXTree"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/assets/cgc/vendor/fflate.module.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [
+        "deflate",
+        "deflateSync",
+        "inflate",
+        "inflateSync",
+        "gzip",
+        "gzipSync",
+        "gunzip",
+        "gunzipSync",
+        "zlib",
+        "zlibSync",
+        "unzlib",
+        "unzlibSync",
+        "decompress",
+        "decompressSync",
+        "strToU8",
+        "strFromU8",
+        "zip",
+        "zipSync",
+        "unzip",
+        "unzipSync",
+        "Deflate",
+        "AsyncDeflate",
+        "Inflate",
+        "AsyncInflate",
+        "Gzip",
+        "AsyncGzip",
+        "Gunzip",
+        "AsyncGunzip",
+        "Zlib",
+        "AsyncZlib"
+      ],
+      "imports": [],
+      "symbols": [
+        "StrmOpt(opts, cb)",
+        "Deflate(opts, cb)",
+        "AsyncDeflate(opts, cb)",
+        "deflate(data, opts, cb)",
+        "deflateSync(data, opts)",
+        "Inflate(opts, cb)",
+        "AsyncInflate(opts, cb)",
+        "inflate(data, opts, cb)",
+        "inflateSync(data, opts)",
+        "Gzip(opts, cb)",
+        "AsyncGzip(opts, cb)",
+        "gzip(data, opts, cb)",
+        "gzipSync(data, opts)",
+        "Gunzip(opts, cb)",
+        "AsyncGunzip(opts, cb)",
+        "gunzip(data, opts, cb)",
+        "gunzipSync(data, opts)",
+        "Zlib(opts, cb)",
+        "AsyncZlib(opts, cb)",
+        "zlib(data, opts, cb)",
+        "zlibSync(data, opts)",
+        "Unzlib(opts, cb)",
+        "AsyncUnzlib(opts, cb)",
+        "unzlib(data, opts, cb)",
+        "unzlibSync(data, opts)",
+        "Decompress(opts, cb)",
+        "AsyncDecompress(opts, cb)",
+        "decompress(data, opts, cb)",
+        "decompressSync(data, opts)",
+        "DecodeUTF8(cb)",
+        "EncodeUTF8(cb)",
+        "strToU8(str, latin1)",
+        "strFromU8(dat, latin1)",
+        "ZipPassThrough(filename)",
+        "ZipDeflate(filename, opts)",
+        "AsyncZipDeflate(filename, opts)",
+        "Zip(cb)",
+        "zip(data, opts, cb)",
+        "zipSync(data, opts)",
+        "UnzipPassThrough()"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/assets/cgc/vendor/GLTFExporter.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [
+        "GLTFExporter"
+      ],
+      "imports": [
+        "three",
+        "three/addons/exporters/GLTFExporter.js"
+      ],
+      "symbols": [
+        "equalArray( array1, array2 )",
+        "stringToArrayBuffer( text )",
+        "isIdentityMatrix( matrix )",
+        "getMinMax( attribute, start, count )",
+        "getPaddedBufferSize( bufferSize )",
+        "getPaddedArrayBuffer( arrayBuffer, paddingByte = 0 )",
+        "getCanvas()",
+        "getToBlobPromise( canvas, mimeType )",
+        "getEncodingConversion( map )",
+        "SRGBToLinear( c )",
+        "LinearToLinear( c )",
+        "class GLTFExporter",
+        "class GLTFWriter",
+        "class GLTFLightExtension",
+        "class GLTFMaterialsUnlitExtension",
+        "class GLTFMaterialsClearcoatExtension",
+        "class GLTFMaterialsDispersionExtension",
+        "class GLTFMaterialsIridescenceExtension",
+        "class GLTFMaterialsTransmissionExtension",
+        "class GLTFMaterialsVolumeExtension",
+        "class GLTFMaterialsIorExtension",
+        "class GLTFMaterialsSpecularExtension",
+        "class GLTFMaterialsSheenExtension",
+        "class GLTFMaterialsAnisotropyExtension",
+        "class GLTFMaterialsEmissiveStrengthExtension",
+        "class GLTFMaterialsBumpExtension",
+        "class GLTFMeshGpuInstancing"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/assets/cgc/vendor/GLTFLoader.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [
+        "GLTFLoader"
+      ],
+      "imports": [
+        "three",
+        "./BufferGeometryUtils.js",
+        "./SkeletonUtils.js",
+        "three/addons/loaders/GLTFLoader.js"
+      ],
+      "symbols": [
+        "GLTFRegistry()",
+        "getMaterialExtension( parser, materialIndex, extensionName )",
+        "createDefaultMaterial( cache )",
+        "addUnknownExtensionsToUserData( knownExtensions, object, objectDef )",
+        "assignExtrasToUserData( object, gltfDef )",
+        "addMorphTargets( geometry, targets, parser )",
+        "updateMorphTargets( mesh, meshDef )",
+        "createPrimitiveKey( primitiveDef )",
+        "createAttributesKey( attributes )",
+        "getNormalizedComponentScale( constructor )",
+        "getImageURIMimeType( uri )",
+        "createDracoPrimitive( primitive )",
+        "collectMorphTargets( object )",
+        "InterpolantFactoryMethodGLTFCubicSpline( result )",
+        "computeBounds( geometry, primitiveDef, parser )",
+        "addPrimitiveAttributes( geometry, primitiveDef, parser )",
+        "assignAttributeAccessor( accessorIndex, attributeName )",
+        "class GLTFLoader",
+        "class GLTFLightsExtension",
+        "class GLTFMaterialsUnlitExtension",
+        "class GLTFMaterialsEmissiveStrengthExtension",
+        "class GLTFMaterialsClearcoatExtension",
+        "class GLTFMaterialsDispersionExtension",
+        "class GLTFMaterialsIridescenceExtension",
+        "class GLTFMaterialsSheenExtension",
+        "class GLTFMaterialsTransmissionExtension",
+        "class GLTFMaterialsVolumeExtension",
+        "class GLTFMaterialsIorExtension",
+        "class GLTFMaterialsSpecularExtension",
+        "class GLTFMaterialsBumpExtension",
+        "class GLTFMaterialsAnisotropyExtension",
+        "class GLTFTextureBasisUExtension",
+        "class GLTFTextureWebPExtension",
+        "class GLTFTextureAVIFExtension",
+        "class GLTFMeshoptCompression",
+        "class GLTFMeshGpuInstancing",
+        "class GLTFBinaryExtension",
+        "class GLTFDracoMeshCompressionExtension",
+        "class GLTFTextureTransformExtension",
+        "class GLTFMeshQuantizationExtension"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/assets/cgc/vendor/meshopt_decoder.module.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [
+        "MeshoptDecoder"
+      ],
+      "imports": [],
+      "symbols": [
+        "unpack(data)",
+        "decode(instance, fun, target, count, size, source, filter)",
+        "createWorker(url)",
+        "initWorkers(count)",
+        "decodeWorker(count, size, source, mode, filter)",
+        "workerProcess(event)"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/assets/cgc/vendor/NURBSCurve.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [
+        "NURBSCurve"
+      ],
+      "imports": [
+        "three",
+        "./NURBSUtils.js",
+        "three/addons/curves/NURBSCurve.js"
+      ],
+      "symbols": [
+        "class represents",
+        "class NURBSCurve"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/assets/cgc/vendor/NURBSUtils.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [
+        "findSpan",
+        "calcBasisFunctions",
+        "calcBSplinePoint",
+        "calcBasisFunctionDerivatives",
+        "calcBSplineDerivatives",
+        "calcKoverI",
+        "calcRationalCurveDerivatives",
+        "calcNURBSDerivatives",
+        "calcSurfacePoint",
+        "calcVolumePoint"
+      ],
+      "imports": [
+        "three",
+        "three/addons/curves/NURBSUtils.js"
+      ],
+      "symbols": [
+        "findSpan( p, u, U )",
+        "calcBasisFunctions( span, u, p, U )",
+        "calcBSplinePoint( p, U, P, u )",
+        "calcBasisFunctionDerivatives( span, u, p, n, U )",
+        "calcBSplineDerivatives( p, U, P, u, nd )",
+        "calcKoverI( k, i )",
+        "calcRationalCurveDerivatives( Pders )",
+        "calcNURBSDerivatives( p, U, P, u, nd )",
+        "calcSurfacePoint( p, q, U, V, P, u, v, target )",
+        "calcVolumePoint( p, q, r, U, V, W, P, u, v, w, target )"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/assets/cgc/vendor/RoomEnvironment.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [
+        "RoomEnvironment"
+      ],
+      "imports": [
+        "three",
+        "three/addons/environments/RoomEnvironment.js"
+      ],
+      "symbols": [
+        "createAreaLightMaterial( intensity )",
+        "class represents",
+        "class RoomEnvironment"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/assets/cgc/vendor/SkeletonUtils.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [
+        "retarget",
+        "retargetClip",
+        "clone"
+      ],
+      "imports": [
+        "three",
+        "three/addons/utils/SkeletonUtils.js"
+      ],
+      "symbols": [
+        "getBoneName( bone, options )",
+        "retarget( target, source, options = {} )",
+        "retargetClip( target, source, clip, options = {} )",
+        "clone( source )",
+        "getBoneByName( name, skeleton )",
+        "getBones( skeleton )",
+        "getHelperFromSkeleton( skeleton )",
+        "parallelTraverse( a, b, callback )"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/java/com/diegonmarcos/superapp/cgc/AvatarEngine.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AvatarEngine",
+        "ModelFileEngine",
+        "VrmModularEngine",
+        "AvatarEngines"
+      ],
+      "imports": [],
+      "symbols": [
+        "loads(url: String)",
+        "forId(id: String)",
+        "class AvatarEngine",
+        "class ModelFileEngine",
+        "class VrmModularEngine",
+        "class AvatarEngines"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/java/com/diegonmarcos/superapp/cgc/CgcConfig.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "CgcConfig"
+      ],
+      "imports": [
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "load(spec: CgcSpec, saved: String?)",
+        "save(cfg: Map<String, String>)",
+        "set(spec: CgcSpec, cfg: Map<String, String>, category: String, id: String, engine: AvatarEngine? = null)",
+        "soon(c: CgcCategory, engine: AvatarEngine? = null)",
+        "ops(spec: CgcSpec, cfg: Map<String, String>, engine: AvatarEngine? = null)",
+        "class CgcConfig",
+        "class of"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/java/com/diegonmarcos/superapp/cgc/CgcSpec.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "CgcOption",
+        "CgcCategory",
+        "CgcAiDecl",
+        "CgcSpec"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "category(id: String)",
+        "text(key: String, fallback: String = key)",
+        "parse(json: String)",
+        "option(o: JSONObject)",
+        "objects(a: JSONArray?)",
+        "strings(a: JSONArray?)",
+        "class CgcOption",
+        "class CgcCategory",
+        "class CgcAiDecl",
+        "class CgcSpec"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/main/java/com/diegonmarcos/superapp/cgc/OpenRouterAvatar.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HttpPort",
+        "HttpReply",
+        "KeySource",
+        "AiResult",
+        "OpenRouterAvatar",
+        "UrlConnectionHttp"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "java.net.HttpURLConnection",
+        "java.net.URL"
+      ],
+      "symbols": [
+        "post(url: String, headers: Map<String, String>, body: String)",
+        "read(slot: String)",
+        "describe(spec: CgcSpec, current: Map<String, String>, text: String, engine: AvatarEngine? = null)",
+        "request(spec: CgcSpec, text: String, engine: AvatarEngine? = null)",
+        "map(spec: CgcSpec, current: Map<String, String>, content: String, engine: AvatarEngine? = null)",
+        "norm(s: String)",
+        "nearest(c: CgcCategory, raw: String)",
+        "rgb(s: String)",
+        "isHexDigit()",
+        "errorMessage(body: String)",
+        "class HttpPort",
+        "class HttpReply",
+        "class KeySource",
+        "class AiResult",
+        "class Applied",
+        "class NoKey",
+        "class NoEndpoint",
+        "class Http",
+        "class BadReply",
+        "class Network",
+        "class OpenRouterAvatar",
+        "class and",
+        "class in",
+        "class UrlConnectionHttp"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/test/kotlin/com/diegonmarcos/superapp/cgc/CgcConfigTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "CgcConfigTest"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "parseReadsEveryCategoryAndFoldsUnwiredKindsIntoSoon()",
+        "aMalformedDeclarationIsEmpty()",
+        "defaultsAreTheDeclaredOnesNotTheFirstOption()",
+        "aSaveRoundTripsAndAnUndeclaredIdFallsBack()",
+        "setRefusesWhatIsNotDeclaredOrNotWired()",
+        "anEngineThatCannotDrawAKindMakesItSoon()",
+        "opsOfTheDefaults()",
+        "opsOfAPersonalisedAvatar()",
+        "morphValuesAreClampedAndNeutralZeroesEverything()",
+        "engines()",
+        "class CgcConfigTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/test/kotlin/com/diegonmarcos/superapp/cgc/Fixture.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Fixture"
+      ],
+      "imports": [],
+      "symbols": [
+        "class Fixture"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/src/test/kotlin/com/diegonmarcos/superapp/cgc/OpenRouterAvatarTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "OpenRouterAvatarTest"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "post(url: String, headers: Map<String, String>, body: String)",
+        "reply(content: String)",
+        "applied(r: AiResult)",
+        "theRequestGoesToTheDeclaredEndpointWithTheKeyInTheHeaderOnly()",
+        "thePromptListsWiredCategoriesOnly()",
+        "noKeyNoRequest()",
+        "httpAndNetworkErrorsNeverCarryTheKey()",
+        "mapByIdLabelAndCategoryLabel()",
+        "aColourPicksTheNearestDeclaredOne()",
+        "soonUnknownAndUnmatchedAreIgnoredAndReported()",
+        "theObjectMayBeWrappedInProseAFenceOrAKey()",
+        "rgb()",
+        "class OpenRouterAvatarTest",
+        "class FakeHttp"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/cgc-3d/tools/opt-glb.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "fs",
+        "child_process",
+        "os",
+        "path"
+      ],
+      "symbols": [
+        "read(ai)",
+        "blockSize(vs)",
+        "groupSize(g, bits)",
+        "encodeBytes(out, buf)",
+        "encodeVertexBuffer(data, count, vs)",
+        "pad4(n)",
+        "expFilter(floats, n, bits)",
+        "addCompressed(bytes, stride, count, filter, floats)",
+        "addRaw(bytes, extra = {})",
+        "acc(o)",
+        "packFloat(v, n)",
+        "attrFloat(r, keepMinMax, bits)",
+        "attrNormal(r)",
+        "attrJoints(r)",
+        "attrWeights(r)",
+        "indices(r)",
+        "put(bytes)"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/chat/src/main/java/com/diegonmarcos/superapp/chat/ChatPages.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -74109,6 +74752,7 @@
         "actOn(i: PermItem)",
         "step()",
         "AppPermsSection( tick: Int, style: PermsStyle = PermsStyle()",
+        "helperName(ctx: Context, h: HelperNeed)",
         "installItems(ctx: Context)",
         "findActivity()",
         "class AppPermsState"
@@ -74517,7 +75161,8 @@
         "promptText(missing: List<String>)",
         "item(e: PermEntry, s: PermStatus, highlight: Boolean = false)",
         "action(e: PermEntry, s: PermStatus)",
-        "helperItem(h: HelperNeed, e: PermEntry, s: PermStatus, highlight: Boolean = false)",
+        "appName(raw: String)",
+        "helperItem(h: HelperNeed, e: PermEntry, s: PermStatus, highlight: Boolean = false, name: String = appName(h.label)",
         "walk(items: List<PermItem>)",
         "class PermItemKind",
         "class PermAction",
@@ -75890,13 +76535,13 @@
         "onServiceConnected(name: ComponentName?, binder: IBinder?)",
         "onServiceDisconnected(name: ComponentName?)",
         "run(script: String, stdin: String? = null, timeoutMs: Int = 60_000)",
-        "runHost(script: String, timeoutMs: Int = 60_000)",
+        "runHost(script: String, timeoutMs: Int = 60_000, stdin: String? = null)",
         "call(script: String, stdin: String?, timeoutMs: Int)",
         "job(script: String, stdin: String? = null, deadlineMs: Long = 30 * 60_000L)",
         "q(s: String)",
         "guestWrap(script: String, termuxShell: String = \"\\$HOME/.termux/shell\")",
         "loginLine(script: String)",
-        "jobStart(script: String, dir: String, id: String)",
+        "jobStart(script: String, dir: String, id: String, termuxShell: String = \"\\$HOME/.termux/shell\")",
         "class StoreExec",
         "class Result"
       ]
@@ -363089,7 +363734,6 @@
         "LedgerField",
         "LedgerDef",
         "LedgerData",
-        "LedgerSeed",
         "LedgerModel"
       ],
       "imports": [
@@ -363110,7 +363754,6 @@
         "without(collection: String)",
         "toJson()",
         "fromJson(text: String?)",
-        "applied(d: LedgerData, defs: List<LedgerDef>)",
         "money(s: String?)",
         "isDate(s: String?)",
         "validate(def: LedgerDef, values: Rec)",
@@ -363119,7 +363762,6 @@
         "class LedgerField",
         "class LedgerDef",
         "class LedgerData",
-        "class LedgerSeed",
         "class LedgerModel"
       ]
     },
@@ -363211,7 +363853,6 @@
         "accept(collection: String, n: Int)",
         "builtin(collection: String, n: Int)",
         "empty(collection: String)",
-        "mock(collection: String, id: String)",
         "LedgerBlock(o: JSONObject)",
         "commit(d: LedgerData)",
         "GeoCard(g: GeoSummary)",
@@ -363222,6 +363863,21 @@
         "RecLines(def: LedgerDef, r: Rec, currency: String)",
         "AddForm(def: LedgerDef, initial: Rec, onCancel: ()",
         "class LedgerTags"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/LedgerSeed.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LedgerSeed"
+      ],
+      "imports": [],
+      "symbols": [
+        "applied(d: LedgerData, defs: List<LedgerDef>)",
+        "badge(r: Map<String, String>)",
+        "tag(collection: String, id: String)",
+        "class LedgerSeed"
       ]
     },
     {
@@ -585045,6 +585701,28 @@
       ]
     },
     {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Performance.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Performance"
+      ],
+      "imports": [
+        "java.time.DayOfWeek",
+        "java.time.LocalDate"
+      ],
+      "symbols": [
+        "row(closes: List<Pair<LocalDate, Double>>)",
+        "before(d: LocalDate)",
+        "onOrBefore(d: LocalDate)",
+        "trailing(closes: List<Pair<LocalDate, Double>>, years: Int)",
+        "simple(start: Double?, end: Double)",
+        "cagr(start: Double?, end: Double, years: Double)",
+        "format(v: Double?)",
+        "class Performance"
+      ]
+    },
+    {
       "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Providers.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -585110,6 +585788,48 @@
         "read(id: String)",
         "class SecretBox",
         "class SourceKeys"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Tables.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Tables"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "java.io.IOException",
+        "java.time.LocalDate",
+        "java.util.Locale"
+      ],
+      "symbols": [
+        "load(panel: Panel, source: Source, f: JSONObject, http: Http, today: LocalDate, c: ModelCtx)",
+        "symbolFor(route: JSONObject, item: String)",
+        "gather(item: String, source: Source, f: JSONObject, http: Http, today: LocalDate, c: ModelCtx)",
+        "filled(spec: JSONObject, sl: Map<String, String>)",
+        "column(col: String, closes: List<Pair<LocalDate, Double>>, row: List<Double?>)",
+        "vol1y(closes: List<Pair<LocalDate, Double>>)",
+        "maxDrawdown1y(closes: List<Pair<LocalDate, Double>>)",
+        "closes(g: Got)",
+        "fmt(col: String, v: Double?)",
+        "performance(panel: Panel, f: JSONObject, got: Map<String, ItemGot>)",
+        "rebalanced(legs: List<Pair<Double, List<Pair<LocalDate, Double>>>>)",
+        "portfolio(panel: Panel, f: JSONObject, legs: List<Pair<String, Int>>, got: Map<String, ItemGot>)",
+        "line(label: String, cl: List<Pair<LocalDate, Double>>, last: String)",
+        "tenors(f: JSONObject)",
+        "curve(f: JSONObject, g: Got)",
+        "cell(curve: List<Pair<Double, Double>>, t: Double, forward: Boolean, start: Double)",
+        "weighted(values: List<Pair<Double, Double?>>)",
+        "matrix(panel: Panel, f: JSONObject, got: Map<String, ItemGot>)",
+        "avg(members: List<String>)",
+        "fmtRow(label: String, v: List<Double?>)",
+        "fmtYears(y: Double)",
+        "strings(a: JSONArray?)",
+        "class Tables",
+        "class ItemGot",
+        "class Tenor"
       ]
     },
     {
@@ -586283,6 +587003,7 @@
       ],
       "imports": [
         "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
         "org.junit.Assert.assertTrue",
         "org.junit.Test"
       ],
@@ -586292,6 +587013,7 @@
         "keyRowsComeLastAndASegmentIsDrawnInsideItsCard()",
         "aKeyRowDeclaredFirstIsStillDrawnLast()",
         "marketMonitorLeadsWithTheTreasuryTilesAndTheDerivedSpread()",
+        "fixedIncomeHoldsNoEquityPanel()",
         "noPlaceholderDeclaresADashedLayout()",
         "class DashboardsUiTest"
       ]
@@ -586609,6 +587331,30 @@
       ]
     },
     {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/PerformanceTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PerformanceTest"
+      ],
+      "imports": [
+        "java.time.LocalDate",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "d(s: String)",
+        "cagrIsAnnualisedOverMoreThanOneYear()",
+        "oneYearOrLessIsSimpleReturn()",
+        "badInputsAreMissing()",
+        "periodBasesUseTheRightClose()",
+        "shortHistoryLeavesLongColumnsMissing()",
+        "emptyOrNonFiniteSeriesIsAllMissing()",
+        "class PerformanceTest"
+      ]
+    },
+    {
       "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/PriorityTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -586694,6 +587440,42 @@
         "theKeyIsInNoStringTheClassPrints()",
         "class SourceKeysTest",
         "class MemBox"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/TablesTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "TablesTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "java.io.IOException",
+        "java.time.LocalDate"
+      ],
+      "symbols": [
+        "get(url: String)",
+        "post(url: String)",
+        "load(d: String, p: String, http: Http, api: ApiRoute? = this.api)",
+        "v1Bars(vararg b: Pair<String, Double>)",
+        "cboeBars(vararg b: Pair<String, Double>)",
+        "d(s: String)",
+        "performanceRowsComeFromTheContainerThroughPerformanceRow()",
+        "whenTheMeshIsDownTheDirectSourceAnswersUnderTheMappedSymbol()",
+        "trailingYearsAndRiskColumns()",
+        "portfolioIsRebalancedDailyNotBoughtAndHeld()",
+        "modelPortfolioPerformanceRowsArePortfolioThenLegs()",
+        "averagesAreGdpWeightedOverTheCountriesWithAValue()",
+        "spotCellsAreExactTenorsAndForwardCellsComeFromForward()",
+        "theMatrixHasAveragesThenEveryCountryAndSaysWhyACellIsEmpty()",
+        "theDeclaredMatrixIsTheOwnersCountryList()",
+        "class TablesTest",
+        "class Fake"
       ]
     },
     {
@@ -586861,47 +587643,30 @@
       ]
     },
     {
-      "path": "ad_CG-Omniverse/app/src/main/assets/avatar/avatar.js",
-      "lang": "js",
-      "role": "module",
-      "exports": [],
-      "imports": [
-        "three",
-        "../space/OrbitControls.js"
-      ],
-      "symbols": [
-        "glowTexture()",
-        "mesh(geo, m, parent, x = 0, y = 0, z = 0)",
-        "build(cfg)",
-        "roundBox(geo, r)",
-        "dispose(o)",
-        "animate(t)"
-      ]
-    },
-    {
       "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/Avatar.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
-        "AvatarOption",
-        "AvatarGroup",
         "AvatarSpec",
         "Avatar"
       ],
       "imports": [
+        "com.diegonmarcos.superapp.cgc.AvatarEngine",
+        "com.diegonmarcos.superapp.cgc.AvatarEngines",
+        "com.diegonmarcos.superapp.cgc.CgcConfig",
+        "com.diegonmarcos.superapp.cgc.CgcSpec",
         "org.json.JSONObject"
       ],
       "symbols": [
         "spec(json: String)",
+        "engine(spec: AvatarSpec)",
         "load(spec: AvatarSpec, saved: String?)",
         "save(cfg: Map<String, String>)",
-        "set(spec: AvatarSpec, cfg: Map<String, String>, group: String, id: String)",
-        "sceneJson(spec: AvatarSpec, cfg: Map<String, String>)",
-        "class AvatarOption",
-        "class AvatarGroup",
-        "class AvatarSpec",
-        "class Avatar",
-        "class of"
+        "set(spec: AvatarSpec, cfg: Map<String, String>, category: String, id: String)",
+        "soon(spec: AvatarSpec, category: String)",
+        "sceneOps(spec: AvatarSpec, cfg: Map<String, String>)",
+        "sceneConfig(spec: AvatarSpec, topCss: Int, bottomCss: Int)",
+        "class Avatar"
       ]
     },
     {
@@ -587059,60 +587824,100 @@
       ]
     },
     {
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/ui/AvatarKeys.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AvatarKeys"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.content.SharedPreferences",
+        "com.diegonmarcos.superapp.cgc.KeySource",
+        "com.diegonmarcos.superapp.crash.SafeEncryptedPrefs"
+      ],
+      "symbols": [
+        "read(slot: String)",
+        "has(slot: String)",
+        "save(slot: String, raw: String)",
+        "clear(slot: String)",
+        "class secret",
+        "class AvatarKeys"
+      ]
+    },
+    {
       "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/ui/AvatarPage.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
         "AVATAR_PREFS",
+        "AvatarTags",
         "AvatarPage"
       ],
       "imports": [
         "android.app.backup.BackupManager",
+        "android.content.ContentValues",
         "android.content.Context",
+        "android.graphics.BitmapFactory",
+        "android.os.Build",
+        "android.os.Environment",
+        "android.os.Handler",
+        "android.os.Looper",
+        "android.provider.MediaStore",
+        "android.util.Base64",
+        "android.webkit.JavascriptInterface",
         "android.webkit.WebView",
-        "com.diegonmarcos.cloudlib.web.CloudWeb",
-        "com.diegonmarcos.cloudlib.web.CloudWebClient",
-        "com.diegonmarcos.cloudlib.web.WebProfile",
+        "androidx.compose.foundation.Image",
         "androidx.compose.foundation.background",
         "androidx.compose.foundation.border",
         "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.gestures.detectVerticalDragGestures",
         "androidx.compose.foundation.layout.Arrangement",
         "androidx.compose.foundation.layout.Box",
         "androidx.compose.foundation.layout.Column",
         "androidx.compose.foundation.layout.PaddingValues",
         "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
         "androidx.compose.foundation.layout.fillMaxSize",
         "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
         "androidx.compose.foundation.layout.padding",
         "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
         "androidx.compose.foundation.lazy.LazyRow",
         "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.lazy.rememberLazyListState",
         "androidx.compose.foundation.shape.CircleShape",
         "androidx.compose.foundation.shape.RoundedCornerShape",
-        "androidx.compose.material3.FilterChip",
-        "androidx.compose.material3.MaterialTheme",
-        "androidx.compose.material3.Text",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.DisposableEffect",
-        "androidx.compose.runtime.LaunchedEffect",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableStateOf",
-        "androidx.compose.runtime.remember",
-        "androidx.compose.runtime.saveable.rememberSaveable",
-        "androidx.compose.runtime.setValue",
-        "androidx.compose.ui.Alignment",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.draw.clip",
-        "androidx.compose.ui.graphics.Color",
-        "androidx.compose.ui.platform.LocalContext",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.res.stringResource"
+        "androidx.compose.foundation.text.KeyboardOptions",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.automirrored.filled.DirectionsRun",
+        "androidx.compose.material.icons.filled.AccessibilityNew",
+        "androidx.compose.material.icons.filled.AutoAwesome",
+        "androidx.compose.material.icons.filled.Autorenew"
       ],
       "symbols": [
+        "category(id: String)",
+        "card(category: String, id: String)",
+        "iconFor(name: String)",
+        "config()",
+        "event(json: String)",
+        "saveBegin(fileName: String, mime: String)",
+        "saveChunk(b64: String)",
+        "saveEnd()",
+        "open(fileName: String, mime: String)",
         "AvatarPage()",
+        "css(px: Int)",
         "update(next: Map<String, String>)",
-        "onPageFinished(view: WebView, url: String)",
-        "onRecovered(dead: WebView, fresh: WebView?)"
+        "js(code: String)",
+        "onRecovered(dead: WebView, fresh: WebView?)",
+        "SquareButton(icon: ImageVector, label: String, tag: String, active: Boolean = false, onClick: ()",
+        "PurplePill(label: String, tag: String, onClick: ()",
+        "thumb(path: String?)",
+        "OptionCard(spec: AvatarSpec, cat: CgcCategory, o: CgcOption, selected: Boolean, soon: Boolean, onClick: ()",
+        "AiPanel(spec: AvatarSpec, keys: AvatarKeys, modifier: Modifier, onClose: ()",
+        "class AvatarTags",
+        "class CgcBridge"
       ]
     },
     {
@@ -587313,19 +588118,25 @@
         "AvatarTest"
       ],
       "imports": [
+        "com.diegonmarcos.superapp.cgc.CgcSpec",
         "org.json.JSONObject",
         "org.junit.Assert.assertEquals",
-        "org.junit.Assert.assertSame",
+        "org.junit.Assert.assertFalse",
         "org.junit.Assert.assertTrue",
         "org.junit.Test",
-        "java.io.File"
+        "java.io.File",
+        "java.nio.ByteBuffer",
+        "java.nio.ByteOrder"
       ],
       "symbols": [
-        "theDeclarationIsComplete()",
-        "nothingSavedIsTheDefault()",
-        "aSaveRoundTripsAndUnknownIdsFallBack()",
-        "setRefusesWhatIsNotDeclared()",
-        "theSceneGetsHexColoursAndShapeIds()",
+        "file(vararg c: String)",
+        "names(key: String)",
+        "theCategoriesAreMetaPersonsInOrder()",
+        "theDefaultAvatarIsTheOwnersModelAndItAnimates()",
+        "everyTargetBlendshapeAndThumbnailExists()",
+        "nothingSavedIsTheDefaultAndASaveRoundTrips()",
+        "theSceneConfigCarriesTheInsets()",
+        "theAiConnectorIsDeclaredAndHoldsNoKey()",
         "class AvatarTest"
       ]
     },
