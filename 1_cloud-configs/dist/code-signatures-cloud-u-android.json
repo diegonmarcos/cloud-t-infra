@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22861,
+    "files": 22863,
     "by_lang": {
       "sh": 626,
       "js": 513,
       "py": 179,
-      "kotlin": 12281,
+      "kotlin": 12283,
       "java": 647,
       "nix": 35,
       "rust": 111,
@@ -23,7 +23,7 @@
       "shell": 499,
       "script": 272,
       "java": 646,
-      "kotlin": 12278,
+      "kotlin": 12280,
       "python": 57,
       "module": 6447,
       "flake": 31,
@@ -36259,6 +36259,7 @@
       "role": "kotlin",
       "exports": [
         "NavTokens",
+        "DropdownEntryRole",
         "TabColors",
         "LocalNavTokens",
         "LocalReduceMotion",
@@ -36276,12 +36277,14 @@
         "androidx.compose.ui.unit.sp"
       ],
       "symbols": [
+        "dropdownInk(role: DropdownEntryRole)",
         "tabColors(surface: TabSurface)",
         "sectionChange()",
         "navTokens()",
         "rememberBarMotion(key: Any?)",
         "navHaptics()",
         "class NavTokens",
+        "class DropdownEntryRole",
         "class TabColors",
         "class NavHaptics"
       ]
@@ -37410,6 +37413,26 @@
         "assertIslandContrast(name: String, t: NavTokens)",
         "assertLightStripContrast(name: String, t: NavTokens)",
         "class NavAccessibilityTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bottomnav/src/test/kotlin/com/diegonmarcos/superapp/bottomnav/NavDropdownInkTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavDropdownInkTest"
+      ],
+      "imports": [
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.graphics.compositeOver",
+        "androidx.compose.ui.graphics.luminance",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "contrast(ink: Color, surface: Color)",
+        "class NavDropdownInkTest"
       ]
     },
     {
@@ -79069,6 +79092,7 @@
         "islandMaxWidth(rowWidth: Dp)",
         "crumb(index: Int)",
         "entry(id: String)",
+        "dropdownEntryRole(e: HierarchyEntry, currentDepth: Int)",
         "titleHierarchy(section: NavSection, currentPageId: String?)",
         "walk(pages: List<NavPage>, depth: Int)",
         "hierarchyWithShown(hierarchy: List<HierarchyEntry>, shown: Collection<String>)",
@@ -79625,6 +79649,25 @@
         "driveFiles()",
         "body(text: String, name: String)",
         "class ChromeScrollGuardTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/test/kotlin/com/diegonmarcos/superapp/navbartop1/DropdownEntryInkTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "DropdownEntryInkTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.bottomnav.DropdownEntryRole",
+        "com.diegonmarcos.superapp.bottomnav.NavTokens",
+        "com.diegonmarcos.superapp.themebg.ThemeBackground",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "e(depth: Int, selected: Boolean = false)",
+        "class DropdownEntryInkTest"
       ]
     },
     {
@@ -183761,6 +183804,7 @@
         "androidx.compose.ui.test.junit4.createAndroidComposeRule",
         "androidx.compose.ui.test.onAllNodesWithTag",
         "androidx.compose.ui.test.onFirst",
+        "androidx.compose.ui.test.onNodeWithContentDescription",
         "androidx.compose.ui.test.onNodeWithTag",
         "androidx.compose.ui.test.assertCountEquals",
         "androidx.compose.ui.test.onNodeWithText",
@@ -183790,8 +183834,7 @@
         "org.junit.Rule",
         "org.junit.Test",
         "org.junit.rules.RuleChain",
-        "org.junit.rules.TestRule",
-        "org.junit.runner.RunWith"
+        "org.junit.rules.TestRule"
       ],
       "symbols": [
         "evaluate()",
@@ -184035,13 +184078,13 @@
       "exports": [
         "fail()",
         "q()",
-        "api()"
+        "ipc()"
       ],
       "imports": [],
       "symbols": [
         "fail()",
         "q()",
-        "api()"
+        "ipc()"
       ]
     },
     {
