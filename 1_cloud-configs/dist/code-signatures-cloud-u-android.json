@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22798,
+    "files": 22806,
     "by_lang": {
-      "sh": 615,
+      "sh": 616,
       "js": 513,
-      "py": 175,
-      "kotlin": 12233,
+      "py": 177,
+      "kotlin": 12238,
       "java": 647,
       "nix": 35,
       "rust": 111,
@@ -21,9 +21,9 @@
       "hook": 158,
       "file": 2302,
       "shell": 491,
-      "script": 265,
+      "script": 268,
       "java": 646,
-      "kotlin": 12230,
+      "kotlin": 12235,
       "python": 57,
       "module": 6447,
       "flake": 31,
@@ -537,6 +537,37 @@
         "discover(root, plan)",
         "scan(root, plan)",
         "main()"
+      ]
+    },
+    {
+      "path": ".github/workflows/scripts/cloud-android-configs-pages-guard.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "load(path)",
+        "read(path)",
+        "apps_of(root)",
+        "app_sources(root, app)",
+        "reaches(root, app, needles)",
+        "derived_about(root, spec, app, build)",
+        "check(root)",
+        "main(argv)"
+      ],
+      "imports": [
+        "json",
+        "os",
+        "re",
+        "sys"
+      ],
+      "symbols": [
+        "load(path)",
+        "read(path)",
+        "apps_of(root)",
+        "app_sources(root, app)",
+        "reaches(root, app, needles)",
+        "derived_about(root, spec, app, build)",
+        "check(root)",
+        "main(argv)"
       ]
     },
     {
@@ -3121,6 +3152,37 @@
       ]
     },
     {
+      "path": "1_cicd/src/scripts/cloud-android-configs-pages-guard.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "load(path)",
+        "read(path)",
+        "apps_of(root)",
+        "app_sources(root, app)",
+        "reaches(root, app, needles)",
+        "derived_about(root, spec, app, build)",
+        "check(root)",
+        "main(argv)"
+      ],
+      "imports": [
+        "json",
+        "os",
+        "re",
+        "sys"
+      ],
+      "symbols": [
+        "load(path)",
+        "read(path)",
+        "apps_of(root)",
+        "app_sources(root, app)",
+        "reaches(root, app, needles)",
+        "derived_about(root, spec, app, build)",
+        "check(root)",
+        "main(argv)"
+      ]
+    },
+    {
       "path": "1_cicd/src/scripts/cloud-android-crash-default-guard.py",
       "lang": "py",
       "role": "script",
@@ -5452,6 +5514,28 @@
         "ok()",
         "fail()",
         "run_case()"
+      ]
+    },
+    {
+      "path": "1_cicd/src/scripts/test/configs-pages-guard.test.sh",
+      "lang": "sh",
+      "role": "script",
+      "exports": [
+        "ok()",
+        "fail()",
+        "stage()",
+        "mutate()",
+        "green()",
+        "J()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "fail()",
+        "stage()",
+        "mutate()",
+        "green()",
+        "J()"
       ]
     },
     {
@@ -75166,7 +75250,9 @@
         "runHost(script: String, timeoutMs: Int = 60_000)",
         "job(script: String, stdin: String? = null, deadlineMs: Long = 30 * 60_000L)",
         "q(s: String)",
-        "guestWrap(script: String)",
+        "guestWrap(script: String, termuxShell: String = \"\\$HOME/.termux/shell\")",
+        "loginLine(script: String)",
+        "jobStart(script: String, dir: String, id: String)",
         "class StoreExec",
         "class Result"
       ]
@@ -78020,6 +78106,144 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/fleetconfigs/FleetConfigs.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GeneralSection",
+        "Backend",
+        "AboutDecl",
+        "FleetConfigsDecl",
+        "FleetConfigs"
+      ],
+      "imports": [
+        "com.diegonmarcos.superapp.uinavbars.BuildConfig",
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "defaultLabel(id: String)",
+        "decode(b64: String)",
+        "parse(json: String)",
+        "licenceLabel(spdx: String)",
+        "class GeneralSection",
+        "class Backend",
+        "class AboutDecl",
+        "class FleetConfigsDecl",
+        "class FleetConfigs"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/fleetconfigs/FleetConfigsActivity.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FleetConfigsActivity"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.content.Intent",
+        "android.os.Bundle",
+        "androidx.activity.ComponentActivity",
+        "androidx.activity.compose.setContent"
+      ],
+      "symbols": [
+        "onCreate(savedInstanceState: Bundle?)",
+        "intent(context: Context, page: FleetConfigsPage, dark: Boolean = true)",
+        "class FleetConfigsActivity"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/fleetconfigs/FleetConfigsPages.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FleetConfigsPage",
+        "FleetConfigsTags",
+        "fleetConfigsEntryLabel",
+        "FleetConfigsScreen",
+        "FleetGeneralPage",
+        "FleetAboutPage"
+      ],
+      "imports": [
+        "android.app.NotificationManager",
+        "android.content.Context",
+        "android.content.Intent",
+        "android.content.pm.ApplicationInfo",
+        "android.content.pm.PackageInfo",
+        "android.content.pm.PackageManager",
+        "android.content.pm.PermissionInfo",
+        "android.net.Uri",
+        "android.os.Build",
+        "android.os.Environment",
+        "android.os.PowerManager",
+        "android.provider.Settings",
+        "androidx.compose.foundation.Image",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.ColumnScope",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.statusBarsPadding",
+        "androidx.compose.foundation.layout.navigationBarsPadding",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.shape.CircleShape",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.automirrored.filled.ArrowBack",
+        "androidx.compose.material.icons.filled.Apps",
+        "androidx.compose.material.icons.filled.BatteryChargingFull",
+        "androidx.compose.material.icons.filled.BugReport"
+      ],
+      "symbols": [
+        "anchor(id: String)",
+        "section(id: String)",
+        "about(field: String)",
+        "page(p: FleetConfigsPage)",
+        "fleetConfigsEntryLabel(p: FleetConfigsPage)",
+        "sectionIcon(id: String)",
+        "FleetConfigsScreen( page: FleetConfigsPage, dark: Boolean, onDismiss: ()",
+        "FleetGeneralPage(decl: FleetConfigsDecl, dark: Boolean, c: ThemeColors, onAppConfigs: ()",
+        "FleetAboutPage(decl: FleetConfigsDecl, c: ThemeColors)",
+        "PermsSection(c: ThemeColors, tick: Int)",
+        "BatterySection(c: ThemeColors, tick: Int)",
+        "StorageSection(c: ThemeColors, tick: Int)",
+        "NotificationsSection(c: ThemeColors, tick: Int)",
+        "LanguageSection(c: ThemeColors, tick: Int)",
+        "SectionCard(title: String, icon: ImageVector, c: ThemeColors, modifier: Modifier = Modifier, body: @Composable ColumnScope.()",
+        "Body(text: String, c: ThemeColors)",
+        "KeyValue(k: String, v: String, c: ThemeColors)",
+        "StatusRow(label: String, ok: Boolean, c: ThemeColors)",
+        "Link(url: String, c: ThemeColors, onClick: ()",
+        "ActionButton(label: String, c: ThemeColors, tag: String, onClick: ()",
+        "packageInfo(ctx: Context)",
+        "requested(ctx: Context)",
+        "permissionRows(ctx: Context)",
+        "specialAccess(ctx: Context)",
+        "appDetails(ctx: Context)",
+        "open(ctx: Context, url: String)",
+        "open(ctx: Context, intent: Intent)",
+        "launchApp(ctx: Context, pkg: String)",
+        "dirSize(f: File?)",
+        "human(bytes: Long)",
+        "class FleetConfigsPage",
+        "class FleetConfigsTags",
+        "class PermRow"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbarbottom/NavBarBottom.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -78656,6 +78880,25 @@
         "vector(name: String)",
         "names()",
         "class SecondRowIcons"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/test/kotlin/com/diegonmarcos/superapp/fleetconfigs/FleetConfigsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FleetConfigsTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "class FleetConfigsTest"
       ]
     },
     {
@@ -177367,6 +177610,8 @@
         "keepSkip(cloned: Boolean, changed: Int, conflicts: Int, ahead: Int, upstream: String?, state: String)",
         "outcomeOf(name: String)",
         "lines()",
+        "block(status: String, name: String, msg: String)",
+        "withTail(summary: String, details: String, n: Int = 6)",
         "class BulkDepth",
         "class Existing",
         "class Target",
@@ -182288,6 +182533,40 @@
       ],
       "symbols": [
         "class StoreRouteTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/StoreGitFishShellTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "StoreGitFishShellTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.cloudlib.sharedstore.StoreExec",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Before",
+        "org.junit.Test",
+        "java.io.File",
+        "java.nio.file.Files",
+        "java.util.concurrent.TimeUnit"
+      ],
+      "symbols": [
+        "setUp()",
+        "which(b: String)",
+        "exec(wrapped: String, stdin: String = \"\")",
+        "run(script: String, stdin: String = \"\")",
+        "job(script: String, stdin: String = \"\", wrap: (String)",
+        "q(s: String)",
+        "git(dir: File, vararg a: String)",
+        "localRemote(name: String)",
+        "theOldDoubleQuotedWrapIsRefusedByFish_theBugThisFixes()",
+        "bareCloneAllSucceedsThroughFish()",
+        "cloneCommitPushPullThroughFish()",
+        "reportIsOneBlockPerRepoWithReasonAndTail()",
+        "class StoreGitFishShellTest",
+        "class R"
       ]
     },
     {
@@ -361753,6 +362032,8 @@
         "MePermissions",
         "LocalMePermissions",
         "PermissionTags",
+        "PermChip",
+        "MePermView",
         "PermissionsList",
         "PermissionBanner"
       ],
@@ -361762,30 +362043,41 @@
         "android.content.pm.PackageManager",
         "android.util.Base64",
         "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
         "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Box",
         "androidx.compose.foundation.layout.Column",
         "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
         "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.heightIn",
         "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.widthIn",
+        "androidx.compose.foundation.shape.CircleShape",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.outlined.Close",
+        "androidx.compose.material.icons.outlined.KeyboardArrowDown",
+        "androidx.compose.material.icons.outlined.KeyboardArrowUp",
+        "androidx.compose.material3.HorizontalDivider",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.IconButton",
+        "androidx.compose.material3.LinearProgressIndicator",
         "androidx.compose.material3.Text",
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
         "androidx.compose.runtime.produceState",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
         "androidx.compose.runtime.staticCompositionLocalOf",
         "androidx.compose.ui.Alignment",
         "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
         "androidx.compose.ui.platform.LocalContext",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.res.colorResource",
-        "androidx.compose.ui.unit.dp",
-        "androidx.compose.ui.unit.sp",
-        "com.diegonmarcos.superapp.health.HealthConnectGateway",
-        "com.diegonmarcos.superapp.perms.PermKind",
-        "com.diegonmarcos.superapp.perms.PermState",
-        "com.diegonmarcos.superapp.perms.PermStatusReader",
-        "com.diegonmarcos.superapp.perms.Perms",
-        "org.json.JSONArray",
-        "org.json.JSONObject"
+        "androidx.compose.ui.platform.testTag"
       ],
       "symbols": [
         "parse(json: String)",
@@ -361803,10 +362095,23 @@
         "health(ctx: Context)",
         "row(id: String)",
         "grant(id: String)",
-        "stateText(r: PermRow)",
-        "PermissionsList(title: String, subtitle: String)",
+        "group(title: String)",
+        "chip(r: PermRow)",
+        "reasonLine(r: PermRow)",
+        "healthState(rows: List<PermRow>)",
+        "progress(rows: List<PermRow>)",
+        "groups(rows: List<PermRow>)",
+        "bannerText(missing: List<String>)",
+        "actionWord(step: PermStep)",
+        "rowStep(r: PermRow, rows: List<PermRow>)",
+        "PermissionsList()",
+        "PermCard(modifier: Modifier = Modifier, content: @Composable ()",
+        "PermGroup(g: MePermView.Group, rows: List<PermRow>, hooks: MePermissions)",
+        "HealthRows(part: List<PermRow>, rows: List<PermRow>, hooks: MePermissions)",
+        "PermRowView(label: String, reason: String, icon: String, chip: PermChip, step: PermStep?, id: String, hooks: MePermissions)",
         "PermissionBanner(missing: List<String>, onGrantAll: ()",
         "class MePermDecl",
+        "class Entry",
         "class InstallPerm",
         "class RowKind",
         "class PermRow",
@@ -361814,11 +362119,7 @@
         "class Runtime",
         "class Health",
         "class Settings",
-        "class AskMemory",
-        "class MePermPlan",
-        "class MePerms",
-        "class MePermissions",
-        "class PermissionTags"
+        "class AskMemory"
       ]
     },
     {
@@ -362194,6 +362495,7 @@
         "androidx.compose.runtime.produceState",
         "androidx.compose.runtime.setValue",
         "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.platform.testTag",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.draw.clip",
         "androidx.compose.ui.graphics.Color",
@@ -362205,8 +362507,7 @@
         "androidx.compose.ui.res.colorResource",
         "androidx.compose.ui.res.painterResource",
         "androidx.compose.ui.text.font.FontStyle",
-        "androidx.compose.ui.text.font.FontWeight",
-        "androidx.compose.ui.text.style.TextAlign"
+        "androidx.compose.ui.text.font.FontWeight"
       ],
       "symbols": [
         "StackScreen(stack: JSONArray, modifier: Modifier = Modifier)",
@@ -362231,7 +362532,6 @@
         "Dim(text: String)",
         "NoteCard(title: String, body: String)",
         "KeyValueRow(label: String, value: String, modifier: Modifier = Modifier)",
-        "ActionRow(label: String, action: String = \"open\", onTap: ()",
         "versionName(ctx: Context)",
         "iconRes(ctx: Context, name: String)",
         "parseColor(value: String, fallback: Color)"
@@ -362876,6 +363176,7 @@
         "android.content.pm.PackageManager",
         "com.diegonmarcos.superapp.perms.PermState",
         "com.diegonmarcos.superapp.perms.Perms",
+        "com.diegonmarcos.superapp.uikit.KitState",
         "org.junit.Assert.assertEquals",
         "org.junit.Assert.assertNull",
         "org.junit.Assert.assertTrue",
