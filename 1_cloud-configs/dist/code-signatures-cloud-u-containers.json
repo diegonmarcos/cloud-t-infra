@@ -6,14 +6,14 @@
   },
   "repo": "cloud-u-containers",
   "counts": {
-    "files": 2519,
+    "files": 2520,
     "by_lang": {
       "sh": 175,
       "js": 96,
       "nix": 185,
       "py": 507,
       "ts": 1190,
-      "rust": 366
+      "rust": 367
     },
     "by_role": {
       "shell": 165,
@@ -27,7 +27,7 @@
       "compose": 82,
       "mcp-tool": 121,
       "workflow-dag": 5,
-      "rust-module": 362,
+      "rust-module": 363,
       "hook": 53
     }
   },
@@ -62056,7 +62056,7 @@
       "imports": [
         "serde_json::Value",
         "std::collections::HashMap",
-        "std::sync::Mutex",
+        "std::sync::",
         "chrono::",
         "super::"
       ],
@@ -62089,7 +62089,6 @@
         "ff",
         "declared",
         "cboe",
-        "nasdaq",
         "nyfed",
         "treasury",
         "frankfurter",
@@ -62123,7 +62122,6 @@
         "ff(v: &Value)",
         "declared(v: &Value)",
         "cboe(v: &Value, each: &str, last: usize)",
-        "nasdaq(v: &Value, day: &str)",
         "nyfed(v: &Value)",
         "treasury(body: &str)",
         "frankfurter(v: &Value)",
@@ -62136,7 +62134,6 @@
         "forex_factory_is_utc_with_country_and_importance()",
         "declared_decisions_are_importance_three()",
         "cboe_quote_and_history()",
-        "nasdaq_ranks_by_market_cap()",
         "nyfed_splits_the_sofr_averages()",
         "treasury_takes_the_last_day_and_the_day_before()",
         "frankfurter_latest_and_range()",
@@ -62219,6 +62216,96 @@
         "body(f: &Finterm, job: &Job, day: chrono::NaiveDate, item: &str)",
         "restore(state: &AppState, pool: &sqlx::SqlitePool)",
         "refresh(state: &AppState, job_id: &str)"
+      ]
+    },
+    {
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/finterm/store.rs",
+      "lang": "rust",
+      "role": "rust-module",
+      "exports": [
+        "parse",
+        "cboe_chart",
+        "fred_csv",
+        "coinbase_candles",
+        "cells",
+        "csv_long",
+        "csv_wide",
+        "valet",
+        "dbnomics",
+        "worldbank",
+        "frankfurter_ts",
+        "sec_earnings",
+        "par_duration",
+        "usd_monthly",
+        "annualised",
+        "ensure",
+        "start",
+        "url",
+        "put",
+        "router",
+        "history",
+        "curves",
+        "chain",
+        "earnings",
+        "Obs"
+      ],
+      "imports": [
+        "super::normalise::Ev",
+        "super::scheduler::collect",
+        "super::",
+        "crate::state::AppState",
+        "axum::extract::",
+        "axum::http::",
+        "axum::response::",
+        "axum::routing::get",
+        "axum::",
+        "chrono::",
+        "serde_json::",
+        "sqlx::SqlitePool",
+        "std::collections::",
+        "std::time::"
+      ],
+      "symbols": [
+        "ob(id: &str, date: String, value: f64)",
+        "parse(format: &str, body: &str, decl: &Value, id: &str)",
+        "numv(v: Option<&Value>)",
+        "jsonv(body: &str)",
+        "is_period(d: &str)",
+        "cboe_chart(body: &str, id: &str)",
+        "fred_csv(body: &str, id: &str)",
+        "coinbase_candles(body: &str, id: &str)",
+        "cells(line: &str, delim: char)",
+        "delim_of(d: &Value)",
+        "num_text(v: &str, d: &Value)",
+        "header_at(lines: &[&str], delim: char, want: Option<&str>)",
+        "csv_long(body: &str, d: &Value)",
+        "csv_wide(body: &str, d: &Value)",
+        "valet(body: &str, d: &Value)",
+        "dbnomics(body: &str, d: &Value)",
+        "worldbank(body: &str)",
+        "frankfurter_ts(body: &str)",
+        "sec_earnings(body: &str, symbol: &str, cik: &str, filing: &str, day: NaiveDate, lookback_days: i64)",
+        "par_duration(y: f64, years: f64)",
+        "next_month(m: &str)",
+        "usd_monthly(yields: &BTreeMap<String, f64>, fx: &BTreeMap<String, f64>, years: f64)",
+        "annualised(monthly: &BTreeMap<String, f64>, months: usize)",
+        "prev_month(m: &str)",
+        "ensure(pool: &SqlitePool)",
+        "start(state: AppState, pool: SqlitePool)",
+        "wait(&mut self, source: &str, per_min: u64)",
+        "tasks(u: &Value)",
+        "run_due(st: &AppState, pool: &SqlitePool, pacer: &mut Pacer)",
+        "per_min(s: &Value)",
+        "url(source: &Value, path: &str, params: &Value, slots: &[(&str, String)",
+        "fetch(st: &AppState, url: &str)",
+        "put(pool: &SqlitePool, obs: &[Obs])",
+        "last_date(pool: &SqlitePool, id: &str)",
+        "date_of(v: &Value)",
+        "run_hist(st: &AppState, pool: &SqlitePool, pacer: &mut Pacer, u: &Value, s: &Value)",
+        "run_curve(st: &AppState, pool: &SqlitePool, pacer: &mut Pacer, u: &Value, f: &Value)",
+        "countries(u: &Value)",
+        "run_gdp(st: &AppState, pool: &SqlitePool, pacer: &mut Pacer, u: &Value)",
+        "run_fx(st: &AppState, pool: &SqlitePool, pacer: &mut Pacer, u: &Value)"
       ]
     },
     {
@@ -62716,9 +62803,12 @@
       "role": "file",
       "exports": [
         "buildFetchers",
+        "buildUniverse",
+        "historySymbols",
         "OUT",
         "APP",
-        "CONTAINER_CONNECTORS"
+        "CONTAINER_CONNECTORS",
+        "STORE_FORMATS"
       ],
       "imports": [
         "node:crypto",
@@ -62728,7 +62818,9 @@
         "node:url"
       ],
       "symbols": [
-        "buildFetchers({ sources, dashboards, centralBanks, declarationSha })",
+        "buildFetchers({ sources, dashboards, centralBanks, universe, declarationSha })",
+        "buildUniverse(u, byId, fail, dashboards, v1)",
+        "historySymbols(dashboards, h, fail)",
         "readAndroid(rel, local)"
       ]
     },

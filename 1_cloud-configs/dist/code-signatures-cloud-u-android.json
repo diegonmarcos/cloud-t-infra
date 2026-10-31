@@ -585861,6 +585861,7 @@
         "androidx.compose.runtime.getValue",
         "androidx.compose.runtime.mutableStateOf",
         "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.LaunchedEffect",
         "androidx.compose.runtime.saveable.rememberSaveable",
         "androidx.compose.runtime.setValue",
         "androidx.compose.ui.Modifier",
@@ -585879,8 +585880,7 @@
         "com.diegonmarcos.capitalfinterm.ui.fin.LocalFinPalette",
         "com.diegonmarcos.capitalfinterm.ui.fin.LocalReduceMotion",
         "com.diegonmarcos.superapp.bottomnav.LocalNavUiDefault",
-        "com.diegonmarcos.superapp.bottomnav.NavUiDecl",
-        "com.diegonmarcos.superapp.bottomnav.islandEntries"
+        "com.diegonmarcos.superapp.bottomnav.NavUiDecl"
       ],
       "symbols": [
         "action(id: String)",
@@ -585888,7 +585888,7 @@
         "panel(id: String)",
         "source(id: String)",
         "key(id: String)",
-        "AppShell()",
+        "AppShell(startDashboard: String? = null)",
         "defaultDash(sec: String)",
         "stackOf(sec: String)",
         "setStack(sec: String, s: List<String>)",
