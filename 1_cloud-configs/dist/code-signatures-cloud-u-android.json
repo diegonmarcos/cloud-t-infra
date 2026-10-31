@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22806,
+    "files": 22809,
     "by_lang": {
       "sh": 616,
       "js": 513,
       "py": 177,
-      "kotlin": 12238,
+      "kotlin": 12241,
       "java": 647,
       "nix": 35,
       "rust": 111,
@@ -23,7 +23,7 @@
       "shell": 491,
       "script": 268,
       "java": 646,
-      "kotlin": 12235,
+      "kotlin": 12238,
       "python": 57,
       "module": 6447,
       "flake": 31,
@@ -35874,7 +35874,9 @@
         "onScrollDelta(delta: Float)",
         "onDragDelta(delta: Float)",
         "onRelease()",
+        "step(delta: Float, dragging: Boolean, starts: Boolean = false)",
         "onFinger(down: Boolean)",
+        "onGestureUp()",
         "restore()",
         "onPreScroll(available: Offset, source: NestedScrollSource)",
         "onPreFling(available: Velocity)",
@@ -36048,6 +36050,22 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/bottomnav/src/commonMain/kotlin/com/diegonmarcos/superapp/bottomnav/NavDropdownSizing.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavDropdownSizing"
+      ],
+      "imports": [],
+      "symbols": [
+        "maxHeightPx(windowHeightPx: Int, anchorBottomPx: Int, barTopPx: Int, barBottomPx: Int, marginPx: Int, minPx: Int)",
+        "heightPx(contentPx: Int, capPx: Int)",
+        "scrolls(contentPx: Int, capPx: Int)",
+        "topPx(anchorBottomPx: Int, popupPx: Int, windowHeightPx: Int, barBottomPx: Int, marginPx: Int)",
+        "class NavDropdownSizing"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/bottomnav/src/commonMain/kotlin/com/diegonmarcos/superapp/bottomnav/NavModes.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -36150,6 +36168,9 @@
         "ChromeScrollPolicy",
         "chromeScrollStep",
         "chromeScrollReleaseStep",
+        "NO_GESTURE",
+        "ChromeGestureStep",
+        "chromeGestureStep",
         "LocalChromeScrollPolicy",
         "CleanDrawerEntry",
         "CleanDrawerModel",
@@ -36176,6 +36197,7 @@
         "resolveNavUi(default: NavUiSettings, store: NavUiStore?)",
         "chromeScrollStep(policy: ChromeScrollPolicy, state: ChromeScrollState, delta: Float, dragging: Boolean)",
         "chromeScrollReleaseStep(policy: ChromeScrollPolicy, state: ChromeScrollState)",
+        "chromeGestureStep(policy: ChromeScrollPolicy, state: ChromeScrollState, delta: Float, dragging: Boolean, gesture: Int, latch: Int)",
         "cleanDrawerModel(bottom: List<NavSection>, section: NavSection?, currentPageId: String?)",
         "walk(list: List<NavPage>, depth: Int)",
         "class NavUiMode",
@@ -36187,6 +36209,7 @@
         "class NavUiStore",
         "class MemoryNavUiStore",
         "class ChromeScrollPolicy",
+        "class ChromeGestureStep",
         "class CleanDrawerEntry",
         "class CleanDrawerModel"
       ]
@@ -37249,6 +37272,24 @@
         "assertIslandContrast(name: String, t: NavTokens)",
         "assertLightStripContrast(name: String, t: NavTokens)",
         "class NavAccessibilityTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bottomnav/src/test/kotlin/com/diegonmarcos/superapp/bottomnav/NavDropdownSizingTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "NavDropdownSizingTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "cap(window: Int, anchor: Int = 80, top: Int = 24, bottom: Int = 48)",
+        "class NavDropdownSizingTest"
       ]
     },
     {
@@ -78335,6 +78376,46 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop1/DropdownFit.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [],
+      "imports": [
+        "androidx.compose.foundation.layout.WindowInsets",
+        "androidx.compose.foundation.layout.systemBars",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.Stable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableIntStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.layout.boundsInWindow",
+        "androidx.compose.ui.layout.onGloballyPositioned",
+        "androidx.compose.ui.platform.LocalDensity",
+        "androidx.compose.ui.platform.LocalView",
+        "androidx.compose.ui.unit.Dp",
+        "androidx.compose.ui.unit.IntOffset",
+        "androidx.compose.ui.unit.IntRect",
+        "androidx.compose.ui.unit.IntSize",
+        "androidx.compose.ui.unit.LayoutDirection",
+        "androidx.compose.ui.window.PopupPositionProvider",
+        "com.diegonmarcos.superapp.bottomnav.LocalNavTokens",
+        "com.diegonmarcos.superapp.bottomnav.NavDropdownSizing",
+        "com.diegonmarcos.superapp.bottomnav.NavTokens",
+        "kotlin.math.roundToInt"
+      ],
+      "symbols": [
+        "rememberDropdownAnchor()",
+        "dropdownAnchor(anchor: DropdownAnchor)",
+        "dropdownMaxHeight(anchor: DropdownAnchor)",
+        "dropdownBottomReservePx()",
+        "calculatePosition(anchorBounds: IntRect, windowSize: IntSize, layoutDirection: LayoutDirection, popupContentSize: IntSize)",
+        "class DropdownAnchor",
+        "class BelowAnchorFit"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/navbartop1/NavBarTopCleanRow.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -78442,12 +78523,10 @@
         "PlainIcon(icon: ImageVector, label: String, tag: String, colors: ThemeColors, onClick: ()",
         "NavBarTopFirstRowScaffold( title: String, hierarchy: List<HierarchyEntry>, onNavigate: (HierarchyEntry)",
         "BreadcrumbLeaf(text: String?)",
-        "calculatePosition(anchorBounds: IntRect, windowSize: IntSize, layoutDirection: LayoutDirection, popupContentSize: IntSize)",
         "class TopFirstRowSpec",
         "class TopFirstRowTags",
         "class HierarchyEntry",
-        "class BreadcrumbLeafState",
-        "class BelowAnchor"
+        "class BreadcrumbLeafState"
       ]
     },
     {
@@ -78608,7 +78687,6 @@
       "role": "kotlin",
       "exports": [
         "SecondRowGroupTags",
-        "SecondRowGroupDropdownMax",
         "NavBarTopSecondRows",
         "groupLabelColumnWidth"
       ],
@@ -78663,9 +78741,7 @@
         "groupIndexText(group: NavGroup)",
         "groupLabelColumnWidth(labelWidthsPx: List<Int>)",
         "GroupIndex( group: NavGroup, selectedId: String?, onSelect: (NavPage)",
-        "calculatePosition(anchorBounds: IntRect, windowSize: IntSize, layoutDirection: LayoutDirection, popupContentSize: IntSize)",
-        "class SecondRowGroupTags",
-        "class BelowAnchor"
+        "class SecondRowGroupTags"
       ]
     },
     {
@@ -177938,6 +178014,14 @@
         "androidx.compose.material3.Surface",
         "androidx.compose.material3.Text",
         "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.collectAsState",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateMapOf",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.rememberCoroutineScope",
+        "androidx.compose.runtime.setValue",
+        "kotlinx.coroutines.launch",
         "androidx.compose.ui.Alignment",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.platform.testTag",
@@ -177952,14 +178036,14 @@
         "com.diegonmarcos.clouddrive.ui.DriveMetrics",
         "com.diegonmarcos.clouddrive.ui.DriveTags",
         "com.diegonmarcos.clouddrive.ui.IconCatalog",
-        "com.diegonmarcos.clouddrive.ui.Pill",
-        "com.diegonmarcos.clouddrive.ui.StatusDot",
-        "java.text.DateFormat"
+        "com.diegonmarcos.clouddrive.ui.Pill"
       ],
       "symbols": [
         "DepthReportWindow(r: BulkDepth.Run, onCancel: ()",
         "UnlistedPanel( label: String, folders: List<UnlistedRepos.Folder>, glances: Map<String, GitSyncCoordinator.Glance>, lastCommits: Map<String, Long>, run: BulkDepth.Run?, coordinator: GitSyncCoordinator, onOpenReport: ()",
-        "ActivityLogsWindow(events: List<SyncEvent>, fmt: DateFormat, onClose: ()",
+        "GitLogsWindow(decl: Declarations.GitLogsDecl, initialTab: String, coordinator: GitSyncCoordinator, events: List<SyncEvent>, fmt: DateFormat, onClose: ()",
+        "ownerAndName(url: String)",
+        "RepoLogsList(decl: Declarations.GitLogsDecl, coordinator: GitSyncCoordinator, events: List<SyncEvent>, fmt: DateFormat)",
         "FullWindow(title: String, tag: String, onClose: ()"
       ]
     },
@@ -178420,6 +178504,21 @@
         "GitTopBarState"
       ],
       "imports": [
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.foundation.text.BasicTextField",
+        "androidx.compose.material.icons.filled.Close",
+        "androidx.compose.material.icons.filled.Search",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.graphics.SolidColor",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.rememberScrollState",
         "androidx.compose.foundation.layout.Arrangement",
         "androidx.compose.foundation.layout.Box",
         "androidx.compose.foundation.layout.Column",
@@ -178441,25 +178540,10 @@
         "androidx.compose.material3.LinearProgressIndicator",
         "androidx.compose.material3.MaterialTheme",
         "androidx.compose.material3.ModalBottomSheet",
-        "androidx.compose.material3.OutlinedTextField",
         "androidx.compose.material3.Text",
         "androidx.compose.material3.TextButton",
         "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableStateOf",
-        "androidx.compose.runtime.remember",
-        "androidx.compose.runtime.setValue",
-        "androidx.compose.ui.Alignment",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.text.font.FontWeight",
-        "com.diegonmarcos.clouddrive.Declarations",
-        "com.diegonmarcos.clouddrive.DrivePrefs",
-        "com.diegonmarcos.clouddrive.sync.jobs.GitJobs",
-        "com.diegonmarcos.clouddrive.ui.DriveMetrics",
-        "com.diegonmarcos.clouddrive.ui.DriveTags",
-        "com.diegonmarcos.clouddrive.ui.IconCatalog",
-        "com.diegonmarcos.clouddrive.ui.IslandAction"
+        "androidx.compose.runtime.getValue"
       ],
       "symbols": [
         "reason(item: Declarations.GitTopItemDecl, writingJob: String?, scopeCount: Int, labels: (String)",
@@ -178467,11 +178551,13 @@
         "GitTopBar( decl: Declarations.GitTopBarDecl, prefs: DrivePrefs?, enabledReason: (Declarations.GitTopItemDecl)",
         "GitJobLine(job: GitJobs.State?, labels: (String)",
         "GitSearchRow(decl: Declarations.GitTopBarDecl, query: String, onQuery: (String)",
+        "GitSearchField(query: String, onQuery: (String)",
         "QuickFilterRail(filters: List<Declarations.GitFilterDecl>, selection: Map<String, String>, counts: (Declarations.GitFilterDecl)",
         "GitFilterSheet(decl: Declarations.GitTopBarDecl, filters: List<Declarations.GitFilterDecl>, selection: Map<String, String>, counts: (Declarations.GitFilterDecl)",
         "GitTopConfirm(item: Declarations.GitTopItemDecl, decl: Declarations.GitTopBarDecl, targets: Int, onConfirm: ()",
         "GitLegendDialog(decl: Declarations.GitTopBarDecl, icons: Map<String, Map<String, String>>, onDismiss: ()",
-        "class GitTopBarState"
+        "class GitTopBarState",
+        "class GitSearchMetrics"
       ]
     },
     {
@@ -183797,7 +183883,9 @@
         "fail()",
         "t1()",
         "t2()",
-        "f1()"
+        "f1()",
+        "t3()",
+        "t4()"
       ],
       "imports": [],
       "symbols": [
@@ -183805,7 +183893,9 @@
         "fail()",
         "t1()",
         "t2()",
-        "f1()"
+        "f1()",
+        "t3()",
+        "t4()"
       ]
     },
     {
