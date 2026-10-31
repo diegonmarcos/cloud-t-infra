@@ -52,6 +52,14 @@
     "name": "build alerts api"
   },
   {
+    "file": "dist/build-embeddings-api.json",
+    "name": "build embeddings api"
+  },
+  {
+    "file": "dist/build-jev-sidecar.json",
+    "name": "build jev sidecar"
+  },
+  {
     "file": "dist/build-languagetool.json",
     "name": "build languagetool"
   },
@@ -84,6 +92,10 @@
     "name": "build cloud mattermost mcp"
   },
   {
+    "file": "dist/build-cloud-me-api.json",
+    "name": "build cloud me api"
+  },
+  {
     "file": "dist/build-cloud-services-mcp.json",
     "name": "build cloud services mcp"
   },
@@ -94,6 +106,10 @@
   {
     "file": "dist/build-cloud-vault-mcp.json",
     "name": "build cloud vault mcp"
+  },
+  {
+    "file": "dist/build-git-proxy-api.json",
+    "name": "build git proxy api"
   },
   {
     "file": "dist/build-google-personal-mcp.json",
@@ -148,24 +164,8 @@
     "name": "build postlite ntfy"
   },
   {
-    "file": "dist/build-postlite.json",
-    "name": "build postlite"
-  },
-  {
-    "file": "dist/build-sqlite-npm.json",
-    "name": "build sqlite npm"
-  },
-  {
-    "file": "dist/build-sqlite-vaultwarden.json",
-    "name": "build sqlite vaultwarden"
-  },
-  {
-    "file": "dist/build-sqlite-ntfy.json",
-    "name": "build sqlite ntfy"
-  },
-  {
-    "file": "dist/build-sqlite-authelia.json",
-    "name": "build sqlite authelia"
+    "file": "dist/build-cloudflared.json",
+    "name": "build cloudflared"
   },
   {
     "file": "dist/build-hickory-dns.json",
@@ -190,6 +190,10 @@
   {
     "file": "dist/build-cloud-spec.json",
     "name": "build cloud spec"
+  },
+  {
+    "file": "dist/build-configs-sync.json",
+    "name": "build configs sync"
   },
   {
     "file": "dist/build-dagu.json",
@@ -240,6 +244,30 @@
     "name": "build umami setup"
   },
   {
+    "file": "dist/build-agents-tmp-reaper.json",
+    "name": "build agents tmp reaper"
+  },
+  {
+    "file": "dist/build-disk-janitor.json",
+    "name": "build disk janitor"
+  },
+  {
+    "file": "dist/build-auth-broker-google.json",
+    "name": "build auth broker google"
+  },
+  {
+    "file": "dist/build-auth-broker-github.json",
+    "name": "build auth broker github"
+  },
+  {
+    "file": "dist/build-auth-broker-cloudflare.json",
+    "name": "build auth broker cloudflare"
+  },
+  {
+    "file": "dist/build-auth-broker-email.json",
+    "name": "build auth broker email"
+  },
+  {
     "file": "dist/build-authelia-redis.json",
     "name": "build authelia redis"
   },
@@ -264,6 +292,14 @@
     "name": "build introspect proxy"
   },
   {
+    "file": "dist/build-mcp-oauth.json",
+    "name": "build mcp oauth"
+  },
+  {
+    "file": "dist/build-tokens-api.json",
+    "name": "build tokens api"
+  },
+  {
     "file": "dist/build-cloud-cgc-pub-mcp.json",
     "name": "build cloud cgc pub mcp"
   },
@@ -276,8 +312,8 @@
     "name": "build db agent"
   },
   {
-    "file": "dist/build-hermes-agent.json",
-    "name": "build hermes agent"
+    "file": "dist/build-cloud-agi-hermes.json",
+    "name": "build cloud agi hermes"
   },
   {
     "file": "dist/build-kg-store.json",
@@ -292,12 +328,16 @@
     "name": "build kg store pub"
   },
   {
-    "file": "dist/build-my-ai-api.json",
-    "name": "build my ai api"
+    "file": "dist/build-cloud-agi-goose.json",
+    "name": "build cloud agi goose"
   },
   {
-    "file": "dist/build-my-ai_claude-api.json",
-    "name": "build my ai_claude api"
+    "file": "dist/build-cloud-agi-claude.json",
+    "name": "build cloud agi claude"
+  },
+  {
+    "file": "dist/build-cloud-agi-openclaw.json",
+    "name": "build cloud agi openclaw"
   },
   {
     "file": "dist/build-session-memory.json",
@@ -352,8 +392,8 @@
     "name": "build scrappers api"
   },
   {
-    "file": "dist/build-fin-api.json",
-    "name": "build fin api"
+    "file": "dist/build-capital-stack-finterminal-api.json",
+    "name": "build capital stack finterminal api"
   },
   {
     "file": "dist/build-photoprism_app.json",
@@ -382,6 +422,14 @@
   {
     "file": "dist/build-calendar-radicale.json",
     "name": "build calendar radicale"
+  },
+  {
+    "file": "dist/build-cloud-notes-sync.json",
+    "name": "build cloud notes sync"
+  },
+  {
+    "file": "dist/build-cloud-notes-web.json",
+    "name": "build cloud notes web"
   },
   {
     "file": "dist/build-code-server.json",
@@ -414,30 +462,6 @@
   {
     "file": "dist/build-hedgedoc_postgres.json",
     "name": "build hedgedoc_postgres"
-  },
-  {
-    "file": "dist/build-paca-gateway.json",
-    "name": "build paca gateway"
-  },
-  {
-    "file": "dist/build-paca-api.json",
-    "name": "build paca api"
-  },
-  {
-    "file": "dist/build-paca-web.json",
-    "name": "build paca web"
-  },
-  {
-    "file": "dist/build-paca-realtime.json",
-    "name": "build paca realtime"
-  },
-  {
-    "file": "dist/build-paca-valkey.json",
-    "name": "build paca valkey"
-  },
-  {
-    "file": "dist/build-paca-postgres.json",
-    "name": "build paca postgres"
   },
   {
     "file": "dist/build-revealmd_app.json",
@@ -570,9 +594,5 @@
   {
     "file": "dist/cloud-fleet-declared.json",
     "name": "cloud fleet declared"
-  },
-  {
-    "file": "dist/build-workflows.json",
-    "name": "build workflows"
   }
 ]
