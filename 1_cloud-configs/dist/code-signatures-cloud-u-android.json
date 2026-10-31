@@ -74856,6 +74856,7 @@
         "decorate(i: Intent, withData: Boolean)",
         "open(ctx: Context, e: PermEntry, pkg: String = ctx.packageName)",
         "missing(ctx: Context, vararg features: String)",
+        "appLabel(ctx: Context, pkg: String, fallback: String = pkg)",
         "labels(entries: List<PermEntry>)",
         "idsFor(ctx: Context, permissions: Collection<String>)",
         "openPermsPage()",
@@ -74875,8 +74876,7 @@
         "class PermStatusReader",
         "class PermsSettings",
         "class PermsNeeds",
-        "class PermsHost",
-        "class PermsLink"
+        "class PermsHost"
       ]
     },
     {
@@ -75065,7 +75065,8 @@
         "PermIcons",
         "PermsTags",
         "PermsList",
-        "PermsPromptCard"
+        "PermsPromptCard",
+        "PermsPromptAbove"
       ],
       "imports": [
         "android.content.Context",
@@ -75128,6 +75129,7 @@
         "ChipView(chip: PermChip, p: PermsPalette, modifier: Modifier = Modifier)",
         "Pill(word: String, c: Color, modifier: Modifier = Modifier)",
         "PermsPromptCard( text: String, onGrant: ()",
+        "PermsPromptAbove(prompt: @Composable ()",
         "FirstRunSheetBody(appName: String, items: List<PermItem>, onGrantAll: ()",
         "class PermsStyle",
         "class PermsPalette",
@@ -179990,7 +179992,8 @@
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.platform.testTag",
         "com.diegonmarcos.clouddrive.ui.DriveMetrics",
-        "com.diegonmarcos.clouddrive.ui.DriveTags"
+        "com.diegonmarcos.clouddrive.ui.DriveTags",
+        "com.diegonmarcos.superapp.perms.PermsPromptAbove"
       ],
       "symbols": [
         "GitPageFrame(refreshing: Boolean, onRefresh: ()"
@@ -585438,6 +585441,7 @@
         "sec(body: String, o: Opt)",
         "secConcept(body: String, scale: Double, last: Int)",
         "v1(body: String, concept: String)",
+        "tenorYears(t: String)",
         "objects(a: JSONArray?)",
         "strings(a: JSONArray?)",
         "num(o: JSONObject, key: String)",
@@ -585499,6 +585503,8 @@
       "symbols": [
         "missing(s: String?)",
         "colTypes(declared: List<String>, columns: List<String>, rows: List<List<String>>)",
+        "layout(columns: List<String>, rows: List<List<String>>, width: Float)",
+        "chars(i: Int)",
         "sortOrder(rows: List<List<String>>, col: Int, type: Col, step: Int)",
         "importance(cell: String?)",
         "range(points: List<ChartPoint>, range: String)",
@@ -585517,6 +585523,7 @@
         "visibleRows(total: Int, expanded: Boolean, limit: Int = 8)",
         "class FinLogic",
         "class Col",
+        "class Layout",
         "class Afp"
       ]
     },
@@ -585815,6 +585822,7 @@
         "closes(g: Got)",
         "fmt(col: String, v: Double?)",
         "performance(panel: Panel, f: JSONObject, got: Map<String, ItemGot>)",
+        "shortName(label: String)",
         "rebalanced(legs: List<Pair<Double, List<Pair<LocalDate, Double>>>>)",
         "portfolio(panel: Panel, f: JSONObject, legs: List<Pair<String, Int>>, got: Map<String, ItemGot>)",
         "line(label: String, cl: List<Pair<LocalDate, Double>>, last: String)",
@@ -585822,9 +585830,14 @@
         "curve(f: JSONObject, g: Got)",
         "cell(curve: List<Pair<Double, Double>>, t: Double, forward: Boolean, start: Double)",
         "weighted(values: List<Pair<Double, Double?>>)",
+        "coverage(values: List<Pair<Double, Double?>>)",
+        "gatedAverage(values: List<Pair<Double, Double?>>, min: Double)",
+        "pct0(x: Double)",
         "matrix(panel: Panel, f: JSONObject, got: Map<String, ItemGot>)",
+        "vals(members: List<String>, i: Int)",
         "avg(members: List<String>)",
-        "fmtRow(label: String, v: List<Double?>)",
+        "cov(members: List<String>)",
+        "fmtRow(label: String, covCell: String, v: List<Double?>)",
         "fmtYears(y: Double)",
         "strings(a: JSONArray?)",
         "class Tables",
@@ -586528,6 +586541,7 @@
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.getValue",
         "androidx.compose.runtime.mutableIntStateOf",
+        "androidx.compose.runtime.mutableStateOf",
         "androidx.compose.runtime.remember",
         "androidx.compose.runtime.saveable.rememberSaveable",
         "androidx.compose.runtime.setValue",
@@ -586542,11 +586556,10 @@
         "androidx.compose.ui.unit.dp",
         "androidx.compose.ui.unit.sp",
         "com.diegonmarcos.capitalfinterm.FinFormat",
-        "com.diegonmarcos.capitalfinterm.FinLogic",
-        "com.diegonmarcos.capitalfinterm.FinLogic.Col"
+        "com.diegonmarcos.capitalfinterm.FinLogic"
       ],
       "symbols": [
-        "FinTable( panelId: String, columns: List<String>, rows: List<List<String>>, links: List<String>, declared: List<String>, width: Dp, limit: Int = 8, onOpen: (String)",
+        "FinTable( panelId: String, columns: List<String>, rows: List<List<String>>, links: List<String>, declared: List<String>, width: Dp, limit: Int = 8, details: List<String> = emptyList()",
         "headerCell(i: Int, w: Dp)",
         "bodyCell(r: Int, i: Int, w: Dp)",
         "FinTableSkeleton()",
@@ -587152,7 +587165,9 @@
       "imports": [
         "com.diegonmarcos.capitalfinterm.FinLogic.Col",
         "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
         "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
         "org.junit.Test",
         "java.time.LocalDate"
       ],
@@ -587168,6 +587183,7 @@
         "cellsNeverShowABareDash()",
         "rangesFollowTheSeriesLength()",
         "aCardTableShowsEightRowsUntilExpanded()",
+        "wideTablesSizeEveryColumnToItsLongestCellAndScrollWhenTheyDoNotFit()",
         "class FinLogicTest"
       ]
     },
@@ -587466,6 +587482,7 @@
         "cboeBars(vararg b: Pair<String, Double>)",
         "d(s: String)",
         "performanceRowsComeFromTheContainerThroughPerformanceRow()",
+        "shortNamesPutTheTickerFirstAndCutLongLabels()",
         "whenTheMeshIsDownTheDirectSourceAnswersUnderTheMappedSymbol()",
         "trailingYearsAndRiskColumns()",
         "portfolioIsRebalancedDailyNotBoughtAndHeld()",
@@ -587473,6 +587490,8 @@
         "averagesAreGdpWeightedOverTheCountriesWithAValue()",
         "spotCellsAreExactTenorsAndForwardCellsComeFromForward()",
         "theMatrixHasAveragesThenEveryCountryAndSaysWhyACellIsEmpty()",
+        "anAverageOfTheUsAloneIsInsufficientCoverageNotTheUsYield()",
+        "coverageIsTheGdpShareWithAValueAndGatesTheAverage()",
         "theDeclaredMatrixIsTheOwnersCountryList()",
         "class TablesTest",
         "class Fake"
@@ -588058,10 +588077,10 @@
       ],
       "imports": [
         "androidx.compose.foundation.background",
-        "androidx.compose.foundation.horizontalScroll",
         "androidx.compose.foundation.layout.Arrangement",
         "androidx.compose.foundation.layout.Box",
         "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.FlowRow",
         "androidx.compose.foundation.layout.PaddingValues",
         "androidx.compose.foundation.layout.Row",
         "androidx.compose.foundation.layout.Spacer",
@@ -588071,7 +588090,6 @@
         "androidx.compose.foundation.layout.width",
         "androidx.compose.foundation.lazy.LazyColumn",
         "androidx.compose.foundation.lazy.items",
-        "androidx.compose.foundation.rememberScrollState",
         "androidx.compose.foundation.shape.RoundedCornerShape",
         "androidx.compose.material.icons.Icons",
         "androidx.compose.material.icons.filled.Check",
@@ -588096,7 +588114,8 @@
         "androidx.compose.ui.text.font.FontWeight",
         "androidx.compose.ui.text.style.TextOverflow",
         "androidx.compose.ui.unit.dp",
-        "com.diegonmarcos.cgomniverse.Decl"
+        "com.diegonmarcos.cgomniverse.Decl",
+        "com.diegonmarcos.cgomniverse.FilterGroup"
       ],
       "symbols": [
         "StorePage(onOpenInGalaxy: (World)",
