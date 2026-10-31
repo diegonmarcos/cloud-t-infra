@@ -10338,7 +10338,7 @@
         "category": "Finance"
       },
       "timezone": "Europe/Madrid",
-      "upstream_image": "ghcr.io/diegonmarcos/capital-stack-finterminal-web:latest",
+      "upstream_image": "nginx:1.27-alpine",
       "resources": {
         "mem_reservation": "16M",
         "mem_limit": "64M"

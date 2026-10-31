@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22809,
+    "files": 22813,
     "by_lang": {
-      "sh": 616,
+      "sh": 618,
       "js": 513,
       "py": 177,
-      "kotlin": 12241,
+      "kotlin": 12243,
       "java": 647,
       "nix": 35,
       "rust": 111,
@@ -20,10 +20,10 @@
     "by_role": {
       "hook": 158,
       "file": 2302,
-      "shell": 491,
+      "shell": 493,
       "script": 268,
       "java": 646,
-      "kotlin": 12238,
+      "kotlin": 12240,
       "python": 57,
       "module": 6447,
       "flake": 31,
@@ -175068,6 +175068,7 @@
         "unsectioned()",
         "matches(isDirectory: Boolean, mimeType: String, extension: String)",
         "rowAction(id: String)",
+        "scope(id: String)",
         "cloneUrl(repo: GitRepoDecl)",
         "canonical(name: String)",
         "isArchived(name: String)",
@@ -175083,8 +175084,7 @@
         "bool(key: String, default: Boolean = false)",
         "boolOrNull(key: String)",
         "int(key: String)",
-        "strings(key: String)",
-        "objects(e: JsonElement?)"
+        "strings(key: String)"
       ]
     },
     {
@@ -175647,6 +175647,29 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/files/ExplorerSearch.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ExplorerSearch"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations",
+        "java.io.File"
+      ],
+      "symbols": [
+        "needle(query: String)",
+        "matches(name: String, needle: String)",
+        "filterHere(entries: List<FileOps.Entry>, query: String, scope: Declarations.SearchScopeDecl)",
+        "storageRoot(path: String, roots: List<String>)",
+        "startOf(scope: Declarations.SearchScopeDecl, here: String, roots: List<String>)",
+        "walk( start: File, query: String, scope: Declarations.SearchScopeDecl, bounds: Bounds, mimes: FileOps.MimeResolver, cancelled: ()",
+        "class ExplorerSearch",
+        "class Bounds",
+        "class Stop"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/files/FileActionDialogs.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -175775,6 +175798,8 @@
         "java.io.File",
         "java.util.concurrent.atomic.AtomicBoolean",
         "java.util.concurrent.atomic.AtomicLong",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.setValue",
         "kotlinx.coroutines.CoroutineScope",
         "kotlinx.coroutines.Dispatchers",
         "kotlinx.coroutines.Job",
@@ -175823,10 +175848,10 @@
         "startSearch(root: Location.Local, query: String, contentToo: Boolean)",
         "cancelSearch()",
         "clearSearch()",
-        "findDuplicates(root: Location.Local)",
-        "closeDuplicates()",
-        "openProperties(entry: FileOps.Entry)",
-        "closeProperties()"
+        "runScoped(start: String, query: String, kind: Declarations.SearchScopeDecl, decl: Declarations.FilesSearchDecl = Declarations.files.search)",
+        "cancelScoped()",
+        "clearScoped()",
+        "findDuplicates(root: Location.Local)"
       ]
     },
     {
@@ -175898,6 +175923,10 @@
         "androidx.compose.foundation.gestures.awaitFirstDown",
         "androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress",
         "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.material3.FilterChip",
         "androidx.compose.foundation.layout.Box",
         "androidx.compose.foundation.layout.BoxWithConstraints",
         "androidx.compose.foundation.layout.Column",
@@ -175924,14 +175953,12 @@
         "androidx.compose.material.icons.filled.BookmarkBorder",
         "androidx.compose.material.icons.filled.Check",
         "androidx.compose.material.icons.filled.ChevronRight",
-        "androidx.compose.material.icons.filled.Close",
-        "androidx.compose.material.icons.filled.ExpandMore",
-        "androidx.compose.material.icons.filled.FilterList",
-        "androidx.compose.material.icons.filled.Folder",
-        "androidx.compose.material.icons.filled.FolderOpen"
+        "androidx.compose.material.icons.filled.Close"
       ],
       "symbols": [
         "FilesScreen(controller: FilesController, actions: DriveActions, hasAccess: Boolean, modifier: Modifier = Modifier)",
+        "openSearch()",
+        "closeSearch()",
         "openEntry(pane: PaneId, e: FileOps.Entry, siblings: List<FileOps.Entry>)",
         "Pane( id: PaneId, ui: FilesUiState, controller: FilesController, listings: Map<String, FilesController.Listing>, prefs: com.diegonmarcos.clouddrive.DrivePrefs.Snapshot, isActive: Boolean, modifier: Modifier, onOpenPlaces: ()",
         "treeRows(root: Location, pane: PaneState, listings: Map<String, FilesController.Listing>, controller: FilesController)",
@@ -175950,7 +175977,9 @@
         "PlacesSheet(d: FilesDialog.Places, ui: FilesUiState, controller: FilesController, prefs: com.diegonmarcos.clouddrive.DrivePrefs.Snapshot, actions: DriveActions, onDismiss: ()",
         "go(place: Places.Place)",
         "PlaceRow(p: Places.Place, onRemove: (()",
-        "SearchPanel(controller: FilesController, search: FilesController.SearchState, ui: FilesUiState, listings: Map<String, FilesController.Listing>, prefs: com.diegonmarcos.clouddrive.DrivePrefs.Snapshot, onOpen: (FileOps.Hit)",
+        "list()",
+        "ExplorerSearchBar(query: String, onQuery: (String)",
+        "ScopedResults(search: FilesController.ScopedSearch, decl: Declarations.FilesSearchDecl, onOpen: (FileOps.Entry)",
         "class FilesDialog",
         "class NewFolder",
         "class NewFile",
@@ -175964,7 +175993,8 @@
         "class Convert",
         "class Places",
         "class EntryAction",
-        "class TreeRow"
+        "class TreeRow",
+        "class ExplorerSearchRoots"
       ]
     },
     {
@@ -178516,7 +178546,6 @@
         "androidx.compose.ui.draw.clip",
         "androidx.compose.ui.graphics.SolidColor",
         "androidx.compose.ui.text.style.TextOverflow",
-        "androidx.compose.ui.unit.dp",
         "androidx.compose.foundation.horizontalScroll",
         "androidx.compose.foundation.rememberScrollState",
         "androidx.compose.foundation.layout.Arrangement",
@@ -178543,7 +178572,8 @@
         "androidx.compose.material3.Text",
         "androidx.compose.material3.TextButton",
         "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.getValue"
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf"
       ],
       "symbols": [
         "reason(item: Declarations.GitTopItemDecl, writingJob: String?, scopeCount: Int, labels: (String)",
@@ -180117,6 +180147,7 @@
         "hostCard(id: String)",
         "hostToken(id: String)",
         "hostSignIn(id: String)",
+        "filesSearchScope(id: String)",
         "appTile(label: String)",
         "explorerPage(id: String)",
         "managePage(id: String)",
@@ -180975,6 +181006,36 @@
         "namesAndPathsThatEscapeAreRefused()",
         "onlyAnUnwritableOwnerDirIsRoutedAndOnlyWhenTheOwnerAnswers()",
         "class ExecMutationTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/files/ExplorerSearchTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ExplorerSearchTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.clouddrive.Declarations",
+        "java.io.File",
+        "java.nio.file.Files",
+        "kotlinx.serialization.json.Json",
+        "kotlinx.serialization.json.jsonObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "sc(id: String)",
+        "fourScopesInDeclaredOrderAndDefaultIsFoldersHere()",
+        "defaultComesFromTheDeclarationNotTheOrder()",
+        "scopeFlagsMatchTheirNames()",
+        "tree()",
+        "run(start: File, q: String, id: String, bounds: ExplorerSearch.Bounds = ExplorerSearch.Bounds(300, 50_000, 24)",
+        "onlyFoldersHereFiltersTheListingInPlace()",
+        "recursiveScopesWalkFromHereOrFromRoot()",
+        "walkIsBoundedAndCancellable()",
+        "class ExplorerSearchTest"
       ]
     },
     {
@@ -183195,6 +183256,30 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/test/emulator-explorer-search.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "fail()",
+        "shot()",
+        "dump()",
+        "where()",
+        "tap()",
+        "has()",
+        "texts()"
+      ],
+      "imports": [],
+      "symbols": [
+        "fail()",
+        "shot()",
+        "dump()",
+        "where()",
+        "tap()",
+        "has()",
+        "texts()"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/test/emulator-git-status.sh",
       "lang": "sh",
       "role": "shell",
@@ -183438,6 +183523,30 @@
       "symbols": [
         "pass()",
         "fail()"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/test/test-drive-explorer-search.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "pass()",
+        "fail()",
+        "s1()",
+        "s2()",
+        "s3()",
+        "s4()",
+        "mut()"
+      ],
+      "imports": [],
+      "symbols": [
+        "pass()",
+        "fail()",
+        "s1()",
+        "s2()",
+        "s3()",
+        "s4()",
+        "mut()"
       ]
     },
     {
