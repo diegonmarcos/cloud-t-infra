@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22785,
+    "files": 22798,
     "by_lang": {
-      "sh": 614,
+      "sh": 615,
       "js": 513,
-      "py": 174,
-      "kotlin": 12222,
+      "py": 175,
+      "kotlin": 12233,
       "java": 647,
       "nix": 35,
       "rust": 111,
@@ -20,11 +20,11 @@
     "by_role": {
       "hook": 158,
       "file": 2302,
-      "shell": 490,
+      "shell": 491,
       "script": 265,
       "java": 646,
-      "kotlin": 12219,
-      "python": 56,
+      "kotlin": 12230,
+      "python": 57,
       "module": 6447,
       "flake": 31,
       "rust-module": 111,
@@ -360459,6 +360459,27 @@
       ]
     },
     {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/AchievesMigration.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AchievesMigrationSpec",
+        "AchievesMigration"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "map(o: JSONObject?)",
+        "parse(o: JSONObject)",
+        "declared(sections: JSONArray, store: String)",
+        "migrate(d: LedgerData, s: AchievesMigrationSpec)",
+        "class AchievesMigrationSpec",
+        "class AchievesMigration"
+      ]
+    },
+    {
       "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/AgendaScreen.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -360609,6 +360630,102 @@
         "Note(title: String, body: String)",
         "Card(onClick: (()",
         "parseLabels(json: String)"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/FolderTree.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Folder",
+        "FolderSection",
+        "FolderRow",
+        "FolderTree"
+      ],
+      "imports": [
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "parse(text: String)",
+        "folder(o: JSONObject)",
+        "rows(sections: List<FolderSection>, open: Set<String>)",
+        "walk(f: Folder, depth: Int)",
+        "containers(sections: List<FolderSection>)",
+        "all(f: Folder)",
+        "class Folder",
+        "class FolderSection",
+        "class FolderRow",
+        "class Title",
+        "class Item",
+        "class FolderTree"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/FolderTreeScreen.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FolderTreeTags",
+        "FolderTreeScreen"
+      ],
+      "imports": [
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.PaddingValues",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "com.diegonmarcos.cloudme.health.Pill",
+        "com.diegonmarcos.cloudme.health.accent"
+      ],
+      "symbols": [
+        "row(path: String)",
+        "FolderTreeScreen(asset: String, modifier: Modifier = Modifier)",
+        "class FolderTreeTags"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/main/java/com/diegonmarcos/cloudme/GeoStats.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GeoSummary",
+        "GeoStats"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "java.math.BigDecimal",
+        "java.math.RoundingMode"
+      ],
+      "symbols": [
+        "compute(g: JSONObject, defs: List<LedgerDef>, d: LedgerData)",
+        "k(s: String?)",
+        "summarize(visited: List<Rec>, wishlist: Int, worldCountries: Int, worldContinents: Int, declared: String? = null)",
+        "class GeoSummary",
+        "class names",
+        "class GeoStats"
       ]
     },
     {
@@ -361256,7 +361373,8 @@
         "added(collection: String, values: Rec)",
         "removed(collection: String, id: String)",
         "replaced(collection: String, id: String, values: Rec)",
-        "moved(from: String, id: String, to: String)",
+        "moved(from: String, id: String, to: String, stampField: String = \"\", today: String = \"\")",
+        "without(collection: String)",
         "toJson()",
         "fromJson(text: String?)",
         "money(s: String?)",
@@ -361357,6 +361475,7 @@
         "empty(collection: String)",
         "LedgerBlock(o: JSONObject)",
         "commit(d: LedgerData)",
+        "GeoCard(g: GeoSummary)",
         "ReportCard(t: ReportTable)",
         "ReportRow(columns: List<String>, cells: List<String>, bold: Boolean = false)",
         "CollectionCard(def: LedgerDef, rows: List<Rec>, currency: String, onAdd: (Rec)",
@@ -361373,7 +361492,9 @@
         "LedgerStore"
       ],
       "imports": [
-        "android.content.Context"
+        "android.content.Context",
+        "android.util.Base64",
+        "org.json.JSONArray"
       ],
       "symbols": [
         "prefs(ctx: Context, store: String)",
@@ -362256,6 +362377,35 @@
       ]
     },
     {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/AchievesTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AchievesTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "sub(o: JSONObject)",
+        "flat(o: JSONObject)",
+        "page(p: String)",
+        "ledger(p: String)",
+        "defs(p: String)",
+        "cats(t: String, id: String)",
+        "class AchievesTest"
+      ]
+    },
+    {
       "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/BuroLlcDeclTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -362295,6 +362445,30 @@
       "symbols": [
         "text(rel: String)",
         "class BuroLlcTestData"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/FolderTreeTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FolderTreeTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config"
+      ],
+      "symbols": [
+        "all(f: Folder)",
+        "class FolderTreeTest"
       ]
     },
     {
@@ -362979,6 +363153,32 @@
       ]
     },
     {
+      "path": "ac_cloud-me/data/regen-roadmap-tree.py",
+      "lang": "py",
+      "role": "python",
+      "exports": [
+        "nat(s)",
+        "visible(path)",
+        "render(dirs)",
+        "text(tree)",
+        "read_snap()",
+        "live(argv)",
+        "main(argv)"
+      ],
+      "imports": [
+        "json"
+      ],
+      "symbols": [
+        "nat(s)",
+        "visible(path)",
+        "render(dirs)",
+        "text(tree)",
+        "read_snap()",
+        "live(argv)",
+        "main(argv)"
+      ]
+    },
+    {
       "path": "ac_cloud-me/data/regen-study.py",
       "lang": "py",
       "role": "python",
@@ -363269,6 +363469,28 @@
       "symbols": [
         "check()",
         "plant()"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/test/test-roadmap-tree.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "bad()",
+        "rules()",
+        "mk()",
+        "red_check()",
+        "red_rules()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "bad()",
+        "rules()",
+        "mk()",
+        "red_check()",
+        "red_rules()"
       ]
     },
     {
@@ -582456,6 +582678,35 @@
       ]
     },
     {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Alerts.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AlertRule",
+        "UserLists",
+        "Alerts"
+      ],
+      "imports": [
+        "java.util.Locale"
+      ],
+      "symbols": [
+        "text()",
+        "symbol(raw: String)",
+        "watchlist(stored: String?)",
+        "watchlistText(list: List<String>)",
+        "rule(raw: String)",
+        "rules(stored: String?)",
+        "rulesText(list: List<AlertRule>)",
+        "same(a: String, b: String)",
+        "norm(s: String)",
+        "priceHits(rules: List<AlertRule>, points: List<Pt>)",
+        "eventHits(rules: List<AlertRule>, events: List<Ev>, nowUtc: String)",
+        "class AlertRule",
+        "class UserLists",
+        "class Alerts"
+      ]
+    },
+    {
       "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/AssetData.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -582584,6 +582835,7 @@
       "exports": [
         "ChartPoint",
         "PanelData",
+        "ModelCtx",
         "Engine"
       ],
       "imports": [
@@ -582596,8 +582848,25 @@
         "java.util.concurrent.Executors"
       ],
       "symbols": [
-        "load(panel: Panel, source: Source, http: Http, today: LocalDate, route: PrimaryRoute? = null, fallback: Source? = null)",
+        "load(panel: Panel, source: Source, http: Http, today: LocalDate, route: PrimaryRoute? = null, fallback: Source? = null, model: ModelCtx? = null)",
         "alloc(panel: Panel, legs: List<Pair<String, Int>>)",
+        "model(panel: Panel, source: Source, f: JSONObject, http: Http, today: LocalDate, c: ModelCtx)",
+        "route(f: JSONObject, fb: JSONObject)",
+        "fetchRoute(s: Source, spec: JSONObject, http: Http, today: LocalDate, user: UserLists)",
+        "eachOf(f: JSONObject, today: LocalDate, user: UserLists)",
+        "slots(f: JSONObject, today: LocalDate, items: List<String>)",
+        "fill(v: String, slots: Map<String, String>)",
+        "render(panel: Panel, f: JSONObject, got: Got, today: LocalDate, c: ModelCtx)",
+        "points(panel: Panel, f: JSONObject, all: List<Pt>, c: ModelCtx)",
+        "keyIn(o: JSONObject, k: String)",
+        "v(x: Double)",
+        "plain(x: Double)",
+        "chg(p: Pt)",
+        "pct(p: Pt)",
+        "pctText(p: Pt)",
+        "events(all: List<Ev>, filter: JSONObject?, today: LocalDate)",
+        "dots(n: Int)",
+        "signedSig(d: Double)",
         "fredPanel(panel: Panel, source: Source, f: JSONObject, http: Http, today: LocalDate, route: PrimaryRoute?, fallback: Source?)",
         "derived(panel: Panel, f: JSONObject, series: List<FredSeries>, asOf: String, missing: String)",
         "fredSeries(source: Source, f: JSONObject, http: Http, today: LocalDate, route: PrimaryRoute?, fallback: Source?)",
@@ -582618,10 +582887,65 @@
         "pct(last: Obs, prev: Obs?)",
         "pctChange(last: Obs, prev: Obs?)",
         "class ChartPoint",
-        "class PanelData",
-        "class Engine",
-        "class FredSeries",
-        "class or"
+        "class PanelData"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/Feeds.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Pt",
+        "Ev",
+        "Bar",
+        "Got",
+        "Feeds"
+      ],
+      "imports": [
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "java.time.Instant",
+        "java.time.LocalDate",
+        "java.time.LocalDateTime",
+        "java.time.OffsetDateTime",
+        "java.time.ZoneId",
+        "java.time.ZoneOffset",
+        "java.time.format.DateTimeFormatter",
+        "java.util.Locale"
+      ],
+      "symbols": [
+        "plus(o: Got)",
+        "parse(connector: String, body: String, o: Opt)",
+        "nyfed(body: String)",
+        "treasury(body: String)",
+        "sdmx(body: String, keyDim: String)",
+        "jsonstat(body: String, keyDim: String)",
+        "posToId(d: String)",
+        "bls(body: String)",
+        "frankfurter(body: String)",
+        "coinbase(body: String, each: String)",
+        "cboe(body: String, each: String, last: Int)",
+        "ff(body: String)",
+        "country(ccy: String)",
+        "importance(impact: String)",
+        "utc(raw: String)",
+        "ics(body: String, imp: JSONObject?)",
+        "icsTs(line: String)",
+        "declared(body: String)",
+        "nasdaq(body: String, day: String)",
+        "polymarket(body: String, last: Int)",
+        "sec(body: String, o: Opt)",
+        "secConcept(body: String, scale: Double, last: Int)",
+        "v1(body: String, concept: String)",
+        "objects(a: JSONArray?)",
+        "strings(a: JSONArray?)",
+        "num(o: JSONObject, key: String)",
+        "class Pt",
+        "class Ev",
+        "class Bar",
+        "class Got",
+        "class Feeds",
+        "class Opt"
       ]
     },
     {
@@ -582683,7 +583007,8 @@
       "exports": [
         "Http",
         "UrlHttp",
-        "CachedHttp"
+        "CachedHttp",
+        "AssetHttp"
       ],
       "imports": [
         "java.io.ByteArrayOutputStream",
@@ -582696,10 +583021,12 @@
         "get(url: String)",
         "post(url: String)",
         "call(method: String, url: String)",
+        "ttl(url: String)",
         "clear()",
         "class Http",
         "class UrlHttp",
-        "class CachedHttp"
+        "class CachedHttp",
+        "class AssetHttp"
       ]
     },
     {
@@ -582727,6 +583054,7 @@
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
+        "ApiRoute",
         "PrimaryRoute",
         "Mesh",
         "Priority"
@@ -582740,6 +583068,8 @@
         "hostOf(url: String)",
         "reachable(http: Http, base: String, healthPath: String)",
         "route(panel: Panel, dash: Dashboard, sources: List<Source>, mesh: Map<String, String>, reachable: (String)",
+        "api(panel: Panel, dash: Dashboard, sources: List<Source>, mesh: Map<String, String>, reachable: (String)",
+        "class ApiRoute",
         "class PrimaryRoute",
         "class Mesh",
         "class Priority"
@@ -582966,6 +583296,7 @@
         "androidx.compose.foundation.layout.width",
         "androidx.compose.foundation.rememberScrollState",
         "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.OutlinedTextField",
         "androidx.compose.material3.Text",
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.LaunchedEffect",
@@ -582988,16 +583319,17 @@
         "androidx.compose.ui.text.style.TextAlign",
         "androidx.compose.ui.text.style.TextOverflow",
         "androidx.compose.ui.unit.dp",
-        "com.diegonmarcos.capitalfinterm.AssetData",
-        "com.diegonmarcos.capitalfinterm.CachedHttp"
+        "com.diegonmarcos.capitalfinterm.Alerts"
       ],
       "symbols": [
+        "configure(ctx: android.content.Context, sources: List<Source>)",
         "reachable(healthUrl: String)",
         "forget()",
         "statusPill(status: DashStatus)",
         "DashboardPage(dashboardId: String, onBack: ()",
-        "PanelCard(dash: Dashboard, panel: Panel, all: List<Source>, source: Source?, hasKey: Boolean, refresh: Int, onOpenSources: ()",
-        "LiveBody(dash: Dashboard, panel: Panel, all: List<Source>, source: Source, refresh: Int)",
+        "UserListsCard(user: UserLists, onChange: (UserLists)",
+        "PanelCard(dash: Dashboard, panel: Panel, all: List<Source>, source: Source?, hasKey: Boolean, refresh: Int, user: UserLists, onOpenSources: ()",
+        "LiveBody(dash: Dashboard, panel: Panel, all: List<Source>, source: Source, refresh: Int, user: UserLists)",
         "PanelContent(panel: Panel, data: PanelData)",
         "LineChart(points: List<ChartPoint>, unit: String)",
         "BarChart(points: List<ChartPoint>, unit: String)",
@@ -583006,6 +583338,8 @@
         "PlaceholderBody(panel: Panel, source: Source?, hasKey: Boolean, onOpenSources: ()",
         "dashed(color: Color)",
         "fmt(v: Double)",
+        "QuoteTiles(data: PanelData)",
+        "CalendarList(data: PanelData)",
         "class Net",
         "class Load",
         "class Loading",
@@ -583180,6 +583514,27 @@
       ]
     },
     {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/AlertsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AlertsTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "symbolsAreUpperCasedAndCheckedAndTheListKeepsOrderOnce()",
+        "rulesParseAndRoundTripThroughTheStoredLine()",
+        "priceRulesFireOnTheMatchingSymbolOnlyAndOnTheRightSide()",
+        "eventRulesFlagTheNext24HoursAtTheLowestDeclaredLevel()",
+        "class AlertsTest"
+      ]
+    },
+    {
       "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/CatalogTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -583318,6 +583673,44 @@
       ]
     },
     {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/FeedsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FeedsTest"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "opt(spec: String = \"{}\", each: String = \"\", paths: Map<String, String> = emptyMap()",
+        "nyfedReadsEveryRateAndSplitsTheSofrAverages()",
+        "treasuryTakesTheLastDayAndTheDayBefore()",
+        "day(d: String, ten: String, two: String)",
+        "sdmxNamesEachSeriesByItsKeyDimensionTopLevelOrUnderData()",
+        "jsonstatWalksTheFlatIndexByDimensionSizes()",
+        "blsReadsTheNewestPrintAndTheOneBefore()",
+        "frankfurterReadsLatestAndARange()",
+        "coinbaseStatsAreAQuoteAndCandlesAreBarsOldestFirst()",
+        "cboeReadsAQuoteAndTheDailyHistory()",
+        "forexFactoryEventsAreUtcWithCountryAndImportance()",
+        "icsEventsConvertEasternTimeAcrossTheDstChange()",
+        "declaredCentralBankDecisionsAreImportanceThree()",
+        "theDeclaredCentralBankFileParses()",
+        "nasdaqEarningsRankByMarketCap()",
+        "polymarketReadsOpenMarketsAsPercent()",
+        "secSubmissionsGiveTheProfileAndLinkedFilingsOfTheDeclaredForms()",
+        "secConceptKeepsFullYearFramesWithTheYearBefore()",
+        "theContainerAnswersEveryNormalisedShape()",
+        "anythingUnrecognisedIsEmptyNotAnError()",
+        "class FeedsTest"
+      ]
+    },
+    {
       "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/ForwardTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -583375,6 +583768,47 @@
         "roundTripsThroughJson()",
         "removeAndCostBasis()",
         "class HoldingsTest"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/ModelEngineTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ModelEngineTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Assert.fail",
+        "org.junit.Test",
+        "java.io.IOException",
+        "java.time.LocalDate"
+      ],
+      "symbols": [
+        "get(url: String)",
+        "post(url: String)",
+        "dash(id: String)",
+        "src(id: String)",
+        "load(d: String, p: String, http: Http, api: ApiRoute? = null, user: UserLists = UserLists()",
+        "theContainerIsAskedFirstAndNothingElseWhenItAnswers()",
+        "withoutTheContainerTheCalendarMergesEveryPublicRouteInTimeOrder()",
+        "theImportanceFilterAndWindowAreTheDeclaredOnes()",
+        "anEmptyWindowSaysSoInsteadOfFailing()",
+        "theFirstRouteThatAnswersWinsWhenNotMerging()",
+        "aCurveIsPlacedByTheDeclaredYearsAndSorted()",
+        "onePerItemRequestAndAFailingItemIsSkipped()",
+        "everyItemFailingIsAnError()",
+        "theWatchlistReplacesTheDeclaredSymbolsAndPriceAlertsFire()",
+        "eventAlertsFlagTheNextDayAtTheRuleLevel()",
+        "arrayParamsRepeatTheKeyAndLabelsSelect()",
+        "theApiRouteNeedsTheV1PathTheMeshAndAnAnswer()",
+        "aRateLimitedSourceIsKeptForItsDeclaredScheduleEvenThroughARefresh()",
+        "aFailingContainerFallsBackToThePublicSource()",
+        "class ModelEngineTest",
+        "class Fake"
       ]
     },
     {
