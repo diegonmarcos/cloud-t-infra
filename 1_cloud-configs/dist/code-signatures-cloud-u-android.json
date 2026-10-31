@@ -6,13 +6,13 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22872,
+    "files": 22886,
     "by_lang": {
-      "sh": 627,
+      "sh": 628,
       "js": 514,
-      "py": 180,
-      "kotlin": 12289,
-      "java": 647,
+      "py": 184,
+      "kotlin": 12296,
+      "java": 649,
       "nix": 35,
       "rust": 111,
       "ts": 8469
@@ -21,10 +21,10 @@
       "hook": 158,
       "file": 2302,
       "shell": 500,
-      "script": 272,
-      "java": 646,
-      "kotlin": 12286,
-      "python": 58,
+      "script": 276,
+      "java": 648,
+      "kotlin": 12293,
+      "python": 59,
       "module": 6448,
       "flake": 31,
       "rust-module": 111,
@@ -1505,6 +1505,7 @@
       ],
       "imports": [
         "argparse",
+        "shlex",
         "json",
         "os",
         "re",
@@ -2130,6 +2131,22 @@
         "lines_of(path)",
         "web_roots(root)",
         "main(root)"
+      ]
+    },
+    {
+      "path": ".github/workflows/scripts/cloud-android-webview-guard.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "strip_comments(src)",
+        "main()"
+      ],
+      "imports": [
+        "json"
+      ],
+      "symbols": [
+        "strip_comments(src)",
+        "main()"
       ]
     },
     {
@@ -4167,6 +4184,7 @@
       ],
       "imports": [
         "argparse",
+        "shlex",
         "json",
         "os",
         "re",
@@ -4792,6 +4810,22 @@
         "lines_of(path)",
         "web_roots(root)",
         "main(root)"
+      ]
+    },
+    {
+      "path": "1_cicd/src/scripts/cloud-android-webview-guard.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "strip_comments(src)",
+        "main()"
+      ],
+      "imports": [
+        "json"
+      ],
+      "symbols": [
+        "strip_comments(src)",
+        "main()"
       ]
     },
     {
@@ -6819,6 +6853,28 @@
         "fail()",
         "stage()",
         "mutate()"
+      ]
+    },
+    {
+      "path": "1_cicd/src/scripts/test/webview-guard.test.sh",
+      "lang": "sh",
+      "role": "script",
+      "exports": [
+        "ok()",
+        "fail()",
+        "fixture()",
+        "expect()",
+        "mutate()",
+        "policy()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "fail()",
+        "fixture()",
+        "expect()",
+        "mutate()",
+        "policy()"
       ]
     },
     {
@@ -12926,6 +12982,10 @@
         "WebPageFragment"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudChromeClient",
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.os.Bundle",
         "android.view.View",
         "android.webkit.WebSettings",
@@ -12969,6 +13029,7 @@
         "onViewCreated(view: View, savedInstanceState: Bundle?)",
         "Content()",
         "onConsoleMessage(m: android.webkit.ConsoleMessage)",
+        "onRecovered(dead: WebView, fresh: WebView?)",
         "onPageStarted(view: WebView?, url: String?, favicon: android.graphics.Bitmap?)",
         "shouldInterceptRequest(view: WebView?, request: android.webkit.WebResourceRequest)",
         "onPageFinished(view: WebView?, url: String?)",
@@ -34185,6 +34246,8 @@
         "SignInWays"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.webkit.CookieManager",
         "android.webkit.WebView",
         "android.webkit.WebViewClient",
@@ -36296,6 +36359,7 @@
       "exports": [
         "NavUiMode",
         "DrawerRow",
+        "NavActionsPlace",
         "NavQuickAction",
         "NavUiSettings",
         "NavChromePlan",
@@ -36315,6 +36379,8 @@
         "LocalChromeScrollPolicy",
         "CleanDrawerEntry",
         "CleanDrawerModel",
+        "appActionId",
+        "appActionTarget",
         "cleanDrawerModel"
       ],
       "imports": [
@@ -36328,6 +36394,7 @@
       "symbols": [
         "of(text: String?)",
         "scrollPolicy()",
+        "stripPages(settings: NavUiSettings, pages: List<NavPage>)",
         "plan(mode: NavUiMode, tokens: NavTokens = NavTokens()",
         "parse(json: String)",
         "fromBuildConfig(uiNavUiB64: String)",
@@ -36339,10 +36406,14 @@
         "chromeScrollStep(policy: ChromeScrollPolicy, state: ChromeScrollState, delta: Float, dragging: Boolean)",
         "chromeScrollReleaseStep(policy: ChromeScrollPolicy, state: ChromeScrollState)",
         "chromeGestureStep(policy: ChromeScrollPolicy, state: ChromeScrollState, delta: Float, dragging: Boolean, gesture: Int, latch: Int)",
-        "cleanDrawerModel(bottom: List<NavSection>, section: NavSection?, currentPageId: String?)",
+        "appActionId(sectionId: String, pageId: String)",
+        "appActionTarget(id: String)",
+        "cleanDrawerModel( bottom: List<NavSection>, section: NavSection?, currentPageId: String?, /** `nav_ui.actions = \"drawer\"`: the launch pages of every section become the [DrawerRow.AppActions] row. */ actionsInDrawer: Boolean = false, )",
         "walk(list: List<NavPage>, depth: Int)",
+        "launches(sectionId: String, list: List<NavPage>)",
         "class NavUiMode",
         "class DrawerRow",
+        "class NavActionsPlace",
         "class NavQuickAction",
         "class NavUiSettings",
         "class NavChromePlan",
@@ -36719,6 +36790,24 @@
         "inject(webView: WebView)",
         "class ChromeWebScroll",
         "class Feed"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/bottomnav/src/main/kotlin/com/diegonmarcos/superapp/bottomnav/ChromeWebView.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ChromeWebView"
+      ],
+      "imports": [
+        "android.webkit.WebView",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.viewinterop.AndroidView"
+      ],
+      "symbols": [
+        "ChromeWebView(webView: WebView, modifier: Modifier = Modifier)"
       ]
     },
     {
@@ -39150,6 +39239,10 @@
         "BrowserHostFragment"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudChromeClient",
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.content.Context",
         "android.graphics.Bitmap",
         "android.graphics.Canvas",
@@ -39185,11 +39278,7 @@
         "androidx.compose.foundation.text.KeyboardActions",
         "androidx.compose.foundation.text.KeyboardOptions",
         "androidx.compose.material3.AlertDialog",
-        "androidx.compose.material3.OutlinedTextField",
-        "androidx.compose.material3.RadioButton",
-        "androidx.compose.material3.Text",
-        "androidx.compose.material3.TextButton",
-        "androidx.compose.runtime.Composable"
+        "androidx.compose.material3.OutlinedTextField"
       ],
       "symbols": [
         "bindProfile(wv: WebView, tab: BrowserTab?)",
@@ -39328,6 +39417,7 @@
         "BrowserClearData"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
         "android.content.Context",
         "android.webkit.CookieManager",
         "android.webkit.WebStorage",
@@ -39694,6 +39784,7 @@
         "BrowserStorage"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
         "android.content.Context",
         "android.webkit.CookieManager",
         "android.webkit.WebStorage",
@@ -40733,6 +40824,9 @@
         "OfflinePageSaver"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.content.Context",
         "android.os.Handler",
         "android.os.Looper",
@@ -67828,6 +67922,9 @@
         "clearAutheliaWebSession"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.annotation.SuppressLint",
         "android.content.ClipboardManager",
         "android.content.Context",
@@ -67864,10 +67961,7 @@
         "androidx.compose.ui.platform.LocalContext",
         "androidx.compose.ui.platform.testTag",
         "androidx.compose.ui.semantics.semantics",
-        "androidx.compose.ui.res.stringResource",
-        "androidx.compose.ui.text.input.KeyboardType",
-        "androidx.compose.ui.text.input.PasswordVisualTransformation",
-        "androidx.compose.ui.text.input.VisualTransformation"
+        "androidx.compose.ui.res.stringResource"
       ],
       "symbols": [
         "mode(m: MailAuthMode)",
@@ -74003,47 +74097,39 @@
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
-        "PermsStyle",
+        "AppPermsState",
+        "rememberAppPerms",
         "AppPermsSection"
       ],
       "imports": [
         "android.app.Activity",
         "android.content.Context",
         "android.content.ContextWrapper",
+        "android.content.pm.PackageInfo",
+        "android.content.pm.PackageManager",
+        "android.content.pm.PermissionInfo",
         "androidx.activity.compose.rememberLauncherForActivityResult",
         "androidx.activity.result.contract.ActivityResultContracts",
-        "androidx.compose.foundation.layout.Arrangement",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.Row",
-        "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.layout.height",
-        "androidx.compose.material3.Button",
-        "androidx.compose.material3.OutlinedButton",
-        "androidx.compose.material3.Text",
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.DisposableEffect",
         "androidx.compose.runtime.LaunchedEffect",
-        "androidx.compose.runtime.mutableStateOf",
         "androidx.compose.runtime.getValue",
         "androidx.compose.runtime.mutableIntStateOf",
+        "androidx.compose.runtime.mutableStateOf",
         "androidx.compose.runtime.remember",
         "androidx.compose.runtime.setValue",
-        "androidx.compose.ui.Alignment",
         "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.graphics.Color",
-        "androidx.compose.ui.platform.LocalContext",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.text.font.FontWeight",
-        "androidx.compose.ui.unit.dp",
-        "androidx.compose.ui.unit.sp"
+        "androidx.compose.ui.platform.LocalContext"
       ],
       "symbols": [
-        "AppPermsSection(tick: Int, style: PermsStyle = PermsStyle()",
-        "request(entries: List<PermEntry>)",
+        "rememberAppPerms( tick: Int, highlight: Set<String> = emptySet()",
+        "request(ids: List<String>)",
+        "actOn(i: PermItem)",
         "step()",
-        "PermRowView(label: String, state: PermStatus, bold: Boolean, style: PermsStyle, tag: String, sub: String = \"\", button: String?, onClick: ()",
+        "AppPermsSection( tick: Int, style: PermsStyle = PermsStyle()",
+        "installItems(ctx: Context)",
         "findActivity()",
-        "class PermsStyle"
+        "class AppPermsState"
       ]
     },
     {
@@ -74180,36 +74266,44 @@
         "android.os.Bundle",
         "androidx.activity.ComponentActivity",
         "androidx.activity.compose.setContent",
+        "androidx.activity.enableEdgeToEdge",
         "androidx.activity.result.contract.ActivityResultContracts",
         "androidx.compose.foundation.isSystemInDarkTheme",
-        "androidx.compose.foundation.layout.Arrangement",
         "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.Row",
-        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.WindowInsets",
+        "androidx.compose.foundation.layout.fillMaxSize",
         "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.safeDrawing",
+        "androidx.compose.foundation.layout.windowInsetsPadding",
         "androidx.compose.foundation.rememberScrollState",
         "androidx.compose.foundation.verticalScroll",
-        "androidx.compose.material3.Button",
+        "androidx.compose.material3.ExperimentalMaterial3Api",
         "androidx.compose.material3.MaterialTheme",
-        "androidx.compose.material3.OutlinedButton",
+        "androidx.compose.material3.ModalBottomSheet",
         "androidx.compose.material3.Surface",
         "androidx.compose.material3.Text",
         "androidx.compose.material3.darkColorScheme",
         "androidx.compose.material3.lightColorScheme",
+        "androidx.compose.material3.rememberModalBottomSheetState",
         "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
         "androidx.compose.runtime.getValue",
         "androidx.compose.runtime.mutableIntStateOf",
+        "androidx.compose.runtime.remember",
         "androidx.compose.runtime.setValue",
-        "androidx.compose.ui.Alignment",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.semantics.heading",
+        "androidx.compose.ui.semantics.semantics",
         "androidx.compose.ui.text.font.FontWeight",
-        "androidx.compose.ui.unit.dp"
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp"
       ],
       "symbols": [
         "onCreate(savedInstanceState: Bundle?)",
         "onResume()",
         "Page(feature: String, ids: Set<String>, tick: Int)",
+        "Sheet(ids: Set<String>, tick: Int)",
         "request(entries: List<PermEntry>)",
         "intent(ctx: Context, feature: String, ids: Collection<String>)",
         "rows(entries: List<PermEntry>, wanted: Set<String>, status: (PermEntry)",
@@ -74254,10 +74348,14 @@
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
-        "PermsGate"
+        "PermsGate",
+        "PermsGateCard"
       ],
       "imports": [
-        "android.content.Context"
+        "android.content.Context",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext"
       ],
       "symbols": [
         "check(ctx: Context, ids: Collection<String>, helperPkg: String? = null)",
@@ -74265,6 +74363,7 @@
         "message(m: Missing)",
         "grant(ctx: Context, m: Missing, feature: String = \"app\")",
         "prompt(ctx: Context, ids: Collection<String>, helperPkg: String? = null, feature: String = \"app\")",
+        "PermsGateCard(missing: PermsGate.Missing, modifier: Modifier = Modifier, feature: String = \"app\", style: PermsStyle = PermsStyle()",
         "class PermsGate",
         "class Missing"
       ]
@@ -74329,6 +74428,147 @@
         "delete(uri: Uri, selection: String?, selectionArgs: Array<out String>?)",
         "update(uri: Uri, values: ContentValues?, selection: String?, selectionArgs: Array<out String>?)",
         "class PermsStateProvider"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/perms/src/main/java/com/diegonmarcos/superapp/perms/PermsUi.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PermsStyle",
+        "PermIcons",
+        "PermsTags",
+        "PermsList",
+        "PermsPromptCard"
+      ],
+      "imports": [
+        "android.content.Context",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.heightIn",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.shape.CircleShape",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.Button",
+        "androidx.compose.material3.ButtonDefaults",
+        "androidx.compose.material3.FilledTonalButton",
+        "androidx.compose.material3.HorizontalDivider",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.IconButton",
+        "androidx.compose.material3.LinearProgressIndicator",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.material3.TextButton",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.graphics.SolidColor",
+        "androidx.compose.ui.graphics.isSpecified",
+        "androidx.compose.ui.graphics.luminance"
+      ],
+      "symbols": [
+        "tone(t: PermChip.Tone)",
+        "resolve()",
+        "pick(c: Color, d: Long, l: Long)",
+        "vector(ctx: Context, name: String)",
+        "build(name: String, d: String)",
+        "row(id: String)",
+        "state(id: String)",
+        "grant(id: String)",
+        "group(title: String)",
+        "PermsList( items: List<PermItem>, onAction: (PermItem)",
+        "PermCard(p: PermsPalette, modifier: Modifier = Modifier, content: @Composable ()",
+        "SummaryCard(empty: Boolean, prog: PermsView.Progress, onGrantAll: (()",
+        "GroupBlock(g: PermsView.Group, all: List<PermItem>, onAction: (PermItem)",
+        "HealthBlock(health: List<PermItem>, onAction: (PermItem)",
+        "PermRowView(it: PermItem, onAction: (PermItem)",
+        "ChipView(chip: PermChip, p: PermsPalette, modifier: Modifier = Modifier)",
+        "Pill(word: String, c: Color, modifier: Modifier = Modifier)",
+        "PermsPromptCard( text: String, onGrant: ()",
+        "FirstRunSheetBody(appName: String, items: List<PermItem>, onGrantAll: ()",
+        "class PermsStyle",
+        "class PermsPalette",
+        "class PermsType",
+        "class PermIcons",
+        "class PermsTags"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/perms/src/main/java/com/diegonmarcos/superapp/perms/PermsView.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PermItemKind",
+        "PermAction",
+        "PermChip",
+        "PermItem",
+        "PermsView"
+      ],
+      "imports": [],
+      "symbols": [
+        "chip(state: PermState)",
+        "reasonLine(i: PermItem)",
+        "healthState(items: List<PermItem>)",
+        "progress(items: List<PermItem>)",
+        "groups(items: List<PermItem>)",
+        "of(kind: PermItemKind)",
+        "healthLine(health: List<PermItem>)",
+        "typesToggle(n: Int, open: Boolean)",
+        "missing(items: List<PermItem>)",
+        "promptText(missing: List<String>)",
+        "item(e: PermEntry, s: PermStatus, highlight: Boolean = false)",
+        "action(e: PermEntry, s: PermStatus)",
+        "helperItem(h: HelperNeed, e: PermEntry, s: PermStatus, highlight: Boolean = false)",
+        "walk(items: List<PermItem>)",
+        "class PermItemKind",
+        "class PermAction",
+        "class PermChip",
+        "class Tone",
+        "class PermItem",
+        "class PermsView",
+        "class Progress",
+        "class Group"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/perms/src/test/java/com/diegonmarcos/superapp/perms/PermsViewTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PermsViewTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "rt(id: String, s: PermState, a: PermAction? = if (s == PermState.DENIED)",
+        "sp(id: String, s: PermState, a: PermAction? = if (s == PermState.DENIED || s == PermState.PERMANENTLY_DENIED)",
+        "hc(id: String, s: PermState)",
+        "hp(id: String, s: PermState)",
+        "inst(id: String)",
+        "entry(kind: PermKind, auto: Boolean = true)",
+        "class PermsViewTest"
       ]
     },
     {
@@ -78778,7 +79018,6 @@
         "android.content.pm.ApplicationInfo",
         "android.content.pm.PackageInfo",
         "android.content.pm.PackageManager",
-        "android.content.pm.PermissionInfo",
         "android.net.Uri",
         "android.os.Build",
         "android.os.Environment",
@@ -78811,7 +79050,8 @@
         "androidx.compose.material.icons.automirrored.filled.ArrowBack",
         "androidx.compose.material.icons.filled.Apps",
         "androidx.compose.material.icons.filled.BatteryChargingFull",
-        "androidx.compose.material.icons.filled.BugReport"
+        "androidx.compose.material.icons.filled.BugReport",
+        "androidx.compose.material.icons.filled.Cloud"
       ],
       "symbols": [
         "SectionCard(title: String, icon: ImageVector, c: ThemeColors, modifier: Modifier = Modifier, body: @Composable ColumnScope.()",
@@ -78822,15 +79062,13 @@
         "ActionButton(label: String, c: ThemeColors, tag: String, onClick: ()",
         "packageInfo(ctx: Context)",
         "requested(ctx: Context)",
-        "permissionRows(ctx: Context)",
         "installedVersion(ctx: Context, decl: FleetConfigsDecl)",
         "ReleaseNotes(notes: List<ReleaseNote>, c: ThemeColors)",
         "open(ctx: Context, url: String)",
         "open(ctx: Context, intent: Intent)",
         "launchApp(ctx: Context, pkg: String)",
         "dirSize(f: File?)",
-        "human(bytes: Long)",
-        "class PermRow"
+        "human(bytes: Long)"
       ]
     },
     {
@@ -79123,6 +79361,7 @@
         "androidx.compose.foundation.layout.Box",
         "androidx.compose.foundation.layout.ColumnScope",
         "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Column",
         "androidx.compose.foundation.layout.fillMaxWidth",
         "androidx.compose.foundation.layout.heightIn",
         "androidx.compose.foundation.layout.padding",
@@ -79130,6 +79369,7 @@
         "androidx.compose.foundation.shape.RoundedCornerShape",
         "androidx.compose.material.icons.Icons",
         "androidx.compose.material.icons.filled.AccountCircle",
+        "androidx.compose.material.icons.filled.Add",
         "androidx.compose.material.icons.filled.ArrowDropDown",
         "androidx.compose.material.icons.filled.AutoAwesome",
         "androidx.compose.material.icons.filled.Settings",
@@ -79154,14 +79394,13 @@
         "androidx.compose.ui.text.font.FontWeight",
         "androidx.compose.ui.text.style.TextOverflow",
         "androidx.compose.ui.unit.dp",
-        "com.diegonmarcos.superapp.bottomnav.AppTopBarLabels",
-        "com.diegonmarcos.superapp.bottomnav.CleanDrawerEntry",
-        "com.diegonmarcos.superapp.bottomnav.CleanDrawerModel"
+        "com.diegonmarcos.superapp.bottomnav.AppTopBarLabels"
       ],
       "symbols": [
         "pageEntry(id: String)",
         "subEntry(id: String)",
         "action(a: NavQuickAction)",
+        "appAction(id: String)",
         "row(r: DrawerRow)",
         "CleanDrawerContent( model: CleanDrawerModel, labels: AppTopBarLabels, onPage: (CleanDrawerEntry)",
         "ActionIcon(icon: ImageVector, label: String, tag: String, size: androidx.compose.ui.unit.Dp, onClick: ()",
@@ -79645,6 +79884,8 @@
         "org.junit.Test"
       ],
       "symbols": [
+        "titleRowOf(buildJson: String, section: String)",
+        "titleRowProblem(page: String, body: String, titleRow: Boolean)",
         "sources(app: String)",
         "driveFiles()",
         "body(text: String, name: String)",
@@ -81977,6 +82218,154 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/web-core/src/main/java/com/diegonmarcos/cloudlib/web/CloudChromeClient.java",
+      "lang": "java",
+      "role": "java",
+      "exports": [
+        "CloudChromeClient",
+        "onShowCustomView",
+        "onHideCustomView"
+      ],
+      "imports": [
+        "android.app.Activity",
+        "android.content.Context",
+        "android.content.ContextWrapper",
+        "android.view.View",
+        "android.view.ViewGroup",
+        "android.webkit.WebChromeClient",
+        "android.widget.FrameLayout",
+        "androidx.core.view.WindowCompat",
+        "androidx.core.view.WindowInsetsCompat"
+      ],
+      "symbols": [
+        "CloudChromeClient()",
+        "CloudChromeClient(Activity activity)",
+        "activityOf(Context c)",
+        "onShowCustomView(View view, CustomViewCallback cb)",
+        "onHideCustomView()",
+        "class CloudChromeClient"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/web-core/src/main/java/com/diegonmarcos/cloudlib/web/CloudWeb.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "CloudWeb"
+      ],
+      "imports": [
+        "android.annotation.SuppressLint",
+        "android.content.Context",
+        "android.content.Intent",
+        "android.net.Uri",
+        "android.view.MotionEvent",
+        "android.view.View",
+        "android.webkit.CookieManager",
+        "android.webkit.WebSettings",
+        "android.webkit.WebView",
+        "android.webkit.WebViewClient",
+        "androidx.webkit.ScriptHandler",
+        "androidx.webkit.WebViewAssetLoader",
+        "androidx.webkit.WebViewCompat",
+        "androidx.webkit.WebViewFeature",
+        "java.util.WeakHashMap"
+      ],
+      "symbols": [
+        "assetUrl(path: String)",
+        "assetLoader(ctx: Context)",
+        "profileOf(wv: WebView)",
+        "create(ctx: Context, profile: WebProfile, desktop: Boolean = false, prepare: (WebView)",
+        "configure(wv: T, profile: WebProfile, desktop: Boolean = false)",
+        "optional(block: ()",
+        "clearCache(ctx: Context)",
+        "site(wv: WebView, javaScript: Boolean, fileAccess: Boolean)",
+        "userAgent(wv: WebView, ua: String?)",
+        "appendUserAgent(wv: WebView, marker: String)",
+        "sandboxedJs(wv: WebView, on: Boolean)",
+        "remoteImages(wv: WebView, allowed: Boolean)",
+        "desktopMode(wv: WebView, on: Boolean)",
+        "isDesktop(wv: WebView)",
+        "desktopUserAgent(mobileUa: String)",
+        "openInChrome(ctx: Context, url: String)",
+        "class CloudWeb"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/web-core/src/main/java/com/diegonmarcos/cloudlib/web/CloudWebClient.java",
+      "lang": "java",
+      "role": "java",
+      "exports": [
+        "CloudWebClient",
+        "shouldInterceptRequest",
+        "onRenderProcessGone",
+        "onRecovered"
+      ],
+      "imports": [
+        "android.util.Log",
+        "android.view.ViewGroup",
+        "android.webkit.RenderProcessGoneDetail",
+        "android.webkit.WebChromeClient",
+        "android.webkit.WebResourceRequest",
+        "android.webkit.WebResourceResponse",
+        "android.webkit.WebView",
+        "android.webkit.WebViewClient",
+        "androidx.webkit.WebViewAssetLoader"
+      ],
+      "symbols": [
+        "CloudWebClient(WebProfile profile)",
+        "CloudWebClient(WebProfile profile, WebViewAssetLoader assets)",
+        "shouldInterceptRequest(WebView view, WebResourceRequest request)",
+        "onRenderProcessGone(WebView view, RenderProcessGoneDetail detail)",
+        "onRecovered(WebView dead, WebView fresh)",
+        "class is",
+        "class CloudWebClient"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/web-core/src/main/java/com/diegonmarcos/cloudlib/web/GpuProbe.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GpuCaps",
+        "GpuProbe",
+        "FOODFORFISH_FEATURES"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.os.Handler",
+        "android.os.Looper",
+        "android.webkit.JavascriptInterface",
+        "android.webkit.WebView",
+        "androidx.webkit.WebViewCompat",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "has(vararg required: String)",
+        "summary()",
+        "probe(ctx: Context, done: (GpuCaps)",
+        "finish(caps: GpuCaps)",
+        "parse(json: String, version: String?)",
+        "done(json: String)",
+        "class GpuCaps",
+        "class GpuProbe",
+        "class Bridge"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/web-core/src/main/java/com/diegonmarcos/cloudlib/web/WebProfile.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "WebProfile"
+      ],
+      "imports": [
+        "android.webkit.WebSettings"
+      ],
+      "symbols": [
+        "class WebProfile"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/webserver/src/main/java/com/diegonmarcos/superapp/webserver/CloudWebServer.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -83201,6 +83590,9 @@
         "MainActivity"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.annotation.SuppressLint",
         "android.content.Intent",
         "android.os.Bundle",
@@ -83237,9 +83629,7 @@
         "androidx.core.content.ContextCompat",
         "com.diegonmarcos.superapp.fleetconfigs.FleetConfigsMenu",
         "com.diegonmarcos.superapp.uikit.CloudKitTheme",
-        "com.diegonmarcos.superapp.uikit.KitPalette",
-        "com.diegonmarcos.superapp.uikit.LocalKitPalette",
-        "org.json.JSONObject"
+        "com.diegonmarcos.superapp.uikit.KitPalette"
       ],
       "symbols": [
         "onCreate(savedInstanceState: Bundle?)",
@@ -83379,6 +83769,9 @@
         "MainActivity"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.annotation.SuppressLint",
         "android.os.Bundle",
         "android.webkit.WebView",
@@ -85911,6 +86304,9 @@
         "AuthMissionActivity"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.app.Activity",
         "android.os.Bundle",
         "android.util.Base64",
@@ -94644,6 +95040,9 @@
         "LatexGraphMode"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.annotation.SuppressLint",
         "android.content.Context",
         "android.content.Intent",
@@ -94680,10 +95079,7 @@
         "androidx.compose.material3.MaterialTheme",
         "androidx.compose.material3.OutlinedButton",
         "androidx.compose.material3.OutlinedTextField",
-        "androidx.compose.material3.Slider",
-        "androidx.compose.material3.Text",
-        "androidx.compose.material3.TextButton",
-        "androidx.compose.runtime.Composable"
+        "androidx.compose.material3.Slider"
       ],
       "symbols": [
         "graphField(symbol: String)",
@@ -170404,26 +170800,6 @@
       ]
     },
     {
-      "path": "ac_cloud-contacts/app/src/main/java/com/diegonmarcos/cloudcontacts/ChromeWebView.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "ChromeWebView"
-      ],
-      "imports": [
-        "android.webkit.WebView",
-        "androidx.compose.foundation.layout.fillMaxSize",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.viewinterop.AndroidView",
-        "com.diegonmarcos.superapp.bottomnav.ChromeWebScroll",
-        "com.diegonmarcos.superapp.bottomnav.LocalNavChromeCollapse"
-      ],
-      "symbols": [
-        "ChromeWebView(webView: WebView, modifier: Modifier = Modifier)"
-      ]
-    },
-    {
       "path": "ac_cloud-contacts/app/src/main/java/com/diegonmarcos/cloudcontacts/ContactsBackup.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -170521,6 +170897,9 @@
         "MainActivity"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
+        "com.diegonmarcos.superapp.bottomnav.ChromeWebView",
         "android.Manifest",
         "android.annotation.SuppressLint",
         "android.graphics.Color",
@@ -175325,6 +175704,7 @@
       "exports": [
         "GeneralPerms",
         "GeneralAnchorRow",
+        "item",
         "GeneralPermsSection"
       ],
       "imports": [
@@ -175353,7 +175733,6 @@
         "androidx.compose.material3.Icon",
         "androidx.compose.material3.IconButton",
         "androidx.compose.material3.MaterialTheme",
-        "androidx.compose.material3.Text",
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.getValue",
         "androidx.compose.runtime.LaunchedEffect",
@@ -175364,10 +175743,11 @@
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.platform.LocalContext",
         "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.res.stringResource",
         "androidx.lifecycle.compose.LocalLifecycleOwner",
         "androidx.lifecycle.Lifecycle",
-        "androidx.lifecycle.repeatOnLifecycle"
+        "androidx.lifecycle.repeatOnLifecycle",
+        "com.diegonmarcos.clouddrive.BuildConfig",
+        "com.diegonmarcos.clouddrive.ui.DriveMetrics"
       ],
       "symbols": [
         "vars()",
@@ -175378,7 +175758,9 @@
         "intentOf(ctx: Context, s: GeneralDecl.IntentSpec)",
         "open(ctx: Context, e: GeneralDecl.PermEntry)",
         "GeneralAnchorRow(anchors: List<GeneralDecl.Anchor>, onSelect: (Int)",
+        "item(e: GeneralDecl.PermEntry, st: GeneralDecl.Status, cat: PermEntry?)",
         "GeneralPermsSection(perms: List<GeneralDecl.PermEntry>)",
+        "act(i: PermItem)",
         "class GeneralPerms"
       ]
     },
@@ -178351,8 +178733,7 @@
       "exports": [
         "EngineGrant",
         "rememberEngineGrant",
-        "EngineGrantBanner",
-        "EngineGrantPrompt"
+        "EngineGrantBanner"
       ],
       "imports": [
         "android.content.Context",
@@ -178361,30 +178742,23 @@
         "android.os.Build",
         "android.provider.Settings",
         "androidx.compose.foundation.layout.padding",
-        "androidx.compose.material3.AlertDialog",
         "androidx.compose.material3.MaterialTheme",
-        "androidx.compose.material3.Text",
-        "androidx.compose.material3.TextButton",
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.LaunchedEffect",
         "androidx.compose.runtime.collectAsState",
         "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableStateOf",
         "androidx.compose.runtime.remember",
-        "androidx.compose.runtime.setValue",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.platform.LocalContext",
-        "androidx.compose.ui.platform.testTag",
         "androidx.compose.ui.res.stringResource",
         "androidx.lifecycle.Lifecycle",
         "androidx.lifecycle.compose.LocalLifecycleOwner",
         "androidx.lifecycle.repeatOnLifecycle",
         "com.diegonmarcos.clouddrive.R",
-        "com.diegonmarcos.clouddrive.ui.DriveCard",
         "com.diegonmarcos.clouddrive.ui.DriveMetrics",
-        "com.diegonmarcos.clouddrive.ui.Pill",
-        "com.diegonmarcos.clouddrive.ui.PillRow",
         "com.diegonmarcos.cloudlib.gitsync.GitLink",
+        "com.diegonmarcos.superapp.perms.PermsPromptCard",
+        "com.diegonmarcos.superapp.perms.PermsStyle",
         "kotlinx.coroutines.Dispatchers",
         "kotlinx.coroutines.flow.MutableStateFlow",
         "kotlinx.coroutines.flow.StateFlow",
@@ -178400,11 +178774,8 @@
         "label(ctx: Context)",
         "intents(pkg: String = PACKAGE)",
         "open(ctx: Context)",
-        "prompted(ctx: Context)",
-        "markPrompted(ctx: Context)",
         "rememberEngineGrant()",
         "EngineGrantBanner()",
-        "EngineGrantPrompt()",
         "class EngineGrant",
         "class Grant"
       ]
@@ -221836,6 +222207,10 @@
         "MiniBrowserActivity"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
+        "com.diegonmarcos.cloudlib.web.CloudChromeClient",
         "android.content.Context",
         "android.content.Intent",
         "android.net.Uri",
@@ -221871,11 +222246,7 @@
         "androidx.compose.material3.MaterialTheme",
         "androidx.compose.material3.Scaffold",
         "androidx.compose.material3.Text",
-        "androidx.compose.material3.TopAppBar",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableIntStateOf",
-        "androidx.compose.runtime.mutableStateOf"
+        "androidx.compose.material3.TopAppBar"
       ],
       "symbols": [
         "onCreate(savedInstanceState: Bundle?)",
@@ -222769,6 +223140,9 @@
       "role": "kotlin",
       "exports": [],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.annotation.SuppressLint",
         "android.graphics.Color",
         "android.os.Handler",
@@ -222805,10 +223179,7 @@
         "androidx.compose.material.icons.filled.FormatStrikethrough",
         "androidx.compose.material.icons.filled.FormatUnderlined",
         "androidx.compose.material.icons.filled.InsertPhoto",
-        "androidx.compose.material.icons.filled.Link",
-        "androidx.compose.material.icons.filled.Title",
-        "androidx.compose.material3.AlertDialog",
-        "androidx.compose.material3.DropdownMenu"
+        "androidx.compose.material.icons.filled.Link"
       ],
       "symbols": [
         "parseEditorState(encoded: String)",
@@ -224761,6 +225132,9 @@
       "role": "kotlin",
       "exports": [],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.annotation.SuppressLint",
         "android.graphics.Color",
         "android.webkit.WebResourceRequest",
@@ -224972,6 +225346,9 @@
         "MessageScreen"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "app.sterna.BuildConfig",
         "app.sterna.appLocale",
         "androidx.compose.material.icons.filled.Search",
@@ -225008,10 +225385,7 @@
         "android.provider.ContactsContract",
         "android.util.Log",
         "android.view.KeyEvent",
-        "android.view.MotionEvent",
-        "android.view.View",
-        "android.view.ViewConfiguration",
-        "android.webkit.WebResourceRequest"
+        "android.view.MotionEvent"
       ],
       "symbols": [
         "pagerKey(entry: Pair<String, String?>)",
@@ -226255,6 +226629,9 @@
         "clearAutheliaWebSession"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.annotation.SuppressLint",
         "android.webkit.CookieManager",
         "android.webkit.WebResourceRequest",
@@ -226291,10 +226668,7 @@
         "androidx.compose.ui.semantics.semantics",
         "androidx.compose.ui.text.input.PasswordVisualTransformation",
         "androidx.compose.ui.viewinterop.AndroidView",
-        "androidx.compose.ui.window.Dialog",
-        "androidx.compose.ui.window.DialogProperties",
-        "app.sterna.R",
-        "app.sterna.core.data.account.GatewayMode"
+        "androidx.compose.ui.window.Dialog"
       ],
       "symbols": [
         "mode(m: GatewayMode)",
@@ -227335,6 +227709,9 @@
       "role": "kotlin",
       "exports": [],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.annotation.SuppressLint",
         "android.view.View",
         "android.webkit.JavascriptInterface",
@@ -363092,8 +363469,6 @@
         "MePerms",
         "MePermissions",
         "LocalMePermissions",
-        "PermissionTags",
-        "PermChip",
         "MePermView",
         "PermissionsList",
         "PermissionBanner"
@@ -363103,42 +363478,30 @@
         "android.content.Context",
         "android.content.pm.PackageManager",
         "android.util.Base64",
-        "androidx.compose.foundation.background",
-        "androidx.compose.foundation.border",
-        "androidx.compose.foundation.clickable",
-        "androidx.compose.foundation.layout.Box",
-        "androidx.compose.foundation.layout.Column",
-        "androidx.compose.foundation.layout.Row",
-        "androidx.compose.foundation.layout.Spacer",
-        "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.layout.height",
-        "androidx.compose.foundation.layout.heightIn",
         "androidx.compose.foundation.layout.padding",
-        "androidx.compose.foundation.layout.size",
-        "androidx.compose.foundation.layout.widthIn",
-        "androidx.compose.foundation.shape.CircleShape",
-        "androidx.compose.foundation.shape.RoundedCornerShape",
-        "androidx.compose.material.icons.Icons",
-        "androidx.compose.material.icons.outlined.Close",
-        "androidx.compose.material.icons.outlined.KeyboardArrowDown",
-        "androidx.compose.material.icons.outlined.KeyboardArrowUp",
-        "androidx.compose.material3.HorizontalDivider",
-        "androidx.compose.material3.Icon",
-        "androidx.compose.material3.IconButton",
-        "androidx.compose.material3.LinearProgressIndicator",
-        "androidx.compose.material3.Text",
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableStateOf",
         "androidx.compose.runtime.produceState",
-        "androidx.compose.runtime.saveable.rememberSaveable",
-        "androidx.compose.runtime.setValue",
         "androidx.compose.runtime.staticCompositionLocalOf",
-        "androidx.compose.ui.Alignment",
         "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.draw.clip",
         "androidx.compose.ui.platform.LocalContext",
-        "androidx.compose.ui.platform.testTag"
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.superapp.health.HealthConnectGateway",
+        "com.diegonmarcos.superapp.perms.PermAction",
+        "com.diegonmarcos.superapp.perms.PermItem",
+        "com.diegonmarcos.superapp.perms.PermItemKind",
+        "com.diegonmarcos.superapp.perms.PermKind",
+        "com.diegonmarcos.superapp.perms.PermState",
+        "com.diegonmarcos.superapp.perms.PermStatusReader",
+        "com.diegonmarcos.superapp.perms.Perms",
+        "com.diegonmarcos.superapp.perms.PermsList",
+        "com.diegonmarcos.superapp.perms.PermsPromptCard",
+        "com.diegonmarcos.superapp.perms.PermsStyle",
+        "com.diegonmarcos.superapp.perms.PermsView",
+        "com.diegonmarcos.superapp.uiicons.UiIcons",
+        "com.diegonmarcos.superapp.uikit.LocalKitPalette",
+        "org.json.JSONArray",
+        "org.json.JSONObject"
       ],
       "symbols": [
         "parse(json: String)",
@@ -363154,22 +363517,11 @@
         "noteSpecialOpened(ctx: Context, id: String)",
         "rows(ctx: Context, activity: Activity?, healthAvailable: Boolean, healthGranted: Set<String>?, decl: MePermDecl = MePermDecl.baked)",
         "health(ctx: Context)",
-        "row(id: String)",
-        "grant(id: String)",
-        "group(title: String)",
-        "chip(r: PermRow)",
-        "reasonLine(r: PermRow)",
-        "healthState(rows: List<PermRow>)",
-        "progress(rows: List<PermRow>)",
-        "groups(rows: List<PermRow>)",
-        "bannerText(missing: List<String>)",
-        "actionWord(step: PermStep)",
+        "kind(k: RowKind)",
+        "items(rows: List<PermRow>)",
         "rowStep(r: PermRow, rows: List<PermRow>)",
+        "meStyle()",
         "PermissionsList()",
-        "PermCard(modifier: Modifier = Modifier, content: @Composable ()",
-        "PermGroup(g: MePermView.Group, rows: List<PermRow>, hooks: MePermissions)",
-        "HealthRows(part: List<PermRow>, rows: List<PermRow>, hooks: MePermissions)",
-        "PermRowView(label: String, reason: String, icon: String, chip: PermChip, step: PermStep?, id: String, hooks: MePermissions)",
         "PermissionBanner(missing: List<String>, onGrantAll: ()",
         "class MePermDecl",
         "class Entry",
@@ -363180,7 +363532,11 @@
         "class Runtime",
         "class Health",
         "class Settings",
-        "class AskMemory"
+        "class AskMemory",
+        "class MePermPlan",
+        "class MePerms",
+        "class MePermissions",
+        "class MePermView"
       ]
     },
     {
@@ -363701,6 +364057,9 @@
         "WebPage"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.os.Bundle",
         "android.webkit.JavascriptInterface",
         "android.webkit.WebView",
@@ -364262,7 +364621,10 @@
         "android.content.pm.PackageManager",
         "com.diegonmarcos.superapp.perms.PermState",
         "com.diegonmarcos.superapp.perms.Perms",
-        "com.diegonmarcos.superapp.uikit.KitState",
+        "com.diegonmarcos.superapp.perms.PermAction",
+        "com.diegonmarcos.superapp.perms.PermItem",
+        "com.diegonmarcos.superapp.perms.PermItemKind",
+        "com.diegonmarcos.superapp.perms.PermsView",
         "org.junit.Assert.assertEquals",
         "org.junit.Assert.assertNull",
         "org.junit.Assert.assertTrue",
@@ -366057,6 +366419,8 @@
         "MainActivity"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.os.Bundle",
         "android.view.ViewGroup",
         "android.webkit.WebChromeClient",
@@ -367355,7 +367719,7 @@
       ],
       "imports": [
         "android.content.Context",
-        "android.webkit.WebView",
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
         "android.widget.Toast",
         "androidx.compose.material3.MaterialTheme",
         "androidx.compose.material3.OutlinedButton",
@@ -368558,27 +368922,24 @@
         "SpaceViewActivity"
       ],
       "imports": [
-        "android.annotation.SuppressLint",
         "android.os.Bundle",
-        "android.webkit.WebResourceRequest",
-        "android.webkit.WebResourceResponse",
-        "android.webkit.WebSettings",
         "android.webkit.WebView",
-        "android.webkit.WebViewClient",
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "androidx.appcompat.app.AppCompatActivity",
         "androidx.compose.foundation.layout.fillMaxSize",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.platform.ComposeView",
         "androidx.compose.ui.platform.ViewCompositionStrategy",
         "androidx.compose.ui.viewinterop.AndroidView",
-        "androidx.webkit.WebViewAssetLoader",
         "com.diegonmarcos.cloudnav.tracker.TrackerInk",
         "com.diegonmarcos.superapp.uikit.CloudKitTheme"
       ],
       "symbols": [
         "onCreate(savedInstanceState: Bundle?)",
         "createWebView(ctx: android.content.Context)",
-        "shouldInterceptRequest(view: WebView, request: WebResourceRequest)",
+        "onRecovered(dead: WebView, fresh: WebView?)",
         "onDestroy()",
         "class SpaceViewActivity"
       ]
@@ -368628,11 +368989,12 @@
         "TerrainActivity"
       ],
       "imports": [
-        "android.annotation.SuppressLint",
         "android.os.Bundle",
         "android.webkit.JavascriptInterface",
-        "android.webkit.WebSettings",
         "android.webkit.WebView",
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "androidx.appcompat.app.AppCompatActivity",
         "androidx.compose.foundation.layout.fillMaxSize",
         "androidx.compose.ui.Modifier",
@@ -368647,6 +369009,7 @@
         "setExaggeration(value: Int)",
         "onCreate(savedInstanceState: Bundle?)",
         "createWebView(ctx: android.content.Context)",
+        "onRecovered(dead: WebView, fresh: WebView?)",
         "onPageFinished(view: WebView, url: String)",
         "onDestroy()",
         "class below",
@@ -370905,26 +371268,6 @@
       ]
     },
     {
-      "path": "ac_cloud-news/app/src/main/java/com/diegonmarcos/cloudnews/ChromeWebView.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "ChromeWebView"
-      ],
-      "imports": [
-        "android.webkit.WebView",
-        "androidx.compose.foundation.layout.fillMaxSize",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.viewinterop.AndroidView",
-        "com.diegonmarcos.superapp.bottomnav.ChromeWebScroll",
-        "com.diegonmarcos.superapp.bottomnav.LocalNavChromeCollapse"
-      ],
-      "symbols": [
-        "ChromeWebView(webView: WebView, modifier: Modifier = Modifier)"
-      ]
-    },
-    {
       "path": "ac_cloud-news/app/src/main/java/com/diegonmarcos/cloudnews/MainActivity.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -370932,6 +371275,10 @@
         "MainActivity"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudChromeClient",
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
+        "com.diegonmarcos.superapp.bottomnav.ChromeWebView",
         "android.os.Bundle",
         "android.util.Log",
         "android.webkit.ConsoleMessage",
@@ -430782,6 +431129,8 @@
         "MainActivity"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.content.ComponentCallbacks2",
         "android.os.Bundle",
         "android.view.Gravity",
@@ -430866,6 +431215,9 @@
       "role": "kotlin",
       "exports": [],
       "imports": [
+        "app.cloudnotes.pro.theme.ThemeMode",
+        "app.cloudnotes.pro.theme.CloudNotesTheme",
+        "androidx.compose.foundation.isSystemInDarkTheme",
         "android.view.ViewGroup",
         "android.webkit.JavascriptInterface",
         "android.webkit.WebView",
@@ -430881,7 +431233,6 @@
         "androidx.compose.material3.Surface",
         "androidx.compose.material3.Text",
         "androidx.compose.material3.TextButton",
-        "androidx.compose.material3.darkColorScheme",
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.CompositionLocalProvider",
         "androidx.compose.runtime.getValue",
@@ -430903,12 +431254,11 @@
         "com.diegonmarcos.superapp.navbarbottom.NavBarBottomHost",
         "com.diegonmarcos.superapp.navbartop1.NavBarTopFirstRowScaffold",
         "com.diegonmarcos.superapp.navbartop1.titleHierarchy",
-        "com.diegonmarcos.superapp.navbartop2.NavBarTopSecondRow",
-        "com.diegonmarcos.superapp.navbartop2.NavUiConfigCard",
-        "org.json.JSONArray"
+        "com.diegonmarcos.superapp.navbartop2.NavBarTopSecondRow"
       ],
       "symbols": [
         "parse(json: String)",
+        "setDark(dark: Boolean)",
         "setDocs(json: String)",
         "host()",
         "Content(container: ViewGroup, web: WebView)",
@@ -431267,10 +431617,7 @@
       "role": "kotlin",
       "exports": [
         "CloudNotesColorScheme",
-        "cloudNotesLightScheme",
-        "cloudNotesDarkScheme",
-        "LocalCloudNotesColors",
-        "CloudNotesColorTokens"
+        "LocalCloudNotesColors"
       ],
       "imports": [
         "androidx.compose.runtime.Immutable",
@@ -431278,8 +431625,25 @@
         "androidx.compose.ui.graphics.Color"
       ],
       "symbols": [
-        "class CloudNotesColorScheme",
-        "class CloudNotesColorTokens"
+        "class CloudNotesColorScheme"
+      ]
+    },
+    {
+      "path": "ac_cloud-notes/packages/frontend/apps/android/App/app/src/main/java/app/cloudnotes/pro/theme/ObsidianTokens.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ObsidianTokens",
+        "cloudNotesLightScheme",
+        "cloudNotesDarkScheme"
+      ],
+      "imports": [
+        "androidx.compose.ui.graphics.Color"
+      ],
+      "symbols": [
+        "class ObsidianTokens",
+        "class Light",
+        "class Dark"
       ]
     },
     {
@@ -431288,9 +431652,14 @@
       "role": "kotlin",
       "exports": [
         "CloudNotesTheme",
+        "cloudNotesScheme",
+        "obsidianMaterialColors",
         "ThemeMode"
       ],
       "imports": [
+        "androidx.compose.material3.lightColorScheme",
+        "androidx.compose.material3.darkColorScheme",
+        "androidx.compose.material3.ColorScheme",
         "androidx.compose.foundation.isSystemInDarkTheme",
         "androidx.compose.material3.MaterialTheme",
         "androidx.compose.runtime.Composable",
@@ -431298,6 +431667,8 @@
         "androidx.compose.runtime.ReadOnlyComposable"
       ],
       "symbols": [
+        "cloudNotesScheme(dark: Boolean)",
+        "obsidianMaterialColors(dark: Boolean)",
         "CloudNotesTheme( mode: ThemeMode = ThemeMode.System, content: @Composable ()",
         "of(name: String)",
         "class CloudNotesTheme",
@@ -437150,7 +437521,8 @@
         "@cloud-notes/theme/style.css",
         "./fonts.css",
         "./global.css",
-        "./theme.css"
+        "./theme.css",
+        "./obsidian.gen.css"
       ],
       "symbols": []
     },
@@ -468913,6 +469285,7 @@
       "lang": "ts",
       "role": "file",
       "exports": [
+        "LUCIDE",
         "Icon"
       ],
       "imports": [
@@ -486196,6 +486569,36 @@
       "symbols": []
     },
     {
+      "path": "ac_cloud-notes/scripts/gen-obsidian-theme.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "hex_rgb(h)",
+        "css_color(c)",
+        "gen_css(t)",
+        "kt_color(c)",
+        "camel(name)",
+        "gen_kt(t)",
+        "main(argv)",
+        "class Theme"
+      ],
+      "imports": [
+        "json",
+        "os",
+        "sys"
+      ],
+      "symbols": [
+        "hex_rgb(h)",
+        "css_color(c)",
+        "gen_css(t)",
+        "kt_color(c)",
+        "camel(name)",
+        "gen_kt(t)",
+        "main(argv)",
+        "class Theme"
+      ]
+    },
+    {
       "path": "ac_cloud-notes/scripts/gen-vault-decl.py",
       "lang": "py",
       "role": "script",
@@ -499102,6 +499505,9 @@
         "LegacyWeb"
       ],
       "imports": [
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "android.annotation.SuppressLint",
         "android.webkit.WebSettings",
         "android.webkit.WebView",
@@ -586516,6 +586922,8 @@
       "role": "kotlin",
       "exports": [
         "World",
+        "LinkStatus",
+        "Offline",
         "FilterGroup",
         "Store"
       ],
@@ -586523,6 +586931,10 @@
         "org.json.JSONObject"
       ],
       "symbols": [
+        "parse(s: String?)",
+        "isOfflineError(errorCode: Int)",
+        "isOfflineHttp(status: Int)",
+        "timedOut(elapsedMs: Long, finished: Boolean)",
         "parse(json: String)",
         "tags(w: World, group: FilterGroup)",
         "allSelected()",
@@ -586532,6 +586944,8 @@
         "matches(w: World, sel: Map<FilterGroup, Set<String>>)",
         "filter(worlds: List<World>, sel: Map<FilterGroup, Set<String>>)",
         "class World",
+        "class LinkStatus",
+        "class Offline",
         "class FilterGroup",
         "class Store"
       ]
@@ -586571,6 +586985,7 @@
         "com.diegonmarcos.superapp.themebg.themeBackground"
       ],
       "symbols": [
+        "statusBadge(id: String)",
         "entry(title: String)",
         "avatarGroup(id: String)",
         "avatarOption(group: String, id: String)",
@@ -586612,10 +587027,10 @@
       "imports": [
         "android.app.backup.BackupManager",
         "android.content.Context",
-        "android.webkit.WebResourceRequest",
-        "android.webkit.WebResourceResponse",
         "android.webkit.WebView",
-        "android.webkit.WebViewClient",
+        "com.diegonmarcos.cloudlib.web.CloudWeb",
+        "com.diegonmarcos.cloudlib.web.CloudWebClient",
+        "com.diegonmarcos.cloudlib.web.WebProfile",
         "androidx.compose.foundation.background",
         "androidx.compose.foundation.border",
         "androidx.compose.foundation.clickable",
@@ -586654,8 +587069,8 @@
       "symbols": [
         "AvatarPage()",
         "update(next: Map<String, String>)",
-        "shouldInterceptRequest(view: WebView, request: WebResourceRequest)",
-        "onPageFinished(view: WebView, url: String)"
+        "onPageFinished(view: WebView, url: String)",
+        "onRecovered(dead: WebView, fresh: WebView?)"
       ]
     },
     {
@@ -586671,11 +587086,10 @@
         "android.net.Uri",
         "android.webkit.PermissionRequest",
         "android.webkit.RenderProcessGoneDetail",
-        "android.webkit.WebChromeClient",
         "android.webkit.WebResourceError",
         "android.webkit.WebResourceRequest",
+        "android.webkit.WebResourceResponse",
         "android.webkit.WebView",
-        "android.webkit.WebViewClient",
         "androidx.activity.compose.BackHandler",
         "androidx.compose.foundation.background",
         "androidx.compose.foundation.border",
@@ -586695,6 +587109,8 @@
         "androidx.compose.foundation.shape.RoundedCornerShape",
         "androidx.compose.material.icons.Icons",
         "androidx.compose.material.icons.filled.Close",
+        "androidx.compose.material.icons.filled.History",
+        "androidx.compose.material.icons.filled.DesktopWindows",
         "androidx.compose.material.icons.filled.OpenInBrowser",
         "androidx.compose.material.icons.filled.PlayArrow",
         "androidx.compose.material.icons.filled.Refresh",
@@ -586705,8 +587121,7 @@
         "androidx.compose.material3.MaterialTheme",
         "androidx.compose.material3.Text",
         "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.DisposableEffect",
-        "androidx.compose.runtime.getValue"
+        "androidx.compose.runtime.DisposableEffect"
       ],
       "symbols": [
         "GalaxyPage(loaded: World?, onEnter: (World)",
@@ -586717,6 +587132,7 @@
         "onPageStarted(view: WebView, url: String, favicon: Bitmap?)",
         "onPageFinished(view: WebView, url: String)",
         "onReceivedError(view: WebView, request: WebResourceRequest, err: WebResourceError)",
+        "onReceivedHttpError(view: WebView, request: WebResourceRequest, response: WebResourceResponse)",
         "onRenderProcessGone(view: WebView, detail: RenderProcessGoneDetail)"
       ]
     },
@@ -586772,12 +587188,14 @@
       "exports": [
         "StorePage",
         "Badge",
-        "WorldBadges"
+        "WorldBadges",
+        "StatusBadge"
       ],
       "imports": [
         "androidx.compose.foundation.background",
         "androidx.compose.foundation.horizontalScroll",
         "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
         "androidx.compose.foundation.layout.Column",
         "androidx.compose.foundation.layout.PaddingValues",
         "androidx.compose.foundation.layout.Row",
@@ -586813,8 +587231,7 @@
         "androidx.compose.ui.text.font.FontWeight",
         "androidx.compose.ui.text.style.TextOverflow",
         "androidx.compose.ui.unit.dp",
-        "com.diegonmarcos.cgomniverse.Decl",
-        "com.diegonmarcos.cgomniverse.FilterGroup"
+        "com.diegonmarcos.cgomniverse.Decl"
       ],
       "symbols": [
         "StorePage(onOpenInGalaxy: (World)",
@@ -586823,6 +587240,7 @@
         "Chip(label: String, selected: Boolean, tag: String, onClick: ()",
         "Badge(text: String, tint: Color? = null)",
         "WorldBadges(w: World)",
+        "StatusBadge(w: World)",
         "WorldCard(w: World, onGalaxy: ()"
       ]
     },
@@ -586834,20 +587252,14 @@
         "Web"
       ],
       "imports": [
-        "android.annotation.SuppressLint",
         "android.content.Context",
-        "android.content.Intent",
-        "android.net.Uri",
-        "android.view.MotionEvent",
-        "android.view.View",
-        "android.webkit.WebSettings",
-        "android.webkit.WebView",
-        "androidx.webkit.WebViewAssetLoader"
+        "com.diegonmarcos.cloudlib.web.CloudWeb"
       ],
       "symbols": [
-        "assetLoader(ctx: Context)",
-        "create(ctx: Context)",
         "openInBrowser(ctx: Context, url: String)",
+        "prefs(ctx: Context)",
+        "desktop(ctx: Context, worldId: String)",
+        "setDesktop(ctx: Context, worldId: String, on: Boolean)",
         "class Web"
       ]
     },
@@ -586873,6 +587285,32 @@
         "setRefusesWhatIsNotDeclared()",
         "theSceneGetsHexColoursAndShapeIds()",
         "class AvatarTest"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/test/java/com/diegonmarcos/cgomniverse/OfflineTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "OfflineTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "java.io.File"
+      ],
+      "symbols": [
+        "statusParsesEachValue()",
+        "anUnknownStatusIsUnverifiedNeverOnline()",
+        "parseCarriesStatusAndDate()",
+        "theRealStoreMarksAWayToGoOffline()",
+        "goneHttpIsOffline()",
+        "unreachableHostIsOffline()",
+        "theWatchdogFiresOnlyForAnUnfinishedLoadPastItsTime()",
+        "waybackIsTheArchiveCopyFromStoreJson()",
+        "class OfflineTest"
       ]
     },
     {
@@ -587009,7 +587447,8 @@
       "exports": [
         "slug(name)",
         "cells(line)",
-        "generate(text)",
+        "load_links(path=LINKS)",
+        "generate(text, links=None)",
         "render(text)",
         "cleartext_hosts(store)",
         "render_nsc(text)"
@@ -587020,10 +587459,29 @@
       "symbols": [
         "slug(name)",
         "cells(line)",
-        "generate(text)",
+        "load_links(path=LINKS)",
+        "generate(text, links=None)",
         "render(text)",
         "cleartext_hosts(store)",
         "render_nsc(text)"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/data/probe-links.py",
+      "lang": "py",
+      "role": "python",
+      "exports": [
+        "classify_http(code)",
+        "probe(url, timeout)",
+        "main()"
+      ],
+      "imports": [
+        "concurrent.futures"
+      ],
+      "symbols": [
+        "classify_http(code)",
+        "probe(url, timeout)",
+        "main()"
       ]
     },
     {
