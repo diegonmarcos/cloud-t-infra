@@ -42,6 +42,7 @@ jobs:
     timeout-minutes: 15
     env:
       VAULT_WRITE_DEPLOY_KEY: ${{ secrets.VAULT_WRITE_DEPLOY_KEY }}
+      VAULT_DEPLOY_KEY: ${{ secrets.VAULT_DEPLOY_KEY }}
       ROTATE: ${{ inputs.rotate }}
       MODE: ${{ inputs.mode }}
       SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
@@ -56,7 +57,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           path: self
-          sparse-checkout: 1_cicd/src/scripts/sso-oidc-bundle.py
+          sparse-checkout: |
+            1_cicd/src/scripts/sso-oidc-bundle.py
+            1_cicd/src/scripts/vault-publish-encrypted.sh
           sparse-checkout-cone-mode: false
       - name: Install sops
         run: |
@@ -68,12 +71,13 @@ jobs:
         run: |
           set -eu
           umask 077
-          [ -n "$VAULT_WRITE_DEPLOY_KEY" ] || { echo "::error::VAULT_WRITE_DEPLOY_KEY is not available to this workflow"; exit 1; }
+          VKEY="${VAULT_WRITE_DEPLOY_KEY:-$VAULT_DEPLOY_KEY}"
+          [ -n "$VKEY" ] || { echo "::error::neither VAULT_WRITE_DEPLOY_KEY nor VAULT_DEPLOY_KEY is available"; exit 1; }
           CLIENTS="$GITHUB_WORKSPACE/containers/infra-sec_authelia/src/oidc-clients.json"
           W="$(mktemp -d -p /dev/shm)"; cd "$W"
           trap 'find "$W" -type f -exec shred -u {} + 2>/dev/null || true; rm -rf "$W" ~/.ssh/id_deploy || true' EXIT
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
-          printf '%s\n' "$VAULT_WRITE_DEPLOY_KEY" > ~/.ssh/id_deploy; chmod 600 ~/.ssh/id_deploy
+          printf '%s\n' "$VKEY" > ~/.ssh/id_deploy; chmod 600 ~/.ssh/id_deploy
           ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_deploy -o IdentitiesOnly=yes"
           git clone -q --depth 1 git@github.com:diegonmarcos/cloud-me-pvt-vault.git "$W/pvt"
@@ -102,6 +106,14 @@ jobs:
           if grep -q 'PRIVATE KEY' sso-oidc.sops.json; then echo "::error::plaintext key leaked into the sops file"; exit 1; fi
           mkdir -p "$W/pvt/Identity/sso-oidc" && cp sso-oidc.sops.json "$W/pvt/Identity/sso-oidc/sso-oidc.sops.json"
           printf 'Authelia OIDC JWKS signing key + per-service client secrets and pbkdf2 digests (#1147). sops-encrypted to the fleet age key; decrypt with `sops -d`.\nclients.<client_id>.secret goes to the service as <SVC>_OIDC_CLIENT_SECRET; clients.<client_id>.secret_var names the Authelia secret file; jwks_key_pem is AUTHELIA_OIDC_JWKS_KEY.\n' > "$W/pvt/Identity/sso-oidc/README.txt"
-          ( cd "$W/pvt" && git config user.name "Claude" && git config user.email "noreply@anthropic.com" && git add Identity/sso-oidc \
-            && git commit -q -m "$COMMIT_MSG" && git push -q origin HEAD:main )
-          echo "bundle pushed to cloud-me-pvt-vault/Identity/sso-oidc (encrypted)."
+          bash "$GITHUB_WORKSPACE/self/1_cicd/src/scripts/vault-publish-encrypted.sh" "$W/pvt" "$COMMIT_MSG" Identity/sso-oidc
+      # #994: no vault write key -> ciphertext-only files (checked by vault-publish-encrypted.sh), kept 1 day.
+      - name: Hand back encrypted vault files (only when no write key exists)
+        if: ${{ success() && hashFiles('vault-out/**') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: vault-out
+          path: vault-out
+          include-hidden-files: true
+          retention-days: 1
+          if-no-files-found: ignore

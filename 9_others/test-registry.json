@@ -256,6 +256,9 @@
     "sso-oidc-bundle-add.test.sh": {
       "status": "run"
     },
+    "vault-publish-encrypted.test.sh": {
+      "status": "run"
+    },
     "cgc-db-queue-no-eviction.test.sh": {
       "status": "run"
     },

@@ -44,10 +44,16 @@ jobs:
     timeout-minutes: 15
     env:
       VAULT_WRITE_DEPLOY_KEY: ${{ secrets.VAULT_WRITE_DEPLOY_KEY }}
+      VAULT_DEPLOY_KEY: ${{ secrets.VAULT_DEPLOY_KEY }}
       SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
       CLIENTS_IN: ${{ inputs.clients }}
       AGE_RECIPIENT: age1u575hx8h4t5cgle2uznmyfy75e7cgd02h9t5dax506luz9e05vlqxtd7pq
     steps:
+      - uses: actions/checkout@v4
+        with:
+          path: self
+          sparse-checkout: 1_cicd/src/scripts/vault-publish-encrypted.sh
+          sparse-checkout-cone-mode: false
       - name: Install sops
         run: |
           set -eu
@@ -58,12 +64,13 @@ jobs:
         run: |
           set -eu
           umask 077
-          [ -n "$VAULT_WRITE_DEPLOY_KEY" ] || { echo "::error::VAULT_WRITE_DEPLOY_KEY is not available"; exit 1; }
+          VKEY="${VAULT_WRITE_DEPLOY_KEY:-$VAULT_DEPLOY_KEY}"
+          [ -n "$VKEY" ] || { echo "::error::neither VAULT_WRITE_DEPLOY_KEY nor VAULT_DEPLOY_KEY is available"; exit 1; }
           [ -n "$SOPS_AGE_KEY" ] || { echo "::error::SOPS_AGE_KEY is not available"; exit 1; }
           W="$(mktemp -d -p /dev/shm)"; cd "$W"
           trap 'find "$W" -type f -exec shred -u {} + 2>/dev/null || true; rm -rf "$W" ~/.ssh/id_deploy || true' EXIT
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
-          printf '%s\n' "$VAULT_WRITE_DEPLOY_KEY" > ~/.ssh/id_deploy; chmod 600 ~/.ssh/id_deploy
+          printf '%s\n' "$VKEY" > ~/.ssh/id_deploy; chmod 600 ~/.ssh/id_deploy
           ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_deploy -o IdentitiesOnly=yes"
           git clone -q --depth 1 git@github.com:diegonmarcos/cloud-me-pvt-vault.git "$W/pvt"
@@ -108,6 +115,14 @@ jobs:
             lc="$W/pvt/Linux-Containers/${rel%.json}"; mkdir -p "$(dirname "$lc")"; cp "$dst" "$lc"
           done
           if grep -rqE 'pbkdf2-sha512|PRIVATE KEY' "$W/pvt/Identity/sso-oidc/deliver"; then echo "::error::plaintext leaked"; exit 1; fi
-          ( cd "$W/pvt" && git config user.name "Claude" && git config user.email "noreply@anthropic.com" && git add Identity/sso-oidc/deliver Linux-Containers \
-            && { git diff --cached --quiet || git commit -q -m "sso-oidc: per-service encrypted delivery files (#1147)"; } && git push -q origin HEAD:main )
-          echo "delivery files pushed to cloud-me-pvt-vault/Identity/sso-oidc/deliver (encrypted): $(find "$W/pvt/Identity/sso-oidc/deliver" -type f | wc -l)"
+          bash "$GITHUB_WORKSPACE/self/1_cicd/src/scripts/vault-publish-encrypted.sh" "$W/pvt" "sso-oidc: per-service encrypted delivery files (#1147)" Identity/sso-oidc/deliver Linux-Containers
+      # #994: no vault write key -> ciphertext-only files (checked by vault-publish-encrypted.sh), kept 1 day.
+      - name: Hand back encrypted vault files (only when no write key exists)
+        if: ${{ success() && hashFiles('vault-out/**') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: vault-out
+          path: vault-out
+          include-hidden-files: true
+          retention-days: 1
+          if-no-files-found: ignore
