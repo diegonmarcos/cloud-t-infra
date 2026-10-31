@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22913,
+    "files": 22915,
     "by_lang": {
       "sh": 628,
       "js": 526,
       "py": 184,
-      "kotlin": 12311,
+      "kotlin": 12313,
       "java": 649,
       "nix": 35,
       "rust": 111,
@@ -23,7 +23,7 @@
       "shell": 500,
       "script": 276,
       "java": 648,
-      "kotlin": 12308,
+      "kotlin": 12310,
       "python": 59,
       "module": 6459,
       "flake": 31,
@@ -587686,6 +587686,20 @@
       ]
     },
     {
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/Launch.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Launch"
+      ],
+      "imports": [],
+      "symbols": [
+        "resolve(section: String?, world: String?, sections: Set<String>, worlds: Set<String>, default: String)",
+        "class Launch",
+        "class Start"
+      ]
+    },
+    {
       "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/MainActivity.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -587694,6 +587708,8 @@
       ],
       "imports": [
         "android.os.Bundle",
+        "android.os.StrictMode",
+        "android.util.Log",
         "androidx.activity.ComponentActivity",
         "androidx.activity.compose.setContent",
         "com.diegonmarcos.cgomniverse.ui.AppShell",
@@ -587776,12 +587792,14 @@
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.getValue",
         "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
         "androidx.compose.runtime.saveable.rememberSaveable",
         "androidx.compose.runtime.setValue",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.platform.testTag",
         "androidx.compose.ui.res.stringResource",
         "com.diegonmarcos.cgomniverse.Decl",
+        "com.diegonmarcos.cgomniverse.Launch",
         "com.diegonmarcos.cgomniverse.R",
         "com.diegonmarcos.cgomniverse.World",
         "com.diegonmarcos.superapp.bottomnav.islandEntries",
@@ -587801,7 +587819,7 @@
         "openGalaxy(id: String)",
         "openBrowser(id: String)",
         "galaxyWorld(id: String)",
-        "AppShell()",
+        "AppShell(startSection: String? = null, startWorld: String? = null)",
         "class Tags"
       ]
     },
@@ -587858,6 +587876,7 @@
         "android.app.backup.BackupManager",
         "android.content.ContentValues",
         "android.content.Context",
+        "android.content.SharedPreferences",
         "android.graphics.BitmapFactory",
         "android.os.Build",
         "android.os.Environment",
@@ -587893,14 +587912,12 @@
         "androidx.compose.material.icons.Icons",
         "androidx.compose.material.icons.automirrored.filled.DirectionsRun",
         "androidx.compose.material.icons.filled.AccessibilityNew",
-        "androidx.compose.material.icons.filled.AutoAwesome",
-        "androidx.compose.material.icons.filled.Autorenew"
+        "androidx.compose.material.icons.filled.AutoAwesome"
       ],
       "symbols": [
         "category(id: String)",
         "card(category: String, id: String)",
         "iconFor(name: String)",
-        "config()",
         "event(json: String)",
         "saveBegin(fileName: String, mime: String)",
         "saveChunk(b64: String)",
@@ -587910,6 +587927,7 @@
         "css(px: Int)",
         "update(next: Map<String, String>)",
         "js(code: String)",
+        "onPageFinished(view: WebView, url: String?)",
         "onRecovered(dead: WebView, fresh: WebView?)",
         "SquareButton(icon: ImageVector, label: String, tag: String, active: Boolean = false, onClick: ()",
         "PurplePill(label: String, tag: String, onClick: ()",
@@ -588138,6 +588156,27 @@
         "theSceneConfigCarriesTheInsets()",
         "theAiConnectorIsDeclaredAndHoldsNoKey()",
         "class AvatarTest"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/test/java/com/diegonmarcos/cgomniverse/LaunchTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "LaunchTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "r(s: String?, w: String?)",
+        "noExtrasIsTheDefault()",
+        "aKnownSectionOpensIt()",
+        "anUnknownSectionIsTheDefault()",
+        "aKnownWorldOpensGalaxy()",
+        "anUnknownWorldIsIgnored()",
+        "class LaunchTest"
       ]
     },
     {
