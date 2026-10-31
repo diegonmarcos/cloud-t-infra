@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22813,
+    "files": 22857,
     "by_lang": {
-      "sh": 618,
+      "sh": 625,
       "js": 513,
-      "py": 177,
-      "kotlin": 12243,
+      "py": 179,
+      "kotlin": 12278,
       "java": 647,
       "nix": 35,
       "rust": 111,
@@ -20,10 +20,10 @@
     "by_role": {
       "hook": 158,
       "file": 2302,
-      "shell": 493,
-      "script": 268,
+      "shell": 498,
+      "script": 272,
       "java": 646,
-      "kotlin": 12240,
+      "kotlin": 12275,
       "python": 57,
       "module": 6447,
       "flake": 31,
@@ -1558,6 +1558,54 @@
         "scan_tree(repo, tree, cfg)",
         "exclusions_engaged(repo, cfg)",
         "main(argv)"
+      ]
+    },
+    {
+      "path": ".github/workflows/scripts/cloud-android-perms-guard.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "read(path)",
+        "strip(text)",
+        "manifest_of(app_dir, bj)",
+        "module_dirs(app_dir, bj)",
+        "settings_files(app_dir, man)",
+        "package_of(bj, man)",
+        "mods_of(bj)",
+        "includes(app_dir, man, bj, lib)",
+        "links_perms(app_dir, bj, man=None)",
+        "manifest_perms(text)",
+        "ids_of_manifest(cat, perms, services)",
+        "satisfied_by_manifest(cat, need, perms, services)",
+        "code_files(app_dir, extra_skip)",
+        "scan(app_dir, policy, extra_skip)",
+        "asset_body(perms)",
+        "main()"
+      ],
+      "imports": [
+        "glob",
+        "json",
+        "os",
+        "re",
+        "sys"
+      ],
+      "symbols": [
+        "read(path)",
+        "strip(text)",
+        "manifest_of(app_dir, bj)",
+        "module_dirs(app_dir, bj)",
+        "settings_files(app_dir, man)",
+        "package_of(bj, man)",
+        "mods_of(bj)",
+        "includes(app_dir, man, bj, lib)",
+        "links_perms(app_dir, bj, man=None)",
+        "manifest_perms(text)",
+        "ids_of_manifest(cat, perms, services)",
+        "satisfied_by_manifest(cat, need, perms, services)",
+        "code_files(app_dir, extra_skip)",
+        "scan(app_dir, policy, extra_skip)",
+        "asset_body(perms)",
+        "main()"
       ]
     },
     {
@@ -4173,6 +4221,54 @@
       ]
     },
     {
+      "path": "1_cicd/src/scripts/cloud-android-perms-guard.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "read(path)",
+        "strip(text)",
+        "manifest_of(app_dir, bj)",
+        "module_dirs(app_dir, bj)",
+        "settings_files(app_dir, man)",
+        "package_of(bj, man)",
+        "mods_of(bj)",
+        "includes(app_dir, man, bj, lib)",
+        "links_perms(app_dir, bj, man=None)",
+        "manifest_perms(text)",
+        "ids_of_manifest(cat, perms, services)",
+        "satisfied_by_manifest(cat, need, perms, services)",
+        "code_files(app_dir, extra_skip)",
+        "scan(app_dir, policy, extra_skip)",
+        "asset_body(perms)",
+        "main()"
+      ],
+      "imports": [
+        "glob",
+        "json",
+        "os",
+        "re",
+        "sys"
+      ],
+      "symbols": [
+        "read(path)",
+        "strip(text)",
+        "manifest_of(app_dir, bj)",
+        "module_dirs(app_dir, bj)",
+        "settings_files(app_dir, man)",
+        "package_of(bj, man)",
+        "mods_of(bj)",
+        "includes(app_dir, man, bj, lib)",
+        "links_perms(app_dir, bj, man=None)",
+        "manifest_perms(text)",
+        "ids_of_manifest(cat, perms, services)",
+        "satisfied_by_manifest(cat, need, perms, services)",
+        "code_files(app_dir, extra_skip)",
+        "scan(app_dir, policy, extra_skip)",
+        "asset_body(perms)",
+        "main()"
+      ]
+    },
+    {
       "path": "1_cicd/src/scripts/cloud-android-phone-apps-page-guard.py",
       "lang": "py",
       "role": "script",
@@ -6164,6 +6260,44 @@
         "contains()",
         "build_fixture()",
         "run_guard()"
+      ]
+    },
+    {
+      "path": "1_cicd/src/scripts/test/perms-emulator-proof.sh",
+      "lang": "sh",
+      "role": "script",
+      "exports": [
+        "say()",
+        "shot()",
+        "has()",
+        "check()",
+        "perms_page()"
+      ],
+      "imports": [],
+      "symbols": [
+        "say()",
+        "shot()",
+        "has()",
+        "check()",
+        "perms_page()"
+      ]
+    },
+    {
+      "path": "1_cicd/src/scripts/test/perms-guard.test.sh",
+      "lang": "sh",
+      "role": "script",
+      "exports": [
+        "mk()",
+        "expect()",
+        "jset()",
+        "regen()"
+      ],
+      "imports": [],
+      "symbols": [
+        "mk()",
+        "expect()",
+        "jset()",
+        "regen()"
       ]
     },
     {
@@ -48275,6 +48409,34 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/git-sync-engine/src/androidTest/java/com/diegonmarcos/cloudlib/gitsync/engine/EngineSharedStorageTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "EngineSharedStorageTest"
+      ],
+      "imports": [
+        "android.os.Environment",
+        "androidx.test.ext.junit.runners.AndroidJUnit4",
+        "androidx.test.platform.app.InstrumentationRegistry",
+        "org.eclipse.jgit.api.Git",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "java.io.File"
+      ],
+      "symbols": [
+        "git(dir: File, verb: String, args: JSONObject = JSONObject()",
+        "op(dir: File, verb: String, args: JSONObject = JSONObject()",
+        "cloneCommitPushPullOnSharedStorageWithTheGrant()",
+        "withoutTheGrantEveryVerbOnSharedStorageSaysSo()",
+        "class EngineSharedStorageTest"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/git-sync-engine/src/main/java/com/diegonmarcos/cloudlib/gitsync/engine/GitCalls.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -48517,6 +48679,18 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/git-sync-engine/test/emulator-engine-proof.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "fail()"
+      ],
+      "imports": [],
+      "symbols": [
+        "fail()"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/git-sync/src/main/java/com/diegonmarcos/cloudlib/gitsync/GitAuthChain.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -48667,6 +48841,7 @@
         "session()",
         "git(request: JSONObject)",
         "chunk(request: JSONObject)",
+        "info()",
         "close()",
         "ask(method: String, request: JSONObject)",
         "onServiceConnected(name: ComponentName?, binder: IBinder?)",
@@ -48796,6 +48971,7 @@
         "session()",
         "git(request: JSONObject)",
         "chunk(request: JSONObject)",
+        "info()",
         "close()",
         "class GitTransport",
         "class Session"
@@ -73745,6 +73921,90 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/perms/src/main/java/com/diegonmarcos/superapp/perms/AppPerms.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "HelperNeed",
+        "AppPermsDecl",
+        "HelperRow",
+        "AppPerms",
+        "HelperState"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.content.pm.PackageManager",
+        "android.net.Uri",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "parse(json: String)",
+        "strings(a: org.json.JSONArray?)",
+        "decl(ctx: Context)",
+        "own(ctx: Context, activity: android.app.Activity? = null)",
+        "helpers(ctx: Context)",
+        "missingOwn(ctx: Context)",
+        "missingHelpers(ctx: Context)",
+        "openHelper(ctx: Context, row: HelperRow)",
+        "reset()",
+        "uri(pkg: String)",
+        "read(ctx: Context, pkg: String)",
+        "class HelperNeed",
+        "class AppPermsDecl",
+        "class HelperRow",
+        "class AppPerms",
+        "class HelperState"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/perms/src/main/java/com/diegonmarcos/superapp/perms/AppPermsSection.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PermsStyle",
+        "AppPermsSection"
+      ],
+      "imports": [
+        "android.app.Activity",
+        "android.content.Context",
+        "android.content.ContextWrapper",
+        "androidx.activity.compose.rememberLauncherForActivityResult",
+        "androidx.activity.result.contract.ActivityResultContracts",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.material3.Button",
+        "androidx.compose.material3.OutlinedButton",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.DisposableEffect",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableIntStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp"
+      ],
+      "symbols": [
+        "AppPermsSection(tick: Int, style: PermsStyle = PermsStyle()",
+        "request(entries: List<PermEntry>)",
+        "step()",
+        "PermRowView(label: String, state: PermStatus, bold: Boolean, style: PermsStyle, tag: String, sub: String = \"\", button: String?, onClick: ()",
+        "findActivity()",
+        "class PermsStyle"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/perms/src/main/java/com/diegonmarcos/superapp/perms/PermCatalogue.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -73830,6 +74090,9 @@
         "declared(ctx: Context)",
         "asked(ctx: Context)",
         "markAsked(ctx: Context, perms: Collection<String>)",
+        "askedIds(ctx: Context)",
+        "markAskedIds(ctx: Context, ids: Collection<String>)",
+        "migrate(ctx: Context, version: Int)",
         "status(ctx: Context, e: PermEntry, activity: Activity? = null, vars: Map<String, String>? = null, declared: Set<String>? = null)",
         "bool(g: Boolean, deniedWhy: String = \"\")",
         "read(ctx: Context, e: PermEntry, activity: Activity?, vars: Map<String, String>)",
@@ -73837,7 +74100,7 @@
         "declaresVpn(ctx: Context)",
         "intents(ctx: Context, e: PermEntry, vars: Map<String, String> = Perms.vars(ctx)",
         "decorate(i: Intent, withData: Boolean)",
-        "open(ctx: Context, e: PermEntry)",
+        "open(ctx: Context, e: PermEntry, pkg: String = ctx.packageName)",
         "missing(ctx: Context, vararg features: String)",
         "labels(entries: List<PermEntry>)",
         "idsFor(ctx: Context, permissions: Collection<String>)",
@@ -73850,17 +74113,16 @@
         "appop(pkg: String, op: String, mode: String = \"allow\")",
         "appInfoIntent(pkg: String)",
         "openAppInfo(ctx: Context, pkg: String)",
+        "notificationsIntent(pkg: String)",
+        "languageIntent(pkg: String)",
+        "open(ctx: Context, i: Intent)",
         "class Perms",
         "class PermAskLog",
         "class PermStatusReader",
         "class PermsSettings",
         "class PermsNeeds",
         "class PermsHost",
-        "class PermsLink",
-        "class Request",
-        "class PermsBanner",
-        "class PermsShell",
-        "class PermsPages"
+        "class PermsLink"
       ]
     },
     {
@@ -73905,13 +74167,64 @@
       "symbols": [
         "onCreate(savedInstanceState: Bundle?)",
         "onResume()",
-        "Page(feature: String, ids: Set<String>, @Suppress(\"UNUSED_PARAMETER\")",
+        "Page(feature: String, ids: Set<String>, tick: Int)",
         "request(entries: List<PermEntry>)",
         "intent(ctx: Context, feature: String, ids: Collection<String>)",
         "rows(entries: List<PermEntry>, wanted: Set<String>, status: (PermEntry)",
         "stateText(s: PermState)",
         "class PermsActivity",
         "class Row"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/perms/src/main/java/com/diegonmarcos/superapp/perms/PermsFirstRun.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PermsFirstRun"
+      ],
+      "imports": [
+        "android.app.Activity",
+        "android.app.ActivityManager",
+        "android.app.Application",
+        "android.content.Context",
+        "android.content.Intent",
+        "android.os.Bundle",
+        "android.provider.Settings"
+      ],
+      "symbols": [
+        "install(app: Application)",
+        "onActivityResumed(activity: Activity)",
+        "onActivityCreated(activity: Activity, savedInstanceState: Bundle?)",
+        "onActivityStarted(activity: Activity)",
+        "onActivityPaused(activity: Activity)",
+        "onActivityStopped(activity: Activity)",
+        "onActivitySaveInstanceState(activity: Activity, outState: Bundle)",
+        "onActivityDestroyed(activity: Activity)",
+        "neverAsked(ctx: Context)",
+        "fromLauncher(i: Intent?)",
+        "suppressed(ctx: Context)",
+        "class PermsFirstRun"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/perms/src/main/java/com/diegonmarcos/superapp/perms/PermsGate.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PermsGate"
+      ],
+      "imports": [
+        "android.content.Context"
+      ],
+      "symbols": [
+        "check(ctx: Context, ids: Collection<String>, helperPkg: String? = null)",
+        "explain(ctx: Context, ids: Collection<String>, helperPkg: String? = null)",
+        "message(m: Missing)",
+        "grant(ctx: Context, m: Missing, feature: String = \"app\")",
+        "prompt(ctx: Context, ids: Collection<String>, helperPkg: String? = null, feature: String = \"app\")",
+        "class PermsGate",
+        "class Missing"
       ]
     },
     {
@@ -73949,6 +74262,31 @@
         "class GrantChannel",
         "class Failure",
         "class Summary"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/perms/src/main/java/com/diegonmarcos/superapp/perms/PermsStateProvider.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "PermsStateProvider"
+      ],
+      "imports": [
+        "android.app.Application",
+        "android.content.ContentProvider",
+        "android.content.ContentValues",
+        "android.database.Cursor",
+        "android.database.MatrixCursor",
+        "android.net.Uri"
+      ],
+      "symbols": [
+        "onCreate()",
+        "query(uri: Uri, projection: Array<out String>?, selection: String?, selectionArgs: Array<out String>?, sortOrder: String?)",
+        "getType(uri: Uri)",
+        "insert(uri: Uri, values: ContentValues?)",
+        "delete(uri: Uri, selection: String?, selectionArgs: Array<out String>?)",
+        "update(uri: Uri, values: ContentValues?, selection: String?, selectionArgs: Array<out String>?)",
+        "class PermsStateProvider"
       ]
     },
     {
@@ -75289,6 +75627,7 @@
         "onServiceDisconnected(name: ComponentName?)",
         "run(script: String, stdin: String? = null, timeoutMs: Int = 60_000)",
         "runHost(script: String, timeoutMs: Int = 60_000)",
+        "call(script: String, stdin: String?, timeoutMs: Int)",
         "job(script: String, stdin: String? = null, deadlineMs: Long = 30 * 60_000L)",
         "q(s: String)",
         "guestWrap(script: String, termuxShell: String = \"\\$HOME/.termux/shell\")",
@@ -78147,12 +78486,73 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/fleetconfigs/FleetAboutPage.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FleetAboutPage"
+      ],
+      "imports": [
+        "androidx.compose.foundation.Image",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.shape.CircleShape",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.automirrored.filled.MenuBook",
+        "androidx.compose.material.icons.automirrored.filled.ViewQuilt",
+        "androidx.compose.material.icons.filled.Apps",
+        "androidx.compose.material.icons.filled.BugReport",
+        "androidx.compose.material.icons.filled.Build",
+        "androidx.compose.material.icons.filled.Cloud",
+        "androidx.compose.material.icons.filled.Code",
+        "androidx.compose.material.icons.filled.Hub",
+        "androidx.compose.material.icons.filled.Info",
+        "androidx.compose.material.icons.filled.Lock",
+        "androidx.compose.material.icons.filled.History",
+        "androidx.compose.material.icons.filled.Security",
+        "androidx.compose.material.icons.filled.Star",
+        "androidx.compose.material.icons.filled.Storefront",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier"
+      ],
+      "symbols": [
+        "FleetAboutPage(decl: FleetConfigsDecl, c: ThemeColors)",
+        "Bullet(text: String, c: ThemeColors)",
+        "Term(term: String, def: String, c: ThemeColors)",
+        "Sub(text: String, c: ThemeColors)"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/fleetconfigs/FleetConfigs.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
         "GeneralSection",
         "Backend",
+        "AppScreen",
+        "PermUse",
+        "DataStore",
+        "RelatedApp",
+        "UpdateDecl",
         "AboutDecl",
         "FleetConfigsDecl",
         "FleetConfigs"
@@ -78163,12 +78563,19 @@
         "org.json.JSONObject"
       ],
       "symbols": [
+        "asset(abis: List<String>)",
         "defaultLabel(id: String)",
+        "withDefaults(declared: List<GeneralSection>)",
         "decode(b64: String)",
         "parse(json: String)",
         "licenceLabel(spdx: String)",
         "class GeneralSection",
         "class Backend",
+        "class AppScreen",
+        "class PermUse",
+        "class DataStore",
+        "class RelatedApp",
+        "class UpdateDecl",
         "class AboutDecl",
         "class FleetConfigsDecl",
         "class FleetConfigs"
@@ -78179,19 +78586,33 @@
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
-        "FleetConfigsActivity"
+        "FleetConfigsActivity",
+        "FleetConfigsEntries",
+        "FleetConfigsMenu"
       ],
       "imports": [
         "android.content.Context",
         "android.content.Intent",
         "android.os.Bundle",
         "androidx.activity.ComponentActivity",
-        "androidx.activity.compose.setContent"
+        "androidx.activity.compose.setContent",
+        "androidx.compose.material.icons.filled.Settings",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.semantics.semantics",
+        "androidx.compose.ui.semantics.testTagsAsResourceId"
       ],
       "symbols": [
         "onCreate(savedInstanceState: Bundle?)",
         "intent(context: Context, page: FleetConfigsPage, dark: Boolean = true)",
-        "class FleetConfigsActivity"
+        "addTo(menu: android.view.Menu, order: Int = android.view.Menu.NONE)",
+        "handle(context: Context, item: android.view.MenuItem)",
+        "open(context: Context, page: FleetConfigsPage)",
+        "FleetConfigsMenu( modifier: androidx.compose.ui.Modifier = androidx.compose.ui.Modifier, tint: androidx.compose.ui.graphics.Color = androidx.compose.ui.graphics.Color.Unspecified, )",
+        "testTagAsId(tag: String)",
+        "class FleetConfigsActivity",
+        "class FleetConfigsEntries"
       ]
     },
     {
@@ -78203,8 +78624,7 @@
         "FleetConfigsTags",
         "fleetConfigsEntryLabel",
         "FleetConfigsScreen",
-        "FleetGeneralPage",
-        "FleetAboutPage"
+        "FleetGeneralPage"
       ],
       "imports": [
         "android.app.NotificationManager",
@@ -78257,12 +78677,65 @@
         "sectionIcon(id: String)",
         "FleetConfigsScreen( page: FleetConfigsPage, dark: Boolean, onDismiss: ()",
         "FleetGeneralPage(decl: FleetConfigsDecl, dark: Boolean, c: ThemeColors, onAppConfigs: ()",
-        "FleetAboutPage(decl: FleetConfigsDecl, c: ThemeColors)",
+        "AnchorGrid(sections: List<GeneralSection>, c: ThemeColors, onAnchor: (String)",
         "PermsSection(c: ThemeColors, tick: Int)",
         "BatterySection(c: ThemeColors, tick: Int)",
         "StorageSection(c: ThemeColors, tick: Int)",
         "NotificationsSection(c: ThemeColors, tick: Int)",
         "LanguageSection(c: ThemeColors, tick: Int)",
+        "UpdateSection(decl: FleetConfigsDecl, c: ThemeColors)",
+        "class FleetConfigsPage",
+        "class FleetConfigsTags"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/fleetconfigs/FleetConfigsUi.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [],
+      "imports": [
+        "android.app.NotificationManager",
+        "android.content.Context",
+        "android.content.Intent",
+        "android.content.pm.ApplicationInfo",
+        "android.content.pm.PackageInfo",
+        "android.content.pm.PackageManager",
+        "android.content.pm.PermissionInfo",
+        "android.net.Uri",
+        "android.os.Build",
+        "android.os.Environment",
+        "android.os.PowerManager",
+        "android.provider.Settings",
+        "androidx.compose.foundation.Image",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.ColumnScope",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.statusBarsPadding",
+        "androidx.compose.foundation.layout.navigationBarsPadding",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.shape.CircleShape",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.automirrored.filled.ArrowBack",
+        "androidx.compose.material.icons.filled.Apps",
+        "androidx.compose.material.icons.filled.BatteryChargingFull",
+        "androidx.compose.material.icons.filled.BugReport"
+      ],
+      "symbols": [
         "SectionCard(title: String, icon: ImageVector, c: ThemeColors, modifier: Modifier = Modifier, body: @Composable ColumnScope.()",
         "Body(text: String, c: ThemeColors)",
         "KeyValue(k: String, v: String, c: ThemeColors)",
@@ -78272,16 +78745,43 @@
         "packageInfo(ctx: Context)",
         "requested(ctx: Context)",
         "permissionRows(ctx: Context)",
-        "specialAccess(ctx: Context)",
-        "appDetails(ctx: Context)",
+        "installedVersion(ctx: Context, decl: FleetConfigsDecl)",
+        "ReleaseNotes(notes: List<ReleaseNote>, c: ThemeColors)",
         "open(ctx: Context, url: String)",
         "open(ctx: Context, intent: Intent)",
         "launchApp(ctx: Context, pkg: String)",
         "dirSize(f: File?)",
         "human(bytes: Long)",
-        "class FleetConfigsPage",
-        "class FleetConfigsTags",
         "class PermRow"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/fleetconfigs/FleetReleases.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ReleaseNote",
+        "ReleaseState",
+        "FleetReleases"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.content.Intent",
+        "android.os.Build",
+        "org.json.JSONArray",
+        "java.net.HttpURLConnection",
+        "java.net.URL"
+      ],
+      "symbols": [
+        "upToDate(installed: String)",
+        "cached()",
+        "load(decl: FleetConfigsDecl, force: Boolean = false)",
+        "parseNotes(json: String)",
+        "openStore(ctx: Context, decl: FleetConfigsDecl)",
+        "get(url: String)",
+        "class ReleaseNote",
+        "class ReleaseState",
+        "class FleetReleases"
       ]
     },
     {
@@ -82636,6 +83136,7 @@
         "androidx.compose.ui.unit.sp",
         "androidx.compose.ui.viewinterop.AndroidView",
         "androidx.core.content.ContextCompat",
+        "com.diegonmarcos.superapp.fleetconfigs.FleetConfigsMenu",
         "com.diegonmarcos.superapp.uikit.CloudKitTheme",
         "com.diegonmarcos.superapp.uikit.KitPalette",
         "com.diegonmarcos.superapp.uikit.LocalKitPalette",
@@ -82790,6 +83291,7 @@
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.viewinterop.AndroidView",
         "androidx.core.content.ContextCompat",
+        "com.diegonmarcos.superapp.fleetconfigs.FleetConfigsMenu",
         "com.diegonmarcos.superapp.uikit.CloudKitTheme",
         "com.diegonmarcos.superapp.uikit.KitPalette",
         "com.diegonmarcos.superapp.uikit.LocalKitPalette",
@@ -82948,6 +83450,7 @@
         "androidx.compose.ui.unit.dp",
         "androidx.core.content.ContextCompat",
         "androidx.lifecycle.lifecycleScope",
+        "com.diegonmarcos.superapp.fleetconfigs.FleetConfigsMenu",
         "com.diegonmarcos.superapp.uikit.CloudKitTheme",
         "com.diegonmarcos.superapp.uikit.KitPalette",
         "com.diegonmarcos.superapp.uikit.LocalKitPalette",
@@ -174726,6 +175229,8 @@
         "GeneralPermsSection"
       ],
       "imports": [
+        "com.diegonmarcos.clouddrive.sync.EngineGrant",
+        "com.diegonmarcos.clouddrive.sync.rememberEngineGrant",
         "android.app.AppOpsManager",
         "android.content.ComponentName",
         "android.content.Context",
@@ -174763,9 +175268,7 @@
         "androidx.compose.ui.res.stringResource",
         "androidx.lifecycle.compose.LocalLifecycleOwner",
         "androidx.lifecycle.Lifecycle",
-        "androidx.lifecycle.repeatOnLifecycle",
-        "com.diegonmarcos.clouddrive.BuildConfig",
-        "com.diegonmarcos.clouddrive.R"
+        "androidx.lifecycle.repeatOnLifecycle"
       ],
       "symbols": [
         "vars()",
@@ -174992,6 +175495,7 @@
         "pullJson(ctx: Context, query: Map<String, String>)",
         "sessionJson(query: Map<String, String>)",
         "logTailJson(ctx: Context, query: Map<String, String>)",
+        "bareJson(ctx: Context, query: Map<String, String>)",
         "errJson(why: String)",
         "jsonStr(s: String?)",
         "esc(s: String)",
@@ -176285,6 +176789,9 @@
         "android.webkit.MimeTypeMap",
         "androidx.activity.ComponentActivity",
         "androidx.activity.compose.setContent",
+        "androidx.activity.viewModels",
+        "com.diegonmarcos.clouddrive.sync.LocalGitPageMemory",
+        "androidx.compose.runtime.CompositionLocalProvider",
         "androidx.activity.result.contract.ActivityResultContracts",
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.DisposableEffect",
@@ -176309,10 +176816,7 @@
         "androidx.core.content.FileProvider",
         "androidx.core.view.WindowCompat",
         "com.diegonmarcos.superapp.bottomnav.FleetChrome",
-        "androidx.lifecycle.Lifecycle",
-        "androidx.lifecycle.LifecycleEventObserver",
-        "androidx.lifecycle.compose.LocalLifecycleOwner",
-        "com.diegonmarcos.clouddrive.backups.MirrorRunner"
+        "androidx.lifecycle.Lifecycle"
       ],
       "symbols": [
         "openInFiles(path: String)",
@@ -177717,6 +178221,7 @@
         "outcomeOf(name: String)",
         "lines()",
         "block(status: String, name: String, msg: String)",
+        "reasonOf(details: String)",
         "withTail(summary: String, details: String, n: Int = 6)",
         "class BulkDepth",
         "class Existing",
@@ -177739,6 +178244,71 @@
         "filter(repos: List<GitHubRepos.Repo>, prefix: String)",
         "fetch(base: String, decl: CloudListDecl)",
         "class CloudRepos"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/EngineGrant.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "EngineGrant",
+        "rememberEngineGrant",
+        "EngineGrantBanner",
+        "EngineGrantPrompt"
+      ],
+      "imports": [
+        "android.content.Context",
+        "android.content.Intent",
+        "android.net.Uri",
+        "android.os.Build",
+        "android.provider.Settings",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.material3.AlertDialog",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.material3.TextButton",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.collectAsState",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.lifecycle.Lifecycle",
+        "androidx.lifecycle.compose.LocalLifecycleOwner",
+        "androidx.lifecycle.repeatOnLifecycle",
+        "com.diegonmarcos.clouddrive.R",
+        "com.diegonmarcos.clouddrive.ui.DriveCard",
+        "com.diegonmarcos.clouddrive.ui.DriveMetrics",
+        "com.diegonmarcos.clouddrive.ui.Pill",
+        "com.diegonmarcos.clouddrive.ui.PillRow",
+        "com.diegonmarcos.cloudlib.gitsync.GitLink",
+        "kotlinx.coroutines.Dispatchers",
+        "kotlinx.coroutines.flow.MutableStateFlow",
+        "kotlinx.coroutines.flow.StateFlow",
+        "kotlinx.coroutines.withContext",
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "fromInfo(info: JSONObject?, sdk: Int = Build.VERSION.SDK_INT)",
+        "touchesSharedStorage(path: String)",
+        "blocks(path: String)",
+        "probe(ctx: Context)",
+        "refresh(ctx: Context)",
+        "label(ctx: Context)",
+        "intents(pkg: String = PACKAGE)",
+        "open(ctx: Context)",
+        "prompted(ctx: Context)",
+        "markPrompted(ctx: Context)",
+        "rememberEngineGrant()",
+        "EngineGrantBanner()",
+        "EngineGrantPrompt()",
+        "class EngineGrant",
+        "class Grant"
       ]
     },
     {
@@ -178287,6 +178857,38 @@
       ],
       "symbols": [
         "GitPageFrame(refreshing: Boolean, onRefresh: ()"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/main/java/com/diegonmarcos/clouddrive/sync/GitPageMemory.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GitPageMemory",
+        "GitPageMemoryStore",
+        "GitPageViewModel",
+        "LocalGitPageMemory"
+      ],
+      "imports": [
+        "android.os.Bundle",
+        "androidx.compose.runtime.staticCompositionLocalOf",
+        "androidx.lifecycle.SavedStateHandle",
+        "androidx.lifecycle.ViewModel",
+        "kotlinx.serialization.Serializable",
+        "kotlinx.serialization.builtins.MapSerializer",
+        "kotlinx.serialization.builtins.serializer",
+        "kotlinx.serialization.json.Json"
+      ],
+      "symbols": [
+        "panelFor(repoId: String)",
+        "get(key: String)",
+        "put(key: String, memory: GitPageMemory)",
+        "encode()",
+        "keyOf(view: GitView, part: GitPart)",
+        "decode(text: String?)",
+        "class GitPageMemory",
+        "class GitPageMemoryStore",
+        "class GitPageViewModel"
       ]
     },
     {
@@ -179603,6 +180205,7 @@
         "shell(ctx: Context)",
         "guest(ctx: Context, dir: File)",
         "q(s: String)",
+        "failed(what: String, r: com.diegonmarcos.cloudlib.sharedstore.StoreExec.Result)",
         "authed(args: String)",
         "cloneScript(url: String, guestDir: String, depth: Int?)",
         "syncScript(guestDir: String, message: String, name: String, email: String, rebase: Boolean)",
@@ -181896,6 +182499,25 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/EngineGrantTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "EngineGrantTest"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "info(ok: Boolean, access: Boolean?)",
+        "class EngineGrantTest"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/FleetGitPagingTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -182081,6 +182703,22 @@
         "lightOf(\")",
         "RepoStatusCell(\")",
         "class GitPageLayoutTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/GitPageMemoryTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GitPageMemoryTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNotEquals",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "class GitPageMemoryTest"
       ]
     },
     {
@@ -182711,7 +183349,7 @@
         "theOldDoubleQuotedWrapIsRefusedByFish_theBugThisFixes()",
         "bareCloneAllSucceedsThroughFish()",
         "cloneCommitPushPullThroughFish()",
-        "reportIsOneBlockPerRepoWithReasonAndTail()",
+        "reportIsOneLinePerRepoWithTheRealReason()",
         "class StoreGitFishShellTest",
         "class R"
       ]
@@ -183256,6 +183894,26 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/test/emulator-engine-grant.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "shot()",
+        "fail()",
+        "dump()",
+        "tap()",
+        "seen()"
+      ],
+      "imports": [],
+      "symbols": [
+        "shot()",
+        "fail()",
+        "dump()",
+        "tap()",
+        "seen()"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/test/emulator-explorer-search.sh",
       "lang": "sh",
       "role": "shell",
@@ -183295,6 +183953,52 @@
         "dump()",
         "tap()",
         "find_row()"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/test/emulator-termux-bare-clone.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "fail()",
+        "q()",
+        "api()"
+      ],
+      "imports": [],
+      "symbols": [
+        "fail()",
+        "q()",
+        "api()"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/test/emulator-walk-git-memory.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "fail()",
+        "dump()",
+        "shot()",
+        "where()",
+        "tap()",
+        "has()",
+        "texts()",
+        "launch()",
+        "open_git()",
+        "sheet_open()"
+      ],
+      "imports": [],
+      "symbols": [
+        "fail()",
+        "dump()",
+        "shot()",
+        "where()",
+        "tap()",
+        "has()",
+        "texts()",
+        "launch()",
+        "open_git()",
+        "sheet_open()"
       ]
     },
     {
@@ -183878,6 +184582,24 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/test/test-drive-git-page-memory.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "pass()",
+        "fail()",
+        "check()",
+        "mut()"
+      ],
+      "imports": [],
+      "symbols": [
+        "pass()",
+        "fail()",
+        "check()",
+        "mut()"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/test/test-drive-git-page.sh",
       "lang": "sh",
       "role": "shell",
@@ -183994,7 +184716,8 @@
         "t2()",
         "f1()",
         "t3()",
-        "t4()"
+        "t4()",
+        "t5()"
       ],
       "imports": [],
       "symbols": [
@@ -184004,7 +184727,8 @@
         "t2()",
         "f1()",
         "t3()",
-        "t4()"
+        "t4()",
+        "t5()"
       ]
     },
     {
@@ -430306,6 +431030,7 @@
         "com.getcapacitor.PluginMethod",
         "com.getcapacitor.annotation.ActivityCallback",
         "com.getcapacitor.annotation.CapacitorPlugin",
+        "com.diegonmarcos.superapp.perms.PermsGate",
         "java.io.File"
       ],
       "symbols": [
@@ -583303,6 +584028,9 @@
       "symbols": [
         "parse(json: String)",
         "byId(list: List<Dashboard>, id: String)",
+        "defaultOf(list: List<Dashboard>, ids: List<String>)",
+        "drawOrder(d: Dashboard)",
+        "segments(d: Dashboard, panel: Panel)",
         "status(d: Dashboard, sources: List<Source>)",
         "panel(o: JSONObject)",
         "list(o: JSONObject, key: String)",
@@ -583446,6 +584174,113 @@
         "class Got",
         "class Feeds",
         "class Opt"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/FinFormat.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinFormat"
+      ],
+      "imports": [
+        "java.util.Locale",
+        "kotlin.math.abs",
+        "kotlin.math.min",
+        "kotlin.math.pow",
+        "kotlin.math.roundToLong"
+      ],
+      "symbols": [
+        "parseNum(s: String?)",
+        "dirOf(s: String?)",
+        "signed(v: Double?, decimals: Int = 2, suffix: String = \"\")",
+        "price(v: Double?, kind: Kind = Kind.NUM)",
+        "betterHigher(title: String)",
+        "beatMiss(actual: String?, forecast: String?, higherIsBetter: Boolean = true)",
+        "policy(sourceId: String)",
+        "nextDelay(everyMs: Long, failures: Int, rnd: Double)",
+        "isStale(fetchedAt: Long, now: Long, sourceId: String)",
+        "class FinFormat",
+        "class Dir",
+        "class Kind",
+        "class Policy"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/FinLogic.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinLogic"
+      ],
+      "imports": [
+        "java.time.LocalDate",
+        "java.time.format.TextStyle",
+        "java.util.Locale",
+        "kotlin.math.abs",
+        "kotlin.math.ceil",
+        "kotlin.math.floor",
+        "kotlin.math.log10",
+        "kotlin.math.pow"
+      ],
+      "symbols": [
+        "missing(s: String?)",
+        "colTypes(declared: List<String>, columns: List<String>, rows: List<List<String>>)",
+        "sortOrder(rows: List<List<String>>, col: Int, type: Col, step: Int)",
+        "importance(cell: String?)",
+        "range(points: List<ChartPoint>, range: String)",
+        "rangeCount(range: String)",
+        "ranges(points: List<ChartPoint>, curve: Boolean)",
+        "ticks(lo: Double, hi: Double, n: Int = 4)",
+        "heat(chgPct: Double?, scale: Double = 3.0)",
+        "heatInkDark(chgPct: Double?)",
+        "spread(rows: List<List<String>>, a: String, b: String, bp: Boolean = true)",
+        "v(l: String)",
+        "flag(iso2: String?)",
+        "dayHeader(isoDate: String)",
+        "afp(columns: List<String>, row: List<String>)",
+        "at(re: Regex)",
+        "cell(s: String?)",
+        "change(s: String?)",
+        "visibleRows(total: Int, expanded: Boolean, limit: Int = 8)",
+        "class FinLogic",
+        "class Col",
+        "class Afp"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/FinNavStack.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinNavStack"
+      ],
+      "imports": [],
+      "symbols": [
+        "initial(defaultDashboard: String?)",
+        "open(@Suppress(\"UNUSED_PARAMETER\")",
+        "quote(stack: List<String>, symbol: String)",
+        "dashboardOf(stack: List<String>)",
+        "symbolOf(screen: String?)",
+        "back(stack: List<String>, defaultDashboard: String?, isHomeTab: Boolean)",
+        "class FinNavStack"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/FinSearchIndex.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinSearchIndex"
+      ],
+      "imports": [
+        "java.util.Locale"
+      ],
+      "symbols": [
+        "groupOf(tab: String, dashboardId: String, panelId: String)",
+        "search(all: List<Item>, query: String, max: Int = 30)",
+        "class FinSearchIndex",
+        "class Item"
       ]
     },
     {
@@ -583670,6 +584505,14 @@
         "AppShell"
       ],
       "imports": [
+        "androidx.activity.compose.BackHandler",
+        "androidx.compose.animation.AnimatedContent",
+        "androidx.compose.animation.fadeIn",
+        "androidx.compose.animation.fadeOut",
+        "androidx.compose.animation.slideInHorizontally",
+        "androidx.compose.animation.slideOutHorizontally",
+        "androidx.compose.animation.togetherWith",
+        "androidx.compose.foundation.background",
         "androidx.compose.foundation.layout.Box",
         "androidx.compose.foundation.layout.WindowInsets",
         "androidx.compose.foundation.layout.displayCutout",
@@ -583678,21 +584521,30 @@
         "androidx.compose.foundation.layout.union",
         "androidx.compose.foundation.layout.windowInsetsPadding",
         "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.CompositionLocalProvider",
         "androidx.compose.runtime.getValue",
         "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
         "androidx.compose.runtime.saveable.rememberSaveable",
         "androidx.compose.runtime.setValue",
         "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
         "androidx.compose.ui.platform.testTag",
         "androidx.compose.ui.res.stringResource",
+        "com.diegonmarcos.capitalfinterm.AssetData",
+        "com.diegonmarcos.capitalfinterm.BuildConfig",
+        "com.diegonmarcos.capitalfinterm.Dashboards",
         "com.diegonmarcos.capitalfinterm.Decl",
+        "com.diegonmarcos.capitalfinterm.FinNavStack",
+        "com.diegonmarcos.capitalfinterm.FinSearchIndex",
+        "com.diegonmarcos.capitalfinterm.Pages",
         "com.diegonmarcos.capitalfinterm.R",
-        "com.diegonmarcos.superapp.bottomnav.islandEntries",
-        "com.diegonmarcos.superapp.bottomnav.rememberAccountLauncher",
-        "com.diegonmarcos.superapp.navbarbottom.NavBarBottomHost",
-        "com.diegonmarcos.superapp.navbartop1.NavBarTopFirstRowScaffold",
-        "com.diegonmarcos.superapp.navbartop1.titleHierarchy",
-        "com.diegonmarcos.superapp.themebg.themeBackground"
+        "com.diegonmarcos.capitalfinterm.ui.fin.FinSearch",
+        "com.diegonmarcos.capitalfinterm.ui.fin.LocalFinPalette",
+        "com.diegonmarcos.capitalfinterm.ui.fin.LocalReduceMotion",
+        "com.diegonmarcos.superapp.bottomnav.LocalNavUiDefault",
+        "com.diegonmarcos.superapp.bottomnav.NavUiDecl",
+        "com.diegonmarcos.superapp.bottomnav.islandEntries"
       ],
       "symbols": [
         "action(id: String)",
@@ -583701,6 +584553,13 @@
         "source(id: String)",
         "key(id: String)",
         "AppShell()",
+        "defaultDash(sec: String)",
+        "stackOf(sec: String)",
+        "setStack(sec: String, s: List<String>)",
+        "openDashboard(id: String)",
+        "openQuote(symbol: String)",
+        "openSources()",
+        "search()",
         "class Tags"
       ]
     },
@@ -583715,6 +584574,8 @@
         "androidx.compose.runtime.Composable",
         "androidx.compose.ui.res.colorResource",
         "com.diegonmarcos.capitalfinterm.R",
+        "com.diegonmarcos.capitalfinterm.ui.fin.FinTheme",
+        "com.diegonmarcos.capitalfinterm.ui.fin.FinUi",
         "com.diegonmarcos.superapp.uikit.CloudKitTheme",
         "com.diegonmarcos.superapp.uikit.KitPalette"
       ],
@@ -583776,75 +584637,87 @@
       "role": "kotlin",
       "exports": [
         "Net",
-        "statusPill",
-        "DashboardPage"
+        "statusWord",
+        "FinStore",
+        "quotesOf",
+        "eventsOf",
+        "FinNav",
+        "DashboardPage",
+        "FinSearchField",
+        "searchCatalogue"
       ],
       "imports": [
-        "androidx.activity.compose.BackHandler",
-        "androidx.compose.foundation.Canvas",
         "androidx.compose.foundation.background",
         "androidx.compose.foundation.clickable",
-        "androidx.compose.foundation.horizontalScroll",
         "androidx.compose.foundation.layout.Arrangement",
         "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.BoxWithConstraints",
         "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.PaddingValues",
         "androidx.compose.foundation.layout.Row",
-        "androidx.compose.foundation.layout.fillMaxHeight",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxSize",
         "androidx.compose.foundation.layout.fillMaxWidth",
         "androidx.compose.foundation.layout.height",
         "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
         "androidx.compose.foundation.layout.width",
-        "androidx.compose.foundation.rememberScrollState",
-        "androidx.compose.material3.MaterialTheme",
-        "androidx.compose.material3.OutlinedTextField",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.lazy.rememberLazyListState",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.foundation.text.BasicTextField",
+        "androidx.compose.foundation.text.KeyboardActions",
+        "androidx.compose.foundation.text.KeyboardOptions",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.outlined.Search",
+        "androidx.compose.material3.DropdownMenu",
+        "androidx.compose.material3.DropdownMenuItem",
+        "androidx.compose.material3.ExperimentalMaterial3Api",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.ModalBottomSheet",
+        "androidx.compose.material3.SnackbarHost",
+        "androidx.compose.material3.SnackbarHostState",
+        "androidx.compose.material3.SnackbarResult",
         "androidx.compose.material3.Text",
+        "androidx.compose.material3.pulltorefresh.PullToRefreshBox",
         "androidx.compose.runtime.Composable",
         "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.collectAsState",
         "androidx.compose.runtime.getValue",
         "androidx.compose.runtime.mutableIntStateOf",
-        "androidx.compose.runtime.mutableStateOf",
-        "androidx.compose.runtime.remember",
-        "androidx.compose.runtime.setValue",
-        "androidx.compose.ui.Alignment",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.draw.drawBehind",
-        "androidx.compose.ui.geometry.Offset",
-        "androidx.compose.ui.graphics.Color",
-        "androidx.compose.ui.graphics.Path",
-        "androidx.compose.ui.graphics.PathEffect",
-        "androidx.compose.ui.graphics.drawscope.Stroke",
-        "androidx.compose.ui.platform.LocalContext",
-        "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.res.stringResource",
-        "androidx.compose.ui.text.style.TextAlign",
-        "androidx.compose.ui.text.style.TextOverflow",
-        "androidx.compose.ui.unit.dp",
-        "com.diegonmarcos.capitalfinterm.Alerts"
+        "androidx.compose.runtime.mutableStateMapOf"
       ],
       "symbols": [
         "configure(ctx: android.content.Context, sources: List<Source>)",
         "reachable(healthUrl: String)",
         "forget()",
-        "statusPill(status: DashStatus)",
-        "DashboardPage(dashboardId: String, onBack: ()",
-        "UserListsCard(user: UserLists, onChange: (UserLists)",
-        "PanelCard(dash: Dashboard, panel: Panel, all: List<Source>, source: Source?, hasKey: Boolean, refresh: Int, user: UserLists, onOpenSources: ()",
-        "LiveBody(dash: Dashboard, panel: Panel, all: List<Source>, source: Source, refresh: Int, user: UserLists)",
-        "PanelContent(panel: Panel, data: PanelData)",
-        "LineChart(points: List<ChartPoint>, unit: String)",
-        "BarChart(points: List<ChartPoint>, unit: String)",
-        "DataTable(columns: List<String>, rows: List<List<String>>, links: List<String>, wideFirst: Boolean, onOpen: (String)",
-        "cellMod(i: Int, scope: androidx.compose.foundation.layout.RowScope)",
-        "PlaceholderBody(panel: Panel, source: Source?, hasKey: Boolean, onOpenSources: ()",
-        "dashed(color: Color)",
-        "fmt(v: Double)",
-        "QuoteTiles(data: PanelData)",
-        "CalendarList(data: PanelData)",
+        "statusWord(status: DashStatus)",
+        "key(d: Dashboard, p: Panel)",
+        "quotesOf(d: PanelData)",
+        "eventsOf(d: PanelData, source: String)",
+        "openDashboard(id: String)",
+        "openQuote(symbol: String)",
+        "openSources()",
+        "search()",
+        "displayOf(panel: Panel)",
+        "DashboardPage(dashboardId: String, nav: FinNav)",
+        "saveUser(next: UserLists)",
+        "loadPanel(dash: Dashboard, panel: Panel, all: List<Source>, source: Source, user: UserLists)",
+        "FinSearchField(onClick: ()",
+        "AddRuleField(user: UserLists, onChange: (UserLists)",
+        "submit()",
+        "PanelSlot( dash: Dashboard, panel: Panel, sources: List<Source>, keys: SourceKeys, user: UserLists, width: Dp, nav: FinNav, onUser: (UserLists)",
+        "SegmentChips(segments: List<Panel>, sources: List<Source>, selected: Int, onSelect: (Int)",
+        "PanelBody( dash: Dashboard, panel: Panel, display: String, state: FinState<PanelData>, user: UserLists, width: Dp, nav: FinNav, onUser: (UserLists)",
+        "declaredTypes(panel: Panel)",
+        "WatchBody(data: PanelData, user: UserLists, stale: Boolean, width: Dp, nav: FinNav, onUser: (UserLists)",
+        "AlertSheet(symbol: String, onDismiss: ()",
+        "searchCatalogue(dashboards: List<Dashboard>, watchlist: List<String>)",
         "class Net",
-        "class Load",
-        "class Loading",
-        "class Failed",
-        "class Ok"
+        "class FinStore",
+        "class Entry",
+        "class FinNav"
       ]
     },
     {
@@ -583866,6 +584739,623 @@
         "remove(id: String)",
         "class secret",
         "class EncryptedSecretBox"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/fin/FinChartCard.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinChartHeader",
+        "FinLineChart",
+        "FinBars",
+        "FinStackBar",
+        "FinChartSkeleton"
+      ],
+      "imports": [
+        "androidx.compose.foundation.Canvas",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress",
+        "androidx.compose.foundation.gestures.detectTapGestures",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material.icons.outlined.Schedule",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.geometry.CornerRadius",
+        "androidx.compose.ui.geometry.Offset",
+        "androidx.compose.ui.geometry.Size",
+        "androidx.compose.ui.graphics.Brush",
+        "androidx.compose.ui.graphics.Path",
+        "androidx.compose.ui.graphics.drawscope.Stroke",
+        "androidx.compose.ui.hapticfeedback.HapticFeedbackType",
+        "androidx.compose.ui.input.pointer.pointerInput",
+        "androidx.compose.ui.platform.LocalHapticFeedback",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.drawText",
+        "androidx.compose.ui.text.rememberTextMeasurer",
+        "androidx.compose.ui.text.style.TextAlign",
+        "androidx.compose.ui.text.style.TextOverflow"
+      ],
+      "symbols": [
+        "fmtAxis(v: Double)",
+        "FinChartHeader(title: String, hover: String?, ranges: List<String>, range: String, onRange: (String)",
+        "FinLineChart(points: List<ChartPoint>, curve: Boolean, height: Dp, panelId: String, onHover: (String?)",
+        "idxAt(x: Float)",
+        "y(v: Double)",
+        "x(i: Int)",
+        "FinBars(points: List<ChartPoint>, unit: String, panelId: String)",
+        "FinStackBar(legs: List<Pair<String, Double>>)",
+        "FinChartSkeleton(height: Dp)"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/fin/FinEventRow.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinEvent",
+        "FinImportance",
+        "FinDayHeader",
+        "FinEventRow",
+        "FinEventList",
+        "FinEventSkeleton"
+      ],
+      "imports": [
+        "androidx.compose.animation.animateContentSize",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.heightIn",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.shape.CircleShape",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.capitalfinterm.FinFormat",
+        "com.diegonmarcos.capitalfinterm.FinLogic",
+        "java.time.LocalDate",
+        "java.time.LocalTime",
+        "java.time.ZoneOffset"
+      ],
+      "symbols": [
+        "FinImportance(n: Int)",
+        "FinDayHeader(isoDate: String)",
+        "FinEventRow(e: FinEvent, now: java.time.LocalDateTime)",
+        "AfpCell(label: String, v: String?, ink: androidx.compose.ui.graphics.Color)",
+        "FinEventList(events: List<FinEvent>, limit: Int = Int.MAX_VALUE)",
+        "FinEventSkeleton()",
+        "class FinEvent"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/fin/FinHeatTile.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinHeatTile",
+        "FinHeatGrid"
+      ],
+      "imports": [
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.graphics.lerp",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.Dp",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.capitalfinterm.FinLogic"
+      ],
+      "symbols": [
+        "FinHeatTile(q: FinQuote, scale: Double, stale: Boolean, showLast: Boolean, modifier: Modifier = Modifier, onClick: ()",
+        "FinHeatGrid(items: List<FinQuote>, width: Dp, scale: Double, stale: Boolean, onOpen: (FinQuote)"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/fin/FinKpiTile.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinQuote",
+        "FinKpiTile",
+        "FinKpiGrid",
+        "FinKpiSkeleton"
+      ],
+      "imports": [
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.alpha",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.capitalfinterm.FinFormat",
+        "com.diegonmarcos.capitalfinterm.FinLogic"
+      ],
+      "symbols": [
+        "FinKpiTile(q: FinQuote?, label: String, unit: String, stale: Boolean, modifier: Modifier = Modifier, onClick: (()",
+        "FinKpiGrid(tiles: List<@Composable (Modifier)",
+        "FinKpiSkeleton(n: Int, perRow: Int)",
+        "class FinQuote"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/fin/FinMonitorRow.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinMonitorRow",
+        "FinMonitorSkeleton"
+      ],
+      "imports": [
+        "androidx.compose.foundation.ExperimentalFoundationApi",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.combinedClickable",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.alpha",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.style.TextAlign",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.Dp",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.capitalfinterm.FinLogic"
+      ],
+      "symbols": [
+        "FinMonitorRow(q: FinQuote, stale: Boolean, width: Dp, tall: Boolean = false, divider: Boolean = true, hPad: Dp = 12.dp, onClick: ()",
+        "FinMonitorSkeleton(rows: Int = 3)"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/fin/FinPanel.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinState",
+        "Fresh",
+        "FinSkeleton",
+        "FinCard",
+        "FinTitleRow",
+        "FinDot",
+        "FinFooter",
+        "FinNote",
+        "FinKeyRow",
+        "FinErrorBody",
+        "FinEmptyBody",
+        "FinChip",
+        "finFlash",
+        "finFlashInk",
+        "FinSparkline",
+        "FinChange"
+      ],
+      "imports": [
+        "androidx.compose.animation.Animatable",
+        "androidx.compose.animation.core.FastOutSlowInEasing",
+        "androidx.compose.animation.core.LinearEasing",
+        "androidx.compose.animation.core.RepeatMode",
+        "androidx.compose.animation.core.animateFloat",
+        "androidx.compose.animation.core.infiniteRepeatable",
+        "androidx.compose.animation.core.rememberInfiniteTransition",
+        "androidx.compose.animation.core.tween",
+        "androidx.compose.foundation.Canvas",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.ColumnScope",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.heightIn",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.shape.CircleShape",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.automirrored.outlined.OpenInNew",
+        "androidx.compose.material.icons.outlined.ChevronRight",
+        "androidx.compose.material.icons.outlined.Key",
+        "androidx.compose.material.icons.outlined.Schedule",
+        "androidx.compose.material.icons.outlined.WarningAmber",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue"
+      ],
+      "symbols": [
+        "FinSkeleton(width: Dp?, height: Dp, modifier: Modifier = Modifier, radius: Dp = 4.dp)",
+        "FinCard(modifier: Modifier = Modifier, pad: Boolean = true, content: @Composable ColumnScope.()",
+        "FinTitleRow(title: String, stale: Boolean = false, staleNote: String = \"\", trailing: @Composable (()",
+        "FinDot(color: Color, modifier: Modifier = Modifier)",
+        "FinFooter(panelId: String, fresh: Fresh, fetchedAt: String, asOf: String, source: String, servedBy: String, onTap: ()",
+        "FinNote(text: String)",
+        "FinKeyRow(id: String, title: String, caption: String, onClick: ()",
+        "FinErrorBody(message: String, height: Dp, onRetry: ()",
+        "FinEmptyBody(message: String)",
+        "FinChip(text: String, selected: Boolean, modifier: Modifier = Modifier, onClick: ()",
+        "finFlash(value: String, dir: FinFormat.Dir)",
+        "finFlashInk(value: String, dir: FinFormat.Dir, rest: Color)",
+        "FinSparkline(values: List<Double>, modifier: Modifier = Modifier)",
+        "y(v: Double)",
+        "FinChange(text: String, modifier: Modifier = Modifier, style: androidx.compose.ui.text.TextStyle = FinType.num, align: TextAlign = TextAlign.End)",
+        "class FinState",
+        "class Loading",
+        "class Ok",
+        "class Failed",
+        "class Empty",
+        "class Fresh"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/fin/FinQuoteHeader.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinQuoteHeader"
+      ],
+      "imports": [
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.filled.Star",
+        "androidx.compose.material.icons.outlined.StarOutline",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.capitalfinterm.FinLogic"
+      ],
+      "symbols": [
+        "FinQuoteHeader(q: FinQuote?, source: String, stale: Boolean, watched: Boolean, onWatch: ()"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/fin/FinSearch.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinSearch"
+      ],
+      "imports": [
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxHeight",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.foundation.text.BasicTextField",
+        "androidx.compose.foundation.text.KeyboardActions",
+        "androidx.compose.foundation.text.KeyboardOptions",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.outlined.Close",
+        "androidx.compose.material.icons.outlined.Search",
+        "androidx.compose.material3.ExperimentalMaterial3Api",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.ModalBottomSheet",
+        "androidx.compose.material3.Text",
+        "androidx.compose.material3.rememberModalBottomSheetState",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.focus.FocusRequester"
+      ],
+      "symbols": [
+        "FinSearch(catalogue: List<FinSearchIndex.Item>, onDismiss: ()",
+        "pick(i: FinSearchIndex.Item)",
+        "class badge"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/fin/FinTable.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinTable",
+        "FinTableSkeleton",
+        "FinNewsList"
+      ],
+      "imports": [
+        "androidx.compose.animation.animateContentSize",
+        "androidx.compose.animation.core.tween",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxHeight",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.heightIn",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.filled.ArrowDownward",
+        "androidx.compose.material.icons.filled.ArrowUpward",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableIntStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.saveable.rememberSaveable",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.graphics.Brush",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.text.style.TextAlign",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.Dp",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "com.diegonmarcos.capitalfinterm.FinFormat",
+        "com.diegonmarcos.capitalfinterm.FinLogic",
+        "com.diegonmarcos.capitalfinterm.FinLogic.Col"
+      ],
+      "symbols": [
+        "FinTable( panelId: String, columns: List<String>, rows: List<List<String>>, links: List<String>, declared: List<String>, width: Dp, limit: Int = 8, onOpen: (String)",
+        "headerCell(i: Int, w: Dp)",
+        "bodyCell(r: Int, i: Int, w: Dp)",
+        "FinTableSkeleton()",
+        "FinNewsList(panelId: String, rows: List<List<String>>, links: List<String>, limit: Int, onOpen: (String)"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/fin/FinTape.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinTape"
+      ],
+      "imports": [
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.alpha",
+        "androidx.compose.ui.draw.clipToBounds",
+        "androidx.compose.ui.platform.LocalDensity",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.capitalfinterm.FinLogic",
+        "kotlinx.coroutines.delay",
+        "kotlinx.coroutines.isActive"
+      ],
+      "symbols": [
+        "FinTape(items: List<FinQuote>?, stale: Boolean, onOpen: (FinQuote)"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/fin/FinTheme.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinPalette",
+        "LocalFinPalette",
+        "LocalReduceMotion",
+        "FinFonts",
+        "FinType",
+        "FinDim",
+        "FinUi",
+        "FinPrefs",
+        "finPalette",
+        "FinTheme",
+        "FinLogicUi"
+      ],
+      "imports": [
+        "android.content.Context",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.CompositionLocalProvider",
+        "androidx.compose.runtime.Immutable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.runtime.staticCompositionLocalOf",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.res.colorResource",
+        "androidx.compose.ui.text.TextStyle",
+        "androidx.compose.ui.text.font.Font",
+        "androidx.compose.ui.text.font.FontFamily",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "com.diegonmarcos.capitalfinterm.FinFormat",
+        "com.diegonmarcos.capitalfinterm.R"
+      ],
+      "symbols": [
+        "dir(d: FinFormat.Dir)",
+        "dirOf(s: String?)",
+        "importance(n: Int)",
+        "load(ctx: Context)",
+        "setCvd(ctx: Context, on: Boolean)",
+        "box(ctx: Context)",
+        "cvd(ctx: Context)",
+        "range(ctx: Context, panel: String, fallback: String)",
+        "setRange(ctx: Context, panel: String, r: String)",
+        "recent(ctx: Context)",
+        "addRecent(ctx: Context, s: String)",
+        "clearRecent(ctx: Context)",
+        "finPalette(cvd: Boolean)",
+        "FinTheme(cvd: Boolean, reduceMotion: Boolean, content: @Composable ()",
+        "missing(s: String?)",
+        "class FinPalette",
+        "class FinFonts",
+        "class FinType",
+        "class FinDim",
+        "class FinUi",
+        "class FinPrefs",
+        "class FinLogicUi"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/fin/FinWatchRow.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinWatchRow",
+        "FinWatchEmpty"
+      ],
+      "imports": [
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.outlined.Delete",
+        "androidx.compose.material.icons.outlined.NotificationsActive",
+        "androidx.compose.material.icons.outlined.StarOutline",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.SwipeToDismissBox",
+        "androidx.compose.material3.SwipeToDismissBoxValue",
+        "androidx.compose.material3.Text",
+        "androidx.compose.material3.rememberSwipeToDismissBoxState",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.unit.Dp",
+        "androidx.compose.ui.unit.dp"
+      ],
+      "symbols": [
+        "FinWatchRow(q: FinQuote, rules: List<String>, stale: Boolean, width: Dp, onOpen: ()",
+        "FinWatchEmpty(onAdd: ()"
       ]
     },
     {
@@ -583913,6 +585403,54 @@
       ]
     },
     {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/QuotePage.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "QuotePage"
+      ],
+      "imports": [
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.BoxWithConstraints",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.PaddingValues",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.capitalfinterm.Alerts",
+        "com.diegonmarcos.capitalfinterm.AssetData",
+        "com.diegonmarcos.capitalfinterm.Catalog",
+        "com.diegonmarcos.capitalfinterm.Dashboards",
+        "com.diegonmarcos.capitalfinterm.FinFormat",
+        "com.diegonmarcos.capitalfinterm.FinLogic",
+        "com.diegonmarcos.capitalfinterm.ui.fin.FinCard",
+        "com.diegonmarcos.capitalfinterm.ui.fin.FinDim",
+        "com.diegonmarcos.capitalfinterm.ui.fin.FinFooter",
+        "com.diegonmarcos.capitalfinterm.ui.fin.FinKpiGrid",
+        "com.diegonmarcos.capitalfinterm.ui.fin.FinKpiTile",
+        "com.diegonmarcos.capitalfinterm.ui.fin.FinMonitorRow",
+        "com.diegonmarcos.capitalfinterm.ui.fin.FinQuote",
+        "com.diegonmarcos.capitalfinterm.ui.fin.FinQuoteHeader",
+        "com.diegonmarcos.capitalfinterm.ui.fin.FinTitleRow",
+        "com.diegonmarcos.capitalfinterm.ui.fin.Fresh",
+        "com.diegonmarcos.capitalfinterm.ui.fin.LocalFinPalette"
+      ],
+      "symbols": [
+        "QuotePage(symbol: String, nav: FinNav)"
+      ]
+    },
+    {
       "path": "ad_Capital-Stack-FinTerminal/app/src/main/java/com/diegonmarcos/capitalfinterm/ui/SectionPage.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -583923,44 +585461,53 @@
         "android.content.Context",
         "android.content.Intent",
         "android.net.Uri",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
         "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.BoxWithConstraints",
         "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.PaddingValues",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxHeight",
         "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
         "androidx.compose.foundation.layout.padding",
-        "androidx.compose.foundation.rememberScrollState",
-        "androidx.compose.foundation.verticalScroll",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.Switch",
+        "androidx.compose.material3.SwitchDefaults",
         "androidx.compose.material3.Text",
         "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.getValue",
-        "androidx.compose.runtime.mutableStateOf",
         "androidx.compose.runtime.remember",
-        "androidx.compose.runtime.saveable.rememberSaveable",
-        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
         "androidx.compose.ui.Modifier",
         "androidx.compose.ui.draw.alpha",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.graphics.Color",
         "androidx.compose.ui.platform.LocalContext",
         "androidx.compose.ui.platform.testTag",
         "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.style.TextOverflow",
         "androidx.compose.ui.unit.dp",
         "com.diegonmarcos.capitalfinterm.AssetData",
         "com.diegonmarcos.capitalfinterm.BuildConfig",
         "com.diegonmarcos.capitalfinterm.DashStatus",
-        "com.diegonmarcos.capitalfinterm.Dashboards",
-        "com.diegonmarcos.capitalfinterm.Decl",
-        "com.diegonmarcos.capitalfinterm.Entry",
-        "com.diegonmarcos.capitalfinterm.Pages",
-        "com.diegonmarcos.capitalfinterm.R",
-        "com.diegonmarcos.superapp.uikit.GroupTitle",
-        "com.diegonmarcos.superapp.uikit.KitCard",
-        "com.diegonmarcos.superapp.uikit.KitSectionHeader",
-        "com.diegonmarcos.superapp.uikit.KitSettingsRow",
-        "com.diegonmarcos.superapp.uikit.KitStatePill",
-        "com.diegonmarcos.superapp.uikit.LocalKitPalette"
+        "com.diegonmarcos.capitalfinterm.Dashboards"
       ],
       "symbols": [
-        "SectionPage(sectionId: String, onOpenConfig: ()",
+        "SectionPage(sectionId: String, stack: List<String>, nav: FinNav, onSelectList: (String)",
+        "TabList(sectionId: String, entries: List<Entry>, compact: Boolean, selected: String?, nav: FinNav, onOpen: (String)",
+        "status(e: Entry)",
+        "StatusPill(status: DashStatus?)",
+        "DashTile(e: Entry, status: DashStatus?, modifier: Modifier, onOpen: ()",
+        "DashRow(e: Entry, status: DashStatus?, selected: Boolean, onOpen: ()",
+        "CvdRow()",
         "EntryRow(e: Entry, url: String?, onOpen: (String)",
-        "DashboardRow(e: Entry, status: DashStatus?, onOpen: ()",
         "AboutPanel()",
         "openUrl(ctx: Context, url: String)"
       ]
@@ -584112,6 +585659,27 @@
       ]
     },
     {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/DashboardsUiTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "DashboardsUiTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "d(id: String)",
+        "eachTabOpensOnItsDeclaredDefault()",
+        "keyRowsComeLastAndASegmentIsDrawnInsideItsCard()",
+        "marketMonitorLeadsWithTheTreasuryTilesAndTheDerivedSpread()",
+        "noPlaceholderDeclaresADashedLayout()",
+        "class DashboardsUiTest"
+      ]
+    },
+    {
       "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/DataFiles.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -584208,6 +585776,95 @@
         "theContainerAnswersEveryNormalisedShape()",
         "anythingUnrecognisedIsEmptyNotAnError()",
         "class FeedsTest"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/FinFormatTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinFormatTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.capitalfinterm.FinFormat.Dir",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "changesAreSignedZeroIsUnsignedMissingIsTheEmDash()",
+        "pricesFollowTheAssetClass()",
+        "numbersAndDirectionAreReadFromSourceStrings()",
+        "beatOrMissDependsOnWhichWayIsBetter()",
+        "refreshCadenceJitterBackoffAndStaleness()",
+        "class FinFormatTest"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/FinLogicTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinLogicTest"
+      ],
+      "imports": [
+        "com.diegonmarcos.capitalfinterm.FinLogic.Col",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Test",
+        "java.time.LocalDate"
+      ],
+      "symbols": [
+        "columnsAreTypedFromHeaderAndCellsUnlessDeclared()",
+        "sortIsNumbersDescendingThenReversedThenSourceOrderWithMissingLast()",
+        "importanceCountsFilledDotsOrReadsANumber()",
+        "ticksAreNiceSteps()",
+        "heatIsClampedAtTheScale()",
+        "theDerivedSpreadIsTenMinusTwoInBasisPoints()",
+        "flagsAndDayHeaders()",
+        "actualForecastPreviousAreFoundByTheirColumnNames()",
+        "cellsNeverShowABareDash()",
+        "rangesFollowTheSeriesLength()",
+        "aCardTableShowsEightRowsUntilExpanded()",
+        "class FinLogicTest"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/FinNavStackTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinNavStackTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "aTabOpensOnItsDefaultDashboard()",
+        "backUnwindsInTheDeclaredOrder()",
+        "class FinNavStackTest"
+      ]
+    },
+    {
+      "path": "ad_Capital-Stack-FinTerminal/app/src/test/java/com/diegonmarcos/capitalfinterm/FinSearchIndexTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FinSearchIndexTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "item(group: String, sym: String, name: String = \"\", kind: String = FinSearchIndex.KIND_SYMBOL)",
+        "groupsComeInTheDeclaredOrderAndPrefixBeatsSubstring()",
+        "aSymbolIsGroupedByWhereItWasSeen()",
+        "class FinSearchIndexTest"
       ]
     },
     {

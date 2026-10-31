@@ -62702,6 +62702,7 @@
         "FIN_API_PORT",
         "FIN_API_HOST",
         "RUST_LOG",
+        "FINTERM_CONTACT",
         "limits",
         "reservations"
       ]
