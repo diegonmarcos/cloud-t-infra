@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22886,
+    "files": 22888,
     "by_lang": {
       "sh": 628,
       "js": 514,
       "py": 184,
-      "kotlin": 12296,
+      "kotlin": 12298,
       "java": 649,
       "nix": 35,
       "rust": 111,
@@ -23,7 +23,7 @@
       "shell": 500,
       "script": 276,
       "java": 648,
-      "kotlin": 12293,
+      "kotlin": 12295,
       "python": 59,
       "module": 6448,
       "flake": 31,
@@ -36790,24 +36790,6 @@
         "inject(webView: WebView)",
         "class ChromeWebScroll",
         "class Feed"
-      ]
-    },
-    {
-      "path": "ab_cloud-libs-shared/libs/bottomnav/src/main/kotlin/com/diegonmarcos/superapp/bottomnav/ChromeWebView.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "ChromeWebView"
-      ],
-      "imports": [
-        "android.webkit.WebView",
-        "androidx.compose.foundation.layout.fillMaxSize",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.ui.Modifier",
-        "androidx.compose.ui.viewinterop.AndroidView"
-      ],
-      "symbols": [
-        "ChromeWebView(webView: WebView, modifier: Modifier = Modifier)"
       ]
     },
     {
@@ -79280,6 +79262,7 @@
         "NavBarTopFirstRow",
         "defaultAppName",
         "NavBarTopFirstRowScaffold",
+        "topChromeUnderlay",
         "BreadcrumbLeafState",
         "LocalBreadcrumbLeaf",
         "BreadcrumbLeaf"
@@ -79294,6 +79277,12 @@
         "androidx.compose.foundation.layout.ColumnScope",
         "androidx.compose.foundation.rememberScrollState",
         "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.WindowInsets",
+        "androidx.compose.foundation.layout.statusBars",
+        "androidx.compose.ui.draw.drawBehind",
+        "androidx.compose.ui.geometry.Offset",
+        "androidx.compose.ui.geometry.Size",
+        "androidx.compose.ui.graphics.Color",
         "androidx.compose.foundation.layout.Column",
         "androidx.compose.foundation.layout.heightIn",
         "androidx.compose.foundation.layout.Row",
@@ -79318,13 +79307,7 @@
         "androidx.compose.ui.window.PopupProperties",
         "androidx.compose.material3.HorizontalDivider",
         "androidx.compose.material3.DropdownMenuItem",
-        "androidx.compose.material3.Icon",
-        "androidx.compose.material3.Text",
-        "androidx.compose.runtime.Composable",
-        "androidx.compose.runtime.CompositionLocalProvider",
-        "androidx.compose.runtime.DisposableEffect",
-        "androidx.compose.runtime.ProvidableCompositionLocal",
-        "androidx.compose.runtime.compositionLocalOf"
+        "androidx.compose.material3.Icon"
       ],
       "symbols": [
         "islandMaxWidth(rowWidth: Dp)",
@@ -79339,6 +79322,7 @@
         "BreadcrumbText(labels: List<String>, color: androidx.compose.ui.graphics.Color)",
         "PlainIcon(icon: ImageVector, label: String, tag: String, colors: ThemeColors, onClick: ()",
         "NavBarTopFirstRowScaffold( title: String, hierarchy: List<HierarchyEntry>, onNavigate: (HierarchyEntry)",
+        "topChromeUnderlay(dark: Boolean)",
         "BreadcrumbLeaf(text: String?)",
         "class TopFirstRowSpec",
         "class TopFirstRowTags",
@@ -80026,6 +80010,26 @@
         "count(tag: String)",
         "h(tag: String)",
         "class NavChromeScrollTest"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/test/kotlin/com/diegonmarcos/superapp/navbartop1/TopChromeUnderlayTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "TopChromeUnderlayTest"
+      ],
+      "imports": [
+        "androidx.compose.ui.graphics.Color",
+        "com.diegonmarcos.superapp.themebg.ThemeBackground",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "readable(fill: Color, ink: Color)",
+        "class TopChromeUnderlayTest"
       ]
     },
     {
@@ -170800,6 +170804,26 @@
       ]
     },
     {
+      "path": "ac_cloud-contacts/app/src/main/java/com/diegonmarcos/cloudcontacts/ChromeWebView.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ChromeWebView"
+      ],
+      "imports": [
+        "android.webkit.WebView",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.viewinterop.AndroidView",
+        "com.diegonmarcos.superapp.bottomnav.ChromeWebScroll",
+        "com.diegonmarcos.superapp.bottomnav.LocalNavChromeCollapse"
+      ],
+      "symbols": [
+        "ChromeWebView(webView: WebView, modifier: Modifier = Modifier)"
+      ]
+    },
+    {
       "path": "ac_cloud-contacts/app/src/main/java/com/diegonmarcos/cloudcontacts/ContactsBackup.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -170899,7 +170923,6 @@
       "imports": [
         "com.diegonmarcos.cloudlib.web.CloudWeb",
         "com.diegonmarcos.cloudlib.web.WebProfile",
-        "com.diegonmarcos.superapp.bottomnav.ChromeWebView",
         "android.Manifest",
         "android.annotation.SuppressLint",
         "android.graphics.Color",
@@ -371268,6 +371291,26 @@
       ]
     },
     {
+      "path": "ac_cloud-news/app/src/main/java/com/diegonmarcos/cloudnews/ChromeWebView.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "ChromeWebView"
+      ],
+      "imports": [
+        "android.webkit.WebView",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.viewinterop.AndroidView",
+        "com.diegonmarcos.superapp.bottomnav.ChromeWebScroll",
+        "com.diegonmarcos.superapp.bottomnav.LocalNavChromeCollapse"
+      ],
+      "symbols": [
+        "ChromeWebView(webView: WebView, modifier: Modifier = Modifier)"
+      ]
+    },
+    {
       "path": "ac_cloud-news/app/src/main/java/com/diegonmarcos/cloudnews/MainActivity.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -371278,7 +371321,6 @@
         "com.diegonmarcos.cloudlib.web.CloudChromeClient",
         "com.diegonmarcos.cloudlib.web.CloudWeb",
         "com.diegonmarcos.cloudlib.web.WebProfile",
-        "com.diegonmarcos.superapp.bottomnav.ChromeWebView",
         "android.os.Bundle",
         "android.util.Log",
         "android.webkit.ConsoleMessage",
