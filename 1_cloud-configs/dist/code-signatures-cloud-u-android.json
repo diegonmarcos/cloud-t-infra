@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22857,
+    "files": 22861,
     "by_lang": {
-      "sh": 625,
+      "sh": 626,
       "js": 513,
       "py": 179,
-      "kotlin": 12278,
+      "kotlin": 12281,
       "java": 647,
       "nix": 35,
       "rust": 111,
@@ -20,10 +20,10 @@
     "by_role": {
       "hook": 158,
       "file": 2302,
-      "shell": 498,
+      "shell": 499,
       "script": 272,
       "java": 646,
-      "kotlin": 12275,
+      "kotlin": 12278,
       "python": 57,
       "module": 6447,
       "flake": 31,
@@ -549,6 +549,7 @@
         "apps_of(root)",
         "app_sources(root, app)",
         "reaches(root, app, needles)",
+        "links_ui_nav_bars(root, app, build)",
         "derived_about(root, spec, app, build)",
         "check(root)",
         "main(argv)"
@@ -565,6 +566,7 @@
         "apps_of(root)",
         "app_sources(root, app)",
         "reaches(root, app, needles)",
+        "links_ui_nav_bars(root, app, build)",
         "derived_about(root, spec, app, build)",
         "check(root)",
         "main(argv)"
@@ -3209,6 +3211,7 @@
         "apps_of(root)",
         "app_sources(root, app)",
         "reaches(root, app, needles)",
+        "links_ui_nav_bars(root, app, build)",
         "derived_about(root, spec, app, build)",
         "check(root)",
         "main(argv)"
@@ -3225,6 +3228,7 @@
         "apps_of(root)",
         "app_sources(root, app)",
         "reaches(root, app, needles)",
+        "links_ui_nav_bars(root, app, build)",
         "derived_about(root, spec, app, build)",
         "check(root)",
         "main(argv)"
@@ -63501,6 +63505,21 @@
       ]
     },
     {
+      "path": "ab_cloud-libs-shared/libs/keyboard/src/main/java/helium314/keyboard/settings/KeyboardSettingsExtras.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "KeyboardSettingsExtras"
+      ],
+      "imports": [
+        "android.content.Context"
+      ],
+      "symbols": [
+        "class KeyboardSettingsExtras",
+        "class Entry"
+      ]
+    },
+    {
       "path": "ab_cloud-libs-shared/libs/keyboard/src/main/java/helium314/keyboard/settings/Misc.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -78588,7 +78607,8 @@
       "exports": [
         "FleetConfigsActivity",
         "FleetConfigsEntries",
-        "FleetConfigsMenu"
+        "FleetConfigsMenu",
+        "FleetConfigsButtons"
       ],
       "imports": [
         "android.content.Context",
@@ -78596,6 +78616,8 @@
         "android.os.Bundle",
         "androidx.activity.ComponentActivity",
         "androidx.activity.compose.setContent",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
         "androidx.compose.material.icons.filled.Settings",
         "androidx.compose.runtime.getValue",
         "androidx.compose.runtime.setValue",
@@ -78608,9 +78630,11 @@
         "intent(context: Context, page: FleetConfigsPage, dark: Boolean = true)",
         "addTo(menu: android.view.Menu, order: Int = android.view.Menu.NONE)",
         "handle(context: Context, item: android.view.MenuItem)",
+        "addButtons(container: android.view.ViewGroup, index: Int = 0)",
         "open(context: Context, page: FleetConfigsPage)",
         "FleetConfigsMenu( modifier: androidx.compose.ui.Modifier = androidx.compose.ui.Modifier, tint: androidx.compose.ui.graphics.Color = androidx.compose.ui.graphics.Color.Unspecified, )",
         "testTagAsId(tag: String)",
+        "FleetConfigsButtons(modifier: androidx.compose.ui.Modifier = androidx.compose.ui.Modifier)",
         "class FleetConfigsActivity",
         "class FleetConfigsEntries"
       ]
@@ -78686,6 +78710,37 @@
         "UpdateSection(decl: FleetConfigsDecl, c: ThemeColors)",
         "class FleetConfigsPage",
         "class FleetConfigsTags"
+      ]
+    },
+    {
+      "path": "ab_cloud-libs-shared/libs/ui-nav-bars/src/main/kotlin/com/diegonmarcos/superapp/fleetconfigs/FleetConfigsShortcuts.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "FleetConfigsShortcuts",
+        "FleetConfigsInitProvider"
+      ],
+      "imports": [
+        "android.content.ContentProvider",
+        "android.content.ContentValues",
+        "android.content.Context",
+        "android.content.Intent",
+        "android.database.Cursor",
+        "android.net.Uri",
+        "androidx.core.content.pm.ShortcutInfoCompat",
+        "androidx.core.content.pm.ShortcutManagerCompat",
+        "androidx.core.graphics.drawable.IconCompat"
+      ],
+      "symbols": [
+        "publish(context: Context)",
+        "onCreate()",
+        "query(uri: Uri, projection: Array<out String>?, selection: String?, selectionArgs: Array<out String>?, sortOrder: String?)",
+        "getType(uri: Uri)",
+        "insert(uri: Uri, values: ContentValues?)",
+        "delete(uri: Uri, selection: String?, selectionArgs: Array<out String>?)",
+        "update(uri: Uri, values: ContentValues?, selection: String?, selectionArgs: Array<out String>?)",
+        "class FleetConfigsShortcuts",
+        "class FleetConfigsInitProvider"
       ]
     },
     {
@@ -81392,6 +81447,7 @@
         "onOpenVcard()",
         "onCheckForUpdates()",
         "PageStrip(pages: List<NavPage>, selectedId: String?, onSelect: (NavPage)",
+        "ConfigExtra()",
         "class WalletHost"
       ]
     },
@@ -155411,6 +155467,7 @@
         "removeLegacyKeyboardWorkaround()",
         "copyDirRecursively(src, dest, skip = [], currPath = '')",
         "removeConflictingResourceFiles(src, dest)",
+        "addComposeCompilerPlugin()",
         "class body",
         "class MainActivity"
       ]
@@ -175053,8 +175110,7 @@
         "com.diegonmarcos.clouddrive.ui.DriveTags",
         "com.diegonmarcos.clouddrive.ui.EmptyState",
         "com.diegonmarcos.clouddrive.ui.IconCatalog",
-        "com.diegonmarcos.clouddrive.ui.Pill",
-        "com.diegonmarcos.clouddrive.ui.ToolbarIsland"
+        "com.diegonmarcos.clouddrive.ui.Pill"
       ],
       "symbols": [
         "ConfigsScreen( mirrors: MirrorRunner, prefs: DrivePrefs, actions: DriveActions, hasAccess: Boolean, rcloneVersion: String?, git: GitSyncCoordinator, storage: StorageCoordinator, rclone: RcloneCoordinator, page: String? = null, onPageConsumed: ()"
@@ -176716,7 +176772,6 @@
         "com.diegonmarcos.clouddrive.ui.SectionHeader",
         "com.diegonmarcos.clouddrive.ui.StatusLight",
         "com.diegonmarcos.clouddrive.ui.StorageBar",
-        "com.diegonmarcos.clouddrive.ui.ToolbarIsland",
         "java.io.File",
         "kotlinx.coroutines.Dispatchers",
         "kotlinx.coroutines.withContext"
@@ -179948,6 +180003,8 @@
         "sort(items: List<T>, column: RepoColumn, ascending: Boolean, row: (T)",
         "toggle(open: String, tapped: String)",
         "summarize(rows: List<Pair<Boolean, RepoTableRow>>)",
+        "totalBytes(totalKb: Long)",
+        "mainBytes(treeBlobBytes: Long, totalKb: Long)",
         "size(bytes: Long?)",
         "count(n: Int?)",
         "visibility(isPrivate: Boolean?, pvt: String, pub: String)",
@@ -180310,8 +180367,7 @@
       "role": "kotlin",
       "exports": [
         "GitPageScreen",
-        "rememberGitNextRun",
-        "TerminalIslandAction"
+        "rememberGitNextRun"
       ],
       "imports": [
         "androidx.compose.animation.AnimatedContent",
@@ -180358,8 +180414,7 @@
       "symbols": [
         "GitPageScreen( git: GitSyncCoordinator, prefs: DrivePrefs, actions: DriveActions, page: String? = null, onPageConsumed: ()",
         "say(msg: String)",
-        "rememberGitNextRun()",
-        "TerminalIslandAction(actions: DriveActions, say: (String)"
+        "rememberGitNextRun()"
       ]
     },
     {
@@ -183211,6 +183266,24 @@
       ]
     },
     {
+      "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/RepoSizeColumnsTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "RepoSizeColumnsTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertNull",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test"
+      ],
+      "symbols": [
+        "stats(treeBytes: Long, totalKb: Long)",
+        "class RepoSizeColumnsTest"
+      ]
+    },
+    {
       "path": "ac_cloud-drive/app/src/test/java/com/diegonmarcos/clouddrive/sync/RepoStatusTest.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -184651,6 +184724,20 @@
         "w6()",
         "_red()",
         "_green()"
+      ]
+    },
+    {
+      "path": "ac_cloud-drive/test/test-drive-git-size-columns.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "check()",
+        "mut()"
+      ],
+      "imports": [],
+      "symbols": [
+        "check()",
+        "mut()"
       ]
     },
     {
@@ -365639,6 +365726,9 @@
         "ConfigsActivity"
       ],
       "imports": [
+        "com.diegonmarcos.superapp.fleetconfigs.FleetConfigsEntries",
+        "com.diegonmarcos.superapp.fleetconfigs.FleetConfigsPage",
+        "com.diegonmarcos.superapp.fleetconfigs.fleetConfigsEntryLabel",
         "android.content.ClipData",
         "android.content.ClipboardManager",
         "android.content.Context",
@@ -582060,6 +582150,7 @@
         "com.diegonmarcos.superapp.uikit.KitFragmentHostState",
         "com.diegonmarcos.superapp.uikit.KitPalette",
         "com.diegonmarcos.superapp.bottomnav.FleetChrome",
+        "com.diegonmarcos.superapp.fleetconfigs.FleetConfigsButtons",
         "com.diegonmarcos.superapp.bottomnav.NavDecl",
         "com.diegonmarcos.superapp.bottomnav.NavPage",
         "com.diegonmarcos.superapp.bottomnav.PageTabs",
@@ -582073,6 +582164,7 @@
         "onDestroy()",
         "onCheckForUpdates()",
         "onOpenVcard()",
+        "ConfigExtra()",
         "PageStrip(pages: List<NavPage>, selectedId: String?, onSelect: (NavPage)",
         "handleUpdateState(state: UpdateProgress.State)",
         "class MainActivity"

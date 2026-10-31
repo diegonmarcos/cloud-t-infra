@@ -62703,8 +62703,11 @@
         "FIN_API_HOST",
         "RUST_LOG",
         "FINTERM_CONTACT",
+        "FINTERM_DB",
+        "volumes",
         "limits",
-        "reservations"
+        "reservations",
+        "finterm_data"
       ]
     },
     {
