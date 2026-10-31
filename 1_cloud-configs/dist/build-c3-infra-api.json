@@ -2011,15 +2011,5 @@
       "google_compute_engine",
       "google_compute_engine.pub"
     ]
-  },
-  "secret_env_vars": [
-    "AUTHELIA_OIDC_C3_MCP_SECRET",
-    "MM_BOT_TOKEN",
-    "C3_API_KEY",
-    "DAGU_USERNAME",
-    "DAGU_PASSWORD",
-    "RESEND_API_KEY",
-    "CF_API_KEY",
-    "CF_API_EMAIL"
-  ]
+  }
 }

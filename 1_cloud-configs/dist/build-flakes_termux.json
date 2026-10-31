@@ -1136,17 +1136,7 @@
         "display_name": "C3 Cloud Control Center API",
         "description": "REST API for cloud infrastructure operations, lifecycle control, and observability across inventory, operations, security, and FinOps.",
         "auth": "bearer"
-      },
-      "secret_env_vars": [
-        "AUTHELIA_OIDC_C3_MCP_SECRET",
-        "MM_BOT_TOKEN",
-        "C3_API_KEY",
-        "DAGU_USERNAME",
-        "DAGU_PASSWORD",
-        "RESEND_API_KEY",
-        "CF_API_KEY",
-        "CF_API_EMAIL"
-      ]
+      }
     },
     "c3-public-api": {
       "category": "obs",
@@ -1314,10 +1304,7 @@
         "display_name": "C3 Public API",
         "description": "Single public-edge API on oci-analytics. /mail/http-to-smtp (Bearer) bridges CF Worker -> Maddy over WG (Maddy dual-writes to Stalwart). /analytics/{matomo|umami|openobserve}/* (public) passes through to first-party analytics backends.",
         "auth": "mixed"
-      },
-      "secret_env_vars": [
-        "OPENOBSERVE_AUTHORIZATION"
-      ]
+      }
     },
     "c3-services-api": {
       "category": "obs",
@@ -1837,28 +1824,7 @@
         "description": "Cloud health, DevOps operations, workflows, cost tracking, security scanning, observability, front-end deployment.",
         "auth": "none",
         "sdk": "@modelcontextprotocol/sdk@^1.12.0"
-      },
-      "secret_env_vars": [
-        "AUTHELIA_OIDC_C3_MCP_SECRET",
-        "MM_BOT_TOKEN",
-        "C3_API_KEY",
-        "DAGU_USERNAME",
-        "DAGU_PASSWORD",
-        "RESEND_API_KEY",
-        "CF_API_KEY",
-        "CF_API_EMAIL",
-        "NOREPLY_PASSWORD",
-        "OCI_USER",
-        "OCI_FINGERPRINT",
-        "OCI_TENANCY",
-        "OCI_REGION",
-        "OCI_API_KEY_PEM_B64",
-        "AWS_ACCESS_KEY_ID",
-        "AWS_SECRET_ACCESS_KEY",
-        "AWS_DEFAULT_REGION",
-        "C3_TELEGRAM_BOT_TOKEN",
-        "GITHUB_TOKEN"
-      ]
+      }
     },
     "cloud-mail-mcp": {
       "category": "app",
@@ -1986,21 +1952,7 @@
         "description": "IMAP/SMTP/Admin via Stalwart REST API; proxies google-personal-mcp tools.",
         "auth": "none",
         "sdk": "@modelcontextprotocol/sdk@^1.12.0"
-      },
-      "secret_env_vars": [
-        "MAIL_USER",
-        "MAIL_PASSWORD",
-        "STALWART_ADMIN_URL",
-        "STALWART_ADMIN_USER",
-        "STALWART_ADMIN_PASSWORD",
-        "RESEND_API_KEY",
-        "MADDY_ME_USER",
-        "MADDY_ME_PASSWORD",
-        "STALWART_ME_USER",
-        "STALWART_ME_PASSWORD",
-        "MADDY_NOREPLY_USER",
-        "MADDY_NOREPLY_PASSWORD"
-      ]
+      }
     },
     "cloud-mattermost-mcp": {
       "category": "app",
@@ -2090,14 +2042,7 @@
         "description": "Mattermost chat read, post, react, channel management via Mattermost API.",
         "auth": "bearer",
         "sdk": "@modelcontextprotocol/sdk@^1.12.0"
-      },
-      "secret_env_vars": [
-        "MM_CLAUDE_PASSWORD",
-        "MM_URL",
-        "MM_TEAM_ID",
-        "MM_ADMIN_USERNAME",
-        "CLAUDE_MODEL"
-      ]
+      }
     },
     "cloud-me-api": {
       "category": "app",
@@ -2315,12 +2260,7 @@
         "display_name": "Cloud Me API",
         "description": "Authenticated read-only access to declared datasets and config files of the owner's private cloud-me-* repos. Deploy keys stay server-side; secret-looking files are never served.",
         "auth": "mixed"
-      },
-      "secret_env_vars": [
-        "CME_KEY_CONTAINERS_B64",
-        "CME_KEY_CONFIGS_B64",
-        "CME_KEY_CGC_B64"
-      ]
+      }
     },
     "cloud-services-mcp": {
       "category": "obs",
@@ -2461,11 +2401,7 @@
         "description": "Unified service API gateway: Grafana, Matomo, Umami, Ntfy, Syncthing, Crawlee, Authelia, NocoDB, PhotoPrism, Gitea, Grist, HedgeDoc, Etherpad, Vaultwarden; proxies infra and user MCPs.",
         "auth": "none",
         "sdk": "@modelcontextprotocol/sdk@^1.12.0"
-      },
-      "secret_env_vars": [
-        "GITHUB_TOKEN",
-        "DAGU_BASIC_AUTH"
-      ]
+      }
     },
     "cloud-superapp-mcp": {
       "category": "app",
@@ -2662,10 +2598,7 @@
             "\"${MCP_LOCAL_LAUNCH:-$HOME/.claude/mcp-local-launch.sh}\" \"${CLOUD_INFRA_DIR:-$HOME/git/cloud-t-infra}/a_solutions/infra-api_cloud-superapp-mcp/src/code/cloud-superapp-mcp/src/index.ts\""
           ]
         }
-      },
-      "secret_env_vars": [
-        "SUPERAPP_FLEET_TOKEN"
-      ]
+      }
     },
     "cloud-vault-mcp": {
       "category": "data",
@@ -2967,10 +2900,7 @@
         "display_name": "Git Proxy API",
         "description": "Authelia-fronted read path to GitHub: list repos, stream a tarball, clone/fetch over smart HTTP, and read recent commits / workflow runs of declared repos (cached, to keep the Store's feeds off the anonymous quota). The GitHub credential stays server-side; the caller presents an Authelia bearer or an Authelia session cookie. Fleet APK release assets (Range-capable, sha256/source sidecars) are also mirrored for direct mesh callers without a credential (#837).",
         "auth": "mixed"
-      },
-      "secret_env_vars": [
-        "GITHUB_TOKEN"
-      ]
+      }
     },
     "google-personal-mcp": {
       "category": "app",
@@ -3081,10 +3011,7 @@
         "description": "IMAP/SMTP access for personal Google accounts via App Password, multi-account support.",
         "auth": "none",
         "sdk": "@modelcontextprotocol/sdk@^1.12.0"
-      },
-      "secret_env_vars": [
-        "DIEGO1_APP_PASSWORD"
-      ]
+      }
     },
     "google-workspace-mcp": {
       "category": "app",
@@ -3188,10 +3115,7 @@
         "description": "Gmail, Calendar, Drive, Docs, Sheets, Forms, Slides, Chat, Tasks, Contacts, Search, Apps Script via OAuth 2.0/2.1.",
         "auth": "oidc",
         "sdk": "fastmcp@3.1.1"
-      },
-      "secret_env_vars": [
-        "GOOGLE_SERVICE_ACCOUNT_KEY"
-      ]
+      }
     },
     "http-to-smtp-proxy-api": {
       "category": "app",
@@ -3264,13 +3188,7 @@
         "display_name": "HTTP-to-SMTP Proxy API",
         "description": "POST raw RFC 5322 email body. Translates to SMTP and dual-delivers to maddy:25 + Stalwart:2025 over WG. Used by CF email-forwarder Worker for inbound mail (because CF Workers cannot make outbound TCP/25 connections — port 25 is GCP-blocked end-to-end).",
         "auth": "bearer"
-      },
-      "secret_env_vars": [
-        "SMTP_HOST",
-        "SMTP_PORT",
-        "API_KEY",
-        "LISTEN_PORT"
-      ]
+      }
     },
     "cloud-builder-x": {
       "category": "tools",
@@ -3398,10 +3316,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "ACCESS_TOKEN"
-      ]
+      }
     },
     "cloudflare-worker": {
       "category": "cloud",
@@ -3443,12 +3358,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "HTTP_TO_SMTP_PROXY_API_KEY",
-        "C3_BEARER_TOKEN",
-        "GOOGLE_SA_KEY"
-      ]
+      }
     },
     "gcloud": {
       "category": "cloud",
@@ -3529,12 +3439,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "BORG_PASSPHRASE",
-        "SOURCE_DIRS",
-        "ARCHIVE_NAME"
-      ]
+      }
     },
     "backup-bup": {
       "category": "data",
@@ -3585,18 +3490,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "MYSQL_HOST",
-        "MYSQL_USER",
-        "MYSQL_PASSWORD",
-        "MYSQL_DBS",
-        "PGHOST",
-        "PGUSER",
-        "PGPASSWORD",
-        "POSTGRES_DBS",
-        "SQLITE_DBS"
-      ]
+      }
     },
     "gitea": {
       "category": "data",
@@ -3878,13 +3772,7 @@
         "display_name": "Gitea",
         "description": "Self-hosted Git service with REST API and repository management.",
         "auth": "bearer"
-      },
-      "secret_env_vars": [
-        "GITEA_ADMIN_USER",
-        "GITEA_ADMIN_PASSWORD",
-        "GITEA_ADMIN_EMAIL",
-        "GITHUB_MIRROR_TOKEN"
-      ]
+      }
     },
     "postlite": {
       "category": "data",
@@ -4021,10 +3909,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "REDIS_PASSWORD"
-      ]
+      }
     },
     "cloudflared": {
       "category": "infra-net",
@@ -4087,10 +3972,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "TUNNEL_TOKEN"
-      ]
+      }
     },
     "hickory-dns": {
       "category": "cloud",
@@ -4424,10 +4306,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "WSTUNNEL_PATH_PREFIX"
-      ]
+      }
     },
     "wireguard-public": {
       "category": "net",
@@ -4793,19 +4672,7 @@
         "display_name": "Dagu Workflow Scheduler",
         "description": "Lightweight DAG-based workflow scheduler for orchestrating cloud infrastructure automation.",
         "auth": "none"
-      },
-      "secret_env_vars": [
-        "DAGU_ADMIN_USERNAME",
-        "DAGU_ADMIN_PASSWORD",
-        "AUTHELIA_OIDC_DAGU_SECRET",
-        "NOREPLY_PASSWORD",
-        "GITHUB_TOKEN",
-        "AUTHELIA_BEARER_TOKEN",
-        "UMAMI_USERNAME",
-        "UMAMI_PASSWORD",
-        "HTTP_TO_SMTP_PROXY_API_KEY",
-        "STALWART_LOGIN_PASSWORD"
-      ]
+      }
     },
     "dbgate": {
       "category": "tools",
@@ -5045,13 +4912,7 @@
         "display_name": "Matomo Reporting API",
         "description": "Web analytics platform with Matomo Reporting API for tracking and admin operations.",
         "auth": "api-key"
-      },
-      "secret_env_vars": [
-        "MYSQL_ROOT_PASSWORD",
-        "MATOMO_DB_NAME",
-        "MATOMO_DB_USER",
-        "MATOMO_DB_PASSWORD"
-      ]
+      }
     },
     "ntfy": {
       "category": "tools",
@@ -5444,11 +5305,7 @@
         "display_name": "ntfy Push Notifications",
         "description": "Push notification server with HTTP POST interface for sending messages to topics.",
         "auth": "bearer"
-      },
-      "secret_env_vars": [
-        "NTFY_ADMIN_PASSWORD",
-        "NTFY_USER_PASSWORD"
-      ]
+      }
     },
     "openobserve": {
       "category": "tools",
@@ -5547,12 +5404,7 @@
         "display_name": "OpenObserve HTTP API",
         "description": "Logs/metrics/traces/RUM ingest + SQL query API. OTLP-compatible. Auth via Bearer tokens (issued by OO admin).",
         "auth": "bearer"
-      },
-      "secret_env_vars": [
-        "ZO_ROOT_USER_EMAIL",
-        "ZO_ROOT_USER_PASSWORD",
-        "ZO_INGEST_TOKEN"
-      ]
+      }
     },
     "reports": {
       "category": "tools",
@@ -5760,13 +5612,7 @@
         "display_name": "Umami Analytics API",
         "description": "Lightweight privacy-focused web analytics with tracking API and admin interface.",
         "auth": "bearer"
-      },
-      "secret_env_vars": [
-        "DB_PASSWORD",
-        "APP_SECRET",
-        "ADMIN_USERNAME",
-        "ADMIN_PASSWORD"
-      ]
+      }
     },
     "agents-tmp-reaper": {
       "category": "tools",
@@ -6110,16 +5956,7 @@
           "/oauth2/cloudflare/health",
           "/oauth2/email/health"
         ]
-      },
-      "secret_env_vars": [
-        "AUTH_BROKER_GOOGLE_CLIENT_ID",
-        "AUTH_BROKER_GOOGLE_CLIENT_SECRET",
-        "AUTH_BROKER_COOKIE_SECRET",
-        "AUTH_BROKER_GITHUB_APP_CLIENT_SECRET",
-        "AUTH_BROKER_SMTP_USER",
-        "AUTH_BROKER_SMTP_PASSWORD",
-        "AUTH_BROKER_RESEND_API_KEY"
-      ]
+      }
     },
     "authelia": {
       "category": "sec",
@@ -6290,33 +6127,7 @@
         "display_name": "Authelia Auth API",
         "description": "OpenID Connect/OAuth2 authorization and 2FA authentication server with WebAuthn support.",
         "auth": "oidc"
-      },
-      "secret_env_vars": [
-        "AUTHELIA_JWT_SECRET",
-        "AUTHELIA_SESSION_SECRET",
-        "AUTHELIA_STORAGE_ENCRYPTION_KEY",
-        "AUTHELIA_REDIS_PASSWORD",
-        "AUTHELIA_OIDC_HMAC_SECRET",
-        "AUTHELIA_USER_DIEGO_HASH",
-        "AUTHELIA_OIDC_CLIENT_NPM_SECRET",
-        "AUTHELIA_OIDC_CLIENT_NOCODB_SECRET",
-        "AUTHELIA_OIDC_CLIENT_CLI_SECRET",
-        "AUTHELIA_SMTP_PASSWORD",
-        "AUTHELIA_OIDC_JWKS_KEY",
-        "AUTHELIA_OIDC_CLIENT_CLOUDFLARE_SECRET",
-        "AUTHELIA_OIDC_CLIENT_CLAUDE_SECRET",
-        "AUTHELIA_OIDC_CLIENT_DAGU_SECRET",
-        "AUTHELIA_OIDC_CLIENT_C3_MCP_SECRET",
-        "AUTHELIA_OIDC_CLIENT_MONITORING_SECRET",
-        "AUTHELIA_OIDC_CLIENT_MATTERMOST_SECRET",
-        "AUTHELIA_OIDC_CLIENT_DAGU_CC_SECRET",
-        "AUTHELIA_OIDC_CLIENT_MATTERMOST_CC_SECRET",
-        "AUTHELIA_OIDC_CLIENT_CLOUD_ADMIN_SECRET",
-        "AUTHELIA_OIDC_CLIENT_CLAUDE_OPUS_SECRET",
-        "AUTHELIA_OIDC_CLIENT_CLAUDE_SONNET_SECRET",
-        "AUTHELIA_OIDC_CLIENT_CLAUDE_HAIKU_SECRET",
-        "AUTHELIA_USER_ME_TOTP_SECRET"
-      ]
+      }
     },
     "caddy": {
       "category": "sec",
@@ -7040,14 +6851,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "AUTHELIA_CLI_SECRET",
-        "CF_API_TOKEN",
-        "NTFY_ADMIN_AUTH",
-        "MESH_CA_KEY",
-        "MESH_CA_CERT"
-      ]
+      }
     },
     "caddy-l4-image": {
       "category": "sec",
@@ -7282,10 +7086,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "CF_API_TOKEN"
-      ]
+      }
     },
     "crowdsec": {
       "category": "sec",
@@ -7462,10 +7263,7 @@
         "display_name": "JWT Introspection Proxy",
         "description": "Validates bearer JWT tokens locally using Authelia JWKS public keys for Caddy forward_auth.",
         "auth": "bearer"
-      },
-      "secret_env_vars": [
-        "TOKENS_VERIFY_SECRET"
-      ]
+      }
     },
     "mcp-oauth": {
       "category": "sec",
@@ -7645,11 +7443,7 @@
         "display_name": "Fleet Token Engine",
         "description": "Owner-only token manager (list, reveal, generate, import, revoke, audit) and the mesh-only /v1/verify that introspect-proxy calls.",
         "auth": "bearer"
-      },
-      "secret_env_vars": [
-        "TOKENS_FLEET_KEY",
-        "TOKENS_VERIFY_SECRET"
-      ]
+      }
     },
     "cloud-cgc-pub-mcp": {
       "category": "obs",
@@ -8059,11 +7853,7 @@
         "description": "Code Graph Context: cloud specs, docs, inventory, configs, skills; Octocode semantic search; CodeGraph analysis (future).",
         "auth": "none",
         "sdk": "@modelcontextprotocol/sdk@^1.12.0"
-      },
-      "secret_env_vars": [
-        "KG_STORE_PASS",
-        "KG_STORE_PASS_PUB"
-      ]
+      }
     },
     "db-agent": {
       "category": "data",
@@ -8105,13 +7895,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "VM_NAME",
-        "NTFY_URL",
-        "NTFY_TOPIC",
-        "BUP_REMOTE"
-      ]
+      }
     },
     "hermes-agent": {
       "category": "agi",
@@ -8195,13 +7979,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "TELEGRAM_BOT_TOKEN",
-        "OPENAI_API_KEY",
-        "GH_TOKEN",
-        "OPENROUTER_API_KEY"
-      ]
+      }
     },
     "kg-store": {
       "category": "data",
@@ -8396,10 +8174,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "SURREAL_ROOT_PASSWORD"
-      ]
+      }
     },
     "kg-store-pub": {
       "category": "data",
@@ -8589,10 +8364,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "SURREAL_ROOT_PASSWORD"
-      ]
+      }
     },
     "my-ai-api": {
       "category": "agi",
@@ -8789,15 +8561,7 @@
         "healthcheck_paths": [
           "/health"
         ]
-      },
-      "secret_env_vars": [
-        "OPENROUTER_API_KEY",
-        "TELEGRAM_BOT_TOKEN",
-        "GOOSE_SERVER__SECRET_KEY",
-        "MCP_BEARER_TOKEN",
-        "TELEGRAM_CLAUDE_BOT_TOKEN",
-        "GH_TOKEN"
-      ]
+      }
     },
     "my-ai_claude-api": {
       "category": "agi",
@@ -9008,12 +8772,7 @@
         "healthcheck_paths": [
           "/health"
         ]
-      },
-      "secret_env_vars": [
-        "AUTHELIA_OIDC_TOKEN_CLAUDE_ADMIN",
-        "GH_TOKEN",
-        "OPENROUTER_API_KEY"
-      ]
+      }
     },
     "openclaw": {
       "category": "agi",
@@ -9339,18 +9098,7 @@
         "display_name": "Mattermost",
         "description": "Open-source team chat platform with REST API.",
         "auth": "bearer"
-      },
-      "secret_env_vars": [
-        "POSTGRES_PASSWORD",
-        "MM_SQLSETTINGS_DATASOURCE",
-        "MM_ADMIN_EMAIL",
-        "MM_ADMIN_USERNAME",
-        "MM_ADMIN_PASSWORD",
-        "BEARER_TOKEN",
-        "MM_CLAUDE_PASSWORD",
-        "AUTHELIA_OIDC_MATTERMOST_SECRET",
-        "MM_EMAILSETTINGS_SMTPPASSWORD"
-      ]
+      }
     },
     "cloud-webmail": {
       "category": "app",
@@ -9458,10 +9206,7 @@
         "healthcheck_paths": [
           "/api/health"
         ]
-      },
-      "secret_env_vars": [
-        "SESSION_SECRET"
-      ]
+      }
     },
     "mail-puller": {
       "category": "app",
@@ -9542,21 +9287,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "GMAIL_CLIENT_ID",
-        "GMAIL_CLIENT_SECRET",
-        "GMAIL_REFRESH_TOKEN",
-        "OUTLOOK_CLIENT_ID",
-        "OUTLOOK_CLIENT_SECRET",
-        "OUTLOOK_REFRESH_TOKEN",
-        "GWS_CLIENT_ID",
-        "GWS_CLIENT_SECRET",
-        "GWS_REFRESH_TOKEN",
-        "LOCAL_DELIVERY_USER",
-        "LOCAL_DELIVERY_PASSWORD",
-        "GMAIL_APP_PASSWORD"
-      ]
+      }
     },
     "matrix-continuwuity": {
       "category": "app",
@@ -9666,10 +9397,7 @@
         "display_name": "Matrix (Continuwuity)",
         "description": "Matrix client-server + federation API served by the Continuwuity homeserver.",
         "auth": "bearer"
-      },
-      "secret_env_vars": [
-        "CONTINUWUITY_REGISTRATION_TOKEN"
-      ]
+      }
     },
     "matrix-element": {
       "category": "app",
@@ -9842,11 +9570,7 @@
         "api_url": null,
         "healthcheck_paths": [],
         "type": "no-api"
-      },
-      "secret_env_vars": [
-        "AS_TOKEN",
-        "HS_TOKEN"
-      ]
+      }
     },
     "maddy": {
       "category": "app",
@@ -10032,18 +9756,7 @@
         "api_path": null,
         "api_url": null,
         "healthcheck_paths": []
-      },
-      "secret_env_vars": [
-        "ME_PASSWORD",
-        "NOREPLY_PASSWORD",
-        "OCI_RELAYUSER",
-        "OCI_RELAYPASSWORD",
-        "AWS_RELAYUSER",
-        "AWS_RELAYPASSWORD",
-        "DKIM_PRIVATE_KEY_B64",
-        "ADMIN_PASSWORD",
-        "MAIL_DEFAULT_PASSWORD"
-      ]
+      }
     },
     "stalwart": {
       "category": "app",
@@ -10355,17 +10068,7 @@
         "healthcheck_paths": [
           "/"
         ]
-      },
-      "secret_env_vars": [
-        "ADMIN_PASSWORD",
-        "ME_PASSWORD",
-        "NOREPLY_PASSWORD",
-        "OCI_RELAYUSER",
-        "OCI_RELAYPASSWORD",
-        "DKIM_PRIVATE_KEY_B64",
-        "MAIL_DEFAULT_PASSWORD",
-        "AUTH_NOREPLY_PASSWORD"
-      ]
+      }
     },
     "scrappers-api": {
       "category": "data",
@@ -10730,19 +10433,7 @@
         "display_name": "PhotoPrism",
         "description": "AI-powered photo management system with REST API.",
         "auth": "bearer"
-      },
-      "secret_env_vars": [
-        "PHOTOPRISM_ADMIN_PASSWORD",
-        "MARIADB_DATABASE",
-        "MARIADB_USER",
-        "MARIADB_PASSWORD",
-        "MARIADB_ROOT_PASSWORD",
-        "PHOTOPRISM_DATABASE_NAME",
-        "PHOTOPRISM_DATABASE_USER",
-        "PHOTOPRISM_DATABASE_PASSWORD",
-        "OCI_S3_ACCESS_KEY",
-        "OCI_S3_SECRET_KEY"
-      ]
+      }
     },
     "playlist-syncer": {
       "category": "app",
@@ -11004,10 +10695,7 @@
         "display_name": "Radicale CalDAV Server (Calendars)",
         "description": "WebDAV-based CalDAV server for calendar synchronization.",
         "auth": "basic"
-      },
-      "secret_env_vars": [
-        "RADICALE_USERS"
-      ]
+      }
     },
     "cloud-notes-sync": {
       "category": "app",
@@ -11272,10 +10960,7 @@
         "healthcheck_paths": [
           "/"
         ]
-      },
-      "secret_env_vars": [
-        "CODE_SERVER_PASSWORD"
-      ]
+      }
     },
     "contacts-radicale": {
       "category": "app",
@@ -11375,10 +11060,7 @@
         "display_name": "Radicale CardDAV Server (Contacts)",
         "description": "WebDAV-based CardDAV server for contact / address-book synchronization.",
         "auth": "basic"
-      },
-      "secret_env_vars": [
-        "RADICALE_USERS"
-      ]
+      }
     },
     "etherpad": {
       "category": "app",
@@ -11522,10 +11204,7 @@
         "display_name": "Etherpad",
         "description": "Collaborative real-time text editor with HTTP API.",
         "auth": "api-key"
-      },
-      "secret_env_vars": [
-        "ETHERPAD_OIDC_CLIENT_SECRET"
-      ]
+      }
     },
     "filebrowser": {
       "category": "app",
@@ -11742,10 +11421,7 @@
         "display_name": "Grist",
         "description": "Self-hosted spreadsheet and database with REST API.",
         "auth": "api-key"
-      },
-      "secret_env_vars": [
-        "GRIST_OIDC_CLIENT_SECRET"
-      ]
+      }
     },
     "hedgedoc": {
       "category": "app",
@@ -11874,10 +11550,7 @@
         "display_name": "HedgeDoc",
         "description": "Collaborative markdown editor with REST API.",
         "auth": "bearer"
-      },
-      "secret_env_vars": [
-        "HEDGEDOC_OIDC_CLIENT_SECRET"
-      ]
+      }
     },
     "revealmd": {
       "category": "app",
@@ -12173,16 +11846,7 @@
         "display_name": "Vaultwarden",
         "description": "Bitwarden-compatible password manager with REST API.",
         "auth": "bearer"
-      },
-      "secret_env_vars": [
-        "ADMIN_TOKEN",
-        "SMTP_HOST",
-        "SMTP_PORT",
-        "SMTP_SECURITY",
-        "SMTP_FROM",
-        "SMTP_USERNAME",
-        "SMTP_PASSWORD"
-      ]
+      }
     },
     "front-end": {
       "category": "app",

@@ -1972,8 +1972,5 @@
   "taxonomy": {
     "group": "Infra Apps",
     "category": "Net-Routing & Security"
-  },
-  "secret_env_vars": [
-    "TUNNEL_TOKEN"
-  ]
+  }
 }

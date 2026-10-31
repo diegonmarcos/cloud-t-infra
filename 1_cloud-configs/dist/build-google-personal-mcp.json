@@ -1988,8 +1988,5 @@
       "secret_env": "DIEGO1_APP_PASSWORD",
       "default": true
     }
-  ],
-  "secret_env_vars": [
-    "DIEGO1_APP_PASSWORD"
   ]
 }

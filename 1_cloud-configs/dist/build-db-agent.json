@@ -1958,11 +1958,5 @@
   "timezone": "UTC",
   "resources": {
     "mem_reservation": "16m"
-  },
-  "secret_env_vars": [
-    "VM_NAME",
-    "NTFY_URL",
-    "NTFY_TOPIC",
-    "BUP_REMOTE"
-  ]
+  }
 }

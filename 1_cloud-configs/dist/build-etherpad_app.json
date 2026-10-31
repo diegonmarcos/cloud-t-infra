@@ -1995,8 +1995,5 @@
       "cmd": "bash test-sso-entrypoint.sh",
       "cwd": "src"
     }
-  },
-  "secret_env_vars": [
-    "ETHERPAD_OIDC_CLIENT_SECRET"
-  ]
+  }
 }

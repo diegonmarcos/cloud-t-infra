@@ -1987,8 +1987,5 @@
       "cmd": "bash test-compose-pre-hook.sh",
       "cwd": "src"
     }
-  },
-  "secret_env_vars": [
-    "CONTINUWUITY_REGISTRATION_TOKEN"
-  ]
+  }
 }

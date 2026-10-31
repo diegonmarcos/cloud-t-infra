@@ -2095,8 +2095,5 @@
         "out": "file"
       }
     ]
-  },
-  "secret_env_vars": [
-    "SURREAL_ROOT_PASSWORD"
-  ]
+  }
 }

@@ -1975,19 +1975,5 @@
     "group": "Cloud Apps",
     "category": "Inboxes"
   },
-  "upstream_image": "debian:bookworm-slim",
-  "secret_env_vars": [
-    "GMAIL_CLIENT_ID",
-    "GMAIL_CLIENT_SECRET",
-    "GMAIL_REFRESH_TOKEN",
-    "OUTLOOK_CLIENT_ID",
-    "OUTLOOK_CLIENT_SECRET",
-    "OUTLOOK_REFRESH_TOKEN",
-    "GWS_CLIENT_ID",
-    "GWS_CLIENT_SECRET",
-    "GWS_REFRESH_TOKEN",
-    "LOCAL_DELIVERY_USER",
-    "LOCAL_DELIVERY_PASSWORD",
-    "GMAIL_APP_PASSWORD"
-  ]
+  "upstream_image": "debian:bookworm-slim"
 }

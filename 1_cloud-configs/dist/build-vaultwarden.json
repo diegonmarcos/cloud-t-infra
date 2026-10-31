@@ -1990,14 +1990,5 @@
   "timezone": "Europe/Madrid",
   "resources": {
     "mem_reservation": "64M"
-  },
-  "secret_env_vars": [
-    "ADMIN_TOKEN",
-    "SMTP_HOST",
-    "SMTP_PORT",
-    "SMTP_SECURITY",
-    "SMTP_FROM",
-    "SMTP_USERNAME",
-    "SMTP_PASSWORD"
-  ]
+  }
 }

@@ -2260,9 +2260,5 @@
       "cmd": "node --experimental-strip-types test-pub-surface-isolation.mjs",
       "cwd": "src/code"
     }
-  },
-  "secret_env_vars": [
-    "KG_STORE_PASS",
-    "KG_STORE_PASS_PUB"
-  ]
+  }
 }

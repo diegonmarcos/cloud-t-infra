@@ -1953,10 +1953,5 @@
     "group": "Infra Apps",
     "category": "Ops-Backup"
   },
-  "upstream_image": "alpine:3.19",
-  "secret_env_vars": [
-    "BORG_PASSPHRASE",
-    "SOURCE_DIRS",
-    "ARCHIVE_NAME"
-  ]
+  "upstream_image": "alpine:3.19"
 }

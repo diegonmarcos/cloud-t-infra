@@ -2041,8 +2041,5 @@
     "rate_per_ip_per_min": 60,
     "rate_per_sid_per_min": 1000,
     "request_timeout_ms": 15000
-  },
-  "secret_env_vars": [
-    "OPENOBSERVE_AUTHORIZATION"
-  ]
+  }
 }

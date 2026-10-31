@@ -1982,11 +1982,5 @@
       "cmd": "sh test-setup-idempotent.sh",
       "cwd": "src"
     }
-  },
-  "secret_env_vars": [
-    "DB_PASSWORD",
-    "APP_SECRET",
-    "ADMIN_USERNAME",
-    "ADMIN_PASSWORD"
-  ]
+  }
 }

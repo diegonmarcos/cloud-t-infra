@@ -2071,8 +2071,5 @@
     "superapp-hosts-declared": {
       "cmd": "bash test/test-superapp-hosts.sh"
     }
-  },
-  "secret_env_vars": [
-    "SUPERAPP_FLEET_TOKEN"
-  ]
+  }
 }

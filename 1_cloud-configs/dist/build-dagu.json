@@ -2004,17 +2004,5 @@
     "jev-call-sites": {
       "cmd": "python3 src/dags/test_jev-call-sites.py"
     }
-  },
-  "secret_env_vars": [
-    "DAGU_ADMIN_USERNAME",
-    "DAGU_ADMIN_PASSWORD",
-    "AUTHELIA_OIDC_DAGU_SECRET",
-    "NOREPLY_PASSWORD",
-    "GITHUB_TOKEN",
-    "AUTHELIA_BEARER_TOKEN",
-    "UMAMI_USERNAME",
-    "UMAMI_PASSWORD",
-    "HTTP_TO_SMTP_PROXY_API_KEY",
-    "STALWART_LOGIN_PASSWORD"
-  ]
+  }
 }

@@ -2105,10 +2105,5 @@
     "git_tree": true,
     "git_tree_writable": true,
     "git_tree_is_working_directory": false
-  },
-  "secret_env_vars": [
-    "AUTHELIA_OIDC_TOKEN_CLAUDE_ADMIN",
-    "GH_TOKEN",
-    "OPENROUTER_API_KEY"
-  ]
+  }
 }

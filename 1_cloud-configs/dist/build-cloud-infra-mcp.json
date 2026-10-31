@@ -2035,26 +2035,5 @@
       "cmd": "node --experimental-strip-types test-cf-bridge.mjs",
       "cwd": "src/code"
     }
-  },
-  "secret_env_vars": [
-    "AUTHELIA_OIDC_C3_MCP_SECRET",
-    "MM_BOT_TOKEN",
-    "C3_API_KEY",
-    "DAGU_USERNAME",
-    "DAGU_PASSWORD",
-    "RESEND_API_KEY",
-    "CF_API_KEY",
-    "CF_API_EMAIL",
-    "NOREPLY_PASSWORD",
-    "OCI_USER",
-    "OCI_FINGERPRINT",
-    "OCI_TENANCY",
-    "OCI_REGION",
-    "OCI_API_KEY_PEM_B64",
-    "AWS_ACCESS_KEY_ID",
-    "AWS_SECRET_ACCESS_KEY",
-    "AWS_DEFAULT_REGION",
-    "C3_TELEGRAM_BOT_TOKEN",
-    "GITHUB_TOKEN"
-  ]
+  }
 }

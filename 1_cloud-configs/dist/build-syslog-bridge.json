@@ -2174,9 +2174,5 @@
         "all"
       ]
     }
-  ],
-  "secret_env_vars": [
-    "NTFY_ADMIN_PASSWORD",
-    "NTFY_USER_PASSWORD"
   ]
 }

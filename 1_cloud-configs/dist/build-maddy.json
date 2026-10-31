@@ -2032,16 +2032,5 @@
     "sorter-jev": {
       "cmd": "cargo test --manifest-path src/crate/Cargo.toml"
     }
-  },
-  "secret_env_vars": [
-    "ME_PASSWORD",
-    "NOREPLY_PASSWORD",
-    "OCI_RELAYUSER",
-    "OCI_RELAYPASSWORD",
-    "AWS_RELAYUSER",
-    "AWS_RELAYPASSWORD",
-    "DKIM_PRIVATE_KEY_B64",
-    "ADMIN_PASSWORD",
-    "MAIL_DEFAULT_PASSWORD"
-  ]
+  }
 }

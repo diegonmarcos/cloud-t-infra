@@ -1981,8 +1981,5 @@
       "cmd": "node test-startup-contract.mjs",
       "cwd": "src"
     }
-  },
-  "secret_env_vars": [
-    "GOOGLE_SERVICE_ACCOUNT_KEY"
-  ]
+  }
 }

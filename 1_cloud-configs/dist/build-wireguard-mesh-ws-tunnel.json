@@ -2006,8 +2006,5 @@
       "use_case": "Hostile networks (airport / hotel / captive portal) where UDP/51820 is blocked. Looks identical to normal HTTPS to MITM/DPI.",
       "_consumer_hint": "Read by home-manager wireguard-wstunnel.nix on laptop/phone only."
     }
-  },
-  "secret_env_vars": [
-    "WSTUNNEL_PATH_PREFIX"
-  ]
+  }
 }

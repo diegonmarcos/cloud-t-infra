@@ -1973,12 +1973,5 @@
   "dns_aliases": [
     "cloud-mattermost-mcp.mesh.diegonmarcos.com"
   ],
-  "upstream_image": "ghcr.io/diegonmarcos/cloud-mattermost-mcp:latest",
-  "secret_env_vars": [
-    "MM_CLAUDE_PASSWORD",
-    "MM_URL",
-    "MM_TEAM_ID",
-    "MM_ADMIN_USERNAME",
-    "CLAUDE_MODEL"
-  ]
+  "upstream_image": "ghcr.io/diegonmarcos/cloud-mattermost-mcp:latest"
 }

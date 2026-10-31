@@ -2010,19 +2010,5 @@
     "stalwart_imap": 2993,
     "stalwart_smtp": 2465,
     "stalwart_jmap_https": 2443
-  },
-  "secret_env_vars": [
-    "MAIL_USER",
-    "MAIL_PASSWORD",
-    "STALWART_ADMIN_URL",
-    "STALWART_ADMIN_USER",
-    "STALWART_ADMIN_PASSWORD",
-    "RESEND_API_KEY",
-    "MADDY_ME_USER",
-    "MADDY_ME_PASSWORD",
-    "STALWART_ME_USER",
-    "STALWART_ME_PASSWORD",
-    "MADDY_NOREPLY_USER",
-    "MADDY_NOREPLY_PASSWORD"
-  ]
+  }
 }

@@ -2101,14 +2101,5 @@
       "cmd": "python3 -I test/test-broker-email.py",
       "cwd": "src"
     }
-  },
-  "secret_env_vars": [
-    "AUTH_BROKER_GOOGLE_CLIENT_ID",
-    "AUTH_BROKER_GOOGLE_CLIENT_SECRET",
-    "AUTH_BROKER_COOKIE_SECRET",
-    "AUTH_BROKER_GITHUB_APP_CLIENT_SECRET",
-    "AUTH_BROKER_SMTP_USER",
-    "AUTH_BROKER_SMTP_PASSWORD",
-    "AUTH_BROKER_RESEND_API_KEY"
-  ]
+  }
 }

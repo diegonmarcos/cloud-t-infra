@@ -1977,9 +1977,5 @@
       "cmd": "bash test-compose-pre-hook.sh",
       "cwd": "src"
     }
-  },
-  "secret_env_vars": [
-    "AS_TOKEN",
-    "HS_TOKEN"
-  ]
+  }
 }

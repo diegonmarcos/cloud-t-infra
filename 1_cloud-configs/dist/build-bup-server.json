@@ -1959,16 +1959,5 @@
       "cmd": "sh test-init-writable-authkeys.sh",
       "cwd": "src"
     }
-  },
-  "secret_env_vars": [
-    "MYSQL_HOST",
-    "MYSQL_USER",
-    "MYSQL_PASSWORD",
-    "MYSQL_DBS",
-    "PGHOST",
-    "PGUSER",
-    "PGPASSWORD",
-    "POSTGRES_DBS",
-    "SQLITE_DBS"
-  ]
+  }
 }

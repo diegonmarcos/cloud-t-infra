@@ -1961,11 +1961,5 @@
   "taxonomy": {
     "group": "Infra Apps",
     "category": "Ops-API-MCP"
-  },
-  "secret_env_vars": [
-    "SMTP_HOST",
-    "SMTP_PORT",
-    "API_KEY",
-    "LISTEN_PORT"
-  ]
+  }
 }

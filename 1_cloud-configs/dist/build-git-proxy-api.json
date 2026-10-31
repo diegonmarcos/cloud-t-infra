@@ -2092,8 +2092,5 @@
       "cmd": "node test-contract-and-authz.mjs",
       "cwd": "src"
     }
-  },
-  "secret_env_vars": [
-    "GITHUB_TOKEN"
-  ]
+  }
 }

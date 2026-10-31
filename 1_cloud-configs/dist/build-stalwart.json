@@ -2098,15 +2098,5 @@
     "mail-stack-limits": {
       "cmd": "node ../_shared/test-mail-stack-limits.mjs"
     }
-  },
-  "secret_env_vars": [
-    "ADMIN_PASSWORD",
-    "ME_PASSWORD",
-    "NOREPLY_PASSWORD",
-    "OCI_RELAYUSER",
-    "OCI_RELAYPASSWORD",
-    "DKIM_PRIVATE_KEY_B64",
-    "MAIL_DEFAULT_PASSWORD",
-    "AUTH_NOREPLY_PASSWORD"
-  ]
+  }
 }

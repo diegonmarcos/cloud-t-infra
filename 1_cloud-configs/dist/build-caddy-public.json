@@ -2101,8 +2101,5 @@
       "mcp_hub_fallback": "MCP Hub — use /g-workspace/mcp, /mail-mcp/mcp, /mattermost-mcp/mcp, /c3-infra-mcp/mcp, /c3-services-mcp/mcp, /cloud-cgc-pub-mcp/mcp",
       "app_hub_fallback": "Not Found"
     }
-  },
-  "secret_env_vars": [
-    "CF_API_TOKEN"
-  ]
+  }
 }

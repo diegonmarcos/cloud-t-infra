@@ -2149,11 +2149,5 @@
       "cmd": "node test-init-mirrors.ts",
       "cwd": "src"
     }
-  },
-  "secret_env_vars": [
-    "GITEA_ADMIN_USER",
-    "GITEA_ADMIN_PASSWORD",
-    "GITEA_ADMIN_EMAIL",
-    "GITHUB_MIRROR_TOKEN"
-  ]
+  }
 }

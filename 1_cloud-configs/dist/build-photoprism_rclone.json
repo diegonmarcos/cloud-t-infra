@@ -1975,17 +1975,5 @@
   "db": {
     "name": "photoprism",
     "user": "photoprism"
-  },
-  "secret_env_vars": [
-    "PHOTOPRISM_ADMIN_PASSWORD",
-    "MARIADB_DATABASE",
-    "MARIADB_USER",
-    "MARIADB_PASSWORD",
-    "MARIADB_ROOT_PASSWORD",
-    "PHOTOPRISM_DATABASE_NAME",
-    "PHOTOPRISM_DATABASE_USER",
-    "PHOTOPRISM_DATABASE_PASSWORD",
-    "OCI_S3_ACCESS_KEY",
-    "OCI_S3_SECRET_KEY"
-  ]
+  }
 }

@@ -2008,16 +2008,5 @@
     "ntfy": "NTFY",
     "agents": "AGENTS",
     "default_channels": "Projects"
-  },
-  "secret_env_vars": [
-    "POSTGRES_PASSWORD",
-    "MM_SQLSETTINGS_DATASOURCE",
-    "MM_ADMIN_EMAIL",
-    "MM_ADMIN_USERNAME",
-    "MM_ADMIN_PASSWORD",
-    "BEARER_TOKEN",
-    "MM_CLAUDE_PASSWORD",
-    "AUTHELIA_OIDC_MATTERMOST_SECRET",
-    "MM_EMAILSETTINGS_SMTPPASSWORD"
-  ]
+  }
 }

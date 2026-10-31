@@ -1994,11 +1994,5 @@
       "cmd": "bash test-matomo-ports.sh",
       "cwd": "src"
     }
-  },
-  "secret_env_vars": [
-    "MYSQL_ROOT_PASSWORD",
-    "MATOMO_DB_NAME",
-    "MATOMO_DB_USER",
-    "MATOMO_DB_PASSWORD"
-  ]
+  }
 }

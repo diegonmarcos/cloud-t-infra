@@ -1979,8 +1979,5 @@
   "upstream_image": "node:24-alpine",
   "resources": {
     "mem_reservation": "256M"
-  },
-  "secret_env_vars": [
-    "SESSION_SECRET"
-  ]
+  }
 }

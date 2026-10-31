@@ -1994,8 +1994,5 @@
       }
     ],
     "_secret_comment": "secrets.yaml must contain ACCESS_TOKEN (GitHub classic PAT, repo scope) — used only for runner registration/deregistration. Each job token is auto-issued by GitHub."
-  },
-  "secret_env_vars": [
-    "ACCESS_TOKEN"
-  ]
+  }
 }

@@ -1976,8 +1976,5 @@
     "category": "AGI"
   },
   "upstream_image": "linuxserver/code-server:latest",
-  "timezone": "Europe/Madrid",
-  "secret_env_vars": [
-    "CODE_SERVER_PASSWORD"
-  ]
+  "timezone": "Europe/Madrid"
 }

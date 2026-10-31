@@ -1984,8 +1984,5 @@
   "dns_aliases": [
     "calendar-radicale.mesh.diegonmarcos.com"
   ],
-  "upstream_image": "tomsquest/docker-radicale:latest",
-  "secret_env_vars": [
-    "RADICALE_USERS"
-  ]
+  "upstream_image": "tomsquest/docker-radicale:latest"
 }
