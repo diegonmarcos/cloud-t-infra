@@ -6,9 +6,9 @@
   },
   "repo": "cloud-u-containers",
   "counts": {
-    "files": 2508,
+    "files": 2509,
     "by_lang": {
-      "sh": 173,
+      "sh": 174,
       "js": 93,
       "nix": 183,
       "py": 507,
@@ -16,7 +16,7 @@
       "rust": 362
     },
     "by_role": {
-      "shell": 163,
+      "shell": 164,
       "file": 340,
       "nix-module": 19,
       "python": 493,
@@ -1041,6 +1041,22 @@
         "ok()",
         "new_repo()",
         "commit()",
+        "run()"
+      ]
+    },
+    {
+      "path": "_shared/test/render-dist-secret-mounts-guard.test.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "new_repo()",
+        "run()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "new_repo()",
         "run()"
       ]
     },
