@@ -6,9 +6,9 @@
   "base": "https://rss.diegonmarcos.com/feed",
   "counts": {
     "declared": 22,
-    "logs": 102,
-    "apps": 37,
-    "total": 161
+    "logs": 103,
+    "apps": 38,
+    "total": 163
   },
   "channels": [
     {
@@ -1112,6 +1112,17 @@
       "quiet": true
     },
     {
+      "id": "logs_capital-stack-finterminal-web",
+      "topic": "logs_capital-stack-finterminal-web",
+      "title": "capital-stack-finterminal-web",
+      "path": "Cloud-Infra/Logs/oci-apps/capital-stack-finterminal-web",
+      "category": "logs",
+      "source": "logs",
+      "vm": "oci-apps",
+      "feed": "/feed/c/logs_capital-stack-finterminal-web.atom",
+      "quiet": true
+    },
+    {
       "id": "logs_photoprism_app",
       "topic": "logs_photoprism_app",
       "title": "photoprism_app",
@@ -1559,6 +1570,16 @@
       "category": "apps",
       "source": "apps",
       "feed": "/feed/c/app_capital-stack-finterminal-api.atom",
+      "quiet": true
+    },
+    {
+      "id": "app_capital-stack-finterminal-web",
+      "topic": "app_capital-stack-finterminal-web",
+      "title": "Capital-Stack-FinTerminal web (#1351, design 3.5): the FinTerm pages of the SvelteKit webapps site served as static files behind the shared c3-pvt gate (Authelia 2FA session or fleet bearer) at c3-pvt.diegonmarcos.com/capital-stack-finterminal-web/. Same origin as c3-pvt.diegonmarcos.com/capital-stack-finterminal-api, so the page reads the /v1 API with the gate's session: no CORS, no token in the page. Built by cloudy-h-webapps-mob (ghcr.io/diegonmarcos/capital-stack-finterminal-web). LOCAL, not for deploy until the owner approves.",
+      "path": "Cloud-Apps/fin/capital-stack-finterminal-web",
+      "category": "apps",
+      "source": "apps",
+      "feed": "/feed/c/app_capital-stack-finterminal-web.atom",
       "quiet": true
     },
     {

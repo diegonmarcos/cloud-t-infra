@@ -396,6 +396,10 @@
     "name": "build capital stack finterminal api"
   },
   {
+    "file": "dist/build-capital-stack-finterminal-web.json",
+    "name": "build capital stack finterminal web"
+  },
+  {
     "file": "dist/build-photoprism_app.json",
     "name": "build photoprism_app"
   },

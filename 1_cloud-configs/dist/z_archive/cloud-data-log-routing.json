@@ -332,6 +332,11 @@
         "log_level": "info"
       },
       {
+        "container": "capital-stack-finterminal-web",
+        "service": "capital-stack-finterminal-web",
+        "log_level": "info"
+      },
+      {
         "container": "photoprism_app",
         "service": "photoprism",
         "log_level": "info"

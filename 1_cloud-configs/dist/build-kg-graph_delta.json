@@ -33,15 +33,15 @@
   "_generated": "",
   "_source": "_cloud-data-consolidated.json via cloud-data-config-derive.ts/kg-delta",
   "counts": {
-    "nodes": 347,
-    "edges": 475,
+    "nodes": 350,
+    "edges": 479,
     "by_table": {
       "vm": 4,
-      "service": 83,
-      "container": 102,
+      "service": 84,
+      "container": 103,
       "domain": 44,
       "repo": 3,
-      "module": 83,
+      "module": 84,
       "package": 28
     }
   },
@@ -2056,6 +2056,32 @@
     },
     {
       "table": "service",
+      "id": "capital_stack_finterminal_web",
+      "key": "service:capital_stack_finterminal_web",
+      "properties": {
+        "name": "capital-stack-finterminal-web",
+        "category": "fin",
+        "description": "Capital-Stack-FinTerminal web (#1351, design 3.5): the FinTerm pages of the SvelteKit webapps site served as static files behind the shared c3-pvt gate (Authelia 2FA session or fleet bearer) at c3-pvt.diegonmarcos.com/capital-stack-finterminal-web/. Same origin as c3-pvt.diegonmarcos.com/capital-stack-finterminal-api, so the page reads the /v1 API with the gate's session: no CORS, no token in the page. Built by cloudy-h-webapps-mob (ghcr.io/diegonmarcos/capital-stack-finterminal-web). LOCAL, not for deploy until the owner approves.",
+        "domain": null,
+        "port": 8341,
+        "vm": "oci-apps",
+        "folder": "user-fin_capital-stack-finterminal-web"
+      }
+    },
+    {
+      "table": "container",
+      "id": "capital_stack_finterminal_web",
+      "key": "container:capital_stack_finterminal_web",
+      "properties": {
+        "name": "capital-stack-finterminal-web",
+        "image": "ghcr.io/diegonmarcos/capital-stack-finterminal-web-binaries:latest",
+        "role": "app",
+        "port": 8341,
+        "public": true
+      }
+    },
+    {
+      "table": "service",
       "id": "photoprism",
       "key": "service:photoprism",
       "properties": {
@@ -3611,6 +3637,17 @@
         "repo": "cloud",
         "category": "fin",
         "service": "capital-stack-finterminal-api"
+      }
+    },
+    {
+      "table": "module",
+      "id": "user_fin_capital_stack_finterminal_web",
+      "key": "module:user_fin_capital_stack_finterminal_web",
+      "properties": {
+        "name": "user-fin_capital-stack-finterminal-web",
+        "repo": "cloud",
+        "category": "fin",
+        "service": "capital-stack-finterminal-web"
       }
     },
     {
@@ -5311,6 +5348,22 @@
       "from": "service:capital_stack_finterminal_api",
       "to": "container:capital_stack_finterminal_api",
       "key": "service:capital_stack_finterminal_api->runs_container->container:capital_stack_finterminal_api",
+      "properties": {
+        "role": "app"
+      }
+    },
+    {
+      "table": "hosted_on",
+      "from": "service:capital_stack_finterminal_web",
+      "to": "vm:oci_apps",
+      "key": "service:capital_stack_finterminal_web->hosted_on->vm:oci_apps",
+      "properties": {}
+    },
+    {
+      "table": "runs_container",
+      "from": "service:capital_stack_finterminal_web",
+      "to": "container:capital_stack_finterminal_web",
+      "key": "service:capital_stack_finterminal_web->runs_container->container:capital_stack_finterminal_web",
       "properties": {
         "role": "app"
       }
@@ -7327,6 +7380,20 @@
       "from": "module:user_fin_capital_stack_finterminal_api",
       "to": "service:capital_stack_finterminal_api",
       "key": "module:user_fin_capital_stack_finterminal_api->implements->service:capital_stack_finterminal_api",
+      "properties": {}
+    },
+    {
+      "table": "belongs_to_repo",
+      "from": "module:user_fin_capital_stack_finterminal_web",
+      "to": "repo:cloud",
+      "key": "module:user_fin_capital_stack_finterminal_web->belongs_to_repo->repo:cloud",
+      "properties": {}
+    },
+    {
+      "table": "implements",
+      "from": "module:user_fin_capital_stack_finterminal_web",
+      "to": "service:capital_stack_finterminal_web",
+      "key": "module:user_fin_capital_stack_finterminal_web->implements->service:capital_stack_finterminal_web",
       "properties": {}
     },
     {

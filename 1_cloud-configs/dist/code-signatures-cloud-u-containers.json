@@ -6,28 +6,28 @@
   },
   "repo": "cloud-u-containers",
   "counts": {
-    "files": 2509,
+    "files": 2519,
     "by_lang": {
-      "sh": 174,
-      "js": 93,
-      "nix": 183,
+      "sh": 175,
+      "js": 96,
+      "nix": 185,
       "py": 507,
       "ts": 1190,
-      "rust": 362
+      "rust": 366
     },
     "by_role": {
-      "shell": 164,
-      "file": 340,
+      "shell": 165,
+      "file": 343,
       "nix-module": 19,
       "python": 493,
       "module": 733,
       "script": 9,
-      "flake": 83,
+      "flake": 84,
       "entrypoint": 50,
-      "compose": 81,
+      "compose": 82,
       "mcp-tool": 121,
       "workflow-dag": 5,
-      "rust-module": 358,
+      "rust-module": 362,
       "hook": 53
     }
   },
@@ -62036,6 +62036,192 @@
       ]
     },
     {
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/finterm/mod.rs",
+      "lang": "rust",
+      "role": "rust-module",
+      "exports": [
+        "from_embedded",
+        "from_json",
+        "serving",
+        "topic",
+        "today",
+        "slots",
+        "fill",
+        "job_url",
+        "enc",
+        "Job",
+        "JobStatus",
+        "Finterm"
+      ],
+      "imports": [
+        "serde_json::Value",
+        "std::collections::HashMap",
+        "std::sync::Mutex",
+        "chrono::",
+        "super::"
+      ],
+      "symbols": [
+        "from_embedded()",
+        "from_json(text: &str)",
+        "topic(job_id: &str)",
+        "today()",
+        "slots(job: &Job, day: chrono::NaiveDate)",
+        "fill(s: &str, slots: &HashMap<&'static str, String>, each: &str)",
+        "job_url(job: &Job, day: chrono::NaiveDate, each: &str)",
+        "enc(s: &str)",
+        "job(v: Value)",
+        "the_embedded_declaration_loads_and_every_job_has_a_parser()",
+        "an_unknown_connector_is_refused()",
+        "urls_fill_slots_repeat_array_keys_and_encode()"
+      ]
+    },
+    {
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/finterm/normalise.rs",
+      "lang": "rust",
+      "role": "rust-module",
+      "exports": [
+        "is_empty",
+        "extend",
+        "parse",
+        "utc",
+        "country",
+        "importance",
+        "ff",
+        "declared",
+        "cboe",
+        "nasdaq",
+        "nyfed",
+        "treasury",
+        "frankfurter",
+        "coinbase",
+        "polymarket",
+        "bls",
+        "sec",
+        "sec_concept",
+        "Pt",
+        "Ev",
+        "Bar",
+        "Got"
+      ],
+      "imports": [
+        "chrono::",
+        "serde::",
+        "serde_json::Value",
+        "super::",
+        "serde_json::json"
+      ],
+      "symbols": [
+        "is_empty(&self)",
+        "extend(&mut self, o: Got)",
+        "parse(connector: &str, body: &str, opts: &Value, each: &str, paths: &Value)",
+        "s(v: &Value, k: &str)",
+        "num(v: &Value, k: &str)",
+        "arr(v: &Value)",
+        "utc(raw: &str)",
+        "country(ccy: &str)",
+        "importance(impact: &str)",
+        "ff(v: &Value)",
+        "declared(v: &Value)",
+        "cboe(v: &Value, each: &str, last: usize)",
+        "nasdaq(v: &Value, day: &str)",
+        "nyfed(v: &Value)",
+        "treasury(body: &str)",
+        "frankfurter(v: &Value)",
+        "coinbase(v: &Value, each: &str)",
+        "polymarket(v: &Value, last: usize)",
+        "bls(v: &Value)",
+        "sec(v: &Value, opts: &Value, paths: &Value)",
+        "sec_concept(v: &Value, scale: f64, last: usize)",
+        "p(c: &str, body: &str)",
+        "forex_factory_is_utc_with_country_and_importance()",
+        "declared_decisions_are_importance_three()",
+        "cboe_quote_and_history()",
+        "nasdaq_ranks_by_market_cap()",
+        "nyfed_splits_the_sofr_averages()",
+        "treasury_takes_the_last_day_and_the_day_before()",
+        "frankfurter_latest_and_range()",
+        "coinbase_stats_and_candles()",
+        "polymarket_open_markets_as_percent()",
+        "bls_newest_and_previous()",
+        "sec_profile_filings_and_concept()",
+        "garbage_is_empty_never_a_panic()"
+      ]
+    },
+    {
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/finterm/routes.rs",
+      "lang": "rust",
+      "role": "rust-module",
+      "exports": [
+        "router"
+      ],
+      "imports": [
+        "super::normalise::",
+        "super::scheduler::",
+        "super::Job",
+        "crate::state::AppState",
+        "axum::extract::",
+        "axum::http::",
+        "axum::response::",
+        "axum::routing::",
+        "axum::",
+        "serde_json::",
+        "std::collections::HashMap",
+        "super::"
+      ],
+      "symbols": [
+        "router()",
+        "gather(s: &AppState, path: &str)",
+        "answer(body: Value, ttl: u64, fetched: Option<String>, stale: bool, sources: &[String])",
+        "none(what: &str)",
+        "ttl_of(s: &AppState, path: &str)",
+        "norm(x: &str)",
+        "list(q: &HashMap<String, String>, k: &str)",
+        "catalog(State(s)",
+        "series(State(s)",
+        "curves(State(s)",
+        "quotes(State(s)",
+        "history(State(s)",
+        "fx_spot(State(s)",
+        "window(events: Vec<Ev>, q: &HashMap<String, String>, default_days: i64)",
+        "economic(State(s)",
+        "earnings(State(s)",
+        "central_banks(State(s)",
+        "fundamentals(State(s)",
+        "admin_refresh(State(s)",
+        "ev(ts: &str, imp: i64, c: &str, title: &str)",
+        "symbols_match_across_sources()",
+        "the_window_filters_importance_country_and_dedupes_in_time_order()"
+      ]
+    },
+    {
+      "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/finterm/scheduler.rs",
+      "lang": "rust",
+      "role": "rust-module",
+      "exports": [
+        "start",
+        "run_and_publish",
+        "run",
+        "collect",
+        "refresh"
+      ],
+      "imports": [
+        "super::normalise::",
+        "super::",
+        "crate::state::AppState",
+        "fincept_datahub::value",
+        "serde_json::",
+        "std::time::Duration"
+      ],
+      "symbols": [
+        "start(state: AppState)",
+        "run_and_publish(state: &AppState, job: &Job, db: Option<&sqlx::SqlitePool>)",
+        "run(f: &Finterm, job: &Job)",
+        "body(f: &Finterm, job: &Job, day: chrono::NaiveDate, item: &str)",
+        "restore(state: &AppState, pool: &sqlx::SqlitePool)",
+        "refresh(state: &AppState, job_id: &str)"
+      ]
+    },
+    {
       "path": "user-fin_capital-stack-finterminal-api/src/code/crates/server/src/lib.rs",
       "lang": "rust",
       "role": "rust-module",
@@ -62176,7 +62362,8 @@
         "fincept_datahub::DataHub",
         "fincept_mcp::Registry",
         "std::collections::HashMap",
-        "std::sync::Arc"
+        "std::sync::Arc",
+        "crate::finterm::Finterm"
       ],
       "symbols": [
         "try_new()"
@@ -62225,7 +62412,9 @@
         "score_endpoint_produces_recommendation()",
         "topic_publish_and_peek_round_trip()",
         "mcp_tools_lists_five_defaults()",
-        "unknown_persona_returns_404()"
+        "unknown_persona_returns_404()",
+        "finterm_catalog_lists_the_declared_jobs()",
+        "finterm_admin_refresh_refuses_the_edge()"
       ]
     },
     {
@@ -62518,6 +62707,45 @@
       ]
     },
     {
+      "path": "user-fin_capital-stack-finterminal-api/src/fetchers/gen-fetchers.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [
+        "buildFetchers",
+        "OUT",
+        "APP",
+        "CONTAINER_CONNECTORS"
+      ],
+      "imports": [
+        "node:crypto",
+        "node:child_process",
+        "node:fs",
+        "node:path",
+        "node:url"
+      ],
+      "symbols": [
+        "buildFetchers({ sources, dashboards, centralBanks, declarationSha })",
+        "readAndroid(rel, local)"
+      ]
+    },
+    {
+      "path": "user-fin_capital-stack-finterminal-api/src/fetchers/test-gen-fetchers.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "node:fs",
+        "node:path",
+        "node:url",
+        "node:child_process",
+        "./gen-fetchers.mjs"
+      ],
+      "symbols": [
+        "check({ d = decl()",
+        "mutant(name, args, needle)"
+      ]
+    },
+    {
       "path": "user-fin_capital-stack-finterminal-api/src/flake.nix",
       "lang": "nix",
       "role": "flake",
@@ -62553,6 +62781,115 @@
         "baseImage",
         "apt",
         "title"
+      ]
+    },
+    {
+      "path": "user-fin_capital-stack-finterminal-web/build.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "get_config()",
+        "get_config_array()",
+        "get_lifecycle()",
+        "detect_layout()",
+        "rewrite_compose_image_refs()",
+        "log()",
+        "log_warn()",
+        "log_error()",
+        "declared_container_names()",
+        "ssh_with_retry()",
+        "ssh_run_detached()",
+        "rsync_with_retry()",
+        "_ship_build_phase()"
+      ],
+      "imports": [],
+      "symbols": [
+        "get_config()",
+        "get_config_array()",
+        "get_lifecycle()",
+        "detect_layout()",
+        "rewrite_compose_image_refs()",
+        "log()",
+        "log_warn()",
+        "log_error()",
+        "declared_container_names()",
+        "ssh_with_retry()",
+        "ssh_run_detached()",
+        "rsync_with_retry()",
+        "_ship_build_phase()"
+      ]
+    },
+    {
+      "path": "user-fin_capital-stack-finterminal-web/src/compose.nix",
+      "lang": "nix",
+      "role": "compose",
+      "exports": [
+        "buildJson",
+        "container",
+        "base_domain",
+        "services"
+      ],
+      "imports": [],
+      "symbols": [
+        "svc",
+        "self",
+        "binariesImage",
+        "services",
+        "capital-stack-finterminal-web",
+        "image",
+        "container_name",
+        "ports",
+        "read_only",
+        "tmpfs",
+        "limits",
+        "reservations"
+      ]
+    },
+    {
+      "path": "user-fin_capital-stack-finterminal-web/src/flake.nix",
+      "lang": "nix",
+      "role": "flake",
+      "exports": [
+        "description",
+        "dist",
+        "nixpkgs"
+      ],
+      "imports": [
+        "../../_shared/engine.nix",
+        "./compose.nix",
+        "../_shared/engine.nix",
+        "compose.nix"
+      ],
+      "symbols": [
+        "description",
+        "outputs",
+        "forAllSystems",
+        "buildJson",
+        "container",
+        "engine",
+        "lib",
+        "base_domain",
+        "packages",
+        "pkgs",
+        "default",
+        "srcDir",
+        "templates",
+        "composeSpec",
+        "title"
+      ]
+    },
+    {
+      "path": "user-fin_capital-stack-finterminal-web/test/test-web-gate.mjs",
+      "lang": "js",
+      "role": "file",
+      "exports": [],
+      "imports": [
+        "node:fs",
+        "node:path",
+        "node:url"
+      ],
+      "symbols": [
+        "check({ b, compose, fa })"
       ]
     },
     {

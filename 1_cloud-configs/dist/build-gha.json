@@ -381,6 +381,11 @@
       "vm": "oci-apps",
       "has_docker": true
     },
+    "capital-stack-finterminal-web": {
+      "dir": "user-fin_capital-stack-finterminal-web",
+      "vm": "oci-apps",
+      "has_docker": true
+    },
     "photoprism": {
       "dir": "user-media_photoprism",
       "vm": "oci-apps",

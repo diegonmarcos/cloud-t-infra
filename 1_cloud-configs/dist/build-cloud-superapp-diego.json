@@ -2080,6 +2080,16 @@
         "db_engine": null
       },
       {
+        "name": "capital-stack-finterminal-web",
+        "service": "capital-stack-finterminal-web",
+        "vm": "oci-A1-f_0",
+        "private_dns": "capital-stack-finterminal-web.mesh.diegonmarcos.com:8341",
+        "port": 8341,
+        "protocol": "http",
+        "category": "fin",
+        "db_engine": null
+      },
+      {
         "name": "photoprism_mariadb",
         "service": "photoprism",
         "vm": "oci-A1-f_0",

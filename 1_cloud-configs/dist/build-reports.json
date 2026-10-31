@@ -1326,6 +1326,19 @@
         "path": "/capital-stack-finterminal-api/health"
       }
     },
+    "capital-stack-finterminal-web": {
+      "name": "capital-stack-finterminal-web",
+      "vm": "oci-A1-f_0",
+      "domain": null,
+      "enabled": true,
+      "category": "fin",
+      "ports": {
+        "app": 8341
+      },
+      "health": {
+        "path": "/healthz"
+      }
+    },
     "photoprism": {
       "name": "photoprism",
       "vm": "oci-A1-f_0",
@@ -2058,6 +2071,15 @@
       "dns": "capital-stack-finterminal-api.mesh.diegonmarcos.com"
     },
     {
+      "service": "capital-stack-finterminal-web",
+      "dns": "capital-stack-finterminal-web.mesh.diegonmarcos.com"
+    },
+    {
+      "service": "capital-stack-finterminal-web",
+      "container": "app",
+      "dns": "capital-stack-finterminal-web.mesh.diegonmarcos.com"
+    },
+    {
       "service": "photoprism",
       "dns": "photoprism.mesh.diegonmarcos.com"
     },
@@ -2351,6 +2373,7 @@
           "matrix-mautrix-whatsapp",
           "scrappers-api",
           "capital-stack-finterminal-api",
+          "capital-stack-finterminal-web",
           "photoprism",
           "playlist-syncer",
           "news-gdelt",
@@ -3274,6 +3297,19 @@
         },
         "health": {
           "path": "/capital-stack-finterminal-api/health"
+        }
+      },
+      "capital-stack-finterminal-web": {
+        "name": "capital-stack-finterminal-web",
+        "vm": "oci-A1-f_0",
+        "domain": null,
+        "enabled": true,
+        "category": "fin",
+        "ports": {
+          "app": 8341
+        },
+        "health": {
+          "path": "/healthz"
         }
       },
       "photoprism": {

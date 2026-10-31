@@ -433,6 +433,15 @@
       "has_docker_build": true
     },
     {
+      "name": "capital-stack-finterminal-web",
+      "dir": "user-fin_capital-stack-finterminal-web",
+      "compose_path": "/opt/containers/capital-stack-finterminal-web",
+      "images": [
+        "ghcr.io/diegonmarcos/capital-stack-finterminal-web-binaries:latest"
+      ],
+      "has_docker_build": true
+    },
+    {
       "name": "photoprism",
       "dir": "user-media_photoprism",
       "compose_path": "/opt/containers/photoprism",

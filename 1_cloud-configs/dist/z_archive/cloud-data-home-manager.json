@@ -199,6 +199,7 @@
         "matrix-mautrix-whatsapp",
         "scrappers-api",
         "capital-stack-finterminal-api",
+        "capital-stack-finterminal-web",
         "photoprism",
         "playlist-syncer",
         "news-gdelt",

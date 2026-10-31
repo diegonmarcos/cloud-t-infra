@@ -200,6 +200,18 @@
       ]
     },
     {
+      "name": "capital-stack-finterminal-web",
+      "category": "fin",
+      "vm": "oci-A1-f_0",
+      "description": "Capital-Stack-FinTerminal web (#1351, design 3.5): the FinTerm pages of the SvelteKit webapps site served as static files behind the shared c3-pvt gate (Authelia 2FA session or fleet bearer) at c3-pvt.diegonmarcos.com/capital-stack-finterminal-web/. Same origin as c3-pvt.diegonmarcos.com/capital-stack-finterminal-api, so the page reads the /v1 API with the gate's session: no CORS, no token in the page. Built by cloudy-h-webapps-mob (ghcr.io/diegonmarcos/capital-stack-finterminal-web). LOCAL, not for deploy until the owner approves.",
+      "domain": "—",
+      "ports": [],
+      "networks": [],
+      "containers": [
+        "capital-stack-finterminal-web"
+      ]
+    },
+    {
       "name": "chat-mattermost",
       "category": "app",
       "vm": "oci-A1-f_0",
@@ -1657,6 +1669,18 @@
       "networks": [],
       "containers": [
         "capital-stack-finterminal-api"
+      ]
+    },
+    {
+      "name": "capital-stack-finterminal-web",
+      "category": "fin",
+      "vm": "oci-A1-f_0",
+      "description": "Capital-Stack-FinTerminal web (#1351, design 3.5): the FinTerm pages of the SvelteKit webapps site served as static files behind the shared c3-pvt gate (Authelia 2FA session or fleet bearer) at c3-pvt.diegonmarcos.com/capital-stack-finterminal-web/. Same origin as c3-pvt.diegonmarcos.com/capital-stack-finterminal-api, so the page reads the /v1 API with the gate's session: no CORS, no token in the page. Built by cloudy-h-webapps-mob (ghcr.io/diegonmarcos/capital-stack-finterminal-web). LOCAL, not for deploy until the owner approves.",
+      "domain": "—",
+      "ports": [],
+      "networks": [],
+      "containers": [
+        "capital-stack-finterminal-web"
       ]
     },
     {

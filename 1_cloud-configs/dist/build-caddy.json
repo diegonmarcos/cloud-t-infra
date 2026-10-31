@@ -932,6 +932,14 @@
       "comment": "c3 container capital-stack-finterminal-api (mesh-only; capital-stack-finterminal-api-http-8340.mesh.diegonmarcos.com)"
     },
     {
+      "domain": "c3-capital-stack-finterminal-web.diegonmarcos.com",
+      "upstream": "10.0.0.6:8341",
+      "auth": "none",
+      "wg_only": true,
+      "container": "capital-stack-finterminal-web",
+      "comment": "c3 container capital-stack-finterminal-web (mesh-only; capital-stack-finterminal-web-http-8341.mesh.diegonmarcos.com)"
+    },
+    {
       "domain": "c3-photoprism-app.diegonmarcos.com",
       "upstream": "10.0.0.6:3013",
       "auth": "none",
@@ -2154,6 +2162,11 @@
       "private_name": "cloud.capital-stack-finterminal-api.mesh.diegonmarcos.com"
     },
     {
+      "service": "capital-stack-finterminal-web.mesh.diegonmarcos.com",
+      "upstream": "10.0.0.6:8341",
+      "private_name": "cloud.capital-stack-finterminal-web.mesh.diegonmarcos.com"
+    },
+    {
       "service": "photoprism.mesh.diegonmarcos.com",
       "upstream": "10.0.0.6:3013",
       "private_name": "cloud.photoprism.mesh.diegonmarcos.com"
@@ -2530,6 +2543,12 @@
       "source": "internal_routes"
     },
     {
+      "service": "cloud.capital-stack-finterminal-web.mesh.diegonmarcos.com",
+      "upstream": "10.0.0.6:8341",
+      "alias_of": "capital-stack-finterminal-web.mesh.diegonmarcos.com",
+      "source": "internal_routes"
+    },
+    {
       "service": "cloud.photoprism.mesh.diegonmarcos.com",
       "upstream": "10.0.0.6:3013",
       "alias_of": "photoprism.mesh.diegonmarcos.com",
@@ -2856,6 +2875,12 @@
     {
       "service": "c3-capital-stack-finterminal-api.mesh.diegonmarcos.com",
       "upstream": "10.0.0.6:8340",
+      "scheme": "c3",
+      "source": "url_scheme"
+    },
+    {
+      "service": "c3-capital-stack-finterminal-web.mesh.diegonmarcos.com",
+      "upstream": "10.0.0.6:8341",
       "scheme": "c3",
       "source": "url_scheme"
     },
@@ -3195,6 +3220,11 @@
         "host": "c3-capital-stack-finterminal-api.diegonmarcos.com",
         "container": "capital-stack-finterminal-api",
         "private": "c3-capital-stack-finterminal-api.mesh.diegonmarcos.com"
+      },
+      {
+        "host": "c3-capital-stack-finterminal-web.diegonmarcos.com",
+        "container": "capital-stack-finterminal-web",
+        "private": "c3-capital-stack-finterminal-web.mesh.diegonmarcos.com"
       },
       {
         "host": "c3-photoprism-app.diegonmarcos.com",
@@ -4543,6 +4573,27 @@
     },
     {
       "kind": "redirect",
+      "service": "capital-stack-finterminal-web.mesh.diegonmarcos.com",
+      "redirect_to": "https://capital-stack-finterminal-web-http-8341.mesh.diegonmarcos.com",
+      "container": "capital-stack-finterminal-web",
+      "container_key": "app",
+      "svc": "capital-stack-finterminal-web",
+      "vm": "oci-A1-f_0"
+    },
+    {
+      "kind": "canonical",
+      "service": "capital-stack-finterminal-web-http-8341.mesh.diegonmarcos.com",
+      "container": "capital-stack-finterminal-web",
+      "container_key": "app",
+      "svc": "capital-stack-finterminal-web",
+      "vm": "oci-A1-f_0",
+      "port": 8341,
+      "protocol": "http",
+      "upstream": "10.0.0.6:8341",
+      "source": "containers.app.port"
+    },
+    {
+      "kind": "redirect",
       "service": "photoprism_app.mesh.diegonmarcos.com",
       "redirect_to": "https://photoprism_app-http-3013.mesh.diegonmarcos.com",
       "container": "photoprism_app",
@@ -5760,6 +5811,16 @@
       "notes": "c3 container capital-stack-finterminal-api (mesh-only; capital-stack-finterminal-api-http-8340.mesh.diegonmarcos.com)"
     },
     {
+      "host": "c3-capital-stack-finterminal-web.diegonmarcos.com",
+      "path": null,
+      "upstream": "10.0.0.6:8341",
+      "kind": "reverse_proxy",
+      "tls": "public",
+      "zone": "com",
+      "service": null,
+      "notes": "c3 container capital-stack-finterminal-web (mesh-only; capital-stack-finterminal-web-http-8341.mesh.diegonmarcos.com)"
+    },
+    {
       "host": "c3-photoprism-app.diegonmarcos.com",
       "path": null,
       "upstream": "10.0.0.6:3013",
@@ -6852,6 +6913,16 @@
       "notes": null
     },
     {
+      "host": "capital-stack-finterminal-web.mesh.diegonmarcos.com",
+      "path": null,
+      "upstream": "10.0.0.6:8341",
+      "kind": "reverse_proxy",
+      "tls": "internal",
+      "zone": "com",
+      "service": null,
+      "notes": null
+    },
+    {
       "host": "photoprism.mesh.diegonmarcos.com",
       "path": null,
       "upstream": "10.0.0.6:3013",
@@ -7441,6 +7512,16 @@
       "tls": "on_demand",
       "zone": "com",
       "service": "capital-stack-finterminal-api",
+      "notes": null
+    },
+    {
+      "host": "capital-stack-finterminal-web-http-8341.mesh.diegonmarcos.com",
+      "path": null,
+      "upstream": "10.0.0.6:8341",
+      "kind": "reverse_proxy",
+      "tls": "on_demand",
+      "zone": "com",
+      "service": "capital-stack-finterminal-web",
       "notes": null
     },
     {

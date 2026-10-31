@@ -747,6 +747,17 @@
           "public_url": "https://api.diegonmarcos.com/capital-stack-finterminal-api"
         },
         {
+          "id": "capital-stack-finterminal-web",
+          "name": "capital-stack-finterminal-web",
+          "vm": "oci-A1-f_0",
+          "category": "fin",
+          "subgroup": "Finance",
+          "port": 8341,
+          "private_ip": "10.0.0.6",
+          "private_url": "https://capital-stack-finterminal-web.mesh.diegonmarcos.com",
+          "public_url": null
+        },
+        {
           "id": "photoprism",
           "name": "photoprism",
           "vm": "oci-A1-f_0",

@@ -763,6 +763,15 @@
         }
       }
     },
+    "capital-stack-finterminal-web": {
+      "vm": "oci-apps",
+      "vm_ram_gb": 24,
+      "vm_cpu": 4,
+      "containers": [
+        "capital-stack-finterminal-web"
+      ],
+      "resources": null
+    },
     "photoprism": {
       "vm": "oci-apps",
       "vm_ram_gb": 24,
