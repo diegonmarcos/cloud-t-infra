@@ -6,20 +6,20 @@
   },
   "repo": "cloud",
   "counts": {
-    "files": 1569,
+    "files": 1572,
     "by_lang": {
-      "sh": 1059,
+      "sh": 1060,
       "js": 169,
       "nix": 304,
-      "py": 7,
+      "py": 9,
       "ts": 30
     },
     "by_role": {
       "hook": 377,
       "file": 86,
-      "shell": 539,
+      "shell": 540,
       "flake": 6,
-      "script": 143,
+      "script": 145,
       "module": 113,
       "python": 6,
       "engine": 1,
@@ -1758,6 +1758,28 @@
         "get_config()",
         "step_build()",
         "step_secrets()"
+      ]
+    },
+    {
+      "path": ".github/workflows/scripts/sso-oidc-bundle.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "adapt(b)",
+        "new_client(var)",
+        "now()",
+        "cmd_new(clients_path, key_path, out_path)",
+        "cmd_add(clients_path, in_path, out_path)"
+      ],
+      "imports": [
+        "base64"
+      ],
+      "symbols": [
+        "adapt(b)",
+        "new_client(var)",
+        "now()",
+        "cmd_new(clients_path, key_path, out_path)",
+        "cmd_add(clients_path, in_path, out_path)"
       ]
     },
     {
@@ -17670,6 +17692,28 @@
       ]
     },
     {
+      "path": "1_cicd/src/scripts/sso-oidc-bundle.py",
+      "lang": "py",
+      "role": "script",
+      "exports": [
+        "adapt(b)",
+        "new_client(var)",
+        "now()",
+        "cmd_new(clients_path, key_path, out_path)",
+        "cmd_add(clients_path, in_path, out_path)"
+      ],
+      "imports": [
+        "base64"
+      ],
+      "symbols": [
+        "adapt(b)",
+        "new_client(var)",
+        "now()",
+        "cmd_new(clients_path, key_path, out_path)",
+        "cmd_add(clients_path, in_path, out_path)"
+      ]
+    },
+    {
       "path": "1_cloud-configs/build.sh",
       "lang": "sh",
       "role": "shell",
@@ -19649,6 +19693,20 @@
       "symbols": [
         "fail()",
         "check_file()"
+      ]
+    },
+    {
+      "path": "9_others/test/sso-oidc-bundle-add.test.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "check()",
+        "mutate()"
+      ],
+      "imports": [],
+      "symbols": [
+        "check()",
+        "mutate()"
       ]
     },
     {
