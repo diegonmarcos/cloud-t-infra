@@ -6,12 +6,12 @@
   },
   "repo": "cloud-u-android",
   "counts": {
-    "files": 22863,
+    "files": 22872,
     "by_lang": {
-      "sh": 626,
-      "js": 513,
-      "py": 179,
-      "kotlin": 12283,
+      "sh": 627,
+      "js": 514,
+      "py": 180,
+      "kotlin": 12289,
       "java": 647,
       "nix": 35,
       "rust": 111,
@@ -20,12 +20,12 @@
     "by_role": {
       "hook": 158,
       "file": 2302,
-      "shell": 499,
+      "shell": 500,
       "script": 272,
       "java": 646,
-      "kotlin": 12280,
-      "python": 57,
-      "module": 6447,
+      "kotlin": 12286,
+      "python": 58,
+      "module": 6448,
       "flake": 31,
       "rust-module": 111,
       "nix-module": 4,
@@ -362689,6 +362689,7 @@
         "LedgerField",
         "LedgerDef",
         "LedgerData",
+        "LedgerSeed",
         "LedgerModel"
       ],
       "imports": [
@@ -362709,6 +362710,7 @@
         "without(collection: String)",
         "toJson()",
         "fromJson(text: String?)",
+        "applied(d: LedgerData, defs: List<LedgerDef>)",
         "money(s: String?)",
         "isDate(s: String?)",
         "validate(def: LedgerDef, values: Rec)",
@@ -362717,6 +362719,7 @@
         "class LedgerField",
         "class LedgerDef",
         "class LedgerData",
+        "class LedgerSeed",
         "class LedgerModel"
       ]
     },
@@ -362726,6 +362729,7 @@
       "role": "kotlin",
       "exports": [
         "ReportTable",
+        "LedgerSummary",
         "LedgerReports"
       ],
       "imports": [
@@ -362739,12 +362743,14 @@
         "m(r: Rec, k: String)",
         "f(v: BigDecimal, c: String)",
         "pct(part: BigDecimal, whole: BigDecimal)",
+        "summary(rows: List<Rec>, valueField: String, monthlyField: String)",
         "budgetVsActual(d: LedgerData, today: String, c: String)",
         "accountsVsCashflow(d: LedgerData, today: String, c: String)",
         "row(name: String, opening: BigDecimal, asOf: String, mine: List<Rec>)",
         "portfolio(d: LedgerData, c: String)",
         "income(d: LedgerData, today: String, c: String)",
         "class ReportTable",
+        "class LedgerSummary",
         "class LedgerReports"
       ]
     },
@@ -362805,9 +362811,11 @@
         "accept(collection: String, n: Int)",
         "builtin(collection: String, n: Int)",
         "empty(collection: String)",
+        "mock(collection: String, id: String)",
         "LedgerBlock(o: JSONObject)",
         "commit(d: LedgerData)",
         "GeoCard(g: GeoSummary)",
+        "SummaryCard(s: LedgerSummary, currency: String, note: String)",
         "ReportCard(t: ReportTable)",
         "ReportRow(columns: List<String>, cells: List<String>, bold: Boolean = false)",
         "CollectionCard(def: LedgerDef, rows: List<Rec>, currency: String, onAdd: (Rec)",
@@ -364022,6 +364030,31 @@
         "switchingPagesKeepsOneFragmentAndSmallSavedState()",
         "class LeakProbeFragment",
         "class HostedFragmentLeakTest"
+      ]
+    },
+    {
+      "path": "ac_cloud-me/app/src/test/java/com/diegonmarcos/cloudme/InventoryTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "InventoryTest"
+      ],
+      "imports": [
+        "android.app.Application",
+        "org.json.JSONArray",
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertSame",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "org.junit.runner.RunWith",
+        "org.robolectric.RobolectricTestRunner",
+        "org.robolectric.annotation.Config",
+        "java.math.BigDecimal"
+      ],
+      "symbols": [
+        "def(collection: String, vararg seed: String)",
+        "class InventoryTest"
       ]
     },
     {
@@ -584229,7 +584262,7 @@
         "pctText(p: Pt)",
         "events(all: List<Ev>, filter: JSONObject?, today: LocalDate)",
         "dots(n: Int)",
-        "signedSig(d: Double)",
+        "decimals(level: Double)",
         "fredPanel(panel: Panel, source: Source, f: JSONObject, http: Http, today: LocalDate, route: PrimaryRoute?, fallback: Source?)",
         "derived(panel: Panel, f: JSONObject, series: List<FredSeries>, asOf: String, missing: String)",
         "fredSeries(source: Source, f: JSONObject, http: Http, today: LocalDate, route: PrimaryRoute?, fallback: Source?)",
@@ -584288,6 +584321,7 @@
         "frankfurter(body: String)",
         "coinbase(body: String, each: String)",
         "cboe(body: String, each: String, last: Int)",
+        "cboePrev(price: Double, change: Double?, prevClose: Double?)",
         "ff(body: String)",
         "country(ccy: String)",
         "importance(impact: String)",
@@ -584368,7 +584402,6 @@
         "ranges(points: List<ChartPoint>, curve: Boolean)",
         "ticks(lo: Double, hi: Double, n: Int = 4)",
         "heat(chgPct: Double?, scale: Double = 3.0)",
-        "heatInkDark(chgPct: Double?)",
         "spread(rows: List<List<String>>, a: String, b: String, bp: Boolean = true)",
         "v(l: String)",
         "flag(iso2: String?)",
@@ -585809,6 +585842,7 @@
         "d(id: String)",
         "eachTabOpensOnItsDeclaredDefault()",
         "keyRowsComeLastAndASegmentIsDrawnInsideItsCard()",
+        "aKeyRowDeclaredFirstIsStillDrawnLast()",
         "marketMonitorLeadsWithTheTreasuryTilesAndTheDerivedSpread()",
         "noPlaceholderDeclaresADashedLayout()",
         "class DashboardsUiTest"
@@ -585900,6 +585934,7 @@
         "frankfurterReadsLatestAndARange()",
         "coinbaseStatsAreAQuoteAndCandlesAreBarsOldestFirst()",
         "cboeReadsAQuoteAndTheDailyHistory()",
+        "cboeAfterTheCloseTakesThePreviousCloseFromPriceChange()",
         "forexFactoryEventsAreUtcWithCountryAndImportance()",
         "icsEventsConvertEasternTimeAcrossTheDstChange()",
         "declaredCentralBankDecisionsAreImportanceThree()",
@@ -586094,6 +586129,7 @@
         "onePerItemRequestAndAFailingItemIsSkipped()",
         "everyItemFailingIsAnError()",
         "theWatchlistReplacesTheDeclaredSymbolsAndPriceAlertsFire()",
+        "quotesFormatTheChangeAndDropChangeColumnsWithoutAPrevious()",
         "eventAlertsFlagTheNextDayAtTheRuleLevel()",
         "arrayParamsRepeatTheKeyAndLabelsSelect()",
         "theApiRouteNeedsTheV1PathTheMeshAndAnAnswer()",
@@ -586377,6 +586413,50 @@
       ]
     },
     {
+      "path": "ad_CG-Omniverse/app/src/main/assets/avatar/avatar.js",
+      "lang": "js",
+      "role": "module",
+      "exports": [],
+      "imports": [
+        "three",
+        "../space/OrbitControls.js"
+      ],
+      "symbols": [
+        "glowTexture()",
+        "mesh(geo, m, parent, x = 0, y = 0, z = 0)",
+        "build(cfg)",
+        "roundBox(geo, r)",
+        "dispose(o)",
+        "animate(t)"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/Avatar.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AvatarOption",
+        "AvatarGroup",
+        "AvatarSpec",
+        "Avatar"
+      ],
+      "imports": [
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "spec(json: String)",
+        "load(spec: AvatarSpec, saved: String?)",
+        "save(cfg: Map<String, String>)",
+        "set(spec: AvatarSpec, cfg: Map<String, String>, group: String, id: String)",
+        "sceneJson(spec: AvatarSpec, cfg: Map<String, String>)",
+        "class AvatarOption",
+        "class AvatarGroup",
+        "class AvatarSpec",
+        "class Avatar",
+        "class of"
+      ]
+    },
+    {
       "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/Decl.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -586390,28 +586470,6 @@
       "symbols": [
         "decode(b64: String)",
         "class Decl"
-      ]
-    },
-    {
-      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/Holdings.kt",
-      "lang": "kotlin",
-      "role": "kotlin",
-      "exports": [
-        "Holding",
-        "Holdings"
-      ],
-      "imports": [
-        "org.json.JSONArray",
-        "org.json.JSONObject"
-      ],
-      "symbols": [
-        "parse(json: String)",
-        "toJson(list: List<Holding>)",
-        "add(list: List<Holding>, ticker: String, quantity: String, cost: String)",
-        "remove(list: List<Holding>, index: Int)",
-        "costBasis(list: List<Holding>)",
-        "class Holding",
-        "class Holdings"
       ]
     },
     {
@@ -586453,6 +586511,32 @@
       ]
     },
     {
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/Store.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "World",
+        "FilterGroup",
+        "Store"
+      ],
+      "imports": [
+        "org.json.JSONObject"
+      ],
+      "symbols": [
+        "parse(json: String)",
+        "tags(w: World, group: FilterGroup)",
+        "allSelected()",
+        "isAll(sel: Map<FilterGroup, Set<String>>, group: FilterGroup)",
+        "toggle(sel: Map<FilterGroup, Set<String>>, group: FilterGroup, chip: String)",
+        "toggleAll(sel: Map<FilterGroup, Set<String>>, group: FilterGroup)",
+        "matches(w: World, sel: Map<FilterGroup, Set<String>>)",
+        "filter(worlds: List<World>, sel: Map<FilterGroup, Set<String>>)",
+        "class World",
+        "class FilterGroup",
+        "class Store"
+      ]
+    },
+    {
       "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/ui/AppShell.kt",
       "lang": "kotlin",
       "role": "kotlin",
@@ -586478,6 +586562,7 @@
         "androidx.compose.ui.res.stringResource",
         "com.diegonmarcos.cgomniverse.Decl",
         "com.diegonmarcos.cgomniverse.R",
+        "com.diegonmarcos.cgomniverse.World",
         "com.diegonmarcos.superapp.bottomnav.islandEntries",
         "com.diegonmarcos.superapp.bottomnav.rememberAccountLauncher",
         "com.diegonmarcos.superapp.navbarbottom.NavBarBottomHost",
@@ -586487,6 +586572,13 @@
       ],
       "symbols": [
         "entry(title: String)",
+        "avatarGroup(id: String)",
+        "avatarOption(group: String, id: String)",
+        "chip(group: String, chip: String)",
+        "world(id: String)",
+        "openGalaxy(id: String)",
+        "openBrowser(id: String)",
+        "galaxyWorld(id: String)",
         "AppShell()",
         "class Tags"
       ]
@@ -586510,47 +586602,122 @@
       ]
     },
     {
-      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/ui/HoldingsPanel.kt",
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/ui/AvatarPage.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
-        "HoldingsPanel"
+        "AVATAR_PREFS",
+        "AvatarPage"
       ],
       "imports": [
+        "android.app.backup.BackupManager",
         "android.content.Context",
+        "android.webkit.WebResourceRequest",
+        "android.webkit.WebResourceResponse",
+        "android.webkit.WebView",
+        "android.webkit.WebViewClient",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
         "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.PaddingValues",
         "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.fillMaxSize",
         "androidx.compose.foundation.layout.fillMaxWidth",
-        "androidx.compose.foundation.text.KeyboardOptions",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.lazy.LazyRow",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.shape.CircleShape",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material3.FilterChip",
         "androidx.compose.material3.MaterialTheme",
-        "androidx.compose.material3.OutlinedTextField",
         "androidx.compose.material3.Text",
         "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.DisposableEffect",
+        "androidx.compose.runtime.LaunchedEffect",
         "androidx.compose.runtime.getValue",
         "androidx.compose.runtime.mutableStateOf",
         "androidx.compose.runtime.remember",
         "androidx.compose.runtime.saveable.rememberSaveable",
         "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
         "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.graphics.Color",
         "androidx.compose.ui.platform.LocalContext",
         "androidx.compose.ui.platform.testTag",
-        "androidx.compose.ui.res.stringResource",
-        "androidx.compose.ui.text.input.KeyboardType",
-        "androidx.compose.ui.unit.dp",
-        "com.diegonmarcos.cgomniverse.Holding",
-        "com.diegonmarcos.cgomniverse.Holdings",
-        "com.diegonmarcos.cgomniverse.R",
-        "com.diegonmarcos.superapp.uikit.KitButton",
-        "com.diegonmarcos.superapp.uikit.KitCard",
-        "com.diegonmarcos.superapp.uikit.KitSectionHeader",
-        "com.diegonmarcos.superapp.uikit.KitSettingsRow",
-        "com.diegonmarcos.superapp.uikit.KitTextButton",
-        "java.util.Locale"
+        "androidx.compose.ui.res.stringResource"
       ],
       "symbols": [
-        "HoldingsPanel()",
-        "save(list: List<Holding>)",
-        "fmt(x: Double)"
+        "AvatarPage()",
+        "update(next: Map<String, String>)",
+        "shouldInterceptRequest(view: WebView, request: WebResourceRequest)",
+        "onPageFinished(view: WebView, url: String)"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/ui/GalaxyPage.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "GalaxyPage",
+        "WorldView"
+      ],
+      "imports": [
+        "android.graphics.Bitmap",
+        "android.net.Uri",
+        "android.webkit.PermissionRequest",
+        "android.webkit.RenderProcessGoneDetail",
+        "android.webkit.WebChromeClient",
+        "android.webkit.WebResourceError",
+        "android.webkit.WebResourceRequest",
+        "android.webkit.WebView",
+        "android.webkit.WebViewClient",
+        "androidx.activity.compose.BackHandler",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.PaddingValues",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.filled.Close",
+        "androidx.compose.material.icons.filled.OpenInBrowser",
+        "androidx.compose.material.icons.filled.PlayArrow",
+        "androidx.compose.material.icons.filled.Refresh",
+        "androidx.compose.material.icons.filled.ViewInAr",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.IconButton",
+        "androidx.compose.material3.LinearProgressIndicator",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.DisposableEffect",
+        "androidx.compose.runtime.getValue"
+      ],
+      "symbols": [
+        "GalaxyPage(loaded: World?, onEnter: (World)",
+        "WorldView(w: World, onClose: ()",
+        "onProgressChanged(view: WebView, newProgress: Int)",
+        "onPermissionRequest(request: PermissionRequest)",
+        "shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest)",
+        "onPageStarted(view: WebView, url: String, favicon: Bitmap?)",
+        "onPageFinished(view: WebView, url: String)",
+        "onReceivedError(view: WebView, request: WebResourceRequest, err: WebResourceError)",
+        "onRenderProcessGone(view: WebView, detail: RenderProcessGoneDetail)"
       ]
     },
     {
@@ -586584,6 +586751,7 @@
         "com.diegonmarcos.cgomniverse.Entry",
         "com.diegonmarcos.cgomniverse.Pages",
         "com.diegonmarcos.cgomniverse.R",
+        "com.diegonmarcos.cgomniverse.World",
         "com.diegonmarcos.superapp.uikit.GroupTitle",
         "com.diegonmarcos.superapp.uikit.KitCard",
         "com.diegonmarcos.superapp.uikit.KitSectionHeader",
@@ -586591,29 +586759,120 @@
         "com.diegonmarcos.superapp.uikit.LocalKitPalette"
       ],
       "symbols": [
-        "SectionPage(sectionId: String)",
+        "SectionPage(sectionId: String, loaded: World?, onEnterWorld: (World)",
         "EntryRow(e: Entry, url: String?, onOpen: (String)",
         "AboutPanel()",
         "openUrl(ctx: Context, url: String)"
       ]
     },
     {
-      "path": "ad_CG-Omniverse/app/src/test/java/com/diegonmarcos/cgomniverse/HoldingsTest.kt",
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/ui/StorePage.kt",
       "lang": "kotlin",
       "role": "kotlin",
       "exports": [
-        "HoldingsTest"
+        "StorePage",
+        "Badge",
+        "WorldBadges"
       ],
       "imports": [
-        "org.junit.Assert.assertEquals",
-        "org.junit.Assert.assertNull",
-        "org.junit.Test"
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.horizontalScroll",
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.PaddingValues",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.lazy.LazyColumn",
+        "androidx.compose.foundation.lazy.items",
+        "androidx.compose.foundation.rememberScrollState",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.filled.Check",
+        "androidx.compose.material.icons.filled.OpenInBrowser",
+        "androidx.compose.material.icons.filled.Public",
+        "androidx.compose.material3.FilterChip",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.runtime.mutableStateOf",
+        "androidx.compose.runtime.remember",
+        "androidx.compose.runtime.setValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.unit.dp",
+        "com.diegonmarcos.cgomniverse.Decl",
+        "com.diegonmarcos.cgomniverse.FilterGroup"
       ],
       "symbols": [
-        "addValidatesAndUppercases()",
-        "roundTripsThroughJson()",
-        "removeAndCostBasis()",
-        "class HoldingsTest"
+        "StorePage(onOpenInGalaxy: (World)",
+        "groupLabel(g: FilterGroup)",
+        "FilterRow(label: String, g: FilterGroup, sel: Map<FilterGroup, Set<String>>, onAll: ()",
+        "Chip(label: String, selected: Boolean, tag: String, onClick: ()",
+        "Badge(text: String, tint: Color? = null)",
+        "WorldBadges(w: World)",
+        "WorldCard(w: World, onGalaxy: ()"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/main/java/com/diegonmarcos/cgomniverse/ui/Web.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "Web"
+      ],
+      "imports": [
+        "android.annotation.SuppressLint",
+        "android.content.Context",
+        "android.content.Intent",
+        "android.net.Uri",
+        "android.view.MotionEvent",
+        "android.view.View",
+        "android.webkit.WebSettings",
+        "android.webkit.WebView",
+        "androidx.webkit.WebViewAssetLoader"
+      ],
+      "symbols": [
+        "assetLoader(ctx: Context)",
+        "create(ctx: Context)",
+        "openInBrowser(ctx: Context, url: String)",
+        "class Web"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/test/java/com/diegonmarcos/cgomniverse/AvatarTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "AvatarTest"
+      ],
+      "imports": [
+        "org.json.JSONObject",
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertSame",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "java.io.File"
+      ],
+      "symbols": [
+        "theDeclarationIsComplete()",
+        "nothingSavedIsTheDefault()",
+        "aSaveRoundTripsAndUnknownIdsFallBack()",
+        "setRefusesWhatIsNotDeclared()",
+        "theSceneGetsHexColoursAndShapeIds()",
+        "class AvatarTest"
       ]
     },
     {
@@ -586635,6 +586894,36 @@
         "eachSourceResolvesFromTheBakedTargets()",
         "plannedOrSourcelessOrUnresolvedIsNull()",
         "class PagesTest"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/app/src/test/java/com/diegonmarcos/cgomniverse/StoreTest.kt",
+      "lang": "kotlin",
+      "role": "kotlin",
+      "exports": [
+        "StoreTest"
+      ],
+      "imports": [
+        "org.junit.Assert.assertEquals",
+        "org.junit.Assert.assertFalse",
+        "org.junit.Assert.assertTrue",
+        "org.junit.Test",
+        "java.io.File"
+      ],
+      "symbols": [
+        "w(id: String, type: String, dim: String, vr: Boolean)",
+        "only(vararg pairs: Pair<FilterGroup, Set<String>>)",
+        "ids(sel: Map<FilterGroup, Set<String>>)",
+        "everythingIsSelectedByDefault()",
+        "typeMapsEachKind()",
+        "mixedDimensionsCountAsBoth()",
+        "vrYesIsBothDevicesAndVrNoIsFlatOnly()",
+        "chipsInAGroupAreComplementary()",
+        "everyGroupMustPass()",
+        "toggleFlipsOneChipOnly()",
+        "allSelectsEveryChipOrClearsTheGroup()",
+        "theGeneratedCatalogueParsesWhole()",
+        "class StoreTest"
       ]
     },
     {
@@ -586714,6 +587003,26 @@
       ]
     },
     {
+      "path": "ad_CG-Omniverse/data/gen-store.py",
+      "lang": "py",
+      "role": "python",
+      "exports": [
+        "slug(name)",
+        "cells(line)",
+        "generate(text)",
+        "render(text)"
+      ],
+      "imports": [
+        "json"
+      ],
+      "symbols": [
+        "slug(name)",
+        "cells(line)",
+        "generate(text)",
+        "render(text)"
+      ]
+    },
+    {
       "path": "ad_CG-Omniverse/flake.nix",
       "lang": "nix",
       "role": "flake",
@@ -586781,6 +587090,26 @@
         "bad()",
         "mutant()",
         "jedit()"
+      ]
+    },
+    {
+      "path": "ad_CG-Omniverse/test/test-store-data.sh",
+      "lang": "sh",
+      "role": "shell",
+      "exports": [
+        "ok()",
+        "bad()",
+        "check()",
+        "mutant()",
+        "refuse()"
+      ],
+      "imports": [],
+      "symbols": [
+        "ok()",
+        "bad()",
+        "check()",
+        "mutant()",
+        "refuse()"
       ]
     },
     {
