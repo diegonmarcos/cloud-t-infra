@@ -587010,7 +587010,9 @@
         "slug(name)",
         "cells(line)",
         "generate(text)",
-        "render(text)"
+        "render(text)",
+        "cleartext_hosts(store)",
+        "render_nsc(text)"
       ],
       "imports": [
         "json"
@@ -587019,7 +587021,9 @@
         "slug(name)",
         "cells(line)",
         "generate(text)",
-        "render(text)"
+        "render(text)",
+        "cleartext_hosts(store)",
+        "render_nsc(text)"
       ]
     },
     {
