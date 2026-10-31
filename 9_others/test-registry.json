@@ -253,6 +253,9 @@
     "test_sso_oidc_issue_workflow.sh": {
       "status": "run"
     },
+    "sso-oidc-bundle-add.test.sh": {
+      "status": "run"
+    },
     "cgc-db-queue-no-eviction.test.sh": {
       "status": "run"
     },

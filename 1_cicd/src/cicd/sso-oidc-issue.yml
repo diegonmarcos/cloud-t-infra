@@ -9,11 +9,20 @@ name: "SSO OIDC issue (Authelia JWKS key + per-service client secrets, sops-encr
 # write deploy key vault-mtls-issue uses). The public repos keep client IDs and redirect URIs only.
 # Nothing is printed (secrets are ::add-mask::ed and never echoed), no artifact is uploaded, files live in a
 # 0700 tmpfs dir that is shredded at the end. Refuses to overwrite an existing bundle unless rotate=true.
+# mode=add (#994): add-only. Decrypts the existing bundle on the runner (SOPS_AGE_KEY) and appends a new secret
+# ONLY for clients declared in oidc-clients.json that the bundle lacks; the JWKS key and every existing client
+# secret and digest are kept unchanged (1_cicd/src/scripts/sso-oidc-bundle.py add, guarded by
+# 9_others/test/sso-oidc-bundle-add.test.sh with mutations). Nothing missing = no commit.
 # Delivery of each secret to its service (/run/secrets/<secret_var>, <SVC>_OIDC_CLIENT_SECRET) and flipping
 # "enabled" in oidc-clients.json are separate steps that happen after this run.
 on:
   workflow_dispatch:
     inputs:
+      mode:
+        description: "new = first bundle (or full rotate with rotate=true); add = append secrets for missing clients only, keep every existing secret and the JWKS key"
+        required: false
+        default: "new"
+        type: string
       rotate:
         description: "true = replace an existing bundle (new JWKS key and every client secret)"
         required: false
@@ -34,6 +43,8 @@ jobs:
     env:
       VAULT_WRITE_DEPLOY_KEY: ${{ secrets.VAULT_WRITE_DEPLOY_KEY }}
       ROTATE: ${{ inputs.rotate }}
+      MODE: ${{ inputs.mode }}
+      SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
       AGE_RECIPIENT: age1u575hx8h4t5cgle2uznmyfy75e7cgd02h9t5dax506luz9e05vlqxtd7pq
     steps:
       - uses: actions/checkout@v4
@@ -41,6 +52,11 @@ jobs:
           repository: diegonmarcos/cloudy-u-containers
           path: containers
           sparse-checkout: infra-sec_authelia/src/oidc-clients.json
+          sparse-checkout-cone-mode: false
+      - uses: actions/checkout@v4
+        with:
+          path: self
+          sparse-checkout: 1_cicd/src/scripts/sso-oidc-bundle.py
           sparse-checkout-cone-mode: false
       - name: Install sops
         run: |
@@ -61,32 +77,31 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/id_deploy -o IdentitiesOnly=yes"
           git clone -q --depth 1 git@github.com:diegonmarcos/cloud-me-pvt-vault.git "$W/pvt"
-          if [ -f "$W/pvt/Identity/sso-oidc/sso-oidc.sops.json" ] && [ "$ROTATE" != "true" ]; then
-            echo "::error::an SSO OIDC bundle already exists; pass rotate=true to replace the key and every client secret"; exit 1
-          fi
-          openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:4096 -out jwks.key 2>/dev/null
-          python3 - "$CLIENTS" <<'PY'
-          import base64, hashlib, json, os, secrets, subprocess, sys
-          clients = json.load(open(sys.argv[1]))["clients"]
-          def adapt(b):  # Authelia "adapted" base64: standard alphabet, no padding, '+' -> '.'
-              return base64.b64encode(b).decode().rstrip("=").replace("+", ".")
-          out = {"issued": subprocess.check_output(["date", "-u", "+%FT%TZ"]).decode().strip(),
-                 "jwks_key_pem": open("jwks.key").read(), "clients": {}}
-          for c in clients:
-              cid, var = c["client_id"], c["secret_var"]
-              pw = secrets.token_urlsafe(48)
-              print("::add-mask::" + pw, flush=True)
-              salt = os.urandom(16)
-              dk = hashlib.pbkdf2_hmac("sha512", pw.encode(), salt, 310000, 64)
-              out["clients"][cid] = {"secret_var": var, "secret": pw,
-                                     "digest": "$pbkdf2-sha512$310000$" + adapt(salt) + "$" + adapt(dk)}
-          json.dump(out, open("plain.json", "w"))
-          PY
+          BUNDLE_PY="$GITHUB_WORKSPACE/self/1_cicd/src/scripts/sso-oidc-bundle.py"
+          B="$W/pvt/Identity/sso-oidc/sso-oidc.sops.json"
+          COMMIT_MSG="sso-oidc: JWKS key + client secrets (sops-encrypted)"
+          case "${MODE:-new}" in
+            add)
+              [ -f "$B" ] || { echo "::error::mode=add needs an existing bundle; run mode=new first"; exit 1; }
+              [ -n "$SOPS_AGE_KEY" ] || { echo "::error::SOPS_AGE_KEY is not available"; exit 1; }
+              sops -d --input-type json --output-type json "$B" > old.json
+              rc=0; python3 -I "$BUNDLE_PY" add "$CLIENTS" old.json plain.json || rc=$?
+              [ "$rc" -eq 3 ] && { echo "bundle unchanged (nothing to add)."; exit 0; }
+              [ "$rc" -eq 0 ] || exit "$rc"
+              COMMIT_MSG="sso-oidc: add-only, secrets for newly declared clients (existing secrets + JWKS key kept, sops-encrypted)" ;;
+            new)
+              if [ -f "$B" ] && [ "$ROTATE" != "true" ]; then
+                echo "::error::an SSO OIDC bundle already exists; pass rotate=true to replace the key and every client secret, or mode=add to append missing clients"; exit 1
+              fi
+              openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:4096 -out jwks.key 2>/dev/null
+              python3 -I "$BUNDLE_PY" new "$CLIENTS" jwks.key plain.json ;;
+            *) echo "::error::mode must be new or add"; exit 1 ;;
+          esac
           sops --encrypt --age "$AGE_RECIPIENT" --input-type json --output-type json plain.json > sso-oidc.sops.json
           grep -q '"sops"' sso-oidc.sops.json
           if grep -q 'PRIVATE KEY' sso-oidc.sops.json; then echo "::error::plaintext key leaked into the sops file"; exit 1; fi
           mkdir -p "$W/pvt/Identity/sso-oidc" && cp sso-oidc.sops.json "$W/pvt/Identity/sso-oidc/sso-oidc.sops.json"
           printf 'Authelia OIDC JWKS signing key + per-service client secrets and pbkdf2 digests (#1147). sops-encrypted to the fleet age key; decrypt with `sops -d`.\nclients.<client_id>.secret goes to the service as <SVC>_OIDC_CLIENT_SECRET; clients.<client_id>.secret_var names the Authelia secret file; jwks_key_pem is AUTHELIA_OIDC_JWKS_KEY.\n' > "$W/pvt/Identity/sso-oidc/README.txt"
           ( cd "$W/pvt" && git config user.name "Claude" && git config user.email "noreply@anthropic.com" && git add Identity/sso-oidc \
-            && git commit -q -m "sso-oidc: JWKS key + client secrets (sops-encrypted)" && git push -q origin HEAD:main )
+            && git commit -q -m "$COMMIT_MSG" && git push -q origin HEAD:main )
           echo "bundle pushed to cloud-me-pvt-vault/Identity/sso-oidc (encrypted)."

@@ -14,9 +14,9 @@ on:
   workflow_dispatch:
     inputs:
       clients:
-        description: "space-separated client_id=svc_dir:ENV entries"
+        description: "space-separated client_id=svc_dir:ENV entries; client_id=-:- = Authelia digest only (the client is an external service, e.g. cloudflare-access, whose secret is read from the bundle by its own workflow)"
         required: false
-        default: "hedgedoc=user-prod_hedgedoc:HEDGEDOC_OIDC_CLIENT_SECRET grist=user-prod_grist:GRIST_OIDC_CLIENT_SECRET photoprism=user-media_photoprism:PHOTOPRISM_OIDC_CLIENT_SECRET dagu-ui=infra-obs_dagu:DAGU_OIDC_CLIENT_SECRET gitea=infra-dat_gitea:GITEA_OIDC_CLIENT_SECRET etherpad=user-prod_etherpad:ETHERPAD_OIDC_CLIENT_SECRET dbgate=infra-obs_dbgate:DBGATE_OIDC_CLIENT_SECRET"
+        default: "hedgedoc=user-prod_hedgedoc:HEDGEDOC_OIDC_CLIENT_SECRET grist=user-prod_grist:GRIST_OIDC_CLIENT_SECRET photoprism=user-media_photoprism:PHOTOPRISM_OIDC_CLIENT_SECRET dagu-ui=infra-obs_dagu:DAGU_OIDC_CLIENT_SECRET gitea=infra-dat_gitea:GITEA_OIDC_CLIENT_SECRET etherpad=user-prod_etherpad:ETHERPAD_OIDC_CLIENT_SECRET dbgate=infra-obs_dbgate:DBGATE_OIDC_CLIENT_SECRET cloudflare-access=-:-"
         type: string
 
 permissions:
@@ -69,6 +69,11 @@ jobs:
           for e in spec:
               cid, rest = e.split("=", 1); svc, env = rest.split(":", 1)
               c = b["clients"][cid]
+              auth[c["secret_var"]] = c["digest"]
+              auth.setdefault("_credentials", {})[cid] = {"type": "oauth", "client_id": cid,
+                  "hashed": c["digest"], "note": "pbkdf2 digest of the " + cid + " client secret (#1147)"}
+              if svc == "-":  # #994: external client (Cloudflare Access IdP): Authelia digest only, no service file
+                  continue
               # #1064: the base file is looked up in the private vault. A service whose secrets.yaml is itself
               # an earlier delivery of this workflow keeps that name (a second secrets.sso-oidc.yaml would
               # define the same key twice and fail the merge).
@@ -80,9 +85,6 @@ jobs:
                   "client_secret": c["secret"], "note": "Authelia OIDC client (#1147), from sso-oidc bundle " + b["issued"]}}}
               d = os.path.join("out", svc, "src"); os.makedirs(d, exist_ok=True)
               json.dump(doc, open(os.path.join(d, name + ".json"), "w"))
-              auth[c["secret_var"]] = c["digest"]
-              auth.setdefault("_credentials", {})[cid] = {"type": "oauth", "client_id": cid,
-                  "hashed": c["digest"], "note": "pbkdf2 digest of the " + cid + " client secret (#1147)"}
           d = os.path.join("out", "infra-sec_authelia", "src"); os.makedirs(d, exist_ok=True)
           json.dump(auth, open(os.path.join(d, "secrets.sso-oidc.yaml.json"), "w"))
           PY
